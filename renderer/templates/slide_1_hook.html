@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.bg-accent {
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,213,163,0.06) 0%, transparent 70%);
+}
+.article-type {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: #1a1a12;
+  border: 1px solid #3a3a20;
+  color: #e8d5a3;
+  margin-bottom: 40px;
+}
+.source-line {
+  font-size: 16px;
+  color: #666;
+  margin-top: 24px;
+}
+.pull-quote {
+  border-left: 3px solid #e8d5a3;
+  padding: 14px 20px;
+  background: #111;
+  border-radius: 0 8px 8px 0;
+  font-size: 19px;
+  font-style: italic;
+  color: #bbb;
+  line-height: 1.6;
+  margin-top: 40px;
+  flex-shrink: 0;
+}
+.why-read {
+  font-size: 19px;
+  color: #999;
+  line-height: 1.6;
+  margin-top: 32px;
+  flex: 1;
+}
+.swipe-hint {
+  position: absolute;
+  bottom: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  color: #444;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dots {
+  display: flex; gap: 5px; align-items: center;
+}
+.dot { width: 6px; height: 6px; border-radius: 50%; background: #333; }
+.dot.active { background: #e8d5a3; width: 18px; border-radius: 3px; }
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: center;">
+  <div class="bg-accent"></div>
+
+  {% if article_type %}
+  <div class="article-type">{{ article_type }}</div>
+  {% endif %}
+
+  <h1 class="headline">{{ headline }}</h1>
+  <p class="source-line">{{ context_line }}</p>
+
+  <div class="why-read">{{ why_read }}</div>
+
+  {% if pull_quote %}
+  <div class="pull-quote">« {{ pull_quote }} »</div>
+  {% endif %}
+
+  <div class="swipe-hint">
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    Faites glisser
+  </div>
+</div>
+</body>
+</html>

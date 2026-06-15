@@ -1,7 +1,7 @@
 [project]
 name = "sing-sing"
 version = "0.1.0"
-description = "Add your description here"
+description = "Sing, little bird, sing"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -10,6 +10,8 @@ dependencies = [
     "ddgs>=9.12.1",
     "duckduckgo-search>=8.1.1",
     "httpx>=0.28.1",
+    "jinja2>=3.1.6",
+    "playwright>=1.60.0",
     "pydantic>=2.12.5",
     "python-dotenv>=1.2.2",
 ]

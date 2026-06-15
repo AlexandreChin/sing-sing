@@ -40,23 +40,25 @@ class BeforeYouRead(BaseModel):
     important_facts: list[str]
     key_terms: list[TermDefinition]
     watch_out: list[str]
-    questions: list[str]
 
 
 class GlobalAnalysisItem(BaseModel):
     aspect: str
     summary: str
+    seeds: str                        # which BYR element triggered this — format: "<category>: <brief ref>"
 
 
 class EmotionalRegister(BaseModel):
     emotion: str
     how: str
     effect: str
+    seeds: str                        # which BYR element this is anchored to
 
 
 class CuiBono(BaseModel):
     beneficiary: str
     explanation: str
+    seeds: str                        # which BYR element this is anchored to
 
 
 class ExternalSource(BaseModel):
