@@ -1,0 +1,217 @@
+{
+  "article_metadata": {
+    "url": null,
+    "title": null,
+    "source": null,
+    "published_at": null,
+    "article_type": "editorial"
+  },
+  "hook": {
+    "headline": "L'indignation européenne a un critère : la nationalité",
+    "context_line": "Éditorial Le Monde, 22 mai 2026 — après Ben Gvir et la flottille.",
+    "why_read": "Identifie une vraie asymétrie — et la reproduit partiellement sans le voir.",
+    "pull_quote": "Parce qu'elles ont concerné des Palestiniens, personne ne s'en est jamais ému."
+  },
+  "before_you_read": {
+    "contexts": [
+      "La flottille a été interceptée le 20 mai dans des eaux dont le statut international est contesté.",
+      "Ben Gvir dirige un parti d'extrême droite issu du mouvement kahaniste — ministre depuis décembre 2022."
+    ],
+    "who_is_speaking": [
+      "Signé 'Le Monde' sans byline : voix institutionnelle du journal, prise de position revendiquée.",
+      "Le Monde publie régulièrement des éditoriaux critiques envers le gouvernement Nétanyahou depuis octobre 2023."
+    ],
+    "important_facts": [
+      "La décision de la CIJ de janvier 2024 ordonnant des mesures conservatoires sur Gaza est absente de l'éditorial.",
+      "B'Tselem est contestée par Israël, qui réfute ses chiffres sans publier de décompte alternatif auditable."
+    ],
+    "key_terms": [
+      {
+        "term": "B'Tselem",
+        "definition": "ONG israélienne documentant les violations dans les territoires occupés et les prisons."
+      },
+      {
+        "term": "CIJ",
+        "definition": "Cour internationale de justice — a rendu une ordonnance sur Gaza en janvier 2024."
+      },
+      {
+        "term": "Détention administrative",
+        "definition": "Emprisonnement sans inculpation ni jugement, renouvelable indéfiniment."
+      }
+    ],
+    "watch_out": [
+      "Repérez si un détenu ou représentant palestinien prend la parole directement dans l'article.",
+      "Notez 'manifestement' dans 'eaux internationales' — est-ce présenté comme un fait ou une position ?"
+    ],
+    "questions": [
+      "Qu'est-ce qui rend une violation des droits humains visible médiatiquement — et qu'est-ce qui l'en empêche ?",
+      "Comment évaluer une ONG qui est à la fois source principale et partie prenante du débat ?"
+    ]
+  },
+  "global_analysis": {
+    "observations": [
+      {
+        "aspect": "voix absentes",
+        "summary": "Les Palestiniens sont le sujet central mais aucun ne prend la parole — l'article parle d'eux sans eux."
+      },
+      {
+        "aspect": "asymétrie",
+        "summary": "L'éditorial dénonce le silence sur les Palestiniens sans questionner son propre silence passé."
+      },
+      {
+        "aspect": "sourçage",
+        "summary": "B'Tselem est citée deux fois de suite sans source indépendante ni voix contradictoire."
+      }
+    ],
+    "emotional_register": [
+      {
+        "emotion": "indignation",
+        "how": "Images physiques précises juxtaposées au chiffre des morts — accumulation produisant un sentiment d'injustice cumulée.",
+        "effect": "Le lecteur sent que s'indigner maintenant est légitime mais insuffisant — il aurait dû s'indigner avant."
+      },
+      {
+        "emotion": "honte",
+        "how": "La France est nommée seule parmi les pays sans sanctions.",
+        "effect": "L'inaction française est présentée comme une défaillance morale, pas seulement politique."
+      }
+    ],
+    "cui_bono": [
+      {
+        "beneficiary": "Partisans de sanctions européennes contre Israël",
+        "explanation": "Le cadrage 'scandaleux' renforce leur argument sans avoir à le défendre explicitement."
+      },
+      {
+        "beneficiary": "B'Tselem",
+        "explanation": "Citée sans contradiction dans un éditorial du Monde, sa crédibilité institutionnelle est renforcée."
+      }
+    ]
+  },
+  "local_annotations": {
+    "claims_and_sources": [
+      {
+        "quote": "arraisonnée manifestement dans les eaux internationales",
+        "presentation": "presented_as_established_fact",
+        "explanation": "'Manifestement' présente une position juridiquement contestée comme évidente — sans expert, sans conditionnel.",
+        "proves": "sourçage",
+        "external_sources": [
+          {
+            "name": "UNCLOS",
+            "supports": "neutral",
+            "evidence_type": "official_data",
+            "url": null,
+            "reading_time_minutes": null,
+            "why_read": "Définit le cadre juridique applicable."
+          },
+          {
+            "name": "IDF",
+            "supports": "contradicts",
+            "evidence_type": "party_statement",
+            "url": null,
+            "reading_time_minutes": null,
+            "why_read": "Position officielle israélienne."
+          }
+        ],
+        "confidence": 62,
+        "confidence_label": "likely true"
+      },
+      {
+        "quote": "une centaine de Palestiniens, selon des décomptes convergents, sont morts en détention",
+        "presentation": "attributed_to_source",
+        "explanation": "'Décomptes convergents' sans nommer B'Tselem ni PHR-IL — le lecteur ne peut pas vérifier.",
+        "proves": "voix absentes",
+        "external_sources": [
+          {
+            "name": "B'Tselem (janvier 2025)",
+            "supports": "validates",
+            "evidence_type": "testimony",
+            "url": null,
+            "reading_time_minutes": null,
+            "why_read": "Source primaire du décompte."
+          },
+          {
+            "name": "PHR-IL",
+            "supports": "validates",
+            "evidence_type": "official_data",
+            "url": null,
+            "reading_time_minutes": null,
+            "why_read": "Convergence indépendante depuis une chaîne probatoire distincte."
+          }
+        ],
+        "confidence": 73,
+        "confidence_label": "likely true"
+      }
+    ],
+    "biases_and_rhetoric": [
+      {
+        "quote": "Représentant d'une extrême droite suprémaciste et raciste décomplexée",
+        "label": "étiquetage présenté comme fait",
+        "effect": "Ben Gvir est décrit, jamais cité — le lecteur ne peut pas juger à partir de ses propres mots.",
+        "proves": "asymétrie"
+      },
+      {
+        "quote": "La France ne les a pas rejoints à ce jour",
+        "label": "interpellation directe",
+        "effect": "La France est nommée seule parmi les absents — le lecteur français est mis face à une inaction spécifique.",
+        "proves": "honte"
+      }
+    ],
+    "quote_deep_dive": {
+      "quote": "Parce qu'elles ont concerné jusqu'à maintenant des Palestiniens, personne ne s'en est jamais ému.",
+      "analysis": "'Personne' est une généralisation — la phrase vise l'indifférence institutionnelle, pas les ONG ou les juges qui ont réagi. Elle expose une hiérarchie implicite des victimes. La question reste ouverte : cette hiérarchie est-elle propre à la coalition israélienne — ou s'applique-t-elle aussi aux capitales qui s'indignent aujourd'hui pour la première fois ?",
+      "proves": "voix absentes"
+    }
+  },
+  "synthesis": {
+    "points": [
+      "L'éditorial documente une asymétrie réelle — sans questionner pourquoi Le Monde lui-même n'avait pas éditoralisé sur les Palestiniens avant que des Européens soient concernés.",
+      "B'Tselem est citée deux fois sans contradiction — le lecteur reçoit une conclusion, pas les éléments pour l'évaluer.",
+      "La CIJ absente transforme un argument juridique contraignant en argument moral seulement — son omission est un choix éditorial."
+    ]
+  },
+  "go_further": [
+    {
+      "title": "Un véritable enfer",
+      "source": "B'Tselem (janvier 2025)",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": 25,
+      "why_explore": "La source primaire citée — lire directement pour évaluer la méthodologie.",
+      "answers_question": "Une ONG nationale peut-elle être à la fois source principale et partie neutre dans un débat sur les pratiques de son propre État ?"
+    },
+    {
+      "title": "Témoignages de détenus palestiniens libérés",
+      "source": "Haaretz (2024-2025)",
+      "media_type": "article",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": 15,
+      "why_explore": "La voix absente de l'éditorial — des Palestiniens, pas des militants européens.",
+      "answers_question": "Que pensent les organisations et détenus palestiniens eux-mêmes des conditions de détention — et pourquoi leur voix est-elle absente de presque tous les articles occidentaux sur ce sujet ?"
+    },
+    {
+      "title": "Ordonnance de la CIJ sur Gaza",
+      "source": "Le Monde Diplomatique",
+      "media_type": "article",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": 12,
+      "why_explore": "Le contexte juridique absent de l'éditorial.",
+      "answers_question": null
+    }
+  ],
+  "post_reading_questions": [
+    {
+      "question": "L'identité des victimes influence-t-elle les réactions diplomatiques — ou d'autres facteurs expliquent-ils mieux les différences de traitement ?",
+      "type": "topic_substance"
+    },
+    {
+      "question": "Auriez-vous lu cet éditorial différemment s'il avait été publié par un média réputé pro-israélien ?",
+      "type": "reader_bias"
+    },
+    {
+      "question": "Que pensent les organisations et détenus palestiniens eux-mêmes des conditions de détention — et pourquoi leur voix est-elle absente de presque tous les articles occidentaux sur ce sujet ?",
+      "type": "blind_spot"
+    }
+  ]
+}

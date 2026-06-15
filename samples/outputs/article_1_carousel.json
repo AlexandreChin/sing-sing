@@ -7,314 +7,344 @@
     "article_type": "editorial"
   },
   "hook": {
-    "headline": "L'Europe s'indigne — mais seulement pour les siens",
-    "context_line": "Éditorial Le Monde, 22 mai 2026 — après la vidéo de Ben Gvir sur la flottille.",
-    "why_read": "Un éditorial bien écrit qui dénonce une vraie incohérence — et en commet une autre sans le voir.",
-    "pull_quote": "Parce qu'elles ont concerné jusqu'à maintenant des Palestiniens, personne ne s'en est jamais ému."
+    "headline": "L'émoi pour des militants, le silence pour des Palestiniens",
+    "context_line": "Éditorial du Monde, 22 mai 2026, après la diffusion d'images de militants humiliés par Ben Gvir.",
+    "why_read": "Un éditorial qui retourne l'indignation européenne en miroir de ses propres silences, et se lit autant comme réquisitoire que comme test de cohérence.",
+    "pull_quote": "Parce qu'elles ont concerné jusqu'à maintenant des Palestiniens, personne ne s'en est jamais ému au sein de la coalition au pouvoir"
   },
   "before_you_read": {
     "contexts": [
-      "La flottille a été interceptée le 20 mai dans des eaux dont le statut international est contesté.",
-      "La présence de ressortissants européens parmi les passagers a amplifié la réaction diplomatique."
+      "En mai 2026, une flottille pour Gaza est arraisonnée et ses militants propalestiniens européens sont arrêtés puis exposés humiliés par Israël.",
+      "Depuis le 7-Octobre 2023, les conditions de détention des Palestiniens dans les prisons israéliennes se sont fortement dégradées.",
+      "L'éditorial paraît à l'approche d'élections législatives anticipées en Israël, où Ben Gvir pourrait garder un rôle central."
     ],
     "who_is_speaking": [
-      "Signé 'Le Monde' — voix collective de la rédaction, pas un journaliste identifiable.",
-      "Un éditorial engage le journal officiellement : c'est une prise de position, pas un reportage.",
-      "Le Monde a multiplié les tribunes critiques envers le gouvernement israélien depuis octobre 2023."
+      "Le Monde s'exprime ici en éditorial non signé : c'est la position officielle du journal, pas l'avis d'un journaliste isolé.",
+      "Le quotidien a lui-même révélé en janvier le rapport de B'Tselem qu'il cite — il s'appuie donc sur sa propre couverture du sujet.",
+      "Signer collectivement engage l'institution : la rédaction assume une prise de position politique sur l'inaction européenne."
     ],
     "important_facts": [
-      "La CIJ a ordonné en janvier 2024 à Israël de prendre des mesures pour prévenir les actes génocidaires à Gaza — absent de cet éditorial.",
-      "B'Tselem, unique source citée sur les conditions de détention, est régulièrement contestée par les autorités israéliennes."
+      "Selon des décomptes convergents cités, une centaine de Palestiniens seraient morts en détention en deux ans et demi, contre 230 entre 1967 et 2023.",
+      "Trois pays de l'UE seulement ont sanctionné Ben Gvir ; la France ne l'a pas fait à ce jour.",
+      "B'Tselem est une organisation israélienne, et non palestinienne ou étrangère, qui accuse l'État hébreu."
     ],
     "key_terms": [
       {
-        "term": "B'Tselem",
-        "definition": "Organisation israélienne de défense des droits humains qui documente les violations commises dans les territoires occupés."
-      },
-      {
-        "term": "CIJ",
-        "definition": "Cour internationale de justice — principal organe judiciaire de l'ONU, qui tranche les litiges entre États."
-      },
-      {
         "term": "Détention administrative",
-        "definition": "Emprisonnement sans inculpation ni jugement, renouvelable indéfiniment, utilisé par Israël principalement contre des Palestiniens."
+        "definition": "Emprisonnement sans inculpation ni procès, pour une durée indéterminée et renouvelable sans limite."
       },
       {
-        "term": "Flottille",
-        "definition": "Convoi maritime humanitaire organisé pour tenter de briser le blocus de Gaza et attirer l'attention internationale."
+        "term": "B'Tselem",
+        "definition": "Organisation israélienne de défense des droits humains, basée en Israël, qui documente les violations dans les Territoires et les prisons."
+      },
+      {
+        "term": "Itamar Ben Gvir",
+        "definition": "Ministre israélien de la sécurité nationale, autorité de tutelle des prisons, figure de l'extrême droite."
+      },
+      {
+        "term": "Likoud",
+        "definition": "Parti de droite du premier ministre Nétanyahou, distinct du parti de Ben Gvir mais allié au gouvernement."
+      },
+      {
+        "term": "Éditorial",
+        "definition": "Texte non signé exprimant la position officielle d'un journal, et non un reportage neutre."
       }
     ],
     "watch_out": [
-      "Repérez qui parle dans cet article — et notamment si une des parties directement concernées par les faits est absente.",
-      "Notez chaque fois que l'article cite B'Tselem : demandez-vous si d'autres sources sont mobilisées pour les mêmes affirmations.",
-      "Observez comment l'article situe la vidéo de Ben Gvir par rapport à des événements similaires passés — ou s'il ne le fait pas."
-    ],
-    "questions": [
-      "Qu'est-ce qui déclenche une réaction diplomatique européenne sur ce conflit — et qu'est-ce qui ne la déclenche pas ?",
-      "Quand un média prend position sur un sujet aussi sensible, à qui s'adresse-t-il en priorité ?"
+      "Repérez quelles affirmations sont attribuées à une source nommée et lesquelles sont posées sans attribution comme des faits évidents.",
+      "Notez la place exacte du chiffre des morts en détention et la formule « décomptes convergents » : observez si la méthode et l'origine de ce comptage sont précisées.",
+      "Observez si une réponse israélienne aux accusations de torture apparaît, au-delà de la seule condamnation des images des militants.",
+      "Remarquez les mots employés pour décrire Ben Gvir et son geste, et comparez-les au ton utilisé pour décrire l'inaction européenne."
     ]
   },
   "global_analysis": {
     "observations": [
       {
-        "aspect": "voix",
-        "summary": "L'article cite Ben Gvir (par ses actes), Nétanyahou et Saar (pour les condamner), B'Tselem. Aucune voix palestinienne, aucun juriste sur le statut des eaux — pourtant au cœur du contexte."
+        "aspect": "Contraste",
+        "summary": "Le texte oppose systématiquement l'émoi suscité par l'humiliation de militants européens au silence qui a entouré les mêmes traitements quand ils visaient des Palestiniens.",
+        "seeds": "context: 'En mai 2026, une flottille pour Gaza est arraisonnée'"
       },
       {
-        "aspect": "angle",
-        "summary": "L'indignation européenne est prise pour acquise — l'article ne questionne pas pourquoi elle n'a pas existé lors des interceptions précédentes impliquant uniquement des Palestiniens."
+        "aspect": "Inaction",
+        "summary": "La cible centrale n'est pas tant Israël que la passivité européenne, mesurée par les trois seuls pays ayant sanctionné Ben Gvir et l'absence de la France.",
+        "seeds": "important_fact: 'Trois pays de l'UE seulement ont sanctionné Ben Gvir'"
       },
       {
-        "aspect": "cadre juridique",
-        "summary": "L'article ne mentionne ni la décision de la CIJ de janvier 2024 ni les négociations en cours — deux éléments qui placeraient les arrestations dans un contexte légal et diplomatique très différent."
+        "aspect": "Attribution",
+        "summary": "Les accusations les plus lourdes — « camps de torture », violences sexuelles — sont attribuées à B'Tselem, organisation israélienne, quand d'autres faits sont posés sans source.",
+        "seeds": "watch_out: 'Repérez quelles affirmations sont attribuées à une source nommée'"
+      },
+      {
+        "aspect": "Chiffrage",
+        "summary": "Le chiffre d'une centaine de morts en détention repose sur des « décomptes convergents » dont ni la méthode ni l'origine ne sont précisées, mais qu'une comparaison historique met en relief.",
+        "seeds": "watch_out: 'Notez la place exacte du chiffre des morts en détention'"
+      },
+      {
+        "aspect": "Silence",
+        "summary": "Aucune réponse israélienne aux accusations de torture n'est rapportée ; seule figure la condamnation des images des militants par Nétanyahou et Saar.",
+        "seeds": "watch_out: 'Observez si une réponse israélienne aux accusations de torture apparaît'"
       }
     ],
     "emotional_register": [
       {
         "emotion": "indignation",
-        "how": "L'article juxtapose les images de militants humiliés avec le silence passé sur les Palestiniens — le contraste produit un sentiment d'injustice cumulée.",
-        "effect": "Le lecteur est amené à ressentir que son indignation présente est légitime, mais insuffisante — il aurait dû s'indigner avant."
+        "how": "Vocabulaire chargé pour l'acteur central : « morgue », « paradant », « extrême droite suprémaciste et raciste décomplexée », « se flatte de répandre la haine ».",
+        "effect": "Prépare le lecteur à trouver l'inaction européenne d'autant plus injustifiable.",
+        "seeds": "watch_out: 'Remarquez les mots employés pour décrire Ben Gvir'"
       },
       {
-        "emotion": "honte",
-        "how": "La France est nommée explicitement parmi les pays qui n'ont pas agi — le lecteur français est directement interpellé.",
-        "effect": "Le lecteur est invité à associer l'inaction de son gouvernement à une défaillance morale personnelle."
+        "emotion": "effroi",
+        "how": "Accumulation de détails physiques concrets — mains liées, à genoux, visage au sol — puis de « camps de torture », de violences sexuelles et de morts en détention.",
+        "effect": "Rend tangible une dégradation que le lecteur est amené à juger intolérable.",
+        "seeds": "context: 'Depuis le 7-Octobre 2023, les conditions de détention des Palestiniens'"
       }
     ],
     "cui_bono": [
       {
-        "beneficiary": "Les partisans d'une ligne européenne plus ferme envers Israël",
-        "explanation": "Le cadrage de l'incohérence européenne comme scandaleuse renforce l'argument en faveur de sanctions — sans avoir à les défendre explicitement."
+        "beneficiary": "Itamar Ben Gvir",
+        "explanation": "La mise en scène d'autorité face aux militants nourrit son image de fermeté à l'approche d'élections anticipées où il pourrait conserver un rôle central.",
+        "seeds": "context: 'L'éditorial paraît à l'approche d'élections législatives anticipées'"
       },
       {
-        "beneficiary": "B'Tselem",
-        "explanation": "Citer B'Tselem comme seule source légitime sur les conditions de détention renforce sa crédibilité institutionnelle sans la soumettre à contradiction."
+        "beneficiary": "Les partisans de sanctions européennes contre Israël",
+        "explanation": "En plaçant la passivité européenne au cœur du propos, le cadrage renforce l'argument en faveur de sanctions et désigne nommément la France comme manquante.",
+        "seeds": "important_fact: 'Trois pays de l'UE seulement ont sanctionné Ben Gvir'"
       }
     ]
   },
   "local_annotations": {
     "claims_and_sources": [
       {
-        "quote": "les prisons réservées aux Palestiniens sont devenues « des camps de torture »",
+        "quote": "une centaine de Palestiniens, selon des décomptes convergents, sont morts en détention en Israël depuis deux ans et demi, contre 230 entre 1967 et 2023",
         "presentation": "attributed_to_source",
-        "explanation": "Explicitement attribué à B'Tselem avec guillemets et verbe d'attribution — mais aucune voix contradictoire n'est donnée sur ce point précis.",
-        "proves": "voix",
+        "explanation": "Le chiffre repose sur des « décomptes convergents » non détaillés ; sa spécificité et la comparaison historique le rendent vérifiable, mais l'article n'en donne ni la méthode ni l'origine précise.",
+        "proves": "Chiffrage",
         "external_sources": [
           {
-            "name": "Comité de l'ONU contre la torture (CAT), rapports 2024",
+            "name": "B'Tselem, rapport « Un véritable enfer » (2026)",
             "supports": "validates",
             "evidence_type": "testimony",
             "url": null,
             "reading_time_minutes": null,
-            "why_read": "Corrobore les conditions décrites à partir de témoignages indépendants."
+            "why_read": null
           },
           {
-            "name": "Rapport B'Tselem 'Un véritable enfer' (janvier 2025)",
+            "name": "Addameer / Commission des affaires des prisonniers palestiniens (décomptes de décès en détention)",
             "supports": "validates",
             "evidence_type": "testimony",
             "url": null,
-            "reading_time_minutes": 20,
-            "why_read": "Le rapport original — lire directement plutôt qu'à travers la synthèse de l'article."
+            "reading_time_minutes": null,
+            "why_read": null
           },
           {
-            "name": "Service pénitentiaire israélien (IPS)",
-            "supports": "contradicts",
-            "evidence_type": "party_statement",
-            "url": null,
-            "reading_time_minutes": null,
-            "why_read": "Contestation officielle — sans données indépendantes publiées."
-          }
-        ],
-        "confidence": 74,
-        "confidence_label": "likely true"
-      },
-      {
-        "quote": "arraisonnée manifestement dans les eaux internationales",
-        "presentation": "presented_as_established_fact",
-        "explanation": "\"Manifestement\" présente une position juridiquement contestée comme une évidence — aucune attribution, aucun conditionnel.",
-        "proves": "cadre juridique",
-        "external_sources": [
-          {
-            "name": "UNCLOS (Convention des Nations Unies sur le droit de la mer)",
+            "name": "Haut-Commissariat des Nations unies aux droits de l'homme",
             "supports": "neutral",
             "evidence_type": "official_data",
             "url": null,
             "reading_time_minutes": null,
-            "why_read": "Définit le cadre juridique applicable — ne tranche pas le cas spécifique."
-          },
-          {
-            "name": "Forces de défense israéliennes (IDF)",
-            "supports": "contradicts",
-            "evidence_type": "party_statement",
-            "url": null,
-            "reading_time_minutes": null,
-            "why_read": "Position officielle israélienne sur la légalité de l'interception."
-          },
-          {
-            "name": "Freedom Flotilla Coalition",
-            "supports": "validates",
-            "evidence_type": "party_statement",
-            "url": null,
-            "reading_time_minutes": null,
-            "why_read": "Déclaration des organisateurs sur le lieu d'interception."
+            "why_read": null
           }
         ],
-        "confidence": 68,
+        "confidence": 70,
         "confidence_label": "likely true"
       },
       {
-        "quote": "une centaine de Palestiniens, selon des décomptes convergents, sont morts en détention en Israël depuis deux ans et demi, contre 230 entre 1967 et 2023",
+        "quote": "Dès août 2024, l’organisation israélienne de défense des droits humains B’Tselem a assuré, à la suite d’une enquête approfondie, que les prisons réservées aux Palestiniens sont devenues « des camps de torture ».",
         "presentation": "attributed_to_source",
-        "explanation": "\"Selon des décomptes convergents\" attribue sans nommer — B'Tselem et PHR-IL, deux organisations aux chaînes probatoires distinctes, convergent ; Israël conteste sans publier de décompte alternatif auditable.",
-        "proves": "voix",
+        "explanation": "L'accusation émane d'une ONG israélienne s'appuyant sur une enquête et de nombreux témoignages ; aucun contre-décompte ni réfutation méthodologique des autorités n'est rapporté pour l'équilibrer.",
+        "proves": "Attribution",
         "external_sources": [
-          {
-            "name": "Médecins pour les droits de l'homme Israël (PHR-IL)",
-            "supports": "validates",
-            "evidence_type": "official_data",
-            "url": null,
-            "reading_time_minutes": null,
-            "why_read": "Méthodologie documentée et indépendante de B'Tselem — convergence entre deux chaînes probatoires distinctes."
-          },
           {
             "name": "B'Tselem",
             "supports": "validates",
             "evidence_type": "testimony",
             "url": null,
             "reading_time_minutes": null,
-            "why_read": "Source principale du décompte, registres et témoignages croisés."
+            "why_read": null
           },
           {
-            "name": "Administration pénitentiaire israélienne",
+            "name": "Comité public contre la torture en Israël (PCATI)",
+            "supports": "validates",
+            "evidence_type": "testimony",
+            "url": null,
+            "reading_time_minutes": null,
+            "why_read": null
+          },
+          {
+            "name": "Service pénitentiaire israélien (IPS) — démentis officiels",
             "supports": "contradicts",
             "evidence_type": "party_statement",
             "url": null,
             "reading_time_minutes": null,
-            "why_read": "Chiffres officiels inférieurs, sans méthodologie publiée."
+            "why_read": null
           }
         ],
-        "confidence": 70,
+        "confidence": 66,
         "confidence_label": "likely true"
+      },
+      {
+        "quote": "seuls trois pays membres de l’Union européenne ont adopté des sanctions à son encontre. La France ne les a pas rejoints à ce jour",
+        "presentation": "presented_as_established_fact",
+        "explanation": "Affirmation datée et vérifiable dans les régimes de sanctions publics de l'UE, mais les trois pays concernés ne sont pas nommés.",
+        "proves": "Inaction",
+        "external_sources": [
+          {
+            "name": "Conseil de l'Union européenne — registres de sanctions",
+            "supports": "validates",
+            "evidence_type": "official_data",
+            "url": null,
+            "reading_time_minutes": null,
+            "why_read": null
+          },
+          {
+            "name": "Ministère français de l'Europe et des affaires étrangères",
+            "supports": "neutral",
+            "evidence_type": "party_statement",
+            "url": null,
+            "reading_time_minutes": null,
+            "why_read": null
+          }
+        ],
+        "confidence": 88,
+        "confidence_label": "true"
+      },
+      {
+        "quote": "Au point de pousser le premier ministre Benyamin Nétanyahou et son ministre des affaires étrangères, Gideon Saar, à condamner ces images.",
+        "presentation": "presented_as_established_fact",
+        "explanation": "La condamnation porte sur les images des militants ; aucune réaction des mêmes responsables aux conditions de détention des Palestiniens n'est rapportée.",
+        "proves": "Silence",
+        "external_sources": [
+          {
+            "name": "Communiqués officiels du cabinet du premier ministre israélien",
+            "supports": "validates",
+            "evidence_type": "party_statement",
+            "url": null,
+            "reading_time_minutes": null,
+            "why_read": null
+          },
+          {
+            "name": "Couverture médiatique internationale (AFP, Reuters)",
+            "supports": "validates",
+            "evidence_type": "media",
+            "url": null,
+            "reading_time_minutes": null,
+            "why_read": null
+          }
+        ],
+        "confidence": 87,
+        "confidence_label": "true"
       }
     ],
     "biases_and_rhetoric": [
       {
-        "quote": "Représentant d'une extrême droite suprémaciste et raciste décomplexée longtemps rejetée aux marges de la vie politique de l'Etat hébreu",
-        "label": "étiquetage présenté comme fait",
-        "effect": "Ben Gvir est décrit, pas cité — remarquez qu'aucune parole directe ne lui est accordée dans tout l'article.",
-        "proves": "voix"
-      },
-      {
-        "quote": "seuls trois pays membres de l'Union européenne ont adopté des sanctions à son encontre. La France ne les a pas rejoints à ce jour",
-        "label": "interpellation directe du lecteur",
-        "effect": "La France est nommée seule parmi les absents — le lecteur français est mis en face d'une inaction spécifique, pas d'un constat général.",
-        "proves": "honte"
-      },
-      {
-        "quote": "Dès août 2024, l'organisation israélienne de défense des droits humains B'Tselem a assuré, à la suite d'une enquête approfondie, que les prisons réservées aux Palestiniens sont devenues « des camps de torture »",
-        "label": "autorité unique non contrebalancée",
-        "effect": "B'Tselem est introduite avec une description valorisante — son statut est établi avant même que ses conclusions ne soient citées.",
-        "proves": "B'Tselem"
-      },
-      {
-        "quote": "Il fallait en plus les humilier en les montrant, mercredi 20 mai, les mains liées dans le dos, à genoux, le visage contre le sol",
-        "label": "détail visuel à forte charge émotionnelle",
-        "effect": "La description physique précise de l'humiliation produit une image mentale immédiate — remarquez qu'elle précède toute analyse, ce qui ancre émotionnellement le lecteur avant qu'il puisse prendre du recul.",
+        "quote": "Représentant d’une extrême droite suprémaciste et raciste décomplexée longtemps rejetée aux marges de la vie politique de l’Etat hébreu",
+        "label": "langage chargé",
+        "effect": "Remarquez comment ces qualificatifs installent le rejet du personnage avant même l'exposé détaillé des faits.",
         "proves": "indignation"
+      },
+      {
+        "quote": "Il fallait en plus les humilier en les montrant, mercredi 20 mai, les mains liées dans le dos, à genoux, le visage contre le sol.",
+        "label": "détails physiques accumulés",
+        "effect": "Observez comment l'énumération des postures rend la scène palpable et difficile à tenir à distance.",
+        "proves": "effroi"
+      },
+      {
+        "quote": "Elle est aussi scandaleuse que la mise en scène d’Itamar Ben Gvir.",
+        "label": "mise sur le même plan",
+        "effect": "Notez comment placer l'inaction et l'acte sur le même plan invite à les juger avec une sévérité identique.",
+        "proves": "Les partisans de sanctions européennes contre Israël"
       }
     ],
     "quote_deep_dive": {
-      "quote": "Parce qu'elles ont concerné jusqu'à maintenant des Palestiniens, personne ne s'en est jamais ému au sein de la coalition au pouvoir, alors qu'elles témoignaient déjà de l'effritement de valeurs qu'Israël a longtemps revendiquées.",
-      "analysis": "\"Personne\" est une généralisation — des ONG, des opposants, des juges se sont bien exprimés. Ce que la phrase vise, c'est le silence institutionnel, mais la formule englobe tout. L'indignation est présentée comme conditionnelle à l'identité des victimes — ce qui soulève la question posée avant de lire : qu'est-ce qui déclenche, ou non, une réaction diplomatique ?",
-      "proves": "angle"
+      "quote": "Parce qu’elles ont concerné jusqu’à maintenant des Palestiniens, personne ne s’en est jamais ému au sein de la coalition au pouvoir, alors qu’elles témoignaient déjà de l’effritement de valeurs qu’Israël a longtemps revendiquées.",
+      "analysis": "La phrase pose une asymétrie : l'émoi récent répond à ce qui laissait indifférent hier. Elle suggère que le critère d'indignation a tenu à l'identité des victimes, sans le formuler ainsi. Reste à savoir ce qui, du geste ou de son public, a changé entre les deux moments.",
+      "proves": "Contraste"
     }
   },
   "synthesis": {
     "points": [
-      "L'éditorial identifie une vraie asymétrie dans les réactions européennes — et la traite principalement à travers B'Tselem, dont les conclusions sont réelles mais non contrebalancées.",
-      "La vidéo de Ben Gvir a provoqué une indignation que des années de rapports sur les Palestiniens n'avaient pas déclenchée — la question de ce qui rend une injustice visible reste entière.",
-      "Le cadre juridique de la CIJ, absent de l'article, aurait pu ancrer l'argument dans un droit international contraignant — son absence laisse le raisonnement sur le terrain moral."
+      "Le texte fait reposer sa force sur une asymétrie — l'émoi d'aujourd'hui répond à ce qui laissait indifférent hier — sans trancher ce qui a changé : le geste, ou l'identité de ceux qu'il visait.",
+      "Les accusations les plus graves s'appuient sur une ONG israélienne et des « décomptes convergents » dont la méthode reste tue, tandis que le rapport d'une centaine de morts en deux ans et demi contre 230 en cinquante-six ans est posé sans être commenté.",
+      "La cible nommée est la passivité européenne, la France en tête, quand aucune réponse israélienne aux accusations de torture n'est rapportée pour occuper l'autre côté de la page."
     ]
   },
   "go_further": [
     {
-      "title": "Témoignages de détenus palestiniens libérés (dossier 2024–2025)",
-      "source": "Haaretz",
-      "media_type": "article",
-      "category": "question_answer",
-      "url": null,
-      "duration_minutes": 15,
-      "why_explore": "Témoignages directs de détenus palestiniens libérés — la voix absente de l'éditorial.",
-      "answers_question": "Que disent les organisations palestiniennes elles-mêmes sur les conditions de détention — et pourquoi leur voix est-elle absente de presque tous les médias occidentaux couvrant ce sujet ?"
-    },
-    {
-      "title": "Occupation of the Palestinian Territories",
-      "source": "Al Jazeera Documentary",
+      "title": "Ghost Hunting (Istiyad Ashbah)",
+      "source": "Raed Andoni",
       "media_type": "documentary",
-      "category": "question_answer",
-      "url": null,
-      "duration_minutes": 50,
-      "why_explore": "Donne la parole aux Palestiniens directement concernés — perspective quasi absente des médias européens couvrant ce sujet.",
-      "answers_question": "Que disent les organisations palestiniennes elles-mêmes sur les conditions de détention — et pourquoi leur voix est-elle absente de presque tous les médias occidentaux couvrant ce sujet ?"
-    },
-    {
-      "title": "Gaza flotillas: a history of interceptions since 2010",
-      "source": "The Guardian",
-      "media_type": "article",
       "category": "deep_dive",
       "url": null,
-      "duration_minutes": 10,
-      "why_explore": "Situe cet événement dans une série d'interceptions précédentes — permet de tester si l'indignation décrite est réellement nouvelle.",
+      "duration_minutes": 94,
+      "why_explore": "Reconstitue de l'intérieur les interrogatoires israéliens avec d'anciens détenus, pour mettre des visages sur le régime carcéral décrit.",
       "answers_question": null
     },
     {
-      "title": "Ordonnance de la CIJ sur Gaza : ce qu'elle implique concrètement",
-      "source": "Le Monde Diplomatique",
+      "title": "La détention administrative en Israël et dans les Territoires occupés : repères",
+      "source": "Amnesty International",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": 20,
+      "why_explore": "Détaille le cadre légal de l'emprisonnement sans inculpation ni procès seulement évoqué dans l'éditorial.",
+      "answers_question": null
+    },
+    {
+      "title": "Ce que répondent les autorités israéliennes aux accusations de mauvais traitements en prison",
+      "source": "Haaretz (édition anglaise)",
       "media_type": "article",
       "category": "question_answer",
       "url": null,
-      "duration_minutes": 12,
-      "why_explore": "Explique la décision de la CIJ de janvier 2024 et ses implications juridiques — le contexte absent de l'éditorial.",
-      "answers_question": "La décision de la CIJ sur Gaza change-t-elle la façon dont vous évaluez l'interception de la flottille ?"
+      "duration_minutes": 10,
+      "why_explore": "Rassemble les démentis et justifications officielles du gouvernement et du service pénitentiaire, que l'éditorial ne mentionne pas.",
+      "answers_question": "Quels arguments les autorités israéliennes opposent-elles aux accusations de B'Tselem, absents de cet éditorial comme de cette analyse ?"
     },
     {
-      "title": "The Hundred Years' War on Palestine",
-      "source": "Rashid Khalidi (livre, 2020)",
-      "media_type": "book",
+      "title": "Sanctions européennes contre des responsables israéliens : qui agit, qui hésite",
+      "source": "Politico Europe",
+      "media_type": "article",
       "category": "deep_dive",
       "url": null,
-      "duration_minutes": 480,
-      "why_explore": "Donne le contexte historique long que ce type d'éditorial présuppose sans jamais fournir.",
+      "duration_minutes": 8,
+      "why_explore": "Précise quels États ont sanctionné Ben Gvir et les raisons invoquées par ceux qui s'en abstiennent, dont la France.",
+      "answers_question": null
+    },
+    {
+      "title": "Le Dessous des cartes — Israël, Gaza : anatomie d'un basculement",
+      "source": "Arte",
+      "media_type": "video",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": 30,
+      "why_explore": "Replace la dégradation des conditions de détention dans le contexte du 7-Octobre et de ses suites politiques.",
+      "answers_question": null
+    },
+    {
+      "title": "Monitoring des lieux de détention : le rôle et les limites du CICR",
+      "source": "Comité international de la Croix-Rouge",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": 15,
+      "why_explore": "Éclaire comment une détention est contrôlée, ou non, par un tiers indépendant — un angle absent du débat sur les chiffres.",
       "answers_question": null
     }
   ],
   "post_reading_questions": [
     {
-      "question": "Pensez-vous que l'identité des victimes influence réellement les réactions diplomatiques — ou que d'autres facteurs expliquent mieux les différences de traitement ?",
-      "type": "topic_substance"
-    },
-    {
-      "question": "Les conditions de détention des Palestiniens méritent-elles selon vous la même attention médiatique que celles des ressortissants européens ?",
-      "type": "topic_substance"
-    },
-    {
-      "question": "Une ONG qui documente les violations suffit-elle comme source pour qualifier des lieux de détention de 'camps de torture' ?",
+      "question": "Le fait que les accusations de torture émanent d'une ONG israélienne, et non d'une source palestinienne ou étrangère, renforce-t-il ou affaiblit-il leur crédibilité à vos yeux ?",
       "type": "article_quality"
     },
     {
-      "question": "La décision de la CIJ sur Gaza change-t-elle la façon dont vous évaluez l'interception de la flottille ?",
-      "type": "article_quality"
-    },
-    {
-      "question": "Auriez-vous lu cet éditorial différemment s'il avait été publié par un média connu pour ses positions pro-israéliennes ?",
+      "question": "Auriez-vous accordé le même crédit à ces « décomptes convergents » s'ils avaient émané d'une institution dont vous vous méfiez ?",
       "type": "reader_bias"
     },
     {
-      "question": "Appliquez-vous les mêmes exigences de sourçage quand les conclusions d'un article vont dans le sens de vos convictions ?",
-      "type": "reader_bias"
+      "question": "L'inaction européenne face à ces conditions de détention vous paraît-elle relever du même ordre de gravité que leur mise en scène, comme le suggère la dernière phrase ?",
+      "type": "topic_substance"
     },
     {
-      "question": "Que disent les organisations palestiniennes elles-mêmes sur les conditions de détention — et pourquoi leur voix est-elle absente de presque tous les médias occidentaux couvrant ce sujet ?",
+      "question": "Quels arguments les autorités israéliennes opposent-elles aux accusations de B'Tselem, absents de cet éditorial comme de cette analyse ?",
       "type": "blind_spot"
     }
   ]

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.annotation-block {
+  padding: 16px 20px;
+  background: #111;
+  border-radius: 10px;
+  border: 1px solid #1e1e1e;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.claim-quote {
+  font-size: 15px;
+  font-style: italic;
+  color: #aaa;
+  line-height: 1.5;
+  border-left: 2px solid #333;
+  padding-left: 12px;
+}
+.claim-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.claim-explanation {
+  font-size: 15px;
+  color: #999;
+  line-height: 1.5;
+}
+.bias-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #e8a07a;
+  padding: 3px 9px;
+  background: #2b1a0d;
+  border: 1px solid #4a2a0d;
+  border-radius: 5px;
+}
+.bias-effect {
+  font-size: 15px;
+  color: #999;
+  line-height: 1.5;
+}
+.deep-dive-quote {
+  font-size: 17px;
+  font-style: italic;
+  color: #c8b87a;
+  line-height: 1.6;
+  border-left: 3px solid #e8d5a3;
+  padding: 12px 18px;
+  background: #0f0f00;
+  border-radius: 0 8px 8px 0;
+}
+.deep-dive-analysis {
+  font-size: 17px;
+  color: #bbb;
+  line-height: 1.7;
+}
+.section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 8px;
+}
+.confidence {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.likely_true { background: #0d2b1a; border: 1px solid #2a5c3a; color: #7ec8a0; }
+.disputed { background: #2b2b0d; border: 1px solid #5c5c2a; color: #c8c07a; }
+.false { background: #2b0d0d; border: 1px solid #5c2a2a; color: #e87a7a; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="label" style="margin-bottom:8px">Annotations</div>
+  <div class="divider"></div>
+
+  <div style="flex:1; display:flex; flex-direction:column; gap:20px; overflow:hidden;">
+
+    {% if claims_and_sources %}
+    <div>
+      <div class="section-label">Affirmations &amp; Sources</div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        {% for c in claims_and_sources %}
+        <div class="annotation-block">
+          <div class="claim-quote">« {{ c.quote }} »</div>
+          <div class="claim-meta">
+            <span class="confidence {{ c.confidence_label | replace(' ', '_') }}">
+              {{ c.confidence }}% — {{ c.confidence_label }}
+            </span>
+            <span style="font-size:11px; color:#555; font-weight:600; text-transform:uppercase; letter-spacing:0.08em;">{{ c.presentation | replace('_', ' ') }}</span>
+          </div>
+          <div class="claim-explanation">{{ c.explanation }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if biases_and_rhetoric %}
+    <div>
+      <div class="section-label">Biais &amp; Rhétorique</div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        {% for b in biases_and_rhetoric[:2] %}
+        <div class="annotation-block">
+          <div class="claim-quote">« {{ b.quote[:120] }}{% if b.quote|length > 120 %}…{% endif %} »</div>
+          <div class="bias-label">{{ b.label }}</div>
+          <div class="bias-effect">{{ b.effect }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if quote_deep_dive %}
+    <div>
+      <div class="section-label">Décryptage</div>
+      <div class="deep-dive-quote">« {{ quote_deep_dive.quote[:200] }}{% if quote_deep_dive.quote|length > 200 %}…{% endif %} »</div>
+      <div class="deep-dive-analysis" style="margin-top:12px;">{{ quote_deep_dive.analysis }}</div>
+    </div>
+    {% endif %}
+
+  </div>
+
+  <div class="slide-num">4 / 5</div>
+</div>
+</body>
+</html>
