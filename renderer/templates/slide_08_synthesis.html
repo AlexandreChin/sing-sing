@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.synthesis-card {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  border-radius: 12px;
+  padding: 24px 28px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.05);
+  background:
+    linear-gradient(#191919, #191919) padding-box,
+    linear-gradient(135deg, #3a3500 0%, #2a2a2a 50%, #1a1a1a 100%) border-box;
+  border: 1px solid transparent;
+}
+.synthesis-num {
+  font-size: 56px;
+  font-weight: 900;
+  flex-shrink: 0;
+  min-width: 52px;
+  line-height: 1;
+  background: linear-gradient(135deg, #f5d000, #e8920a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.synthesis-text {
+  font-size: 24px;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+.questions-block {
+  border-top: 1px solid #2a2a2a;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.engagement-q,
+.engagement-q-secondary {
+  font-size: 24px;
+  font-style: italic;
+  color: #f5d000;
+  line-height: 1.5;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">08</div>
+  {% include '_brand.html' %}
+
+  <div class="section-phase phase-retenir">Ce qu'il faut retenir</div>
+  <div class="label">Synthèse</div>
+  <div class="divider"></div>
+
+  <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; gap: 16px; padding-bottom: 60px;">
+    {% set nums = ["01", "02", "03"] %}
+    {% for point in points %}
+    <div class="synthesis-card">
+      <span class="synthesis-num">{{ nums[loop.index0] }}</span>
+      <p class="synthesis-text">{{ point }}</p>
+    </div>
+    {% endfor %}
+    {% if open_question or engagement_question %}
+    <div class="questions-block">
+      {% if open_question %}<p class="engagement-q">{{ open_question }}</p>{% endif %}
+      {% if engagement_question %}<p class="engagement-q-secondary">{{ engagement_question }}</p>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="slide-num">8 / 9</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 89%;"></div></div>
+</div>
+</body>
+</html>

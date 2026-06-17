@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&display=swap');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -21,7 +21,32 @@ body {
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
   background: radial-gradient(ellipse at 50% 40%, #272727 0%, #000000 65%);
+}
+.slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ── Slide background watermark ── */
+.slide-watermark {
+  position: absolute;
+  bottom: -30px;
+  right: 50px;
+  font-size: 320px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.022);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.05em;
+  font-family: 'Inter', sans-serif;
+  z-index: -1;
 }
 
 /* ── Typography ── */
@@ -34,6 +59,7 @@ body {
 }
 
 .headline {
+  font-family: 'Playfair Display', serif;
   font-size: 72px;
   font-weight: 900;
   line-height: 1.08;
@@ -72,7 +98,7 @@ body {
 .pill {
   display: inline-block;
   padding: 6px 16px;
-  border-radius: 20px;
+  border-radius: 999px;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -81,11 +107,12 @@ body {
   border: 1px solid #333;
 }
 
-.pill.validates { background: #0d2b1a; border-color: #2a5c3a; color: #7ec8a0; }
+.pill.validates  { background: #0d2b1a; border-color: #2a5c3a; color: #7ec8a0; }
 .pill.contradicts { background: #2b0d0d; border-color: #5c2a2a; color: #e87a7a; }
-.pill.neutral { background: #1a1a2b; border-color: #2a2a5c; color: #7ab3e8; }
+.pill.neutral    { background: #1a1a2b; border-color: #2a2a5c; color: #7ab3e8; }
 
 .quote-block {
+  font-family: 'Playfair Display', serif;
   border-left: 4px solid #e8d5a3;
   padding: 16px 24px;
   background: #161616;
@@ -97,17 +124,19 @@ body {
 }
 
 .card {
-  background: #191919;
-  border: 1px solid #2a2a2a;
   border-radius: 12px;
   padding: 20px 24px;
-  box-shadow: 0 2px 14px rgba(0,0,0,0.65);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.05);
+  background:
+    linear-gradient(#191919, #191919) padding-box,
+    linear-gradient(135deg, #3a3500 0%, #2a2a2a 50%, #1a1a1a 100%) border-box;
+  border: 1px solid transparent;
 }
 
 .divider {
-  width: 40px;
-  height: 3px;
-  background: #e8d5a3;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #f5d000 0%, transparent 70%);
   border-radius: 2px;
   margin: 20px 0;
 }
@@ -185,10 +214,10 @@ body {
   border: 1px solid #2a2a2a;
 }
 .confidence.likely_true { border-color: #2a5c3a; color: #7ec8a0; }
-.confidence.true { border-color: #1a4a2a; color: #5eb88a; }
-.confidence.consensual { border-color: #0d3a1a; color: #4ea870; }
-.confidence.disputed { border-color: #3a3a1a; color: #c8c07a; }
-.confidence.false { border-color: #5c2a2a; color: #e87a7a; }
+.confidence.true        { border-color: #1a4a2a; color: #5eb88a; }
+.confidence.consensual  { border-color: #0d3a1a; color: #4ea870; }
+.confidence.disputed    { border-color: #3a3a1a; color: #c8c07a; }
+.confidence.false       { border-color: #5c2a2a; color: #e87a7a; }
 
 /* ── Section phase indicator ── */
 .section-phase {
@@ -207,10 +236,21 @@ body {
   text-transform: uppercase;
   color: #0f0f0f;
   z-index: 2;
+  box-shadow: 0 2px 20px rgba(245, 208, 0, 0.2);
 }
-.phase-analyse  { background: #e8920a; }
-.phase-retenir  { background: #e8d5a3; }
-.phase-plusloin { background: #f0c040; }
+.phase-analyse  { background: #e8920a; box-shadow: 0 2px 20px rgba(232, 146, 10, 0.25); }
+.phase-retenir  { background: #e8d5a3; box-shadow: 0 2px 20px rgba(232, 213, 163, 0.2); }
+.phase-plusloin { background: #f0c040; box-shadow: 0 2px 20px rgba(240, 192, 64, 0.2); }
+
+/* ── Section sub-header ── */
+.section-label {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #f5d000;
+  margin-bottom: 10px;
+}
 
 /* ── Cross-slide reference ── */
 .item-ref {

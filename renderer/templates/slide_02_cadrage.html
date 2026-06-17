@@ -7,13 +7,25 @@
 .section-card {
   border-left: 3px solid #f5d000;
 }
-.section-mini-label {
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #f5d000;
-  margin-bottom: 10px;
+.article-quote {
+  font-size: 22px;
+  font-style: italic;
+  color: #e8d5a3;
+  line-height: 1.4;
+  margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.chapo-text {
+  font-size: 20px;
+  color: #f0f0f0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .context-item {
   font-size: 24px;
@@ -24,7 +36,7 @@
   position: relative;
 }
 .context-item::before {
-  content: "—";
+  content: "•";
   color: #f5d000;
   position: absolute;
   left: 0;
@@ -41,34 +53,39 @@
 </head>
 <body>
 <div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">02</div>
   {% include '_brand.html' %}
 
   <div class="section-phase">Avant de lire</div>
-  <div class="label">Le contexte</div>
+  <div class="label">Repères</div>
   <div class="divider"></div>
 
   <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; gap: 20px; padding-bottom: 80px;">
-    {% if contexts %}
     <div class="card section-card">
-      <div class="section-mini-label">Contexte</div>
-      {% for item in contexts %}
-      <div class="context-item">{{ item }}</div>
-      {% endfor %}
+      <div class="section-label">De quoi ça parle ?</div>
+      {% if article_title %}
+      <p class="article-quote">{{ article_title }}</p>
+      {% endif %}
+      {% if article_chapo %}
+      <p class="chapo-text">{{ (article_chapo.split('. ')[0] + '.') if article_chapo else '' }}</p>
+      {% endif %}
     </div>
-    {% endif %}
 
     {% if who_is_speaking %}
     <div class="card section-card">
-      <div class="section-mini-label">Qui parle</div>
+      <div class="section-label">Qui parle ?</div>
       {% for item in who_is_speaking %}
       <div class="context-item">{{ item }}</div>
       {% endfor %}
     </div>
     {% endif %}
 
-    {% if important_facts %}
+    {% if contexts or important_facts %}
     <div class="card section-card">
-      <div class="section-mini-label">À savoir</div>
+      <div class="section-label">Pourquoi maintenant ?</div>
+      {% for item in contexts %}
+      <div class="context-item">{{ item }}</div>
+      {% endfor %}
       {% for item in important_facts %}
       <div class="context-item">{{ item }}</div>
       {% endfor %}
@@ -77,8 +94,8 @@
   </div>
 
   <div class="next-hook">Les clefs de lecture →</div>
-  <div class="slide-num">4 / 11</div>
-  <div class="progress-track"><div class="progress-bar" style="width: 36%;"></div></div>
+  <div class="slide-num">2 / 9</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 22%;"></div></div>
 </div>
 </body>
 </html>

@@ -30,11 +30,12 @@
   color: #f5d000;
   background: #1a1800;
   border: 1px solid #3a3500;
-  border-radius: 4px;
-  padding: 4px 10px;
+  border-radius: 999px;
+  padding: 4px 12px;
+  box-shadow: 0 0 12px rgba(245,208,0,0.15);
 }
 .obs-text {
-  font-size: 20px;
+  font-size: 24px;
   color: #f0f0f0;
   line-height: 1.5;
   padding-left: 4px;
@@ -42,30 +43,30 @@
 .sub-section {
   margin-top: 14px;
 }
-.sub-label {
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #e8d5a3;
-  margin-bottom: 6px;
-}
 .sub-item {
-  font-size: 18px;
+  font-size: 20px;
   color: #f0f0f0;
   font-style: italic;
-  line-height: 1.5;
+  line-height: 1.45;
   margin-bottom: 4px;
-  padding-left: 10px;
+  padding-left: 20px;
+  position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .sub-item::before {
-  content: "– ";
-  color: #e8d5a3;
+  content: "•";
+  color: #f5d000;
+  position: absolute;
+  left: 0;
 }
 </style>
 </head>
 <body>
 <div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">04</div>
   {% include '_brand.html' %}
 
   <div class="section-phase phase-analyse">Analyse</div>
@@ -74,14 +75,14 @@
 
   <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; padding-bottom: 60px;">
     <div>
-      <div class="sub-label">Thèse centrale</div>
+      <div class="section-label">Thèse centrale</div>
       <div class="main-claim">{{ main_claim }}</div>
     </div>
 
     <div>
       {% if implicit_assumptions %}
       <div class="sub-section">
-        <div class="sub-label">Hypothèses</div>
+        <div class="section-label">Prémisses</div>
         {% for item in implicit_assumptions %}
         <div class="sub-item">{{ item }}</div>
         {% endfor %}
@@ -90,7 +91,7 @@
 
       {% if blind_spots %}
       <div class="sub-section">
-        <div class="sub-label">Angles absents</div>
+        <div class="section-label">Angles absents</div>
         {% for item in blind_spots %}
         <div class="sub-item">{{ item }}</div>
         {% endfor %}
@@ -99,7 +100,7 @@
     </div>
 
     <div>
-      <div class="sub-label">Observations</div>
+      <div class="section-label">Observations</div>
       {% for obs in observations %}
       <div class="observation-row">
         <span class="aspect-badge">{{ obs.aspect }}</span>
@@ -110,8 +111,8 @@
     </div>
   </div>
 
-  <div class="slide-num">6 / 11</div>
-  <div class="progress-track"><div class="progress-bar" style="width: 55%;"></div></div>
+  <div class="slide-num">4 / 9</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 44%;"></div></div>
 </div>
 </body>
 </html>

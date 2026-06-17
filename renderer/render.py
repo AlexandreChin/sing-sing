@@ -73,66 +73,59 @@ def render_carousel(output: CarouselOutput, out_dir: Path) -> list[Path]:
             "topic": output.hook.topic,
             "sub_topic": output.hook.sub_topic,
             "headline": output.hook.headline,
-            "context_line": output.hook.context_line,
+            "context_line": output.interest.why_read,
+            "article_title": output.article_metadata.article_title,
+            "source": output.article_metadata.source,
             "article_url": url_str,
         }),
-        ("slide_02_interest.html", {
-            "why_read": output.interest.why_read,
-            "pull_quote": output.interest.pull_quote,
-            "next_slide_hook": output.interest.next_slide_hook,
-            "article_title": output.article_metadata.article_title,
-            "reading_time_minutes": output.article_metadata.reading_time_minutes,
-        }),
-        ("slide_03_cadrage.html", {
-            "title_bullets": output.cadrage.title_bullets,
-            "chapo_bullets": output.cadrage.chapo_bullets,
+        ("slide_02_cadrage.html", {
             "article_title": output.article_metadata.article_title,
             "article_chapo": output.article_metadata.article_chapo,
-        }),
-        ("slide_04_context.html", {
-            "contexts": output.context.contexts,
             "who_is_speaking": output.context.who_is_speaking,
+            "contexts": output.context.contexts,
             "important_facts": output.context.important_facts,
-            "key_terms": output.context.key_terms,
-            "next_slide_hook": output.context.next_slide_hook,
         }),
-        ("slide_05_watch_out.html", {
+        ("slide_03_watch_out.html", {
             "items": output.watch_out.items,
+            "title_bullets": output.cadrage.title_bullets,
             "next_slide_hook": output.watch_out.next_slide_hook,
         }),
-        ("slide_06_analysis_fond.html", {
+        ("slide_04_analysis_fond.html", {
             "main_claim": output.analysis_fond.main_claim,
             "implicit_assumptions": output.analysis_fond.implicit_assumptions,
             "blind_spots": output.analysis_fond.blind_spots,
             "observations": output.analysis_fond.observations,
         }),
-        ("slide_07_analysis_forme.html", {
+        ("slide_05_analysis_forme.html", {
+            "title_analysis": output.cadrage.title_analysis,
             "emotional_register": output.analysis_forme.emotional_register,
             "cui_bono": output.analysis_forme.cui_bono,
             "next_slide_hook": output.analysis_forme.next_slide_hook,
         }),
-        ("slide_08_facts.html", {
+        ("slide_06_facts.html", {
             "claims_and_sources": output.facts_vs_opinions.claims_and_sources,
         }),
-        ("slide_09_biases.html", {
+        ("slide_07_biases.html", {
             "biases_and_rhetoric": output.biases_and_focus.biases_and_rhetoric,
             "focus": output.biases_and_focus.focus,
             "next_slide_hook": output.biases_and_focus.next_slide_hook,
         }),
-        ("slide_10_synthesis.html", {
+        ("slide_08_synthesis.html", {
             "points": output.synthesis.points,
+            "open_question": output.synthesis.open_question,
+            "engagement_question": output.synthesis.engagement_question,
         }),
-        ("slide_11_go_further.html", {
+        ("slide_09_go_further.html", {
             "items": output.go_further.items,
             "engagement_sentence": output.cta.engagement_sentence,
         }),
     ]
 
     names = [
-        "slide_01_hook.png", "slide_02_interest.png", "slide_03_cadrage.png",
-        "slide_04_context.png", "slide_05_watch_out.png", "slide_06_analysis_fond.png",
-        "slide_07_analysis_forme.png", "slide_08_facts.png", "slide_09_biases.png",
-        "slide_10_synthesis.png", "slide_11_go_further.png",
+        "slide_01_hook.png", "slide_02_reperes.png", "slide_03_watch_out.png",
+        "slide_04_analysis_fond.png", "slide_05_analysis_forme.png",
+        "slide_06_facts.png", "slide_07_biases.png", "slide_08_synthesis.png",
+        "slide_09_go_further.png",
     ]
 
     for (template, ctx), name in zip(specs, names):
