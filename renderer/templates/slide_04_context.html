@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.section-card {
+  border-left: 3px solid #f5d000;
+}
+.section-mini-label {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #f5d000;
+  margin-bottom: 10px;
+}
+.context-item {
+  font-size: 24px;
+  color: #f0f0f0;
+  line-height: 1.5;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  position: relative;
+}
+.context-item::before {
+  content: "—";
+  color: #f5d000;
+  position: absolute;
+  left: 0;
+}
+.next-hook {
+  position: absolute;
+  bottom: 56px;
+  left: 90px;
+  right: 150px;
+  font-size: 22px;
+  color: #f5d000;
+}
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  {% include '_brand.html' %}
+
+  <div class="section-phase">Avant de lire</div>
+  <div class="label">Le contexte</div>
+  <div class="divider"></div>
+
+  <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; gap: 20px; padding-bottom: 80px;">
+    {% if contexts %}
+    <div class="card section-card">
+      <div class="section-mini-label">Contexte</div>
+      {% for item in contexts %}
+      <div class="context-item">{{ item }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if who_is_speaking %}
+    <div class="card section-card">
+      <div class="section-mini-label">Qui parle</div>
+      {% for item in who_is_speaking %}
+      <div class="context-item">{{ item }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if important_facts %}
+    <div class="card section-card">
+      <div class="section-mini-label">À savoir</div>
+      {% for item in important_facts %}
+      <div class="context-item">{{ item }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="next-hook">Les clefs de lecture →</div>
+  <div class="slide-num">4 / 11</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 36%;"></div></div>
+</div>
+</body>
+</html>

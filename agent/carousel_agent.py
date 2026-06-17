@@ -1,14 +1,12 @@
-"""Multi-step carousel analysis pipeline with per-step consistency validation.
+"""Multi-step carousel analysis pipeline.
 
 Steps:
-  1. Extraction  — raw facts, claims, actors, omissions (no interpretation)
-  2. Before You Read — seeds the consistency chain
-  3. Global Analysis — observations, emotional register, cui bono (anchored to step 2)
-  4. Local Annotations — quote-level proof of every global item (anchored to step 3)
-  5. Hook + Synthesis + Finale — written last, when the full analysis exists
-
-Each step is validated after generation. If inconsistencies are found, the step is
-retried with a correction prompt listing the specific gaps (max MAX_RETRIES attempts).
+  1. Extraction   — raw facts, claims, actors, omissions (no interpretation)
+  2. Avant de lire — cadrage + context + watch_out (slides 3–5)
+  3. Analyse fond  — main_claim, assumptions, blind_spots, observations (slide 6)
+  4. Analyse forme — emotional_register, cui_bono (slide 7)
+  5. Annotations  — facts_vs_opinions + biases_and_focus (slides 8–9)
+  6. Finale        — hook + interest + synthesis + cta (slides 1–2, 10–11)
 """
 import json
 import re
@@ -19,14 +17,13 @@ from pathlib import Path
 import anthropic
 
 from models.carousel import (
+    AnalysisFond,
+    AnalyseForme,
     ArticleMetadata,
-    BeforeYouRead,
     CarouselInput,
     CarouselOutput,
-    GlobalAnalysis,
-    LocalAnnotationsSlide,
 )
-from models.carousel_steps import ExtractionResult, HookSynthesisFinale
+from models.carousel_steps import ExtractionResult, Step2Output, Step5Output, Step6Output
 
 client = anthropic.Anthropic()
 
@@ -39,100 +36,96 @@ MAX_RETRIES = 2
 
 # ── Validators ───────────────────────────────────────────────────────────────
 
-def _validate_ga(ga_data: dict, byr_data: dict) -> list[str]:
-    """Step 3: all three GA sections must be non-empty."""
-    ga = GlobalAnalysis.model_validate(ga_data)
+def _validate_fond(data: dict) -> list[str]:
+    fond = AnalysisFond.model_validate(data)
     errors = []
-    if not ga.observations:
-        errors.append("global_analysis.observations est vide")
-    if not ga.emotional_register:
-        errors.append("global_analysis.emotional_register est vide")
-    if not ga.cui_bono:
-        errors.append("global_analysis.cui_bono est vide")
+    if not fond.main_claim:
+        errors.append("analysis_fond.main_claim est vide")
+    if not fond.observations:
+        errors.append("analysis_fond.observations est vide")
+    if not fond.implicit_assumptions:
+        errors.append("analysis_fond.implicit_assumptions est vide")
+    if not fond.blind_spots:
+        errors.append("analysis_fond.blind_spots est vide")
+    return errors
+
+
+def _validate_forme(data: dict) -> list[str]:
+    forme = AnalyseForme.model_validate(data)
+    errors = []
+    if not forme.emotional_register:
+        errors.append("analysis_forme.emotional_register est vide")
+    if not forme.cui_bono:
+        errors.append("analysis_forme.cui_bono est vide")
     return errors
 
 
 def _confidence_label_expected(confidence: int | None) -> str:
     if confidence is None:
         return "unverifiable"
-    if confidence <= 20:
-        return "false"
-    if confidence <= 40:
-        return "opinion stated as fact"
-    if confidence <= 60:
-        return "disputed"
-    if confidence <= 80:
-        return "likely true"
-    if confidence <= 90:
-        return "true"
+    if confidence <= 20: return "false"
+    if confidence <= 40: return "opinion stated as fact"
+    if confidence <= 60: return "disputed"
+    if confidence <= 80: return "likely true"
+    if confidence <= 90: return "true"
     return "consensual"
 
 
-def _validate_la(la_data: dict, ga_data: dict) -> list[str]:
-    """Step 4: every proves field must match a real GA item; confidence labels must be correct."""
-    la = LocalAnnotationsSlide.model_validate(la_data)
-    ga = GlobalAnalysis.model_validate(ga_data)
+def _validate_annotations(data: dict, fond_data: dict, forme_data: dict) -> list[str]:
+    step5 = Step5Output.model_validate(data)
+    fond = AnalysisFond.model_validate(fond_data)
+    forme = AnalyseForme.model_validate(forme_data)
     errors = []
 
     valid_proves = (
-        {obs.aspect for obs in ga.observations}
-        | {e.emotion for e in ga.emotional_register}
-        | {c.beneficiary for c in ga.cui_bono}
+        {obs.aspect for obs in fond.observations}
+        | {e.emotion for e in forme.emotional_register}
+        | {c.beneficiary for c in forme.cui_bono}
     )
 
-    for i, claim in enumerate(la.claims_and_sources):
+    fvo = step5.facts_vs_opinions
+    for i, claim in enumerate(fvo.claims_and_sources):
         if claim.proves not in valid_proves:
             errors.append(
-                f"claims_and_sources[{i}].proves = '{claim.proves}' ne correspond à aucun item "
-                f"de global_analysis. Valeurs valides : {sorted(valid_proves)}"
+                f"claims_and_sources[{i}].proves='{claim.proves}' invalide. "
+                f"Valeurs valides: {sorted(valid_proves)}"
             )
         expected = _confidence_label_expected(claim.confidence)
         if claim.confidence_label != expected:
             errors.append(
-                f"claims_and_sources[{i}].confidence_label = '{claim.confidence_label}' incorrect "
-                f"pour le score {claim.confidence}. Attendu : '{expected}'"
+                f"claims_and_sources[{i}].confidence_label='{claim.confidence_label}' incorrect "
+                f"pour score {claim.confidence}. Attendu: '{expected}'"
             )
 
-    for i, bias in enumerate(la.biases_and_rhetoric):
+    bf = step5.biases_and_focus
+    for i, bias in enumerate(bf.biases_and_rhetoric):
         if bias.proves not in valid_proves:
             errors.append(
-                f"biases_and_rhetoric[{i}].proves = '{bias.proves}' ne correspond à aucun item "
-                f"de global_analysis. Valeurs valides : {sorted(valid_proves)}"
+                f"biases_and_rhetoric[{i}].proves='{bias.proves}' invalide. "
+                f"Valeurs valides: {sorted(valid_proves)}"
             )
 
-    if la.quote_deep_dive.proves not in valid_proves:
+    obs_aspects = {obs.aspect for obs in fond.observations}
+    if bf.focus.proves not in obs_aspects:
         errors.append(
-            f"quote_deep_dive.proves = '{la.quote_deep_dive.proves}' ne correspond à aucune "
-            f"observation de global_analysis. Valeurs valides : {sorted(valid_proves)}"
+            f"focus.proves='{bf.focus.proves}' invalide. "
+            f"Doit correspondre à un aspect de observations: {sorted(obs_aspects)}"
         )
-
     return errors
 
 
-def _validate_finale(finale_data: dict) -> list[str]:
-    """Step 5: synthesis has 3 points; blind_spot question present; each blind_spot answered."""
-    finale = HookSynthesisFinale.model_validate(finale_data)
+def _validate_finale(data: dict) -> list[str]:
+    step6 = Step6Output.model_validate(data)
     errors = []
-
-    if len(finale.synthesis.points) != 3:
-        errors.append(
-            f"synthesis.points doit contenir exactement 3 items, {len(finale.synthesis.points)} produit(s)"
-        )
-
-    blind_spots = [q for q in finale.post_reading_questions if q.type == "blind_spot"]
+    if len(step6.synthesis.points) != 3:
+        errors.append(f"synthesis.points doit contenir exactement 3 items, {len(step6.synthesis.points)} produit(s)")
+    if not (3 <= len(step6.go_further.items) <= 4):
+        errors.append(f"go_further.items doit contenir 4 à 6 items, {len(step6.go_further.items)} produit(s)")
+    if len(step6.cta.post_reading_questions) != 2:
+        errors.append(f"cta.post_reading_questions doit contenir exactement 2 items")
+    blind_spots = [q for q in step6.cta.post_reading_questions if q.type == "blind_spot"]
     if not blind_spots:
-        errors.append(
-            "post_reading_questions : au moins une question doit être de type 'blind_spot'"
-        )
-
-    answered = {item.answers_question for item in finale.go_further if item.answers_question}
-    for q in blind_spots:
-        if q.question not in answered:
-            errors.append(
-                f"La question blind_spot '{q.question[:70]}…' n'a pas de ressource "
-                f"go_further avec answers_question correspondant"
-            )
-
+        errors.append("cta.post_reading_questions: au moins une question doit être de type 'blind_spot'")
     return errors
 
 
@@ -162,6 +155,8 @@ def _call_no_api(user_message: str, schema: dict) -> dict:
     match = re.search(r"```(?:json)?\s*([\s\S]+?)\s*```", text)
     if match:
         text = match.group(1).strip()
+    # Remove trailing commas before } or ] (invalid JSON produced by CLI)
+    text = re.sub(r",(\s*[}\]])", r"\1", text)
     return json.loads(text)
 
 
@@ -225,6 +220,31 @@ def _call_with_retry(
     return data
 
 
+def _extract_title_chapo(body: str) -> tuple[str | None, str | None]:
+    lines = body.split('\n')
+    title = None
+    chapo = None
+    for i, line in enumerate(lines):
+        s = line.strip()
+        if s.startswith('http') and '://' in s:
+            for j in range(i + 1, min(i + 6, len(lines))):
+                candidate = lines[j].strip()
+                if candidate and not candidate.startswith('http') and len(candidate) > 10:
+                    title = candidate
+                    for k in range(j + 1, min(j + 12, len(lines))):
+                        para = lines[k].strip()
+                        if len(para) > 80:
+                            for suffix in ['Publié le', 'Read in English', 'Lire plus tard', 'Temps de']:
+                                if suffix in para:
+                                    para = para.split(suffix)[0].strip()
+                            if len(para) > 50:
+                                chapo = para
+                            break
+                    break
+            break
+    return title, chapo
+
+
 def _j(data: dict) -> str:
     return json.dumps(data, ensure_ascii=False, indent=2)
 
@@ -247,33 +267,36 @@ def _article_header(input: CarouselInput) -> str:
 
 async def analyze_for_carousel(input: CarouselInput, no_api: bool = False) -> CarouselOutput:
     article = _article_header(input)
+    article_title, article_chapo = _extract_title_chapo(input.body)
 
-    # ── Step 1 — Extraction (no cross-step validation) ───────────────────────
-    print("[1/5] Extraction…", file=sys.stderr, flush=True)
+    # Step 1 — Extraction
+    print("[1/6] Extraction…", file=sys.stderr, flush=True)
     ext_data = _call(
         f"""{article}
 
 ---
 
-ÉTAPE 1 SUR 5 — EXTRACTION BRUTE
+ÉTAPE 1/6 — EXTRACTION BRUTE
 
 Lis l'article et extrais sans interpréter :
 - article_type : type d'article
 - key_claims : affirmations centrales avec citation verbatim et source éventuelle
 - key_quotes : citations verbatim les plus importantes ou révélatrices
-- key_actors : acteurs mentionnés et leur rôle dans l'article
-- notable_omissions : éléments attendus dans ce type d'article qui sont absents
+- key_actors : acteurs mentionnés et leur rôle
+- notable_omissions : éléments attendus absents
 - rhetorical_patterns : patterns dans la structure, le vocabulaire, la mise en scène
 
-Ne conclus pas encore. Capture uniquement ce que le texte contient et ce qu'il ne contient pas.""",
+Ne conclus pas. Capture uniquement ce que le texte contient et ce qu'il ne contient pas.""",
         ExtractionResult.model_json_schema(),
         no_api=no_api,
     )
     extraction = ExtractionResult.model_validate(ext_data)
 
-    # ── Step 2 — Before You Read (no cross-step validation) ──────────────────
-    print("[2/5] Before You Read…", file=sys.stderr, flush=True)
-    byr_data = _call(
+    # Step 2 — Avant de lire (slides 3–5)
+    title_line = article_title or "(non extrait)"
+    chapo_line = article_chapo or "(non extrait)"
+    print("[2/6] Avant de lire…", file=sys.stderr, flush=True)
+    step2_data = _call(
         f"""{article}
 
 ---
@@ -281,48 +304,25 @@ Ne conclus pas encore. Capture uniquement ce que le texte contient et ce qu'il n
 EXTRACTION (étape 1) :
 {_j(ext_data)}
 
+TITRE DE L'ARTICLE : {title_line}
+CHAPEAU : {chapo_line}
+
 ---
 
-ÉTAPE 2 SUR 5 — AVANT DE LIRE
+ÉTAPE 2/6 — AVANT DE LIRE (slides 3, 4, 5)
 
-Produis uniquement `before_you_read` selon le prompt système.
-Appuie-toi sur l'extraction pour identifier les faits clés, acteurs, et points d'attention.
-`watch_out` : consignes de lecture précises pointant vers des éléments identifiés en extraction — pas des consignes génériques.""",
-        BeforeYouRead.model_json_schema(),
+Produis cadrage, context et watch_out selon le prompt système.
+- cadrage : analyse du titre et du chapeau de l'article (title_bullets + chapo_bullets)
+- context : contexts, who_is_speaking, important_facts, key_terms (1–2 items chacun), next_slide_hook
+- watch_out : 4–5 items (text + refers_to: fond/forme/faits/biais), triés fond→forme→faits→biais, next_slide_hook""",
+        Step2Output.model_json_schema(),
         no_api=no_api,
     )
-    byr = BeforeYouRead.model_validate(byr_data)
+    step2 = Step2Output.model_validate(step2_data)
 
-    # ── Step 3 — Global Analysis (validated: all sections non-empty) ──────────
-    print("[3/5] Global Analysis…", file=sys.stderr, flush=True)
-    ga_data = _call_with_retry(
-        f"""{article}
-
----
-
-EXTRACTION (étape 1) :
-{_j(ext_data)}
-
-AVANT DE LIRE (étape 2) :
-{_j(byr_data)}
-
----
-
-ÉTAPE 3 SUR 5 — ANALYSE GLOBALE
-
-Produis uniquement `global_analysis` (observations, emotional_register, cui_bono).
-Contrainte : chaque item doit être ancré dans un `context`, `important_fact`, ou `watch_out` de `before_you_read`.
-Chaque `context`, `important_fact` et `watch_out` doit être adressé par au moins une observation.
-Les items de `emotional_register` et `cui_bono` devront être prouvés en étape 4 — anticipe.""",
-        GlobalAnalysis.model_json_schema(),
-        validator=lambda d: _validate_ga(d, byr_data),
-        no_api=no_api,
-    )
-    ga = GlobalAnalysis.model_validate(ga_data)
-
-    # ── Step 4 — Local Annotations (validated: proves refs + confidence labels) ─
-    print("[4/5] Local Annotations…", file=sys.stderr, flush=True)
-    la_data = _call_with_retry(
+    # Step 3 — Analyse globale — Le fond (slide 6)
+    print("[3/6] Analyse — Le fond…", file=sys.stderr, flush=True)
+    fond_data = _call_with_retry(
         f"""{article}
 
 ---
@@ -331,70 +331,134 @@ EXTRACTION (étape 1) :
 {_j(ext_data)}
 
 AVANT DE LIRE (étape 2) :
-{_j(byr_data)}
-
-ANALYSE GLOBALE (étape 3) :
-{_j(ga_data)}
+{_j(step2_data)}
 
 ---
 
-ÉTAPE 4 SUR 5 — ANNOTATIONS LOCALES
+ÉTAPE 3/6 — ANALYSE GLOBALE — LE FOND (slide 6)
 
-Produis uniquement `local_annotations` (claims_and_sources, biases_and_rhetoric, quote_deep_dive).
-Contrainte : chaque annotation doit prouver un item précis de `global_analysis`.
-Le champ `proves` doit reprendre l'`aspect`, l'`emotion`, ou le `beneficiary` exact de `global_analysis`.
-Citations verbatim : extraites mot pour mot de l'article — jamais paraphrasées.
-Scores de confiance : applique la méthodologie du prompt système (tangibilité, témoignages, crédibilité, asymétrie, convergence).""",
-        LocalAnnotationsSlide.model_json_schema(),
-        validator=lambda d: _validate_la(d, ga_data),
+Produis analysis_fond : main_claim, implicit_assumptions (1–2), blind_spots (1–2), observations (2–3).
+Contrainte : chaque observation doit être ancrée dans un context, important_fact ou watch_out de l'étape 2.
+Chaque context, important_fact et watch_out doit être adressé par au moins une observation.""",
+        AnalysisFond.model_json_schema(),
+        validator=_validate_fond,
         no_api=no_api,
     )
-    la = LocalAnnotationsSlide.model_validate(la_data)
+    fond = AnalysisFond.model_validate(fond_data)
 
-    # ── Step 5 — Hook, Synthesis, Finale (validated: synthesis count, blind_spot coverage) ─
-    print("[5/5] Hook, Synthesis, Go Further…", file=sys.stderr, flush=True)
-    finale_data = _call_with_retry(
+    # Step 4 — Analyse globale — La forme (slide 7)
+    print("[4/6] Analyse — La forme…", file=sys.stderr, flush=True)
+    forme_data = _call_with_retry(
+        f"""{article}
+
+---
+
+EXTRACTION (étape 1) :
+{_j(ext_data)}
+
+AVANT DE LIRE (étape 2) :
+{_j(step2_data)}
+
+ANALYSE — LE FOND (étape 3) :
+{_j(fond_data)}
+
+---
+
+ÉTAPE 4/6 — ANALYSE GLOBALE — LA FORME (slide 7)
+
+Produis analysis_forme : emotional_register (1–2 items), cui_bono (1–2 items), next_slide_hook.
+Ces items doivent être ancrés dans les observations et seeds de l'étape 3.
+Ils devront être prouvés dans le texte à l'étape suivante — anticipe.""",
+        AnalyseForme.model_json_schema(),
+        validator=_validate_forme,
+        no_api=no_api,
+    )
+    forme = AnalyseForme.model_validate(forme_data)
+
+    # Step 5 — Annotations (slides 8–9)
+    print("[5/6] Annotations…", file=sys.stderr, flush=True)
+    step5_data = _call_with_retry(
+        f"""{article}
+
+---
+
+ANALYSE — LE FOND (étape 3) :
+{_j(fond_data)}
+
+ANALYSE — LA FORME (étape 4) :
+{_j(forme_data)}
+
+---
+
+ÉTAPE 5/6 — ANNOTATIONS (slides 8 et 9)
+
+Produis facts_vs_opinions (2–4 items) et biases_and_focus (1–2 biais + 1 focus).
+Contrainte : chaque proves doit correspondre exactement à un aspect/emotion/beneficiary de l'analyse globale.
+Citations verbatim : mot pour mot depuis l'article — jamais paraphrasées.
+Scores confidence : applique la méthodologie du prompt système.
+next_slide_hook pour biases_and_focus.""",
+        Step5Output.model_json_schema(),
+        validator=lambda d: _validate_annotations(d, fond_data, forme_data),
+        no_api=no_api,
+    )
+    step5 = Step5Output.model_validate(step5_data)
+
+    # Step 6 — Finale (slides 1–2, 10–11)
+    print("[6/6] Finale…", file=sys.stderr, flush=True)
+    step6_data = _call_with_retry(
         f"""{article}
 
 ---
 
 AVANT DE LIRE (étape 2) :
-{_j(byr_data)}
+{_j(step2_data)}
 
-ANALYSE GLOBALE (étape 3) :
-{_j(ga_data)}
+ANALYSE — LE FOND (étape 3) :
+{_j(fond_data)}
 
-ANNOTATIONS LOCALES (étape 4) :
-{_j(la_data)}
+ANALYSE — LA FORME (étape 4) :
+{_j(forme_data)}
+
+ANNOTATIONS (étape 5) :
+{_j(step5_data)}
 
 ---
 
-ÉTAPE 5 SUR 5 — ACCROCHE, SYNTHÈSE, QUESTIONS, POUR ALLER PLUS LOIN
+ÉTAPE 6/6 — FINALE (slides 1, 2, 10, 11, 12)
 
-L'analyse complète est disponible ci-dessus. Produis les quatre champs :
-- `hook` : maintenant que l'analyse existe, écris l'accroche la plus précise et percutante — headline ≤ 12 mots, context_line ≤ 20 mots
-- `synthesis` : exactement 3 points issus directement de l'analyse — chaque point s'arrête juste avant la conclusion
-- `post_reading_questions` : 3 à 5 questions ancrées dans l'analyse, au moins une `blind_spot` pointant vers un angle absent du carrousel
-- `go_further` : 4 à 6 ressources (tout format), dont au moins une `question_answer` pour chaque question `blind_spot`""",
-        HookSynthesisFinale.model_json_schema(),
+L'analyse complète est disponible ci-dessus. Produis :
+- hook : topic, sub_topic, headline (≤12 mots), context_line (≤20 mots)
+- interest : why_read (1 phrase), pull_quote (optionnel), next_slide_hook
+- synthesis : exactement 3 points courts issus de l'analyse — chaque point s'arrête juste avant la conclusion
+- go_further : 3 à 4 ressources (articles, livres, documentaires, podcasts…) pour aller plus loin. Pour chaque item : title, source, media_type, category (deep_dive ou question_answer), url (si disponible), duration_minutes, why_explore (1 phrase), answers_question (si question_answer : copier verbatim la question de cta.post_reading_questions à laquelle cette ressource répond)
+- cta : engagement_sentence (1 phrase invitant à commenter), post_reading_questions (exactement 2, dont au moins 1 blind_spot)""",
+        Step6Output.model_json_schema(),
         validator=_validate_finale,
         no_api=no_api,
     )
-    finale = HookSynthesisFinale.model_validate(finale_data)
+    step6 = Step6Output.model_validate(step6_data)
 
     return CarouselOutput(
         article_metadata=ArticleMetadata(
             url=input.url,
-            title=input.title,
+            title=input.title or article_title,
             source=input.source,
             published_at=input.published_at,
             article_type=extraction.article_type,
+            reading_time_minutes=max(1, len(input.body.split()) // 200),
+            article_title=article_title,
+            article_chapo=article_chapo,
         ),
-        hook=finale.hook,
-        before_you_read=byr,
-        global_analysis=ga,
-        local_annotations=la,
-        synthesis=finale.synthesis,
-        go_further=finale.go_further,
-        post_reading_questions=finale.post_reading_questions,
+        hook=step6.hook,
+        interest=step6.interest,
+        cadrage=step2.cadrage,
+        context=step2.context,
+        watch_out=step2.watch_out,
+        analysis_fond=fond,
+        analysis_forme=forme,
+        facts_vs_opinions=step5.facts_vs_opinions,
+        biases_and_focus=step5.biases_and_focus,
+        synthesis=step6.synthesis,
+        go_further=step6.go_further,
+        cta=step6.cta,
     )

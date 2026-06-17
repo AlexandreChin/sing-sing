@@ -1,14 +1,11 @@
-"""Intermediate Pydantic models for the multi-step carousel pipeline.
-
-These are internal — they never appear in CarouselOutput.
-"""
+"""Intermediate Pydantic models for the multi-step carousel pipeline."""
 from __future__ import annotations
-
 from typing import Literal
-
 from pydantic import BaseModel
-
-from models.carousel import GoFurtherItem, Hook, PostReadingQuestion, Synthesis
+from models.carousel import (
+    AnalysisFond, AnalyseForme, BiasesAndFocus, Cadrage,
+    Context, CTA, FactsVsOpinions, GoFurther, Hook, Interest, Synthesis, WatchOut, WatchOutItem,
+)
 
 
 class ExtractedClaim(BaseModel):
@@ -23,9 +20,7 @@ class ExtractedActor(BaseModel):
 
 
 class ExtractionResult(BaseModel):
-    article_type: Literal[
-        "editorial", "news_report", "opinion", "investigation", "interview", "other"
-    ]
+    article_type: Literal["editorial", "news_report", "opinion", "investigation", "interview", "other"]
     key_claims: list[ExtractedClaim]
     key_quotes: list[str]
     key_actors: list[ExtractedActor]
@@ -33,8 +28,20 @@ class ExtractionResult(BaseModel):
     rhetorical_patterns: list[str]
 
 
-class HookSynthesisFinale(BaseModel):
+class Step2Output(BaseModel):
+    cadrage: Cadrage
+    context: Context
+    watch_out: WatchOut
+
+
+class Step5Output(BaseModel):
+    facts_vs_opinions: FactsVsOpinions
+    biases_and_focus: BiasesAndFocus
+
+
+class Step6Output(BaseModel):
     hook: Hook
+    interest: Interest
     synthesis: Synthesis
-    post_reading_questions: list[PostReadingQuestion]
-    go_further: list[GoFurtherItem]
+    go_further: GoFurther
+    cta: CTA

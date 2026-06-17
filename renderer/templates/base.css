@@ -21,19 +21,20 @@ body {
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  background: radial-gradient(ellipse at 50% 40%, #272727 0%, #000000 65%);
 }
 
 /* ── Typography ── */
 .label {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 32px;
+  font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #888;
+  color: #f5d000;
 }
 
 .headline {
-  font-size: 58px;
+  font-size: 72px;
   font-weight: 900;
   line-height: 1.08;
   letter-spacing: -0.02em;
@@ -41,22 +42,22 @@ body {
 }
 
 .subhead {
-  font-size: 22px;
+  font-size: 36px;
   font-weight: 500;
-  color: #aaa;
+  color: #e0e0e0;
   line-height: 1.5;
 }
 
 .body-text {
-  font-size: 20px;
+  font-size: 34px;
   font-weight: 400;
   line-height: 1.65;
-  color: #ccc;
+  color: #f0f0f0;
 }
 
 .small {
-  font-size: 16px;
-  color: #888;
+  font-size: 26px;
+  color: #d0d0d0;
   line-height: 1.5;
 }
 
@@ -70,9 +71,9 @@ body {
 /* ── Components ── */
 .pill {
   display: inline-block;
-  padding: 4px 12px;
+  padding: 6px 16px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -85,21 +86,22 @@ body {
 .pill.neutral { background: #1a1a2b; border-color: #2a2a5c; color: #7ab3e8; }
 
 .quote-block {
-  border-left: 3px solid #e8d5a3;
-  padding: 12px 20px;
+  border-left: 4px solid #e8d5a3;
+  padding: 16px 24px;
   background: #161616;
   border-radius: 0 8px 8px 0;
-  font-size: 17px;
+  font-size: 28px;
   font-style: italic;
-  color: #ddd;
+  color: #f0f0f0;
   line-height: 1.6;
 }
 
 .card {
-  background: #161616;
-  border: 1px solid #252525;
+  background: #191919;
+  border: 1px solid #2a2a2a;
   border-radius: 12px;
   padding: 20px 24px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.65);
 }
 
 .divider {
@@ -110,12 +112,43 @@ body {
   margin: 20px 0;
 }
 
+/* ── Logo ── */
+.logo-img {
+  position: absolute;
+  top: 44px;
+  right: 90px;
+  width: 144px;
+  height: 144px;
+  object-fit: contain;
+}
+
+.company-name {
+  position: absolute;
+  top: 80px;
+  right: 238px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #f5d000;
+  letter-spacing: 0.04em;
+  text-align: right;
+  line-height: 1.28;
+}
+
+.next-hook-bar {
+  position: absolute;
+  bottom: 56px;
+  left: 90px;
+  right: 150px;
+  font-size: 26px;
+  color: #f5d000;
+}
+
 /* ── Slide number badge ── */
 .slide-num {
   position: absolute;
   bottom: 56px;
   right: 90px;
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 600;
   color: #444;
   letter-spacing: 0.1em;
@@ -132,7 +165,7 @@ body {
 }
 
 .brand {
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 700;
   color: #555;
   letter-spacing: 0.12em;
@@ -144,9 +177,9 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 600;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 6px;
   background: #1a1a1a;
   border: 1px solid #2a2a2a;
@@ -156,3 +189,52 @@ body {
 .confidence.consensual { border-color: #0d3a1a; color: #4ea870; }
 .confidence.disputed { border-color: #3a3a1a; color: #c8c07a; }
 .confidence.false { border-color: #5c2a2a; color: #e87a7a; }
+
+/* ── Section phase indicator ── */
+.section-phase {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  background: #f5d000;
+  display: flex;
+  align-items: center;
+  padding: 0 90px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #0f0f0f;
+  z-index: 2;
+}
+.phase-analyse  { background: #e8920a; }
+.phase-retenir  { background: #e8d5a3; }
+.phase-plusloin { background: #f0c040; }
+
+/* ── Cross-slide reference ── */
+.item-ref {
+  font-size: 17px;
+  color: #555;
+  font-style: italic;
+  margin-top: 3px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Progress bar ── */
+.progress-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #1a1a1a;
+}
+.progress-bar {
+  height: 4px;
+  background: linear-gradient(90deg, #f5d000, #e8d5a3);
+  border-radius: 0 2px 2px 0;
+}

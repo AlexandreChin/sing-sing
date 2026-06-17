@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.watch-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.watch-label {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+.label-fond  { background: #1a1800; border: 1px solid #3a3500; color: #f5d000; }
+.label-forme { background: #2b1a0d; border: 1px solid #5c3a1a; color: #e8a07a; }
+.label-faits { background: #0d2b1a; border: 1px solid #1a5c2a; color: #7ec8a0; }
+.label-biais { background: #2b1a1a; border: 1px solid #5c2a2a; color: #e87a7a; }
+.watch-text {
+  font-size: 30px;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+.next-hook {
+  position: absolute;
+  bottom: 56px;
+  left: 90px;
+  right: 150px;
+  font-size: 22px;
+  color: #f5d000;
+}
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  {% include '_brand.html' %}
+
+  <div class="section-phase">Avant de lire</div>
+  <div class="label">Clefs de lecture</div>
+  <div class="divider"></div>
+
+  {% set label_map = {'fond': 'Le fond', 'forme': 'La forme', 'faits': 'Faits vs opinions', 'biais': 'Biais'} %}
+
+  <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; padding-bottom: 60px;">
+    {% for item in items %}
+    <div class="watch-item">
+      <span class="watch-label label-{{ item.refers_to }}">{{ label_map.get(item.refers_to, item.refers_to) }}</span>
+      <p class="watch-text">{{ item.text }}</p>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="next-hook">Lisez l'article (lien en commentaires). Avez-vous repéré ces points ? Les réponses →</div>
+  <div class="slide-num">5 / 11</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 45%;"></div></div>
+</div>
+</body>
+</html>

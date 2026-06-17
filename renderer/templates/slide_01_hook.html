@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.bg-accent {
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,213,163,0.10) 0%, transparent 70%);
+}
+.bg-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,208,0,0.04) 0%, transparent 60%);
+}
+.topic-pills {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.article-type {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: #1a1a12;
+  border: 1px solid #3a3a20;
+  color: #e8d5a3;
+}
+.hook-line {
+  width: 80px;
+  height: 2px;
+  background: #f5d000;
+  margin: 0 auto 36px;
+}
+.headline {
+  font-size: 88px;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.9), 0 0 80px rgba(245,208,0,0.10);
+}
+.context-line {
+  font-size: 26px;
+  color: #b0b0b0;
+  margin-top: 36px;
+  font-style: italic;
+  line-height: 1.55;
+  max-width: 760px;
+}
+.article-link {
+  position: absolute;
+  bottom: 56px;
+  left: 90px;
+  font-size: 26px;
+  color: #e8d5a3;
+}
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: center; align-items: center; text-align: center;">
+  {% include '_brand.html' %}
+  <div class="bg-accent"></div>
+  <div class="bg-glow"></div>
+
+  <div class="topic-pills">
+    {% if topic %}<div class="article-type">{{ topic }}</div>{% endif %}
+    {% if sub_topic %}<div class="article-type">{{ sub_topic }}</div>{% endif %}
+  </div>
+
+  <div class="hook-line"></div>
+  <h1 class="headline">{{ headline }}</h1>
+  <p class="context-line">{{ context_line }}</p>
+
+  <div class="article-link">&#8599; Article complet en commentaires</div>
+
+  <div class="slide-num">1 / 11</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 9%;"></div></div>
+</div>
+</body>
+</html>

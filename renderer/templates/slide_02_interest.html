@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.article-title {
+  font-size: 28px;
+  font-style: italic;
+  color: #e8d5a3;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+.reading-time {
+  font-size: 22px;
+  color: #f5d000;
+  margin-bottom: 28px;
+}
+.why-read {
+  font-size: 40px;
+  color: #f0f0f0;
+  line-height: 1.6;
+  text-align: center;
+}
+.pull-quote-block {
+  margin-top: 48px;
+  border-left: 3px solid #e8d5a3;
+  padding: 20px 24px;
+  background: #111;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.65);
+}
+.pull-quote-mark {
+  display: block;
+  font-size: 100px;
+  line-height: 0.7;
+  color: #f5d000;
+  font-family: Georgia, serif;
+  opacity: 0.45;
+  margin-bottom: 10px;
+}
+.pull-quote-text {
+  font-size: 32px;
+  font-style: italic;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+.next-hook {
+  position: absolute;
+  bottom: 56px;
+  left: 90px;
+  right: 90px;
+  font-size: 22px;
+  color: #f5d000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  {% include '_brand.html' %}
+
+  <div class="label">L'intérêt</div>
+  <div class="divider"></div>
+
+  {% if article_title %}
+  <p class="article-title">{{ article_title }}</p>
+  {% endif %}
+
+  {% if reading_time_minutes %}
+  <p class="reading-time">⏱ {{ reading_time_minutes }} min de lecture</p>
+  {% endif %}
+
+  <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; padding-bottom: 80px;">
+    <div class="why-read">{{ why_read }}</div>
+
+    {% if pull_quote %}
+    <div class="pull-quote-block">
+      <span class="pull-quote-mark">&ldquo;</span>
+      <p class="pull-quote-text">{{ pull_quote }}</p>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="next-hook">Le cadre posé →</div>
+  <div class="slide-num">2 / 11</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 18%;"></div></div>
+</div>
+</body>
+</html>
