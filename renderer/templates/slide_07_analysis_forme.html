@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.subsection-label {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f5d000;
+  margin-bottom: 12px;
+  margin-top: 24px;
+}
+.emotion-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.emotion-pill {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #2b1a0d;
+  border: 1px solid #5c3a1a;
+  color: #e8a07a;
+}
+.emotion-how {
+  font-size: 26px;
+  color: #f0f0f0;
+  line-height: 1.5;
+}
+.cui-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+.cui-beneficiary {
+  font-weight: 700;
+  color: #e8d5a3;
+  font-size: 22px;
+}
+.cui-content {
+  font-size: 26px;
+  color: #f0f0f0;
+  line-height: 1.5;
+}
+.next-hook {
+  position: absolute;
+  bottom: 56px;
+  left: 90px;
+  right: 150px;
+  font-size: 22px;
+  color: #f5d000;
+}
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  {% include '_brand.html' %}
+
+  <div class="section-phase phase-analyse">Analyse</div>
+  <div class="label">La forme</div>
+  <div class="divider"></div>
+
+  <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; padding-bottom: 80px;">
+    <div>
+      <div class="subsection-label">Registre émotionnel</div>
+      {% for er in emotional_register %}
+      <div class="emotion-row">
+        <span class="emotion-pill">{{ er.emotion }}</span>
+        <p class="emotion-how">{{ er.how }}</p>
+        {% if er.seeds %}<p class="item-ref">{{ er.seeds | seed_text }}</p>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+
+    <div>
+      <div class="subsection-label">À qui profite ?</div>
+      {% for cb in cui_bono %}
+      <div class="cui-row">
+        <span class="cui-beneficiary">→ {{ cb.beneficiary }}</span>
+        <p class="cui-content">{{ cb.explanation }}</p>
+        {% if cb.seeds %}<p class="item-ref">{{ cb.seeds | seed_text }}</p>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="slide-num">7 / 11</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 64%;"></div></div>
+</div>
+</body>
+</html>

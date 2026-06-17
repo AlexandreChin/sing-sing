@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.synthesis-card {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: #191919;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 24px 28px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.65);
+}
+.synthesis-num {
+  font-size: 56px;
+  font-weight: 900;
+  color: #f5d000;
+  flex-shrink: 0;
+  min-width: 52px;
+  line-height: 1;
+}
+.synthesis-text {
+  font-size: 32px;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  {% include '_brand.html' %}
+
+  <div class="section-phase phase-retenir">Ce qu'il faut retenir</div>
+  <div class="label">Synthèse</div>
+  <div class="divider"></div>
+
+  <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; gap: 20px; padding-bottom: 60px;">
+    {% set nums = ["01", "02", "03"] %}
+    {% for point in points %}
+    <div class="synthesis-card">
+      <span class="synthesis-num">{{ nums[loop.index0] }}</span>
+      <p class="synthesis-text">{{ point }}</p>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="slide-num">10 / 11</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 91%;"></div></div>
+</div>
+</body>
+</html>

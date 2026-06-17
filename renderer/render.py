@@ -1,8 +1,11 @@
-"""Render a CarouselOutput JSON to 5 PNG slides at 1080×1350px."""
+"""Render a CarouselOutput JSON to 11 PNG slides at 1080×1350px."""
 
+import base64
+import io
 import json
 from pathlib import Path
 
+from PIL import Image
 from jinja2 import Environment, FileSystemLoader
 from playwright.sync_api import sync_playwright
 
@@ -11,14 +14,43 @@ from models.carousel import CarouselOutput
 TEMPLATES_DIR = Path(__file__).parent / "templates"
 SLIDE_W, SLIDE_H = 1080, 1350
 
+_LOGO_PATH = Path(__file__).parent.parent / "src" / "assets" / "images" / "logo" / "logo.png"
+
+
+def _logo_data_url(path: Path, white_threshold: int = 240) -> str:
+    """Load logo PNG and make near-white pixels transparent."""
+    img = Image.open(path).convert("RGBA")
+    pixels = img.getdata()
+    new_pixels = [
+        (r, g, b, 0) if r >= white_threshold and g >= white_threshold and b >= white_threshold else (r, g, b, a)
+        for r, g, b, a in pixels
+    ]
+    img.putdata(new_pixels)
+    buf = io.BytesIO()
+    img.save(buf, format="PNG")
+    return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
+
+
+_LOGO_DATA_URL = _logo_data_url(_LOGO_PATH) if _LOGO_PATH.exists() else ""
+
+
+def _seed_text(seeds: str) -> str:
+    """Extract quoted text from 'category: '...' ' seeds format."""
+    start = seeds.find("'")
+    end = seeds.rfind("'")
+    if start != -1 and end > start:
+        return "↑ " + seeds[start + 1:end]
+    return seeds
+
 
 def _env() -> Environment:
     env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)), autoescape=True)
+    env.filters["seed_text"] = _seed_text
     return env
 
 
 def _render_html(template_name: str, context: dict) -> str:
-    return _env().get_template(template_name).render(**context)
+    return _env().get_template(template_name).render(logo=_LOGO_DATA_URL, **context)
 
 
 def _screenshot(html: str, output_path: Path) -> None:
@@ -31,71 +63,84 @@ def _screenshot(html: str, output_path: Path) -> None:
 
 
 def render_carousel(output: CarouselOutput, out_dir: Path) -> list[Path]:
-    """Render all 5 slides to PNG. Returns list of output paths."""
     out_dir.mkdir(parents=True, exist_ok=True)
     slides = []
 
-    # Slide 1 — Hook
-    html = _render_html("slide_1_hook.html", {
-        "headline": output.hook.headline,
-        "context_line": output.hook.context_line,
-        "why_read": output.hook.why_read,
-        "pull_quote": output.hook.pull_quote,
-        "article_type": output.article_metadata.article_type,
-    })
-    path = out_dir / "slide_1_hook.png"
-    _screenshot(html, path)
-    slides.append(path)
-    print(f"  ✓ {path.name}")
+    url_str = str(output.article_metadata.url) if output.article_metadata.url else None
 
-    # Slide 2 — Before You Read
-    byr = output.before_you_read
-    html = _render_html("slide_2_before_you_read.html", {
-        "contexts": byr.contexts,
-        "who_is_speaking": byr.who_is_speaking,
-        "important_facts": byr.important_facts,
-        "key_terms": byr.key_terms,
-        "watch_out": byr.watch_out,
-    })
-    path = out_dir / "slide_2_before_you_read.png"
-    _screenshot(html, path)
-    slides.append(path)
-    print(f"  ✓ {path.name}")
+    specs = [
+        ("slide_01_hook.html", {
+            "topic": output.hook.topic,
+            "sub_topic": output.hook.sub_topic,
+            "headline": output.hook.headline,
+            "context_line": output.hook.context_line,
+            "article_url": url_str,
+        }),
+        ("slide_02_interest.html", {
+            "why_read": output.interest.why_read,
+            "pull_quote": output.interest.pull_quote,
+            "next_slide_hook": output.interest.next_slide_hook,
+            "article_title": output.article_metadata.article_title,
+            "reading_time_minutes": output.article_metadata.reading_time_minutes,
+        }),
+        ("slide_03_cadrage.html", {
+            "title_bullets": output.cadrage.title_bullets,
+            "chapo_bullets": output.cadrage.chapo_bullets,
+            "article_title": output.article_metadata.article_title,
+            "article_chapo": output.article_metadata.article_chapo,
+        }),
+        ("slide_04_context.html", {
+            "contexts": output.context.contexts,
+            "who_is_speaking": output.context.who_is_speaking,
+            "important_facts": output.context.important_facts,
+            "key_terms": output.context.key_terms,
+            "next_slide_hook": output.context.next_slide_hook,
+        }),
+        ("slide_05_watch_out.html", {
+            "items": output.watch_out.items,
+            "next_slide_hook": output.watch_out.next_slide_hook,
+        }),
+        ("slide_06_analysis_fond.html", {
+            "main_claim": output.analysis_fond.main_claim,
+            "implicit_assumptions": output.analysis_fond.implicit_assumptions,
+            "blind_spots": output.analysis_fond.blind_spots,
+            "observations": output.analysis_fond.observations,
+        }),
+        ("slide_07_analysis_forme.html", {
+            "emotional_register": output.analysis_forme.emotional_register,
+            "cui_bono": output.analysis_forme.cui_bono,
+            "next_slide_hook": output.analysis_forme.next_slide_hook,
+        }),
+        ("slide_08_facts.html", {
+            "claims_and_sources": output.facts_vs_opinions.claims_and_sources,
+        }),
+        ("slide_09_biases.html", {
+            "biases_and_rhetoric": output.biases_and_focus.biases_and_rhetoric,
+            "focus": output.biases_and_focus.focus,
+            "next_slide_hook": output.biases_and_focus.next_slide_hook,
+        }),
+        ("slide_10_synthesis.html", {
+            "points": output.synthesis.points,
+        }),
+        ("slide_11_go_further.html", {
+            "items": output.go_further.items,
+            "engagement_sentence": output.cta.engagement_sentence,
+        }),
+    ]
 
-    # Slide 3 — Global Analysis
-    ga = output.global_analysis
-    html = _render_html("slide_3_global_analysis.html", {
-        "observations": ga.observations,
-        "emotional_register": ga.emotional_register,
-        "cui_bono": ga.cui_bono,
-    })
-    path = out_dir / "slide_3_global_analysis.png"
-    _screenshot(html, path)
-    slides.append(path)
-    print(f"  ✓ {path.name}")
+    names = [
+        "slide_01_hook.png", "slide_02_interest.png", "slide_03_cadrage.png",
+        "slide_04_context.png", "slide_05_watch_out.png", "slide_06_analysis_fond.png",
+        "slide_07_analysis_forme.png", "slide_08_facts.png", "slide_09_biases.png",
+        "slide_10_synthesis.png", "slide_11_go_further.png",
+    ]
 
-    # Slide 4 — Local Annotations
-    la = output.local_annotations
-    html = _render_html("slide_4_annotations.html", {
-        "claims_and_sources": la.claims_and_sources,
-        "biases_and_rhetoric": la.biases_and_rhetoric,
-        "quote_deep_dive": la.quote_deep_dive,
-    })
-    path = out_dir / "slide_4_annotations.png"
-    _screenshot(html, path)
-    slides.append(path)
-    print(f"  ✓ {path.name}")
-
-    # Slide 5 — Go Further
-    html = _render_html("slide_5_go_further.html", {
-        "synthesis_points": output.synthesis.points,
-        "go_further": output.go_further,
-        "post_reading_questions": output.post_reading_questions,
-    })
-    path = out_dir / "slide_5_go_further.png"
-    _screenshot(html, path)
-    slides.append(path)
-    print(f"  ✓ {path.name}")
+    for (template, ctx), name in zip(specs, names):
+        html = _render_html(template, ctx)
+        path = out_dir / name
+        _screenshot(html, path)
+        slides.append(path)
+        print(f"  ✓ {name}")
 
     return slides
 
