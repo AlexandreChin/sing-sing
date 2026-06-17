@@ -5,12 +5,14 @@
 <style>
 {% include 'base.css' %}
 .claim-card {
-  background: #191919;
-  border: 1px solid #2a2a2a;
   border-radius: 10px;
   padding: 16px 18px;
   margin-bottom: 24px;
-  box-shadow: 0 2px 14px rgba(0,0,0,0.65);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.05);
+  background:
+    linear-gradient(#191919, #191919) padding-box,
+    linear-gradient(135deg, #3a3500 0%, #2a2a2a 50%, #1a1a1a 100%) border-box;
+  border: 1px solid transparent;
 }
 .claim-meta {
   display: flex;
@@ -29,21 +31,28 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-.conf-true { background: #0d2b1a; border: 1px solid #2a5c3a; color: #7ec8a0; }
-.conf-likely { background: #1a2b0d; border: 1px solid #3a5c1a; color: #a0c87a; }
-.conf-disputed { background: #2b2b0d; border: 1px solid #5c5c1a; color: #c8c07a; }
-.conf-false { background: #2b0d0d; border: 1px solid #5c2a2a; color: #e87a7a; }
-.conf-opinion { background: #2b1a0d; border: 1px solid #5c3a1a; color: #e8a07a; }
+.conf-true        { background: #0d2b1a; border: 1px solid #2a5c3a; color: #7ec8a0;  box-shadow: 0 0 10px rgba(126,200,160,0.2); }
+.conf-likely      { background: #1a2b0d; border: 1px solid #3a5c1a; color: #a0c87a;  box-shadow: 0 0 10px rgba(160,200,122,0.2); }
+.conf-disputed    { background: #2b2b0d; border: 1px solid #5c5c1a; color: #c8c07a;  box-shadow: 0 0 10px rgba(200,192,122,0.2); }
+.conf-false       { background: #2b0d0d; border: 1px solid #5c2a2a; color: #e87a7a;  box-shadow: 0 0 10px rgba(232,122,122,0.2); }
+.conf-likely-false { background: #2b1a0d; border: 1px solid #5c3a1a; color: #e8a07a; box-shadow: 0 0 10px rgba(232,160,122,0.2); }
 .conf-unverifiable { background: #1a1a1a; border: 1px solid #333; color: #f0f0f0; }
-.conf-consensual { background: #0d3a1a; border: 1px solid #1a5c2a; color: #5eb88a; }
+.conf-consensual  { background: #0d3a1a; border: 1px solid #1a5c2a; color: #5eb88a;  box-shadow: 0 0 10px rgba(94,184,138,0.2); }
 .presentation-label {
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #f0f0f0;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #1a1a2b;
+  border: 1px solid #2a2a5c;
+  color: #7ab3e8;
 }
 .claim-quote {
+  font-family: 'Playfair Display', serif;
   font-size: 24px;
   font-style: italic;
   color: #f0f0f0;
@@ -53,7 +62,7 @@
   margin-bottom: 12px;
 }
 .claim-explanation {
-  font-size: 22px;
+  font-size: 24px;
   color: #f0f0f0;
   line-height: 1.5;
 }
@@ -61,6 +70,7 @@
 </head>
 <body>
 <div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">06</div>
   {% include '_brand.html' %}
 
   <div class="section-phase phase-analyse">Analyse</div>
@@ -72,8 +82,8 @@
     'true': 'Vrai',
     'likely true': 'Probable',
     'disputed': 'Contesté',
+    'likely false': 'Peu probable',
     'false': 'Faux',
-    'opinion stated as fact': 'Opinion comme fait',
     'consensual': 'Consensuel',
     'unverifiable': 'Non vérifié'
   } %}
@@ -90,10 +100,10 @@
         <span class="confidence-badge conf-likely">{{ conf_fr['likely true'] }}</span>
       {% elif claim.confidence_label == 'disputed' %}
         <span class="confidence-badge conf-disputed">{{ conf_fr['disputed'] }}</span>
+      {% elif claim.confidence_label == 'likely false' %}
+        <span class="confidence-badge conf-likely-false">{{ conf_fr['likely false'] }}</span>
       {% elif claim.confidence_label == 'false' %}
         <span class="confidence-badge conf-false">{{ conf_fr['false'] }}</span>
-      {% elif claim.confidence_label == 'opinion stated as fact' %}
-        <span class="confidence-badge conf-opinion">{{ conf_fr['opinion stated as fact'] }}</span>
       {% elif claim.confidence_label == 'consensual' %}
         <span class="confidence-badge conf-consensual">{{ conf_fr['consensual'] }}</span>
       {% else %}
@@ -108,8 +118,8 @@
   {% endfor %}
   </div>
 
-  <div class="slide-num">8 / 11</div>
-  <div class="progress-track"><div class="progress-bar" style="width: 73%;"></div></div>
+  <div class="slide-num">6 / 9</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 67%;"></div></div>
 </div>
 </body>
 </html>

@@ -5,14 +5,17 @@
 <style>
 {% include 'base.css' %}
 .bias-card {
-  background: #191919;
-  border: 1px solid #2a2a2a;
   border-radius: 10px;
   padding: 16px 18px;
   margin-bottom: 14px;
-  box-shadow: 0 2px 14px rgba(0,0,0,0.65);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.05);
+  background:
+    linear-gradient(#191919, #191919) padding-box,
+    linear-gradient(135deg, #3a3500 0%, #2a2a2a 50%, #1a1a1a 100%) border-box;
+  border: 1px solid transparent;
 }
 .bias-quote {
+  font-family: 'Playfair Display', serif;
   font-size: 22px;
   font-style: italic;
   color: #f0f0f0;
@@ -27,62 +30,63 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  border-radius: 999px;
+  padding: 3px 12px;
+  margin-bottom: 8px;
+}
+.label-bias {
   color: #e8a07a;
   background: #2b1a0d;
   border: 1px solid #5c3a1a;
-  border-radius: 4px;
-  padding: 3px 10px;
-  margin-bottom: 8px;
+}
+.label-fallacy {
+  color: #c07ae8;
+  background: #1a0d2b;
+  border: 1px solid #3a1a5c;
 }
 .bias-effect {
-  font-size: 22px;
+  font-size: 24px;
   color: #f0f0f0;
   line-height: 1.5;
 }
-.focus-section {
+.focus-card {
   margin-top: 18px;
-}
-.focus-label {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #f5d000;
-  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 16px 18px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.05);
+  background:
+    linear-gradient(#191919, #191919) padding-box,
+    linear-gradient(135deg, #3a3500 0%, #2a2a2a 50%, #1a1a1a 100%) border-box;
+  border: 1px solid transparent;
 }
 .focus-quote-mark {
-  display: block;
-  font-size: 100px;
-  line-height: 0.7;
+  display: inline;
+  font-size: 60px;
+  line-height: 1;
   color: #e8d5a3;
   font-family: Georgia, serif;
-  opacity: 0.45;
-  margin-bottom: 10px;
+  opacity: 0.55;
+  vertical-align: -0.2em;
+  margin-right: 4px;
 }
 .focus-quote {
-  font-size: 26px;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
   font-style: italic;
   color: #f0f0f0;
-  line-height: 1.6;
+  line-height: 1.5;
   margin-bottom: 10px;
 }
 .focus-analysis {
-  font-size: 22px;
+  font-size: 24px;
   color: #f0f0f0;
   line-height: 1.5;
-}
-.next-hook {
-  position: absolute;
-  bottom: 56px;
-  left: 90px;
-  right: 150px;
-  font-size: 22px;
-  color: #f5d000;
 }
 </style>
 </head>
 <body>
 <div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">07</div>
   {% include '_brand.html' %}
 
   <div class="section-phase phase-analyse">Analyse</div>
@@ -92,22 +96,21 @@
   {% for bias in biases_and_rhetoric %}
   <div class="bias-card">
     <div class="bias-quote">{{ bias.quote }}</div>
-    <span class="bias-label">{{ bias.label }}</span>
+    <span class="bias-label {% if bias.item_type == 'fallacy' %}label-fallacy{% else %}label-bias{% endif %}">{{ bias.label }}</span>
     <p class="bias-effect">{{ bias.effect }}</p>
     {% if bias.proves %}<p class="item-ref">→ {{ bias.proves }}</p>{% endif %}
   </div>
   {% endfor %}
 
-  <div class="focus-section">
-    <div class="focus-label">Focus</div>
-    <span class="focus-quote-mark">&ldquo;</span>
-    <p class="focus-quote">{{ focus.quote }}</p>
+  <div class="focus-card">
+    <div class="section-label">Focus</div>
+    <p class="focus-quote"><span class="focus-quote-mark">&ldquo;</span>{{ focus.quote }}</p>
     <p class="focus-analysis">{{ focus.analysis }}</p>
     {% if focus.proves %}<p class="item-ref">→ {{ focus.proves }}</p>{% endif %}
   </div>
 
-  <div class="slide-num">9 / 11</div>
-  <div class="progress-track"><div class="progress-bar" style="width: 82%;"></div></div>
+  <div class="slide-num">7 / 9</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 78%;"></div></div>
 </div>
 </body>
 </html>

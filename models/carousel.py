@@ -38,9 +38,15 @@ class Interest(BaseModel):
 
 
 # Slide 3
+class TitleAnalysisItem(BaseModel):
+    label: str        # short label for the rhetorical device or framing technique (1–2 words)
+    observation: str  # analytical observation on the title (post-reading)
+
+
 class Cadrage(BaseModel):
-    title_bullets: list[str] = []   # 2–3 bullet observations about how the TITLE frames the reader
-    chapo_bullets: list[str] = []   # 2–3 bullet observations about how the CHAPO frames the reader
+    title_bullets: list[str] = []              # pre-reading watch-out tips on title rhetoric (slide 3)
+    title_analysis: list[TitleAnalysisItem] = []  # post-reading analytical observations on title framing (slide 5)
+    chapo_bullets: list[str] = []              # 2–3 bullet observations about how the CHAPO frames the reader
 
 
 # Slide 4
@@ -116,7 +122,7 @@ class ClaimAndSource(BaseModel):
     explanation: str
     external_sources: list[ExternalSource]
     confidence: int | None = None
-    confidence_label: str
+    confidence_label: Literal["unverifiable", "false", "likely false", "disputed", "likely true", "true", "consensual"]
 
 
 class FactsVsOpinions(BaseModel):
@@ -126,6 +132,7 @@ class FactsVsOpinions(BaseModel):
 # Slide 9
 class BiasRhetoric(BaseModel):
     quote: str
+    item_type: Literal["bias", "fallacy"]
     label: str
     effect: str
     proves: str
@@ -145,7 +152,9 @@ class BiasesAndFocus(BaseModel):
 
 # Slide 10
 class Synthesis(BaseModel):
-    points: list[str]  # exactly 3
+    points: list[str]  # exactly 3, sorted most important first
+    open_question: str  # analytical question from bias analysis (displayed first on slide 8)
+    engagement_question: str  # reader engagement CTA (displayed second on slide 8)
 
 
 # Slide 11

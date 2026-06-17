@@ -36,27 +36,54 @@ MAX_RETRIES = 2
 
 # ── Validators ───────────────────────────────────────────────────────────────
 
+def _validate_avant_de_lire(data: dict) -> list[str]:
+    step2 = Step2Output.model_validate(data)
+    errors = []
+    n = len(step2.watch_out.items)
+    if not (4 <= n <= 5):
+        errors.append(f"watch_out.items: expected 4–5, got {n}")
+    if not step2.context.contexts:
+        errors.append("context.contexts is empty")
+    if not step2.context.important_facts:
+        errors.append("context.important_facts is empty")
+    if not step2.cadrage.title_bullets:
+        errors.append("cadrage.title_bullets is empty (required for slide 3)")
+    return errors
+
+
 def _validate_fond(data: dict) -> list[str]:
     fond = AnalysisFond.model_validate(data)
     errors = []
     if not fond.main_claim:
-        errors.append("analysis_fond.main_claim est vide")
-    if not fond.observations:
-        errors.append("analysis_fond.observations est vide")
+        errors.append("analysis_fond.main_claim is empty")
+    n = len(fond.observations)
+    if not (2 <= n <= 3):
+        errors.append(f"observations: expected 2–3, got {n}")
+    for i, obs in enumerate(fond.observations):
+        if not obs.seeds:
+            errors.append(f"observations[{i}].seeds is empty")
     if not fond.implicit_assumptions:
-        errors.append("analysis_fond.implicit_assumptions est vide")
+        errors.append("analysis_fond.implicit_assumptions is empty")
     if not fond.blind_spots:
-        errors.append("analysis_fond.blind_spots est vide")
+        errors.append("analysis_fond.blind_spots is empty")
     return errors
 
 
 def _validate_forme(data: dict) -> list[str]:
     forme = AnalyseForme.model_validate(data)
     errors = []
-    if not forme.emotional_register:
-        errors.append("analysis_forme.emotional_register est vide")
-    if not forme.cui_bono:
-        errors.append("analysis_forme.cui_bono est vide")
+    n_er = len(forme.emotional_register)
+    if not (1 <= n_er <= 2):
+        errors.append(f"emotional_register: expected 1–2, got {n_er}")
+    for i, er in enumerate(forme.emotional_register):
+        if not er.seeds:
+            errors.append(f"emotional_register[{i}].seeds is empty")
+    n_cb = len(forme.cui_bono)
+    if not (1 <= n_cb <= 2):
+        errors.append(f"cui_bono: expected 1–2, got {n_cb}")
+    for i, cb in enumerate(forme.cui_bono):
+        if not cb.seeds:
+            errors.append(f"cui_bono[{i}].seeds is empty")
     return errors
 
 
@@ -64,7 +91,7 @@ def _confidence_label_expected(confidence: int | None) -> str:
     if confidence is None:
         return "unverifiable"
     if confidence <= 20: return "false"
-    if confidence <= 40: return "opinion stated as fact"
+    if confidence <= 40: return "likely false"
     if confidence <= 60: return "disputed"
     if confidence <= 80: return "likely true"
     if confidence <= 90: return "true"
@@ -84,32 +111,35 @@ def _validate_annotations(data: dict, fond_data: dict, forme_data: dict) -> list
     )
 
     fvo = step5.facts_vs_opinions
+    n_claims = len(fvo.claims_and_sources)
+    if n_claims != 4:
+        errors.append(f"claims_and_sources: expected exactly 4, got {n_claims}")
     for i, claim in enumerate(fvo.claims_and_sources):
         if claim.proves not in valid_proves:
             errors.append(
-                f"claims_and_sources[{i}].proves='{claim.proves}' invalide. "
-                f"Valeurs valides: {sorted(valid_proves)}"
+                f"claims_and_sources[{i}].proves='{claim.proves}' is invalid. "
+                f"Valid values: {sorted(valid_proves)}"
             )
         expected = _confidence_label_expected(claim.confidence)
         if claim.confidence_label != expected:
             errors.append(
-                f"claims_and_sources[{i}].confidence_label='{claim.confidence_label}' incorrect "
-                f"pour score {claim.confidence}. Attendu: '{expected}'"
+                f"claims_and_sources[{i}].confidence_label='{claim.confidence_label}' is wrong "
+                f"for score {claim.confidence}. Expected: '{expected}'"
             )
 
     bf = step5.biases_and_focus
     for i, bias in enumerate(bf.biases_and_rhetoric):
         if bias.proves not in valid_proves:
             errors.append(
-                f"biases_and_rhetoric[{i}].proves='{bias.proves}' invalide. "
-                f"Valeurs valides: {sorted(valid_proves)}"
+                f"biases_and_rhetoric[{i}].proves='{bias.proves}' is invalid. "
+                f"Valid values: {sorted(valid_proves)}"
             )
 
     obs_aspects = {obs.aspect for obs in fond.observations}
     if bf.focus.proves not in obs_aspects:
         errors.append(
-            f"focus.proves='{bf.focus.proves}' invalide. "
-            f"Doit correspondre à un aspect de observations: {sorted(obs_aspects)}"
+            f"focus.proves='{bf.focus.proves}' is invalid. "
+            f"Must match an observation aspect: {sorted(obs_aspects)}"
         )
     return errors
 
@@ -118,14 +148,18 @@ def _validate_finale(data: dict) -> list[str]:
     step6 = Step6Output.model_validate(data)
     errors = []
     if len(step6.synthesis.points) != 3:
-        errors.append(f"synthesis.points doit contenir exactement 3 items, {len(step6.synthesis.points)} produit(s)")
+        errors.append(f"synthesis.points must contain exactly 3 items, got {len(step6.synthesis.points)}")
+    if not step6.synthesis.open_question.strip():
+        errors.append("synthesis.open_question is empty")
+    if not step6.synthesis.engagement_question.strip():
+        errors.append("synthesis.engagement_question is empty")
     if not (3 <= len(step6.go_further.items) <= 4):
-        errors.append(f"go_further.items doit contenir 4 à 6 items, {len(step6.go_further.items)} produit(s)")
+        errors.append(f"go_further.items must contain 3–4 items, got {len(step6.go_further.items)}")
     if len(step6.cta.post_reading_questions) != 2:
-        errors.append(f"cta.post_reading_questions doit contenir exactement 2 items")
+        errors.append(f"cta.post_reading_questions must contain exactly 2 items, got {len(step6.cta.post_reading_questions)}")
     blind_spots = [q for q in step6.cta.post_reading_questions if q.type == "blind_spot"]
     if not blind_spots:
-        errors.append("cta.post_reading_questions: au moins une question doit être de type 'blind_spot'")
+        errors.append("cta.post_reading_questions: at least one question must be of type 'blind_spot'")
     return errors
 
 
@@ -296,7 +330,7 @@ Ne conclus pas. Capture uniquement ce que le texte contient et ce qu'il ne conti
     title_line = article_title or "(non extrait)"
     chapo_line = article_chapo or "(non extrait)"
     print("[2/6] Avant de lire…", file=sys.stderr, flush=True)
-    step2_data = _call(
+    step2_data = _call_with_retry(
         f"""{article}
 
 ---
@@ -316,6 +350,7 @@ Produis cadrage, context et watch_out selon le prompt système.
 - context : contexts, who_is_speaking, important_facts, key_terms (1–2 items chacun), next_slide_hook
 - watch_out : 4–5 items (text + refers_to: fond/forme/faits/biais), triés fond→forme→faits→biais, next_slide_hook""",
         Step2Output.model_json_schema(),
+        validator=_validate_avant_de_lire,
         no_api=no_api,
     )
     step2 = Step2Output.model_validate(step2_data)
@@ -392,7 +427,7 @@ ANALYSE — LA FORME (étape 4) :
 
 ÉTAPE 5/6 — ANNOTATIONS (slides 8 et 9)
 
-Produis facts_vs_opinions (2–4 items) et biases_and_focus (1–2 biais + 1 focus).
+Produis facts_vs_opinions (exactement 4 items) et biases_and_focus (1–2 biais + 1 focus).
 Contrainte : chaque proves doit correspondre exactement à un aspect/emotion/beneficiary de l'analyse globale.
 Citations verbatim : mot pour mot depuis l'article — jamais paraphrasées.
 Scores confidence : applique la méthodologie du prompt système.
@@ -429,7 +464,7 @@ ANNOTATIONS (étape 5) :
 L'analyse complète est disponible ci-dessus. Produis :
 - hook : topic, sub_topic, headline (≤12 mots), context_line (≤20 mots)
 - interest : why_read (1 phrase), pull_quote (optionnel), next_slide_hook
-- synthesis : exactement 3 points courts issus de l'analyse — chaque point s'arrête juste avant la conclusion
+- synthesis : exactement 3 points courts issus de l'analyse — chaque point s'arrête juste avant la conclusion. open_question (1 phrase rétrospective ou de fond ancrée dans les biais identifiés en slide 7 — "Aviez-vous repéré…" ou question que l'analyse soulève sans trancher). engagement_question (1 question ouverte invitant à commenter, ancrée dans la tension principale de la synthèse).
 - go_further : 3 à 4 ressources (articles, livres, documentaires, podcasts…) pour aller plus loin. Pour chaque item : title, source, media_type, category (deep_dive ou question_answer), url (si disponible), duration_minutes, why_explore (1 phrase), answers_question (si question_answer : copier verbatim la question de cta.post_reading_questions à laquelle cette ressource répond)
 - cta : engagement_sentence (1 phrase invitant à commenter), post_reading_questions (exactement 2, dont au moins 1 blind_spot)""",
         Step6Output.model_json_schema(),
