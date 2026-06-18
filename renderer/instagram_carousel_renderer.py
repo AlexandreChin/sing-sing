@@ -9,7 +9,7 @@ from PIL import Image
 from jinja2 import Environment, FileSystemLoader
 from playwright.sync_api import sync_playwright
 
-from models.carousel import ArticleFullAnalysis
+from models.full_analysis import ArticleFullAnalysis
 
 TEMPLATES_DIR = Path(__file__).parent / "templates"
 SLIDE_W, SLIDE_H = 1080, 1350
@@ -146,7 +146,7 @@ def render_from_json(json_path: Path, out_dir: Path) -> list[Path]:
 if __name__ == "__main__":
     import sys
     if len(sys.argv) < 2:
-        print("Usage: python -m renderer.render <carousel.json> [output_dir]")
+        print("Usage: python -m renderer.instagram_carousel_renderer <carousel.json> [output_dir]")
         sys.exit(1)
     src = Path(sys.argv[1])
     dst = Path(sys.argv[2]) if len(sys.argv) > 2 else src.parent / src.stem

@@ -22,7 +22,7 @@ body {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  background: radial-gradient(ellipse at 50% 40%, #272727 0%, #000000 65%);
+  background: radial-gradient(ellipse at 50% 40%, #161616 0%, #000000 70%);
 }
 .slide::before {
   content: '';

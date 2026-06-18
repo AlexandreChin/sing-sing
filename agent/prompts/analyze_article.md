@@ -63,7 +63,7 @@ Donne 4 à 5 consignes de lecture — "en lisant, faites attention à X". Chaque
 
 Note : les `title_bullets` produits pour la partie 2 seront affichés en tête de cette partie comme points de vigilance supplémentaires sur le titre (avec le badge "La forme").
 
-- `watch_out` : 4 à 5 items. Chaque item a deux champs :
+- `watch_out` : 2 à 8 items. Chaque item a deux champs :
   - `text` : la consigne de lecture, formulée comme une invitation — "observez comment…", "repérez à qui…", "notez chaque fois que…". Sois suffisamment précis pour que l'indice pointe vers quelque chose de réel dans cet article spécifique — pas une consigne générique. Arrête-toi avant la conclusion : donne le fil, pas la pelote.
   - `refers_to` : la partie d'analyse à laquelle cet item renvoie — `analysis_fond` (partie 4), `analysis_forme` (partie 5), `facts_vs_opinions` (partie 6), ou `biases_and_focus` (partie 7).
 
@@ -93,13 +93,17 @@ Le lecteur doit avoir le sentiment d'avoir eu le bon instinct — il a été ale
 
 - `main_claim` (1 phrase, ≤ 15 mots) : la thèse centrale en une ligne. Si tu dépasses 15 mots, coupe.
 
-- `premisses` (1 à 3 items) : les prémisses explicites, ou implicites mais évidentes et acceptées. Chaque item est un objet avec deux champs :
+- `premisses` (1 à 4 items) : les prémisses explicites, ou implicites mais évidentes et acceptées. Chaque item est un objet avec deux champs :
   - `statement` : la prémisse en une phrase
   - `quality` : si elle repose sur des données solides, ou si elle est fragilisée par : une analogie faible, un cas isolé généralisé (anecdote), un biais de confirmation, un biais de survivant, ou une simple assertion non étayée
 
-- `implicit_assumptions` (1 à 3 items) : les hypothèses implicites et discutables que l'auteur doit poser pour que son argument tienne — ce qui doit être vrai, mais n'est jamais dit ni justifié. Soit concis. Une seule phrase. Arrête-toi à l'observation ; ne dis pas si l'hypothèse est juste ou fausse.
+- `implicit_assumptions` (1 à 4 items) : les hypothèses implicites et discutables que l'auteur doit poser pour que son argument tienne — ce qui doit être vrai, mais n'est jamais dit ni justifié. Chaque item est un objet avec deux champs :
+  - `statement` : la supposition en une phrase — arrête-toi à l'observation, ne dis pas si elle est juste ou fausse
+  - `impact` : ce qui s'effondre si cette hypothèse est fausse (1 phrase)
 
-- `blind_spots` (1 à 3 items) : les points de vue importants **absents ou minimisés** qui auraient pu modifier la conclusion. Couvre deux cas distincts : (1) ce qui est totalement absent du texte, (2) ce qui est mentionné mais traité en un mot, relégué en fin de paragraphe, ou noyé dans une concession — le biais par omission partielle est aussi significatif que le silence total.
+- `blind_spots` (1 à 4 items) : les points de vue importants **absents ou minimisés** qui auraient pu modifier la conclusion. Couvre deux cas distincts : (1) ce qui est totalement absent du texte, (2) ce qui est mentionné mais traité en un mot, relégué en fin de paragraphe, ou noyé dans une concession. Chaque item est un objet avec deux champs :
+  - `topic` : ce qui est absent ou minimisé (1 phrase courte)
+  - `significance` : pourquoi sa présence aurait changé la conclusion (1 phrase)
 
 - `emphasis` (1 à 3 items) : ce que l'auteur a mis en avant de façon disproportionnée — ce sur quoi le texte revient plusieurs fois, ce qui occupe le plus d'espace, ce qui est placé en ouverture ou en clôture. Formule comme une observation de proportion : "Le texte consacre X paragraphes à Y alors que Z n'est évoqué qu'une fois."
 
@@ -110,7 +114,7 @@ Le lecteur doit avoir le sentiment d'avoir eu le bon instinct — il a été ale
 
   Un argument peut être valide et non solide, ou solide sans être valide.
 
-- `observations` (exactement 3 items). Chaque item :
+- `observations` (1 à 5 items). Chaque item :
   - `aspect` (1 mot)
   - `summary` (1 phrase, 2 maximum, sans citation)
   - `seeds` : objet pointant vers l'élément de la partie 2 qui a planté cette observation :
@@ -158,7 +162,7 @@ Identifie qui bénéficie du cadrage adopté. Pas une lecture complotiste — un
 
 ## Partie 6 — Faits vs Opinions
 
-Montre au lecteur ce qui sépare un fait sourcé et vérifiable d'une opinion de l'auteur. Exactement 4 items.
+Montre au lecteur ce qui sépare un fait sourcé et vérifiable d'une opinion de l'auteur. 1 à 6 items.
 
 **Contrainte stricte : chaque item doit ancrer dans le texte un item spécifique de l'analyse globale (parties 4–5).** La chaîne : parties 2–3 plantent → parties 4–5 cadrent → parties 6–7 prouvent dans le texte.
 
@@ -208,7 +212,7 @@ Montre au lecteur exactement où dans le texte les observations globales sont vi
 
 **Contrainte stricte : chaque item doit être l'illustration directe d'un item de l'analyse globale (parties 4–5).** Si une citation est intéressante mais ne prouve rien de ce qui a été posé en parties 4–5, elle n'a pas sa place ici.
 
-### Biais & Procédés rhétoriques — exactement 3 items
+### Biais & Procédés rhétoriques — 1 à 4 items
 
 Deux types d'items distincts, à distinguer explicitement via le champ `item_type` :
 
@@ -216,7 +220,7 @@ Deux types d'items distincts, à distinguer explicitement via le champ `item_typ
 
 **`"fallacy"` — Glissements logiques** : endroits où la conclusion ne suit pas strictement des prémisses — fausse équivalence (traiter deux choses différentes comme identiques), généralisation abusive (tirer une règle d'un cas), pente glissante (enchaîner des conséquences sans les justifier), argument circulaire (la conclusion est déjà dans la prémisse), non sequitur (la conclusion ne découle pas des faits cités), homme de paille etc. Evite les glissements en termes latins — décris ce qui se passe dans le texte.
 
-Produis exactement 3 items (mélange de `bias` et `fallacy` selon ce que l'article contient — au moins 1 de chaque type si possible).
+Produis 1 à 4 items (mélange de `bias` et `fallacy` selon ce que l'article contient — au moins 1 de chaque type si possible).
 
 Pour chaque item :
 
@@ -241,7 +245,7 @@ Une seule citation : la phrase la plus importante ou révélatrice de l'article 
 
 Ce qu'il faut retenir. Le lecteur doit pouvoir ressortir ces points lors d'un dîner entre amis.
 
-`points` : exactement 3 points courts (1 à 2 phrases chacun) qui font atterrir le lecteur après l'analyse — sans conclure à sa place. Chaque point surface une tension, un écart, une question laissée ouverte par l'article et l'analyse. Chaque point ouvre une porte — le lecteur la franchit seul. **Trie-les du plus important au moins important** — le point qui résume le mieux ce que révèle l'ensemble de l'analyse en premier.
+`points` : 1 à 5 points courts (1 à 2 phrases chacun) qui font atterrir le lecteur après l'analyse — sans conclure à sa place. Chaque point surface une tension, un écart, une question laissée ouverte par l'article et l'analyse. Chaque point ouvre une porte — le lecteur la franchit seul. **Trie-les du plus important au moins important** — le point qui résume le mieux ce que révèle l'ensemble de l'analyse en premier. Pour chaque point, indique dans `references` les IDs des nœuds qui le supportent (ex. `["obs_0", "claim_2", "bias_1"]`) — les IDs sont fournis dans le message utilisateur avant cette instruction.
 
 `open_question` (1 phrase) : question ouverte ancrée dans un procédé ou biais identifié en partie 7. Deux registres possibles à mixer : rétrospectif ("Aviez-vous repéré…", "Aviez-vous noté…") ou substantiel (une vraie question de fond que l'analyse a soulevée sans trancher). Le lecteur doit avoir envie d'y répondre. Pas générique — ancrée dans ce que révèle spécifiquement cette analyse.
 
@@ -261,7 +265,7 @@ Règles strictes pour les points :
 
 Aide le lecteur à aller plus loin, de façon non partisane.
 
-Produis 3 à 4 items. Tout format de média est valide : article, rapport, livre, documentaire, film, vidéo, podcast, article académique. Chaque item doit donner au lecteur une prochaine étape concrète et motivante.
+Produis 1 à 6 items. Tout format de média est valide : article, rapport, livre, documentaire, film, vidéo, podcast, article académique. Chaque item doit donner au lecteur une prochaine étape concrète et motivante.
 
 Pour chaque item :
 
@@ -282,7 +286,7 @@ Ton : utile, non partisan. Pas une bibliographie — chaque item doit ressembler
 
 - `engagement_sentence` (1 phrase) : une invitation directe ancrée dans une tension ou une question soulevée dans l'analyse — pas un slogan générique. Le lecteur doit avoir envie de répondre.
 
-- `post_reading_questions` (exactement 2 items) : questions dont la réponse détermine l'opinion du lecteur sur l'article. Chaque question doit pointer vers un choix de lecture : est-ce que je trouve cet argument convaincant ? Est-ce que je fais confiance à cette source ? Est-ce que ce cadrage me semble honnête ?
+- `post_reading_questions` (1 à 4 items) : questions dont la réponse détermine l'opinion du lecteur sur l'article. Chaque question doit pointer vers un choix de lecture : est-ce que je trouve cet argument convaincant ? Est-ce que je fais confiance à cette source ? Est-ce que ce cadrage me semble honnête ?
 
   Formule de façon à ce que le lecteur puisse répondre "oui", "non" ou "ça dépend" — et que chaque réponse mène quelque part différent. Les questions ne doivent pas être téléphonées : un lecteur qui a trouvé l'article convaincant doit pouvoir répondre aussi naturellement qu'un lecteur sceptique. Évite les formulations qui présupposent une conclusion critique ("sachant que…", "malgré l'absence de…", "bien que…").
 

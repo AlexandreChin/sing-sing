@@ -30,7 +30,36 @@ class TextItem(BaseModel):
         return self.text
 
 
-class CarouselInput(BaseModel):
+class ImplicitAssumption(BaseModel):
+    """What the argument silently requires to be true. Single-line in carousel, two-field in richer formats."""
+    id: str = ""
+    statement: str  # the assumption itself (one sentence)
+    impact: str     # what breaks if the assumption is wrong
+
+    def __str__(self) -> str:
+        return self.statement
+
+
+class BlindSpot(BaseModel):
+    """An angle absent or minimised in the article. Single-line in carousel, two-field in richer formats."""
+    id: str = ""
+    topic: str        # what is absent or downplayed
+    significance: str  # why it matters to the conclusion
+
+    def __str__(self) -> str:
+        return self.topic
+
+
+class SynthesisPoint(BaseModel):
+    """One key takeaway from the analysis, with explicit back-references to the nodes that support it."""
+    text: str
+    references: list[str] = Field(default_factory=list)  # node IDs: obs_N, claim_N, bias_N, er_N, cb_N, focus
+
+    def __str__(self) -> str:
+        return self.text
+
+
+class FullAnalysisInput(BaseModel):
     body: str
     title: str | None = None
     url: HttpUrl | None = None
@@ -151,17 +180,38 @@ class LogicalReasoningItem(BaseModel):
 class AnalysisFond(BaseModel):
     main_claim: str
     premisses: list[PremisseItem]
-    implicit_assumptions: list[TextItem]
-    blind_spots: list[TextItem]    # absent OR present but minimized/downplayed
+    implicit_assumptions: list[ImplicitAssumption]
+    blind_spots: list[BlindSpot]
     emphasis: list[str]            # what the author foregrounded disproportionately (1–3)
     logical_reasoning: list[LogicalReasoningItem]
     observations: list[GlobalAnalysisItem]
-    steel_man: list[SteelManItem]  # strongest challenges to the author's argument (1–3)
+    steel_man: list[SteelManItem]  # strongest challenges to the author's argument (1–4)
 
-    @field_validator("implicit_assumptions", "blind_spots", mode="before")
+    @field_validator("implicit_assumptions", mode="before")
     @classmethod
-    def _coerce_text_items(cls, v: list) -> list:
-        return [{"id": "", "text": item} if isinstance(item, str) else item for item in v]
+    def _coerce_implicit_assumptions(cls, v: list) -> list:
+        result = []
+        for item in v:
+            if isinstance(item, str):
+                result.append({"id": "", "statement": item, "impact": ""})
+            elif isinstance(item, dict) and "text" in item and "statement" not in item:
+                result.append({"id": item.get("id", ""), "statement": item["text"], "impact": ""})
+            else:
+                result.append(item)
+        return result
+
+    @field_validator("blind_spots", mode="before")
+    @classmethod
+    def _coerce_blind_spots(cls, v: list) -> list:
+        result = []
+        for item in v:
+            if isinstance(item, str):
+                result.append({"id": "", "topic": item, "significance": ""})
+            elif isinstance(item, dict) and "text" in item and "topic" not in item:
+                result.append({"id": item.get("id", ""), "topic": item["text"], "significance": ""})
+            else:
+                result.append(item)
+        return result
 
 
 # Partie 7 (analysis_forme)
@@ -242,9 +292,14 @@ class BiasesAndFocus(BaseModel):
 
 # Partie 10
 class Synthesis(BaseModel):
-    points: list[str]  # exactly 3, sorted most important first
+    points: list[SynthesisPoint]  # 1–5, sorted most important first
     open_question: str  # analytical question from bias analysis (displayed first on slide 8)
     engagement_question: str  # reader engagement CTA (displayed second on slide 8)
+
+    @field_validator("points", mode="before")
+    @classmethod
+    def _coerce_synthesis_points(cls, v: list) -> list:
+        return [{"text": item, "references": []} if isinstance(item, str) else item for item in v]
 
 
 # Partie 11

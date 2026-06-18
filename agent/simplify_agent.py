@@ -10,7 +10,7 @@ from pathlib import Path
 
 import anthropic
 
-from models.carousel import ArticleFullAnalysis
+from models.full_analysis import ArticleFullAnalysis
 
 client = anthropic.Anthropic()
 
