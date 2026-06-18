@@ -1,12 +1,12 @@
-"""Multi-step carousel analysis pipeline.
+"""Multi-step full article analysis pipeline.
 
 Steps:
   1. Extraction   — raw facts, claims, actors, omissions (no interpretation)
-  2. Avant de lire — cadrage + context + watch_out (slides 3–5)
-  3. Analyse fond  — main_claim, assumptions, blind_spots, observations (slide 6)
-  4. Analyse forme — emotional_register, cui_bono (slide 7)
-  5. Annotations  — facts_vs_opinions + biases_and_focus (slides 8–9)
-  6. Finale        — hook + interest + synthesis + cta (slides 1–2, 10–11)
+  2. Avant de lire — cadrage + context + watch_out
+  3. Analyse fond  — main_claim, assumptions, blind_spots, observations
+  4. Analyse forme — emotional_register, cui_bono
+  5. Annotations  — facts_vs_opinions + biases_and_focus
+  6. Finale        — hook + interest + synthesis + cta
 """
 import json
 import re
@@ -16,17 +16,17 @@ from pathlib import Path
 
 import anthropic
 
-from models.carousel import (
+from models.full_analysis import (
     AnalysisFond,
     AnalyseForme,
     ArticleExtraction,
     ArticleFullAnalysis,
     ArticleMetadata,
-    CarouselInput,
+    FullAnalysisInput,
     ProvenByRef,
     TextItem,
 )
-from models.carousel_steps import ExtractionResult, Step2Output, Step5Output, Step6Output
+from models.full_analysis_steps import ExtractionResult, Step2Output, Step5Output, Step6Output
 
 client = anthropic.Anthropic()
 
@@ -43,8 +43,8 @@ def _validate_avant_de_lire(data: dict) -> list[str]:
     step2 = Step2Output.model_validate(data)
     errors = []
     n = len(step2.watch_out.items)
-    if not (4 <= n <= 5):
-        errors.append(f"watch_out.items: expected 4–5, got {n}")
+    if not (2 <= n <= 8):
+        errors.append(f"watch_out.items: expected 2–8, got {n}")
     if not step2.context.contexts:
         errors.append("context.contexts is empty")
     if not step2.context.important_facts:
@@ -60,8 +60,8 @@ def _validate_fond(data: dict) -> list[str]:
     if not fond.main_claim:
         errors.append("analysis_fond.main_claim is empty")
     n = len(fond.observations)
-    if not (2 <= n <= 3):
-        errors.append(f"observations: expected 2–3, got {n}")
+    if not (1 <= n <= 5):
+        errors.append(f"observations: expected 1–5, got {n}")
     for i, obs in enumerate(fond.observations):
         if not obs.seeds.excerpt:
             errors.append(f"observations[{i}].seeds.excerpt is empty")
@@ -127,8 +127,8 @@ def _validate_annotations(data: dict, fond_data: dict, forme_data: dict) -> list
 
     fvo = step5.facts_vs_opinions
     n_claims = len(fvo.claims_and_sources)
-    if n_claims != 4:
-        errors.append(f"claims_and_sources: expected exactly 4, got {n_claims}")
+    if not (1 <= n_claims <= 6):
+        errors.append(f"claims_and_sources: expected 1–6, got {n_claims}")
     for i, claim in enumerate(fvo.claims_and_sources):
         err = _check_proves(claim.proves, f"claims_and_sources[{i}]")
         if err:
@@ -136,8 +136,8 @@ def _validate_annotations(data: dict, fond_data: dict, forme_data: dict) -> list
 
     bf = step5.biases_and_focus
     n_biases = len(bf.biases_and_rhetoric)
-    if n_biases != 3:
-        errors.append(f"biases_and_rhetoric: expected exactly 3, got {n_biases}")
+    if not (1 <= n_biases <= 4):
+        errors.append(f"biases_and_rhetoric: expected 1–4, got {n_biases}")
     for i, bias in enumerate(bf.biases_and_rhetoric):
         err = _check_proves(bias.proves, f"biases_and_rhetoric[{i}]")
         if err:
@@ -157,20 +157,22 @@ def _validate_annotations(data: dict, fond_data: dict, forme_data: dict) -> list
 def _validate_finale(data: dict) -> list[str]:
     step6 = Step6Output.model_validate(data)
     errors = []
-    if len(step6.synthesis.points) != 3:
-        errors.append(f"synthesis.points must contain exactly 3 items, got {len(step6.synthesis.points)}")
+    n_points = len(step6.synthesis.points)
+    if not (1 <= n_points <= 5):
+        errors.append(f"synthesis.points must contain 1–5 items, got {n_points}")
     if not step6.synthesis.open_question.strip():
         errors.append("synthesis.open_question is empty")
     if not step6.synthesis.engagement_question.strip():
         errors.append("synthesis.engagement_question is empty")
-    if not (3 <= len(step6.go_further.items) <= 4):
-        errors.append(f"go_further.items must contain 3–4 items, got {len(step6.go_further.items)}")
-    if len(step6.cta.post_reading_questions) != 2:
-        errors.append(f"cta.post_reading_questions must contain exactly 2 items, got {len(step6.cta.post_reading_questions)}")
+    n_go = len(step6.go_further.items)
+    if not (1 <= n_go <= 6):
+        errors.append(f"go_further.items must contain 1–6 items, got {n_go}")
+    n_cta_q = len(step6.cta.post_reading_questions)
+    if not (1 <= n_cta_q <= 4):
+        errors.append(f"cta.post_reading_questions must contain 1–4 items, got {n_cta_q}")
     blind_spots = [q for q in step6.cta.post_reading_questions if q.type == "blind_spot"]
     if not blind_spots:
         errors.append("cta.post_reading_questions: at least one question must be of type 'blind_spot'")
-    n_cta_q = len(step6.cta.post_reading_questions)
     for i, item in enumerate(step6.go_further.items):
         if item.cta_question_index is not None and not (0 <= item.cta_question_index < n_cta_q):
             errors.append(
@@ -299,7 +301,7 @@ def _j(data: dict) -> str:
     return json.dumps(data, ensure_ascii=False, indent=2)
 
 
-def _article_header(input: CarouselInput) -> str:
+def _article_header(input: FullAnalysisInput) -> str:
     parts = []
     if input.title:
         parts.append(f"Titre : {input.title}")
@@ -367,9 +369,30 @@ def _assign_ids(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
     })
 
 
+# ── Node index for synthesis references ──────────────────────────────────────
+
+def _build_node_index(fond: AnalysisFond, forme: AnalyseForme, step5_data: dict) -> str:
+    """Build a human-readable index of available node IDs for the LLM to reference."""
+    lines = ["NŒUDS DISPONIBLES POUR LES RÉFÉRENCES DE SYNTHÈSE :"]
+    for i, obs in enumerate(fond.observations):
+        lines.append(f"  obs_{i} → observation « {obs.aspect} »")
+    for i, er in enumerate(forme.emotional_register):
+        lines.append(f"  er_{i} → registre émotionnel « {er.emotion} »")
+    for i, cb in enumerate(forme.cui_bono):
+        lines.append(f"  cb_{i} → cui bono « {cb.beneficiary} »")
+    for i, claim in enumerate(step5_data["facts_vs_opinions"]["claims_and_sources"]):
+        q = claim["quote"][:35].replace("\n", " ")
+        lines.append(f"  claim_{i} → affirmation « {q}… »")
+    for i, bias in enumerate(step5_data["biases_and_focus"]["biases_and_rhetoric"]):
+        lines.append(f"  bias_{i} → biais « {bias['label']} »")
+    focus_quote = step5_data["biases_and_focus"]["focus"]["quote"][:35].replace("\n", " ")
+    lines.append(f"  focus → focus éditorial « {focus_quote}… »")
+    return "\n".join(lines)
+
+
 # ── Pipeline ─────────────────────────────────────────────────────────────────
 
-async def analyze_for_carousel(input: CarouselInput, no_api: bool = False) -> ArticleFullAnalysis:
+async def analyze_for_full_analysis(input: FullAnalysisInput, no_api: bool = False) -> ArticleFullAnalysis:
     article = _article_header(input)
     article_title, article_chapo = _extract_title_chapo(input.body)
 
@@ -419,7 +442,7 @@ CHAPEAU : {chapo_line}
 Produis cadrage, context et watch_out selon le prompt système.
 - cadrage : analyse du titre et du chapeau de l'article (title_bullets + chapo_bullets)
 - context : contexts, who_is_speaking, important_facts, key_terms (1–2 items chacun), next_slide_hook
-- watch_out : 4–5 items (text + refers_to: analysis_fond/analysis_forme/facts_vs_opinions/biases_and_focus), triés analysis_fond→analysis_forme→facts_vs_opinions→biases_and_focus, next_slide_hook""",
+- watch_out : 2–8 items (text + refers_to: analysis_fond/analysis_forme/facts_vs_opinions/biases_and_focus), triés analysis_fond→analysis_forme→facts_vs_opinions→biases_and_focus, next_slide_hook""",
         Step2Output.model_json_schema(),
         validator=_validate_avant_de_lire,
         no_api=no_api,
@@ -445,13 +468,13 @@ AVANT DE LIRE (étape 2) :
 
 Produis analysis_fond :
 - main_claim (1 phrase, ≤ 15 mots)
-- premisses (1–3) : prémisses explicites ou implicites mais évidentes que l'auteur accepte
-- implicit_assumptions (1–3) : hypothèses implicites et discutables que l'argument suppose vraies sans le dire
-- blind_spots (1–3) : angles absents OU minimisés qui auraient pu modifier la conclusion
+- premisses (1–4) : prémisses explicites ou implicites mais évidentes que l'auteur accepte — objet {{statement, quality}}
+- implicit_assumptions (1–4) : hypothèses implicites et discutables que l'argument suppose vraies sans le dire — objet {{statement (la supposition en 1 phrase), impact (ce qui s'effondre si elle est fausse)}}
+- blind_spots (1–4) : angles absents OU minimisés — objet {{topic (ce qui manque), significance (pourquoi ça change la conclusion)}}
 - emphasis (1–3) : ce que l'auteur met en avant de façon disproportionnée — ce sur quoi le texte revient, ce qui occupe le plus d'espace
-- logical_reasoning (1–3) : étapes inférentielles qui conduisent des prémisses à la conclusion
-- observations (2–3) : aspect (1 mot), summary (1–2 phrases), seeds (objet {source, index, excerpt} — source ∈ "watch_out"/"context"/"important_fact", index = position 0-based dans la liste, excerpt = extrait court)
-- steel_man (1–3) : contre-arguments les plus solides — counterargument, seeds (objet {source, index, excerpt} — source ∈ "premisse"/"implicit_assumption"/"blind_spot"/"logical_reasoning"), alternative_conclusion
+- logical_reasoning (1–4) : étapes inférentielles qui conduisent des prémisses à la conclusion
+- observations (1–5) : aspect (1 mot), summary (1–2 phrases), seeds (objet {{source, index, excerpt}} — source ∈ "watch_out"/"context"/"important_fact", index = position 0-based dans la liste, excerpt = extrait court)
+- steel_man (1–3) : contre-arguments les plus solides — counterargument, seeds (objet {{source, index, excerpt}} — source ∈ "premisse"/"implicit_assumption"/"blind_spot"/"logical_reasoning"), alternative_conclusion
 
 Contrainte : chaque observation doit être ancrée dans un context, important_fact ou watch_out de l'étape 2.
 Chaque context, important_fact et watch_out doit être adressé par au moins une observation.""",
@@ -483,7 +506,7 @@ ANALYSE — LE FOND (étape 3) :
 
 Produis analysis_forme : emotional_register (1–2 items), cui_bono (1–2 items), next_slide_hook.
 Ces items doivent être ancrés dans les observations et seeds de l'étape 3.
-Pour seeds de chaque item : objet {source, index, excerpt} — source ∈ "watch_out"/"context"/"important_fact", index = position 0-based, excerpt = extrait court.
+Pour seeds de chaque item : objet {{source, index, excerpt}} — source ∈ "watch_out"/"context"/"important_fact", index = position 0-based, excerpt = extrait court.
 Ils devront être prouvés dans le texte à l'étape suivante — anticipe.""",
         AnalyseForme.model_json_schema(),
         validator=_validate_forme,
@@ -509,7 +532,7 @@ ANALYSE — LA FORME (étape 4) :
 ÉTAPE 5/6 — ANNOTATIONS (slides 8 et 9)
 
 Produis facts_vs_opinions (exactement 4 items) et biases_and_focus (exactement 3 biais + 1 focus).
-Contrainte proves : chaque proves est un objet {type, label}. type est "observation", "emotional_register", ou "cui_bono". label doit correspondre exactement à un aspect/emotion/beneficiary de l'analyse globale. Pour focus, type doit être "observation".
+Contrainte proves : chaque proves est un objet {{type, label}}. type est "observation", "emotional_register", ou "cui_bono". label doit correspondre exactement à un aspect/emotion/beneficiary de l'analyse globale. Pour focus, type doit être "observation".
 Citations verbatim : mot pour mot depuis l'article — jamais paraphrasées.
 Scores confidence : applique la méthodologie du prompt système.
 next_slide_hook pour biases_and_focus.""",
@@ -521,6 +544,7 @@ next_slide_hook pour biases_and_focus.""",
 
     # Step 6 — Finale (slides 1–2, 10–11)
     print("[6/6] Finale…", file=sys.stderr, flush=True)
+    node_index = _build_node_index(fond, forme, step5_data)
     step6_data = _call_with_retry(
         f"""{article}
 
@@ -538,6 +562,8 @@ ANALYSE — LA FORME (étape 4) :
 ANNOTATIONS (étape 5) :
 {_j(step5_data)}
 
+{node_index}
+
 ---
 
 ÉTAPE 6/6 — FINALE (slides 1, 2, 10, 11, 12)
@@ -545,9 +571,9 @@ ANNOTATIONS (étape 5) :
 L'analyse complète est disponible ci-dessus. Produis :
 - hook : topic, sub_topic, headline (≤12 mots), context_line (≤20 mots)
 - interest : why_read (1 phrase), pull_quote (optionnel), next_slide_hook
-- synthesis : exactement 3 points courts issus de l'analyse — chaque point s'arrête juste avant la conclusion. open_question (1 phrase rétrospective ou de fond ancrée dans les biais identifiés en slide 7 — "Aviez-vous repéré…" ou question que l'analyse soulève sans trancher). engagement_question (1 question ouverte invitant à commenter, ancrée dans la tension principale de la synthèse).
-- go_further : 3 à 4 ressources (articles, livres, documentaires, podcasts…) pour aller plus loin. Pour chaque item : title, source, media_type, category (deep_dive ou question_answer), url (si disponible), duration_minutes, why_explore (1 phrase), cta_question_index (si question_answer : index entier 0 ou 1 de la question dans cta.post_reading_questions à laquelle cette ressource répond — null sinon)
-- cta : engagement_sentence (1 phrase invitant à commenter), post_reading_questions (exactement 2, dont au moins 1 blind_spot)""",
+- synthesis : 1 à 5 points courts issus de l'analyse, triés du plus important au moins important — chaque point s'arrête juste avant la conclusion. Pour chaque point, indique dans `references` la liste des IDs de nœuds (issus de la liste ci-dessus) qui le supportent — ex. ["obs_0", "claim_1", "bias_2"]. open_question (1 phrase rétrospective ou de fond ancrée dans les biais identifiés en slide 7 — "Aviez-vous repéré…" ou question que l'analyse soulève sans trancher). engagement_question (1 question ouverte invitant à commenter, ancrée dans la tension principale de la synthèse).
+- go_further : 1 à 6 ressources (articles, livres, documentaires, podcasts…) pour aller plus loin. Pour chaque item : title, source, media_type, category (deep_dive ou question_answer), url (si disponible), duration_minutes, why_explore (1 phrase), cta_question_index (si question_answer : index entier 0-based de la question dans cta.post_reading_questions à laquelle cette ressource répond — null sinon)
+- cta : engagement_sentence (1 phrase invitant à commenter), post_reading_questions (1 à 4, dont au moins 1 blind_spot)""",
         Step6Output.model_json_schema(),
         validator=_validate_finale,
         no_api=no_api,

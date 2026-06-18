@@ -1,8 +1,8 @@
-"""Intermediate Pydantic models for the multi-step carousel pipeline."""
+"""Intermediate Pydantic models for the multi-step full analysis pipeline."""
 from __future__ import annotations
 from typing import Literal
 from pydantic import BaseModel
-from models.carousel import (
+from models.full_analysis import (
     AnalysisFond, AnalyseForme, AuthorityAnchor, BiasesAndFocus, Cadrage,
     Context, CTA, FactsVsOpinions, GoFurther, Hook, Interest, Synthesis, WatchOut, WatchOutItem,
 )

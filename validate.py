@@ -9,20 +9,20 @@ from pathlib import Path
 
 from pydantic import ValidationError
 
-from models.carousel import ArticleFullAnalysis
+from models.full_analysis import ArticleFullAnalysis
 
 
-def validate(path: Path) -> list[str]:
+def validate(path: Path) -> tuple[list[str], dict[str, str]]:
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as e:
-        return [f"Invalid JSON: {e}"]
+        return [f"Invalid JSON: {e}"], {}
 
     # Schema validation — enums, types, required fields
     try:
         output = ArticleFullAnalysis.model_validate(data)
     except ValidationError as e:
-        return [f"Schema error: {e}"]
+        return [f"Schema error: {e}"], {}
 
     errors = []
     fond = output.analysis_fond
@@ -41,8 +41,8 @@ def validate(path: Path) -> list[str]:
     _register(output.context.important_facts, lambda x: f"fact: {x.text[:40]}")
     _register(fond.observations, lambda x: f"obs: {x.aspect}")
     _register(fond.premisses, lambda x: f"pr: {x.statement[:40]}")
-    _register(fond.implicit_assumptions, lambda x: f"ia: {x.text[:40]}")
-    _register(fond.blind_spots, lambda x: f"bs: {x.text[:40]}")
+    _register(fond.implicit_assumptions, lambda x: f"ia: {x.statement[:40]}")
+    _register(fond.blind_spots, lambda x: f"bs: {x.topic[:40]}")
     _register(fond.logical_reasoning, lambda x: f"lr: {x.step[:40]}")
     _register(forme.emotional_register, lambda x: f"er: {x.emotion}")
     _register(forme.cui_bono, lambda x: f"cb: {x.beneficiary}")
@@ -108,19 +108,20 @@ def validate(path: Path) -> list[str]:
 
     # ── Count constraints ─────────────────────────────────────────────────────
     n_claims = len(output.facts_vs_opinions.claims_and_sources)
-    if n_claims != 4:
-        errors.append(f"claims_and_sources: expected 4, got {n_claims}")
+    if not (1 <= n_claims <= 6):
+        errors.append(f"claims_and_sources: expected 1–6, got {n_claims}")
 
     n_biases = len(output.biases_and_focus.biases_and_rhetoric)
-    if n_biases != 3:
-        errors.append(f"biases_and_rhetoric: expected 3, got {n_biases}")
+    if not (1 <= n_biases <= 4):
+        errors.append(f"biases_and_rhetoric: expected 1–4, got {n_biases}")
 
-    if len(output.synthesis.points) != 3:
-        errors.append(f"synthesis.points: expected 3, got {len(output.synthesis.points)}")
+    n_synthesis = len(output.synthesis.points)
+    if not (1 <= n_synthesis <= 5):
+        errors.append(f"synthesis.points: expected 1–5, got {n_synthesis}")
 
     n_cta_q = len(output.cta.post_reading_questions)
-    if n_cta_q != 2:
-        errors.append(f"cta.post_reading_questions: expected 2, got {n_cta_q}")
+    if not (1 <= n_cta_q <= 4):
+        errors.append(f"cta.post_reading_questions: expected 1–4, got {n_cta_q}")
 
     blind_spot_qs = [q for q in output.cta.post_reading_questions if q.type == "blind_spot"]
     if not blind_spot_qs:
@@ -165,9 +166,9 @@ def validate(path: Path) -> list[str]:
     for i, obs in enumerate(fond.observations):
         for j, ref in enumerate(obs.proven_by):
             if ref.type == "claim" and not (0 <= ref.index < n_claims):
-                errors.append(f"observations[{i}].proven_by[{j}]: claim index {ref.index} out of range")
+                errors.append(f"observations[{i}].proven_by[{j}]: claim index {ref.index} out of range (0–{n_claims - 1})")
             elif ref.type == "bias" and not (0 <= ref.index < n_biases):
-                errors.append(f"observations[{i}].proven_by[{j}]: bias index {ref.index} out of range")
+                errors.append(f"observations[{i}].proven_by[{j}]: bias index {ref.index} out of range (0–{n_biases - 1})")
 
     return errors, node_registry
 

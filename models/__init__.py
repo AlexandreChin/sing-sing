@@ -1,4 +1,4 @@
 from .article import Article, ArticleAnalysis, Claim, Entity
-from .carousel import CarouselInput, ArticleFullAnalysis
+from .full_analysis import FullAnalysisInput, ArticleFullAnalysis
 
-__all__ = ["Article", "ArticleAnalysis", "Claim", "Entity", "CarouselInput", "ArticleFullAnalysis"]
+__all__ = ["Article", "ArticleAnalysis", "Claim", "Entity", "FullAnalysisInput", "ArticleFullAnalysis"]

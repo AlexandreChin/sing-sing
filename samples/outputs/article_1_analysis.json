@@ -9,235 +9,479 @@
     "article_title": "La passivité européenne face à l’extrême droite israélienne",
     "article_chapo": "La diffusion d’images humiliantes de militants propalestiniens par Itamar Ben Gvir, le ministre de la sécurité nationale israélien, a suscité l’émoi de nombreuses capitales européennes. Une réaction qui rend d’autant plus saillant leur silence sur les conditions de détention dégradantes infligées aux Palestiniens dans l’Etat hébreu."
   },
+  "extraction": {
+    "authority_anchors": [
+      {
+        "entity": "B’Tselem",
+        "used_for": "Qualifier les prisons israéliennes de « camps de torture » et affirmer la systématisation de violences à caractère sexuel"
+      },
+      {
+        "entity": "Décomptes convergents",
+        "used_for": "Établir le chiffre d’une centaine de morts en détention depuis deux ans et demi contre 230 entre 1967 et 2023"
+      },
+      {
+        "entity": "De nombreux témoignages",
+        "used_for": "Corroborer le rapport Un véritable enfer de B’Tselem"
+      },
+      {
+        "entity": "Rapport Un véritable enfer (révélé par Le Monde en janvier)",
+        "used_for": "Étayer les accusations sur la dégradation des conditions de détention"
+      }
+    ],
+    "key_quotes": [
+      "La passivité européenne face à l’extrême droite israélienne",
+      "Il fallait en plus les humilier en les montrant, mercredi 20 mai, les mains liées dans le dos, à genoux, le visage contre le sol.",
+      "Parce qu’elles ont concerné jusqu’à maintenant des Palestiniens, personne ne s’en est jamais ému au sein de la coalition au pouvoir, alors qu’elles témoignaient déjà de l’effritement de valeurs qu’Israël a longtemps revendiquées.",
+      "les prisons réservées aux Palestiniens sont devenues « des camps de torture »",
+      "une centaine de Palestiniens, selon des décomptes convergents, sont morts en détention en Israël depuis deux ans et demi, contre 230 entre 1967 et 2023.",
+      "cette passivité face à ce qui se passe aujourd’hui dans les prisons israéliennes va à l’encontre de tout ce que les Européens prétendent défendre. Elle est aussi scandaleuse que la mise en scène d’Itamar Ben Gvir."
+    ],
+    "notable_omissions": [
+      "Aucune réponse ou position d’Itamar Ben Gvir ou du gouvernement israélien sur les accusations de torture n’est rapportée",
+      "Les trois pays de l’UE ayant adopté des sanctions ne sont pas nommés",
+      "Aucune source contradictoire ou contre-décompte officiel n’est cité face au chiffre des morts en détention",
+      "La méthodologie des « décomptes convergents » et leurs auteurs ne sont pas précisés",
+      "Le contenu et les motifs invoqués par Israël pour la détention administrative ne sont pas développés",
+      "Les raisons invoquées par la France pour ne pas avoir sanctionné Ben Gvir ne sont pas mentionnées",
+      "Le contexte du 7-Octobre est mentionné mais le bilan ou la nature des massacres n’est pas détaillé"
+    ],
+    "rhetorical_patterns": [
+      "Construction sur un contraste central : émoi européen pour des militants européens vs silence sur le sort des Palestiniens",
+      "Vocabulaire chargé pour qualifier l’acteur principal : « extrême droite suprémaciste et raciste décomplexée », « morgue », « paradant »",
+      "Description visuelle détaillée de l’humiliation (mains liées, à genoux, visage contre le sol) pour mobiliser l’indignation",
+      "Mise en perspective chiffrée par opposition de deux périodes (une centaine en deux ans et demi vs 230 en 56 ans) pour souligner l’accélération",
+      "Élargissement progressif de l’acteur isolé (Ben Gvir) à la coalition au pouvoir, puis aux colons de Cisjordanie, puis aux Européens",
+      "Clôture par une équivalence morale explicite : la passivité européenne « aussi scandaleuse que la mise en scène » de Ben Gvir",
+      "Recours à un sous-titre thématique « Violences à caractère sexuel » mettant en saillance l’élément le plus grave",
+      "Désignation nominale répétée de Ben Gvir comme figure focale, là où les victimes palestiniennes restent collectives et anonymes",
+      "Usage du verbe « prétendent » pour marquer l’écart entre valeurs affichées et inaction des Européens"
+    ]
+  },
   "hook": {
     "topic": "Politique internationale",
-    "sub_topic": "Israël / Proche-Orient",
-    "headline": "Émoi pour des militants, silence pour les Palestiniens",
-    "context_line": "Pourquoi l'Europe s'indigne pour quelques militants quand une centaine de détenus meurent dans le silence ?"
+    "sub_topic": "Israël / Droits humains",
+    "headline": "Émoi pour les militants européens, silence sur les Palestiniens",
+    "context_line": "Pourquoi les mêmes images choquent l'Europe selon qui se trouve à genoux ?"
   },
   "interest": {
-    "why_read": "Un éditorial qui dénonce une incohérence européenne — et dont la construction même tient sur un seul angle de lecture.",
+    "why_read": "Un éditorial qui dénonce un deux poids, deux mesures européen — en construisant lui-même une équivalence qui mérite d'être examinée.",
     "pull_quote": "Elle est aussi scandaleuse que la mise en scène d'Itamar Ben Gvir.",
-    "next_slide_hook": "Trois points à emporter, puis les questions qui restent ouvertes."
+    "next_slide_hook": "Voici ce que cette analyse invite à retenir avant de vous forger votre propre avis."
   },
   "cadrage": {
     "title_bullets": [
-      "Repérez si le titre porte déjà un jugement avant d'exposer les faits.",
-      "Observez quel acteur le titre met en cause et lequel il laisse de côté."
+      "Notez quel acteur le titre désigne comme fautif et lequel reste dans l'ombre.",
+      "Repérez si le titre énonce un fait ou porte déjà un jugement."
     ],
     "title_analysis": [
       {
         "label": "Cadrage",
-        "observation": "Le titre vise la passivité européenne, déplaçant l'attention de l'acteur israélien vers l'inaction des Européens."
+        "observation": "Le titre vise la passivité européenne, déplaçant la focale des prisons israéliennes vers l'inaction occidentale."
       },
       {
         "label": "Vocabulaire",
-        "observation": "Qualifier d'emblée d'extrême droite installe un cadre d'évaluation avant tout examen des faits."
+        "observation": "Qualifier d'emblée le pouvoir d'extrême droite oriente la lecture avant tout argument."
       }
     ],
     "chapo_bullets": [
-      "Le chapeau bâtit un contraste émoi/silence dès la première phrase.",
-      "Il qualifie les conditions de détention avant de les documenter."
+      "Le chapeau oppose émoi pour des Européens et silence sur les Palestiniens.",
+      "Il installe d'entrée le contraste qui structure tout l'article."
     ]
   },
   "context": {
     "contexts": [
-      "L'éditorial prolonge la guerre déclenchée par les attaques du 7 octobre 2023 et la détérioration qui a suivi.",
-      "Une flottille pour Gaza a été arraisonnée et ses militants européens arrêtés en mai 2026."
+      {
+        "id": "ctx_0",
+        "text": "Depuis le 7-Octobre 2023, la guerre à Gaza s'accompagne d'un durcissement de la politique carcérale israélienne envers les Palestiniens."
+      },
+      {
+        "id": "ctx_1",
+        "text": "Une flottille pour Gaza a été arraisonnée, ses militants européens arrêtés puis montrés humiliés par un ministre israélien."
+      }
     ],
     "who_is_speaking": [
-      "Le Monde signe ici un éditorial : position collective du journal, sans auteur individuel.",
-      "Quotidien de référence français, critique régulier de la politique de la coalition israélienne actuelle."
+      "Le Monde, quotidien de référence, éditorial non signé qui engage la position collective de la rédaction.",
+      "Le journal a lui-même révélé en janvier le rapport B'Tselem qu'il cite, et tient une ligne critique sur la politique israélienne à Gaza."
     ],
     "important_facts": [
-      "B'Tselem est une ONG israélienne : ses accusations émanent de l'intérieur même d'Israël.",
-      "Le chiffre de cent morts en détention repose sur des décomptes dont la méthode et les auteurs ne sont pas précisés."
+      {
+        "id": "fact_0",
+        "text": "La détention administrative permet d'emprisonner sans inculpation ni jugement, pour une durée renouvelable indéfiniment."
+      },
+      {
+        "id": "fact_1",
+        "text": "B'Tselem, source centrale de l'article, est une ONG israélienne : la critique vient de l'intérieur d'Israël."
+      }
     ],
     "key_terms": [
       {
         "term": "Détention administrative",
-        "definition": "Emprisonnement sans inculpation ni procès, pour une durée inconnue et renouvelable indéfiniment."
+        "definition": "Emprisonnement décidé sans procès ni chef d'accusation, renouvelable sans limite de durée."
       },
       {
         "term": "B'Tselem",
-        "definition": "Organisation israélienne de défense des droits humains qui documente les violations dans les territoires et les prisons."
+        "definition": "Organisation israélienne de défense des droits humains, basée en Israël."
       }
     ],
-    "next_slide_hook": "Avant de lire, sachez où porter votre attention."
+    "next_slide_hook": "Avant de lire l'article, voici où porter votre attention."
   },
   "watch_out": {
     "items": [
       {
-        "text": "Observez si l'article examine les motifs invoqués pour justifier la détention, ou s'il les écarte d'emblée.",
-        "refers_to": "fond"
+        "id": "wo_0",
+        "text": "Observez si l'article s'attarde autant sur le sort des Palestiniens que sur celui des militants européens.",
+        "refers_to": "analysis_fond"
       },
       {
-        "text": "Notez quels acteurs ont voix au chapitre dans le texte et lesquels restent absents.",
-        "refers_to": "fond"
+        "id": "wo_1",
+        "text": "Notez quelles justifications ou quels points de vue sont absents du texte.",
+        "refers_to": "analysis_fond"
       },
       {
-        "text": "Repérez comment l'accumulation de détails sur une scène précise oriente votre réaction.",
-        "refers_to": "forme"
+        "id": "wo_2",
+        "text": "Repérez les émotions que le récit cherche à susciter, et par quels moyens.",
+        "refers_to": "analysis_forme"
       },
       {
-        "text": "Notez quels chiffres sont précisément sourcés et lesquels reposent sur des formules vagues.",
-        "refers_to": "faits"
+        "id": "wo_3",
+        "text": "Observez comment le texte élargit le propos d'un acteur isolé vers un ensemble plus large.",
+        "refers_to": "analysis_forme"
       },
       {
-        "text": "Observez si les différents camps sont jugés selon les mêmes critères.",
-        "refers_to": "biais"
+        "id": "wo_4",
+        "text": "Distinguez ce qui est attribué à une source nommée de ce qui est posé comme évident.",
+        "refers_to": "facts_vs_opinions"
+      },
+      {
+        "id": "wo_5",
+        "text": "Repérez les chiffres avancés et demandez-vous d'où ils proviennent.",
+        "refers_to": "facts_vs_opinions"
+      },
+      {
+        "id": "wo_6",
+        "text": "Notez le vocabulaire employé pour désigner chaque acteur du récit.",
+        "refers_to": "biases_and_focus"
+      },
+      {
+        "id": "wo_7",
+        "text": "Repérez la comparaison finale et ce qu'elle place sur le même plan.",
+        "refers_to": "biases_and_focus"
       }
     ],
-    "next_slide_hook": "Ces repères en main, voyons comment l'auteur a traité le sujet."
+    "next_slide_hook": "Voyons maintenant ce que révèle le fond de l'article."
   },
   "analysis_fond": {
-    "main_claim": "La passivité européenne face aux abus israéliens contredit les valeurs qu'elle prétend défendre.",
+    "main_claim": "La passivité européenne face aux abus israéliens contredit les valeurs que l'Europe revendique.",
     "premisses": [
-      "Les conditions de détention des Palestiniens constituent des traitements dégradants — prémisse reposant sur une source unique et engagée (B'Tselem), donc une assertion documentée mais non corroborée par une source extérieure nommée.",
-      "L'Europe réagit selon la nationalité des victimes : émoi pour des militants européens, silence pour les Palestiniens — prémisse présentée comme évidente à partir d'un seul épisode contrasté.",
-      "Une réaction cohérente impliquerait des sanctions contre Ben Gvir — prémisse implicite admise sans être discutée."
+      {
+        "id": "pr_0",
+        "statement": "Les images diffusées par Ben Gvir constituent une humiliation délibérée de détenus.",
+        "quality": "Repose sur une scène documentée et reprise jusqu'au sein du gouvernement israélien, qui l'a condamnée."
+      },
+      {
+        "id": "pr_1",
+        "statement": "Les conditions de détention des Palestiniens se sont gravement dégradées depuis le 7-Octobre.",
+        "quality": "Étayée par un rapport et des témoignages, mais émanant d'une seule organisation, sans source indépendante mobilisée."
+      },
+      {
+        "id": "pr_2",
+        "statement": "Réagir aux militants européens et se taire sur les Palestiniens relève d'un même devoir moral.",
+        "quality": "Assertion non étayée : l'équivalence entre les deux situations est posée plutôt que démontrée."
+      },
+      {
+        "id": "pr_3",
+        "statement": "L'Europe dispose des moyens d'infléchir la politique israélienne par des sanctions.",
+        "quality": "Simple assertion : le levier réel des sanctions sur le comportement israélien n'est jamais établi."
+      }
     ],
     "implicit_assumptions": [
-      "Les deux situations — humiliation des militants et sort des Palestiniens — relèvent d'un même standard moral directement comparable.",
-      "Une condamnation européenne plus ferme suffirait à infléchir le comportement du gouvernement israélien.",
-      "Les morts en détention engagent une responsabilité directe de l'administration pénitentiaire placée sous l'autorité de Ben Gvir."
+      {
+        "id": "ia_0",
+        "statement": "Des sanctions européennes modifieraient le comportement du gouvernement israélien.",
+        "impact": "Si elles restaient sans effet, reprocher l'inaction perd l'essentiel de sa force."
+      },
+      {
+        "id": "ia_1",
+        "statement": "L'émoi pour des militants européens et le silence sur les Palestiniens sont moralement comparables.",
+        "impact": "Si les deux situations diffèrent en nature, l'accusation d'incohérence s'effondre."
+      },
+      {
+        "id": "ia_2",
+        "statement": "Le rapport B'Tselem et les décomptes convergents reflètent fidèlement la réalité carcérale.",
+        "impact": "Si leur méthodologie était contestable, le socle factuel de la démonstration vacille."
+      }
     ],
     "blind_spots": [
-      "Aucune voix invoquant des motifs de sécurité pour justifier la détention administrative n'est rapportée, même pour être réfutée.",
-      "Les massacres du 7-Octobre sont posés comme contexte en une phrase, leurs victimes n'étant jamais développées.",
-      "Les raisons spécifiques de l'abstention française ne sont pas exposées, l'inaction étant ramenée à une simple incohérence."
+      {
+        "id": "bs_0",
+        "topic": "La réponse d'Israël aux accusations de torture n'est jamais rapportée.",
+        "significance": "Sans contradiction, le lecteur n'entend qu'une version d'un dossier pourtant disputé."
+      },
+      {
+        "id": "bs_1",
+        "topic": "Les raisons invoquées par la France pour ne pas sanctionner restent absentes.",
+        "significance": "Elles pourraient expliquer une prudence que le texte qualifie d'emblée de passivité."
+      },
+      {
+        "id": "bs_2",
+        "topic": "Le contexte sécuritaire du 7-Octobre est mentionné mais non développé.",
+        "significance": "Il pourrait éclairer, sans la justifier, l'origine du durcissement carcéral décrit."
+      },
+      {
+        "id": "bs_3",
+        "topic": "Les trois pays ayant sanctionné et la portée de leurs sanctions ne sont pas précisés.",
+        "significance": "Leur ampleur réelle déterminerait si l'abstention française est vraiment isolée."
+      }
     ],
     "emphasis": [
-      "La scène d'humiliation des militants ouvre et referme le texte, encadrant l'ensemble de l'argument sur la même image.",
-      "Le contraste émoi européen / silence sur les Palestiniens est réaffirmé à chaque paragraphe.",
-      "La comparaison chiffrée — une centaine de morts en deux ans et demi contre 230 en cinquante-six ans — occupe la place de preuve centrale."
+      "Le texte revient sans cesse sur la figure nommée de Ben Gvir, là où les Palestiniens demeurent une masse anonyme.",
+      "La scène d'humiliation est décrite en détail — mains liées, à genoux, visage contre le sol — alors que les conditions de détention sont résumées en quelques lignes.",
+      "L'éditorial s'ouvre et se referme sur l'opposition émoi européen / silence, qui encadre toute la démonstration."
     ],
     "logical_reasoning": [
-      "De l'émoi suscité par les militants, le texte infère un standard moral que le silence sur les Palestiniens trahirait : inférence valide seulement si les deux situations sont tenues pour comparables, ce qui n'est pas établi (validité).",
-      "De la tutelle de Ben Gvir sur les prisons, le texte glisse vers sa responsabilité dans les décès : l'étape entre autorité administrative et causalité directe n'est pas démontrée (validité).",
-      "Le rapport de B'Tselem est traité comme un fait acquis : la structure du raisonnement tient, mais sa solidité dépend entièrement d'une source unique et engagée, jamais recoupée dans le texte (solidité)."
+      {
+        "id": "lr_0",
+        "step": "De l'émoi européen pour les militants, le texte infère une indifférence coupable envers les Palestiniens.",
+        "problem_type": "validity",
+        "diagnosis": "Réagir à un fait nouveau et médiatisé n'implique pas logiquement l'indifférence à une autre situation."
+      },
+      {
+        "id": "lr_1",
+        "step": "Du rapport B'Tselem et de décomptes convergents, le texte conclut à une réalité de torture systématisée.",
+        "problem_type": "soundness",
+        "diagnosis": "La conclusion tiendrait si les sources étaient solidement corroborées, mais elles reposent sur une seule organisation et des décomptes non détaillés."
+      },
+      {
+        "id": "lr_2",
+        "step": "De l'inaction européenne, le texte déduit une trahison des valeurs affichées par l'Europe.",
+        "problem_type": null,
+        "diagnosis": null
+      }
     ],
     "observations": [
       {
-        "aspect": "Justification",
-        "summary": "L'article écarte d'emblée tout motif invoqué pour la détention, qui n'est jamais examinée ni même citée pour être contestée.",
-        "seeds": "watch_out: 'Observez si l'article examine les motifs invoqués pour justifier la détention…'"
+        "id": "obs_0",
+        "aspect": "Asymétrie",
+        "summary": "Le texte concentre son attention sur les militants européens et sur Ben Gvir ; le sort des Palestiniens sert surtout de toile de fond.",
+        "seeds": {
+          "source": "watch_out",
+          "index": 0,
+          "excerpt": "s'attarde autant sur le sort des Palestiniens que sur celui des militants européens"
+        },
+        "proven_by": [
+          {
+            "type": "focus",
+            "index": 0
+          }
+        ]
       },
       {
-        "aspect": "Voix",
-        "summary": "Le texte donne la parole aux accusateurs et aux instances européennes, mais aucune voix israélienne défendant la détention n'apparaît. Le débat est ainsi cadré d'un seul côté.",
-        "seeds": "watch_out: 'Notez quels acteurs ont voix au chapitre dans le texte et lesquels restent absents.'"
+        "id": "obs_1",
+        "aspect": "Omissions",
+        "summary": "Aucune justification israélienne ni raison française n'est rapportée, laissant la démonstration avancer sans contradiction.",
+        "seeds": {
+          "source": "watch_out",
+          "index": 1,
+          "excerpt": "quelles justifications ou quels points de vue sont absents du texte"
+        },
+        "proven_by": []
       },
       {
-        "aspect": "Sourçage",
-        "summary": "Le chiffre central de cent morts repose sur des « décomptes convergents » dont ni la méthode ni les auteurs ne sont précisés, alors qu'il porte le poids probatoire de l'argument.",
-        "seeds": "important_fact: 'Le chiffre de cent morts en détention repose sur des décomptes dont la méthode et les auteurs ne sont pas précisés.'"
+        "id": "obs_2",
+        "aspect": "Détention",
+        "summary": "L'article ancre l'épisode dans un durcissement carcéral post-7-Octobre, dont le régime de détention administrative — sans inculpation ni jugement — devient l'illustration.",
+        "seeds": {
+          "source": "important_fact",
+          "index": 0,
+          "excerpt": "détention administrative permet d'emprisonner sans inculpation ni jugement"
+        },
+        "proven_by": [
+          {
+            "type": "claim",
+            "index": 1
+          }
+        ]
+      },
+      {
+        "id": "obs_3",
+        "aspect": "Source",
+        "summary": "L'accusation centrale repose sur B'Tselem, ONG israélienne, ce que l'article met en avant comme une critique venue de l'intérieur même d'Israël.",
+        "seeds": {
+          "source": "important_fact",
+          "index": 1,
+          "excerpt": "B'Tselem, source centrale de l'article, est une ONG israélienne"
+        },
+        "proven_by": [
+          {
+            "type": "claim",
+            "index": 2
+          }
+        ]
+      },
+      {
+        "id": "obs_4",
+        "aspect": "Déclencheur",
+        "summary": "L'arraisonnement de la flottille et l'humiliation filmée des militants donnent à l'éditorial son point de départ et son angle.",
+        "seeds": {
+          "source": "context",
+          "index": 1,
+          "excerpt": "flottille pour Gaza a été arraisonnée, ses militants européens arrêtés puis montrés humiliés"
+        },
+        "proven_by": []
       }
     ],
     "steel_man": [
       {
-        "counterargument": "La détention administrative et la dégradation des conditions carcérales peuvent relever d'un contexte sécuritaire exceptionnel ouvert par le 7-Octobre, que l'éditorial mentionne sans en tirer de conséquence.",
-        "seeds": "Angle mort : aucune voix invoquant des motifs de sécurité n'est rapportée.",
-        "alternative_conclusion": "La prudence européenne refléterait une prise en compte légitime du contexte sécuritaire plutôt qu'une passivité coupable."
+        "counterargument": "Réagir à un fait nouveau et filmé n'est pas de l'indifférence : l'attention médiatique suit l'actualité, pas un barème moral.",
+        "seeds": {
+          "source": "implicit_assumption",
+          "index": 1,
+          "excerpt": "moralement comparables"
+        },
+        "alternative_conclusion": "L'émoi européen traduirait une réaction normale à un événement, non une hiérarchie cynique des victimes."
       },
       {
-        "counterargument": "L'émoi pour des ressortissants européens arrêtés et le sort de prisonniers relevant d'un conflit armé ne sont pas des situations équivalentes ; les traiter comme telles présuppose ce qu'il faudrait démontrer.",
-        "seeds": "Hypothèse implicite : les deux situations relèvent d'un même standard moral comparable.",
-        "alternative_conclusion": "Une réaction différenciée serait cohérente, et non scandaleuse, sans que l'Europe trahisse ses valeurs."
+        "counterargument": "Si les sanctions n'ont pas de levier réel sur Israël, leur absence relève du calcul diplomatique plus que de la lâcheté.",
+        "seeds": {
+          "source": "implicit_assumption",
+          "index": 0,
+          "excerpt": "des sanctions modifieraient le comportement du gouvernement israélien"
+        },
+        "alternative_conclusion": "La prudence européenne pourrait être un choix stratégique défendable, non une passivité scandaleuse."
       },
       {
-        "counterargument": "Le chiffre de cent morts, sourcé par des décomptes non identifiés, et les accusations issues d'une seule ONG engagée pourraient être contestés faute de méthodologie publique.",
-        "seeds": "important_fact : le chiffre repose sur des décomptes dont la méthode et les auteurs ne sont pas précisés.",
-        "alternative_conclusion": "Si le pilier factuel s'avérait fragile, l'accusation d'abus systématiques perdrait sa force et l'inaction européenne pourrait s'expliquer par l'incertitude des preuves."
+        "counterargument": "Une accusation reposant sur une seule organisation et des décomptes non détaillés appelle une corroboration indépendante avant d'être tenue pour acquise.",
+        "seeds": {
+          "source": "blind_spot",
+          "index": 0,
+          "excerpt": "la réponse d'Israël aux accusations de torture n'est jamais rapportée"
+        },
+        "alternative_conclusion": "Le tableau carcéral, s'il était partiellement contesté, justifierait une formulation plus prudente que celle de l'éditorial."
       }
     ]
   },
   "analysis_forme": {
     "emotional_register": [
       {
-        "emotion": "indignation",
-        "how": "L'accumulation de détails dégradants — mains liées dans le dos, à genoux, visage contre le sol — donne à voir la scène avant tout raisonnement.",
-        "effect": "Le lecteur entre dans le texte par le choc moral, prédisposé à juger l'inaction européenne comme une faute.",
-        "seeds": "watch_out: 'Repérez comment l'accumulation de détails sur une scène précise oriente votre réaction.'"
+        "id": "er_0",
+        "emotion": "Indignation",
+        "how": "La scène d'humiliation est décrite par le détail — mains liées, à genoux, visage contre le sol — et l'acteur principal paré d'un vocabulaire chargé.",
+        "effect": "Le lecteur est disposé à juger scandaleux non seulement le geste filmé, mais le silence européen qui l'entoure.",
+        "seeds": {
+          "source": "watch_out",
+          "index": 2,
+          "excerpt": "les émotions que le récit cherche à susciter, et par quels moyens"
+        }
       },
       {
-        "emotion": "scandale moral",
-        "how": "Une équivalence finale place la passivité européenne au même niveau que la mise en scène de Ben Gvir, et un vocabulaire chargé désigne un seul camp.",
-        "effect": "Le lecteur est amené à ressentir l'inaction comme aussi condamnable que l'abus lui-même, sans avoir pesé les motifs invoqués.",
-        "seeds": "watch_out: 'Observez si les différents camps sont jugés selon les mêmes critères.'"
+        "id": "er_1",
+        "emotion": "Sentiment d'incohérence morale",
+        "how": "L'opposition répétée entre l'émoi pour des militants européens et le silence sur les Palestiniens installe un deux poids, deux mesures.",
+        "effect": "Le lecteur est conduit à ressentir l'inaction européenne comme une trahison des valeurs qu'elle revendique.",
+        "seeds": {
+          "source": "watch_out",
+          "index": 0,
+          "excerpt": "s'attarde autant sur le sort des Palestiniens que sur celui des militants européens"
+        }
       }
     ],
     "cui_bono": [
       {
-        "beneficiary": "Les partisans de sanctions européennes contre Ben Gvir et la coalition israélienne",
-        "explanation": "En ramenant l'épisode à une incohérence des valeurs européennes, le cadrage transforme l'émoi ponctuel en obligation d'agir, et fait de l'abstention française une anomalie à corriger.",
-        "seeds": "watch_out: 'Notez quels acteurs ont voix au chapitre dans le texte et lesquels restent absents.'"
+        "id": "cb_0",
+        "beneficiary": "Les partisans de sanctions européennes contre les responsables israéliens.",
+        "explanation": "En cadrant l'inaction comme une trahison des valeurs européennes, le texte renforce l'argument pro-sanctions et place la prudence diplomatique en position de devoir se justifier.",
+        "seeds": {
+          "source": "watch_out",
+          "index": 3,
+          "excerpt": "le texte élargit le propos d'un acteur isolé vers un ensemble plus large"
+        }
       },
       {
-        "beneficiary": "La lecture qui dissocie le contexte du 7-Octobre des conditions de détention",
-        "explanation": "Poser le traumatisme en une phrase sans en tirer de conséquence sert un cadrage où la sécurité ne pèse pas dans la balance, ce qui renforce la lecture d'une passivité injustifiable.",
-        "seeds": "context: 'L'éditorial prolonge la guerre déclenchée par les attaques du 7 octobre 2023…'"
+        "id": "cb_1",
+        "beneficiary": "La critique de la politique carcérale israélienne portée depuis l'intérieur d'Israël.",
+        "explanation": "Mettre en avant une ONG israélienne comme source centrale donne à l'accusation une autorité difficile à taxer de parti pris extérieur, et neutralise par avance le soupçon d'hostilité étrangère.",
+        "seeds": {
+          "source": "important_fact",
+          "index": 1,
+          "excerpt": "B'Tselem, source centrale de l'article, est une ONG israélienne"
+        }
       }
     ],
-    "next_slide_hook": "Ces ressorts identifiés, voyons où ils s'inscrivent noir sur blanc dans le texte."
+    "next_slide_hook": "Voyons maintenant, dans le texte même, ce qui relève du fait sourcé et ce qui relève du jugement."
   },
   "facts_vs_opinions": {
     "claims_and_sources": [
       {
-        "quote": "une centaine de Palestiniens, selon des décomptes convergents, sont morts en détention en Israël depuis deux ans et demi, contre 230 entre 1967 et 2023",
-        "presentation": "presented_as_established_fact",
-        "proves": "Sourçage",
-        "explanation": "Le chiffre porte le poids probatoire de l'argument mais ses auteurs et sa méthode restent anonymes derrière la formule « décomptes convergents ».",
+        "id": "claim_0",
+        "quote": "Il fallait en plus les humilier en les montrant, mercredi 20 mai, les mains liées dans le dos, à genoux, le visage contre le sol.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Indignation"
+        },
+        "explanation": "Le geste filmé est factuel, mais l'intention d'humilier est posée en certitude alors qu'elle relève de l'interprétation.",
         "external_sources": [
           {
-            "name": "B'Tselem — rapport « Un véritable enfer »",
-            "supports": "validates",
-            "evidence_type": "academic"
-          },
-          {
-            "name": "Services pénitentiaires israéliens (IPS)",
+            "name": "Gouvernement israélien (Nétanyahou, Saar), condamnation des images",
             "supports": "neutral",
             "evidence_type": "party_statement"
           }
         ],
-        "confidence": 58,
-        "confidence_label": "disputed"
+        "confidence": null,
+        "confidence_label": "unverifiable"
       },
       {
-        "quote": "ils sont emprisonnés sans être inculpés ni jugés, pour une durée inconnue et renouvelable indéfiniment",
-        "presentation": "presented_as_established_fact",
-        "proves": "Justification",
-        "explanation": "La description du régime de détention administrative est exacte, mais le texte l'expose sans rapporter le motif sécuritaire invoqué pour le justifier.",
+        "id": "claim_1",
+        "quote": "une centaine de Palestiniens, selon des décomptes convergents, sont morts en détention en Israël depuis deux ans et demi, contre 230 entre 1967 et 2023",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Détention"
+        },
+        "explanation": "Le chiffre est précis et présenté comme convergent, mais aucune des sources amont n'est nommée ni détaillée.",
         "external_sources": [
           {
-            "name": "HCDH (Nations unies) — rapports sur la détention administrative en Israël",
+            "name": "B'Tselem, rapport « Un véritable enfer »",
             "supports": "validates",
-            "evidence_type": "official_data"
+            "evidence_type": "academic"
           }
         ],
-        "confidence": 88,
-        "confidence_label": "true"
+        "confidence": 65,
+        "confidence_label": "likely true"
       },
       {
-        "quote": "Le traumatisme causé par les massacres du 7-Octobre perpétrés par le Hamas s'est en effet traduit par une dégradation dramatique des conditions de détention des Palestiniens",
-        "presentation": "presented_as_established_fact",
-        "proves": "Justification",
-        "explanation": "Le 7-Octobre est posé comme cause de la dégradation, jamais comme élément à mettre en balance dans l'appréciation de la réponse européenne.",
+        "id": "claim_2",
+        "quote": "les prisons réservées aux Palestiniens sont devenues « des camps de torture »",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Source"
+        },
+        "explanation": "La caractérisation est créditée à B'Tselem ; une seule organisation, même appuyée sur des témoignages, ne suffit pas à l'établir.",
         "external_sources": [
           {
-            "name": "Couverture de l'évolution des conditions de détention depuis octobre 2023",
-            "supports": "neutral",
-            "evidence_type": "media"
+            "name": "B'Tselem (enquête d'août 2024 et rapport révélé en janvier)",
+            "supports": "validates",
+            "evidence_type": "academic"
+          },
+          {
+            "name": "Témoignages de détenus rapportés",
+            "supports": "validates",
+            "evidence_type": "testimony"
           }
         ],
         "confidence": 55,
         "confidence_label": "disputed"
       },
       {
+        "id": "claim_3",
         "quote": "cette passivité face à ce qui se passe aujourd'hui dans les prisons israéliennes va à l'encontre de tout ce que les Européens prétendent défendre",
         "presentation": "opinion_stated_as_fact",
-        "proves": "Voix",
-        "explanation": "Un jugement de valeur sur la cohérence européenne est formulé comme un constat, sans que les motifs de l'abstention soient examinés.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Sentiment d'incohérence morale"
+        },
+        "explanation": "Le verbe « prétendent » glisse un jugement dans une phrase de constat : l'incohérence européenne est posée comme un fait.",
         "external_sources": [],
         "confidence": null,
         "confidence_label": "unverifiable"
@@ -247,96 +491,158 @@
   "biases_and_focus": {
     "biases_and_rhetoric": [
       {
-        "quote": "les mains liées dans le dos, à genoux, le visage contre le sol",
-        "item_type": "bias",
-        "label": "accumulation de détails dégradants",
-        "effect": "Remarquez comment la scène est donnée à voir avant tout raisonnement, installant le choc moral avant l'analyse.",
-        "proves": "indignation"
+        "id": "bias_0",
+        "quote": "Une réaction qui rend d'autant plus saillant leur silence sur les conditions de détention dégradantes infligées aux Palestiniens dans l'Etat hébreu.",
+        "item_type": "fallacy",
+        "label": "mise en équivalence de deux situations différentes",
+        "effect": "Remarquez comment réagir à un fait nouveau devient le signe d'une indifférence à une autre situation, comme si les deux relevaient du même choix.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Sentiment d'incohérence morale"
+        }
       },
       {
+        "id": "bias_1",
         "quote": "Représentant d'une extrême droite suprémaciste et raciste décomplexée longtemps rejetée aux marges de la vie politique de l'Etat hébreu",
         "item_type": "bias",
         "label": "langage chargé",
-        "effect": "Remarquez comment l'empilement de qualificatifs disqualifie l'acteur avant que ses actes ne soient exposés.",
-        "proves": "scandale moral"
+        "effect": "Notez comment l'accumulation de qualificatifs disqualifie l'acteur avant même le récit de ses actes.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Indignation"
+        }
       },
       {
-        "quote": "Elle est aussi scandaleuse que la mise en scène d'Itamar Ben Gvir.",
-        "item_type": "fallacy",
-        "label": "mise sur le même plan",
-        "effect": "Remarquez comment l'inaction et l'abus sont placés au même niveau, ce qui fait de l'obligation de sanctionner la seule issue cohérente.",
-        "proves": "Les partisans de sanctions européennes contre Ben Gvir et la coalition israélienne"
+        "id": "bias_2",
+        "quote": "La France ne les a pas rejoints à ce jour, en dépit du rôle joué par ailleurs par un homme qui se flatte de répandre la haine dans l'adoption d'une peine de mort pour terrorisme visant exclusivement les Palestiniens.",
+        "item_type": "bias",
+        "label": "cadrage à charge",
+        "effect": "Observez comment l'abstention française est posée comme injustifiable, sans que les raisons invoquées soient rapportées.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Les partisans de sanctions européennes contre les responsables israéliens."
+        }
       }
     ],
     "focus": {
-      "quote": "Parce qu'elles ont concerné jusqu'à maintenant des Palestiniens, personne ne s'en est jamais ému au sein de la coalition au pouvoir, alors qu'elles témoignaient déjà de l'effritement de valeurs qu'Israël a longtemps revendiquées.",
-      "proves": "Voix",
-      "analysis": "La phrase pose un traitement à deux vitesses selon la nationalité des victimes. Elle sous-entend que l'émotion suit l'identité plutôt que les faits. Reste suspendue la question de savoir si l'émoi récent change quelque chose, ou ne fait que révéler ce qui était toléré."
+      "quote": "Elle est aussi scandaleuse que la mise en scène d'Itamar Ben Gvir.",
+      "proves": {
+        "type": "observation",
+        "label": "Asymétrie"
+      },
+      "analysis": "La phrase met sur le même plan une mise en scène filmée et une abstention diplomatique. Elle suppose acquis que les deux engagent une responsabilité comparable. Agir et s'abstenir relèvent-ils vraiment de la même échelle ?"
     },
-    "next_slide_hook": "Reste à voir ce que l'ensemble laisse au lecteur, une fois les ressorts mis au jour."
+    "next_slide_hook": "Reste à voir ce que toute cette analyse invite à retenir, et la question qu'elle laisse ouverte."
   },
   "synthesis": {
     "points": [
-      "L'inaction européenne est tenue pour aussi scandaleuse que l'humiliation filmée — une équivalence posée dès la dernière phrase plutôt que démontrée.",
-      "Le chiffre qui porte l'argument, une centaine de morts en détention, repose sur des « décomptes convergents » dont ni la méthode ni les auteurs ne sont nommés.",
-      "Aucune voix n'avance de motif sécuritaire, pas même pour être réfutée ; le 7-Octobre est posé en une phrase puis laissé de côté."
+      {
+        "text": "Le texte met sur le même plan une humiliation filmée et une abstention diplomatique, sans jamais établir que les deux engagent une responsabilité comparable.",
+        "references": [
+          "focus",
+          "bias_0",
+          "claim_3",
+          "obs_0"
+        ]
+      },
+      {
+        "text": "L'attention se concentre sur Ben Gvir et les militants européens, là où les Palestiniens restent une masse anonyme et une toile de fond.",
+        "references": [
+          "obs_0",
+          "er_1"
+        ]
+      },
+      {
+        "text": "Ni la réponse d'Israël aux accusations de torture, ni les raisons françaises de ne pas sanctionner ne sont rapportées — la démonstration avance sans contradicteur.",
+        "references": [
+          "obs_1",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "L'accusation centrale repose sur une seule organisation, B'Tselem, et sur des décomptes présentés comme convergents mais jamais détaillés.",
+        "references": [
+          "obs_3",
+          "claim_2",
+          "claim_1"
+        ]
+      },
+      {
+        "text": "L'acteur principal est qualifié avant même le récit de ses actes, ce qui dispose le lecteur à l'indignation.",
+        "references": [
+          "er_0",
+          "bias_1"
+        ]
+      }
     ],
-    "open_question": "Aviez-vous remarqué que l'abus et l'inaction étaient placés sur le même plan avant que les deux situations aient été comparées ?",
-    "engagement_question": "Réagir différemment selon la nationalité des détenus, est-ce une incohérence des valeurs européennes, ou la prise en compte de situations qui ne sont pas comparables ?"
+    "open_question": "Aviez-vous remarqué que la dernière phrase place une action filmée et une inaction diplomatique sur la même échelle de gravité ?",
+    "engagement_question": "Réagir à un fait nouveau et médiatisé, puis se taire sur un autre : est-ce la marque d'une incohérence morale, ou simplement de l'actualité qui commande l'attention ?"
   },
   "go_further": {
     "items": [
       {
-        "title": "La détention administrative en droit international humanitaire",
-        "source": "Comité international de la Croix-Rouge (CICR)",
-        "media_type": "report",
-        "category": "question_answer",
-        "url": null,
-        "duration_minutes": 20,
-        "why_explore": "Expose le cadre juridique que l'éditorial mentionne sans l'expliciter, pour juger soi-même de sa conformité.",
-        "answers_question": "Comment le droit international encadre-t-il la détention administrative, et l'usage qu'en fait Israël y est-il conforme ?"
-      },
-      {
-        "title": "Bilans humains en temps de guerre : comment les chiffres sont établis",
-        "source": "Les Décodeurs, Le Monde",
-        "media_type": "article",
-        "category": "question_answer",
-        "url": null,
-        "duration_minutes": 12,
-        "why_explore": "Montre comment se construit — et se conteste — un décompte de victimes, pour apprécier la solidité du chiffre central.",
-        "answers_question": "Le sourçage d'un chiffre central par des « décomptes convergents » anonymes suffit-il à fonder l'accusation d'abus systématiques ?"
-      },
-      {
-        "title": "Israël-Palestine : aux racines d'un conflit",
-        "source": "Arte",
+        "title": "No Other Land",
+        "source": "Basel Adra, Yuval Abraham, Hamdan Ballal, Rachel Szor",
         "media_type": "documentary",
         "category": "deep_dive",
         "url": null,
-        "duration_minutes": 90,
-        "why_explore": "Restitue la profondeur historique que l'éditorial réduit à une seule phrase sur le 7-Octobre.",
-        "answers_question": null
+        "duration_minutes": 95,
+        "why_explore": "Documente de l'intérieur le climat imposé par les colons en Cisjordanie, que l'éditorial n'évoque qu'en une ligne.",
+        "cta_question_index": null
       },
       {
-        "title": "Le morcellement de la vie politique israélienne",
-        "source": "Le Dessous des cartes, Arte",
-        "media_type": "video",
-        "category": "deep_dive",
+        "title": "La détention administrative dans les Territoires occupés",
+        "source": "Amnesty International",
+        "media_type": "report",
+        "category": "question_answer",
         "url": null,
-        "duration_minutes": 12,
-        "why_explore": "Éclaire le jeu de coalition qui permet à Ben Gvir de conserver un rôle central, point que l'éditorial évoque sans le détailler.",
-        "answers_question": null
+        "duration_minutes": 40,
+        "why_explore": "Une source distincte de B'Tselem pour évaluer si l'accusation tient au-delà d'une seule organisation.",
+        "cta_question_index": 0
+      },
+      {
+        "title": "Economic Sanctions Reconsidered",
+        "source": "Gary Hufbauer, Jeffrey Schott, Kimberly Elliott (Peterson Institute)",
+        "media_type": "book",
+        "category": "question_answer",
+        "url": null,
+        "duration_minutes": 300,
+        "why_explore": "Mesure dans quels cas des sanctions ont réellement infléchi la conduite d'un État visé — le levier que l'éditorial suppose acquis.",
+        "cta_question_index": 3
+      },
+      {
+        "title": "B'Tselem : qui finance et qui dirige l'ONG israélienne des droits humains",
+        "source": "B'Tselem",
+        "media_type": "article",
+        "category": "deep_dive",
+        "url": "https://www.btselem.org/about_btselem",
+        "duration_minutes": 10,
+        "why_explore": "Comprendre la nature, le financement et la ligne de la source centrale de l'article pour jauger son autorité.",
+        "cta_question_index": null
       }
     ]
   },
   "cta": {
-    "engagement_sentence": "À votre lecture, l'équivalence finale entre passivité et mise en scène tient-elle, ou demande-t-elle à être démontrée ? Dites-le en commentaire.",
+    "engagement_sentence": "Pour vous, l'inaction européenne est-elle aussi grave que la mise en scène qu'elle laisse passer ?",
     "post_reading_questions": [
       {
-        "question": "Le sourçage d'un chiffre central par des « décomptes convergents » anonymes suffit-il à fonder l'accusation d'abus systématiques ?",
+        "id": "q_0",
+        "question": "L'accusation de torture, reposant ici sur une seule organisation, vous paraît-elle suffisamment établie pour fonder le jugement de l'éditorial ?",
         "type": "article_quality"
       },
       {
-        "question": "Quels motifs sécuritaires précis l'État israélien avance-t-il pour justifier la détention administrative, et résistent-ils à l'examen ?",
+        "id": "q_1",
+        "question": "Réagir à un fait nouveau et se taire sur une autre situation relèvent-ils selon vous d'une même responsabilité morale ?",
+        "type": "topic_substance"
+      },
+      {
+        "id": "q_2",
+        "question": "Auriez-vous accordé le même crédit à l'accusation si la source centrale n'avait pas été une ONG israélienne ?",
+        "type": "reader_bias"
+      },
+      {
+        "id": "q_3",
+        "question": "Des sanctions européennes ont-elles, ailleurs, réellement modifié la conduite d'un État visé ?",
         "type": "blind_spot"
       }
     ]
