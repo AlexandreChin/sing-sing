@@ -1,6 +1,33 @@
 from __future__ import annotations
 from typing import Literal
-from pydantic import BaseModel, HttpUrl
+from pydantic import BaseModel, Field, HttpUrl, computed_field, field_validator
+
+
+# ── Cross-reference types ─────────────────────────────────────────────────────
+
+class ProvesRef(BaseModel):
+    type: Literal["observation", "emotional_register", "cui_bono"]
+    label: str  # must match aspect / emotion / beneficiary in the referenced item
+
+
+class SeedsRef(BaseModel):
+    source: Literal["watch_out", "context", "important_fact", "premisse", "implicit_assumption", "blind_spot", "logical_reasoning"]
+    index: int   # 0-based position in the source list
+    excerpt: str  # short snippet for human readability
+
+
+class ProvenByRef(BaseModel):
+    type: Literal["claim", "bias", "focus"]
+    index: int   # 0-based position in claims_and_sources / biases_and_rhetoric
+
+
+class TextItem(BaseModel):
+    """String item with a stable ID for cross-referencing. Renders as plain text in templates."""
+    id: str = ""
+    text: str
+
+    def __str__(self) -> str:
+        return self.text
 
 
 class CarouselInput(BaseModel):
@@ -22,7 +49,20 @@ class ArticleMetadata(BaseModel):
     article_chapo: str | None = None   # lead paragraph extracted from body
 
 
-# Slide 1
+# Extraction (promoted from step 1)
+class AuthorityAnchor(BaseModel):
+    entity: str    # person, organization, or institution cited
+    used_for: str  # which claim or argument it legitimizes
+
+
+class ArticleExtraction(BaseModel):
+    authority_anchors: list[AuthorityAnchor]
+    key_quotes: list[str]
+    notable_omissions: list[str]
+    rhetorical_patterns: list[str]
+
+
+# Partie 1
 class Hook(BaseModel):
     topic: str
     sub_topic: str
@@ -30,14 +70,14 @@ class Hook(BaseModel):
     context_line: str
 
 
-# Slide 2
+# Partie 2
 class Interest(BaseModel):
     why_read: str
     pull_quote: str | None = None
     next_slide_hook: str
 
 
-# Slide 3
+# Partie 3 (cadrage)
 class TitleAnalysisItem(BaseModel):
     label: str        # short label for the rhetorical device or framing technique (1–2 words)
     observation: str  # analytical observation on the title (post-reading)
@@ -49,24 +89,30 @@ class Cadrage(BaseModel):
     chapo_bullets: list[str] = []              # 2–3 bullet observations about how the CHAPO frames the reader
 
 
-# Slide 4
+# Partie 4 (context)
 class TermDefinition(BaseModel):
     term: str
     definition: str
 
 
 class Context(BaseModel):
-    contexts: list[str]
+    contexts: list[TextItem]
     who_is_speaking: list[str]
-    important_facts: list[str]
+    important_facts: list[TextItem]
     key_terms: list[TermDefinition]
     next_slide_hook: str
 
+    @field_validator("contexts", "important_facts", mode="before")
+    @classmethod
+    def _coerce_text_items(cls, v: list) -> list:
+        return [{"id": "", "text": item} if isinstance(item, str) else item for item in v]
 
-# Slide 5
+
+# Partie 5 (watch_out)
 class WatchOutItem(BaseModel):
+    id: str = ""
     text: str
-    refers_to: Literal["fond", "forme", "faits", "biais"]
+    refers_to: Literal["analysis_fond", "analysis_forme", "facts_vs_opinions", "biases_and_focus"]
 
 
 class WatchOut(BaseModel):
@@ -74,32 +120,64 @@ class WatchOut(BaseModel):
     next_slide_hook: str
 
 
-# Slide 6
+# Partie 6 (analysis_fond)
 class GlobalAnalysisItem(BaseModel):
+    id: str = ""
     aspect: str
     summary: str
-    seeds: str
+    seeds: SeedsRef
+    proven_by: list[ProvenByRef] = Field(default_factory=list)  # computed at assembly, not by LLM
+
+
+class SteelManItem(BaseModel):
+    counterargument: str  # strongest possible challenge to the author's reasoning
+    seeds: SeedsRef       # which premise/assumption/blind_spot/logical_reasoning is most vulnerable
+    alternative_conclusion: str  # conclusion that would follow if the counterargument holds
+
+
+class PremisseItem(BaseModel):
+    id: str = ""
+    statement: str  # the premise in one sentence
+    quality: str    # assessment of evidential grounding (solid data, weak analogy, anecdote, etc.)
+
+
+class LogicalReasoningItem(BaseModel):
+    id: str = ""
+    step: str
+    problem_type: Literal["validity", "soundness"] | None = None  # validity = conclusion doesn't follow; soundness = premise is false/poorly grounded
+    diagnosis: str | None = None
 
 
 class AnalysisFond(BaseModel):
     main_claim: str
-    implicit_assumptions: list[str]
-    blind_spots: list[str]
+    premisses: list[PremisseItem]
+    implicit_assumptions: list[TextItem]
+    blind_spots: list[TextItem]    # absent OR present but minimized/downplayed
+    emphasis: list[str]            # what the author foregrounded disproportionately (1–3)
+    logical_reasoning: list[LogicalReasoningItem]
     observations: list[GlobalAnalysisItem]
+    steel_man: list[SteelManItem]  # strongest challenges to the author's argument (1–3)
+
+    @field_validator("implicit_assumptions", "blind_spots", mode="before")
+    @classmethod
+    def _coerce_text_items(cls, v: list) -> list:
+        return [{"id": "", "text": item} if isinstance(item, str) else item for item in v]
 
 
-# Slide 7
+# Partie 7 (analysis_forme)
 class EmotionalRegister(BaseModel):
+    id: str = ""
     emotion: str
     how: str
     effect: str
-    seeds: str
+    seeds: SeedsRef
 
 
 class CuiBono(BaseModel):
+    id: str = ""
     beneficiary: str
     explanation: str
-    seeds: str
+    seeds: SeedsRef
 
 
 class AnalyseForme(BaseModel):
@@ -108,7 +186,7 @@ class AnalyseForme(BaseModel):
     next_slide_hook: str
 
 
-# Slide 8
+# Partie 8 (facts_vs_opinions)
 class ExternalSource(BaseModel):
     name: str
     supports: Literal["validates", "contradicts", "neutral"]
@@ -116,31 +194,43 @@ class ExternalSource(BaseModel):
 
 
 class ClaimAndSource(BaseModel):
+    id: str = ""
     quote: str
-    presentation: Literal["presented_as_established_fact", "attributed_to_source"]
-    proves: str
+    presentation: Literal["presented_as_established_fact", "attributed_to_source", "opinion_stated_as_fact"]
+    proves: ProvesRef
     explanation: str
     external_sources: list[ExternalSource]
     confidence: int | None = None
-    confidence_label: Literal["unverifiable", "false", "likely false", "disputed", "likely true", "true", "consensual"]
+
+    @computed_field
+    @property
+    def confidence_label(self) -> str:
+        if self.confidence is None: return "unverifiable"
+        if self.confidence <= 20: return "false"
+        if self.confidence <= 40: return "likely false"
+        if self.confidence <= 60: return "disputed"
+        if self.confidence <= 80: return "likely true"
+        if self.confidence <= 90: return "true"
+        return "consensual"
 
 
 class FactsVsOpinions(BaseModel):
     claims_and_sources: list[ClaimAndSource]
 
 
-# Slide 9
+# Partie 9 (biases_and_focus)
 class BiasRhetoric(BaseModel):
+    id: str = ""
     quote: str
     item_type: Literal["bias", "fallacy"]
     label: str
     effect: str
-    proves: str
+    proves: ProvesRef
 
 
 class Focus(BaseModel):
     quote: str
-    proves: str
+    proves: ProvesRef
     analysis: str
 
 
@@ -150,14 +240,14 @@ class BiasesAndFocus(BaseModel):
     next_slide_hook: str
 
 
-# Slide 10
+# Partie 10
 class Synthesis(BaseModel):
     points: list[str]  # exactly 3, sorted most important first
     open_question: str  # analytical question from bias analysis (displayed first on slide 8)
     engagement_question: str  # reader engagement CTA (displayed second on slide 8)
 
 
-# Slide 11
+# Partie 11
 class GoFurtherItem(BaseModel):
     title: str
     source: str
@@ -166,15 +256,16 @@ class GoFurtherItem(BaseModel):
     url: str | None = None
     duration_minutes: int | None = None
     why_explore: str
-    answers_question: str | None = None
+    cta_question_index: int | None = None  # index into cta.post_reading_questions; replaces text duplication
 
 
 class GoFurther(BaseModel):
     items: list[GoFurtherItem]
 
 
-# Slide 12
+# Partie 12
 class PostReadingQuestion(BaseModel):
+    id: str = ""
     question: str
     type: Literal["article_quality", "topic_substance", "reader_bias", "blind_spot"]
 
@@ -184,8 +275,9 @@ class CTA(BaseModel):
     post_reading_questions: list[PostReadingQuestion]  # exactly 2
 
 
-class CarouselOutput(BaseModel):
+class ArticleFullAnalysis(BaseModel):
     article_metadata: ArticleMetadata
+    extraction: ArticleExtraction | None = None  # promoted from step 1; None for older outputs
     hook: Hook
     interest: Interest
     cadrage: Cadrage

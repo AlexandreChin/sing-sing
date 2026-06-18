@@ -47,19 +47,19 @@
   <div class="label">Clefs de lecture</div>
   <div class="divider"></div>
 
-  {% set label_map = {'fond': 'Le fond', 'forme': 'La forme', 'faits': 'Faits vs opinions', 'biais': 'Biais'} %}
+  {% set label_map = {'analysis_fond': 'Le fond', 'analysis_forme': 'La forme', 'facts_vs_opinions': 'Faits vs opinions', 'biases_and_focus': 'Biais'} %}
 
   <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; padding-bottom: 60px;">
-    {% for item in items | selectattr('refers_to', 'equalto', 'fond') %}
+    {% for item in items | selectattr('refers_to', 'equalto', 'analysis_fond') %}
     <div class="watch-item">
-      <span class="watch-label label-fond">{{ label_map['fond'] }}</span>
+      <span class="watch-label label-fond">{{ label_map['analysis_fond'] }}</span>
       <p class="watch-text">{{ item.text }}</p>
     </div>
     {% endfor %}
 
-    {% for item in items | selectattr('refers_to', 'equalto', 'forme') %}
+    {% for item in items | selectattr('refers_to', 'equalto', 'analysis_forme') %}
     <div class="watch-item">
-      <span class="watch-label label-forme">{{ label_map['forme'] }}</span>
+      <span class="watch-label label-forme">{{ label_map['analysis_forme'] }}</span>
       <p class="watch-text">{{ item.text }}</p>
     </div>
     {% endfor %}
@@ -70,16 +70,16 @@
     </div>
     {% endfor %}
 
-    {% for item in items | selectattr('refers_to', 'equalto', 'faits') %}
+    {% for item in items | selectattr('refers_to', 'equalto', 'facts_vs_opinions') %}
     <div class="watch-item">
-      <span class="watch-label label-faits">{{ label_map['faits'] }}</span>
+      <span class="watch-label label-faits">{{ label_map['facts_vs_opinions'] }}</span>
       <p class="watch-text">{{ item.text }}</p>
     </div>
     {% endfor %}
 
-    {% for item in items | selectattr('refers_to', 'equalto', 'biais') %}
+    {% for item in items | selectattr('refers_to', 'equalto', 'biases_and_focus') %}
     <div class="watch-item">
-      <span class="watch-label label-biais">{{ label_map['biais'] }}</span>
+      <span class="watch-label label-biais">{{ label_map['biases_and_focus'] }}</span>
       <p class="watch-text">{{ item.text }}</p>
     </div>
     {% endfor %}

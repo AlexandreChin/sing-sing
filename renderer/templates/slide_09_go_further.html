@@ -126,8 +126,8 @@
         <div class="go-title">{{ item.title }}</div>
         <div class="go-source">{{ item.source }}</div>
         <p class="go-why">{{ item.why_explore }}</p>
-        {% if item.answers_question %}
-        <p class="go-question">→ {{ item.answers_question }}</p>
+        {% if item.cta_question_index is not none and cta_questions %}
+        <p class="go-question">→ {{ cta_questions[item.cta_question_index].question }}</p>
         {% endif %}
       </div>
       {% endfor %}
