@@ -106,6 +106,12 @@ def validate(path: Path) -> tuple[list[str], dict[str, str]]:
             errs.append(f"{path_str}.seeds.excerpt is empty")
         return errs
 
+    # ── watch_out category coverage ──────────────────────────────────────────
+    wo_cats = {item.refers_to for item in output.watch_out.items}
+    for cat in ("analysis_fond", "analysis_forme", "facts_vs_opinions", "biases_and_focus"):
+        if cat not in wo_cats:
+            errors.append(f"watch_out.items: no item with refers_to='{cat}' — at least 1 required per category")
+
     # ── Count constraints ─────────────────────────────────────────────────────
     n_claims = len(output.facts_vs_opinions.claims_and_sources)
     if not (1 <= n_claims <= 6):

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.cta-headline {
+  font-size: 68px;
+  font-weight: 900;
+  color: #f0f0f0;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.cta-headline em {
+  color: #f5d000;
+  font-style: normal;
+}
+.action-verb {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: #f5d000;
+  margin-bottom: 6px;
+}
+.action-icon {
+  font-size: 54px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.action-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.action-body p {
+  font-size: 34px;
+  color: #f0f0f0;
+  line-height: 1.45;
+}
+.action-body strong {
+  color: #f5d000;
+  font-weight: 700;
+}
+.arrow-deco {
+  font-size: 36px;
+  color: #f5d000;
+  opacity: 0.5;
+  text-align: center;
+  letter-spacing: 0.3em;
+  margin: -4px 0;
+}
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">10</div>
+  {% include '_brand.html' %}
+
+  <div class="section-phase phase-retenir">Avant de partir</div>
+
+  <div style="margin-bottom: 20px;">
+    <p class="cta-headline">Cette analyse<br>vous a <em>plu ?</em></p>
+  </div>
+  <div class="divider"></div>
+
+  <div class="cards-container" style="padding-bottom: 70px;">
+
+    <div class="card" style="flex-direction: row; align-items: flex-start; gap: 24px;">
+      <span class="action-icon">💬</span>
+      <div class="action-body">
+        <div class="action-verb">Commentez ↓</div>
+        <p>Écrivez <strong>"NEWSLETTER"</strong> en commentaire — on vous envoie nos analyses chaque semaine</p>
+      </div>
+    </div>
+
+    <div class="arrow-deco">→ → →</div>
+
+    <div class="card" style="flex-direction: row; align-items: flex-start; gap: 24px;">
+      <span class="action-icon">↗</span>
+      <div class="action-body">
+        <div class="action-verb">Partagez</div>
+        <p>Envoyez cette analyse à quelqu'un qui devrait la lire</p>
+      </div>
+    </div>
+
+    <div class="arrow-deco">→ → →</div>
+
+    <div class="card" style="flex-direction: row; align-items: flex-start; gap: 24px;">
+      <span class="action-icon">🔖</span>
+      <div class="action-body">
+        <div class="action-verb">Sauvegardez</div>
+        <p>Retrouvez cette analyse quand vous en avez besoin</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="slide-num">10 / 10</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 100%;"></div></div>
+</div>
+</body>
+</html>

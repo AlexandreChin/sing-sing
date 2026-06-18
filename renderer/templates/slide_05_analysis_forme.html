@@ -8,14 +8,13 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 28px;
 }
 .emotion-pill {
   display: inline-block;
   align-self: flex-start;
-  padding: 6px 14px;
+  padding: 6px 16px;
   border-radius: 999px;
-  font-size: 17px;
+  font-size: 26px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -23,27 +22,6 @@
   border: 1px solid #5c3a1a;
   color: #e8a07a;
   box-shadow: 0 0 14px rgba(232,160,122,0.2);
-}
-.emotion-how {
-  font-size: 24px;
-  color: #f0f0f0;
-  line-height: 1.5;
-}
-.cui-row {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 24px;
-}
-.cui-beneficiary {
-  font-weight: 700;
-  color: #e8d5a3;
-  font-size: 22px;
-}
-.cui-content {
-  font-size: 24px;
-  color: #f0f0f0;
-  line-height: 1.5;
 }
 </style>
 </head>
@@ -56,43 +34,35 @@
   <div class="label">La forme</div>
   <div class="divider"></div>
 
-  <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; padding-bottom: 80px;">
+  <div class="cards-container">
     {% if title_analysis %}
-    <div>
-      <div class="section-label" style="margin-top: 0;">Cadrage du titre</div>
-      {% for obs in title_analysis %}
-      <div class="emotion-row">
-        <span class="emotion-pill">{{ obs.label }}</span>
-        <p class="emotion-how">{{ obs.observation }}</p>
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div class="section-label">Cadrage du titre</div>
+      <div class="card">
+        {% for obs in title_analysis %}
+        <div class="emotion-row">
+          <span class="emotion-pill">{{ obs.label }}</span>
+          <p>{{ obs.observation }}</p>
+        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
     {% endif %}
 
-    <div>
-      <div class="section-label" style="margin-top: 0;">Cui bono</div>
-      {% for cb in cui_bono[:1] %}
-      <div class="cui-row">
-        <span class="cui-beneficiary">→ {{ cb.beneficiary }}</span>
-        <p class="cui-content">{{ cb.explanation }}</p>
-        {% if cb.seeds %}<p class="item-ref">{{ cb.seeds | seed_text }}</p>{% endif %}
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div class="section-label">Registre émotionnel</div>
+      <div class="card">
+        {% for er in emotional_register %}
+        <div class="emotion-row">
+          <span class="emotion-pill">{{ er.emotion }}</span>
+          <p>{{ er.how }}</p>
+        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
-    </div>
-
-    <div>
-      <div class="section-label" style="margin-top: 0;">Registre émotionnel</div>
-      {% for er in emotional_register %}
-      <div class="emotion-row">
-        <span class="emotion-pill">{{ er.emotion }}</span>
-        <p class="emotion-how">{{ er.how }}</p>
-        {% if er.seeds %}<p class="item-ref">{{ er.seeds | seed_text }}</p>{% endif %}
-      </div>
-      {% endfor %}
     </div>
   </div>
 
-  <div class="slide-num">5 / 9</div>
+  <div class="slide-num">5 / 10</div>
   <div class="progress-track"><div class="progress-bar" style="width: 56%;"></div></div>
 </div>
 </body>
