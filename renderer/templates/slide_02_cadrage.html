@@ -4,43 +4,6 @@
 <meta charset="UTF-8">
 <style>
 {% include 'base.css' %}
-.section-card {
-  border-left: 3px solid #f5d000;
-}
-.article-quote {
-  font-size: 22px;
-  font-style: italic;
-  color: #e8d5a3;
-  line-height: 1.4;
-  margin-bottom: 6px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.chapo-text {
-  font-size: 20px;
-  color: #f0f0f0;
-  line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.context-item {
-  font-size: 24px;
-  color: #f0f0f0;
-  line-height: 1.5;
-  padding-left: 20px;
-  margin-bottom: 8px;
-  position: relative;
-}
-.context-item::before {
-  content: "•";
-  color: #f5d000;
-  position: absolute;
-  left: 0;
-}
 .next-hook {
   position: absolute;
   bottom: 56px;
@@ -60,41 +23,31 @@
   <div class="label">Repères</div>
   <div class="divider"></div>
 
-  <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; gap: 20px; padding-bottom: 80px;">
-    <div class="card section-card">
-      <div class="section-label">De quoi ça parle ?</div>
-      {% if article_title %}
-      <p class="article-quote">{{ article_title }}</p>
-      {% endif %}
-      {% if article_chapo %}
-      <p class="chapo-text">{{ (article_chapo.split('. ')[0] + '.') if article_chapo else '' }}</p>
-      {% endif %}
-    </div>
-
+  <div class="cards-container">
     {% if who_is_speaking %}
-    <div class="card section-card">
+    <div style="display: flex; flex-direction: column; gap: 10px;">
       <div class="section-label">Qui parle ?</div>
       {% for item in who_is_speaking %}
-      <div class="context-item">{{ item }}</div>
+      <div class="card"><p>{{ item }}</p></div>
       {% endfor %}
     </div>
     {% endif %}
 
     {% if contexts or important_facts %}
-    <div class="card section-card">
+    <div style="display: flex; flex-direction: column; gap: 10px;">
       <div class="section-label">Pourquoi maintenant ?</div>
       {% for item in contexts %}
-      <div class="context-item">{{ item }}</div>
+      <div class="card"><p>{{ item.text }}</p></div>
       {% endfor %}
       {% for item in important_facts %}
-      <div class="context-item">{{ item }}</div>
+      <div class="card"><p>{{ item.text }}</p></div>
       {% endfor %}
     </div>
     {% endif %}
   </div>
 
   <div class="next-hook">Les clefs de lecture →</div>
-  <div class="slide-num">2 / 9</div>
+  <div class="slide-num">2 / 10</div>
   <div class="progress-track"><div class="progress-bar" style="width: 22%;"></div></div>
 </div>
 </body>

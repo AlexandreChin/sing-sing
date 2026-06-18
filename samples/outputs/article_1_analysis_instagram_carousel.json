@@ -77,10 +77,6 @@
       {
         "label": "Cadrage",
         "observation": "Le titre vise la passivité européenne, déplaçant la focale des prisons israéliennes vers l'inaction occidentale."
-      },
-      {
-        "label": "Vocabulaire",
-        "observation": "Qualifier d'emblée le pouvoir d'extrême droite oriente la lecture avant tout argument."
       }
     ],
     "chapo_bullets": [
@@ -100,14 +96,9 @@
       }
     ],
     "who_is_speaking": [
-      "Le Monde, quotidien de référence, éditorial non signé qui engage la position collective de la rédaction.",
-      "Le journal a lui-même révélé en janvier le rapport B'Tselem qu'il cite, et tient une ligne critique sur la politique israélienne à Gaza."
+      "Le Monde, quotidien de référence, éditorial non signé qui engage la position collective de la rédaction."
     ],
     "important_facts": [
-      {
-        "id": "fact_0",
-        "text": "La détention administrative permet d'emprisonner sans inculpation ni jugement, pour une durée renouvelable indéfiniment."
-      },
       {
         "id": "fact_1",
         "text": "B'Tselem, source centrale de l'article, est une ONG israélienne : la critique vient de l'intérieur d'Israël."
@@ -146,6 +137,16 @@
         "id": "wo_3",
         "text": "Observez comment le texte élargit le propos d'un acteur isolé vers un ensemble plus large.",
         "refers_to": "analysis_forme"
+      },
+      {
+        "id": "wo_4",
+        "text": "Distinguez ce qui est attribué à une source nommée de ce qui est posé comme évident.",
+        "refers_to": "facts_vs_opinions"
+      },
+      {
+        "id": "wo_6",
+        "text": "Notez le vocabulaire employé pour désigner chaque acteur du récit.",
+        "refers_to": "biases_and_focus"
       }
     ],
     "next_slide_hook": "Voyons maintenant ce que révèle le fond de l'article."
@@ -257,13 +258,13 @@
         "summary": "L'accusation centrale repose sur B'Tselem, ONG israélienne, ce que l'article met en avant comme une critique venue de l'intérieur même d'Israël.",
         "seeds": {
           "source": "important_fact",
-          "index": 1,
+          "index": 0,
           "excerpt": "B'Tselem, source centrale de l'article, est une ONG israélienne"
         },
         "proven_by": [
           {
             "type": "claim",
-            "index": 1
+            "index": 0
           }
         ]
       }
@@ -340,7 +341,7 @@
         "explanation": "Mettre en avant une ONG israélienne comme source centrale donne à l'accusation une autorité difficile à taxer de parti pris extérieur, et neutralise par avance le soupçon d'hostilité étrangère.",
         "seeds": {
           "source": "important_fact",
-          "index": 1,
+          "index": 0,
           "excerpt": "B'Tselem, source centrale de l'article, est une ONG israélienne"
         }
       }
@@ -349,25 +350,6 @@
   },
   "facts_vs_opinions": {
     "claims_and_sources": [
-      {
-        "id": "claim_0",
-        "quote": "Il fallait en plus les humilier en les montrant, mercredi 20 mai, les mains liées dans le dos, à genoux, le visage contre le sol.",
-        "presentation": "opinion_stated_as_fact",
-        "proves": {
-          "type": "emotional_register",
-          "label": "Indignation"
-        },
-        "explanation": "Le geste filmé est factuel, mais l'intention d'humilier est posée en certitude alors qu'elle relève de l'interprétation.",
-        "external_sources": [
-          {
-            "name": "Gouvernement israélien (Nétanyahou, Saar), condamnation des images",
-            "supports": "neutral",
-            "evidence_type": "party_statement"
-          }
-        ],
-        "confidence": null,
-        "confidence_label": "unverifiable"
-      },
       {
         "id": "claim_2",
         "quote": "les prisons réservées aux Palestiniens sont devenues « des camps de torture »",
@@ -418,17 +400,6 @@
         "proves": {
           "type": "emotional_register",
           "label": "Sentiment d'incohérence morale"
-        }
-      },
-      {
-        "id": "bias_1",
-        "quote": "Représentant d'une extrême droite suprémaciste et raciste décomplexée longtemps rejetée aux marges de la vie politique de l'Etat hébreu",
-        "item_type": "bias",
-        "label": "langage chargé",
-        "effect": "Notez comment l'accumulation de qualificatifs disqualifie l'acteur avant même le récit de ses actes.",
-        "proves": {
-          "type": "emotional_register",
-          "label": "Indignation"
         }
       },
       {

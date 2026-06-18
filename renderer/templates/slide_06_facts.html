@@ -4,30 +4,13 @@
 <meta charset="UTF-8">
 <style>
 {% include 'base.css' %}
-.claim-card {
-  border-radius: 10px;
-  padding: 16px 18px;
-  margin-bottom: 24px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.05);
-  background:
-    linear-gradient(#191919, #191919) padding-box,
-    linear-gradient(135deg, #3a3500 0%, #2a2a2a 50%, #1a1a1a 100%) border-box;
-  border: 1px solid transparent;
-}
-.claim-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
 .confidence-badge {
-  display: inline-flex;
-  align-items: center;
-  font-size: 17px;
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 26px;
   font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 6px;
+  padding: 4px 16px;
+  border-radius: 999px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -38,33 +21,11 @@
 .conf-likely-false { background: #2b1a0d; border: 1px solid #5c3a1a; color: #e8a07a; box-shadow: 0 0 10px rgba(232,160,122,0.2); }
 .conf-unverifiable { background: #1a1a1a; border: 1px solid #333; color: #f0f0f0; }
 .conf-consensual  { background: #0d3a1a; border: 1px solid #1a5c2a; color: #5eb88a;  box-shadow: 0 0 10px rgba(94,184,138,0.2); }
-.presentation-label {
-  display: inline-flex;
-  align-items: center;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: #1a1a2b;
-  border: 1px solid #2a2a5c;
-  color: #7ab3e8;
-}
 .claim-quote {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  font-style: italic;
-  color: #f0f0f0;
-  line-height: 1.5;
+  font-size: 30px;
+  color: #e8d5a3;
   border-left: 3px solid #e8d5a3;
-  padding-left: 14px;
-  margin-bottom: 12px;
-}
-.claim-explanation {
-  font-size: 24px;
-  color: #f0f0f0;
-  line-height: 1.5;
+  padding-left: 16px;
 }
 </style>
 </head>
@@ -77,7 +38,7 @@
   <div class="label">Faits vs opinions</div>
   <div class="divider"></div>
 
-  <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; padding-bottom: 60px;">
+  <div class="cards-container">
   {% set conf_fr = {
     'true': 'Vrai',
     'likely true': 'Probable',
@@ -87,38 +48,30 @@
     'consensual': 'Consensuel',
     'unverifiable': 'Non vérifié'
   } %}
-  {% set pres_fr = {
-    'presented_as_established_fact': 'Présenté comme fait établi',
-    'attributed_to_source': 'Attribué à une source'
-  } %}
   {% for claim in claims_and_sources %}
-  <div class="claim-card">
-    <div class="claim-meta">
-      {% if claim.confidence_label == 'true' %}
-        <span class="confidence-badge conf-true">{{ conf_fr['true'] }}</span>
-      {% elif claim.confidence_label == 'likely true' %}
-        <span class="confidence-badge conf-likely">{{ conf_fr['likely true'] }}</span>
-      {% elif claim.confidence_label == 'disputed' %}
-        <span class="confidence-badge conf-disputed">{{ conf_fr['disputed'] }}</span>
-      {% elif claim.confidence_label == 'likely false' %}
-        <span class="confidence-badge conf-likely-false">{{ conf_fr['likely false'] }}</span>
-      {% elif claim.confidence_label == 'false' %}
-        <span class="confidence-badge conf-false">{{ conf_fr['false'] }}</span>
-      {% elif claim.confidence_label == 'consensual' %}
-        <span class="confidence-badge conf-consensual">{{ conf_fr['consensual'] }}</span>
-      {% else %}
-        <span class="confidence-badge conf-unverifiable">{{ conf_fr['unverifiable'] }}</span>
-      {% endif %}
-      <span class="presentation-label">{{ pres_fr.get(claim.presentation, claim.presentation) }}</span>
-    </div>
-    <div class="claim-quote">{{ claim.quote }}</div>
-    <p class="claim-explanation">{{ claim.explanation }}</p>
-    {% if claim.proves %}<p class="item-ref">→ {{ claim.proves }}</p>{% endif %}
+  <div class="card">
+    {% if claim.confidence_label == 'true' %}
+      <span class="confidence-badge conf-true">{{ conf_fr['true'] }}</span>
+    {% elif claim.confidence_label == 'likely true' %}
+      <span class="confidence-badge conf-likely">{{ conf_fr['likely true'] }}</span>
+    {% elif claim.confidence_label == 'disputed' %}
+      <span class="confidence-badge conf-disputed">{{ conf_fr['disputed'] }}</span>
+    {% elif claim.confidence_label == 'likely false' %}
+      <span class="confidence-badge conf-likely-false">{{ conf_fr['likely false'] }}</span>
+    {% elif claim.confidence_label == 'false' %}
+      <span class="confidence-badge conf-false">{{ conf_fr['false'] }}</span>
+    {% elif claim.confidence_label == 'consensual' %}
+      <span class="confidence-badge conf-consensual">{{ conf_fr['consensual'] }}</span>
+    {% else %}
+      <span class="confidence-badge conf-unverifiable">{{ conf_fr['unverifiable'] }}</span>
+    {% endif %}
+    <p class="claim-quote">{{ claim.quote }}</p>
+    <p>{{ claim.explanation }}</p>
   </div>
   {% endfor %}
   </div>
 
-  <div class="slide-num">6 / 9</div>
+  <div class="slide-num">6 / 10</div>
   <div class="progress-track"><div class="progress-bar" style="width: 67%;"></div></div>
 </div>
 </body>

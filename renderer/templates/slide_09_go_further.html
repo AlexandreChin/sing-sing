@@ -4,86 +4,29 @@
 <meta charset="UTF-8">
 <style>
 {% include 'base.css' %}
-.go-card {
-  border-radius: 10px;
-  padding: 14px 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.05);
-  background:
-    linear-gradient(#191919, #191919) padding-box,
-    linear-gradient(135deg, #3a3500 0%, #2a2a2a 50%, #1a1a1a 100%) border-box;
-  border: 1px solid transparent;
-}
-.go-card-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 6px;
-}
 .media-badge {
-  font-size: 12px;
+  font-size: 24px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 3px 8px;
+  padding: 4px 12px;
   border-radius: 4px;
   background: #1a1a2b;
   border: 1px solid #2a2a5c;
   color: #7ab3e8;
-}
-.category-badge {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 4px;
-}
-.cat-deep { background: #1a1800; border: 1px solid #3a3500; color: #f5d000; }
-.cat-qa   { background: #1a0d2b; border: 1px solid #3a1a5c; color: #c07ae8; }
-.go-duration {
-  font-size: 13px;
-  color: #555;
-  margin-left: auto;
+  align-self: flex-start;
 }
 .go-title {
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 700;
-  color: #f0f0f0;
   line-height: 1.35;
-  margin-bottom: 2px;
 }
 .go-source {
-  font-size: 15px;
+  font-size: 22px;
   color: #e8d5a3;
-  margin-bottom: 6px;
 }
-.go-why {
-  font-size: 20px;
-  color: #f0f0f0;
-  line-height: 1.45;
-}
-.go-question {
-  font-size: 15px;
-  font-style: italic;
-  color: #c07ae8;
-  margin-top: 4px;
-  line-height: 1.4;
-}
-.cta-block {
-  border-top: 1px solid #333;
-  padding-top: 16px;
-}
-.cta-sentence {
-  font-size: 26px;
-  color: #f5d000;
-  line-height: 1.5;
-  text-align: center;
-  margin-bottom: 8px;
-}
-.article-link {
-  font-size: 20px;
-  color: #e8d5a3;
-  text-align: center;
+.card p {
+  font-size: 28px;
 }
 </style>
 </head>
@@ -108,38 +51,19 @@
     'other': 'Autre'
   } %}
 
-  <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 60px;">
-    <div style="display: flex; flex-direction: column; gap: 10px;">
-      {% for item in items %}
-      <div class="go-card">
-        <div class="go-card-header">
-          <span class="media-badge">{{ media_labels.get(item.media_type, 'Autre') }}</span>
-          {% if item.category == 'deep_dive' %}
-            <span class="category-badge cat-deep">Approfondir</span>
-          {% else %}
-            <span class="category-badge cat-qa">Répondre à</span>
-          {% endif %}
-          {% if item.duration_minutes %}
-          <span class="go-duration">{{ item.duration_minutes }} min</span>
-          {% endif %}
-        </div>
-        <div class="go-title">{{ item.title }}</div>
-        <div class="go-source">{{ item.source }}</div>
-        <p class="go-why">{{ item.why_explore }}</p>
-        {% if item.cta_question_index is not none and cta_questions %}
-        <p class="go-question">→ {{ cta_questions[item.cta_question_index].question }}</p>
-        {% endif %}
-      </div>
-      {% endfor %}
+  <div class="cards-container">
+    {% for item in items %}
+    <div class="card">
+      <span class="media-badge">{{ media_labels.get(item.media_type, 'Autre') }}</span>
+      <div class="go-title">{{ item.title }}</div>
+      <div class="go-source">{{ item.source }}</div>
+      <p>{{ item.why_explore }}</p>
     </div>
-
-    <div class="cta-block">
-      <p class="cta-sentence">{{ engagement_sentence }}</p>
-    </div>
+    {% endfor %}
   </div>
 
-  <div class="slide-num">9 / 9</div>
-  <div class="progress-track"><div class="progress-bar" style="width: 100%;"></div></div>
+  <div class="slide-num">9 / 10</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 90%;"></div></div>
 </div>
 </body>
 </html>

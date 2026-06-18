@@ -1,17 +1,4 @@
-"""Extractor for 9-slide Instagram carousel format.
-
-Selects the most important nodes from a full ArticleFullAnalysis while
-preserving graph connections. Algorithm:
-  1. Score nodes from synthesis.references (top points weighted higher)
-  2. Propagate scores downward: selected obs/er/cb boost their seeds sources
-  3. Select top-N per category, always including mandatory seeds sources
-  4. Remap seeds indices and proven_by refs to reflect new positions
-
-Usage:
-    from extractors.instagram_carousel import extract
-    carousel = extract(full_analysis)
-    render_carousel(carousel, out_dir)
-"""
+"""Extractor for 9-slide Instagram carousel format."""
 from __future__ import annotations
 
 from models.full_analysis import ArticleFullAnalysis
@@ -25,17 +12,20 @@ from extractors._base import (
 )
 
 CAPS = {
-    "synthesis": 3,        # slide_08 has 3 positions
-    "observations": 3,     # slide_04
-    "claims": 4,           # slide_06
-    "biases": 3,           # slide_07
-    "watch_out": 4,        # slide_03
-    "contexts": 2,         # slide_02
-    "important_facts": 2,  # slide_02
-    "ia": 2,               # slide_04
-    "blind_spots": 2,      # slide_04
-    "go_further": 3,       # slide_09
-    "cta_questions": 2,    # slide_09
+    "synthesis": 3,
+    "observations": 3,
+    "claims": 2,
+    "biases": 2,
+    "watch_out": 4,
+    "who_is_speaking": 1,
+    "contexts": 2,
+    "important_facts": 1,
+    "ia": 2,
+    "blind_spots": 2,
+    "title_analysis": 1,
+    "emotional_register": 3,
+    "go_further": 3,
+    "cta_questions": 2,
 }
 
 
@@ -69,7 +59,7 @@ def extract(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
     def src_score(source: str, idx: int) -> float:
         return seed_scores.get(source, {}).get(idx, 0.0)
 
-    # ── Mandatory seeds sources ────────────────────────────────────────────────
+    # ── Mandatory watch_out: seeds sources + at least 1 per category ──────────
     must_wo: set[int] = set()
     must_ctx: set[int] = set()
     must_fact: set[int] = set()
@@ -83,6 +73,14 @@ def extract(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
             must_ctx.add(idx)
         elif src == "important_fact":
             must_fact.add(idx)
+
+    # Guarantee at least 1 watch_out item per category
+    seen_cats: dict[str, int] = {}
+    for i, item in enumerate(output.watch_out.items):
+        if item.refers_to not in seen_cats:
+            seen_cats[item.refers_to] = i
+    for idx in seen_cats.values():
+        must_wo.add(idx)
 
     # ── Select source items ───────────────────────────────────────────────────
     sel_wo, wo_old_to_new = select_with_must(
@@ -102,6 +100,13 @@ def extract(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
         "context": ctx_old_to_new,
         "important_fact": fact_old_to_new,
     }
+
+    # ── Simple slices ─────────────────────────────────────────────────────────
+    sel_who = output.context.who_is_speaking[: CAPS["who_is_speaking"]]
+    sel_title_analysis = output.cadrage.title_analysis[: CAPS["title_analysis"]]
+    sel_ia = fond.implicit_assumptions[: CAPS["ia"]]
+    sel_bs = fond.blind_spots[: CAPS["blind_spots"]]
+    sel_go_raw = output.go_further.items[: CAPS["go_further"]]
 
     # ── Claims and biases: only those proving selected targets ────────────────
     sel_obs_aspects = {obs.aspect for obs in sel_obs}
@@ -130,12 +135,7 @@ def extract(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
     bias_id_to_orig = {b.id: i for i, b in enumerate(all_biases)}
     bias_orig_to_new = {bias_id_to_orig[b.id]: new_i for new_i, b in enumerate(sel_biases)}
 
-    # ── Simple caps ───────────────────────────────────────────────────────────
-    sel_ia = fond.implicit_assumptions[: CAPS["ia"]]
-    sel_bs = fond.blind_spots[: CAPS["blind_spots"]]
-    sel_go_raw = output.go_further.items[: CAPS["go_further"]]
-
-    # CTA: always include at least one blind_spot question
+    # ── CTA: always include at least one blind_spot question ──────────────────
     must_cta: set[int] = set()
     for i, q in enumerate(output.cta.post_reading_questions):
         if q.type == "blind_spot":
@@ -152,7 +152,8 @@ def extract(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
     remapped_er = [
         er.model_copy(update={"seeds": remap_seeds(er.seeds, source_remap)})
         for er in forme.emotional_register
-    ]
+    ][: CAPS["emotional_register"]]
+
     remapped_cb = [
         cb.model_copy(update={"seeds": remap_seeds(cb.seeds, source_remap)})
         for cb in forme.cui_bono
@@ -165,7 +166,7 @@ def extract(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
         for obs in sel_obs
     ]
 
-    # ── Filter synthesis references to kept node IDs ───────────────────────────
+    # ── Filter synthesis references to kept node IDs ──────────────────────────
     kept_ids = {
         item.id
         for item in final_obs + remapped_er + remapped_cb + sel_claims + sel_biases
@@ -186,8 +187,12 @@ def extract(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
     return output.model_copy(update={
         "watch_out": output.watch_out.model_copy(update={"items": sel_wo}),
         "context": output.context.model_copy(update={
+            "who_is_speaking": sel_who,
             "contexts": sel_ctx,
             "important_facts": sel_fact,
+        }),
+        "cadrage": output.cadrage.model_copy(update={
+            "title_analysis": sel_title_analysis,
         }),
         "analysis_fond": fond.model_copy(update={
             "implicit_assumptions": sel_ia,

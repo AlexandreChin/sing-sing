@@ -115,16 +115,15 @@ def render_carousel(output: ArticleFullAnalysis, out_dir: Path) -> list[Path]:
         }),
         ("slide_09_go_further.html", {
             "items": output.go_further.items,
-            "engagement_sentence": output.cta.engagement_sentence,
-            "cta_questions": output.cta.post_reading_questions,
         }),
+        ("slide_10_cta.html", {}),
     ]
 
     names = [
         "slide_01_hook.png", "slide_02_reperes.png", "slide_03_watch_out.png",
         "slide_04_analysis_fond.png", "slide_05_analysis_forme.png",
         "slide_06_facts.png", "slide_07_biases.png", "slide_08_synthesis.png",
-        "slide_09_go_further.png",
+        "slide_09_go_further.png", "slide_10_cta.png",
     ]
 
     for (template, ctx), name in zip(specs, names):
