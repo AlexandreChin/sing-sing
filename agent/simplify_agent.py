@@ -1,4 +1,4 @@
-"""LLM-based simplification pass for a CarouselOutput JSON.
+"""LLM-based simplification pass for a ArticleFullAnalysis JSON.
 
 Shortens all text fields to make slides more readable on Instagram,
 while preserving the schema, verbatim quotes, and numeric/enum fields.
@@ -10,16 +10,16 @@ from pathlib import Path
 
 import anthropic
 
-from models.carousel import CarouselOutput
+from models.carousel import ArticleFullAnalysis
 
 client = anthropic.Anthropic()
 
 _SYSTEM_PROMPT = (Path(__file__).parent / "prompts" / "simplify.md").read_text(encoding="utf-8")
 
 
-async def simplify_carousel(json_path: Path, no_api: bool = False) -> CarouselOutput:
+async def simplify_carousel(json_path: Path, no_api: bool = False) -> ArticleFullAnalysis:
     data = json.loads(json_path.read_text(encoding="utf-8"))
-    schema = CarouselOutput.model_json_schema()
+    schema = ArticleFullAnalysis.model_json_schema()
     user_content = "Voici le JSON à simplifier :\n\n" + json.dumps(data, ensure_ascii=False, indent=2)
 
     if no_api:
@@ -44,7 +44,7 @@ async def simplify_carousel(json_path: Path, no_api: bool = False) -> CarouselOu
         match = re.search(r"```(?:json)?\s*([\s\S]+?)\s*```", text)
         if match:
             text = match.group(1).strip()
-        return CarouselOutput.model_validate(json.loads(text))
+        return ArticleFullAnalysis.model_validate(json.loads(text))
 
     with client.messages.stream(
         model="claude-opus-4-6",
@@ -62,4 +62,4 @@ async def simplify_carousel(json_path: Path, no_api: bool = False) -> CarouselOu
         response = stream.get_final_message()
 
     text = next(b.text for b in response.content if b.type == "text")
-    return CarouselOutput.model_validate(json.loads(text))
+    return ArticleFullAnalysis.model_validate(json.loads(text))

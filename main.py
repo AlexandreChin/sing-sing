@@ -28,7 +28,7 @@ async def run_carousel(text: str, no_api: bool = False, input_path: str | None =
 
     OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
     stem = Path(input_path).stem if input_path else datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_path = OUTPUTS_DIR / f"{stem}_carousel.json"
+    output_path = OUTPUTS_DIR / f"{stem}_analysis.json"
     output_path.write_text(json_output, encoding="utf-8")
     print(f"Output written to {output_path}", file=sys.stderr)
     print(json_output)

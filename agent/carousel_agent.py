@@ -19,15 +19,18 @@ import anthropic
 from models.carousel import (
     AnalysisFond,
     AnalyseForme,
+    ArticleExtraction,
+    ArticleFullAnalysis,
     ArticleMetadata,
     CarouselInput,
-    CarouselOutput,
+    ProvenByRef,
+    TextItem,
 )
 from models.carousel_steps import ExtractionResult, Step2Output, Step5Output, Step6Output
 
 client = anthropic.Anthropic()
 
-_SYSTEM_PROMPT = (Path(__file__).parent / "prompts" / "analyze_carousel.md").read_text(
+_SYSTEM_PROMPT = (Path(__file__).parent / "prompts" / "analyze_article.md").read_text(
     encoding="utf-8"
 )
 
@@ -60,12 +63,26 @@ def _validate_fond(data: dict) -> list[str]:
     if not (2 <= n <= 3):
         errors.append(f"observations: expected 2–3, got {n}")
     for i, obs in enumerate(fond.observations):
-        if not obs.seeds:
-            errors.append(f"observations[{i}].seeds is empty")
+        if not obs.seeds.excerpt:
+            errors.append(f"observations[{i}].seeds.excerpt is empty")
+    if not fond.premisses:
+        errors.append("analysis_fond.premisses is empty")
+    for i, p in enumerate(fond.premisses):
+        if not p.statement:
+            errors.append(f"premisses[{i}].statement is empty")
     if not fond.implicit_assumptions:
         errors.append("analysis_fond.implicit_assumptions is empty")
     if not fond.blind_spots:
         errors.append("analysis_fond.blind_spots is empty")
+    if not fond.emphasis:
+        errors.append("analysis_fond.emphasis is empty")
+    if not fond.logical_reasoning:
+        errors.append("analysis_fond.logical_reasoning is empty")
+    for i, lr in enumerate(fond.logical_reasoning):
+        if not lr.step:
+            errors.append(f"logical_reasoning[{i}].step is empty")
+    if not fond.steel_man:
+        errors.append("analysis_fond.steel_man is empty")
     return errors
 
 
@@ -76,26 +93,15 @@ def _validate_forme(data: dict) -> list[str]:
     if not (1 <= n_er <= 2):
         errors.append(f"emotional_register: expected 1–2, got {n_er}")
     for i, er in enumerate(forme.emotional_register):
-        if not er.seeds:
-            errors.append(f"emotional_register[{i}].seeds is empty")
+        if not er.seeds.excerpt:
+            errors.append(f"emotional_register[{i}].seeds.excerpt is empty")
     n_cb = len(forme.cui_bono)
     if not (1 <= n_cb <= 2):
         errors.append(f"cui_bono: expected 1–2, got {n_cb}")
     for i, cb in enumerate(forme.cui_bono):
-        if not cb.seeds:
-            errors.append(f"cui_bono[{i}].seeds is empty")
+        if not cb.seeds.excerpt:
+            errors.append(f"cui_bono[{i}].seeds.excerpt is empty")
     return errors
-
-
-def _confidence_label_expected(confidence: int | None) -> str:
-    if confidence is None:
-        return "unverifiable"
-    if confidence <= 20: return "false"
-    if confidence <= 40: return "likely false"
-    if confidence <= 60: return "disputed"
-    if confidence <= 80: return "likely true"
-    if confidence <= 90: return "true"
-    return "consensual"
 
 
 def _validate_annotations(data: dict, fond_data: dict, forme_data: dict) -> list[str]:
@@ -104,43 +110,47 @@ def _validate_annotations(data: dict, fond_data: dict, forme_data: dict) -> list
     forme = AnalyseForme.model_validate(forme_data)
     errors = []
 
-    valid_proves = (
-        {obs.aspect for obs in fond.observations}
-        | {e.emotion for e in forme.emotional_register}
-        | {c.beneficiary for c in forme.cui_bono}
-    )
+    valid_by_type = {
+        "observation": {obs.aspect for obs in fond.observations},
+        "emotional_register": {e.emotion for e in forme.emotional_register},
+        "cui_bono": {c.beneficiary for c in forme.cui_bono},
+    }
+
+    def _check_proves(ref, path: str) -> str | None:
+        valid = valid_by_type.get(ref.type, set())
+        if ref.label not in valid:
+            return (
+                f"{path}.proves has type='{ref.type}' label='{ref.label}' but "
+                f"'{ref.label}' not found in {ref.type}. Valid: {sorted(valid)}"
+            )
+        return None
 
     fvo = step5.facts_vs_opinions
     n_claims = len(fvo.claims_and_sources)
     if n_claims != 4:
         errors.append(f"claims_and_sources: expected exactly 4, got {n_claims}")
     for i, claim in enumerate(fvo.claims_and_sources):
-        if claim.proves not in valid_proves:
-            errors.append(
-                f"claims_and_sources[{i}].proves='{claim.proves}' is invalid. "
-                f"Valid values: {sorted(valid_proves)}"
-            )
-        expected = _confidence_label_expected(claim.confidence)
-        if claim.confidence_label != expected:
-            errors.append(
-                f"claims_and_sources[{i}].confidence_label='{claim.confidence_label}' is wrong "
-                f"for score {claim.confidence}. Expected: '{expected}'"
-            )
+        err = _check_proves(claim.proves, f"claims_and_sources[{i}]")
+        if err:
+            errors.append(err)
 
     bf = step5.biases_and_focus
+    n_biases = len(bf.biases_and_rhetoric)
+    if n_biases != 3:
+        errors.append(f"biases_and_rhetoric: expected exactly 3, got {n_biases}")
     for i, bias in enumerate(bf.biases_and_rhetoric):
-        if bias.proves not in valid_proves:
-            errors.append(
-                f"biases_and_rhetoric[{i}].proves='{bias.proves}' is invalid. "
-                f"Valid values: {sorted(valid_proves)}"
-            )
+        err = _check_proves(bias.proves, f"biases_and_rhetoric[{i}]")
+        if err:
+            errors.append(err)
 
-    obs_aspects = {obs.aspect for obs in fond.observations}
-    if bf.focus.proves not in obs_aspects:
-        errors.append(
-            f"focus.proves='{bf.focus.proves}' is invalid. "
-            f"Must match an observation aspect: {sorted(obs_aspects)}"
-        )
+    # focus.proves must point to an observation specifically
+    if bf.focus.proves.type != "observation":
+        errors.append(f"focus.proves.type must be 'observation', got '{bf.focus.proves.type}'")
+    else:
+        err = _check_proves(bf.focus.proves, "focus")
+        if err:
+            errors.append(err)
+
     return errors
 
 
@@ -160,6 +170,12 @@ def _validate_finale(data: dict) -> list[str]:
     blind_spots = [q for q in step6.cta.post_reading_questions if q.type == "blind_spot"]
     if not blind_spots:
         errors.append("cta.post_reading_questions: at least one question must be of type 'blind_spot'")
+    n_cta_q = len(step6.cta.post_reading_questions)
+    for i, item in enumerate(step6.go_further.items):
+        if item.cta_question_index is not None and not (0 <= item.cta_question_index < n_cta_q):
+            errors.append(
+                f"go_further[{i}].cta_question_index={item.cta_question_index} out of range (0–{n_cta_q - 1})"
+            )
     return errors
 
 
@@ -297,9 +313,63 @@ def _article_header(input: CarouselInput) -> str:
     return "\n".join(parts)
 
 
+# ── ID assignment ────────────────────────────────────────────────────────────
+
+def _assign_ids(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
+    """Assign stable string IDs to all cross-referenceable nodes at assembly time."""
+
+    def _ids(items: list, prefix: str) -> list:
+        return [item.model_copy(update={"id": f"{prefix}_{i}"}) for i, item in enumerate(items)]
+
+    ctx = output.context
+    new_ctx = ctx.model_copy(update={
+        "contexts": _ids(ctx.contexts, "ctx"),
+        "important_facts": _ids(ctx.important_facts, "fact"),
+    })
+
+    new_wo = output.watch_out.model_copy(update={"items": _ids(output.watch_out.items, "wo")})
+
+    fond = output.analysis_fond
+    new_fond = fond.model_copy(update={
+        "premisses": _ids(fond.premisses, "pr"),
+        "implicit_assumptions": _ids(fond.implicit_assumptions, "ia"),
+        "blind_spots": _ids(fond.blind_spots, "bs"),
+        "logical_reasoning": _ids(fond.logical_reasoning, "lr"),
+        "observations": _ids(fond.observations, "obs"),
+    })
+
+    forme = output.analysis_forme
+    new_forme = forme.model_copy(update={
+        "emotional_register": _ids(forme.emotional_register, "er"),
+        "cui_bono": _ids(forme.cui_bono, "cb"),
+    })
+
+    new_fvo = output.facts_vs_opinions.model_copy(update={
+        "claims_and_sources": _ids(output.facts_vs_opinions.claims_and_sources, "claim"),
+    })
+
+    new_bf = output.biases_and_focus.model_copy(update={
+        "biases_and_rhetoric": _ids(output.biases_and_focus.biases_and_rhetoric, "bias"),
+    })
+
+    new_cta = output.cta.model_copy(update={
+        "post_reading_questions": _ids(output.cta.post_reading_questions, "q"),
+    })
+
+    return output.model_copy(update={
+        "context": new_ctx,
+        "watch_out": new_wo,
+        "analysis_fond": new_fond,
+        "analysis_forme": new_forme,
+        "facts_vs_opinions": new_fvo,
+        "biases_and_focus": new_bf,
+        "cta": new_cta,
+    })
+
+
 # ── Pipeline ─────────────────────────────────────────────────────────────────
 
-async def analyze_for_carousel(input: CarouselInput, no_api: bool = False) -> CarouselOutput:
+async def analyze_for_carousel(input: CarouselInput, no_api: bool = False) -> ArticleFullAnalysis:
     article = _article_header(input)
     article_title, article_chapo = _extract_title_chapo(input.body)
 
@@ -317,6 +387,7 @@ Lis l'article et extrais sans interpréter :
 - key_claims : affirmations centrales avec citation verbatim et source éventuelle
 - key_quotes : citations verbatim les plus importantes ou révélatrices
 - key_actors : acteurs mentionnés et leur rôle
+- authority_anchors : entités (personnes, organisations, institutions) citées pour conférer de la crédibilité à une affirmation spécifique — pour chacune : entity (nom) + used_for (quelle affirmation elle est invoquée à légitimer)
 - notable_omissions : éléments attendus absents
 - rhetorical_patterns : patterns dans la structure, le vocabulaire, la mise en scène
 
@@ -348,7 +419,7 @@ CHAPEAU : {chapo_line}
 Produis cadrage, context et watch_out selon le prompt système.
 - cadrage : analyse du titre et du chapeau de l'article (title_bullets + chapo_bullets)
 - context : contexts, who_is_speaking, important_facts, key_terms (1–2 items chacun), next_slide_hook
-- watch_out : 4–5 items (text + refers_to: fond/forme/faits/biais), triés fond→forme→faits→biais, next_slide_hook""",
+- watch_out : 4–5 items (text + refers_to: analysis_fond/analysis_forme/facts_vs_opinions/biases_and_focus), triés analysis_fond→analysis_forme→facts_vs_opinions→biases_and_focus, next_slide_hook""",
         Step2Output.model_json_schema(),
         validator=_validate_avant_de_lire,
         no_api=no_api,
@@ -372,7 +443,16 @@ AVANT DE LIRE (étape 2) :
 
 ÉTAPE 3/6 — ANALYSE GLOBALE — LE FOND (slide 6)
 
-Produis analysis_fond : main_claim, implicit_assumptions (1–2), blind_spots (1–2), observations (2–3).
+Produis analysis_fond :
+- main_claim (1 phrase, ≤ 15 mots)
+- premisses (1–3) : prémisses explicites ou implicites mais évidentes que l'auteur accepte
+- implicit_assumptions (1–3) : hypothèses implicites et discutables que l'argument suppose vraies sans le dire
+- blind_spots (1–3) : angles absents OU minimisés qui auraient pu modifier la conclusion
+- emphasis (1–3) : ce que l'auteur met en avant de façon disproportionnée — ce sur quoi le texte revient, ce qui occupe le plus d'espace
+- logical_reasoning (1–3) : étapes inférentielles qui conduisent des prémisses à la conclusion
+- observations (2–3) : aspect (1 mot), summary (1–2 phrases), seeds (objet {source, index, excerpt} — source ∈ "watch_out"/"context"/"important_fact", index = position 0-based dans la liste, excerpt = extrait court)
+- steel_man (1–3) : contre-arguments les plus solides — counterargument, seeds (objet {source, index, excerpt} — source ∈ "premisse"/"implicit_assumption"/"blind_spot"/"logical_reasoning"), alternative_conclusion
+
 Contrainte : chaque observation doit être ancrée dans un context, important_fact ou watch_out de l'étape 2.
 Chaque context, important_fact et watch_out doit être adressé par au moins une observation.""",
         AnalysisFond.model_json_schema(),
@@ -403,6 +483,7 @@ ANALYSE — LE FOND (étape 3) :
 
 Produis analysis_forme : emotional_register (1–2 items), cui_bono (1–2 items), next_slide_hook.
 Ces items doivent être ancrés dans les observations et seeds de l'étape 3.
+Pour seeds de chaque item : objet {source, index, excerpt} — source ∈ "watch_out"/"context"/"important_fact", index = position 0-based, excerpt = extrait court.
 Ils devront être prouvés dans le texte à l'étape suivante — anticipe.""",
         AnalyseForme.model_json_schema(),
         validator=_validate_forme,
@@ -427,8 +508,8 @@ ANALYSE — LA FORME (étape 4) :
 
 ÉTAPE 5/6 — ANNOTATIONS (slides 8 et 9)
 
-Produis facts_vs_opinions (exactement 4 items) et biases_and_focus (1–2 biais + 1 focus).
-Contrainte : chaque proves doit correspondre exactement à un aspect/emotion/beneficiary de l'analyse globale.
+Produis facts_vs_opinions (exactement 4 items) et biases_and_focus (exactement 3 biais + 1 focus).
+Contrainte proves : chaque proves est un objet {type, label}. type est "observation", "emotional_register", ou "cui_bono". label doit correspondre exactement à un aspect/emotion/beneficiary de l'analyse globale. Pour focus, type doit être "observation".
 Citations verbatim : mot pour mot depuis l'article — jamais paraphrasées.
 Scores confidence : applique la méthodologie du prompt système.
 next_slide_hook pour biases_and_focus.""",
@@ -465,7 +546,7 @@ L'analyse complète est disponible ci-dessus. Produis :
 - hook : topic, sub_topic, headline (≤12 mots), context_line (≤20 mots)
 - interest : why_read (1 phrase), pull_quote (optionnel), next_slide_hook
 - synthesis : exactement 3 points courts issus de l'analyse — chaque point s'arrête juste avant la conclusion. open_question (1 phrase rétrospective ou de fond ancrée dans les biais identifiés en slide 7 — "Aviez-vous repéré…" ou question que l'analyse soulève sans trancher). engagement_question (1 question ouverte invitant à commenter, ancrée dans la tension principale de la synthèse).
-- go_further : 3 à 4 ressources (articles, livres, documentaires, podcasts…) pour aller plus loin. Pour chaque item : title, source, media_type, category (deep_dive ou question_answer), url (si disponible), duration_minutes, why_explore (1 phrase), answers_question (si question_answer : copier verbatim la question de cta.post_reading_questions à laquelle cette ressource répond)
+- go_further : 3 à 4 ressources (articles, livres, documentaires, podcasts…) pour aller plus loin. Pour chaque item : title, source, media_type, category (deep_dive ou question_answer), url (si disponible), duration_minutes, why_explore (1 phrase), cta_question_index (si question_answer : index entier 0 ou 1 de la question dans cta.post_reading_questions à laquelle cette ressource répond — null sinon)
 - cta : engagement_sentence (1 phrase invitant à commenter), post_reading_questions (exactement 2, dont au moins 1 blind_spot)""",
         Step6Output.model_json_schema(),
         validator=_validate_finale,
@@ -473,7 +554,26 @@ L'analyse complète est disponible ci-dessus. Produis :
     )
     step6 = Step6Output.model_validate(step6_data)
 
-    return CarouselOutput(
+    # Compute proven_by back-references on each observation
+    obs_index = {obs.aspect: i for i, obs in enumerate(fond.observations)}
+    obs_proven_by: dict[int, list[ProvenByRef]] = {i: [] for i in range(len(fond.observations))}
+    for claim_idx, claim in enumerate(step5.facts_vs_opinions.claims_and_sources):
+        if claim.proves.type == "observation" and claim.proves.label in obs_index:
+            obs_proven_by[obs_index[claim.proves.label]].append(ProvenByRef(type="claim", index=claim_idx))
+    for bias_idx, bias in enumerate(step5.biases_and_focus.biases_and_rhetoric):
+        if bias.proves.type == "observation" and bias.proves.label in obs_index:
+            obs_proven_by[obs_index[bias.proves.label]].append(ProvenByRef(type="bias", index=bias_idx))
+    if step5.biases_and_focus.focus.proves.type == "observation":
+        focus_label = step5.biases_and_focus.focus.proves.label
+        if focus_label in obs_index:
+            obs_proven_by[obs_index[focus_label]].append(ProvenByRef(type="focus", index=0))
+    updated_obs = [
+        obs.model_copy(update={"proven_by": obs_proven_by[i]})
+        for i, obs in enumerate(fond.observations)
+    ]
+    fond = fond.model_copy(update={"observations": updated_obs})
+
+    assembled = ArticleFullAnalysis(
         article_metadata=ArticleMetadata(
             url=input.url,
             title=input.title or article_title,
@@ -483,6 +583,12 @@ L'analyse complète est disponible ci-dessus. Produis :
             reading_time_minutes=max(1, len(input.body.split()) // 200),
             article_title=article_title,
             article_chapo=article_chapo,
+        ),
+        extraction=ArticleExtraction(
+            authority_anchors=extraction.authority_anchors,
+            key_quotes=extraction.key_quotes,
+            notable_omissions=extraction.notable_omissions,
+            rhetorical_patterns=extraction.rhetorical_patterns,
         ),
         hook=step6.hook,
         interest=step6.interest,
@@ -497,3 +603,4 @@ L'analyse complète est disponible ci-dessus. Produis :
         go_further=step6.go_further,
         cta=step6.cta,
     )
+    return _assign_ids(assembled)

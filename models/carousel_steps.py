@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Literal
 from pydantic import BaseModel
 from models.carousel import (
-    AnalysisFond, AnalyseForme, BiasesAndFocus, Cadrage,
+    AnalysisFond, AnalyseForme, AuthorityAnchor, BiasesAndFocus, Cadrage,
     Context, CTA, FactsVsOpinions, GoFurther, Hook, Interest, Synthesis, WatchOut, WatchOutItem,
 )
 
@@ -24,6 +24,7 @@ class ExtractionResult(BaseModel):
     key_claims: list[ExtractedClaim]
     key_quotes: list[str]
     key_actors: list[ExtractedActor]
+    authority_anchors: list[AuthorityAnchor]  # entities cited to confer credibility on specific claims
     notable_omissions: list[str]
     rhetorical_patterns: list[str]
 

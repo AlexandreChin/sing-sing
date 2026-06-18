@@ -1,4 +1,4 @@
-"""Render a CarouselOutput JSON to 11 PNG slides at 1080×1350px."""
+"""Render an ArticleFullAnalysis JSON to 9 PNG slides at 1080×1350px."""
 
 import base64
 import io
@@ -9,7 +9,7 @@ from PIL import Image
 from jinja2 import Environment, FileSystemLoader
 from playwright.sync_api import sync_playwright
 
-from models.carousel import CarouselOutput
+from models.carousel import ArticleFullAnalysis
 
 TEMPLATES_DIR = Path(__file__).parent / "templates"
 SLIDE_W, SLIDE_H = 1080, 1350
@@ -34,13 +34,11 @@ def _logo_data_url(path: Path, white_threshold: int = 240) -> str:
 _LOGO_DATA_URL = _logo_data_url(_LOGO_PATH) if _LOGO_PATH.exists() else ""
 
 
-def _seed_text(seeds: str) -> str:
-    """Extract quoted text from 'category: '...' ' seeds format."""
-    start = seeds.find("'")
-    end = seeds.rfind("'")
-    if start != -1 and end > start:
-        return "↑ " + seeds[start + 1:end]
-    return seeds
+def _seed_text(seeds) -> str:
+    """Return excerpt from a SeedsRef object for slide display."""
+    if hasattr(seeds, "excerpt"):
+        return ("↑ " + seeds.excerpt) if seeds.excerpt else ""
+    return str(seeds)
 
 
 def _env() -> Environment:
@@ -62,7 +60,7 @@ def _screenshot(html: str, output_path: Path) -> None:
         browser.close()
 
 
-def render_carousel(output: CarouselOutput, out_dir: Path) -> list[Path]:
+def render_carousel(output: ArticleFullAnalysis, out_dir: Path) -> list[Path]:
     out_dir.mkdir(parents=True, exist_ok=True)
     slides = []
 
@@ -118,6 +116,7 @@ def render_carousel(output: CarouselOutput, out_dir: Path) -> list[Path]:
         ("slide_09_go_further.html", {
             "items": output.go_further.items,
             "engagement_sentence": output.cta.engagement_sentence,
+            "cta_questions": output.cta.post_reading_questions,
         }),
     ]
 
@@ -140,7 +139,7 @@ def render_carousel(output: CarouselOutput, out_dir: Path) -> list[Path]:
 
 def render_from_json(json_path: Path, out_dir: Path) -> list[Path]:
     data = json.loads(json_path.read_text(encoding="utf-8"))
-    output = CarouselOutput.model_validate(data)
+    output = ArticleFullAnalysis.model_validate(data)
     return render_carousel(output, out_dir)
 
 
