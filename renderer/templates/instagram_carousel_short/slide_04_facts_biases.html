@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.card {
+  font-size: 28px;
+  padding: 18px 24px;
+  gap: 10px;
+}
+.confidence-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.conf-true        { background: #0d2b1a; border: 1px solid #2a5c3a; color: #7ec8a0;  box-shadow: 0 0 10px rgba(126,200,160,0.2); }
+.conf-likely      { background: #1a2b0d; border: 1px solid #3a5c1a; color: #a0c87a;  box-shadow: 0 0 10px rgba(160,200,122,0.2); }
+.conf-disputed    { background: #2b2b0d; border: 1px solid #5c5c1a; color: #c8c07a;  box-shadow: 0 0 10px rgba(200,192,122,0.2); }
+.conf-false       { background: #2b0d0d; border: 1px solid #5c2a2a; color: #e87a7a;  box-shadow: 0 0 10px rgba(232,122,122,0.2); }
+.conf-likely-false { background: #2b1a0d; border: 1px solid #5c3a1a; color: #e8a07a; box-shadow: 0 0 10px rgba(232,160,122,0.2); }
+.conf-unverifiable { background: #1a1a1a; border: 1px solid #333; color: #f0f0f0; }
+.conf-consensual  { background: #0d3a1a; border: 1px solid #1a5c2a; color: #5eb88a;  box-shadow: 0 0 10px rgba(94,184,138,0.2); }
+.claim-quote {
+  font-size: 26px;
+  font-style: italic;
+  color: #e8d5a3;
+  border-left: 3px solid #e8d5a3;
+  padding-left: 14px;
+}
+.bias-quote {
+  font-size: 26px;
+  font-style: italic;
+  color: #e8d5a3;
+  border-left: 3px solid #e8d5a3;
+  padding-left: 14px;
+}
+.bias-label {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 4px 14px;
+}
+.label-bias {
+  color: #e8a07a;
+  background: #2b1a0d;
+  border: 1px solid #5c3a1a;
+}
+.label-fallacy {
+  color: #7ab3e8;
+  background: #0d1a2b;
+  border: 1px solid #1a3a5c;
+}
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">04</div>
+  {% include '_brand.html' %}
+
+  <div class="section-phase phase-analyse">Analyse</div>
+  <div class="label">Faits & Biais</div>
+  <div class="divider"></div>
+
+  {% set conf_fr = {
+    'true': 'Vrai',
+    'likely true': 'Probable',
+    'disputed': 'Contesté',
+    'likely false': 'Peu probable',
+    'false': 'Faux',
+    'consensual': 'Consensuel',
+    'unverifiable': 'Non vérifié'
+  } %}
+
+  <div class="cards-container" style="gap: 14px;">
+    {% if claims_and_sources %}
+    <div class="section-label">Faits vs opinions</div>
+    {% for claim in claims_and_sources %}
+    <div class="card">
+      {% if claim.confidence_label == 'true' %}
+        <span class="confidence-badge conf-true">{{ conf_fr['true'] }}</span>
+      {% elif claim.confidence_label == 'likely true' %}
+        <span class="confidence-badge conf-likely">{{ conf_fr['likely true'] }}</span>
+      {% elif claim.confidence_label == 'disputed' %}
+        <span class="confidence-badge conf-disputed">{{ conf_fr['disputed'] }}</span>
+      {% elif claim.confidence_label == 'likely false' %}
+        <span class="confidence-badge conf-likely-false">{{ conf_fr['likely false'] }}</span>
+      {% elif claim.confidence_label == 'false' %}
+        <span class="confidence-badge conf-false">{{ conf_fr['false'] }}</span>
+      {% elif claim.confidence_label == 'consensual' %}
+        <span class="confidence-badge conf-consensual">{{ conf_fr['consensual'] }}</span>
+      {% else %}
+        <span class="confidence-badge conf-unverifiable">{{ conf_fr['unverifiable'] }}</span>
+      {% endif %}
+      <p class="claim-quote">{{ claim.quote }}</p>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% if biases_and_rhetoric %}
+    <div class="section-label">Biais & Rhétorique</div>
+    {% for bias in biases_and_rhetoric %}
+    <div class="card">
+      <p class="bias-quote">{{ bias.quote }}</p>
+      <span class="bias-label {% if bias.item_type == 'fallacy' %}label-fallacy{% else %}label-bias{% endif %}">{{ bias.label }}</span>
+    </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <div class="slide-num">4 / 6</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 67%;"></div></div>
+</div>
+</body>
+</html>
