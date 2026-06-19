@@ -35,34 +35,42 @@
   <div class="divider"></div>
 
   <div class="cards-container" style="gap: 14px;">
+
     {% if contexts %}
     <div style="display: flex; flex-direction: column; gap: 8px;">
       <div class="section-label">Pourquoi maintenant ?</div>
-      {% for item in contexts %}
-      <div class="card"><p>{{ item.text }}</p></div>
-      {% endfor %}
+      <div class="card">
+        {% for item in contexts %}
+        {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
+        <p>{{ item.text }}</p>
+        {% endfor %}
+      </div>
     </div>
     {% endif %}
 
     {% if items %}
     <div style="display: flex; flex-direction: column; gap: 8px;">
       <div class="section-label">Clefs de lecture</div>
-      {% for item in items %}
+      {% for group in items | groupby('refers_to') %}
       <div class="card">
-        {% if item.refers_to == 'analysis_fond' %}
+        {% if group.grouper == 'analysis_fond' %}
           <span class="watch-label label-fond">Le fond</span>
-        {% elif item.refers_to == 'analysis_forme' %}
+        {% elif group.grouper == 'analysis_forme' %}
           <span class="watch-label label-forme">La forme</span>
-        {% elif item.refers_to == 'facts_vs_opinions' %}
+        {% elif group.grouper == 'facts_vs_opinions' %}
           <span class="watch-label label-faits">Faits vs opinions</span>
         {% else %}
           <span class="watch-label label-biais">Biais</span>
         {% endif %}
+        {% for item in group.list %}
+        {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
         <p>{{ item.text }}</p>
+        {% endfor %}
       </div>
       {% endfor %}
     </div>
     {% endif %}
+
   </div>
 
   <div class="slide-num">2 / 6</div>

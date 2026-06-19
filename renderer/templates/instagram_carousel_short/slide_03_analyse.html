@@ -9,7 +9,6 @@
   padding: 18px 24px;
   gap: 10px;
 }
-/* Unified label pill for all 4 cards */
 .item-label {
   display: inline-block;
   align-self: flex-start;
@@ -56,43 +55,43 @@
   <div class="divider"></div>
 
   <div class="cards-container" style="gap: 14px;">
-    <!-- Le fond -->
+
+    <!-- Le fond: 1 card with thèse + observation -->
     <div style="display: flex; flex-direction: column; gap: 8px;">
       <div class="section-label">Le fond</div>
       <div class="card">
         <span class="item-label label-these">Thèse</span>
         <p>{{ main_claim }}</p>
-      </div>
-      {% if observations %}
-      {% for obs in observations %}
-      <div class="card">
+        {% for obs in observations %}
+        <div class="elem-sep"></div>
         <span class="item-label label-obs">{{ obs.aspect }}</span>
         <p>{{ obs.summary }}</p>
+        {% endfor %}
       </div>
-      {% endfor %}
-      {% endif %}
     </div>
 
-    <!-- La forme -->
+    <!-- La forme: 1 card with title analysis + emotion -->
     <div style="display: flex; flex-direction: column; gap: 8px;">
       <div class="section-label">La forme</div>
-      {% if title_analysis %}
-      {% for obs in title_analysis %}
       <div class="card">
-        <span class="item-label label-titre">{{ obs.label }}</span>
-        <p>{{ obs.observation }}</p>
+        {% if title_analysis %}
+          {% for obs in title_analysis %}
+          {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
+          <span class="item-label label-titre">{{ obs.label }}</span>
+          <p>{{ obs.observation }}</p>
+          {% endfor %}
+        {% endif %}
+        {% if emotional_register %}
+          {% if title_analysis %}<div class="elem-sep"></div>{% endif %}
+          {% for er in emotional_register %}
+          {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
+          <span class="item-label label-emotion">{{ er.emotion }}</span>
+          <p>{{ er.how }}</p>
+          {% endfor %}
+        {% endif %}
       </div>
-      {% endfor %}
-      {% endif %}
-      {% if emotional_register %}
-      {% for er in emotional_register %}
-      <div class="card">
-        <span class="item-label label-emotion">{{ er.emotion }}</span>
-        <p>{{ er.how }}</p>
-      </div>
-      {% endfor %}
-      {% endif %}
     </div>
+
   </div>
 
   <div class="slide-num">3 / 6</div>

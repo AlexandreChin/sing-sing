@@ -306,7 +306,7 @@ class Synthesis(BaseModel):
 class GoFurtherItem(BaseModel):
     title: str
     source: str
-    media_type: Literal["article", "report", "book", "documentary", "film", "video", "podcast", "academic_paper", "other"]
+    media_type: Literal["article", "report", "book", "documentary", "film", "serie", "video", "podcast", "academic_paper", "other"]
     category: Literal["deep_dive", "question_answer"]
     url: str | None = None
     duration_minutes: int | None = None

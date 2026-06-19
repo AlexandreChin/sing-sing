@@ -271,14 +271,14 @@
   "analysis_forme": {
     "emotional_register": [
       {
-        "id": "er_0",
-        "emotion": "Indignation",
-        "how": "La scène d'humiliation est décrite par le détail — mains liées, à genoux, visage contre le sol — et l'acteur principal paré d'un vocabulaire chargé.",
-        "effect": "Le lecteur est disposé à juger scandaleux non seulement le geste filmé, mais le silence européen qui l'entoure.",
+        "id": "er_1",
+        "emotion": "Sentiment d'incohérence morale",
+        "how": "L'opposition répétée entre l'émoi pour des militants européens et le silence sur les Palestiniens installe un deux poids, deux mesures.",
+        "effect": "Le lecteur est conduit à ressentir l'inaction européenne comme une trahison des valeurs qu'elle revendique.",
         "seeds": {
           "source": "watch_out",
-          "index": 2,
-          "excerpt": "les émotions que le récit cherche à susciter, et par quels moyens"
+          "index": 0,
+          "excerpt": "s'attarde autant sur le sort des Palestiniens que sur celui des militants européens"
         }
       }
     ],
