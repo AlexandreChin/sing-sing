@@ -76,10 +76,9 @@ class ArticleMetadata(BaseModel):
     title: str | None = None
     source: str | None = None
     published_at: str | None = None
-    article_type: Literal["editorial", "news_report", "opinion", "investigation", "interview", "other"] | None = None
+    type: Literal["editorial", "news_report", "opinion", "investigation", "interview", "other"] | None = None
     reading_time_minutes: int | None = None
-    article_title: str | None = None   # original article title extracted from body
-    article_chapo: str | None = None   # lead paragraph extracted from body
+    chapo: str | None = None
 
 
 # Extraction (promoted from step 1)

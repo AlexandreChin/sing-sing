@@ -1,13 +1,12 @@
 {
   "article_metadata": {
     "url": null,
-    "title": null,
-    "source": null,
+    "title": "Le taux de pauvreté des enfants augmente en France alors qu’il diminue dans le reste de l’Europe",
+    "source": "Le Figaro",
     "published_at": null,
-    "article_type": "news_report",
+    "type": "news_report",
     "reading_time_minutes": 3,
-    "article_title": null,
-    "article_chapo": null
+    "chapo": null
   },
   "extraction": {
     "authority_anchors": [
@@ -205,7 +204,9 @@
         "seeds": {
           "source": "watch_out",
           "index": 0,
-          "excerpt": "explique les causes de la divergence, ou se contente d'en décrire les symptômes"
+          "excerpt": "explique les causes de la divergence, ou se contente d'en décrire les symptômes",
+          "strength": null,
+          "nature": null
         },
         "proven_by": [
           {
@@ -221,7 +222,9 @@
         "seeds": {
           "source": "implicit_assumption",
           "index": 0,
-          "excerpt": "une hausse du taux traduit une dégradation réelle"
+          "excerpt": "une hausse du taux traduit une dégradation réelle",
+          "strength": null,
+          "nature": null
         },
         "alternative_conclusion": "Les courbes peuvent se croiser sans que la situation matérielle des enfants se soit réellement détériorée."
       },
@@ -230,7 +233,9 @@
         "seeds": {
           "source": "blind_spot",
           "index": 0,
-          "excerpt": "absence de toute source autre que la Commission européenne"
+          "excerpt": "absence de toute source autre que la Commission européenne",
+          "strength": null,
+          "nature": null
         },
         "alternative_conclusion": "Le cinquième taux le plus élevé perd de sa force sans confirmation indépendante."
       },
@@ -239,7 +244,9 @@
         "seeds": {
           "source": "blind_spot",
           "index": 2,
-          "excerpt": "rôle des politiques publiques françaises (allocations, RSA, réformes)"
+          "excerpt": "rôle des politiques publiques françaises (allocations, RSA, réformes)",
+          "strength": null,
+          "nature": null
         },
         "alternative_conclusion": "La divergence renverrait à des choix budgétaires, et non à une simple précarisation du marché du travail."
       }
@@ -255,7 +262,9 @@
         "seeds": {
           "source": "watch_out",
           "index": 2,
-          "excerpt": "le vocabulaire employé pour qualifier la trajectoire française"
+          "excerpt": "le vocabulaire employé pour qualifier la trajectoire française",
+          "strength": null,
+          "nature": null
         }
       }
     ],
@@ -267,7 +276,9 @@
         "seeds": {
           "source": "context",
           "index": 1,
-          "excerpt": "le thème du déclassement français revient régulièrement dans la presse"
+          "excerpt": "le thème du déclassement français revient régulièrement dans la presse",
+          "strength": null,
+          "nature": null
         }
       },
       {
@@ -277,7 +288,9 @@
         "seeds": {
           "source": "watch_out",
           "index": 5,
-          "excerpt": "combien de sources différentes étayent réellement les données"
+          "excerpt": "combien de sources différentes étayent réellement les données",
+          "strength": null,
+          "nature": null
         }
       }
     ],
@@ -291,7 +304,9 @@
         "presentation": "presented_as_established_fact",
         "proves": {
           "type": "observation",
-          "label": "Seuil"
+          "label": "Seuil",
+          "strength": null,
+          "nature": null
         },
         "explanation": "Définition exacte d'un indicateur **relatif** : il bouge avec le revenu médian national, pas seulement avec le niveau de vie réel.",
         "external_sources": [
@@ -310,7 +325,9 @@
         "presentation": "opinion_stated_as_fact",
         "proves": {
           "type": "observation",
-          "label": "Causes"
+          "label": "Causes",
+          "strength": null,
+          "nature": null
         },
         "explanation": "L'adjectif **préoccupant** glisse un jugement dans une phrase qui admet, elle, une **absence d'explication**.",
         "external_sources": [],
@@ -329,7 +346,9 @@
         "effect": "Remarquez comment la **hausse d'un seuil relatif** est présentée comme une dégradation matérielle, sans rappeler que la référence est le revenu médian.",
         "proves": {
           "type": "observation",
-          "label": "Seuil"
+          "label": "Seuil",
+          "strength": null,
+          "nature": null
         }
       },
       {
@@ -340,7 +359,9 @@
         "effect": "Notez comment l'émotion précède le chiffre : le lecteur est invité à **frémir** avant même d'examiner la donnée.",
         "proves": {
           "type": "emotional_register",
-          "label": "inquiétude du déclin"
+          "label": "inquiétude du déclin",
+          "strength": null,
+          "nature": null
         }
       }
     ],
@@ -348,7 +369,9 @@
       "quote": "Le déclassement de la France serait-il plus avancé qu’on ne le pensait jusqu’alors ?",
       "proves": {
         "type": "observation",
-        "label": "Récit"
+        "label": "Récit",
+        "strength": null,
+        "nature": null
       },
       "analysis": "La question pose le **déclassement** comme cadre avant tout chiffre. Elle suggère une réponse sans l'assumer, en la déguisant en interrogation. Reste à savoir ce qu'un taux relatif mesure vraiment du déclin d'un pays."
     },

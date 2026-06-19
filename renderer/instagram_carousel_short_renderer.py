@@ -71,7 +71,7 @@ def render_carousel(output: ArticleFullAnalysis, out_dir: Path) -> list[Path]:
             "sub_topic": output.hook.sub_topic,
             "headline": output.hook.headline,
             "context_line": output.interest.why_read,
-            "article_title": output.article_metadata.article_title,
+            "article_title": output.article_metadata.title,
             "source": output.article_metadata.source,
             "article_url": url_str,
         }),
