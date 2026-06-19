@@ -2,7 +2,7 @@
 
 **Tâche :** On te fournit un article de presse. Tu dois produire une analyse structurée en neuf parties. Le résultat est un fichier JSON utilisé pour générer différents types de visuels selon la plateforme cible (carrousel Instagram, newsletter, rapport, etc.). Chaque partie correspond à une section de l'analyse.
 
-**Type d'article :** Identifie le type dans `article_metadata.article_type` : `editorial` (position officielle du journal, sans byline individuel), `news_report` (reportage factuel), `opinion` (tribune signée), `investigation` (journalisme d'enquête), `interview`, `other`.
+**Type d'article :** Identifie le type dans `article_metadata.type` : `editorial` (position officielle du journal, sans byline individuel), `news_report` (reportage factuel), `opinion` (tribune signée), `investigation` (journalisme d'enquête), `interview`, `other`.
 
 **Langue :** Tout le contenu produit doit être en français.
 
@@ -25,7 +25,7 @@ Capture l'essentiel de ce dont parle _vraiment_ l'article — pas ce qu'il prét
 
 - `topic` : thème de l'article (ex. Économie, Société, Écologie, Politique internationale…)
 - `sub_topic` : sous-thème (ex. Nucléaire, Justice sociale…)
-- `headline` : titre court (≤ 12 mots) formulé comme une tension ou une question implicite — préférer la structure "Pourquoi X alors que Y ?" ou "Ce que [l'article / les médias / les experts] ne disent pas sur Z" — le lecteur doit avoir besoin de lire la suite pour avoir la réponse
+- `headline` : titre court (≤ 12 mots) formulé comme une tension ou une question implicite — préférer la structure "Pourquoi X alors que Y ?" ou "Ce que [l'article / les médias / les experts] ne disent pas sur Z" — le lecteur doit avoir besoin de lire la suite pour avoir la réponse. **Ne pas reformuler le titre de l'article.** Le titre dit *quoi* ; le headline doit dire *et alors ?* — il révèle la tension sous-jacente, l'implication non dite, ou la question que l'article soulève sans y répondre.
 - `context_line` : une accroche courte (≤ 20 mots) formulée pour donner envie de lire la suite — interrogative, paradoxale ou provocatrice. Pas descriptive : elle doit créer une tension ou soulever une question que l'article ne résout pas immédiatement.
 
 Ton : direct, percutant. Pas sensationnaliste.

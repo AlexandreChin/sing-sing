@@ -801,10 +801,9 @@ L'analyse complète est disponible ci-dessus. Produis :
             title=input.title or article_title,
             source=input.source,
             published_at=input.published_at,
-            article_type=extraction.article_type,
+            type=extraction.article_type,
             reading_time_minutes=max(1, len(input.body.split()) // 200),
-            article_title=article_title,
-            article_chapo=article_chapo,
+            chapo=article_chapo,
         ),
         extraction=ArticleExtraction(
             authority_anchors=extraction.authority_anchors,

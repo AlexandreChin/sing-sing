@@ -1,13 +1,12 @@
 {
   "article_metadata": {
     "url": null,
-    "title": null,
-    "source": null,
+    "source": "Le Figaro",
     "published_at": null,
-    "article_type": "news_report",
+    "type": "news_report",
     "reading_time_minutes": 3,
-    "article_title": null,
-    "article_chapo": null
+    "title": "Le taux de pauvreté des enfants augmente en France alors qu’il diminue dans le reste de l’Europe",
+    "chapo": null
   },
   "extraction": {
     "authority_anchors": [
@@ -508,40 +507,23 @@
     "points": [
       {
         "text": "L'article empile les **symptômes** — précarité, monoparentalité, garde d'enfants — mais ne nomme jamais une cause de la divergence, jusqu'à admettre que la Commission elle-même ne l'explique pas.",
-        "references": [
-          "obs_0",
-          "claim_2"
-        ]
+        "references": ["obs_0", "claim_2"]
       },
       {
         "text": "Le seuil de pauvreté est **relatif** au revenu médian national : il n'apparaît qu'une fois, puis la hausse est lue comme un appauvrissement matériel.",
-        "references": [
-          "obs_1",
-          "bias_0",
-          "claim_0"
-        ]
+        "references": ["obs_1", "bias_0", "claim_0"]
       },
       {
         "text": "Tout le constat repose sur une **source unique**, le document du semestre européen, jamais recoupée avec l'INSEE, Eurostat brut ou des économistes.",
-        "references": [
-          "cb_1",
-          "obs_3"
-        ]
+        "references": ["cb_1", "obs_3"]
       },
       {
         "text": "Le récit ouvre sur une **question rhétorique** et un champ lexical du déclin, invitant à conclure au déclassement avant le premier chiffre.",
-        "references": [
-          "er_0",
-          "bias_1",
-          "focus"
-        ]
+        "references": ["er_0", "bias_1", "focus"]
       },
       {
         "text": "L'image des **courbes qui se croisent**, répétée en ouverture et en clôture, fait paraître la trajectoire déjà jouée.",
-        "references": [
-          "er_1",
-          "bias_2"
-        ]
+        "references": ["er_1", "bias_2"]
       }
     ],
     "open_question": "Aviez-vous remarqué que l'article vous invite à frémir avant même d'avoir lu le moindre chiffre ?",
