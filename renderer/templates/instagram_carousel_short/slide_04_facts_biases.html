@@ -50,16 +50,8 @@
   border-radius: 999px;
   padding: 4px 14px;
 }
-.label-bias {
-  color: #e8a07a;
-  background: #2b1a0d;
-  border: 1px solid #5c3a1a;
-}
-.label-fallacy {
-  color: #7ab3e8;
-  background: #0d1a2b;
-  border: 1px solid #1a3a5c;
-}
+.label-bias    { color: #e8a07a; background: #2b1a0d; border: 1px solid #5c3a1a; }
+.label-fallacy { color: #7ab3e8; background: #0d1a2b; border: 1px solid #1a3a5c; }
 </style>
 </head>
 <body>
@@ -82,38 +74,47 @@
   } %}
 
   <div class="cards-container" style="gap: 14px;">
+
     {% if claims_and_sources %}
-    <div class="section-label">Faits vs opinions</div>
-    {% for claim in claims_and_sources %}
-    <div class="card">
-      {% if claim.confidence_label == 'true' %}
-        <span class="confidence-badge conf-true">{{ conf_fr['true'] }}</span>
-      {% elif claim.confidence_label == 'likely true' %}
-        <span class="confidence-badge conf-likely">{{ conf_fr['likely true'] }}</span>
-      {% elif claim.confidence_label == 'disputed' %}
-        <span class="confidence-badge conf-disputed">{{ conf_fr['disputed'] }}</span>
-      {% elif claim.confidence_label == 'likely false' %}
-        <span class="confidence-badge conf-likely-false">{{ conf_fr['likely false'] }}</span>
-      {% elif claim.confidence_label == 'false' %}
-        <span class="confidence-badge conf-false">{{ conf_fr['false'] }}</span>
-      {% elif claim.confidence_label == 'consensual' %}
-        <span class="confidence-badge conf-consensual">{{ conf_fr['consensual'] }}</span>
-      {% else %}
-        <span class="confidence-badge conf-unverifiable">{{ conf_fr['unverifiable'] }}</span>
-      {% endif %}
-      <p class="claim-quote">{{ claim.quote }}</p>
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div class="section-label">Faits vs opinions</div>
+      <div class="card">
+        {% for claim in claims_and_sources %}
+        {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
+        <p class="claim-quote">{{ claim.quote }}</p>
+        {% if claim.confidence_label == 'true' %}
+          <span class="confidence-badge conf-true">{{ conf_fr['true'] }}</span>
+        {% elif claim.confidence_label == 'likely true' %}
+          <span class="confidence-badge conf-likely">{{ conf_fr['likely true'] }}</span>
+        {% elif claim.confidence_label == 'disputed' %}
+          <span class="confidence-badge conf-disputed">{{ conf_fr['disputed'] }}</span>
+        {% elif claim.confidence_label == 'likely false' %}
+          <span class="confidence-badge conf-likely-false">{{ conf_fr['likely false'] }}</span>
+        {% elif claim.confidence_label == 'false' %}
+          <span class="confidence-badge conf-false">{{ conf_fr['false'] }}</span>
+        {% elif claim.confidence_label == 'consensual' %}
+          <span class="confidence-badge conf-consensual">{{ conf_fr['consensual'] }}</span>
+        {% else %}
+          <span class="confidence-badge conf-unverifiable">{{ conf_fr['unverifiable'] }}</span>
+        {% endif %}
+        {% endfor %}
+      </div>
     </div>
-    {% endfor %}
     {% endif %}
+
     {% if biases_and_rhetoric %}
-    <div class="section-label">Biais & Rhétorique</div>
-    {% for bias in biases_and_rhetoric %}
-    <div class="card">
-      <p class="bias-quote">{{ bias.quote }}</p>
-      <span class="bias-label {% if bias.item_type == 'fallacy' %}label-fallacy{% else %}label-bias{% endif %}">{{ bias.label }}</span>
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div class="section-label">Biais & Rhétorique</div>
+      <div class="card">
+        {% for bias in biases_and_rhetoric %}
+        {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
+        <p class="bias-quote">{{ bias.quote }}</p>
+        <span class="bias-label {% if bias.item_type == 'fallacy' %}label-fallacy{% else %}label-bias{% endif %}">{{ bias.label }}</span>
+        {% endfor %}
+      </div>
     </div>
-    {% endfor %}
     {% endif %}
+
   </div>
 
   <div class="slide-num">4 / 6</div>
