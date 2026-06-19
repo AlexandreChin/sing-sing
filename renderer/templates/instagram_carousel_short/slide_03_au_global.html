@@ -61,11 +61,11 @@
       <div class="section-label">Le fond</div>
       <div class="card">
         <span class="item-label label-these">Thèse</span>
-        <p>{{ main_claim }}</p>
+        <p>{{ main_claim | md_bold }}</p>
         {% for obs in observations %}
         <div class="elem-sep"></div>
         <span class="item-label label-obs">{{ obs.aspect }}</span>
-        <p>{{ obs.summary }}</p>
+        <p>{{ obs.summary | md_bold }}</p>
         {% endfor %}
       </div>
     </div>
@@ -78,7 +78,7 @@
           {% for obs in title_analysis %}
           {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
           <span class="item-label label-titre">{{ obs.label }}</span>
-          <p>{{ obs.observation }}</p>
+          <p>{{ obs.observation | md_bold }}</p>
           {% endfor %}
         {% endif %}
         {% if emotional_register %}
@@ -86,7 +86,7 @@
           {% for er in emotional_register %}
           {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
           <span class="item-label label-emotion">{{ er.emotion }}</span>
-          <p>{{ er.how }}</p>
+          <p>{{ er.how | md_bold }}</p>
           {% endfor %}
         {% endif %}
       </div>

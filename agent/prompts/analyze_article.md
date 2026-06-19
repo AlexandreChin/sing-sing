@@ -10,6 +10,8 @@
 
 **Exigence de concision :** Chaque phrase doit gagner sa place. Pas de reformulations, pas d'introductions, pas de transitions. Une idée = une phrase. Si une phrase peut être coupée en deux sans perte, coupe-la. Si un mot peut être supprimé sans changer le sens, supprime-le.
 
+**Mise en valeur :** Dans les champs de texte libre (résumés, observations, explications — pas les `quote` verbatim), mets en gras les 1 à 2 expressions les plus importantes par phrase en les entourant de `**double astérisques**`. Jamais plus de 20 % du texte total d'un champ. Les citations verbatim ne doivent jamais contenir de `**...**`.
+
 ---
 
 ## Partie 1 — Accroche
@@ -36,7 +38,7 @@ Cette partie donne au lecteur ses repères avant de lire. Elle répond à trois 
 - `title_analysis` : 1 à 2 observations analytiques sur le **titre**, destinées à l'analyse en partie 5 "La forme — Cadrage du titre". **Contrainte stricte : ces items sont post-lecture — ils s'appuient sur le contenu de l'article pour analyser comment le titre encadre la lecture.** Même style que les observations de `emotional_register` ou `cui_bono` : constats neutres, ancrés dans le texte. N'en produis que si le titre contient un vrai signal de cadrage.
 
   Chaque item a deux champs :
-  - `label` : 1 à 2 mots identifiant le procédé rhétorique ou de cadrage (ex. : "Attribution", "Présupposé", "Vocabulaire", "Omission", "Cadrage"). Même registre que les étiquettes de `emotional_register.emotion`.
+  - `label` : 1 à 2 mots identifiant le procédé rhétorique ou de cadrage (ex. : "Attribution", "Présupposé", "Vocabulaire", "Omission", "Cadrage"). Même registre que les étiquettes de `emotional_register.emotion`. **Le label identifie le procédé, jamais le contenu traité.** "Présupposé" = correct. "Hausse des taux" = incorrect — c'est le sujet, pas le procédé.
   - `observation` : le constat analytique (≤ 20 mots). Ex. : "Le titre désigne un responsable sans nommer les victimes."
 
 - `chapo_bullets` : 1 à 2 observations courtes (≤ 12 mots chacune) sur la façon dont le **chapeau** oriente le lecteur — angle retenu, émotions convoquées, ce qu'il met en avant ou efface.
@@ -115,7 +117,7 @@ Le lecteur doit avoir le sentiment d'avoir eu le bon instinct — il a été ale
   Un argument peut être valide et non solide, ou solide sans être valide.
 
 - `observations` (1 à 5 items). Chaque item :
-  - `aspect` (1 mot)
+  - `aspect` (1 mot) : dimension analytique observée — identifie la catégorie, jamais le sujet traité. "Sourçage" = correct. "Pauvreté" = incorrect.
   - `summary` (1 phrase, 2 maximum, sans citation)
   - `seeds` : objet pointant vers l'élément de la partie 2 qui a planté cette observation :
     - `source` : `"watch_out"`, `"context"`, ou `"important_fact"`
@@ -144,7 +146,7 @@ Note : la partie 5 affiche les `title_analysis` (produits en partie 2) en sectio
 
 Identifie les émotions que l'article est conçu pour produire. Pas un jugement — une description.
 
-- `emotion` : le sentiment dominant ciblé (ex. : "indignation", "peur", "solidarité", "méfiance")
+- `emotion` : le sentiment dominant ciblé (ex. : "indignation", "peur", "solidarité", "méfiance"). Désigne le sentiment visé, jamais le sujet qui le provoque. "indignation" = correct. "inégalités" = incorrect.
 - `how` : 1 phrase — la technique qui produit cette émotion (mots chargés, images, structure, contraste…)
 - `effect` : 1 phrase — ce que l'émotion prépare le lecteur à conclure ou à faire
 - `seeds` : objet pointant vers l'élément de la partie 2 qui a planté cet item — même structure que pour les observations (`source`, `index`, `excerpt`). Source ∈ `"watch_out"` / `"context"` / `"important_fact"`.
@@ -226,7 +228,7 @@ Pour chaque item :
 
 - `quote` : citation verbatim de l'article
 - `item_type` : `"bias"` ou `"fallacy"`
-- `label` : étiquette en langage courant — pas de jargon académique ni de noms latins (ex. : "mise sur le même plan", "conclusion qui précède les faits", "langage émotionnel", "généralisation d'un cas")
+- `label` : étiquette en langage courant — pas de jargon académique ni de noms latins (ex. : "mise sur le même plan", "conclusion qui précède les faits", "langage émotionnel", "généralisation d'un cas"). **Le label identifie le procédé, jamais le contenu traité.** "langage émotionnel" = correct. "hausse d'un taux d'intérêt" = incorrect — c'est le sujet, pas le procédé.
 - `effect` : une phrase, formulée comme une observation ("remarquez comment cela fait paraître X inévitable") plutôt qu'un verdict
 - `proves` : objet `{type, label}` — même structure que pour les claims. Pour les biais : `type` ∈ `"observation"` / `"emotional_register"` / `"cui_bono"`.
 

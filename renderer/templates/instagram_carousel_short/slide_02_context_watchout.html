@@ -42,7 +42,7 @@
       <div class="card">
         {% for item in contexts %}
         {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
-        <p>{{ item.text }}</p>
+        <p>{{ item.text | md_bold }}</p>
         {% endfor %}
       </div>
     </div>
@@ -64,7 +64,7 @@
         {% endif %}
         {% for item in group.list %}
         {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
-        <p>{{ item.text }}</p>
+        <p>{{ item.text | md_bold }}</p>
         {% endfor %}
       </div>
       {% endfor %}
