@@ -115,8 +115,24 @@ async def main():
         print(f"Rendering slides to {slides_dir}/", file=sys.stderr)
         await asyncio.to_thread(render_from_json, json_path, slides_dir)
 
+    elif args and args[0] == "graph":
+        # Usage: python main.py graph <analysis.json> [output.html]
+        positional = [a for a in args[1:] if not a.startswith("--")]
+        if not positional:
+            print("Usage: python main.py graph <analysis.json> [output.html]", file=sys.stderr)
+            sys.exit(1)
+        from tools.graph_generator import generate_from_json
+        json_path = Path(positional[0])
+        out_path = Path(positional[1]) if len(positional) > 1 else None
+        out = generate_from_json(json_path, out_path)
+        import json as _json
+        from tools.graph_generator import build_graph as _build_graph
+        _data = _json.loads(json_path.read_text(encoding="utf-8"))
+        _nodes, _edges = _build_graph(_data)
+        print(f"Graph: {len(_nodes)} nodes, {len(_edges)} edges → {out}", file=sys.stderr)
+
     else:
-        print("Usage: python main.py <analyze|extract|simplify|render> [args]", file=sys.stderr)
+        print("Usage: python main.py <analyze|extract|simplify|render|graph> [args]", file=sys.stderr)
         sys.exit(1)
 
 
