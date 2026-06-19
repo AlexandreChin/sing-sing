@@ -18,7 +18,7 @@ Capture l'essentiel de ce dont parle _vraiment_ l'article — pas ce qu'il prét
 
 - `topic` : thème de l'article (ex. Économie, Société, Écologie, Politique internationale…)
 - `sub_topic` : sous-thème (ex. Nucléaire, Justice sociale…)
-- `headline` : titre court (≤ 12 mots) qui capture la tension, la surprise ou l'enjeu central
+- `headline` : titre court (≤ 12 mots) formulé comme une tension ou une question implicite — préférer la structure "Pourquoi X alors que Y ?" ou "Ce que [l'article / les médias / les experts] ne disent pas sur Z" — le lecteur doit avoir besoin de lire la suite pour avoir la réponse
 - `context_line` : une accroche courte (≤ 20 mots) formulée pour donner envie de lire la suite — interrogative, paradoxale ou provocatrice. Pas descriptive : elle doit créer une tension ou soulever une question que l'article ne résout pas immédiatement.
 
 Ton : direct, percutant. Pas sensationnaliste.

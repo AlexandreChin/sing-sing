@@ -69,16 +69,19 @@ def render_carousel(output: ArticleFullAnalysis, out_dir: Path) -> list[Path]:
         ("slide_02_context_watchout.html", {
             "contexts": output.context.contexts,
             "items": output.watch_out.items,
+            "next_hook": output.watch_out.next_slide_hook,
         }),
-        ("slide_03_analyse.html", {
+        ("slide_03_au_global.html", {
             "main_claim": output.analysis_fond.main_claim,
             "observations": output.analysis_fond.observations,
             "title_analysis": output.cadrage.title_analysis,
             "emotional_register": output.analysis_forme.emotional_register,
+            "next_hook": output.analysis_forme.next_slide_hook,
         }),
-        ("slide_04_facts_biases.html", {
+        ("slide_04_dans_le_detail.html", {
             "claims_and_sources": output.facts_vs_opinions.claims_and_sources,
             "biases_and_rhetoric": output.biases_and_focus.biases_and_rhetoric,
+            "next_hook": output.biases_and_focus.next_slide_hook,
         }),
         ("slide_05_go_further.html", {
             "items": output.go_further.items,
@@ -89,8 +92,8 @@ def render_carousel(output: ArticleFullAnalysis, out_dir: Path) -> list[Path]:
     names = [
         "slide_01_hook.png",
         "slide_02_context_watchout.png",
-        "slide_03_analyse.png",
-        "slide_04_facts_biases.png",
+        "slide_03_au_global.png",
+        "slide_04_dans_le_detail.png",
         "slide_05_go_further.png",
         "slide_06_cta.png",
     ]
