@@ -75,7 +75,7 @@
       {% endif %}
       <div class="go-title">{{ item.title }}</div>
       <div class="go-source">{{ item.source }}</div>
-      <p>{{ item.why_explore }}</p>
+      <p>{{ item.why_explore | md_bold }}</p>
     </div>
     {% endfor %}
   </div>

@@ -3,8 +3,10 @@
 import base64
 import io
 import json
+import re
 from pathlib import Path
 
+from markupsafe import Markup, escape
 from PIL import Image
 from jinja2 import Environment, FileSystemLoader
 from playwright.sync_api import sync_playwright
@@ -33,8 +35,15 @@ def _logo_data_url(path: Path, white_threshold: int = 240) -> str:
 _LOGO_DATA_URL = _logo_data_url(_LOGO_PATH) if _LOGO_PATH.exists() else ""
 
 
+def _md_bold(text) -> Markup:
+    escaped = str(escape(text))
+    return Markup(re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', escaped))
+
+
 def _env() -> Environment:
-    return Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)), autoescape=True)
+    env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)), autoescape=True)
+    env.filters["md_bold"] = _md_bold
+    return env
 
 
 def _render_html(template_name: str, context: dict) -> str:
