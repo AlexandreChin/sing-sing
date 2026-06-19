@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.media-badge {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: #1a1a2b;
+  border: 1px solid #2a2a5c;
+  color: #7ab3e8;
+  align-self: flex-start;
+}
+.go-title {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.go-source {
+  font-size: 22px;
+  color: #e8d5a3;
+}
+.card p {
+  font-size: 28px;
+}
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">09</div>
+  {% include '_brand.html' %}
+
+  <div class="section-phase phase-plusloin">Pour aller plus loin</div>
+  <div class="label">Pour aller plus loin</div>
+  <div class="divider"></div>
+
+  {% set media_labels = {
+    'article': 'Article',
+    'report': 'Rapport',
+    'book': 'Livre',
+    'documentary': 'Documentaire',
+    'film': 'Film',
+    'video': 'Vidéo',
+    'podcast': 'Podcast',
+    'academic_paper': 'Étude',
+    'other': 'Autre'
+  } %}
+
+  <div class="cards-container">
+    {% for item in items %}
+    <div class="card">
+      <span class="media-badge">{{ media_labels.get(item.media_type, 'Autre') }}</span>
+      <div class="go-title">{{ item.title }}</div>
+      <div class="go-source">{{ item.source }}</div>
+      <p>{{ item.why_explore }}</p>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="slide-num">9 / 10</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 90%;"></div></div>
+</div>
+</body>
+</html>

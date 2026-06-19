@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.card {
+  font-size: 28px;
+  padding: 18px 24px;
+  gap: 10px;
+}
+/* Unified label pill for all 4 cards */
+.item-label {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 4px 14px;
+}
+.label-these {
+  color: #d4aa00;
+  background: #1a1800;
+  border: 1px solid #3a3500;
+  box-shadow: 0 0 12px rgba(212,170,0,0.15);
+}
+.label-obs {
+  color: #d4aa00;
+  background: #1a1800;
+  border: 1px solid #3a3500;
+  box-shadow: 0 0 12px rgba(212,170,0,0.15);
+}
+.label-titre {
+  color: #e8a07a;
+  background: #2b1a0d;
+  border: 1px solid #5c3a1a;
+  box-shadow: 0 0 12px rgba(232,160,122,0.15);
+}
+.label-emotion {
+  color: #e8a07a;
+  background: #2b1a0d;
+  border: 1px solid #5c3a1a;
+  box-shadow: 0 0 12px rgba(232,160,122,0.15);
+}
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">03</div>
+  {% include '_brand.html' %}
+
+  <div class="section-phase phase-analyse">Analyse</div>
+  <div class="label">Fond & Forme</div>
+  <div class="divider"></div>
+
+  <div class="cards-container" style="gap: 14px;">
+    <!-- Le fond -->
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div class="section-label">Le fond</div>
+      <div class="card">
+        <span class="item-label label-these">Thèse</span>
+        <p>{{ main_claim }}</p>
+      </div>
+      {% if observations %}
+      {% for obs in observations %}
+      <div class="card">
+        <span class="item-label label-obs">{{ obs.aspect }}</span>
+        <p>{{ obs.summary }}</p>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+
+    <!-- La forme -->
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div class="section-label">La forme</div>
+      {% if title_analysis %}
+      {% for obs in title_analysis %}
+      <div class="card">
+        <span class="item-label label-titre">{{ obs.label }}</span>
+        <p>{{ obs.observation }}</p>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% if emotional_register %}
+      {% for er in emotional_register %}
+      <div class="card">
+        <span class="item-label label-emotion">{{ er.emotion }}</span>
+        <p>{{ er.how }}</p>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="slide-num">3 / 6</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 50%;"></div></div>
+</div>
+</body>
+</html>
