@@ -8,12 +8,16 @@ from pydantic import BaseModel, Field, HttpUrl, computed_field, field_validator
 class ProvesRef(BaseModel):
     type: Literal["observation", "emotional_register", "cui_bono"]
     label: str  # must match aspect / emotion / beneficiary in the referenced item
+    strength: float | None = None  # 0.0–1.0: how directly this annotation proves the global item
+    nature: Literal["illustration", "nuance", "contradiction"] | None = None
 
 
 class SeedsRef(BaseModel):
     source: Literal["watch_out", "context", "important_fact", "premisse", "implicit_assumption", "blind_spot", "logical_reasoning"]
     index: int   # 0-based position in the source list
     excerpt: str  # short snippet for human readability
+    strength: float | None = None  # 0.0–1.0: how directly this seed drove the downstream item
+    nature: Literal["inference", "illustration", "contradiction", "specification"] | None = None
 
 
 class ProvenByRef(BaseModel):

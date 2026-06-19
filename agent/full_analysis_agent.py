@@ -15,6 +15,7 @@ import sys
 from pathlib import Path
 
 import anthropic
+from pydantic import BaseModel, Field
 
 from models.full_analysis import (
     AnalysisFond,
@@ -22,8 +23,12 @@ from models.full_analysis import (
     ArticleExtraction,
     ArticleFullAnalysis,
     ArticleMetadata,
+    BiasRhetoric,
+    ClaimAndSource,
     FullAnalysisInput,
+    GlobalAnalysisItem,
     ProvenByRef,
+    SynthesisPoint,
     TextItem,
 )
 from models.full_analysis_steps import ExtractionResult, Step2Output, Step5Output, Step6Output
@@ -270,6 +275,197 @@ def _call_with_retry(
         print(f"  ⚠  {e}", file=sys.stderr)
 
     return data
+
+
+class RepairPatch(BaseModel):
+    additional_observations: list[GlobalAnalysisItem] = Field(default_factory=list)
+    additional_claims: list[ClaimAndSource] = Field(default_factory=list)
+    additional_biases: list[BiasRhetoric] = Field(default_factory=list)
+    fixed_synthesis_points: list[SynthesisPoint] = Field(default_factory=list)
+
+
+def _audit_connections(data: dict) -> list[str]:
+    """Return a list of connection gaps in the assembled analysis."""
+    issues = []
+
+    watch_out_items = data.get("watch_out", {}).get("items", [])
+    contexts        = data.get("context", {}).get("contexts", [])
+    facts           = data.get("context", {}).get("important_facts", [])
+    observations    = data.get("analysis_fond", {}).get("observations", [])
+    emotional_reg   = data.get("analysis_forme", {}).get("emotional_register", [])
+    cui_bono        = data.get("analysis_forme", {}).get("cui_bono", [])
+    claims          = data.get("facts_vs_opinions", {}).get("claims_and_sources", [])
+    biases          = data.get("biases_and_focus", {}).get("biases_and_rhetoric", [])
+    focus           = data.get("biases_and_focus", {}).get("focus") or {}
+    synthesis_pts   = data.get("synthesis", {}).get("points", [])
+
+    referenced_wo  = set()
+    referenced_ctx = set()
+    referenced_fct = set()
+
+    def _walk_seeds(item: dict) -> None:
+        s = item.get("seeds") or {}
+        src, idx = s.get("source"), s.get("index")
+        if src == "watch_out" and idx is not None:      referenced_wo.add(idx)
+        elif src == "context" and idx is not None:      referenced_ctx.add(idx)
+        elif src == "important_fact" and idx is not None: referenced_fct.add(idx)
+
+    for obs in observations: _walk_seeds(obs)
+    for er  in emotional_reg: _walk_seeds(er)
+    for cb  in cui_bono:     _walk_seeds(cb)
+
+    referenced_obs = set()
+    referenced_er  = set()
+    referenced_cb  = set()
+
+    def _walk_proves(item: dict) -> None:
+        p = item.get("proves") or {}
+        t, lbl = p.get("type"), p.get("label")
+        if t == "observation":          referenced_obs.add(lbl)
+        elif t == "emotional_register": referenced_er.add(lbl)
+        elif t == "cui_bono":           referenced_cb.add(lbl)
+
+    for c in claims: _walk_proves(c)
+    for b in biases: _walk_proves(b)
+    if focus:        _walk_proves(focus)
+
+    all_ids = (
+        {o.get("id") for o in observations} | {e.get("id") for e in emotional_reg} |
+        {c.get("id") for c in cui_bono}     | {c.get("id") for c in claims}        |
+        {b.get("id") for b in biases}
+    )
+    all_ids.discard("")
+
+    for i, w in enumerate(watch_out_items):
+        if i not in referenced_wo:
+            issues.append(f"UNREFERENCED_SEED watch_out[{i}]: '{w.get('text','')[:80]}'")
+    for i, c in enumerate(contexts):
+        if i not in referenced_ctx:
+            issues.append(f"UNREFERENCED_SEED context[{i}]: '{c.get('text','')[:80]}'")
+    for i, f in enumerate(facts):
+        if i not in referenced_fct:
+            issues.append(f"UNREFERENCED_SEED important_fact[{i}]: '{f.get('text','')[:80]}'")
+
+    for obs in observations:
+        if obs.get("aspect") not in referenced_obs:
+            issues.append(f"UNPROVEN_OBS '{obs.get('aspect')}': '{obs.get('summary','')[:80]}'")
+    for er in emotional_reg:
+        if er.get("emotion") not in referenced_er:
+            issues.append(f"UNPROVEN_ER '{er.get('emotion')}'")
+    for cb in cui_bono:
+        if cb.get("beneficiary") not in referenced_cb:
+            issues.append(f"UNPROVEN_CB '{cb.get('beneficiary')}'")
+
+    for pt in synthesis_pts:
+        for ref in pt.get("references", []):
+            if ref and ref not in all_ids:
+                issues.append(f"BROKEN_SYNTHESIS_REF '{ref}'")
+
+    return issues
+
+
+def _repair_connections(
+    assembled: ArticleFullAnalysis,
+    issues: list[str],
+    article: str,
+    fond_data: dict,
+    forme_data: dict,
+    step5_data: dict,
+    no_api: bool,
+) -> ArticleFullAnalysis:
+    issue_text = "\n".join(f"  • {issue}" for issue in issues)
+
+    # Build valid node IDs to show the model what exists
+    all_ids = []
+    for i, obs in enumerate(assembled.analysis_fond.observations):
+        all_ids.append(f"  obs_{i} → '{obs.aspect}'")
+    for i, er in enumerate(assembled.analysis_forme.emotional_register):
+        all_ids.append(f"  er_{i} → '{er.emotion}'")
+    for i, cb in enumerate(assembled.analysis_forme.cui_bono):
+        all_ids.append(f"  cb_{i} → '{cb.beneficiary}'")
+    for i, c in enumerate(assembled.facts_vs_opinions.claims_and_sources):
+        all_ids.append(f"  claim_{i} → '{c.quote[:40]}…'")
+    for i, b in enumerate(assembled.biases_and_focus.biases_and_rhetoric):
+        all_ids.append(f"  bias_{i} → '{b.label}'")
+
+    repair_data = _call(
+        f"""{article}
+
+---
+
+FOND (étape 3) :
+{_j(fond_data)}
+
+FORME (étape 4) :
+{_j(forme_data)}
+
+ANNOTATIONS (étape 5) :
+{_j(step5_data)}
+
+IDS VALIDES :
+{chr(10).join(all_ids)}
+
+---
+
+RÉPARATION DES CONNEXIONS
+
+L'audit a détecté {len(issues)} lacune(s) :
+
+{issue_text}
+
+Produis uniquement les éléments manquants pour fermer ces lacunes — ne reproduis pas l'existant :
+
+- UNREFERENCED_SEED watch_out[N] : ajoute dans `additional_observations` une observation dont seeds.source="watch_out" et seeds.index=N, ancrée dans l'article.
+- UNREFERENCED_SEED context[N] / important_fact[N] : idem avec source="context"/"important_fact".
+- UNPROVEN_OBS 'X' : ajoute dans `additional_claims` ou `additional_biases` un item avec proves.type="observation" et proves.label="X", citation verbatim depuis l'article.
+- UNPROVEN_ER 'X' : ajoute un item avec proves.type="emotional_register" et proves.label="X".
+- UNPROVEN_CB 'X' : ajoute un item avec proves.type="cui_bono" et proves.label="X".
+- BROKEN_SYNTHESIS_REF 'X' : dans `fixed_synthesis_points`, remplace les références invalides par des IDs valides uniquement (liste ci-dessus). Reproduis tous les synthesis points, en corrigeant uniquement les références invalides.""",
+        RepairPatch.model_json_schema(),
+        no_api=no_api,
+    )
+
+    patch = RepairPatch.model_validate(repair_data)
+
+    fond = assembled.analysis_fond
+    fvo  = assembled.facts_vs_opinions
+    bf   = assembled.biases_and_focus
+    synth = assembled.synthesis
+
+    if patch.additional_observations:
+        fond = fond.model_copy(update={"observations": list(fond.observations) + patch.additional_observations})
+    if patch.additional_claims:
+        fvo = fvo.model_copy(update={"claims_and_sources": list(fvo.claims_and_sources) + patch.additional_claims})
+    if patch.additional_biases:
+        bf = bf.model_copy(update={"biases_and_rhetoric": list(bf.biases_and_rhetoric) + patch.additional_biases})
+    if patch.fixed_synthesis_points:
+        synth = synth.model_copy(update={"points": patch.fixed_synthesis_points})
+
+    # Recompute proven_by with updated claims/biases
+    obs_index = {obs.aspect: i for i, obs in enumerate(fond.observations)}
+    obs_proven_by: dict[int, list[ProvenByRef]] = {i: [] for i in range(len(fond.observations))}
+    for ci, claim in enumerate(fvo.claims_and_sources):
+        if claim.proves.type == "observation" and claim.proves.label in obs_index:
+            obs_proven_by[obs_index[claim.proves.label]].append(ProvenByRef(type="claim", index=ci))
+    for bi, bias in enumerate(bf.biases_and_rhetoric):
+        if bias.proves.type == "observation" and bias.proves.label in obs_index:
+            obs_proven_by[obs_index[bias.proves.label]].append(ProvenByRef(type="bias", index=bi))
+    if bf.focus.proves.type == "observation" and bf.focus.proves.label in obs_index:
+        obs_proven_by[obs_index[bf.focus.proves.label]].append(ProvenByRef(type="focus", index=0))
+    fond = fond.model_copy(update={
+        "observations": [
+            obs.model_copy(update={"proven_by": obs_proven_by[i]})
+            for i, obs in enumerate(fond.observations)
+        ]
+    })
+
+    patched = assembled.model_copy(update={
+        "analysis_fond": fond,
+        "facts_vs_opinions": fvo,
+        "biases_and_focus": bf,
+        "synthesis": synth,
+    })
+    return _assign_ids(patched)
 
 
 def _extract_title_chapo(body: str) -> tuple[str | None, str | None]:
@@ -629,4 +825,20 @@ L'analyse complète est disponible ci-dessus. Produis :
         go_further=step6.go_further,
         cta=step6.cta,
     )
-    return _assign_ids(assembled)
+    assembled = _assign_ids(assembled)
+
+    # Connection audit + repair
+    conn_issues = _audit_connections(json.loads(assembled.model_dump_json()))
+    if conn_issues:
+        print(
+            f"  ↻ {len(conn_issues)} connection gap(s) detected, repairing…",
+            file=sys.stderr, flush=True,
+        )
+        assembled = _repair_connections(assembled, conn_issues, article, fond_data, forme_data, step5_data, no_api)
+        remaining = _audit_connections(json.loads(assembled.model_dump_json()))
+        for issue in remaining:
+            print(f"  ⚠  {issue}", file=sys.stderr)
+    else:
+        print("  ✓ Connection audit: all nodes connected.", file=sys.stderr, flush=True)
+
+    return assembled

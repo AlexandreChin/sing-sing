@@ -12,6 +12,11 @@
 
 **Mise en valeur :** Dans les champs de texte libre (résumés, observations, explications — pas les `quote` verbatim), mets en gras les 1 à 2 expressions les plus importantes par phrase en les entourant de `**double astérisques**`. Jamais plus de 20 % du texte total d'un champ. Les citations verbatim ne doivent jamais contenir de `**...**`.
 
+**Connexions — force et nature :** Chaque objet `seeds` et `proves` porte deux champs optionnels à renseigner systématiquement :
+- `strength` (float 0.0–1.0) : force du lien — 1.0 = lien direct et évident, 0.5 = lien plausible mais indirect, 0.2 = lien faible ou spéculatif.
+- `nature` pour un objet `seeds` : `"inference"` (l'item aval est déduit logiquement du seed), `"illustration"` (l'item aval montre directement ce que le seed annonçait), `"contradiction"` (l'item aval va à l'encontre de l'attente posée par le seed), `"specification"` (l'item aval précise ou resserre le seed).
+- `nature` pour un objet `proves` : `"illustration"` (la citation illustre directement l'item global), `"nuance"` (la citation complique ou nuance l'item global), `"contradiction"` (la citation contredit ce qu'on attendait de l'item global).
+
 ---
 
 ## Partie 1 — Accroche

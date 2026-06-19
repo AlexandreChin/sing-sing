@@ -95,7 +95,9 @@ def render_carousel(output: ArticleFullAnalysis, out_dir: Path) -> list[Path]:
         ("slide_05_go_further.html", {
             "items": output.go_further.items,
         }),
-        ("slide_06_cta.html", {}),
+        ("slide_06_cta.html", {
+            "engagement_question": output.synthesis.engagement_question,
+        }),
     ]
 
     names = [
