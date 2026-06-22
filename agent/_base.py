@@ -380,17 +380,28 @@ Produis uniquement les éléments manquants pour fermer ces lacunes — ne repro
 
 def _build_node_index(fond: AnalysisFond, forme: AnalyseForme, step5_data: dict) -> str:
     lines = ["NŒUDS DISPONIBLES POUR LES RÉFÉRENCES DE SYNTHÈSE :"]
+    # Logic layer
+    for i, pr in enumerate(fond.premisses):
+        lines.append(f"  pr_{i} → prémisse « {pr.statement[:50].replace(chr(10), ' ')}… »")
+    for i, ia in enumerate(fond.implicit_assumptions):
+        lines.append(f"  ia_{i} → hypothèse implicite « {ia.statement[:50].replace(chr(10), ' ')}… »")
+    for i, bs in enumerate(fond.blind_spots):
+        lines.append(f"  bs_{i} → angle mort « {bs.topic[:50].replace(chr(10), ' ')}… »")
+    for i, lr in enumerate(fond.logical_reasoning):
+        lines.append(f"  lr_{i} → raisonnement « {lr.step[:50].replace(chr(10), ' ')}… »")
     for i, obs in enumerate(fond.observations):
         lines.append(f"  obs_{i} → observation « {obs.aspect} »")
+    # Rhetoric layer
     for i, er in enumerate(forme.emotional_register):
         lines.append(f"  er_{i} → registre émotionnel « {er.emotion} »")
     for i, cb in enumerate(forme.cui_bono):
         lines.append(f"  cb_{i} → cui bono « {cb.beneficiary} »")
+    # Probe layer
     for i, claim in enumerate(step5_data["facts_vs_opinions"]["claims_and_sources"]):
-        q = claim["quote"][:35].replace("\n", " ")
+        q = claim["quote"][:50].replace("\n", " ")
         lines.append(f"  claim_{i} → affirmation « {q}… »")
     for i, bias in enumerate(step5_data["biases_and_focus"]["biases_and_rhetoric"]):
         lines.append(f"  bias_{i} → biais « {bias['label']} »")
-    focus_quote = step5_data["biases_and_focus"]["focus"]["quote"][:35].replace("\n", " ")
+    focus_quote = step5_data["biases_and_focus"]["focus"]["quote"][:50].replace("\n", " ")
     lines.append(f"  focus → focus éditorial « {focus_quote}… »")
     return "\n".join(lines)

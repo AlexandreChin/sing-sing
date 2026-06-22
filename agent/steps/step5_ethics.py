@@ -28,8 +28,6 @@ def _validate(data: dict) -> list[str]:
 def run(
     article: str,
     ext_data: dict,
-    fond_data: dict,
-    forme_data: dict,
     probe_data: dict,
     steps_dir: Path,
     no_api: bool = False,
@@ -37,8 +35,6 @@ def run(
     user_msg = (
         f"{article}\n\n---\n\n"
         f"SCAN (step 1):\n{_j(ext_data)}\n\n"
-        f"LOGIC (step 2):\n{_j(fond_data)}\n\n"
-        f"RHETORIC (step 3):\n{_j(forme_data)}\n\n"
         f"PROBE (step 4):\n{_j(probe_data)}\n\n"
         f"---\n\n{_PROMPT}"
     )

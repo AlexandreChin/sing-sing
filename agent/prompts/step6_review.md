@@ -99,4 +99,9 @@ cannot be `reading_recommendation: "recommended"`.
 
 - further_resource : one reference (book, documentary, article, course, video…) that puts
   this piece's approach in perspective.
+
+- summary : in French — 1 to 2 sentences for the reader. Plain language, no jargon.
+  Combines `reading_recommendation`, `for_whom`, and `payoff` into a single direct verdict.
+  Example: "Lecture recommandée pour qui suit ce dossier de près : l'article apporte des
+  données solides, mais le cadrage mérite d'être mis en perspective avec d'autres sources."
   Fields: title, source, media_type, why_explore (1 sentence, in French), url (or null).
