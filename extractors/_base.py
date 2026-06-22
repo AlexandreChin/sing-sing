@@ -5,9 +5,11 @@ from models.full_analysis import ArticleFullAnalysis
 
 
 def score_nodes(output: ArticleFullAnalysis) -> dict[str, float]:
-    """Score each node from synthesis.references. Earlier point → higher weight."""
+    """Score each node from distill.references. Earlier point → higher weight."""
+    if not output.distill:
+        return {}
     scores: dict[str, float] = {}
-    for i, point in enumerate(output.synthesis.points):
+    for i, point in enumerate(output.distill.points):
         w = 1.0 / (i + 1)
         for ref_id in point.references:
             scores[ref_id] = scores.get(ref_id, 0.0) + w
@@ -67,8 +69,8 @@ def rebuild_proven_by(obs, claim_orig_to_new: dict[int, int], bias_orig_to_new: 
     return result
 
 
-def filter_synthesis_refs(points: list, kept_ids: set[str]) -> list:
-    """Remove references to dropped nodes from each synthesis point."""
+def filter_distill_refs(points: list, kept_ids: set[str]) -> list:
+    """Remove references to dropped nodes from each distill point."""
     return [
         pt.model_copy(update={"references": [r for r in pt.references if r in kept_ids]})
         for pt in points

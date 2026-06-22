@@ -4,7 +4,7 @@ from __future__ import annotations
 from models.full_analysis import ArticleFullAnalysis
 from models.instagram_carousel_presentation import InstagramCarouselDocument, InstagramCarouselPresentation
 from extractors._base import (
-    filter_synthesis_refs,
+    filter_distill_refs,
     rebuild_proven_by,
     remap_seeds,
     score_nodes,
@@ -13,7 +13,7 @@ from extractors._base import (
 )
 
 CAPS = {
-    "synthesis": 3,
+    "distill": 3,
     "observations": 3,
     "claims": 2,
     "biases": 2,
@@ -40,8 +40,8 @@ def extract(full: ArticleFullAnalysis, presentation: InstagramCarouselPresentati
     fond = full.analysis.fond
     forme = full.analysis.forme
 
-    # ── Synthesis ─────────────────────────────────────────────────────────────
-    sel_synthesis = full.synthesis.points[: CAPS["synthesis"]]
+    # ── Distill ───────────────────────────────────────────────────────────────
+    sel_distill = full.distill.points[: CAPS["distill"]] if full.distill else []
 
     # ── Observations ──────────────────────────────────────────────────────────
     sel_obs, _ = select(
@@ -60,33 +60,18 @@ def extract(full: ArticleFullAnalysis, presentation: InstagramCarouselPresentati
     def src_score(source: str, idx: int) -> float:
         return seed_scores.get(source, {}).get(idx, 0.0)
 
-    # ── Mandatory watch_out: seed sources + at least 1 per category ───────────
-    must_wo: set[int] = set()
+    # ── Select source items ───────────────────────────────────────────────────
     must_ctx: set[int] = set()
     must_fact: set[int] = set()
     for item in list(sel_obs) + list(forme.emotional_register) + list(forme.cui_bono):
         if not hasattr(item, "seeds"):
             continue
         src, idx = item.seeds.source, item.seeds.index
-        if src == "watch_out":
-            must_wo.add(idx)
-        elif src == "context":
+        if src == "context":
             must_ctx.add(idx)
         elif src == "important_fact":
             must_fact.add(idx)
 
-    seen_cats: dict[str, int] = {}
-    for i, item in enumerate(full.watch_out.items):
-        if item.refers_to not in seen_cats:
-            seen_cats[item.refers_to] = i
-    for idx in seen_cats.values():
-        must_wo.add(idx)
-
-    # ── Select source items ───────────────────────────────────────────────────
-    sel_wo, wo_old_to_new = select_with_must(
-        full.watch_out.items, CAPS["watch_out"], must_wo,
-        lambda i: src_score("watch_out", i),
-    )
     sel_ctx, ctx_old_to_new = select_with_must(
         full.context.contexts, CAPS["contexts"], must_ctx,
         lambda i: src_score("context", i),
@@ -96,16 +81,19 @@ def extract(full: ArticleFullAnalysis, presentation: InstagramCarouselPresentati
         lambda i: src_score("important_fact", i),
     )
     source_remap = {
-        "watch_out": wo_old_to_new,
         "context": ctx_old_to_new,
         "important_fact": fact_old_to_new,
     }
 
     # ── Simple slices ─────────────────────────────────────────────────────────
     sel_who = full.context.who_is_speaking[: CAPS["who_is_speaking"]]
-    sel_title_analysis = full.cadrage.title_analysis[: CAPS["title_analysis"]]
+    sel_title_analysis = forme.cadrage.title_analysis[: CAPS["title_analysis"]]
     sel_ia = fond.implicit_assumptions[: CAPS["ia"]]
     sel_bs = fond.blind_spots[: CAPS["blind_spots"]]
+
+    # ── Watch_out: top N from guide (already curated) ─────────────────────────
+    guide_wo_items = full.guide.watch_out.items if full.guide else []
+    sel_wo = guide_wo_items[: CAPS["watch_out"]]
 
     # ── Claims and biases: only those proving selected targets ────────────────
     sel_obs_aspects = {obs.aspect for obs in sel_obs}
@@ -165,13 +153,13 @@ def extract(full: ArticleFullAnalysis, presentation: InstagramCarouselPresentati
         for obs in sel_obs
     ]
 
-    # ── Filter synthesis references to kept node IDs ──────────────────────────
+    # ── Filter distill references to kept node IDs ────────────────────────────
     kept_ids = {
         item.id
         for item in final_obs + remapped_er + remapped_cb + sel_claims + sel_biases
         if getattr(item, "id", "")
     }
-    final_synthesis = filter_synthesis_refs(sel_synthesis, kept_ids)
+    final_distill = filter_distill_refs(sel_distill, kept_ids)
 
     # ── Trim go_further + remap CTA indices ───────────────────────────────────
     sel_go_raw = presentation.go_further[: CAPS["go_further"]]
@@ -185,13 +173,11 @@ def extract(full: ArticleFullAnalysis, presentation: InstagramCarouselPresentati
 
     # ── Assemble ──────────────────────────────────────────────────────────────
     trimmed_full = full.model_copy(update={
-        "watch_out": full.watch_out.model_copy(update={"items": sel_wo}),
         "context": full.context.model_copy(update={
             "who_is_speaking": sel_who,
             "contexts": sel_ctx,
             "important_facts": sel_fact,
         }),
-        "cadrage": full.cadrage.model_copy(update={"title_analysis": sel_title_analysis}),
         "analysis": full.analysis.model_copy(update={
             "fond": fond.model_copy(update={
                 "implicit_assumptions": sel_ia,
@@ -199,6 +185,7 @@ def extract(full: ArticleFullAnalysis, presentation: InstagramCarouselPresentati
                 "observations": final_obs,
             }),
             "forme": forme.model_copy(update={
+                "cadrage": forme.cadrage.model_copy(update={"title_analysis": sel_title_analysis}),
                 "emotional_register": remapped_er,
                 "cui_bono": remapped_cb,
             }),
@@ -211,7 +198,10 @@ def extract(full: ArticleFullAnalysis, presentation: InstagramCarouselPresentati
                 "biases_and_rhetoric": sel_biases,
             }),
         }),
-        "synthesis": full.synthesis.model_copy(update={"points": final_synthesis}),
+        "distill": full.distill.model_copy(update={"points": final_distill}) if full.distill else None,
+        "guide": full.guide.model_copy(update={
+            "watch_out": full.guide.watch_out.model_copy(update={"items": sel_wo}),
+        }) if full.guide else None,
     })
 
     trimmed_presentation = presentation.model_copy(update={

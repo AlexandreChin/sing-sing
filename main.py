@@ -58,7 +58,7 @@ async def main():
             sys.exit(1)
         output_path = await run_full_analysis(text, no_api=no_api, input_path=input_path, extra_instructions=extra_instructions)
         if do_render and output_path:
-            from renderer.instagram_carousel_renderer import render_from_json
+            from renderer.instagram_carousel_long.renderer import render_from_json
             stem = Path(input_path).stem if input_path else "analysis"
             slides_dir = OUTPUTS_DIR / stem
             print(f"Rendering slides to {slides_dir}/", file=sys.stderr)
@@ -80,7 +80,7 @@ async def main():
         out_path.write_text(result.model_dump_json(indent=2), encoding="utf-8")
         print(f"Simplified JSON written to {out_path}", file=sys.stderr)
         if do_render:
-            from renderer.instagram_carousel_renderer import render_from_json
+            from renderer.instagram_carousel_long.renderer import render_from_json
             slides_dir = out_path.parent / out_path.stem
             print(f"Rendering slides to {slides_dir}/", file=sys.stderr)
             await asyncio.to_thread(render_from_json, out_path, slides_dir)
@@ -150,7 +150,7 @@ async def main():
             sys.exit(1)
         json_path = Path(positional[0])
         slides_dir = Path(positional[1]) if len(positional) > 1 else json_path.parent / json_path.stem
-        from renderer.instagram_carousel_renderer import render_from_json
+        from renderer.instagram_carousel_long.renderer import render_from_json
         print(f"Rendering slides to {slides_dir}/", file=sys.stderr)
         await asyncio.to_thread(render_from_json, json_path, slides_dir)
 

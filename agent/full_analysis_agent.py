@@ -1,14 +1,15 @@
 """Multi-step full article analysis pipeline.
 
 Steps:
-  1. Extraction          — raw facts, claims, actors, omissions (no interpretation)
-  2. Avant de lire       — cadrage + context + watch_out
-  3. Analyse fond        — main_claim, assumptions, blind_spots, observations
-  4. Analyse forme       — emotional_register, cui_bono
-  5. Annotations         — facts_vs_opinions + biases_and_focus
-  6. Finale              — synthesis
-  7. Masterclass         — journalistic quality evaluation across 6 dimensions
-  8. Consistency audit   — score grounding, verdict non-redundancy, quality enum coherence
+  1. Scan     — raw extraction + context (no interpretation)
+  2. Logic    — main_claim, assumptions, blind_spots, observations
+  3. Rhetoric — emotional_register, cui_bono, cadrage
+  4. Probe    — facts_vs_opinions + biases_and_focus
+  5. Ethics   — hard red line audit (violations list)
+  6. Review   — journalistic quality evaluation across 6 dimensions
+  7. Blend    — cross-layer pattern integration (up to 8 patterns)
+  8. Distill  — select top 3–5 patterns + open_question
+  9. Guide    — reader companion: pre_reading, watch_out, after_reading
 """
 import json
 import sys
@@ -26,10 +27,28 @@ from models.full_analysis import (
     FullAnalysisInput,
     ProvenByRef,
 )
-from models.full_analysis_steps import ExtractionResult, Step2Output, Step5Output, Step6Output, Step7Output, Step8Output  # noqa: F401
+from models.full_analysis_steps import (
+    ExtractionResult,
+    ProbeOutput,
+    EthicsOutput,
+    ReviewOutput,
+    BlendOutput,
+    DistillOutput,
+    GuideOutput,
+)
 
 from ._base import _article_header, _assign_ids, _audit_connections, _repair_connections
-from .steps import step1_extraction, step2_avant_de_lire, step3_fond, step4_forme, step5_annotations, step6_finale, step7_masterclass, step8_consistency
+from .steps import (
+    step1_scan,
+    step2_logic,
+    step3_rhetoric,
+    step4_probe,
+    step5_ethics,
+    step6_review,
+    step7_blend,
+    step8_distill,
+    step9_guide,
+)
 
 
 def _load_or_run(steps_dir: Path, filename: str, run_fn):
@@ -78,61 +97,53 @@ async def analyze_for_full_analysis(
     article = _article_header(input)
     article_title, article_chapo = _extract_title_chapo(input.body)
 
-    # Step 1 — Extraction
-    print("[1/8] Extraction…", file=sys.stderr, flush=True)
-    ext_data = _load_or_run(steps_dir, "step1_extraction.json",
-        lambda: step1_extraction.run(article, steps_dir, no_api=no_api))
+    # Step 1 — Scan + Context
+    print("[1/9] Scan…", file=sys.stderr, flush=True)
+    ext_data = _load_or_run(steps_dir, "step1_scan.json",
+        lambda: step1_scan.run(article, steps_dir, no_api=no_api))
     extraction = ExtractionResult.model_validate(ext_data)
 
-    # Step 2 — Avant de lire
-    title_line = article_title or "(non extrait)"
-    chapo_line = article_chapo or "(non extrait)"
-    print("[2/8] Avant de lire…", file=sys.stderr, flush=True)
-    step2_data = _load_or_run(steps_dir, "step2_avant_de_lire.json",
-        lambda: step2_avant_de_lire.run(article, ext_data, title_line, chapo_line, steps_dir, no_api=no_api))
-    step2 = Step2Output.model_validate(step2_data)
-
-    # Step 3 — Le fond
-    print("[3/8] Analyse — Le fond…", file=sys.stderr, flush=True)
-    fond_data = _load_or_run(steps_dir, "step3_fond.json",
-        lambda: step3_fond.run(article, ext_data, step2_data, steps_dir, no_api=no_api))
+    # Step 2 — Logic
+    print("[2/9] Logic…", file=sys.stderr, flush=True)
+    fond_data = _load_or_run(steps_dir, "step2_logic.json",
+        lambda: step2_logic.run(article, ext_data, steps_dir, no_api=no_api))
     fond = AnalysisFond.model_validate(fond_data)
 
-    # Step 4 — La forme
-    print("[4/8] Analyse — La forme…", file=sys.stderr, flush=True)
-    forme_data = _load_or_run(steps_dir, "step4_forme.json",
-        lambda: step4_forme.run(article, ext_data, step2_data, fond_data, steps_dir, no_api=no_api))
+    # Step 3 — Rhetoric
+    print("[3/9] Rhetoric…", file=sys.stderr, flush=True)
+    forme_data = _load_or_run(steps_dir, "step3_rhetoric.json",
+        lambda: step3_rhetoric.run(article, ext_data, fond_data, steps_dir, no_api=no_api))
     forme = AnalyseForme.model_validate(forme_data)
 
-    # Step 5 — Annotations
-    print("[5/8] Annotations…", file=sys.stderr, flush=True)
-    step5_data = _load_or_run(steps_dir, "step5_annotations.json",
-        lambda: step5_annotations.run(article, fond_data, forme_data, steps_dir, no_api=no_api))
-    step5 = Step5Output.model_validate(step5_data)
+    # Step 4 — Probe
+    print("[4/9] Probe…", file=sys.stderr, flush=True)
+    probe_data = _load_or_run(steps_dir, "step4_probe.json",
+        lambda: step4_probe.run(article, fond_data, forme_data, steps_dir, no_api=no_api))
+    probe = ProbeOutput.model_validate(probe_data)
 
-    # Step 6 — Finale
-    print("[6/8] Finale…", file=sys.stderr, flush=True)
-    step6_data = _load_or_run(steps_dir, "step6_finale.json",
-        lambda: step6_finale.run(article, step2_data, fond_data, forme_data, step5_data, fond, forme, steps_dir, no_api=no_api))
-    step6 = Step6Output.model_validate(step6_data)
+    # Step 5 — Ethics
+    print("[5/9] Ethics…", file=sys.stderr, flush=True)
+    ethics_data = _load_or_run(steps_dir, "step5_ethics.json",
+        lambda: step5_ethics.run(article, ext_data, fond_data, forme_data, probe_data, steps_dir, no_api=no_api))
+    ethics = EthicsOutput.model_validate(ethics_data)
 
-    # Step 7 — Masterclass
-    print("[7/8] Masterclass…", file=sys.stderr, flush=True)
-    step7_data = _load_or_run(steps_dir, "step7_masterclass.json",
-        lambda: step7_masterclass.run(article, fond_data, forme_data, step5_data, step6_data, steps_dir, no_api=no_api))
-    step7 = Step7Output.model_validate(step7_data)
+    # Step 6 — Review
+    print("[6/9] Review…", file=sys.stderr, flush=True)
+    review_data = _load_or_run(steps_dir, "step6_review.json",
+        lambda: step6_review.run(article, fond_data, forme_data, probe_data, ethics_data, steps_dir, no_api=no_api))
+    review_out = ReviewOutput.model_validate(review_data)
 
     # Compute proven_by back-references on each observation
     obs_index = {obs.aspect: i for i, obs in enumerate(fond.observations)}
     obs_proven_by: dict[int, list[ProvenByRef]] = {i: [] for i in range(len(fond.observations))}
-    for claim_idx, claim in enumerate(step5.facts_vs_opinions.claims_and_sources):
+    for claim_idx, claim in enumerate(probe.facts_vs_opinions.claims_and_sources):
         if claim.proves.type == "observation" and claim.proves.label in obs_index:
             obs_proven_by[obs_index[claim.proves.label]].append(ProvenByRef(type="claim", index=claim_idx))
-    for bias_idx, bias in enumerate(step5.biases_and_focus.biases_and_rhetoric):
+    for bias_idx, bias in enumerate(probe.biases_and_focus.biases_and_rhetoric):
         if bias.proves.type == "observation" and bias.proves.label in obs_index:
             obs_proven_by[obs_index[bias.proves.label]].append(ProvenByRef(type="bias", index=bias_idx))
-    if step5.biases_and_focus.focus.proves.type == "observation":
-        focus_label = step5.biases_and_focus.focus.proves.label
+    if probe.biases_and_focus.focus.proves.type == "observation":
+        focus_label = probe.biases_and_focus.focus.proves.label
         if focus_label in obs_index:
             obs_proven_by[obs_index[focus_label]].append(ProvenByRef(type="focus", index=0))
     updated_obs = [
@@ -157,16 +168,14 @@ async def analyze_for_full_analysis(
             notable_omissions=extraction.notable_omissions,
             rhetorical_patterns=extraction.rhetorical_patterns,
         ),
-        cadrage=step2.cadrage,
-        context=step2.context,
-        watch_out=step2.watch_out,
+        context=extraction.context,
         analysis=Analysis(fond=fond, forme=forme),
         annotations=Annotations(
-            facts_vs_opinions=step5.facts_vs_opinions,
-            biases_and_focus=step5.biases_and_focus,
+            facts_vs_opinions=probe.facts_vs_opinions,
+            biases_and_focus=probe.biases_and_focus,
         ),
-        synthesis=step6.synthesis,
-        masterclass=step7.masterclass,
+        deontology=ethics.deontology,
+        review=review_out.review,
     )
     assembled = _assign_ids(assembled)
 
@@ -177,23 +186,32 @@ async def analyze_for_full_analysis(
             f"  ↻ {len(conn_issues)} connection gap(s) detected, repairing…",
             file=sys.stderr, flush=True,
         )
-        assembled = _repair_connections(assembled, conn_issues, article, fond_data, forme_data, step5_data, no_api)
+        assembled = _repair_connections(assembled, conn_issues, article, fond_data, forme_data, probe_data, no_api)
         remaining = _audit_connections(json.loads(assembled.model_dump_json()))
         for issue in remaining:
             print(f"  ⚠  {issue}", file=sys.stderr)
     else:
         print("  ✓ Connection audit: all nodes connected.", file=sys.stderr, flush=True)
 
-    # Step 8 — Consistency audit
-    print("[8/8] Consistency audit…", file=sys.stderr, flush=True)
-    step8_data = _load_or_run(steps_dir, "step8_consistency.json",
-        lambda: step8_consistency.run(json.loads(assembled.model_dump_json()), steps_dir, no_api=no_api))
-    step8 = Step8Output.model_validate(step8_data)
-    if step8.changes:
-        for change in step8.changes:
-            print(f"  ↻ {change}", file=sys.stderr, flush=True)
-        assembled = assembled.model_copy(update={"masterclass": step8.masterclass})
-    else:
-        print("  ✓ Consistency audit: no corrections needed.", file=sys.stderr, flush=True)
+    # Step 7 — Blend
+    print("[7/9] Blend…", file=sys.stderr, flush=True)
+    blend_data = _load_or_run(steps_dir, "step7_blend.json",
+        lambda: step7_blend.run(article, fond_data, forme_data, probe_data, ethics_data, review_data, fond, forme, steps_dir, no_api=no_api))
+    blend_out = BlendOutput.model_validate(blend_data)
+    assembled = assembled.model_copy(update={"blend": blend_out.blend})
+
+    # Step 8 — Distill
+    print("[8/9] Distill…", file=sys.stderr, flush=True)
+    distill_data = _load_or_run(steps_dir, "step8_distill.json",
+        lambda: step8_distill.run(article, blend_data, fond, forme, probe_data, steps_dir, no_api=no_api))
+    distill_out = DistillOutput.model_validate(distill_data)
+    assembled = assembled.model_copy(update={"distill": distill_out.distill})
+
+    # Step 9 — Guide
+    print("[9/9] Guide…", file=sys.stderr, flush=True)
+    guide_data = _load_or_run(steps_dir, "step9_guide.json",
+        lambda: step9_guide.run(article, fond_data, forme_data, probe_data, ethics_data, review_data, blend_data, distill_data, steps_dir, no_api=no_api))
+    guide_out = GuideOutput.model_validate(guide_data)
+    assembled = assembled.model_copy(update={"guide": guide_out.guide})
 
     return assembled
