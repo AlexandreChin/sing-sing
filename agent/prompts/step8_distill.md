@@ -43,4 +43,4 @@ the available evidence cannot settle.
 
 Anchored in the identified blind spots, biases, or ethics findings.
 Stated as an analytical problem — not a reader prompt, not a rhetorical question
-with an implicit answer.
+with an implicit answer. 1 concise sentence, ≤20 words.

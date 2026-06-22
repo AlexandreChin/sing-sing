@@ -82,8 +82,12 @@ def _call_with_retry(
     schema: dict,
     validator,  # (data: dict) -> list[str]
     no_api: bool = False,
+    label: str = "",
 ) -> dict:
+    tag = f" [{label}]" if label else ""
+    print(f"  → calling API{tag}…", file=sys.stderr, flush=True)
     data = _call(user_message, schema, no_api=no_api)
+    print(f"  ✓ response received{tag}", file=sys.stderr, flush=True)
 
     for attempt in range(MAX_RETRIES):
         errors = validator(data)
@@ -295,6 +299,9 @@ def _repair_connections(
     for i, b in enumerate(assembled.annotations.biases_and_focus.biases_and_rhetoric):
         all_ids.append(f"  bias_{i} → '{b.label}'")
 
+    if no_api:
+        return assembled
+    print("  → calling API [connection repair]…", file=sys.stderr, flush=True)
     repair_data = _call(
         f"""{article}
 

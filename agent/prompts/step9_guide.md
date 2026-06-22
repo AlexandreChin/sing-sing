@@ -9,13 +9,13 @@ Draw from the Distill points and Blend patterns, but reformulate them in plain, 
 
 ---
 
-## guide.pre_reading — 2 to 4 items
+## guide.pre_reading — exactly 3 items
 
 Short, actionable things the reader should keep in mind BEFORE reading the article.
 Not summaries of findings — orientation tips that sharpen the reading:
 what angle to watch for, what the article's implicit argument structure is,
 what prior knowledge or scepticism is useful here.
-In French. One sentence each.
+In French. One sentence each. Exactly 3 items, no more, no less.
 
 ---
 
@@ -25,6 +25,8 @@ Specific warnings for the reader, grounded in the analysis.
 
 Each item:
 - `text`: the warning stated plainly for the reader. In French. 1–2 sentences.
+  Do NOT include direct quotes from the article — the reader has not yet read it.
+  State the concern in your own words.
 - `references`: list of 1–3 node IDs from the analysis that ground this warning.
   Prefer references that span multiple layers. At least one reference is required.
   Valid formats: obs_N, er_N, cb_N, claim_N, bias_N, lr_N, pr_N, ia_N, bs_N
@@ -48,3 +50,35 @@ In French. One sentence each.
 
 One sentence in French on the title's rhetoric, if worth flagging explicitly.
 Set to null if the cadrage findings are already captured in watch_out.
+
+---
+
+## guide.perspective — required
+
+Three fields that zoom in, zoom out, and then balance the picture for the reader.
+All in French. Each field: 1–2 sentences.
+
+### guide.perspective.framing — zoom in
+
+How the article treats its subject overall: the angle chosen, what it puts at the centre,
+what it foregrounds or downplays, the emotional register it adopts, whose interests it speaks from.
+Draw from cadrage, emotional_register, cui_bono (Rhetoric layer), the focus element
+(Probe layer), and any Blend or Distill patterns that name the article's dominant lens.
+Not a critique — a neutral description of the editorial choices made in treating the topic.
+
+### guide.perspective.blind_spots — zoom out
+
+What the article structurally leaves out or minimizes: actors not mentioned,
+counterarguments not addressed, data not provided, timescales not considered.
+Draw from the Logic layer blind_spots and any Blend patterns that surface absences.
+1–2 concrete absences, not a list.
+
+### guide.perspective.balance — contextualiser la critique
+
+A short note that puts the analysis in context for the reader.
+Acknowledge structural constraints that explain (not excuse) the article's limits:
+a short format cannot be exhaustive; an editorial taking a clear position does not
+need to present all sides; a lack of counterarguments is legitimate when the editorial
+line is explicit; a focused angle necessarily leaves other angles out.
+The goal: help the reader calibrate the criticism — what the analysis flags is real,
+but the article's format or genre sets the bar for what is reasonable to expect.

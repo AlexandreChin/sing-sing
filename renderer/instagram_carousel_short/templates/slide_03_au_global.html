@@ -9,39 +9,18 @@
   padding: 18px 24px;
   gap: 10px;
 }
-.item-label {
+.warning-badge {
   display: inline-block;
   align-self: flex-start;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.10em;
   text-transform: uppercase;
   border-radius: 999px;
-  padding: 4px 14px;
-}
-.label-these {
-  color: #d4aa00;
-  background: #1a1800;
-  border: 1px solid #3a3500;
-  box-shadow: 0 0 12px rgba(212,170,0,0.15);
-}
-.label-obs {
-  color: #d4aa00;
-  background: #1a1800;
-  border: 1px solid #3a3500;
-  box-shadow: 0 0 12px rgba(212,170,0,0.15);
-}
-.label-titre {
-  color: #e8a07a;
+  padding: 3px 12px;
   background: #2b1a0d;
   border: 1px solid #5c3a1a;
-  box-shadow: 0 0 12px rgba(232,160,122,0.15);
-}
-.label-emotion {
   color: #e8a07a;
-  background: #2b1a0d;
-  border: 1px solid #5c3a1a;
-  box-shadow: 0 0 12px rgba(232,160,122,0.15);
 }
 </style>
 </head>
@@ -50,56 +29,57 @@
   <div class="slide-watermark">03</div>
   {% include '_brand.html' %}
 
-  <div class="section-phase phase-analyse">Analyse</div>
-  <div class="label">Au global</div>
+  <div class="section-phase">Avant de lire</div>
+  <div class="label">Clefs de lecture</div>
   <div class="divider"></div>
 
   <div class="cards-container" style="gap: 14px;">
 
-    <!-- Le fond: 1 card with thèse + observation -->
+    {% if contexts %}
     <div style="display: flex; flex-direction: column; gap: 8px;">
-      <div class="section-label">Le fond</div>
+      <div class="section-label">Repères</div>
       <div class="card">
-        <span class="item-label label-these">Thèse</span>
-        <p>{{ main_claim | md_bold }}</p>
-        {% for obs in observations %}
-        <div class="elem-sep"></div>
-        <span class="item-label label-obs">{{ obs.aspect }}</span>
-        <p>{{ obs.summary | md_bold }}</p>
+        {% for item in contexts %}
+        {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
+        <p>{{ item.text | md_bold }}</p>
         {% endfor %}
       </div>
     </div>
+    {% endif %}
 
-    <!-- La forme: 1 card with title analysis + emotion -->
+    {% if pre_reading %}
     <div style="display: flex; flex-direction: column; gap: 8px;">
-      <div class="section-label">La forme</div>
+      <div class="section-label">À garder en tête</div>
       <div class="card">
-        {% if title_analysis %}
-          {% for obs in title_analysis %}
-          {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
-          <span class="item-label label-titre">{{ obs.label }}</span>
-          <p>{{ obs.observation | md_bold }}</p>
-          {% endfor %}
-        {% endif %}
-        {% if emotional_register %}
-          {% if title_analysis %}<div class="elem-sep"></div>{% endif %}
-          {% for er in emotional_register %}
-          {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
-          <span class="item-label label-emotion">{{ er.emotion }}</span>
-          <p>{{ er.how | md_bold }}</p>
-          {% endfor %}
-        {% endif %}
+        {% for item in pre_reading[:2] %}
+        {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
+        <p>{{ item | md_bold }}</p>
+        {% endfor %}
       </div>
     </div>
+    {% endif %}
+
+    {% if watch_out_items %}
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div class="section-label">Points de vigilance</div>
+      <div class="card">
+        {% for item in watch_out_items[:2] %}
+        {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
+        <span class="warning-badge">⚠ {{ item.label }}</span>
+        <p>{{ item.text | md_bold }}</p>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
 
   </div>
 
   <div class="next-hook-bar" style="display: flex; flex-direction: column; gap: 6px;">
-    <span>Ces passages — les avez-vous repérés ?</span>
-    <span style="color: #d4aa00; font-weight: 700;">Quelques réponses &#8250;</span>
+    <span>Gardez ces points en tête lors de votre lecture.</span>
+    <span style="color: #d4aa00; font-weight: 700;">Lien vers l'article en commentaires &#8595;</span>
   </div>
-  <div class="slide-num">3 / 6</div>
-  <div class="progress-track"><div class="progress-bar" style="width: 50%;"></div></div>
+  <div class="slide-num">3 / 8</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 43%;"></div></div>
 </div>
 </body>
 </html>

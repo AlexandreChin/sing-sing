@@ -1,0 +1,64 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "L'accusation la plus lourde — les prisons devenues « des camps de torture » — repose sur **une source unique**, B'Tselem, sans contre-expertise indépendante rapportée (`claims_and_sources`, confidence 48). Le décompte « 100 morts contre 230 » s'appuie sur des « décomptes convergents » jamais précisés et compare deux périodes sans base commune, ce qui fragilise la charge probatoire centrale.",
+        "lesson": "Vérifiez si une accusation grave s'appuie sur plus d'une source : une seule organisation, même crédible, ne fait pas un fait établi."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 3,
+        "rationale": "La chaîne argumentative est lisible et progresse du concret vers la thèse, mais elle dissimule deux sauts logiques : du **nombre de morts** elle infère une responsabilité directe de Ben Gvir (`logical_reasoning`, problème de soundness), et du silence européen elle déduit une indifférence morale plutôt qu'une contrainte diplomatique. Les prémisses normatives (« sanctionner relève des valeurs européennes ») sont posées comme allant de soi.",
+        "lesson": "Distinguez corrélation temporelle et responsabilité : un enchaînement de dates n'établit pas à lui seul une chaîne de causes."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "Le texte laisse plusieurs angles morts non assumés : aucune réponse d'Israël ou de Ben Gvir, le motif français du refus de sanctions n'est pas exposé, et le 7-Octobre n'est traité que comme déclencheur jamais pesé (`blind_spots`). La frontière fait/jugement se brouille quand « se flatte de répandre la haine » est présenté comme un fait (`presentation: opinion_stated_as_fact`).",
+        "lesson": "Repérez ce que le texte ne dit pas : un motif adverse passé sous silence en dit autant que les arguments affichés."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "L'empilement d'adjectifs (« extrême droite suprémaciste et raciste décomplexée ») oriente le jugement sur l'homme avant l'examen des actes (`biases_and_rhetoric`, langage chargé), et le ministère visé n'a aucun droit de réponse face à des accusations de torture (caution déontologique). La **fausse équivalence** entre inaction diplomatique et acte délibéré d'humiliation aplatit la complexité morale.",
+        "lesson": "Méfiez-vous des qualificatifs accumulés sur une partie : ils préparent le verdict avant que les faits ne soient exposés."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "L'écriture est dense et accessible : la **détention administrative** est immédiatement explicitée (« emprisonnés sans être inculpés ni jugés »), et les images concrètes ancrent l'abstrait. Le titre reste limpide même s'il présuppose la « passivité » qu'il devrait démontrer (`title_analysis`).",
+        "lesson": "Appréciez une définition glissée en clair, mais vérifiez qu'un titre limpide ne présuppose pas déjà sa conclusion."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "Le cadrage par contraste — émoi pour les militants européens contre silence sur les Palestiniens — donne un angle moral net, renforcé par le bouclage sur la mise en scène humiliante (`observations`, Cadrage ; `emphasis`). L'effort de steel man existe mais reste hors texte : l'article lui-même n'envisage pas la lecture diplomatique alternative qu'il aurait pu intégrer.",
+        "lesson": "Cherchez si l'auteur a anticipé l'objection la plus forte : un angle se renforce à intégrer la contre-lecture, pas à l'ignorer."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Lecteur déjà familier du dossier israélo-palestinien, capable de recouper les chiffres et la qualification de torture avec d'autres sources, et venant chercher un point de vue éditorial assumé plutôt qu'un état des faits contradictoire.",
+      "payoff": "Vous saisirez le mécanisme rhétorique d'un éditorial à charge — comment le détail concret et le contraste chiffré construisent l'indignation — et repérerez où l'argument demande une vérification externe avant d'emporter l'adhésion.",
+      "signature_move": "Le bouclage du texte sur une même image d'humiliation physique, qui encadre toute l'analyse et substitue l'émotion morale à la démonstration.",
+      "main_blind_side": "L'absence totale de réponse israélienne ou du ministère visé révèle un choix éditorial assumé de réquisitoire plutôt que d'enquête contradictoire.",
+      "further_resource": {
+        "title": "On Photography",
+        "source": "Susan Sontag",
+        "media_type": "book",
+        "why_explore": "Éclaire comment la mise en scène d'images de souffrance oriente le jugement moral avant tout argument.",
+        "url": null
+      },
+      "summary": "Lecture à réserver à qui suit déjà ce dossier de près : l'éditorial est clair et frappant, mais sa charge repose sur une source unique et des chiffres non comparables, et l'absence de droit de réponse invite à recouper avant de conclure."
+    }
+  }
+}

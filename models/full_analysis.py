@@ -316,6 +316,7 @@ class DeontologyVerdict(BaseModel):
 class Deontology(BaseModel):
     violations: list[DeontologyViolation]  # empty = clean
     verdict: DeontologyVerdict
+    summary: str  # 1–2 sentences in French: global overview, explicit clean/not-clean statement
 
 
 # ── Step 6: Review ────────────────────────────────────────────────────────────
@@ -385,11 +386,18 @@ class Distill(BaseModel):
 
 # ── Step 9: Guide ─────────────────────────────────────────────────────────────
 
+class Perspective(BaseModel):
+    framing: str      # zoom in — how the article frames its subject: angle, emphasis, what it foregrounds
+    blind_spots: str  # zoom out — what's structurally absent or minimized, and why it matters
+    balance: str      # contextualizes the criticism: format constraints, genre expectations, editorial line
+
+
 class ReadingGuide(BaseModel):
     pre_reading: list[str]    # orientation tips for the reader before reading
     watch_out: WatchOut       # grounded in actual findings, with node ID references
     after_reading: list[str]  # key takeaways after reading
     title_note: str | None = None  # notable cadrage insight worth flagging to the reader
+    perspective: Perspective  # framing + blind_spots + balance note
 
 
 # ── Composite structures ──────────────────────────────────────────────────────

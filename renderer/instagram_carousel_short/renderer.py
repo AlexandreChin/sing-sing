@@ -78,37 +78,48 @@ def render_carousel(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]
             "article_url": url_str,
         }),
         ("slide_02_context_watchout.html", {
-            "contexts": full.context.contexts,
-            "items": full.watch_out.items,
-            "next_hook": pres.watch_out_next_slide_hook,
+            "verdict_payoff": pres.display.payoff,
+            "framing": pres.display.framing,
+            "ethics_summary": pres.display.ethics,
+            "ethics_verdict": full.deontology.verdict.overall if full.deontology else "clean",
+            "ethics_violations": full.deontology.violations if full.deontology else [],
         }),
         ("slide_03_au_global.html", {
-            "main_claim": full.analysis.fond.main_claim,
-            "observations": full.analysis.fond.observations,
-            "title_analysis": full.cadrage.title_analysis,
-            "emotional_register": full.analysis.forme.emotional_register,
-            "next_hook": pres.forme_next_slide_hook,
+            "contexts": full.context.contexts[:2],
+            "pre_reading": pres.display.pre_reading,
+            "watch_out_items": pres.display.watch_out,
         }),
-        ("slide_04_dans_le_detail.html", {
+        ("slide_05_analyse.html", {
+            "main_claim": full.analysis.fond.main_claim,
+            "logical_strongest": full.analysis.fond.logical_reasoning[0] if full.analysis.fond.logical_reasoning else None,
+            "logical_weakest": full.analysis.fond.logical_reasoning[-1] if len(full.analysis.fond.logical_reasoning) > 1 else None,
+            "cui_bono": full.analysis.forme.cui_bono[:1],
+            "emotional_register": full.analysis.forme.emotional_register[:2],
+        }),
+        ("slide_claims_biases.html", {
             "claims_and_sources": full.annotations.facts_vs_opinions.claims_and_sources,
             "biases_and_rhetoric": full.annotations.biases_and_focus.biases_and_rhetoric,
-            "next_hook": pres.biases_next_slide_hook,
         }),
-        ("slide_05_go_further.html", {
+        ("slide_04_dans_le_detail.html", {
+            "after_reading": pres.display.after_reading,
+            "blind_spots": pres.display.blind_spots,
+            "balance": pres.display.balance,
+        }),
+        ("slide_06_go_further.html", {
             "items": pres.go_further,
         }),
-        ("slide_06_cta.html", {
-            "engagement_question": pres.engagement_question,
-        }),
+        ("slide_07_cta.html", {}),
     ]
 
     names = [
-        "slide_01_hook.png",
-        "slide_02_context_watchout.png",
-        "slide_03_au_global.png",
-        "slide_04_dans_le_detail.png",
-        "slide_05_go_further.png",
-        "slide_06_cta.png",
+        "01_hook.png",
+        "02_pourquoi_lire.png",
+        "03_avant_de_lire.png",
+        "04_synthese.png",
+        "05_dans_le_detail.png",
+        "06_prise_de_recul.png",
+        "07_pour_aller_plus_loin.png",
+        "08_cta.png",
     ]
 
     for (template, ctx), name in zip(specs, names):

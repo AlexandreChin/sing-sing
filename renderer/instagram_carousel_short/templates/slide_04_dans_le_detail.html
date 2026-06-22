@@ -9,120 +9,95 @@
   padding: 18px 24px;
   gap: 10px;
 }
-.confidence-badge {
-  display: inline-block;
-  align-self: flex-start;
-  font-size: 22px;
-  font-weight: 700;
-  padding: 4px 14px;
-  border-radius: 999px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.conf-true        { background: #0d2b1a; border: 1px solid #2a5c3a; color: #7ec8a0;  box-shadow: 0 0 10px rgba(126,200,160,0.2); }
-.conf-likely      { background: #1a2b0d; border: 1px solid #3a5c1a; color: #a0c87a;  box-shadow: 0 0 10px rgba(160,200,122,0.2); }
-.conf-disputed    { background: #2b2b0d; border: 1px solid #5c5c1a; color: #c8c07a;  box-shadow: 0 0 10px rgba(200,192,122,0.2); }
-.conf-false       { background: #2b0d0d; border: 1px solid #5c2a2a; color: #e87a7a;  box-shadow: 0 0 10px rgba(232,122,122,0.2); }
-.conf-likely-false { background: #2b1a0d; border: 1px solid #5c3a1a; color: #e8a07a; box-shadow: 0 0 10px rgba(232,160,122,0.2); }
-.conf-unverifiable { background: #1a1a1a; border: 1px solid #333; color: #f0f0f0; }
-.conf-consensual  { background: #0d3a1a; border: 1px solid #1a5c2a; color: #5eb88a;  box-shadow: 0 0 10px rgba(94,184,138,0.2); }
-.claim-quote {
+.perspective-block {
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   font-size: 26px;
-  font-style: italic;
-  color: #e8d5a3;
-  border-left: 3px solid #e8d5a3;
-  padding-left: 14px;
+  line-height: 1.5;
 }
-.bias-quote {
-  font-size: 26px;
-  font-style: italic;
-  color: #e8d5a3;
-  border-left: 3px solid #e8d5a3;
-  padding-left: 14px;
+.blind-spots-block {
+  background: #1a1a2b;
+  border: 1px solid #2a2a5c;
+  color: #d0d0d0;
 }
-.bias-label {
-  display: inline-block;
-  align-self: flex-start;
-  font-size: 22px;
+.balance-block {
+  background: #1a1500;
+  border: 1px solid #3a2e00;
+  color: #c8a84a;
+  font-style: italic;
+}
+.perspective-label {
+  font-size: 20px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  border-radius: 999px;
-  padding: 4px 14px;
+  color: #7ab3e8;
+  font-style: normal;
 }
-.label-bias    { color: #e8a07a; background: #2b1a0d; border: 1px solid #5c3a1a; }
-.label-fallacy { color: #7ab3e8; background: #0d1a2b; border: 1px solid #1a3a5c; }
+.balance-label {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c8a84a;
+  font-style: normal;
+}
 </style>
 </head>
 <body>
 <div class="slide" style="justify-content: flex-start;">
-  <div class="slide-watermark">04</div>
+  <div class="slide-watermark">06</div>
   {% include '_brand.html' %}
 
-  <div class="section-phase phase-analyse">Analyse</div>
-  <div class="label">Dans le détail</div>
+  <div class="section-phase phase-retenir">Après avoir lu</div>
+  <div class="label">Prise de recul</div>
   <div class="divider"></div>
-
-  {% set conf_fr = {
-    'true': 'Vrai',
-    'likely true': 'Probable',
-    'disputed': 'Contesté',
-    'likely false': 'Peu probable',
-    'false': 'Faux',
-    'consensual': 'Consensuel',
-    'unverifiable': 'Non vérifié'
-  } %}
 
   <div class="cards-container" style="gap: 14px;">
 
-    {% if claims_and_sources %}
+    {% if after_reading %}
     <div style="display: flex; flex-direction: column; gap: 8px;">
-      <div class="section-label">Faits vs opinions</div>
+      <div class="section-label">Pour être critique</div>
       <div class="card">
-        {% for claim in claims_and_sources %}
+        {% for item in after_reading %}
         {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
-        <p class="claim-quote">{{ claim.quote }}</p>
-        {% if claim.confidence_label == 'true' %}
-          <span class="confidence-badge conf-true">{{ conf_fr['true'] }}</span>
-        {% elif claim.confidence_label == 'likely true' %}
-          <span class="confidence-badge conf-likely">{{ conf_fr['likely true'] }}</span>
-        {% elif claim.confidence_label == 'disputed' %}
-          <span class="confidence-badge conf-disputed">{{ conf_fr['disputed'] }}</span>
-        {% elif claim.confidence_label == 'likely false' %}
-          <span class="confidence-badge conf-likely-false">{{ conf_fr['likely false'] }}</span>
-        {% elif claim.confidence_label == 'false' %}
-          <span class="confidence-badge conf-false">{{ conf_fr['false'] }}</span>
-        {% elif claim.confidence_label == 'consensual' %}
-          <span class="confidence-badge conf-consensual">{{ conf_fr['consensual'] }}</span>
-        {% else %}
-          <span class="confidence-badge conf-unverifiable">{{ conf_fr['unverifiable'] }}</span>
-        {% endif %}
+        <p>{{ item | md_bold }}</p>
         {% endfor %}
       </div>
     </div>
     {% endif %}
 
-    {% if biases_and_rhetoric %}
     <div style="display: flex; flex-direction: column; gap: 8px;">
-      <div class="section-label">Biais & Rhétorique</div>
-      <div class="card">
-        {% for bias in biases_and_rhetoric %}
+      {% if blind_spots %}
+      <div class="perspective-block blind-spots-block">
+        <span class="perspective-label">Zoom arrière</span>
+        {% for item in blind_spots %}
         {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
-        <p class="bias-quote">{{ bias.quote }}</p>
-        <span class="bias-label {% if bias.item_type == 'fallacy' %}label-fallacy{% else %}label-bias{% endif %}">{{ bias.label }}</span>
+        <p>{{ item | md_bold }}</p>
         {% endfor %}
       </div>
+      {% endif %}
+      {% if balance %}
+      <div class="perspective-block balance-block">
+        <span class="balance-label">À nuancer</span>
+        {% for item in balance %}
+        {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
+        <p>{{ item | md_bold }}</p>
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
 
   </div>
 
-  <div class="next-hook-bar" style="display: flex; flex-direction: column; gap: 6px;">
-    <span>Envie d'approfondir le sujet ?</span>
-    <span style="color: #d4aa00; font-weight: 700;">À lire, voir ou écouter &#8250;</span>
+  <div class="next-hook-bar">
+    <span style="color: #d4aa00; font-weight: 700;">Pour approfondir ›</span>
   </div>
-  <div class="slide-num">4 / 6</div>
-  <div class="progress-track"><div class="progress-bar" style="width: 67%;"></div></div>
+  <div class="slide-num">6 / 8</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 75%;"></div></div>
 </div>
 </body>
 </html>

@@ -9,8 +9,8 @@ def _validate(data: dict) -> list[str]:
     out = GuideOutput.model_validate(data)
     errors = []
     guide = out.guide
-    if not guide.pre_reading:
-        errors.append("guide.pre_reading is empty")
+    if len(guide.pre_reading) != 3:
+        errors.append(f"guide.pre_reading must have exactly 3 items, got {len(guide.pre_reading)}")
     if not guide.watch_out.items:
         errors.append("guide.watch_out.items is empty")
     if not guide.after_reading:
@@ -20,6 +20,13 @@ def _validate(data: dict) -> list[str]:
             errors.append(f"guide.watch_out.items[{i}]: references is empty — must cite analysis node IDs")
         if not item.text.strip():
             errors.append(f"guide.watch_out.items[{i}]: text is empty")
+    p = guide.perspective
+    if not p.framing.strip():
+        errors.append("guide.perspective.framing is empty")
+    if not p.blind_spots.strip():
+        errors.append("guide.perspective.blind_spots is empty")
+    if not p.balance.strip():
+        errors.append("guide.perspective.balance is empty")
     return errors
 
 

@@ -107,5 +107,10 @@ stereotyping               — Label: "Stereotyping"
   Critically: if any entry has severity="critical", overall MUST be "violation".
 - verdict.editorial_note: one sentence in French on what an editor must address before
   publication. Null if overall is "clean".
+- summary: 1–2 sentences in French giving a global overview of the deontological picture.
+  Always state explicitly whether deontology is clean or not. If clean: say so directly
+  (e.g. "Aucun manquement déontologique n'a été relevé."). If not clean: name the nature
+  and number of issues without repeating the full detail.
 - explanation: in French — why this specific passage crosses or approaches the line.
   Be precise: name the mechanism (e.g. "l'omission du chiffre X inverse le sens de Y").
+  1 sentence, ≤20 words.

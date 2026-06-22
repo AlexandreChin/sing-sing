@@ -22,13 +22,34 @@ def _validate(data: dict) -> list[str]:
     if not any(q.type == "blind_spot" for q in pres.cta.post_reading_questions):
         errors.append("cta.post_reading_questions: at least one must be type 'blind_spot'")
     n_go = len(pres.go_further)
-    if not (1 <= n_go <= 6):
-        errors.append(f"go_further: expected 1–6 items, got {n_go}")
+    if n_go != 3:
+        errors.append(f"go_further: expected exactly 3 items, got {n_go}")
     for i, item in enumerate(pres.go_further):
         if item.cta_question_index is not None and not (0 <= item.cta_question_index < n_cta):
             errors.append(
                 f"go_further[{i}].cta_question_index={item.cta_question_index} out of range (0–{n_cta - 1})"
             )
+    d = pres.display
+    for field in ("payoff", "framing", "ethics"):
+        if not getattr(d, field).strip():
+            errors.append(f"display.{field} is empty")
+    if len(d.blind_spots) != 2:
+        errors.append(f"display.blind_spots must have exactly 2 items, got {len(d.blind_spots)}")
+    if len(d.balance) != 2:
+        errors.append(f"display.balance must have exactly 2 items, got {len(d.balance)}")
+    if len(d.pre_reading) != 2:
+        errors.append(f"display.pre_reading must have exactly 2 items, got {len(d.pre_reading)}")
+    if len(d.distill_points) != 3:
+        errors.append(f"display.distill_points must have exactly 3 items, got {len(d.distill_points)}")
+    if len(d.after_reading) != 3:
+        errors.append(f"display.after_reading must have exactly 3 items, got {len(d.after_reading)}")
+    if len(d.watch_out) != 2:
+        errors.append(f"display.watch_out must have exactly 2 items, got {len(d.watch_out)}")
+    for i, item in enumerate(d.watch_out):
+        if not item.label.strip():
+            errors.append(f"display.watch_out[{i}].label is empty")
+        if not item.text.strip():
+            errors.append(f"display.watch_out[{i}].text is empty")
     return errors
 
 

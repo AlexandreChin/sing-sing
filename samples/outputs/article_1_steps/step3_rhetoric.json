@@ -1,0 +1,72 @@
+{
+  "emotional_register": [
+    {
+      "id": "er1",
+      "emotion": "indignation",
+      "how": "**Accumulation de détails dégradants** — mains liées, à genoux, visage au sol — rendant la scène d'humiliation concrète et physique.",
+      "effect": "Prépare le lecteur à **condamner moralement** Ben Gvir avant même tout argument.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "Ben Gvir diffuse des images de militants propalestiniens humiliés",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "er2",
+      "emotion": "sentiment d'hypocrisie",
+      "how": "Mise en regard de l'**émoi européen** pour des militants européens et du **silence** sur les Palestiniens.",
+      "effect": "Conduit le lecteur à voir la passivité européenne comme une **trahison de ses propres valeurs**.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "émoi des capitales parce que les militants sont européens",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "cb1",
+      "beneficiary": "La cause palestinienne et les partisans de sanctions contre Israël",
+      "explanation": "Le cadrage place au centre la **souffrance des détenus palestiniens** et la responsabilité israélienne, **renforçant l'appel** aux sanctions européennes que le texte juge absentes.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "détention administrative : emprisonnement sans inculpation ni jugement",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "cb2",
+      "beneficiary": "Les critiques de la politique étrangère française et européenne",
+      "explanation": "En **nommant la France** et en gardant anonymes les trois pays ayant sanctionné, le cadrage **isole l'inaction** comme une faute singulière à corriger.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "émoi des capitales européennes",
+        "strength": 0.6,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Présupposé",
+        "observation": "Le titre pose la « passivité » européenne comme un fait acquis, alors que c'est la thèse à démontrer."
+      },
+      {
+        "label": "Vocabulaire",
+        "observation": "« Extrême droite israélienne » oriente d'emblée la lecture par une qualification chargée du camp visé."
+      },
+      {
+        "label": "Omission",
+        "observation": "Le titre oppose l'Europe à Israël sans nommer les Palestiniens, pourtant principales victimes décrites."
+      }
+    ]
+  }
+}

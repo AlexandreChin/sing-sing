@@ -1,0 +1,166 @@
+{
+  "article_type": "editorial",
+  "key_claims": [
+    {
+      "quote": "les prisons réservées aux Palestiniens sont devenues « des camps de torture »",
+      "source": "B'Tselem (organisation israélienne de défense des droits humains)",
+      "type": "attributed"
+    },
+    {
+      "quote": "une centaine de Palestiniens, selon des décomptes convergents, sont morts en détention en Israël depuis deux ans et demi, contre 230 entre 1967 et 2023",
+      "source": "décomptes convergents (non nommés)",
+      "type": "statistical"
+    },
+    {
+      "quote": "seuls trois pays membres de l'Union européenne ont adopté des sanctions à son encontre",
+      "source": null,
+      "type": "factual"
+    },
+    {
+      "quote": "Une partie d'entre eux y sont soumis au régime de la détention administrative, ce qui veut dire qu'ils sont emprisonnés sans être inculpés ni jugés, pour une durée inconnue et renouvelable indéfiniment",
+      "source": null,
+      "type": "legal"
+    },
+    {
+      "quote": "en s'inquiétant en outre de la systématisation de violences à caractère sexuel",
+      "source": "B'Tselem (rapport « Un véritable enfer »)",
+      "type": "attributed"
+    },
+    {
+      "quote": "La France ne les a pas rejoints à ce jour",
+      "source": null,
+      "type": "factual"
+    }
+  ],
+  "key_quotes": [
+    "Il fallait en plus les humilier en les montrant, mercredi 20 mai, les mains liées dans le dos, à genoux, le visage contre le sol.",
+    "Parce qu'elles ont concerné jusqu'à maintenant des Palestiniens, personne ne s'en est jamais ému au sein de la coalition au pouvoir.",
+    "les prisons réservées aux Palestiniens sont devenues « des camps de torture »",
+    "une centaine de Palestiniens, selon des décomptes convergents, sont morts en détention en Israël depuis deux ans et demi, contre 230 entre 1967 et 2023",
+    "cette passivité face à ce qui se passe aujourd'hui dans les prisons israéliennes va à l'encontre de tout ce que les Européens prétendent défendre. Elle est aussi scandaleuse que la mise en scène d'Itamar Ben Gvir."
+  ],
+  "key_actors": [
+    {
+      "name": "Itamar Ben Gvir",
+      "role": "Ministre israélien de la sécurité nationale, autorité de tutelle des prisons"
+    },
+    {
+      "name": "Benyamin Nétanyahou",
+      "role": "Premier ministre israélien, a condamné les images"
+    },
+    {
+      "name": "Gideon Saar",
+      "role": "Ministre israélien des affaires étrangères, a condamné les images"
+    },
+    {
+      "name": "Miri Regev",
+      "role": "Ministre des transports (Likoud), présente dans le port d'Ashdod"
+    },
+    {
+      "name": "B'Tselem",
+      "role": "Organisation israélienne de défense des droits humains, auteure des rapports cités"
+    },
+    {
+      "name": "Capitales européennes / Union européenne",
+      "role": "Acteurs dont l'éditorial pointe la réaction sélective et la passivité"
+    },
+    {
+      "name": "La France",
+      "role": "État membre de l'UE n'ayant pas adopté de sanctions à ce jour"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "B'Tselem",
+      "used_for": "Qualifier les prisons de « camps de torture » et établir la systématisation des violences sexuelles, sur la base d'enquêtes et d'un rapport"
+    },
+    {
+      "entity": "« décomptes convergents »",
+      "used_for": "Étayer le chiffre d'une centaine de morts en détention depuis deux ans et demi"
+    },
+    {
+      "entity": "Nétanyahou et Gideon Saar",
+      "used_for": "Montrer que même le sommet du gouvernement israélien a condamné les images, soulignant leur gravité"
+    }
+  ],
+  "notable_omissions": [
+    "Aucune réponse ou justification d'Itamar Ben Gvir ni du ministère de la sécurité nationale aux accusations de torture.",
+    "Position officielle du gouvernement israélien sur les rapports de B'Tselem n'est pas rapportée.",
+    "Les noms des trois pays de l'UE ayant adopté des sanctions ne sont pas précisés.",
+    "Aucune source contradictoire ou contre-expertise sur le chiffre des morts en détention.",
+    "Le motif invoqué par la France pour ne pas adopter de sanctions n'est pas exposé."
+  ],
+  "rhetorical_patterns": [
+    "Mise en regard systématique de l'émoi européen suscité par des images de militants européens et du silence sur le sort des Palestiniens.",
+    "Accumulation de détails dégradants (mains liées, à genoux, visage au sol) pour rendre la scène concrète.",
+    "Qualification appuyée de Ben Gvir : « extrême droite suprémaciste et raciste décomplexée ».",
+    "Recours à des chiffres contrastés (100 morts en deux ans et demi contre 230 en 56 ans) pour marquer une rupture.",
+    "Clôture par un jugement moral explicite reliant passivité européenne et mise en scène israélienne."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx1",
+        "text": "Le 20 mai 2026, **Ben Gvir diffuse des images de militants propalestiniens humiliés** après l'arraisonnement d'une flottille vers Gaza."
+      },
+      {
+        "id": "ctx2",
+        "text": "Ces images provoquent l'**émoi de capitales européennes** parce qu'elles concernent des militants européens."
+      },
+      {
+        "id": "ctx3",
+        "text": "Depuis le **7-Octobre 2023**, les conditions de détention des Palestiniens dans les prisons israéliennes se sont fortement dégradées."
+      },
+      {
+        "id": "ctx4",
+        "text": "Des **élections législatives anticipées** approchent en Israël, où Ben Gvir pourrait conserver un rôle central."
+      }
+    ],
+    "who_is_speaking": [
+      "Éditorial non signé du **Monde**, exprimant la position officielle du journal et non une plume individuelle.",
+      "Le Monde est un quotidien français de référence, au centre-gauche, **critique de la politique israélienne actuelle** sur Gaza et les territoires occupés.",
+      "Un éditorial collectif engage l'**institution entière**, ce qui en fait une prise de position assumée et non un avis personnel.",
+      "Le journal s'appuie sur ses propres révélations antérieures (« révélé dans ces colonnes en janvier »), signalant un **suivi éditorial continu** du sujet."
+    ],
+    "important_facts": [
+      {
+        "id": "fact1",
+        "text": "La **détention administrative** permet d'emprisonner sans inculpation ni jugement, pour une durée renouvelable indéfiniment."
+      },
+      {
+        "id": "fact2",
+        "text": "B'Tselem est une organisation **israélienne**, ce qui rend ses accusations difficiles à attribuer à un parti pris étranger."
+      },
+      {
+        "id": "fact3",
+        "text": "L'arraisonnement de la flottille a eu lieu **« manifestement dans les eaux internationales »** selon l'éditorial."
+      },
+      {
+        "id": "fact4",
+        "text": "Le contraste chiffré oppose **100 morts en deux ans et demi** à **230 sur les 56 années** précédentes (1967-2023)."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "Détention administrative",
+        "definition": "Emprisonnement décidé par l'autorité sans procès ni chef d'accusation, pour une durée prolongeable sans limite."
+      },
+      {
+        "term": "B'Tselem",
+        "definition": "Organisation israélienne de défense des droits humains qui documente les abus dans les territoires occupés et les prisons."
+      },
+      {
+        "term": "Flottille pour Gaza",
+        "definition": "Convoi de bateaux de militants cherchant à briser le blocus de Gaza et à attirer l'attention sur la situation des Palestiniens."
+      },
+      {
+        "term": "Likoud",
+        "definition": "Parti de droite israélien dirigé par Benyamin Nétanyahou, principale formation de la coalition au pouvoir."
+      },
+      {
+        "term": "Cisjordanie",
+        "definition": "Territoire palestinien occupé par Israël depuis 1967, où vivent aussi des colons israéliens."
+      }
+    ]
+  }
+}

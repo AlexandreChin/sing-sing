@@ -1,0 +1,122 @@
+{
+  "hook": {
+    "topic": "Prisons israéliennes, silence européen",
+    "sub_topic": "Indignation sélective des capitales",
+    "headline": "Pourquoi l'Europe s'émeut pour les uns et se tait pour les autres",
+    "context_line": "Des images d'humiliation indignent l'Europe, mais le sort des détenus palestiniens reste, lui, dans l'angle mort."
+  },
+  "interest": {
+    "why_read": "Vous verrez **comment un éditorial construit l'indignation** par l'image et le chiffre, et où son argument réclame une vérification.",
+    "pull_quote": "Elle est aussi scandaleuse que la mise en scène d'Itamar Ben Gvir.",
+    "next_slide_hook": "Avant de juger, regardons qui parle et dans quel contexte."
+  },
+  "title_bullets": [
+    "Notez que le titre pose la **« passivité »** comme un fait, alors que c'est la thèse à prouver.",
+    "Repérez la qualification chargée **« extrême droite »**, qui oriente la lecture avant tout examen.",
+    "Observez que le titre oppose Europe et Israël **sans nommer les Palestiniens**, pourtant au cœur du sujet."
+  ],
+  "chapo_bullets": [
+    "Remarquez le **contraste posé d'emblée** : émoi pour les images, silence sur les détenus.",
+    "Voyez comment le chapeau **installe le jugement d'hypocrisie** avant tout argument.",
+    "Notez le mot **« dégradantes »**, qui qualifie les faits avant de les établir."
+  ],
+  "context_next_slide_hook": "Maintenant, voici les pièges à garder en tête avant de lire.",
+  "watch_out_next_slide_hook": "Entrons dans la mécanique de l'argument : sur quoi tient-il vraiment ?",
+  "forme_next_slide_hook": "Distinguons à présent ce qui est prouvé de ce qui est seulement affirmé.",
+  "biases_next_slide_hook": "Rassemblons tout : que faut-il vraiment retenir de cet éditorial ?",
+  "engagement_question": "L'Europe avait-elle vraiment le pouvoir d'infléchir la politique carcérale israélienne, ou son silence relève-t-il d'un manque de courage ?",
+  "go_further": [
+    {
+      "title": "On Photography",
+      "source": "Susan Sontag",
+      "media_type": "book",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Éclaire comment la mise en scène d'images de souffrance oriente le jugement moral avant tout argument.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Un véritable enfer : les prisons israéliennes depuis le 7-Octobre",
+      "source": "B'Tselem",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Donne accès à l'enquête source, à recouper avec d'autres organisations pour juger de la solidité de l'accusation.",
+      "cta_question_index": 3
+    },
+    {
+      "title": "La détention administrative en droit international",
+      "source": "Comité international de la Croix-Rouge",
+      "media_type": "article",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Situe le cadre juridique de la détention sans procès et les contraintes diplomatiques que l'éditorial laisse de côté.",
+      "cta_question_index": 0
+    }
+  ],
+  "cta": {
+    "engagement_sentence": "Et vous, sur combien de sources fonderiez-vous une accusation aussi grave ? Dites-le en story ou en DM.",
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "Quelles contraintes diplomatiques l'article passe-t-il sous silence pour expliquer l'inaction européenne ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_1",
+        "question": "Une accusation de torture peut-elle tenir sur une seule source, même crédible ?",
+        "type": "article_quality"
+      },
+      {
+        "id": "q_2",
+        "question": "L'image d'humiliation a-t-elle orienté votre jugement avant l'examen des faits ?",
+        "type": "reader_bias"
+      },
+      {
+        "id": "q_3",
+        "question": "Que sait-on vraiment des conditions de détention des Palestiniens, au-delà de cet éditorial ?",
+        "type": "topic_substance"
+      }
+    ]
+  },
+  "display": {
+    "payoff": "Comprendre comment l'image et le chiffre fabriquent l'indignation avant la preuve.",
+    "framing": "Un éditorial moral bâti sur le contraste émoi européen / silence palestinien.",
+    "ethics": "Pas pleinement propre : aucun droit de réponse au ministre visé.",
+    "pre_reading": [
+      "Lisez-le comme un éditorial engagé, non un compte rendu neutre.",
+      "Surveillez l'image et le chiffre : ils portent l'émotion."
+    ],
+    "watch_out": [
+      {
+        "label": "Source unique",
+        "text": "L'accusation de torture ne tient qu'à une seule organisation engagée, jamais recoupée."
+      },
+      {
+        "label": "Fausse équivalence",
+        "text": "Le « aussi scandaleuse que » assimile une omission à un acte délibéré."
+      }
+    ],
+    "distill_points": [
+      "L'accusation de « camps de torture » repose sur une source unique et engagée, jamais recoupée.",
+      "L'absence de réponse israélienne convertit une omission diplomatique en reniement moral.",
+      "L'opposition chiffrée 100/230 frappe, mais sa méthode de décompte reste indéterminée."
+    ],
+    "after_reading": [
+      "Vérifiez sur combien de sources l'accusation repose vraiment.",
+      "Un contraste émotionnel n'est pas une preuve de comparabilité.",
+      "Recoupez les chiffres avec des sources contradictoires."
+    ],
+    "blind_spots": [
+      "Les contraintes diplomatiques qui pourraient expliquer l'inaction européenne.",
+      "Toute réponse israélienne aux accusations de torture portées."
+    ],
+    "balance": [
+      "Un éditorial assume une position : il n'a pas à tout équilibrer.",
+      "Format court : l'absence d'exhaustivité est un choix, pas un défaut."
+    ]
+  }
+}
