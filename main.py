@@ -18,7 +18,7 @@ async def run_full_analysis(text: str, no_api: bool = False, input_path: str | N
     OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
     stem = Path(input_path).stem if input_path else datetime.now().strftime("%Y%m%d_%H%M%S")
     steps_dir = OUTPUTS_DIR / f"{stem}_steps"
-    output_path = OUTPUTS_DIR / f"{stem}_analysis.json"
+    output_path = OUTPUTS_DIR / f"{stem}_article_full_analysis.json"
 
     result = await analyze_for_full_analysis(analysis_input, no_api=no_api, steps_dir=steps_dir)
 
@@ -73,7 +73,7 @@ async def main():
             print("Usage: python main.py simplify <analysis.json> [--no-api] [--render]", file=sys.stderr)
             sys.exit(1)
         json_path = Path(positional[0])
-        from agent.simplify_agent import simplify_carousel
+        from agent.instagram_carousel_simplify_agent import simplify_carousel
         print(f"Simplifying{' (no-api)' if no_api else ''}…", file=sys.stderr, flush=True)
         result = await simplify_carousel(json_path, no_api=no_api)
         out_path = json_path.with_stem(json_path.stem + "_simplified")
@@ -107,7 +107,7 @@ async def main():
         data = json.loads(json_path.read_text(encoding="utf-8"))
         full = ArticleFullAnalysis.model_validate(data)
         presentation = adapt_fn(full, no_api=no_api)
-        out_path = json_path.with_stem(json_path.stem + f"_{fmt}_presentation")
+        out_path = json_path.with_stem(json_path.stem + f"_{fmt}_adapt")
         out_path.write_text(presentation.model_dump_json(indent=2), encoding="utf-8")
         print(f"Presentation written to {out_path}", file=sys.stderr)
 
@@ -133,7 +133,7 @@ async def main():
         full = ArticleFullAnalysis.model_validate(json.loads(Path(positional[0]).read_text(encoding="utf-8")))
         presentation = InstagramCarouselPresentation.model_validate(json.loads(Path(positional[1]).read_text(encoding="utf-8")))
         doc = extract_fn(full, presentation)
-        out_path = Path(positional[0]).with_stem(Path(positional[0]).stem + f"_{fmt}")
+        out_path = Path(positional[0]).with_stem(Path(positional[0]).stem + f"_{fmt}_document")
         out_path.write_text(doc.model_dump_json(indent=2), encoding="utf-8")
         print(f"Document written to {out_path}", file=sys.stderr)
         if do_render:
@@ -261,7 +261,7 @@ async def main():
         text = Path(input_path).read_text(encoding="utf-8").strip()
         stem = Path(input_path).stem
         steps_dir = OUTPUTS_DIR / f"{stem}_steps"
-        analysis_path = OUTPUTS_DIR / f"{stem}_analysis.json"
+        analysis_path = OUTPUTS_DIR / f"{stem}_article_full_analysis.json"
         OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
         full = await analyze_for_full_analysis(
             __import__("models", fromlist=["FullAnalysisInput"]).FullAnalysisInput(body=text),
@@ -274,14 +274,14 @@ async def main():
         # 2. Adapt
         adapt_fn = importlib.import_module(agent_mod).adapt
         presentation = adapt_fn(full, no_api=no_api)
-        presentation_path = OUTPUTS_DIR / f"{stem}_analysis_{fmt}_presentation.json"
+        presentation_path = OUTPUTS_DIR / f"{stem}_{fmt}_adapt.json"
         presentation_path.write_text(presentation.model_dump_json(indent=2), encoding="utf-8")
         print(f"Presentation written to {presentation_path}", file=sys.stderr)
 
         # 3. Extract
         extract_fn = importlib.import_module(extractor_mod).extract
         doc = extract_fn(full, presentation)
-        doc_path = OUTPUTS_DIR / f"{stem}_analysis_{fmt}.json"
+        doc_path = OUTPUTS_DIR / f"{stem}_{fmt}_document.json"
         doc_path.write_text(doc.model_dump_json(indent=2), encoding="utf-8")
         print(f"Document written to {doc_path}", file=sys.stderr)
 
