@@ -309,7 +309,7 @@ class DeontologyViolation(BaseModel):
 
 
 class DeontologyVerdict(BaseModel):
-    overall: Literal["clean", "caution", "violation"]
+    overall: Literal["excellent", "good", "passable", "mixed", "poor", "critical"]
     editorial_note: str | None = None
 
 

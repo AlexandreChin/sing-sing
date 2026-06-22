@@ -23,7 +23,7 @@ hook
 - context_line : une phrase contextuelle (≤20 mots) qui situe l'enjeu
 
 interest
-- why_read : 1 phrase qui annonce ce que le lecteur va gagner à lire l'analyse — peut contenir **gras**
+- why_read : 1 phrase courte (≤12 mots) qui annonce ce que le lecteur va gagner à lire l'analyse — peut contenir **gras**
 - pull_quote : citation courte tirée de l'article (optionnel)
 - next_slide_hook : accroche de transition vers la slide 2 (≤15 mots)
 
