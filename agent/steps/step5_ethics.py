@@ -22,6 +22,8 @@ def _validate(data: dict) -> list[str]:
         errors.append("verdict.overall is 'violation' but no entry has status='violation'")
     if overall != "clean" and not out.deontology.verdict.editorial_note:
         errors.append("verdict.editorial_note must be set when overall is not 'clean'")
+    if not out.deontology.summary.strip():
+        errors.append("deontology.summary is empty")
     return errors
 
 

@@ -43,6 +43,24 @@ class CTA(BaseModel):
     post_reading_questions: list[PostReadingQuestion]
 
 
+class WatchOutItem(BaseModel):
+    label: str   # short French descriptor, e.g. "Source unique", "Méthodologie", "Droit de réponse"
+    text: str    # ≤15 words — the alert itself, no article quotes
+
+
+class CarouselDisplay(BaseModel):
+    """Condensed, carousel-ready display strings for the short format slides."""
+    payoff: str              # ≤15 words — what the reader gets from this article
+    framing: str             # ≤15 words — the article's angle in plain language
+    ethics: str              # ≤12 words — explicit clean/not-clean statement
+    pre_reading: list[str]   # exactly 2 items, ≤12 words each
+    watch_out: list[WatchOutItem]  # exactly 2 items, ≤15 words each, no article quotes
+    distill_points: list[str]  # exactly 3 items, ≤20 words each
+    after_reading: list[str]   # exactly 3 items, ≤12 words each
+    blind_spots: list[str]   # exactly 2 items, ≤15 words each — what the article leaves out
+    balance: list[str]       # exactly 2 items, ≤15 words each — calibrating note on the analysis limits
+
+
 class InstagramCarouselPresentation(BaseModel):
     hook: Hook
     interest: Interest
@@ -55,6 +73,7 @@ class InstagramCarouselPresentation(BaseModel):
     engagement_question: str
     go_further: list[CarouselGoFurtherItem]
     cta: CTA
+    display: CarouselDisplay
 
 
 class InstagramCarouselDocument(BaseModel):

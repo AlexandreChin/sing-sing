@@ -143,14 +143,21 @@ async def main():
             await asyncio.to_thread(render_from_json, out_path, slides_dir)
 
     elif args and args[0] == "render":
-        # Usage: python main.py render <carousel.json> [<output_dir>]
-        positional = [a for a in args[1:] if not a.startswith("--")]
-        if not positional:
-            print("Usage: python main.py render <analysis.json> [<output_dir>]", file=sys.stderr)
+        # Usage: python main.py render <carousel.json> [<output_dir>] [--format <fmt>]
+        import importlib
+        from extractors.registry import FORMATS
+        fmt_args = [args[i + 1] for i, a in enumerate(args) if a == "--format" and i + 1 < len(args)]
+        fmt = fmt_args[0] if fmt_args else "instagram_carousel_long"
+        flags = {"--format"} | set(fmt_args)
+        positional = [a for a in args[1:] if a not in flags and not a.startswith("--")]
+        if not positional or fmt not in FORMATS:
+            known = ", ".join(FORMATS)
+            print(f"Usage: python main.py render <carousel.json> [<output_dir>] [--format {{{known}}}]", file=sys.stderr)
             sys.exit(1)
         json_path = Path(positional[0])
         slides_dir = Path(positional[1]) if len(positional) > 1 else json_path.parent / json_path.stem
-        from renderer.instagram_carousel_long.renderer import render_from_json
+        _, _, renderer_mod = FORMATS[fmt]
+        render_from_json = importlib.import_module(renderer_mod).render_from_json
         print(f"Rendering slides to {slides_dir}/", file=sys.stderr)
         await asyncio.to_thread(render_from_json, json_path, slides_dir)
 

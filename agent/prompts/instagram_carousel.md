@@ -37,7 +37,7 @@ biases_next_slide_hook : accroche de transition après biais → vers synthèse 
 
 engagement_question : 1 question ouverte invitant à commenter, ancrée dans la tension principale de la synthèse
 
-go_further : 1 à 6 ressources (articles, livres, documentaires, podcasts…)
+go_further : exactement 3 ressources (articles, livres, documentaires, podcasts…)
 - title, source, media_type, category (deep_dive ou question_answer)
 - url (si connue et vérifiable), duration_minutes, why_explore (1 phrase)
 - cta_question_index : si category=question_answer, index 0-based de la question CTA à laquelle cette ressource répond (null sinon)
@@ -46,3 +46,17 @@ cta
 - engagement_sentence : 1 phrase invitant à commenter dans les stories ou en DM
 - post_reading_questions : 1 à 4 questions post-lecture, dont au moins 1 de type blind_spot
   Types : article_quality / topic_substance / reader_bias / blind_spot
+
+display — versions condensées pour le carousel court (contrainte stricte de longueur)
+Ces champs sont affichés directement sur les slides. Chaque phrase doit être percutante,
+autonome et tenir sur 1–2 lignes de slide Instagram. Pas de guillemets d'article.
+
+- payoff        : ≤15 mots — ce que le lecteur gagne à lire cet article (depuis verdict.payoff)
+- framing       : ≤15 mots — l'angle choisi par l'article, en langage direct (depuis perspective.framing)
+- ethics        : ≤12 mots — état déontologique explicite : propre ou non (depuis deontology.summary)
+- pre_reading   : exactement 2 items, ≤12 mots chacun — conseils d'orientation avant lecture (depuis guide.pre_reading)
+- watch_out     : exactement 2 items, chacun avec un `label` (court descripteur français, ex. "Source unique", "Méthodologie", "Droit de réponse", "Omission", "Rhétorique") et un `text` (≤15 mots, alerte sans citation de l'article) — (depuis guide.watch_out)
+- distill_points: exactement 3 items, ≤20 mots chacun — les 3 signaux les plus importants (depuis distill.points)
+- after_reading : exactement 3 items, ≤12 mots chacun — ce que le lecteur doit retenir (depuis guide.after_reading)
+- blind_spots   : exactement 2 items, ≤15 mots chacun — ce que l'article laisse de côté (depuis perspective.blind_spots)
+- balance       : exactement 2 items, ≤15 mots chacun — note de calibration sur les limites de l'analyse (depuis perspective.balance)

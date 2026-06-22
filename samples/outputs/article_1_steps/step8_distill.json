@@ -1,0 +1,50 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "L'accusation centrale de **« camps de torture »** ne tient qu'à une **source unique et engagée** que ni la logique, ni la rhétorique, ni la vérification ne consolident : le lecteur prend pour fait établi ce qui reste un témoignage non recoupé.",
+        "references": [
+          "lr_1",
+          "ia_3",
+          "cb_1",
+          "claim_0",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "L'absence totale de **réponse israélienne** aux accusations n'est pas un oubli mais un **choix éditorial** : taire l'autre version permet de convertir une omission diplomatique en reniement moral, au mépris du droit de réponse.",
+        "references": [
+          "bs_0",
+          "focus",
+          "claim_0"
+        ]
+      },
+      {
+        "text": "Le **« aussi scandaleuse que »** sert de pivot : cette **fausse équivalence** assimile l'omission à un acte délibéré et porte, seule, toute la thèse morale de l'article.",
+        "references": [
+          "lr_3",
+          "ia_2",
+          "claim_3",
+          "bias_1"
+        ]
+      },
+      {
+        "text": "L'**ancrage émotionnel** initial sur l'humiliation filmée précède et conditionne le raisonnement : l'indignation est **installée avant l'examen** des causes, disposant le lecteur à juger d'abord.",
+        "references": [
+          "er_0",
+          "bias_0",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "L'**opposition chiffrée** (cent morts contre 230) frappe par son effet d'effroi alors que la **méthodologie des décomptes** reste non détaillée : la force du chiffre masque la fragilité de son sourçage.",
+        "references": [
+          "er_1",
+          "claim_1",
+          "lr_2"
+        ]
+      }
+    ],
+    "open_question": "L'article efface-t-il les contraintes diplomatiques par parti pris assumé, ou parce que son cadre — une omission lue comme reniement — rend structurellement impensable l'hypothèse que l'Europe n'ait jamais eu le pouvoir d'infléchir le cours des choses ?"
+  }
+}

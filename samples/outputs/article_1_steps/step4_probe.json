@@ -1,0 +1,147 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "Une partie d’entre eux y sont soumis au régime de la détention administrative, ce qui veut dire qu’ils sont emprisonnés sans être inculpés ni jugés, pour une durée inconnue et renouvelable indéfiniment.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Procédure",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "La **détention administrative** est un dispositif légal documenté, présenté ici sans le **cadre juridique** invoqué par Israël.",
+        "external_sources": [
+          {
+            "name": "Comité international de la Croix-Rouge",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "B’Tselem",
+            "supports": "validates",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": 88
+      },
+      {
+        "quote": "Dès août 2024, l’organisation israélienne de défense des droits humains B’Tselem a assuré, à la suite d’une enquête approfondie, que les prisons réservées aux Palestiniens sont devenues « des camps de torture ».",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "La qualification de torture **repose sur une seule organisation**, sans contre-expertise indépendante rapportée.",
+        "external_sources": [
+          {
+            "name": "B’Tselem, rapport « Un véritable enfer »",
+            "supports": "validates",
+            "evidence_type": "academic"
+          },
+          {
+            "name": "Gouvernement israélien",
+            "supports": "contradicts",
+            "evidence_type": "party_statement"
+          }
+        ],
+        "confidence": 48
+      },
+      {
+        "quote": "une centaine de Palestiniens, selon des décomptes convergents, sont morts en détention en Israël depuis deux ans et demi, contre 230 entre 1967 et 2023.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Quantification",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "La formule « décomptes convergents » **ne précise aucune méthode**, et les deux périodes sont comparées sans **base commune**.",
+        "external_sources": [
+          {
+            "name": "B’Tselem",
+            "supports": "validates",
+            "evidence_type": "academic"
+          },
+          {
+            "name": "Service pénitentiaire israélien",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 58
+      },
+      {
+        "quote": "un homme qui se flatte de répandre la haine dans l’adoption d’une peine de mort pour terrorisme visant exclusivement les Palestiniens.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "« Se flatte de répandre la haine » **impute une intention** sans la démontrer.",
+        "external_sources": [
+          {
+            "name": "Déclarations publiques d’Itamar Ben Gvir",
+            "supports": "neutral",
+            "evidence_type": "party_statement"
+          }
+        ],
+        "confidence": null
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "Il fallait en plus les humilier en les montrant, mercredi 20 mai, les mains liées dans le dos, à genoux, le visage contre le sol.",
+        "item_type": "bias",
+        "label": "accumulation de détails concrets",
+        "effect": "Remarquez comment l’**énumération physique** rend la scène palpable avant tout argument.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Représentant d’une extrême droite suprémaciste et raciste décomplexée longtemps rejetée aux marges de la vie politique de l’Etat hébreu",
+        "item_type": "bias",
+        "label": "langage chargé",
+        "effect": "Remarquez comment l’**empilement d’adjectifs** oriente le jugement sur l’homme avant l’examen de ses actes.",
+        "proves": {
+          "type": "observation",
+          "label": "Cadrage",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Elle est aussi scandaleuse que la mise en scène d’Itamar Ben Gvir.",
+        "item_type": "fallacy",
+        "label": "fausse équivalence",
+        "effect": "Remarquez comment une **inaction diplomatique** est placée sur le même plan moral qu’un **acte délibéré** d’humiliation.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "sentiment d'hypocrisie",
+          "strength": 0.7,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "cette passivité face à ce qui se passe aujourd’hui dans les prisons israéliennes va à l’encontre de tout ce que les Européens prétendent défendre.",
+      "proves": {
+        "type": "observation",
+        "label": "Cadrage",
+        "strength": 0.9,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase érige la passivité en **reniement des valeurs** européennes. Elle sous-entend qu’une seule conduite — sanctionner — serait fidèle à ces valeurs, sans dire ce que les capitales invoquent. Et si ce silence relevait d’un **calcul** plutôt que d’un reniement ?"
+    }
+  }
+}
