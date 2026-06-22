@@ -351,6 +351,7 @@ class ReviewVerdict(BaseModel):
     signature_move: str
     main_blind_side: str
     further_resource: ResourceReference
+    summary: str  # 1–2 sentences in French: reader-facing verdict combining recommendation + for_whom + payoff
 
 
 class Review(BaseModel):

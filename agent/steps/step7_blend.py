@@ -1,6 +1,6 @@
 from pathlib import Path
 from agent._base import _call_with_retry, _j, save_step, _build_node_index
-from models.full_analysis import AnalysisFond, AnalyseForme
+from models.full_analysis import AnalysisFond, AnalyseForme  # needed for node index
 from models.full_analysis_steps import BlendOutput
 
 _PROMPT = (Path(__file__).parent.parent / "prompts" / "step7_blend.md").read_text(encoding="utf-8")
@@ -23,20 +23,18 @@ def _validate(data: dict) -> list[str]:
 
 
 def run(
-    article: str,
     fond_data: dict,
     forme_data: dict,
     probe_data: dict,
     ethics_data: dict,
     review_data: dict,
-    fond: AnalysisFond,
-    forme: AnalyseForme,
     steps_dir: Path,
     no_api: bool = False,
 ) -> dict:
+    fond = AnalysisFond.model_validate(fond_data)
+    forme = AnalyseForme.model_validate(forme_data)
     node_index = _build_node_index(fond, forme, probe_data)
     user_msg = (
-        f"{article}\n\n---\n\n"
         f"LOGIC (step 2):\n{_j(fond_data)}\n\n"
         f"RHETORIC (step 3):\n{_j(forme_data)}\n\n"
         f"PROBE (step 4):\n{_j(probe_data)}\n\n"

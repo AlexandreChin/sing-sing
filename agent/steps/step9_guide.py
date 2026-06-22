@@ -24,11 +24,6 @@ def _validate(data: dict) -> list[str]:
 
 
 def run(
-    article: str,
-    fond_data: dict,
-    forme_data: dict,
-    probe_data: dict,
-    ethics_data: dict,
     review_data: dict,
     blend_data: dict,
     distill_data: dict,
@@ -36,11 +31,6 @@ def run(
     no_api: bool = False,
 ) -> dict:
     user_msg = (
-        f"{article}\n\n---\n\n"
-        f"LOGIC (step 2):\n{_j(fond_data)}\n\n"
-        f"RHETORIC (step 3):\n{_j(forme_data)}\n\n"
-        f"PROBE (step 4):\n{_j(probe_data)}\n\n"
-        f"ETHICS (step 5):\n{_j(ethics_data)}\n\n"
         f"REVIEW (step 6):\n{_j(review_data)}\n\n"
         f"BLEND (step 7):\n{_j(blend_data)}\n\n"
         f"DISTILL (step 8):\n{_j(distill_data)}\n\n"

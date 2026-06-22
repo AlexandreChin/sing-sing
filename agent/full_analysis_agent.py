@@ -124,13 +124,13 @@ async def analyze_for_full_analysis(
     # Step 5 — Ethics
     print("[5/9] Ethics…", file=sys.stderr, flush=True)
     ethics_data = _load_or_run(steps_dir, "step5_ethics.json",
-        lambda: step5_ethics.run(article, ext_data, fond_data, forme_data, probe_data, steps_dir, no_api=no_api))
+        lambda: step5_ethics.run(article, ext_data, probe_data, steps_dir, no_api=no_api))
     ethics = EthicsOutput.model_validate(ethics_data)
 
     # Step 6 — Review
     print("[6/9] Review…", file=sys.stderr, flush=True)
     review_data = _load_or_run(steps_dir, "step6_review.json",
-        lambda: step6_review.run(article, fond_data, forme_data, probe_data, ethics_data, steps_dir, no_api=no_api))
+        lambda: step6_review.run(fond_data, forme_data, probe_data, ethics_data, steps_dir, no_api=no_api))
     review_out = ReviewOutput.model_validate(review_data)
 
     # Compute proven_by back-references on each observation
@@ -196,21 +196,21 @@ async def analyze_for_full_analysis(
     # Step 7 — Blend
     print("[7/9] Blend…", file=sys.stderr, flush=True)
     blend_data = _load_or_run(steps_dir, "step7_blend.json",
-        lambda: step7_blend.run(article, fond_data, forme_data, probe_data, ethics_data, review_data, fond, forme, steps_dir, no_api=no_api))
+        lambda: step7_blend.run(fond_data, forme_data, probe_data, ethics_data, review_data, steps_dir, no_api=no_api))
     blend_out = BlendOutput.model_validate(blend_data)
     assembled = assembled.model_copy(update={"blend": blend_out.blend})
 
     # Step 8 — Distill
     print("[8/9] Distill…", file=sys.stderr, flush=True)
     distill_data = _load_or_run(steps_dir, "step8_distill.json",
-        lambda: step8_distill.run(article, blend_data, fond, forme, probe_data, steps_dir, no_api=no_api))
+        lambda: step8_distill.run(blend_data, steps_dir, no_api=no_api))
     distill_out = DistillOutput.model_validate(distill_data)
     assembled = assembled.model_copy(update={"distill": distill_out.distill})
 
     # Step 9 — Guide
     print("[9/9] Guide…", file=sys.stderr, flush=True)
     guide_data = _load_or_run(steps_dir, "step9_guide.json",
-        lambda: step9_guide.run(article, fond_data, forme_data, probe_data, ethics_data, review_data, blend_data, distill_data, steps_dir, no_api=no_api))
+        lambda: step9_guide.run(review_data, blend_data, distill_data, steps_dir, no_api=no_api))
     guide_out = GuideOutput.model_validate(guide_data)
     assembled = assembled.model_copy(update={"guide": guide_out.guide})
 

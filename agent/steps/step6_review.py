@@ -35,11 +35,12 @@ def _validate(data: dict) -> list[str]:
         errors.append("verdict.for_whom is empty")
     if not verdict.payoff.strip():
         errors.append("verdict.payoff is empty")
+    if not verdict.summary.strip():
+        errors.append("verdict.summary is empty")
     return errors
 
 
 def run(
-    article: str,
     fond_data: dict,
     forme_data: dict,
     probe_data: dict,
@@ -48,7 +49,6 @@ def run(
     no_api: bool = False,
 ) -> dict:
     user_msg = (
-        f"{article}\n\n---\n\n"
         f"LOGIC (step 2):\n{_j(fond_data)}\n\n"
         f"RHETORIC (step 3):\n{_j(forme_data)}\n\n"
         f"PROBE (step 4):\n{_j(probe_data)}\n\n"

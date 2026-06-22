@@ -1,6 +1,5 @@
 from pathlib import Path
-from agent._base import _call_with_retry, _j, save_step, _build_node_index
-from models.full_analysis import AnalysisFond, AnalyseForme
+from agent._base import _call_with_retry, _j, save_step
 from models.full_analysis_steps import DistillOutput
 
 _PROMPT = (Path(__file__).parent.parent / "prompts" / "step8_distill.md").read_text(encoding="utf-8")
@@ -21,19 +20,12 @@ def _validate(data: dict) -> list[str]:
 
 
 def run(
-    article: str,
     blend_data: dict,
-    fond: AnalysisFond,
-    forme: AnalyseForme,
-    probe_data: dict,
     steps_dir: Path,
     no_api: bool = False,
 ) -> dict:
-    node_index = _build_node_index(fond, forme, probe_data)
     user_msg = (
-        f"{article}\n\n---\n\n"
         f"BLEND (step 7):\n{_j(blend_data)}\n\n"
-        f"{node_index}\n\n"
         f"---\n\n{_PROMPT}"
     )
     data = _call_with_retry(user_msg, DistillOutput.model_json_schema(), validator=_validate, no_api=no_api)
