@@ -1,0 +1,52 @@
+{
+  "emotional_register": [
+    {
+      "emotion": "indignation",
+      "how": "La description visuelle de l'humiliation — **mains liées dans le dos, à genoux, le visage contre le sol** — et le vocabulaire chargé sur Ben Gvir (« morgue », « paradant », « se flatte de répandre la haine ») saturent le texte.",
+      "effect": "Le lecteur est conduit à voir la **passivité européenne** comme un scandale moral avant même l'examen des faits.",
+      "seeds": {
+        "source": "watch_out",
+        "index": 3,
+        "excerpt": "descriptions visuelles détaillées et l'émotion qu'elles cherchent à susciter",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "emotion": "révolte morale",
+      "how": "Le **contraste chiffré** — une centaine de morts en deux ans et demi contre 230 en cinquante-six ans — et la symétrie finale (« aussi scandaleuse que ») placent le lecteur face à un écart présenté comme insoutenable.",
+      "effect": "Le rapprochement prépare le lecteur à conclure à une **incohérence morale** des Européens, sans qu'elle soit démontrée.",
+      "seeds": {
+        "source": "watch_out",
+        "index": 1,
+        "excerpt": "rapproche des situations de natures ou d'époques différentes comme si elles se valaient",
+        "strength": 0.85,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "beneficiary": "Les partisans de sanctions européennes contre le gouvernement israélien",
+      "explanation": "En concentrant la responsabilité sur **Ben Gvir** et en présentant l'abstention française comme un reniement de valeurs, le cadrage transforme l'adoption de sanctions en **exigence morale** plutôt qu'en choix politique discutable.",
+      "seeds": {
+        "source": "watch_out",
+        "index": 6,
+        "excerpt": "à qui profite le cadrage choisi et quelle conclusion il prépare",
+        "strength": 0.9,
+        "nature": "inference"
+      }
+    },
+    {
+      "beneficiary": "La cause palestinienne dans le débat européen",
+      "explanation": "Le glissement de l'**événement ponctuel** des images vers le constat général sur les prisons donne une portée et une visibilité maximales aux accusations de B'Tselem, en l'absence de toute version adverse rapportée.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 1,
+        "excerpt": "reposent ici sur une ONG israélienne et des témoignages, sans réponse de fond des autorités",
+        "strength": 0.7,
+        "nature": "inference"
+      }
+    }
+  ]
+}

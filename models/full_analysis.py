@@ -69,6 +69,7 @@ class FullAnalysisInput(BaseModel):
     url: HttpUrl | None = None
     source: str | None = None
     published_at: str | None = None
+    extra_instructions: str | None = None
 
 
 class ArticleMetadata(BaseModel):
@@ -94,21 +95,6 @@ class ArticleExtraction(BaseModel):
     rhetorical_patterns: list[str]
 
 
-# Partie 1
-class Hook(BaseModel):
-    topic: str
-    sub_topic: str
-    headline: str
-    context_line: str
-
-
-# Partie 2
-class Interest(BaseModel):
-    why_read: str
-    pull_quote: str | None = None
-    next_slide_hook: str
-
-
 # Partie 3 (cadrage)
 class TitleAnalysisItem(BaseModel):
     label: str        # short label for the rhetorical device or framing technique (1–2 words)
@@ -116,9 +102,7 @@ class TitleAnalysisItem(BaseModel):
 
 
 class Cadrage(BaseModel):
-    title_bullets: list[str] = []              # pre-reading watch-out tips on title rhetoric (slide 3)
-    title_analysis: list[TitleAnalysisItem] = []  # post-reading analytical observations on title framing (slide 5)
-    chapo_bullets: list[str] = []              # 2–3 bullet observations about how the CHAPO frames the reader
+    title_analysis: list[TitleAnalysisItem] = []
 
 
 # Partie 4 (context)
@@ -132,7 +116,6 @@ class Context(BaseModel):
     who_is_speaking: list[str]
     important_facts: list[TextItem]
     key_terms: list[TermDefinition]
-    next_slide_hook: str
 
     @field_validator("contexts", "important_facts", mode="before")
     @classmethod
@@ -149,7 +132,6 @@ class WatchOutItem(BaseModel):
 
 class WatchOut(BaseModel):
     items: list[WatchOutItem]
-    next_slide_hook: str
 
 
 # Partie 6 (analysis_fond)
@@ -236,7 +218,6 @@ class CuiBono(BaseModel):
 class AnalyseForme(BaseModel):
     emotional_register: list[EmotionalRegister]
     cui_bono: list[CuiBono]
-    next_slide_hook: str
 
 
 # Partie 8 (facts_vs_opinions)
@@ -290,14 +271,12 @@ class Focus(BaseModel):
 class BiasesAndFocus(BaseModel):
     biases_and_rhetoric: list[BiasRhetoric]
     focus: Focus
-    next_slide_hook: str
 
 
 # Partie 10
 class Synthesis(BaseModel):
     points: list[SynthesisPoint]  # 1–5, sorted most important first
-    open_question: str  # analytical question from bias analysis (displayed first on slide 8)
-    engagement_question: str  # reader engagement CTA (displayed second on slide 8)
+    open_question: str
 
     @field_validator("points", mode="before")
     @classmethod
@@ -305,46 +284,60 @@ class Synthesis(BaseModel):
         return [{"text": item, "references": []} if isinstance(item, str) else item for item in v]
 
 
-# Partie 11
-class GoFurtherItem(BaseModel):
+
+class Analysis(BaseModel):
+    fond: AnalysisFond
+    forme: AnalyseForme
+
+
+class Annotations(BaseModel):
+    facts_vs_opinions: FactsVsOpinions
+    biases_and_focus: BiasesAndFocus
+
+
+class ResourceReference(BaseModel):
     title: str
     source: str
     media_type: Literal["article", "report", "book", "documentary", "film", "serie", "video", "podcast", "academic_paper", "other"]
-    category: Literal["deep_dive", "question_answer"]
-    url: str | None = None
-    duration_minutes: int | None = None
     why_explore: str
-    cta_question_index: int | None = None  # index into cta.post_reading_questions; replaces text duplication
+    url: str | None = None
 
 
-class GoFurther(BaseModel):
-    items: list[GoFurtherItem]
+class MasterclassDimension(BaseModel):
+    dimension: Literal[
+        "source_rigor",
+        "reasoning_structure",
+        "approach_transparency",
+        "treatment_fairness",
+        "clarity",
+        "angle_originality",
+    ]
+    label: str      # English display label
+    score: int      # 1 (very weak) to 5 (exemplary)
+    rationale: str  # justifies the score — what earns it, what caps it, with embedded quotes
+    lesson: str     # actionable insight for a critical reader (mirrors bias.effect)
 
 
-# Partie 12
-class PostReadingQuestion(BaseModel):
-    id: str = ""
-    question: str
-    type: Literal["article_quality", "topic_substance", "reader_bias", "blind_spot"]
+class MasterclassVerdict(BaseModel):
+    quality: Literal["exemplary", "solid", "adequate", "instructive_by_contrast", "weak"]
+    why_worth_reading: str
+    signature_move: str
+    main_blind_side: str
+    further_resource: ResourceReference
 
 
-class CTA(BaseModel):
-    engagement_sentence: str
-    post_reading_questions: list[PostReadingQuestion]  # exactly 2
+class Masterclass(BaseModel):
+    dimensions: list[MasterclassDimension]  # exactly 6, one per dimension
+    verdict: MasterclassVerdict
 
 
 class ArticleFullAnalysis(BaseModel):
     article_metadata: ArticleMetadata
-    extraction: ArticleExtraction | None = None  # promoted from step 1; None for older outputs
-    hook: Hook
-    interest: Interest
+    extraction: ArticleExtraction | None = None
     cadrage: Cadrage
     context: Context
     watch_out: WatchOut
-    analysis_fond: AnalysisFond
-    analysis_forme: AnalyseForme
-    facts_vs_opinions: FactsVsOpinions
-    biases_and_focus: BiasesAndFocus
+    analysis: Analysis
+    annotations: Annotations
     synthesis: Synthesis
-    go_further: GoFurther
-    cta: CTA
+    masterclass: Masterclass | None = None

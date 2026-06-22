@@ -25,8 +25,8 @@ def validate(path: Path) -> tuple[list[str], dict[str, str]]:
         return [f"Schema error: {e}"], {}
 
     errors = []
-    fond = output.analysis_fond
-    forme = output.analysis_forme
+    fond = output.analysis.fond
+    forme = output.analysis.forme
 
     # ── Node registry (id → label) for graph building ────────────────────────
     node_registry: dict[str, str] = {}
@@ -46,9 +46,8 @@ def validate(path: Path) -> tuple[list[str], dict[str, str]]:
     _register(fond.logical_reasoning, lambda x: f"lr: {x.step[:40]}")
     _register(forme.emotional_register, lambda x: f"er: {x.emotion}")
     _register(forme.cui_bono, lambda x: f"cb: {x.beneficiary}")
-    _register(output.facts_vs_opinions.claims_and_sources, lambda x: f"claim: {x.quote[:40]}")
-    _register(output.biases_and_focus.biases_and_rhetoric, lambda x: f"bias: {x.label}")
-    _register(output.cta.post_reading_questions, lambda x: f"q: {x.question[:40]}")
+    _register(output.annotations.facts_vs_opinions.claims_and_sources, lambda x: f"claim: {x.quote[:40]}")
+    _register(output.annotations.biases_and_focus.biases_and_rhetoric, lambda x: f"bias: {x.label}")
 
     # ── Build valid targets per proves.type ───────────────────────────────────
     obs_by_label = {obs.aspect: obs for obs in fond.observations}
@@ -113,11 +112,11 @@ def validate(path: Path) -> tuple[list[str], dict[str, str]]:
             errors.append(f"watch_out.items: no item with refers_to='{cat}' — at least 1 required per category")
 
     # ── Count constraints ─────────────────────────────────────────────────────
-    n_claims = len(output.facts_vs_opinions.claims_and_sources)
+    n_claims = len(output.annotations.facts_vs_opinions.claims_and_sources)
     if not (1 <= n_claims <= 6):
         errors.append(f"claims_and_sources: expected 1–6, got {n_claims}")
 
-    n_biases = len(output.biases_and_focus.biases_and_rhetoric)
+    n_biases = len(output.annotations.biases_and_focus.biases_and_rhetoric)
     if not (1 <= n_biases <= 4):
         errors.append(f"biases_and_rhetoric: expected 1–4, got {n_biases}")
 
@@ -125,19 +124,11 @@ def validate(path: Path) -> tuple[list[str], dict[str, str]]:
     if not (1 <= n_synthesis <= 5):
         errors.append(f"synthesis.points: expected 1–5, got {n_synthesis}")
 
-    n_cta_q = len(output.cta.post_reading_questions)
-    if not (1 <= n_cta_q <= 4):
-        errors.append(f"cta.post_reading_questions: expected 1–4, got {n_cta_q}")
-
-    blind_spot_qs = [q for q in output.cta.post_reading_questions if q.type == "blind_spot"]
-    if not blind_spot_qs:
-        errors.append("cta.post_reading_questions: at least one must be type 'blind_spot'")
-
     # ── proves cross-references ───────────────────────────────────────────────
-    for i, claim in enumerate(output.facts_vs_opinions.claims_and_sources):
+    for i, claim in enumerate(output.annotations.facts_vs_opinions.claims_and_sources):
         errors.extend(check_proves(claim.proves, f"claims_and_sources[{i}]"))
 
-    bf = output.biases_and_focus
+    bf = output.annotations.biases_and_focus
     for i, bias in enumerate(bf.biases_and_rhetoric):
         errors.extend(check_proves(bias.proves, f"biases_and_rhetoric[{i}]"))
 
@@ -158,15 +149,6 @@ def validate(path: Path) -> tuple[list[str], dict[str, str]]:
 
     for i, sm in enumerate(fond.steel_man):
         errors.extend(check_seeds(sm.seeds, f"steel_man[{i}]"))
-
-    # ── go_further cta_question_index ─────────────────────────────────────────
-    for i, item in enumerate(output.go_further.items):
-        if item.cta_question_index is not None:
-            if not (0 <= item.cta_question_index < n_cta_q):
-                errors.append(
-                    f"go_further[{i}].cta_question_index={item.cta_question_index} "
-                    f"out of range (0–{n_cta_q - 1})"
-                )
 
     # ── proven_by coherence ───────────────────────────────────────────────────
     for i, obs in enumerate(fond.observations):

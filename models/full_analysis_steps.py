@@ -4,7 +4,7 @@ from typing import Literal
 from pydantic import BaseModel
 from models.full_analysis import (
     AnalysisFond, AnalyseForme, AuthorityAnchor, BiasesAndFocus, Cadrage,
-    Context, CTA, FactsVsOpinions, GoFurther, Hook, Interest, Synthesis, WatchOut, WatchOutItem,
+    Context, FactsVsOpinions, Masterclass, Synthesis, WatchOut, WatchOutItem,
 )
 
 
@@ -24,7 +24,7 @@ class ExtractionResult(BaseModel):
     key_claims: list[ExtractedClaim]
     key_quotes: list[str]
     key_actors: list[ExtractedActor]
-    authority_anchors: list[AuthorityAnchor]  # entities cited to confer credibility on specific claims
+    authority_anchors: list[AuthorityAnchor]
     notable_omissions: list[str]
     rhetorical_patterns: list[str]
 
@@ -41,8 +41,13 @@ class Step5Output(BaseModel):
 
 
 class Step6Output(BaseModel):
-    hook: Hook
-    interest: Interest
     synthesis: Synthesis
-    go_further: GoFurther
-    cta: CTA
+
+
+class Step7Output(BaseModel):
+    masterclass: Masterclass
+
+
+class Step8Output(BaseModel):
+    masterclass: Masterclass
+    changes: list[str]

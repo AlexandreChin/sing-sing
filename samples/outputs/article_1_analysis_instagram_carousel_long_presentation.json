@@ -1,0 +1,93 @@
+{
+  "hook": {
+    "topic": "Diplomatie européenne",
+    "sub_topic": "Israël, prisons et silence",
+    "headline": "pourquoi s'émouvoir d'images et se taire sur les morts ?",
+    "context_line": "Des capitales s'indignent d'images humiliantes, mais restent muettes quand une centaine de détenus palestiniens meurent en prison."
+  },
+  "interest": {
+    "why_read": "Vous verrez **comment un éditorial transforme une abstention diplomatique en scandale moral** sans jamais le démontrer.",
+    "pull_quote": "Elle est aussi scandaleuse que la mise en scène d'Itamar Ben Gvir.",
+    "next_slide_hook": "Avant de juger le texte, regardons qui parle et de quoi."
+  },
+  "title_bullets": [
+    "Observez comment le titre **désigne un responsable** avant tout argument.",
+    "Repérez le mot qui **pose un jugement comme déjà acquis**."
+  ],
+  "chapo_bullets": [
+    "Remarquez le **contraste** posé d'emblée entre l'émoi et le silence.",
+    "Notez les mots **chargés** qui décrivent l'humiliation."
+  ],
+  "context_next_slide_hook": "Le décor est posé : où diriger maintenant votre attention ?",
+  "watch_out_next_slide_hook": "Vos intuitions étaient-elles justes ? Le fond va le révéler.",
+  "forme_next_slide_hook": "Dans le texte, où s'arrête le fait et où commence l'opinion ?",
+  "biases_next_slide_hook": "Reste à rassembler : que retenir de toute cette analyse ?",
+  "engagement_question": "Une abstention diplomatique peut-elle être jugée aussi sévèrement qu'un acte d'humiliation mis en scène ?",
+  "go_further": [
+    {
+      "title": "Welcome to Hell: Israeli Prison Facilities as Torture Camps",
+      "source": "B'Tselem",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": 25,
+      "why_explore": "Lire le rapport cité permet de juger par soi-même la méthodologie et la portée des accusations.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Mauvais traitements en détention : la réponse des autorités israéliennes",
+      "source": "Couverture de l'agence Reuters",
+      "media_type": "article",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": 8,
+      "why_explore": "Entendre la version des autorités comble le côté manquant pour évaluer le sourçage de l'article.",
+      "cta_question_index": 0
+    },
+    {
+      "title": "L'efficacité des sanctions ciblées en politique étrangère",
+      "source": "Carnegie Europe",
+      "media_type": "academic_paper",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": 20,
+      "why_explore": "Mesurer si des sanctions individuelles changent une politique éclaire le vrai enjeu de l'inaction reprochée.",
+      "cta_question_index": 3
+    },
+    {
+      "title": "Le conflit israélo-palestinien en cartes",
+      "source": "Le Dessous des cartes, Arte",
+      "media_type": "video",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": 12,
+      "why_explore": "Resituer la détention des Palestiniens dans l'histoire longue du conflit donne du recul.",
+      "cta_question_index": null
+    }
+  ],
+  "cta": {
+    "engagement_sentence": "Dites-nous en story ou en DM : l'émoi pour les images et le silence sur les prisons relèvent-ils du même poids moral ?",
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "Le sourçage de l'article — une ONG israélienne et des témoignages — vous suffit-il pour juger des faits ?",
+        "type": "article_quality"
+      },
+      {
+        "id": "q_1",
+        "question": "Une inaction diplomatique et un acte d'humiliation filmé relèvent-ils selon vous de la même gravité morale ?",
+        "type": "topic_substance"
+      },
+      {
+        "id": "q_2",
+        "question": "Liriez-vous cet article de la même façon si la source des accusations n'était pas une ONG israélienne ?",
+        "type": "reader_bias"
+      },
+      {
+        "id": "q_3",
+        "question": "Quels effets concrets les sanctions déjà adoptées par trois pays ont-elles eus sur les conditions de détention ?",
+        "type": "blind_spot"
+      }
+    ]
+  }
+}
