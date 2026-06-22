@@ -70,26 +70,28 @@
     </div>
     {% endif %}
 
+    {% if blind_spots %}
     <div style="display: flex; flex-direction: column; gap: 8px;">
-      {% if blind_spots %}
+      <div class="section-label">Zoom arrière</div>
       <div class="perspective-block blind-spots-block">
-        <span class="perspective-label">Zoom arrière</span>
         {% for item in blind_spots %}
         {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
         <p>{{ item | md_bold }}</p>
         {% endfor %}
       </div>
-      {% endif %}
-      {% if balance %}
+    </div>
+    {% endif %}
+    {% if balance %}
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div class="section-label">À nuancer</div>
       <div class="perspective-block balance-block">
-        <span class="balance-label">À nuancer</span>
         {% for item in balance %}
         {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
         <p>{{ item | md_bold }}</p>
         {% endfor %}
       </div>
-      {% endif %}
     </div>
+    {% endif %}
 
   </div>
 

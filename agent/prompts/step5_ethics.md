@@ -100,11 +100,14 @@ stereotyping               — Label: "Stereotyping"
 
 - violations: list all breaches found, one entry per distinct breach.
   If none, return [].
-- verdict.overall:
-  - "clean"     — no violations or cautions
-  - "caution"   — only caution-level entries, no confirmed violations
-  - "violation" — at least one status="violation" entry
-  Critically: if any entry has severity="critical", overall MUST be "violation".
+- verdict.overall: a 6-level scale reflecting the overall deontological picture:
+  - "excellent" — no violations, no cautions; exemplary practice
+  - "good"      — no violations; at most one minor caution
+  - "passable"  — no violations; multiple cautions or one borderline case
+  - "mixed"     — one status="violation" entry or several significant cautions
+  - "poor"      — two or more status="violation" entries
+  - "critical"  — at least one severity="critical" violation
+  Critically: if any entry has severity="critical", overall MUST be "critical".
 - verdict.editorial_note: one sentence in French on what an editor must address before
   publication. Null if overall is "clean".
 - summary: 1–2 sentences in French giving a global overview of the deontological picture.
