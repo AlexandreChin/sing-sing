@@ -29,7 +29,7 @@ def extract(full: ArticleFullAnalysis, presentation: InstagramCarouselPresentati
     forme = full.analysis.forme
 
     sel_ctx = full.context.contexts[: CAPS["contexts"]]
-    sel_title = full.cadrage.title_analysis[: CAPS["title_analysis"]]
+    sel_title = forme.cadrage.title_analysis[: CAPS["title_analysis"]]
 
     sel_obs, _ = select(
         fond.observations, CAPS["observations"], lambda i: node_score(fond.observations[i])
@@ -39,14 +39,21 @@ def extract(full: ArticleFullAnalysis, presentation: InstagramCarouselPresentati
         lambda i: node_score(forme.emotional_register[i]),
     )
 
+    # Watch_out from guide (already curated; connected mode still selects based on seeds overlap)
+    guide_wo_items = full.guide.watch_out.items if full.guide else []
+
     if connected:
         must_wo: set[int] = set()
         for item in sel_obs + sel_er:
-            if hasattr(item, "seeds") and item.seeds.source == "watch_out":
-                must_wo.add(item.seeds.index)
+            if not hasattr(item, "seeds"):
+                continue
+            # Watch_out items' references point to node IDs — find overlapping ones
+            for wi, wo in enumerate(guide_wo_items):
+                if item.id and item.id in wo.references:
+                    must_wo.add(wi)
         sel_wo, _ = select_with_must(
-            full.watch_out.items, CAPS["watch_out"], must_wo,
-            lambda i: node_score(full.watch_out.items[i]),
+            guide_wo_items, CAPS["watch_out"], must_wo,
+            lambda i: node_score(guide_wo_items[i]) if guide_wo_items else 0.0,
         )
         sel_obs_aspects = {obs.aspect for obs in sel_obs}
         sel_er_emotions = {er.emotion for er in sel_er}
@@ -67,10 +74,7 @@ def extract(full: ArticleFullAnalysis, presentation: InstagramCarouselPresentati
         biases_pool = [b for b in all_biases if proves_selected(b)] or list(all_biases)
         sel_biases, _ = select(biases_pool, CAPS["biases"], lambda i: node_score(biases_pool[i]))
     else:
-        sel_wo, _ = select(
-            full.watch_out.items, CAPS["watch_out"],
-            lambda i: node_score(full.watch_out.items[i]),
-        )
+        sel_wo = guide_wo_items[: CAPS["watch_out"]]
         all_claims = full.annotations.facts_vs_opinions.claims_and_sources
         sel_claims, _ = select(all_claims, CAPS["claims"], lambda i: node_score(all_claims[i]))
         all_biases = full.annotations.biases_and_focus.biases_and_rhetoric
@@ -105,11 +109,12 @@ def extract(full: ArticleFullAnalysis, presentation: InstagramCarouselPresentati
             "contexts": sel_ctx,
             "important_facts": [],
         }),
-        "watch_out": full.watch_out.model_copy(update={"items": sel_wo}),
-        "cadrage": full.cadrage.model_copy(update={"title_analysis": sel_title}),
         "analysis": full.analysis.model_copy(update={
             "fond": fond.model_copy(update={"observations": sel_obs}),
-            "forme": forme.model_copy(update={"emotional_register": sel_er}),
+            "forme": forme.model_copy(update={
+                "cadrage": forme.cadrage.model_copy(update={"title_analysis": sel_title}),
+                "emotional_register": sel_er,
+            }),
         }),
         "annotations": full.annotations.model_copy(update={
             "facts_vs_opinions": full.annotations.facts_vs_opinions.model_copy(update={
@@ -119,6 +124,9 @@ def extract(full: ArticleFullAnalysis, presentation: InstagramCarouselPresentati
                 "biases_and_rhetoric": sel_biases,
             }),
         }),
+        "guide": full.guide.model_copy(update={
+            "watch_out": full.guide.watch_out.model_copy(update={"items": sel_wo}),
+        }) if full.guide else None,
     })
 
     trimmed_presentation = presentation.model_copy(update={

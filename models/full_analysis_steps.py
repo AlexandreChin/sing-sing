@@ -3,8 +3,9 @@ from __future__ import annotations
 from typing import Literal
 from pydantic import BaseModel
 from models.full_analysis import (
-    AnalysisFond, AnalyseForme, AuthorityAnchor, BiasesAndFocus, Cadrage,
-    Context, FactsVsOpinions, Masterclass, Synthesis, WatchOut, WatchOutItem,
+    AnalysisFond, AnalyseForme, AuthorityAnchor, BiasesAndFocus,
+    Blend, Context, Deontology, Distill, FactsVsOpinions,
+    ReadingGuide, Review,
 )
 
 
@@ -27,27 +28,29 @@ class ExtractionResult(BaseModel):
     authority_anchors: list[AuthorityAnchor]
     notable_omissions: list[str]
     rhetorical_patterns: list[str]
+    context: Context  # extracted in step 1, seeds later steps
 
 
-class Step2Output(BaseModel):
-    cadrage: Cadrage
-    context: Context
-    watch_out: WatchOut
-
-
-class Step5Output(BaseModel):
+class ProbeOutput(BaseModel):
     facts_vs_opinions: FactsVsOpinions
     biases_and_focus: BiasesAndFocus
 
 
-class Step6Output(BaseModel):
-    synthesis: Synthesis
+class EthicsOutput(BaseModel):
+    deontology: Deontology
 
 
-class Step7Output(BaseModel):
-    masterclass: Masterclass
+class ReviewOutput(BaseModel):
+    review: Review
 
 
-class Step8Output(BaseModel):
-    masterclass: Masterclass
-    changes: list[str]
+class BlendOutput(BaseModel):
+    blend: Blend
+
+
+class DistillOutput(BaseModel):
+    distill: Distill
+
+
+class GuideOutput(BaseModel):
+    guide: ReadingGuide

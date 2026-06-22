@@ -5,19 +5,6 @@ def _load(name: str) -> str:
     return (Path(__file__).parent / f"{name}.md").read_text(encoding="utf-8")
 
 
-def get_analyze_article_prompt(
-    language: str = "English",
-    tone: str = "neutral",
-    audience: str = "general audience",
-) -> str:
-    return (
-        _load("analyze_article")
-        .replace("{language}", language)
-        .replace("{tone}", tone)
-        .replace("{audience}", audience)
-    )
-
-
 def get_analyze_media_trend_prompt(
     language: str = "English",
     audience: str = "general audience",
@@ -30,6 +17,3 @@ def get_analyze_media_trend_prompt(
         .replace("{Reference Country}", reference_country)
     )
 
-
-# Default English prompt for backwards compatibility
-SYSTEM_PROMPT = get_analyze_article_prompt()

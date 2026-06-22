@@ -14,15 +14,15 @@ from models.full_analysis import (
     ArticleFullAnalysis,
     BiasRhetoric,
     ClaimAndSource,
+    DistillPoint,
     FullAnalysisInput,
     GlobalAnalysisItem,
     ProvenByRef,
-    SynthesisPoint,
 )
 
 client = anthropic.Anthropic()
 
-_SYSTEM_PROMPT = (Path(__file__).parent / "prompts" / "analyze_article.md").read_text(
+_SYSTEM_PROMPT = (Path(__file__).parent / "prompts" / "system.md").read_text(
     encoding="utf-8"
 )
 
@@ -155,8 +155,6 @@ def _assign_ids(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
         "important_facts": _ids(ctx.important_facts, "fact"),
     })
 
-    new_wo = output.watch_out.model_copy(update={"items": _ids(output.watch_out.items, "wo")})
-
     fond = output.analysis.fond
     new_fond = fond.model_copy(update={
         "premisses": _ids(fond.premisses, "pr"),
@@ -182,7 +180,6 @@ def _assign_ids(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
 
     return output.model_copy(update={
         "context": new_ctx,
-        "watch_out": new_wo,
         "analysis": output.analysis.model_copy(update={"fond": new_fond, "forme": new_forme}),
         "annotations": output.annotations.model_copy(update={
             "facts_vs_opinions": new_fvo,
@@ -198,7 +195,6 @@ def _audit_connections(data: dict) -> list[str]:
 
     _analysis    = data.get("analysis", {})
     _annotations = data.get("annotations", {})
-    watch_out_items = data.get("watch_out", {}).get("items", [])
     contexts        = data.get("context", {}).get("contexts", [])
     facts           = data.get("context", {}).get("important_facts", [])
     observations    = _analysis.get("fond", {}).get("observations", [])
@@ -207,17 +203,15 @@ def _audit_connections(data: dict) -> list[str]:
     claims          = _annotations.get("facts_vs_opinions", {}).get("claims_and_sources", [])
     biases          = _annotations.get("biases_and_focus", {}).get("biases_and_rhetoric", [])
     focus           = _annotations.get("biases_and_focus", {}).get("focus") or {}
-    synthesis_pts   = data.get("synthesis", {}).get("points", [])
+    distill_pts     = data.get("distill", {}).get("points", []) if data.get("distill") else []
 
-    referenced_wo  = set()
     referenced_ctx = set()
     referenced_fct = set()
 
     def _walk_seeds(item: dict) -> None:
         s = item.get("seeds") or {}
         src, idx = s.get("source"), s.get("index")
-        if src == "watch_out" and idx is not None:        referenced_wo.add(idx)
-        elif src == "context" and idx is not None:        referenced_ctx.add(idx)
+        if src == "context" and idx is not None:        referenced_ctx.add(idx)
         elif src == "important_fact" and idx is not None: referenced_fct.add(idx)
 
     for obs in observations: _walk_seeds(obs)
@@ -246,9 +240,6 @@ def _audit_connections(data: dict) -> list[str]:
     )
     all_ids.discard("")
 
-    for i, w in enumerate(watch_out_items):
-        if i not in referenced_wo:
-            issues.append(f"UNREFERENCED_SEED watch_out[{i}]: '{w.get('text','')[:80]}'")
     for i, c in enumerate(contexts):
         if i not in referenced_ctx:
             issues.append(f"UNREFERENCED_SEED context[{i}]: '{c.get('text','')[:80]}'")
@@ -266,10 +257,10 @@ def _audit_connections(data: dict) -> list[str]:
         if cb.get("beneficiary") not in referenced_cb:
             issues.append(f"UNPROVEN_CB '{cb.get('beneficiary')}'")
 
-    for pt in synthesis_pts:
+    for pt in distill_pts:
         for ref in pt.get("references", []):
             if ref and ref not in all_ids:
-                issues.append(f"BROKEN_SYNTHESIS_REF '{ref}'")
+                issues.append(f"BROKEN_DISTILL_REF '{ref}'")
 
     return issues
 
@@ -278,7 +269,7 @@ class RepairPatch(BaseModel):
     additional_observations: list[GlobalAnalysisItem] = Field(default_factory=list)
     additional_claims: list[ClaimAndSource] = Field(default_factory=list)
     additional_biases: list[BiasRhetoric] = Field(default_factory=list)
-    fixed_synthesis_points: list[SynthesisPoint] = Field(default_factory=list)
+    fixed_distill_points: list[DistillPoint] = Field(default_factory=list)
 
 
 def _repair_connections(
@@ -336,7 +327,7 @@ Produis uniquement les éléments manquants pour fermer ces lacunes — ne repro
 - UNPROVEN_OBS 'X' : ajoute dans `additional_claims` ou `additional_biases` un item avec proves.type="observation" et proves.label="X", citation verbatim depuis l'article.
 - UNPROVEN_ER 'X' : ajoute un item avec proves.type="emotional_register" et proves.label="X".
 - UNPROVEN_CB 'X' : ajoute un item avec proves.type="cui_bono" et proves.label="X".
-- BROKEN_SYNTHESIS_REF 'X' : dans `fixed_synthesis_points`, remplace les références invalides par des IDs valides uniquement (liste ci-dessus). Reproduis tous les synthesis points, en corrigeant uniquement les références invalides.""",
+- BROKEN_DISTILL_REF 'X' : dans `fixed_distill_points`, remplace les références invalides par des IDs valides uniquement (liste ci-dessus). Reproduis tous les distill points, en corrigeant uniquement les références invalides.""",
         RepairPatch.model_json_schema(),
         no_api=no_api,
     )
@@ -346,7 +337,7 @@ Produis uniquement les éléments manquants pour fermer ces lacunes — ne repro
     fond  = assembled.analysis.fond
     fvo   = assembled.annotations.facts_vs_opinions
     bf    = assembled.annotations.biases_and_focus
-    synth = assembled.synthesis
+    dist  = assembled.distill
 
     if patch.additional_observations:
         fond = fond.model_copy(update={"observations": list(fond.observations) + patch.additional_observations})
@@ -354,8 +345,8 @@ Produis uniquement les éléments manquants pour fermer ces lacunes — ne repro
         fvo = fvo.model_copy(update={"claims_and_sources": list(fvo.claims_and_sources) + patch.additional_claims})
     if patch.additional_biases:
         bf = bf.model_copy(update={"biases_and_rhetoric": list(bf.biases_and_rhetoric) + patch.additional_biases})
-    if patch.fixed_synthesis_points:
-        synth = synth.model_copy(update={"points": patch.fixed_synthesis_points})
+    if patch.fixed_distill_points and dist:
+        dist = dist.model_copy(update={"points": patch.fixed_distill_points})
 
     obs_index = {obs.aspect: i for i, obs in enumerate(fond.observations)}
     obs_proven_by: dict[int, list[ProvenByRef]] = {i: [] for i in range(len(fond.observations))}
@@ -380,7 +371,7 @@ Produis uniquement les éléments manquants pour fermer ces lacunes — ne repro
             "facts_vs_opinions": fvo,
             "biases_and_focus": bf,
         }),
-        "synthesis": synth,
+        "distill": dist,
     })
     return _assign_ids(patched)
 

@@ -8,15 +8,15 @@ from pydantic import BaseModel, Field, HttpUrl, computed_field, field_validator
 class ProvesRef(BaseModel):
     type: Literal["observation", "emotional_register", "cui_bono"]
     label: str  # must match aspect / emotion / beneficiary in the referenced item
-    strength: float | None = None  # 0.0–1.0: how directly this annotation proves the global item
+    strength: float | None = None
     nature: Literal["illustration", "nuance", "contradiction"] | None = None
 
 
 class SeedsRef(BaseModel):
-    source: Literal["watch_out", "context", "important_fact", "premisse", "implicit_assumption", "blind_spot", "logical_reasoning"]
+    source: Literal["context", "important_fact", "premisse", "implicit_assumption", "blind_spot", "logical_reasoning"]
     index: int   # 0-based position in the source list
     excerpt: str  # short snippet for human readability
-    strength: float | None = None  # 0.0–1.0: how directly this seed drove the downstream item
+    strength: float | None = None
     nature: Literal["inference", "illustration", "contradiction", "specification"] | None = None
 
 
@@ -35,7 +35,6 @@ class TextItem(BaseModel):
 
 
 class ImplicitAssumption(BaseModel):
-    """What the argument silently requires to be true. Single-line in carousel, two-field in richer formats."""
     id: str = ""
     statement: str  # the assumption itself (one sentence)
     impact: str     # what breaks if the assumption is wrong
@@ -45,7 +44,6 @@ class ImplicitAssumption(BaseModel):
 
 
 class BlindSpot(BaseModel):
-    """An angle absent or minimised in the article. Single-line in carousel, two-field in richer formats."""
     id: str = ""
     topic: str        # what is absent or downplayed
     significance: str  # why it matters to the conclusion
@@ -54,10 +52,10 @@ class BlindSpot(BaseModel):
         return self.topic
 
 
-class SynthesisPoint(BaseModel):
-    """One key takeaway from the analysis, with explicit back-references to the nodes that support it."""
+class DistillPoint(BaseModel):
+    """One key takeaway from Distill, with back-references to analysis nodes."""
     text: str
-    references: list[str] = Field(default_factory=list)  # node IDs: obs_N, claim_N, bias_N, er_N, cb_N, focus
+    references: list[str] = Field(default_factory=list)  # node IDs: obs_N, claim_N, bias_N, er_N, cb_N
 
     def __str__(self) -> str:
         return self.text
@@ -82,7 +80,8 @@ class ArticleMetadata(BaseModel):
     chapo: str | None = None
 
 
-# Extraction (promoted from step 1)
+# ── Step 1: Scan ──────────────────────────────────────────────────────────────
+
 class AuthorityAnchor(BaseModel):
     entity: str    # person, organization, or institution cited
     used_for: str  # which claim or argument it legitimizes
@@ -95,17 +94,6 @@ class ArticleExtraction(BaseModel):
     rhetorical_patterns: list[str]
 
 
-# Partie 3 (cadrage)
-class TitleAnalysisItem(BaseModel):
-    label: str        # short label for the rhetorical device or framing technique (1–2 words)
-    observation: str  # analytical observation on the title (post-reading)
-
-
-class Cadrage(BaseModel):
-    title_analysis: list[TitleAnalysisItem] = []
-
-
-# Partie 4 (context)
 class TermDefinition(BaseModel):
     term: str
     definition: str
@@ -123,18 +111,31 @@ class Context(BaseModel):
         return [{"id": "", "text": item} if isinstance(item, str) else item for item in v]
 
 
-# Partie 5 (watch_out)
+# ── Step 3: Rhetoric (cadrage lives here) ────────────────────────────────────
+
+class TitleAnalysisItem(BaseModel):
+    label: str        # short label for the rhetorical device or framing technique (1–2 words)
+    observation: str  # analytical observation on the title (post-reading)
+
+
+class Cadrage(BaseModel):
+    title_analysis: list[TitleAnalysisItem] = []
+
+
+# ── Step 9: Guide (watch_out lives here) ─────────────────────────────────────
+
 class WatchOutItem(BaseModel):
     id: str = ""
     text: str
-    refers_to: Literal["analysis_fond", "analysis_forme", "facts_vs_opinions", "biases_and_focus"]
+    references: list[str] = Field(default_factory=list)  # node IDs from the analysis
 
 
 class WatchOut(BaseModel):
     items: list[WatchOutItem]
 
 
-# Partie 6 (analysis_fond)
+# ── Step 2: Logic ─────────────────────────────────────────────────────────────
+
 class GlobalAnalysisItem(BaseModel):
     id: str = ""
     aspect: str
@@ -158,7 +159,7 @@ class PremisseItem(BaseModel):
 class LogicalReasoningItem(BaseModel):
     id: str = ""
     step: str
-    problem_type: Literal["validity", "soundness"] | None = None  # validity = conclusion doesn't follow; soundness = premise is false/poorly grounded
+    problem_type: Literal["validity", "soundness"] | None = None
     diagnosis: str | None = None
 
 
@@ -167,10 +168,10 @@ class AnalysisFond(BaseModel):
     premisses: list[PremisseItem]
     implicit_assumptions: list[ImplicitAssumption]
     blind_spots: list[BlindSpot]
-    emphasis: list[str]            # what the author foregrounded disproportionately (1–3)
+    emphasis: list[str]
     logical_reasoning: list[LogicalReasoningItem]
     observations: list[GlobalAnalysisItem]
-    steel_man: list[SteelManItem]  # strongest challenges to the author's argument (1–4)
+    steel_man: list[SteelManItem]
 
     @field_validator("implicit_assumptions", mode="before")
     @classmethod
@@ -199,7 +200,8 @@ class AnalysisFond(BaseModel):
         return result
 
 
-# Partie 7 (analysis_forme)
+# ── Step 3: Rhetoric ──────────────────────────────────────────────────────────
+
 class EmotionalRegister(BaseModel):
     id: str = ""
     emotion: str
@@ -218,9 +220,11 @@ class CuiBono(BaseModel):
 class AnalyseForme(BaseModel):
     emotional_register: list[EmotionalRegister]
     cui_bono: list[CuiBono]
+    cadrage: Cadrage  # title analysis — moved here from former Frame step
 
 
-# Partie 8 (facts_vs_opinions)
+# ── Step 4: Probe ─────────────────────────────────────────────────────────────
+
 class ExternalSource(BaseModel):
     name: str
     supports: Literal["validates", "contradicts", "neutral"]
@@ -252,7 +256,6 @@ class FactsVsOpinions(BaseModel):
     claims_and_sources: list[ClaimAndSource]
 
 
-# Partie 9 (biases_and_focus)
 class BiasRhetoric(BaseModel):
     id: str = ""
     quote: str
@@ -273,17 +276,122 @@ class BiasesAndFocus(BaseModel):
     focus: Focus
 
 
-# Partie 10
-class Synthesis(BaseModel):
-    points: list[SynthesisPoint]  # 1–5, sorted most important first
+# ── Step 5: Ethics ────────────────────────────────────────────────────────────
+
+class DeontologyViolation(BaseModel):
+    id: str = ""
+    category: Literal[
+        "source_endangerment",
+        "hate_speech",
+        "presumption_of_innocence",
+        "fabrication",
+        "fact_inversion",
+        "misleading_title",
+        "lying_by_omission",
+        "decontextualized_quote",
+        "hidden_commercial_interest",
+        "conflict_of_interest",
+        "false_statistics",
+        "astroturfing",
+        "privacy",
+        "victim_exploitation",
+        "identity_misrepresentation",
+        "false_balance",
+        "right_of_reply",
+        "sensationalism",
+        "stereotyping",
+    ]
+    label: str       # English display label
+    severity: Literal["critical", "significant", "minor"]
+    status: Literal["violation", "caution"]
+    evidence: str    # verbatim quote or specific passage from the article
+    explanation: str  # in French — why this crosses or approaches the line
+
+
+class DeontologyVerdict(BaseModel):
+    overall: Literal["clean", "caution", "violation"]
+    editorial_note: str | None = None
+
+
+class Deontology(BaseModel):
+    violations: list[DeontologyViolation]  # empty = clean
+    verdict: DeontologyVerdict
+
+
+# ── Step 6: Review ────────────────────────────────────────────────────────────
+
+class ResourceReference(BaseModel):
+    title: str
+    source: str
+    media_type: Literal["article", "report", "book", "documentary", "film", "serie", "video", "podcast", "academic_paper", "other"]
+    why_explore: str
+    url: str | None = None
+
+
+class ReviewDimension(BaseModel):
+    dimension: Literal[
+        "source_rigor",
+        "reasoning_structure",
+        "approach_transparency",
+        "treatment_fairness",
+        "clarity",
+        "angle_originality",
+    ]
+    label: str
+    score: int      # 1 (very weak) to 5 (exemplary)
+    rationale: str
+    lesson: str
+
+
+class ReviewVerdict(BaseModel):
+    quality: Literal["exemplary", "solid", "adequate", "instructive_by_contrast", "weak"]
+    reading_recommendation: Literal["recommended", "with_reservations", "not_recommended"]
+    for_whom: str
+    payoff: str
+    signature_move: str
+    main_blind_side: str
+    further_resource: ResourceReference
+
+
+class Review(BaseModel):
+    dimensions: list[ReviewDimension]  # exactly 6, one per dimension
+    verdict: ReviewVerdict
+
+
+# ── Step 7: Blend ─────────────────────────────────────────────────────────────
+
+class BlendPattern(BaseModel):
+    text: str
+    layers: list[str]  # which analysis layers this spans, e.g. ["logic", "rhetoric", "probe"]
+    references: list[str]  # node IDs from the analysis
+
+
+class Blend(BaseModel):
+    patterns: list[BlendPattern]  # up to 8, each spanning ≥2 layers
+
+
+# ── Step 8: Distill ───────────────────────────────────────────────────────────
+
+class Distill(BaseModel):
+    points: list[DistillPoint]  # 3–5, most important first
     open_question: str
 
     @field_validator("points", mode="before")
     @classmethod
-    def _coerce_synthesis_points(cls, v: list) -> list:
+    def _coerce_distill_points(cls, v: list) -> list:
         return [{"text": item, "references": []} if isinstance(item, str) else item for item in v]
 
 
+# ── Step 9: Guide ─────────────────────────────────────────────────────────────
+
+class ReadingGuide(BaseModel):
+    pre_reading: list[str]    # orientation tips for the reader before reading
+    watch_out: WatchOut       # grounded in actual findings, with node ID references
+    after_reading: list[str]  # key takeaways after reading
+    title_note: str | None = None  # notable cadrage insight worth flagging to the reader
+
+
+# ── Composite structures ──────────────────────────────────────────────────────
 
 class Analysis(BaseModel):
     fond: AnalysisFond
@@ -295,49 +403,14 @@ class Annotations(BaseModel):
     biases_and_focus: BiasesAndFocus
 
 
-class ResourceReference(BaseModel):
-    title: str
-    source: str
-    media_type: Literal["article", "report", "book", "documentary", "film", "serie", "video", "podcast", "academic_paper", "other"]
-    why_explore: str
-    url: str | None = None
-
-
-class MasterclassDimension(BaseModel):
-    dimension: Literal[
-        "source_rigor",
-        "reasoning_structure",
-        "approach_transparency",
-        "treatment_fairness",
-        "clarity",
-        "angle_originality",
-    ]
-    label: str      # English display label
-    score: int      # 1 (very weak) to 5 (exemplary)
-    rationale: str  # justifies the score — what earns it, what caps it, with embedded quotes
-    lesson: str     # actionable insight for a critical reader (mirrors bias.effect)
-
-
-class MasterclassVerdict(BaseModel):
-    quality: Literal["exemplary", "solid", "adequate", "instructive_by_contrast", "weak"]
-    why_worth_reading: str
-    signature_move: str
-    main_blind_side: str
-    further_resource: ResourceReference
-
-
-class Masterclass(BaseModel):
-    dimensions: list[MasterclassDimension]  # exactly 6, one per dimension
-    verdict: MasterclassVerdict
-
-
 class ArticleFullAnalysis(BaseModel):
     article_metadata: ArticleMetadata
     extraction: ArticleExtraction | None = None
-    cadrage: Cadrage
     context: Context
-    watch_out: WatchOut
     analysis: Analysis
     annotations: Annotations
-    synthesis: Synthesis
-    masterclass: Masterclass | None = None
+    deontology: Deontology | None = None
+    review: Review | None = None
+    blend: Blend | None = None
+    distill: Distill | None = None
+    guide: ReadingGuide | None = None

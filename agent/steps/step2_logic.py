@@ -2,7 +2,7 @@ from pathlib import Path
 from agent._base import _call_with_retry, _j, save_step
 from models.full_analysis import AnalysisFond
 
-_PROMPT = (Path(__file__).parent.parent / "prompts" / "step3_fond.md").read_text(encoding="utf-8")
+_PROMPT = (Path(__file__).parent.parent / "prompts" / "step2_logic.md").read_text(encoding="utf-8")
 
 
 def _validate(data: dict) -> list[str]:
@@ -40,16 +40,14 @@ def _validate(data: dict) -> list[str]:
 def run(
     article: str,
     ext_data: dict,
-    step2_data: dict,
     steps_dir: Path,
     no_api: bool = False,
 ) -> dict:
     user_msg = (
         f"{article}\n\n---\n\n"
-        f"EXTRACTION (étape 1) :\n{_j(ext_data)}\n\n"
-        f"AVANT DE LIRE (étape 2) :\n{_j(step2_data)}\n\n"
+        f"SCAN (step 1):\n{_j(ext_data)}\n\n"
         f"---\n\n{_PROMPT}"
     )
     data = _call_with_retry(user_msg, AnalysisFond.model_json_schema(), validator=_validate, no_api=no_api)
-    save_step(data, steps_dir, "step3_fond.json")
+    save_step(data, steps_dir, "step2_logic.json")
     return data
