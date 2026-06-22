@@ -1,7 +1,8 @@
-"""Extractor for 9-slide Instagram carousel format."""
+"""Extractor for the 9-slide long Instagram carousel format."""
 from __future__ import annotations
 
 from models.full_analysis import ArticleFullAnalysis
+from models.instagram_carousel_presentation import InstagramCarouselDocument, InstagramCarouselPresentation
 from extractors._base import (
     filter_synthesis_refs,
     rebuild_proven_by,
@@ -29,18 +30,18 @@ CAPS = {
 }
 
 
-def extract(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
-    """Return a carousel-sized ArticleFullAnalysis with graph connections intact."""
-    scores = score_nodes(output)
+def extract(full: ArticleFullAnalysis, presentation: InstagramCarouselPresentation) -> InstagramCarouselDocument:
+    """Select the top-scored analysis nodes and trim the presentation layer to match."""
+    scores = score_nodes(full)
 
     def node_score(item) -> float:
         return scores.get(getattr(item, "id", ""), 0.0)
 
-    fond = output.analysis_fond
-    forme = output.analysis_forme
+    fond = full.analysis.fond
+    forme = full.analysis.forme
 
     # ── Synthesis ─────────────────────────────────────────────────────────────
-    sel_synthesis = output.synthesis.points[: CAPS["synthesis"]]
+    sel_synthesis = full.synthesis.points[: CAPS["synthesis"]]
 
     # ── Observations ──────────────────────────────────────────────────────────
     sel_obs, _ = select(
@@ -59,7 +60,7 @@ def extract(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
     def src_score(source: str, idx: int) -> float:
         return seed_scores.get(source, {}).get(idx, 0.0)
 
-    # ── Mandatory watch_out: seeds sources + at least 1 per category ──────────
+    # ── Mandatory watch_out: seed sources + at least 1 per category ───────────
     must_wo: set[int] = set()
     must_ctx: set[int] = set()
     must_fact: set[int] = set()
@@ -74,9 +75,8 @@ def extract(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
         elif src == "important_fact":
             must_fact.add(idx)
 
-    # Guarantee at least 1 watch_out item per category
     seen_cats: dict[str, int] = {}
-    for i, item in enumerate(output.watch_out.items):
+    for i, item in enumerate(full.watch_out.items):
         if item.refers_to not in seen_cats:
             seen_cats[item.refers_to] = i
     for idx in seen_cats.values():
@@ -84,15 +84,15 @@ def extract(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
 
     # ── Select source items ───────────────────────────────────────────────────
     sel_wo, wo_old_to_new = select_with_must(
-        output.watch_out.items, CAPS["watch_out"], must_wo,
+        full.watch_out.items, CAPS["watch_out"], must_wo,
         lambda i: src_score("watch_out", i),
     )
     sel_ctx, ctx_old_to_new = select_with_must(
-        output.context.contexts, CAPS["contexts"], must_ctx,
+        full.context.contexts, CAPS["contexts"], must_ctx,
         lambda i: src_score("context", i),
     )
     sel_fact, fact_old_to_new = select_with_must(
-        output.context.important_facts, CAPS["important_facts"], must_fact,
+        full.context.important_facts, CAPS["important_facts"], must_fact,
         lambda i: src_score("important_fact", i),
     )
     source_remap = {
@@ -102,11 +102,10 @@ def extract(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
     }
 
     # ── Simple slices ─────────────────────────────────────────────────────────
-    sel_who = output.context.who_is_speaking[: CAPS["who_is_speaking"]]
-    sel_title_analysis = output.cadrage.title_analysis[: CAPS["title_analysis"]]
+    sel_who = full.context.who_is_speaking[: CAPS["who_is_speaking"]]
+    sel_title_analysis = full.cadrage.title_analysis[: CAPS["title_analysis"]]
     sel_ia = fond.implicit_assumptions[: CAPS["ia"]]
     sel_bs = fond.blind_spots[: CAPS["blind_spots"]]
-    sel_go_raw = output.go_further.items[: CAPS["go_further"]]
 
     # ── Claims and biases: only those proving selected targets ────────────────
     sel_obs_aspects = {obs.aspect for obs in sel_obs}
@@ -123,13 +122,13 @@ def extract(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
             return label in all_cb_beneficiaries
         return False
 
-    all_claims = output.facts_vs_opinions.claims_and_sources
+    all_claims = full.annotations.facts_vs_opinions.claims_and_sources
     claims_pool = [c for c in all_claims if proves_selected(c)]
     sel_claims, _ = select(claims_pool, CAPS["claims"], lambda i: node_score(claims_pool[i]))
     claim_id_to_orig = {c.id: i for i, c in enumerate(all_claims)}
     claim_orig_to_new = {claim_id_to_orig[c.id]: new_i for new_i, c in enumerate(sel_claims)}
 
-    all_biases = output.biases_and_focus.biases_and_rhetoric
+    all_biases = full.annotations.biases_and_focus.biases_and_rhetoric
     biases_pool = [b for b in all_biases if proves_selected(b)]
     sel_biases, _ = select(biases_pool, CAPS["biases"], lambda i: node_score(biases_pool[i]))
     bias_id_to_orig = {b.id: i for i, b in enumerate(all_biases)}
@@ -137,12 +136,12 @@ def extract(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
 
     # ── CTA: always include at least one blind_spot question ──────────────────
     must_cta: set[int] = set()
-    for i, q in enumerate(output.cta.post_reading_questions):
+    for i, q in enumerate(presentation.cta.post_reading_questions):
         if q.type == "blind_spot":
             must_cta.add(i)
             break
     sel_cta_q, cta_old_to_new = select_with_must(
-        output.cta.post_reading_questions,
+        presentation.cta.post_reading_questions,
         CAPS["cta_questions"],
         must_cta,
         lambda i: -i,
@@ -174,7 +173,8 @@ def extract(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
     }
     final_synthesis = filter_synthesis_refs(sel_synthesis, kept_ids)
 
-    # ── Remap go_further cta_question_index ───────────────────────────────────
+    # ── Trim go_further + remap CTA indices ───────────────────────────────────
+    sel_go_raw = presentation.go_further[: CAPS["go_further"]]
     final_go = []
     for item in sel_go_raw:
         if item.cta_question_index is not None:
@@ -184,32 +184,39 @@ def extract(output: ArticleFullAnalysis) -> ArticleFullAnalysis:
         final_go.append(item)
 
     # ── Assemble ──────────────────────────────────────────────────────────────
-    return output.model_copy(update={
-        "watch_out": output.watch_out.model_copy(update={"items": sel_wo}),
-        "context": output.context.model_copy(update={
+    trimmed_full = full.model_copy(update={
+        "watch_out": full.watch_out.model_copy(update={"items": sel_wo}),
+        "context": full.context.model_copy(update={
             "who_is_speaking": sel_who,
             "contexts": sel_ctx,
             "important_facts": sel_fact,
         }),
-        "cadrage": output.cadrage.model_copy(update={
-            "title_analysis": sel_title_analysis,
+        "cadrage": full.cadrage.model_copy(update={"title_analysis": sel_title_analysis}),
+        "analysis": full.analysis.model_copy(update={
+            "fond": fond.model_copy(update={
+                "implicit_assumptions": sel_ia,
+                "blind_spots": sel_bs,
+                "observations": final_obs,
+            }),
+            "forme": forme.model_copy(update={
+                "emotional_register": remapped_er,
+                "cui_bono": remapped_cb,
+            }),
         }),
-        "analysis_fond": fond.model_copy(update={
-            "implicit_assumptions": sel_ia,
-            "blind_spots": sel_bs,
-            "observations": final_obs,
+        "annotations": full.annotations.model_copy(update={
+            "facts_vs_opinions": full.annotations.facts_vs_opinions.model_copy(update={
+                "claims_and_sources": sel_claims,
+            }),
+            "biases_and_focus": full.annotations.biases_and_focus.model_copy(update={
+                "biases_and_rhetoric": sel_biases,
+            }),
         }),
-        "analysis_forme": forme.model_copy(update={
-            "emotional_register": remapped_er,
-            "cui_bono": remapped_cb,
-        }),
-        "facts_vs_opinions": output.facts_vs_opinions.model_copy(update={
-            "claims_and_sources": sel_claims,
-        }),
-        "biases_and_focus": output.biases_and_focus.model_copy(update={
-            "biases_and_rhetoric": sel_biases,
-        }),
-        "synthesis": output.synthesis.model_copy(update={"points": final_synthesis}),
-        "go_further": output.go_further.model_copy(update={"items": final_go}),
-        "cta": output.cta.model_copy(update={"post_reading_questions": sel_cta_q}),
+        "synthesis": full.synthesis.model_copy(update={"points": final_synthesis}),
     })
+
+    trimmed_presentation = presentation.model_copy(update={
+        "go_further": final_go,
+        "cta": presentation.cta.model_copy(update={"post_reading_questions": sel_cta_q}),
+    })
+
+    return InstagramCarouselDocument(analysis=trimmed_full, presentation=trimmed_presentation)

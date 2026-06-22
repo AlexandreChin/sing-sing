@@ -1,0 +1,77 @@
+{
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Qualification",
+        "observation": "Le titre tranche **d'emblée** en qualifiant le gouvernement israélien d'extrême droite, fixant le jugement avant l'argument."
+      },
+      {
+        "label": "Présupposé",
+        "observation": "Le titre pose la **passivité européenne** comme un fait acquis, alors que tout l'article vise précisément à l'établir."
+      }
+    ]
+  },
+  "context": {
+    "contexts": [
+      {
+        "text": "Un ministre israélien a diffusé des **images humiliantes** de militants propalestiniens arrêtés, provoquant l'émoi de plusieurs capitales européennes."
+      },
+      {
+        "text": "Ces images s'inscrivent dans un débat plus ancien sur les **conditions de détention** des Palestiniens dans les prisons israéliennes depuis le 7-Octobre."
+      }
+    ],
+    "who_is_speaking": [
+      "Éditorial **non signé** du Monde : il exprime la position officielle du journal, dont la ligne est régulièrement **critique** envers la politique du gouvernement israélien actuel."
+    ],
+    "important_facts": [
+      {
+        "text": "La **détention administrative** permet d'emprisonner sans inculpation ni jugement, une pratique encadrée par le droit mais contestée par les défenseurs des droits humains."
+      },
+      {
+        "text": "Les accusations de mauvais traitements reposent ici sur une **ONG israélienne** et des témoignages, sans réponse de fond des autorités rapportée dans le texte."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "Détention administrative",
+        "definition": "Régime permettant d'emprisonner une personne sans inculpation ni procès, pour une durée renouvelable."
+      },
+      {
+        "term": "B'Tselem",
+        "definition": "Organisation israélienne de défense des droits humains qui documente les pratiques dans les territoires occupés et les prisons."
+      }
+    ]
+  },
+  "watch_out": {
+    "items": [
+      {
+        "text": "Repérez quels acteurs sont nommés et tenus pour responsables, et lesquels restent dans l'ombre.",
+        "refers_to": "analysis_fond"
+      },
+      {
+        "text": "Observez si le texte rapproche des situations de natures ou d'époques différentes comme si elles se valaient.",
+        "refers_to": "analysis_fond"
+      },
+      {
+        "text": "Notez comment le vocabulaire qualifie les protagonistes et oriente le jugement avant tout argument.",
+        "refers_to": "analysis_forme"
+      },
+      {
+        "text": "Repérez les descriptions visuelles détaillées et l'émotion qu'elles cherchent à susciter.",
+        "refers_to": "analysis_forme"
+      },
+      {
+        "text": "Pour chaque chiffre avancé, demandez-vous d'où il provient et comment il a été établi.",
+        "refers_to": "facts_vs_opinions"
+      },
+      {
+        "text": "Distinguez ce qui est attribué à une source identifiable de ce qui est affirmé comme une évidence.",
+        "refers_to": "facts_vs_opinions"
+      },
+      {
+        "text": "Repérez à qui profite le cadrage choisi et quelle conclusion il prépare.",
+        "refers_to": "biases_and_focus"
+      }
+    ]
+  }
+}

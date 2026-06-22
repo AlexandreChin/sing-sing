@@ -112,7 +112,7 @@ def build_graph(data: dict) -> tuple[list[dict], list[dict]]:
         text = item.get("text", str(item))
         add_node(f"important_fact_{i}", "important_fact", text, text)
 
-    fond = data.get("analysis_fond", {})
+    fond = data.get("analysis", {}).get("fond", {})
 
     for i, p in enumerate(fond.get("premisses", [])):
         add_node(f"premisse_{i}", "premisse", p.get("statement", ""), p.get("quality", ""))
@@ -159,7 +159,7 @@ def build_graph(data: dict) -> tuple[list[dict], list[dict]]:
             add_edge(resolve_seed(seeds), nid, "seeds",
                      seeds.get("nature", ""), seeds.get("strength") or 0.5)
 
-    forme = data.get("analysis_forme", {})
+    forme = data.get("analysis", {}).get("forme", {})
 
     for er in forme.get("emotional_register", []):
         nid = er.get("id") or f"er_{forme['emotional_register'].index(er)}"
@@ -215,7 +215,7 @@ def build_graph(data: dict) -> tuple[list[dict], list[dict]]:
             return cb_by_beneficiary.get(plabel)
         return None
 
-    fvo = data.get("facts_vs_opinions", {})
+    fvo = data.get("annotations", {}).get("facts_vs_opinions", {})
     for claim in fvo.get("claims_and_sources", []):
         nid = claim.get("id") or f"claim_{fvo['claims_and_sources'].index(claim)}"
         confidence = claim.get("confidence")
@@ -230,7 +230,7 @@ def build_graph(data: dict) -> tuple[list[dict], list[dict]]:
                 add_edge(nid, tgt, "proves",
                          proves.get("nature", ""), proves.get("strength") or 0.6)
 
-    baf = data.get("biases_and_focus", {})
+    baf = data.get("annotations", {}).get("biases_and_focus", {})
     for bias in baf.get("biases_and_rhetoric", []):
         nid = bias.get("id") or f"bias_{baf['biases_and_rhetoric'].index(bias)}"
         label = f"[{bias.get('label', '')}] {bias.get('quote', '')}"

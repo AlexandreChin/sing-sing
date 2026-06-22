@@ -11,7 +11,7 @@ from PIL import Image
 from jinja2 import Environment, FileSystemLoader
 from playwright.sync_api import sync_playwright
 
-from models.full_analysis import ArticleFullAnalysis
+from models.instagram_carousel_presentation import InstagramCarouselDocument
 
 TEMPLATES_DIR = Path(__file__).parent / "templates" / "instagram_carousel_short"
 SLIDE_W, SLIDE_H = 1080, 1350
@@ -59,44 +59,46 @@ def _screenshot(html: str, output_path: Path) -> None:
         browser.close()
 
 
-def render_carousel(output: ArticleFullAnalysis, out_dir: Path) -> list[Path]:
+def render_carousel(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     out_dir.mkdir(parents=True, exist_ok=True)
     slides = []
+    full = doc.analysis
+    pres = doc.presentation
 
-    url_str = str(output.article_metadata.url) if output.article_metadata.url else None
+    url_str = str(full.article_metadata.url) if full.article_metadata.url else None
 
     specs = [
         ("slide_01_hook.html", {
-            "topic": output.hook.topic,
-            "sub_topic": output.hook.sub_topic,
-            "headline": output.hook.headline,
-            "context_line": output.interest.why_read,
-            "article_title": output.article_metadata.title,
-            "source": output.article_metadata.source,
+            "topic": pres.hook.topic,
+            "sub_topic": pres.hook.sub_topic,
+            "headline": pres.hook.headline,
+            "context_line": pres.interest.why_read,
+            "article_title": full.article_metadata.title,
+            "source": full.article_metadata.source,
             "article_url": url_str,
         }),
         ("slide_02_context_watchout.html", {
-            "contexts": output.context.contexts,
-            "items": output.watch_out.items,
-            "next_hook": output.watch_out.next_slide_hook,
+            "contexts": full.context.contexts,
+            "items": full.watch_out.items,
+            "next_hook": pres.watch_out_next_slide_hook,
         }),
         ("slide_03_au_global.html", {
-            "main_claim": output.analysis_fond.main_claim,
-            "observations": output.analysis_fond.observations,
-            "title_analysis": output.cadrage.title_analysis,
-            "emotional_register": output.analysis_forme.emotional_register,
-            "next_hook": output.analysis_forme.next_slide_hook,
+            "main_claim": full.analysis.fond.main_claim,
+            "observations": full.analysis.fond.observations,
+            "title_analysis": full.cadrage.title_analysis,
+            "emotional_register": full.analysis.forme.emotional_register,
+            "next_hook": pres.forme_next_slide_hook,
         }),
         ("slide_04_dans_le_detail.html", {
-            "claims_and_sources": output.facts_vs_opinions.claims_and_sources,
-            "biases_and_rhetoric": output.biases_and_focus.biases_and_rhetoric,
-            "next_hook": output.biases_and_focus.next_slide_hook,
+            "claims_and_sources": full.annotations.facts_vs_opinions.claims_and_sources,
+            "biases_and_rhetoric": full.annotations.biases_and_focus.biases_and_rhetoric,
+            "next_hook": pres.biases_next_slide_hook,
         }),
         ("slide_05_go_further.html", {
-            "items": output.go_further.items,
+            "items": pres.go_further,
         }),
         ("slide_06_cta.html", {
-            "engagement_question": output.synthesis.engagement_question,
+            "engagement_question": pres.engagement_question,
         }),
     ]
 
@@ -121,8 +123,8 @@ def render_carousel(output: ArticleFullAnalysis, out_dir: Path) -> list[Path]:
 
 def render_from_json(json_path: Path, out_dir: Path) -> list[Path]:
     data = json.loads(json_path.read_text(encoding="utf-8"))
-    output = ArticleFullAnalysis.model_validate(data)
-    return render_carousel(output, out_dir)
+    doc = InstagramCarouselDocument.model_validate(data)
+    return render_carousel(doc, out_dir)
 
 
 if __name__ == "__main__":

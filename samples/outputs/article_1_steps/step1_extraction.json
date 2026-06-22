@@ -1,0 +1,123 @@
+{
+  "article_type": "editorial",
+  "key_claims": [
+    {
+      "quote": "une centaine de Palestiniens, selon des décomptes convergents, sont morts en détention en Israël depuis deux ans et demi, contre 230 entre 1967 et 2023",
+      "source": "décomptes convergents",
+      "type": "statistical"
+    },
+    {
+      "quote": "les prisons réservées aux Palestiniens sont devenues « des camps de torture »",
+      "source": "B'Tselem",
+      "type": "attributed"
+    },
+    {
+      "quote": "Une partie d’entre eux y sont soumis au régime de la détention administrative, ce qui veut dire qu’ils sont emprisonnés sans être inculpés ni jugés, pour une durée inconnue et renouvelable indéfiniment.",
+      "source": null,
+      "type": "legal"
+    },
+    {
+      "quote": "seuls trois pays membres de l’Union européenne ont adopté des sanctions à son encontre",
+      "source": null,
+      "type": "factual"
+    },
+    {
+      "quote": "La France ne les a pas rejoints à ce jour",
+      "source": null,
+      "type": "factual"
+    },
+    {
+      "quote": "Le traumatisme causé par les massacres du 7-Octobre perpétrés par le Hamas s’est en effet traduit par une dégradation dramatique des conditions de détention des Palestiniens dans les prisons israéliennes placées sous l’autorité d’Itamar Ben Gvir.",
+      "source": null,
+      "type": "factual"
+    },
+    {
+      "quote": "en s’inquiétant en outre de la systématisation de violences à caractère sexuel",
+      "source": "B'Tselem",
+      "type": "attributed"
+    },
+    {
+      "quote": "un homme qui se flatte de répandre la haine dans l’adoption d’une peine de mort pour terrorisme visant exclusivement les Palestiniens",
+      "source": null,
+      "type": "factual"
+    }
+  ],
+  "key_quotes": [
+    "La diffusion d’images humiliantes de militants propalestiniens par Itamar Ben Gvir, le ministre de la sécurité nationale israélien, a suscité l’émoi de nombreuses capitales européennes.",
+    "Il fallait en plus les humilier en les montrant, mercredi 20 mai, les mains liées dans le dos, à genoux, le visage contre le sol.",
+    "Parce qu’elles ont concerné jusqu’à maintenant des Palestiniens, personne ne s’en est jamais ému au sein de la coalition au pouvoir, alors qu’elles témoignaient déjà de l’effritement de valeurs qu’Israël a longtemps revendiquées.",
+    "les prisons réservées aux Palestiniens sont devenues « des camps de torture »",
+    "une centaine de Palestiniens, selon des décomptes convergents, sont morts en détention en Israël depuis deux ans et demi, contre 230 entre 1967 et 2023",
+    "cette passivité face à ce qui se passe aujourd’hui dans les prisons israéliennes va à l’encontre de tout ce que les Européens prétendent défendre. Elle est aussi scandaleuse que la mise en scène d’Itamar Ben Gvir."
+  ],
+  "key_actors": [
+    {
+      "name": "Itamar Ben Gvir",
+      "role": "Ministre israélien de la sécurité nationale, désigné comme représentant d'une extrême droite suprémaciste, autorité de tutelle des prisons et auteur de la diffusion des images"
+    },
+    {
+      "name": "Benyamin Nétanyahou",
+      "role": "Premier ministre israélien ayant condamné les images diffusées par Ben Gvir"
+    },
+    {
+      "name": "Gideon Saar",
+      "role": "Ministre israélien des affaires étrangères ayant condamné les images"
+    },
+    {
+      "name": "Miri Regev",
+      "role": "Ministre des transports, membre du Likoud, présente dans le port d'Ashdod"
+    },
+    {
+      "name": "B'Tselem",
+      "role": "Organisation israélienne de défense des droits humains, source des accusations sur les conditions de détention"
+    },
+    {
+      "name": "Hamas",
+      "role": "Auteur désigné des massacres du 7-Octobre invoqués comme origine du contexte"
+    },
+    {
+      "name": "Capitales européennes / Union européenne",
+      "role": "Acteurs dont la réaction et l'inaction sont au centre de l'éditorial"
+    },
+    {
+      "name": "La France",
+      "role": "État membre de l'UE n'ayant pas adopté de sanctions contre Ben Gvir"
+    },
+    {
+      "name": "Militants propalestiniens de la flottille",
+      "role": "Personnes arrêtées, humiliées et montrées dans les images"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "B'Tselem",
+      "used_for": "Qualifier les prisons de « camps de torture » et alerter sur la systématisation des violences à caractère sexuel, à la suite d'une enquête approfondie et d'un rapport intitulé Un véritable enfer"
+    },
+    {
+      "entity": "Décomptes convergents",
+      "used_for": "Étayer le chiffre d'une centaine de Palestiniens morts en détention depuis deux ans et demi"
+    },
+    {
+      "entity": "De nombreux témoignages",
+      "used_for": "Corroborer le rapport de B'Tselem sur les conditions de détention"
+    }
+  ],
+  "notable_omissions": [
+    "Aucune réponse de fond des autorités israéliennes aux accusations de B'Tselem n'est rapportée, au-delà de la condamnation des seules images",
+    "Les noms des trois pays de l'UE ayant adopté des sanctions ne sont pas précisés",
+    "Aucune raison ou justification avancée par la France pour ne pas avoir adopté de sanctions",
+    "La méthodologie des « décomptes convergents » et l'identité de leurs auteurs ne sont pas détaillées",
+    "Aucune donnée chiffrée sur la détention administrative ni sur le nombre de détenus palestiniens concernés",
+    "Le sort et les conditions de détention des militants de la flottille après leur arrestation ne sont pas suivis"
+  ],
+  "rhetorical_patterns": [
+    "Mise en parallèle entre l'émoi suscité par l'humiliation de militants européens et le silence sur le sort des Palestiniens, structurant tout le texte",
+    "Vocabulaire chargé décrivant Ben Gvir : « extrême droite suprémaciste et raciste décomplexée », « morgue », « paradant », « se flatte de répandre la haine »",
+    "Description visuelle détaillée de l'humiliation : « les mains liées dans le dos, à genoux, le visage contre le sol »",
+    "Progression du particulier (les images) vers le général (les conditions de détention, la passivité européenne)",
+    "Contraste chiffré frappant placé en pivot : une centaine de morts en deux ans et demi contre 230 en cinquante-six ans",
+    "Élargissement final à la Cisjordanie et aux colons pour amplifier la portée du constat",
+    "Phrase de clôture en forme de symétrie morale : la passivité « aussi scandaleuse que la mise en scène d'Itamar Ben Gvir »",
+    "Désignation collective des acteurs européens et emploi de « prétendent défendre » suggérant un écart entre discours et actes"
+  ]
+}

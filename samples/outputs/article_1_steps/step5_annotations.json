@@ -1,0 +1,136 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "une centaine de Palestiniens, selon des décomptes convergents, sont morts en détention en Israël depuis deux ans et demi, contre 230 entre 1967 et 2023",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Comparaison",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre repose sur des « décomptes convergents » dont la méthodologie n'est pas précisée, et le contraste avec 1967-2023 est posé sans expliquer ce qui rend les deux périodes comparables.",
+        "external_sources": [
+          {
+            "name": "B'Tselem (rapport « Un véritable enfer »)",
+            "supports": "validates",
+            "evidence_type": "academic"
+          },
+          {
+            "name": "Témoignages de détenus libérés recoupés par la presse",
+            "supports": "validates",
+            "evidence_type": "testimony"
+          }
+        ],
+        "confidence": 72
+      },
+      {
+        "quote": "les prisons réservées aux Palestiniens sont devenues « des camps de torture »",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "cui_bono",
+          "label": "La cause palestinienne dans le débat européen",
+          "strength": 0.7,
+          "nature": "illustration"
+        },
+        "explanation": "La formule est explicitement créditée à B'Tselem ; aucune réponse de fond des autorités israéliennes n'est rapportée pour la mettre en regard.",
+        "external_sources": [
+          {
+            "name": "B'Tselem (enquête, août 2024)",
+            "supports": "validates",
+            "evidence_type": "academic"
+          },
+          {
+            "name": "Gouvernement israélien",
+            "supports": "neutral",
+            "evidence_type": "party_statement"
+          }
+        ],
+        "confidence": 64
+      },
+      {
+        "quote": "Une partie d’entre eux y sont soumis au régime de la détention administrative, ce qui veut dire qu’ils sont emprisonnés sans être inculpés ni jugés, pour une durée inconnue et renouvelable indéfiniment.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Cadre",
+          "strength": 0.85,
+          "nature": "illustration"
+        },
+        "explanation": "La mécanique de la détention administrative est exacte et documentée de longue date, mais le nombre de détenus concernés n'est jamais chiffré.",
+        "external_sources": [
+          {
+            "name": "Loi israélienne sur la détention administrative / rapports onusiens",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 92
+      },
+      {
+        "quote": "cette passivité face à ce qui se passe aujourd’hui dans les prisons israéliennes va à l’encontre de tout ce que les Européens prétendent défendre",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Les partisans de sanctions européennes contre le gouvernement israélien",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Ce n'est pas un constat vérifiable mais un jugement : l'abstention est requalifiée en reniement de valeurs, sans envisager qu'elle relève d'un calcul diplomatique distinct.",
+        "external_sources": [],
+        "confidence": null
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "les mains liées dans le dos, à genoux, le visage contre le sol",
+        "item_type": "bias",
+        "label": "accumulation de détails visuels",
+        "effect": "Remarquez comment l'empilement de postures concrètes installe l'indignation avant tout examen des faits.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Représentant d’une extrême droite suprémaciste et raciste décomplexée",
+        "item_type": "bias",
+        "label": "langage chargé",
+        "effect": "Remarquez comment la responsabilité se cristallise sur un seul homme désigné par des qualificatifs qui ferment le débat.",
+        "proves": {
+          "type": "observation",
+          "label": "Imputation",
+          "strength": 0.85,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "cette passivité face à ce qui se passe aujourd’hui dans les prisons israéliennes va à l’encontre de tout ce que les Européens prétendent défendre",
+        "item_type": "fallacy",
+        "label": "conclusion qui dépasse les faits",
+        "effect": "Remarquez comment l'absence de sanction est présentée comme une trahison des valeurs, sans étape intermédiaire entre les deux.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "révolte morale",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "Elle est aussi scandaleuse que la mise en scène d’Itamar Ben Gvir.",
+      "proves": {
+        "type": "observation",
+        "label": "Comparaison",
+        "strength": 0.95,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase place sur un même plan une inaction diplomatique et une humiliation filmée. Elle suppose que les deux relèvent de la même échelle morale. Reste à savoir si une abstention et un acte mis en scène peuvent vraiment être pesés à la même aune."
+    }
+  }
+}
