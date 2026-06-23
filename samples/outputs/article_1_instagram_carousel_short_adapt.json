@@ -1,29 +1,30 @@
 {
   "hook": {
-    "topic": "Passivité européenne et Israël",
-    "sub_topic": "la détention des Palestiniens",
-    "headline": "Quand l'indignation choisie révèle un silence assumé",
-    "context_line": "Des images d'humiliation émeuvent l'Europe, mais les conditions de détention des Palestiniens restent, elles, dans l'angle mort."
+    "topic": "Détenus palestiniens et silence européen",
+    "sub_topic": "L'émoi à géométrie variable",
+    "headline": "pourquoi l'Europe s'indigne pour les uns et se tait pour les autres",
+    "context_line": "Des images d'humiliation émeuvent les capitales, quand les prisons israéliennes restent dans l'angle mort."
   },
   "interest": {
-    "why_read": "Comment un éditorial **installe l'indignation** avant de la **démontrer**.",
-    "pull_quote": "les prisons réservées aux Palestiniens sont devenues « des camps de torture »",
-    "next_slide_hook": "Avant de juger, regardez qui parle et depuis quelle position."
+    "why_read": "Voir comment un éditorial **construit l'indignation** avant l'argument.",
+    "pull_quote": "Il fallait en plus les humilier en les montrant, les mains liées dans le dos, à genoux, le visage contre le sol.",
+    "next_slide_hook": "D'abord, qui parle et depuis quel point de vue ?"
   },
   "title_bullets": [
-    "Notez que le titre pose la **« passivité »** comme un fait, alors que c'est la thèse à prouver.",
-    "Repérez **« extrême droite israélienne »** : une qualification chargée qui oriente déjà la lecture.",
-    "Remarquez l'absence des **Palestiniens** dans le titre, pourtant premières victimes décrites."
+    "Repérez le mot **« passivité »** : il pose comme acquis ce qu'il faudrait démontrer.",
+    "Notez la qualification **« extrême droite israélienne »**, qui oriente déjà le regard.",
+    "Observez l'absence des **Palestiniens** dans le titre, pourtant au cœur du sujet."
   ],
   "chapo_bullets": [
-    "Observez le **contraste** posé d'entrée : émoi européen contre silence sur les détenus.",
-    "Voyez comment **« humiliantes »** et **« dégradantes »** installent le jugement avant les faits."
+    "Voyez comment le chapeau oppose d'emblée **émoi** et **silence**.",
+    "Remarquez le mot **« humiliantes »**, qui installe le jugement avant les faits.",
+    "Notez que le chapeau annonce déjà la thèse : un **silence saillant**."
   ],
-  "context_next_slide_hook": "Maintenant, repérez les pièges de lecture avant d'entrer dans le détail.",
-  "watch_out_next_slide_hook": "Voyons sur quoi repose réellement l'argumentation du texte.",
-  "forme_next_slide_hook": "Distinguons à présent ce qui est fait établi de ce qui est jugement.",
-  "biases_next_slide_hook": "Reprenons les fils : que retenir de tout cela ?",
-  "engagement_question": "Le silence européen sur les détenus palestiniens trahit-il des valeurs, ou révèle-t-il les limites réelles d'une influence diplomatique ?",
+  "context_next_slide_hook": "Maintenant, les points de vigilance avant de lire.",
+  "watch_out_next_slide_hook": "Voyons sur quoi repose réellement l'argument de fond.",
+  "forme_next_slide_hook": "Passons au tri entre faits et opinions.",
+  "biases_next_slide_hook": "Que retenir de tout cela ?",
+  "engagement_question": "Une omission diplomatique peut-elle être jugée aussi grave qu'un acte délibéré d'humiliation ?",
   "go_further": [
     {
       "title": "On Photography",
@@ -32,85 +33,90 @@
       "category": "deep_dive",
       "url": null,
       "duration_minutes": null,
-      "why_explore": "Éclaire comment la mise en scène d'images de souffrance oriente le jugement moral avant tout argument.",
+      "why_explore": "Éclaire comment l'image de la souffrance oriente le jugement moral avant tout argument.",
       "cta_question_index": null
     },
     {
-      "title": "Welcome to Hell : rapport sur les prisons israéliennes",
+      "title": "Un véritable enfer : le système carcéral israélien",
       "source": "B'Tselem",
       "media_type": "report",
       "category": "question_answer",
       "url": null,
-      "duration_minutes": 40,
-      "why_explore": "Permet de remonter à la source unique de l'accusation centrale et d'en juger la méthode.",
-      "cta_question_index": 0
+      "duration_minutes": 30,
+      "why_explore": "Permet de juger par soi-même la solidité de la source unique au cœur de l'accusation.",
+      "cta_question_index": null
     },
     {
-      "title": "La détention administrative en Israël et dans les territoires occupés",
+      "title": "La détention administrative en droit international",
       "source": "Comité international de la Croix-Rouge",
-      "media_type": "article",
-      "category": "deep_dive",
+      "media_type": "report",
+      "category": "question_answer",
       "url": null,
-      "duration_minutes": 15,
-      "why_explore": "Précise le cadre juridique de la détention sans procès, que l'éditorial présente sans contre-point.",
+      "duration_minutes": 20,
+      "why_explore": "Précise le cadre juridique que l'éditorial mentionne sans le détailler.",
       "cta_question_index": null
     }
   ],
   "cta": {
-    "engagement_sentence": "Partagez en DM ou en story le passage qui vous a le plus fait réagir, et dites pourquoi.",
+    "engagement_sentence": "Dites-nous en DM : sur quelle accusation auriez-vous voulu une deuxième source ?",
     "post_reading_questions": [
       {
         "id": "q_0",
-        "question": "Sur combien de sources indépendantes l'accusation de « camps de torture » repose-t-elle vraiment ?",
+        "question": "L'accusation de « camps de torture » vous a-t-elle convaincu avec une seule source ?",
         "type": "article_quality"
       },
       {
         "id": "q_1",
-        "question": "L'Europe avait-elle réellement le pouvoir d'infléchir cette politique carcérale ?",
+        "question": "L'Europe avait-elle vraiment le pouvoir d'infléchir cette politique carcérale ?",
         "type": "blind_spot"
       },
       {
         "id": "q_2",
-        "question": "L'émotion suscitée par les images a-t-elle pesé sur votre jugement avant les arguments ?",
+        "question": "Une inaction diplomatique et un acte d'humiliation sont-ils moralement comparables ?",
+        "type": "topic_substance"
+      },
+      {
+        "id": "q_3",
+        "question": "Vos convictions sur ce dossier ont-elles influencé votre lecture du texte ?",
         "type": "reader_bias"
       }
     ]
   },
   "display": {
-    "payoff": "Voir comment détail concret et chiffre construisent l'indignation d'un éditorial à charge.",
+    "payoff": "Vous saisirez comment détail concret et chiffre construisent l'indignation.",
     "framing": "Un éditorial moral bâti sur le contraste émoi européen / silence palestinien.",
-    "ethics": "Globalement correcte : un point de vigilance, l'absence de droit de réponse.",
+    "ethics": "Déontologie passable : un droit de réponse manquant.",
     "pre_reading": [
       "Lisez ceci comme un éditorial militant, non un état des faits.",
-      "Repérez le contraste émoi européen / silence palestinien qui structure tout."
+      "Repérez le contraste émoi / silence qui structure tout."
     ],
     "watch_out": [
       {
         "label": "Source unique",
-        "text": "L'accusation de torture ne tient qu'à une seule organisation, jamais recoupée."
+        "text": "L'accusation la plus grave ne tient qu'à une seule organisation, jamais recoupée."
       },
       {
         "label": "Fausse équivalence",
-        "text": "Une inaction diplomatique placée sur le même plan moral qu'un acte délibéré."
+        "text": "Une omission et un acte délibéré placés sur le même plan moral."
       }
     ],
     "distill_points": [
       "L'accusation de « camps de torture » repose sur une source unique et engagée, non recoupée.",
-      "L'absence de réponse israélienne convertit une omission diplomatique en reniement moral.",
-      "Le contraste chiffré frappe, mais la méthode des décomptes reste invérifiable."
+      "L'absence de réponse israélienne convertit une omission en reniement moral.",
+      "Le contraste chiffré frappe, mais sa méthode de décompte reste invisible."
     ],
     "after_reading": [
-      "Comptez les sources indépendantes derrière l'accusation centrale.",
-      "Le contraste émotionnel cadre, il ne prouve rien.",
+      "Comptez sur combien de sources l'accusation repose vraiment.",
+      "Le contraste émotionnel est un cadrage, pas une preuve.",
       "Recoupez les chiffres avant de les tenir pour acquis."
     ],
     "blind_spots": [
-      "Les contraintes diplomatiques pouvant expliquer l'inaction européenne ne sont jamais pesées.",
-      "Aucune réponse israélienne ni du ministère visé n'est rapportée."
+      "Les contraintes diplomatiques qui pourraient expliquer l'inaction européenne.",
+      "Toute réponse israélienne aux accusations de torture portées."
     ],
     "balance": [
-      "Un éditorial assume une position : il n'a pas à tout équilibrer.",
-      "Format court : l'exhaustivité n'est pas attendue, à recouper ailleurs."
+      "Un éditorial assume une position et n'est pas tenu à l'équilibre.",
+      "Un format court ne peut être exhaustif : à replacer dans un ensemble."
     ]
   }
 }
