@@ -72,7 +72,7 @@ def render_carousel(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]
             "topic": pres.hook.topic,
             "sub_topic": pres.hook.sub_topic,
             "headline": pres.hook.headline,
-            "context_line": pres.interest.why_read,
+            "context_line": pres.hook.sub_topic,
             "article_title": full.article_metadata.title,
             "source": full.article_metadata.source,
             "article_url": url_str,
