@@ -22,7 +22,7 @@ body {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  background: radial-gradient(ellipse at 50% 40%, #161616 0%, #000000 70%);
+  background: radial-gradient(ellipse at 50% 40%, #0a0a0a 0%, #000000 85%);
 }
 .slide::before {
   content: '';
@@ -165,7 +165,7 @@ body {
 .logo-img {
   position: absolute;
   top: 44px;
-  right: 90px;
+  right: 56px;
   width: 144px;
   height: 144px;
   object-fit: contain;
@@ -174,7 +174,7 @@ body {
 .company-name {
   position: absolute;
   top: 80px;
-  right: 238px;
+  right: 204px;
   font-size: 28px;
   font-weight: 700;
   color: #d4aa00;
@@ -189,7 +189,7 @@ body {
   left: 90px;
   right: 150px;
   font-size: 26px;
-  color: #d4aa00;
+  color: #e8d5a3;
 }
 
 /* ── Slide number badge ── */
@@ -245,22 +245,29 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 36px;
-  background: #d4aa00;
+  height: 62px;
+  background: #8a7200;
   display: flex;
   align-items: center;
   padding: 0 90px;
-  font-size: 16px;
+  font-size: 30px;
   font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #0f0f0f;
   z-index: 2;
-  box-shadow: 0 2px 20px rgba(245, 208, 0, 0.2);
+  box-shadow: 0 2px 20px rgba(138, 114, 0, 0.3);
 }
-.phase-analyse  { background: #e8920a; box-shadow: 0 2px 20px rgba(232, 146, 10, 0.25); }
-.phase-retenir  { background: #e8d5a3; box-shadow: 0 2px 20px rgba(232, 213, 163, 0.2); }
-.phase-plusloin { background: #f0c040; box-shadow: 0 2px 20px rgba(240, 192, 64, 0.2); }
+.phase-analyse  { background: #b89600; box-shadow: 0 2px 20px rgba(184, 150, 0, 0.3); }
+.phase-plusloin { background: #d8b400; box-shadow: 0 2px 20px rgba(216, 180, 0, 0.3); }
+.phase-retenir  { background: #f9d100; box-shadow: 0 2px 20px rgba(249, 209, 0, 0.35); }
+
+/* ── In-card element separator ── */
+.elem-sep {
+  height: 1px;
+  background: rgba(255,255,255,0.07);
+  margin: 10px 0;
+}
 
 /* ── Section sub-header ── */
 .section-label {

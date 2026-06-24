@@ -4,102 +4,51 @@
 <meta charset="UTF-8">
 <style>
 {% include 'base.css' %}
-.card {
-  font-size: 28px;
-  padding: 18px 24px;
-  gap: 10px;
+.num-card {
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  font-size: 38px;
+  padding: 28px 34px;
+  line-height: 1.4;
+  text-align: justify;
 }
-.perspective-block {
-  border-radius: 12px;
-  padding: 16px 24px;
+.point-pill {
+  flex: none;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 26px;
-  line-height: 1.5;
-}
-.blind-spots-block {
-  background: #1a1a2b;
-  border: 1px solid #2a2a5c;
-  color: #d0d0d0;
-}
-.balance-block {
-  background: #1a1500;
-  border: 1px solid #3a2e00;
-  color: #c8a84a;
-  font-style: italic;
-}
-.perspective-label {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #7ab3e8;
-  font-style: normal;
-}
-.balance-label {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #c8a84a;
-  font-style: normal;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 900;
+  color: #0f0f0f;
+  background: #d4aa00;
 }
 </style>
 </head>
 <body>
 <div class="slide" style="justify-content: flex-start;">
-  <div class="slide-watermark">06</div>
+  <div class="slide-watermark">04</div>
   {% include '_brand.html' %}
 
-  <div class="section-phase phase-retenir">Après avoir lu</div>
-  <div class="label">Prise de recul</div>
+  <div class="section-phase phase-analyse">Brève analyse</div>
+  <div class="label">L'essentiel</div>
   <div class="divider"></div>
 
-  <div class="cards-container" style="gap: 14px;">
-
-    {% if after_reading %}
-    <div style="display: flex; flex-direction: column; gap: 8px;">
-      <div class="section-label">Pour être critique</div>
-      <div class="card">
-        {% for item in after_reading %}
-        {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
-        <p>{{ item | md_bold }}</p>
-        {% endfor %}
-      </div>
+  <div class="cards-container" style="gap: 30px; padding-bottom: 92px;">
+    {% for p in points %}
+    <div class="card num-card">
+      <span class="point-pill">{{ loop.index }}</span>
+      <p>{{ p | md_bold }}</p>
     </div>
-    {% endif %}
-
-    {% if blind_spots %}
-    <div style="display: flex; flex-direction: column; gap: 8px;">
-      <div class="section-label">Zoom arrière</div>
-      <div class="perspective-block blind-spots-block">
-        {% for item in blind_spots %}
-        {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
-        <p>{{ item | md_bold }}</p>
-        {% endfor %}
-      </div>
-    </div>
-    {% endif %}
-    {% if balance %}
-    <div style="display: flex; flex-direction: column; gap: 8px;">
-      <div class="section-label">À nuancer</div>
-      <div class="perspective-block balance-block">
-        {% for item in balance %}
-        {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
-        <p>{{ item | md_bold }}</p>
-        {% endfor %}
-      </div>
-    </div>
-    {% endif %}
-
+    {% endfor %}
   </div>
 
-  <div class="next-hook-bar">
-    <span style="color: #d4aa00; font-weight: 700;">Pour approfondir ›</span>
-  </div>
-  <div class="slide-num">6 / 8</div>
-  <div class="progress-track"><div class="progress-bar" style="width: 75%;"></div></div>
+  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Prendre du recul &#8250;</span></div>
+  <div class="slide-num">4 / 6</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 67%;"></div></div>
 </div>
 </body>
 </html>

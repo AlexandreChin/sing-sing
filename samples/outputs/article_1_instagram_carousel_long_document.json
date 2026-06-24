@@ -395,6 +395,13 @@
           "lesson": "Vérifiez si une accusation grave s'appuie sur plus d'une source : une seule organisation, même crédible, ne fait pas un fait établi."
         },
         {
+          "dimension": "reasoning_structure",
+          "label": "Reasoning Structure",
+          "score": 3,
+          "rationale": "La chaîne argumentative est lisible et progresse du concret vers la thèse, mais elle dissimule deux sauts logiques : du **nombre de morts** elle infère une responsabilité directe de Ben Gvir (`logical_reasoning`, problème de soundness), et du silence européen elle déduit une indifférence morale plutôt qu'une contrainte diplomatique. Les prémisses normatives (« sanctionner relève des valeurs européennes ») sont posées comme allant de soi.",
+          "lesson": "Distinguez corrélation temporelle et responsabilité : un enchaînement de dates n'établit pas à lui seul une chaîne de causes."
+        },
+        {
           "dimension": "approach_transparency",
           "label": "Approach Transparency",
           "score": 2,
@@ -402,11 +409,25 @@
           "lesson": "Repérez ce que le texte ne dit pas : un motif adverse passé sous silence en dit autant que les arguments affichés."
         },
         {
+          "dimension": "treatment_fairness",
+          "label": "Treatment Fairness",
+          "score": 2,
+          "rationale": "L'empilement d'adjectifs (« extrême droite suprémaciste et raciste décomplexée ») oriente le jugement sur l'homme avant l'examen des actes (`biases_and_rhetoric`, langage chargé), et le ministère visé n'a aucun droit de réponse face à des accusations de torture (caution déontologique). La **fausse équivalence** entre inaction diplomatique et acte délibéré d'humiliation aplatit la complexité morale.",
+          "lesson": "Méfiez-vous des qualificatifs accumulés sur une partie : ils préparent le verdict avant que les faits ne soient exposés."
+        },
+        {
           "dimension": "clarity",
           "label": "Clarity",
           "score": 4,
           "rationale": "L'écriture est dense et accessible : la **détention administrative** est immédiatement explicitée (« emprisonnés sans être inculpés ni jugés »), et les images concrètes ancrent l'abstrait. Le titre reste limpide même s'il présuppose la « passivité » qu'il devrait démontrer (`title_analysis`).",
           "lesson": "Appréciez une définition glissée en clair, mais vérifiez qu'un titre limpide ne présuppose pas déjà sa conclusion."
+        },
+        {
+          "dimension": "angle_originality",
+          "label": "Angle & Originality",
+          "score": 3,
+          "rationale": "Le cadrage par contraste — émoi pour les militants européens contre silence sur les Palestiniens — donne un angle moral net, renforcé par le bouclage sur la mise en scène humiliante (`observations`, Cadrage ; `emphasis`). L'effort de steel man existe mais reste hors texte : l'article lui-même n'envisage pas la lecture diplomatique alternative qu'il aurait pu intégrer.",
+          "lesson": "Cherchez si l'auteur a anticipé l'objection la plus forte : un angle se renforce à intégrer la contre-lecture, pas à l'ignorer."
         }
       ],
       "verdict": {
@@ -640,6 +661,26 @@
         "url": null,
         "duration_minutes": null,
         "why_explore": "Éclaire comment l'image de la souffrance oriente le jugement moral avant tout argument.",
+        "cta_question_index": null
+      },
+      {
+        "title": "Un véritable enfer : le système carcéral israélien",
+        "source": "B'Tselem",
+        "media_type": "report",
+        "category": "question_answer",
+        "url": null,
+        "duration_minutes": 30,
+        "why_explore": "Permet de juger par soi-même la solidité de la source unique au cœur de l'accusation.",
+        "cta_question_index": null
+      },
+      {
+        "title": "La détention administrative en droit international",
+        "source": "Comité international de la Croix-Rouge",
+        "media_type": "report",
+        "category": "question_answer",
+        "url": null,
+        "duration_minutes": 20,
+        "why_explore": "Précise le cadre juridique que l'éditorial mentionne sans le détailler.",
         "cta_question_index": null
       }
     ],
