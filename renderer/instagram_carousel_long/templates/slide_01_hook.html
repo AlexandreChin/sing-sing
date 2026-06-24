@@ -23,23 +23,24 @@
 /* ── Section headers ── */
 .section-pill {
   display: inline-block;
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.20em;
   text-transform: uppercase;
-  padding: 6px 20px;
-  border-radius: 999px;
   margin-bottom: 16px;
 }
 .section-pill-article {
-  background: #1e1e1e;
-  border: 1px solid #888;
-  color: #f0f0f0;
+  color: #888;
+}
+.section-pill-article::before, .section-pill-article::after,
+.section-pill-analyse::before, .section-pill-analyse::after {
+  content: '—';
+  margin: 0 12px;
+  font-weight: 300;
+  letter-spacing: 0;
 }
 .section-pill-analyse {
-  background: #1a1800;
-  border: 1px solid #d4aa00;
-  color: #d4aa00;
+  color: #888;
 }
 
 /* ── Part 1: the article ── */
@@ -69,12 +70,13 @@
   color: #f0f0f0;
 }
 .pill-sub {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: #f0f0f0;
+  font-size: 13px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: #888;
 }
 .article-title-text {
-  font-size: 52px;
+  font-size: 36px;
   font-weight: 700;
   font-style: italic;
   line-height: 1.3;
@@ -82,18 +84,17 @@
   color: #f0f0f0;
 }
 .article-source {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: #f0f0f0;
+  color: #888;
 }
 
 /* ── Separator ── */
 .section-separator {
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, transparent, #d4aa00 20%, #d4aa00 80%, transparent);
+  display: flex;
+  justify-content: center;
   margin-bottom: 36px;
 }
 
@@ -115,17 +116,17 @@
   font-family: 'Inter', sans-serif;
   font-size: 34px;
   font-weight: 400;
-  color: #d4aa00;
+  color: #e8d5a3;
   line-height: 1.5;
   max-width: 860px;
 }
 
-.article-link {
-  position: absolute;
-  bottom: 56px;
-  left: 90px;
-  font-size: 26px;
-  color: #e8d5a3;
+.swipe-hint {
+  margin-top: 40px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #888;
+  letter-spacing: 0.12em;
 }
 </style>
 </head>
@@ -147,19 +148,25 @@
     {% if source %}<p class="article-source">{{ source }}</p>{% endif %}
   </div>
 
-  <div class="section-separator"></div>
+  <div class="section-separator">
+    <svg width="860" height="50" viewBox="0 0 860 50" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="80,8 430,44 780,8" fill="none" stroke="#d4aa00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
 
   <!-- Part 2: the analysis -->
   <div class="analysis-section">
     <span class="section-pill section-pill-analyse">Notre analyse</span>
     <h1 class="headline">{{ headline }}</h1>
-    <p class="context-line">{{ context_line }}</p>
+    <p class="context-line">{{ context_line | md_bold }}</p>
   </div>
 
-  <div class="article-link">&#8599; Article complet en commentaires</div>
+  <div class="swipe-hint">Faites défiler &#8250;</div>
 
-  <div class="slide-num">1 / 10</div>
-  <div class="progress-track"><div class="progress-bar" style="width: 11%;"></div></div>
+  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Lien vers l'article en commentaires &#8595;</span></div>
+
+  <div class="slide-num">1 / 6</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 17%;"></div></div>
 </div>
 </body>
 </html>

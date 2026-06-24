@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.card {
+  font-size: 34px;
+  padding: 28px 34px;
+  gap: 14px;
+  text-align: justify;
+  line-height: 1.4;
+}
+.section-label { font-size: 30px; }
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">05</div>
+  {% include '_brand.html' %}
+
+  <div class="section-phase phase-retenir">Après lecture</div>
+  <div class="label">Prise de recul</div>
+  <div class="divider"></div>
+
+  <div class="cards-container" style="gap: 22px; padding-bottom: 92px;">
+
+    {% if blind_spots %}
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div class="section-label">Angles morts</div>
+      <div class="card">
+        {% for item in blind_spots %}
+        {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
+        <p>{{ item | md_bold }}</p>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if balance %}
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div class="section-label">À nuancer</div>
+      <div class="card">
+        {% for item in balance %}
+        {% if not loop.first %}<div class="elem-sep"></div>{% endif %}
+        <p>{{ item | md_bold }}</p>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+
+  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Avant de partir &#8250;</span></div>
+  <div class="slide-num">5 / 6</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 83%;"></div></div>
+</div>
+</body>
+</html>

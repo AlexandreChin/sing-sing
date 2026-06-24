@@ -49,7 +49,7 @@ class WatchOutItem(BaseModel):
 
 
 class CarouselDisplay(BaseModel):
-    """Condensed, carousel-ready display strings for the short format slides."""
+    """Condensed, carousel-ready display strings for the long format slides."""
     payoff: str              # ≤15 words — what the reader gets from this article
     framing: str             # ≤15 words — the article's angle in plain language
     ethics: str              # ≤12 words — explicit clean/not-clean statement

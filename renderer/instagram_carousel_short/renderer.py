@@ -1,4 +1,8 @@
-"""Render an ArticleFullAnalysis JSON to 6 PNG slides at 1080×1350px (short format)."""
+"""Render an ArticleFullAnalysis JSON to 6 PNG slides at 1080×1350px (short format).
+
+Reuses the carousel presentation produced by the enrich agent — no extra LLM call.
+Slide arc: Hook → Évaluation (gauges) → Repères → Dans le détail → Prise de recul → CTA.
+"""
 
 import base64
 import io
@@ -17,6 +21,45 @@ TEMPLATES_DIR = Path(__file__).parent / "templates"
 SLIDE_W, SLIDE_H = 1080, 1350
 
 _LOGO_PATH = Path(__file__).parent.parent.parent / "src" / "assets" / "images" / "logo" / "logo.png"
+
+# ── Gauge mappings (quality verdict + dimension scores → one normalized track) ─
+QUALITY = {
+    "exemplary": ("Exemplaire", .95, "good"),
+    "solid": ("Solide", .78, "good"),
+    "adequate": ("Correcte", .55, "mid"),
+    "instructive_by_contrast": ("Instructif", .35, "bad"),
+    "weak": ("Faible", .15, "bad"),
+}
+DIM_FR = {
+    "source_rigor": "Rigueur des sources",
+    "reasoning_structure": "Structure du raisonnement",
+    "approach_transparency": "Transparence",
+    "treatment_fairness": "Équité de traitement",
+    "clarity": "Clarté",
+    "angle_originality": "Angle & originalité",
+}
+TYPE_FR = {"editorial": "Éditorial", "news_report": "Reportage", "opinion": "Tribune",
+           "investigation": "Enquête", "interview": "Interview", "other": "Article"}
+def _level(pos: float) -> str:
+    return "bad" if pos < 0.4 else "mid" if pos < 0.7 else "good"
+
+
+def _quality_gauge(full) -> dict:
+    """Main gauge: overall article quality from the review verdict."""
+    q = full.review.verdict.quality if full.review else "adequate"
+    label, pos, level = QUALITY.get(q, ("Correcte", .55, "mid"))
+    return {"name": "Qualité de l'article", "val": label, "pos": round(pos * 100), "level": level}
+
+
+def _dim_gauges(full) -> list[dict]:
+    """Sub-gauges: the (already-trimmed) most-decisive review dimensions, scored 1–5."""
+    out = []
+    if full.review:
+        for d in full.review.dimensions:
+            pos = (d.score - 1) / 4
+            out.append({"name": DIM_FR.get(d.dimension, d.label), "val": f"{d.score}/5",
+                        "pos": round(pos * 100), "level": _level(pos)})
+    return out
 
 
 def _logo_data_url(path: Path, white_threshold: int = 240) -> str:
@@ -61,67 +104,53 @@ def _screenshot(html: str, output_path: Path) -> None:
 
 def render_carousel(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     out_dir.mkdir(parents=True, exist_ok=True)
-    slides = []
     full = doc.analysis
     pres = doc.presentation
+    meta = full.article_metadata
+    disp = pres.display
 
-    url_str = str(full.article_metadata.url) if full.article_metadata.url else None
+    source_meta = " · ".join(x for x in [
+        meta.source,
+        TYPE_FR.get(meta.type) if meta.type else None,
+        f"{meta.reading_time_minutes} min" if meta.reading_time_minutes else None,
+    ] if x)
 
     specs = [
         ("slide_01_hook.html", {
-            "topic": pres.hook.topic,
-            "sub_topic": pres.hook.sub_topic,
             "headline": pres.hook.headline,
-            "context_line": pres.hook.sub_topic,
-            "article_title": full.article_metadata.title,
-            "source": full.article_metadata.source,
-            "article_url": url_str,
+            "article_title": meta.title,
+            "source_meta": source_meta,
         }),
-        ("slide_02_context_watchout.html", {
-            "verdict_payoff": pres.display.payoff,
-            "framing": pres.display.framing,
-            "ethics_summary": pres.display.ethics,
-            "ethics_verdict": full.deontology.verdict.overall if full.deontology else "clean",
-            "ethics_violations": full.deontology.violations if full.deontology else [],
+        ("slide_02_evaluation.html", {
+            "why_read": disp.payoff,
+            "main_gauge": _quality_gauge(full),
+            "sub_gauges": _dim_gauges(full),
         }),
-        ("slide_03_au_global.html", {
-            "contexts": full.context.contexts[:2],
-            "pre_reading": pres.display.pre_reading,
-            "watch_out_items": pres.display.watch_out,
-        }),
-        ("slide_05_analyse.html", {
-            "main_claim": full.analysis.fond.main_claim,
-            "logical_strongest": full.analysis.fond.logical_reasoning[0] if full.analysis.fond.logical_reasoning else None,
-            "logical_weakest": full.analysis.fond.logical_reasoning[-1] if len(full.analysis.fond.logical_reasoning) > 1 else None,
-            "cui_bono": full.analysis.forme.cui_bono[:1],
-            "emotional_register": full.analysis.forme.emotional_register[:2],
-        }),
-        ("slide_claims_biases.html", {
-            "claims_and_sources": full.annotations.facts_vs_opinions.claims_and_sources,
-            "biases_and_rhetoric": full.annotations.biases_and_focus.biases_and_rhetoric,
+        ("slide_03_reperes.html", {
+            "contexts": full.context.contexts[:1],
+            "pre_reading": disp.pre_reading[:2],
+            "watch_out": disp.watch_out[:2],
         }),
         ("slide_04_dans_le_detail.html", {
-            "after_reading": pres.display.after_reading,
-            "blind_spots": pres.display.blind_spots,
-            "balance": pres.display.balance,
+            "points": disp.distill_points,
         }),
-        ("slide_06_go_further.html", {
-            "items": pres.go_further,
+        ("slide_05_prise_de_recul.html", {
+            "blind_spots": disp.blind_spots,
+            "balance": disp.balance,
         }),
-        ("slide_07_cta.html", {}),
+        ("slide_06_cta.html", {}),
     ]
 
     names = [
         "01_hook.png",
-        "02_pourquoi_lire.png",
-        "03_avant_de_lire.png",
-        "04_synthese.png",
-        "05_dans_le_detail.png",
-        "06_prise_de_recul.png",
-        "07_pour_aller_plus_loin.png",
-        "08_cta.png",
+        "02_interet.png",
+        "03_clefs_de_lecture.png",
+        "04_essentiel.png",
+        "05_prise_de_recul.png",
+        "06_cta.png",
     ]
 
+    slides = []
     for (template, ctx), name in zip(specs, names):
         html = _render_html(template, ctx)
         path = out_dir / name
@@ -141,7 +170,7 @@ def render_from_json(json_path: Path, out_dir: Path) -> list[Path]:
 if __name__ == "__main__":
     import sys
     if len(sys.argv) < 2:
-        print("Usage: python -m renderer.instagram_carousel_short_renderer <carousel.json> [output_dir]")
+        print("Usage: python -m renderer.instagram_carousel_short.renderer <carousel.json> [output_dir]")
         sys.exit(1)
     src = Path(sys.argv[1])
     dst = Path(sys.argv[2]) if len(sys.argv) > 2 else src.parent / src.stem

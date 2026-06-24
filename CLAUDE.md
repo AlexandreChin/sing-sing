@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-`sing-sing` is a Python 3.14 agent that analyzes news articles. It scrapes article content, sends it to Claude via the Anthropic API, and returns a structured JSON analysis (summary, sentiment, entities, claims, topics).
+`sing-sing` is a Python 3.14 agent that analyzes news articles and turns the analysis into a publishable Instagram carousel. It runs a multi-step Claude analysis (via the Anthropic API, `claude-opus-4-6`), then adapts, trims, and renders the result into PNG slides.
 
 ## Commands
 
@@ -13,8 +13,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 uv add <package>
 uv sync
 
-# Run
-python main.py
+# Full pipeline: analyze → adapt → extract → render
+python main.py produce <article.txt> [--format instagram_carousel_long] [--no-api] [--render]
+
+# Individual stages
+python main.py analyze <article.txt> [--render] [--instructions "..."] [--instructions-file <path>]
+python main.py adapt   <analysis.json>   [--format <fmt>] [--no-api]
+python main.py extract <analysis.json> <presentation.json> [--format <fmt>] [--render]
+python main.py render  <document.json> [<output_dir>] [--format <fmt>]
+
+# Utilities
+python main.py simplify <analysis.json> [--render]   # reduce an existing carousel
+python main.py validate <analysis.json>              # node-graph integrity checks
+python main.py verify   <analysis.json> [--claim N]  # find sources for/against claims
+python main.py graph    <analysis.json> [out.html]   # render the node graph
 ```
 
 Always use `uv add` to install new packages — never `pip install`.
@@ -22,20 +34,34 @@ Always use `uv add` to install new packages — never `pip install`.
 ## Architecture
 
 ```
-main.py              entry point — orchestrates scrape → analyze flow
-tools/
-  scrape.py          fetch + parse article HTML (httpx + BeautifulSoup)
-  search.py          search for news articles via Brave / Serper / Tavily
+main.py                            CLI dispatcher for all subcommands
 agent/
-  analyzer.py        calls Claude (claude-opus-4-6) with streaming + adaptive thinking
-  prompts.py         SYSTEM_PROMPT constant
+  full_analysis_agent.py           analyze_for_full_analysis — 9-step pipeline (steps/ 1–9), cached per step
+  steps/step1_scan.py … step9_guide.py
+  instagram_carousel_enrich_agent.py   adapt(): ArticleFullAnalysis → carousel presentation
+  instagram_carousel_simplify_agent.py simplify_carousel(): shrink an existing carousel
+  media_trend_agent.py
+extractors/
+  registry.py                      FORMATS: format name → (adapt agent, extractor, renderer) modules
+  instagram_carousel_long.py       extract(): select/trim nodes under per-slide CAPS
+  instagram_carousel_short.py      extract(): trim to the 3 most-decisive review dimensions + 1 go_further
+renderer/
+  instagram_carousel_long/         Jinja2 templates + Playwright → 8 PNG slides (1080×1350)
+  instagram_carousel_short/        Jinja2 templates + Playwright → 6 PNG slides (1080×1350)
 models/
-  article.py         Pydantic schemas: Article (input), ArticleAnalysis (output)
+  full_analysis.py                 ArticleFullAnalysis (analysis schema)
+  instagram_carousel_presentation.py  InstagramCarouselPresentation / Document
+tools/
+  scrape.py, search.py, validate.py, verify.py, graph_generator.py
 ```
 
-**Data flow:** `main.py` calls `scrape_article(url)` → builds an `Article` → passes to `analyze_article(article)` → returns `ArticleAnalysis`.
+**Data flow (`produce`):** `analyze_for_full_analysis(text)` → `ArticleFullAnalysis` JSON → `adapt()` → presentation JSON → `extract()` → trimmed document JSON → `render_from_json()` → PNG slides in `samples/outputs/<stem>_<fmt>_document/`.
 
-**LLM output:** `analyzer.py` uses `output_config.format` (JSON schema) to constrain Claude's response to the `ArticleAnalysis` Pydantic schema. Adaptive thinking is enabled by default.
+**Formats:** registered in `extractors/registry.py`. Two carousel formats, both reusing the same `adapt()` presentation (no extra LLM call) — only the extractor + renderer differ:
+- `instagram_carousel_long` (default) — 8-slide deep dive.
+- `instagram_carousel_short` — 6-slide visual: Hook → Évaluation (gauge panel) → Repères → Dans le détail → Prise de recul → CTA.
+
+To add a format, add a `FORMATS` entry mapping to its adapt agent, extractor, and renderer modules.
 
 **Search providers:** Configured via `SEARCH_API_PROVIDER` env var (`brave` | `serper` | `tavily`). The provider routing lives in `tools/search.py`.
 
