@@ -39,6 +39,7 @@ class PostReadingQuestion(BaseModel):
 
 
 class CTA(BaseModel):
+    title: str = ""   # punchy closing headline (≤10 words) that echoes the verdict's thesis
     engagement_sentence: str
     post_reading_questions: list[PostReadingQuestion]
 

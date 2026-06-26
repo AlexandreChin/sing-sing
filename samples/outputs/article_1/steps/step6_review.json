@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "L'accusation la plus grave — les prisons devenues « des camps de torture » — **repose sur une source unique**, B'Tselem, sans contre-expertise rapportée (confidence 48). Le décompte mortel s'appuie sur de vagues « décomptes convergents » jamais identifiés, et aucune réponse du ministère israélien n'est sollicitée.",
+        "lesson": "Méfiez-vous d'une accusation lourde adossée à une seule organisation, même crédible : exigez une corroboration indépendante."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "La détention administrative est exposée avec exactitude et bien étayée (confidence 88), mais le **contraste chiffré 100 morts / 230** compare deux périodes sans base méthodologique commune (confidence 58). Le glissement de « se flatte de répandre la haine » fait passer une intention prêtée pour un fait (opinion_stated_as_fact).",
+        "lesson": "Vérifiez toujours qu'un contraste chiffré frappant repose sur des méthodes de décompte comparables avant d'y voir une preuve."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "La chaîne argumentative enchaîne des sauts non signalés : du nombre de morts on infère une responsabilité directe (problème de soundness), du silence européen une indifférence morale (problème de validity). La prémisse normative « sanctionner relève des valeurs européennes » est posée comme allant de soi, sans raisonnement explicite.",
+        "lesson": "Repérez le passage d'une corrélation temporelle à une imputation de responsabilité : c'est souvent là que se cache le saut logique."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "Le texte ne distingue pas ses faits de ses jugements et n'avoue aucune de ses limites : les angles morts (absence de réponse israélienne, motif français du refus de sanctions) restent silencieux. L'hypothèse implicite que des sanctions changeraient le comportement israélien n'est jamais explicitée.",
+        "lesson": "Demandez ce que le texte ne dit pas de ses propres choix : un point de vue assumé est plus honnête qu'un point de vue déguisé en évidence."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Le **7-Octobre n'est traité que comme déclencheur**, jamais pesé comme explication concurrente de la dégradation des conditions de détention (blind_spots). Le motif diplomatique invoqué par la France est passé sous silence, et aucun contre-fait israélien n'équilibre le tableau.",
+        "lesson": "Cherchez systématiquement le contexte que le texte cite sans le peser : un fait mentionné mais neutralisé révèle l'angle choisi."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Le cadrage empile les qualificatifs chargés (« extrême droite suprémaciste et raciste décomplexée ») et une fausse équivalence place l'inaction diplomatique sur le même plan moral qu'un acte délibéré d'humiliation. Une seule partie est entendue : ni Ben Gvir ni le gouvernement israélien n'ont voix au chapitre.",
+        "lesson": "Comptez les voix : quand une seule partie parle et que l'autre n'est décrite que par ses adversaires, le récit est à charge."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "L'écriture est nette et accessible, et les notions techniques comme la **détention administrative** sont définies au passage (« emprisonnés sans être inculpés ni jugés »). Le cadrage par l'image d'humiliation, en ouverture et clôture, rend le propos très lisible — au prix d'une orientation forte.",
+        "lesson": "Appréciez la clarté pédagogique, mais souvenez-vous qu'une scène d'ouverture forte oriente la lecture autant qu'elle l'éclaire."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "L'angle — confronter l'émoi européen pour ses propres militants au silence sur les Palestiniens — donne une perspective morale plus saisissante que la simple chronique des prisons. Mais l'observation reste dans le registre attendu de l'éditorial indigné, sans accès ni donnée propres au-delà des sources citées.",
+        "lesson": "Distinguez un angle moral bien construit d'une enquête originale : le premier reformule des faits connus, le second en apporte de nouveaux."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Le lecteur qui suit déjà le dossier des prisons israéliennes et veut une formulation morale percutante de l'inaction européenne, à condition de la recouper avec des sources contradictoires.",
+      "payoff": "Vous repartez avec un cadre clair — détention administrative, contraste chiffré, hypocrisie européenne — et une grille morale efficace. Mais vous devrez chercher ailleurs la réponse israélienne et la méthode derrière les chiffres.",
+      "signature_move": "Encadrer toute l'analyse par une même image d'humiliation, en ouverture et en clôture, pour transformer une indignation visuelle en jugement politique.",
+      "main_blind_side": "L'absence totale de réponse israélienne sollicitée révèle un texte conçu comme réquisitoire plutôt que comme enquête contradictoire.",
+      "further_resource": {
+        "title": "Manufacturing Consent: The Political Economy of the Mass Media",
+        "source": "Edward S. Herman & Noam Chomsky",
+        "media_type": "book",
+        "why_explore": "Il outille le lecteur pour repérer comment le choix des sources et des voix entendues oriente un récit avant tout argument.",
+        "url": null
+      },
+      "summary": "Lecture à recommander avec réserves : l'éditorial pose un cadre moral clair et bien écrit sur l'inaction européenne, mais il s'appuie sur une source unique pour l'accusation la plus grave et n'entend jamais la partie visée. À recouper avant d'en tirer une conclusion."
+    }
+  }
+}

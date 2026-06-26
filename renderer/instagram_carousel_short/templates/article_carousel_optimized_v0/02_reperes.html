@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.kick { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; }
+.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+.head { font-size: 52px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
+.keys { display: flex; flex-direction: column; gap: 28px; }
+.key { display: flex; gap: 24px; align-items: flex-start; font-size: 37px; line-height: 1.4; color: #e0e0e0; }
+.key .mk { flex: none; font-weight: 900; font-size: 38px; line-height: 1.05; }
+.key.ctx .mk { color: #d4aa00; }
+.key.wo .mk { color: #e8a07a; }
+.key .lab { color: #e8a07a; font-weight: 800; }
+.tease { line-height: 1.45; padding-bottom: 4px; }
+.tease .challenge { font-size: 34px; font-weight: 800; color: #d4aa00; }
+.tease .link { font-size: 26px; color: #f0f0f0; }
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">02</div>
+  {% include '_brand.html' %}
+  <div class="stage">
+    <span class="kick">Clefs de lecture</span>
+    <h1 class="head">Le contexte, et deux failles à repérer.</h1>
+    <div class="divider"></div>
+    <div class="keys">
+      <div class="key ctx"><span class="mk">&#8250;</span><span>Le 20 mai 2026, Ben Gvir diffuse des images de militants propalestiniens humiliés.</span></div>
+      <div class="key wo"><span class="mk">&#9888;</span><span>L'accusation la plus lourde du texte… repose sur bien peu.</span></div>
+      <div class="key wo"><span class="mk">&#9888;</span><span>Un chiffre qui frappe fort… et se vérifie mal.</span></div>
+    </div>
+  </div>
+  <p class="tease"><span class="challenge">Saurez-vous les repérer&nbsp;?</span><br><span class="link">Lien vers l'article en commentaires &#8595;</span></p>
+  <div class="slide-num">2 / 9</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 22%;"></div></div>
+</div>
+</body>
+</html>

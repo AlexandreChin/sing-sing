@@ -1,0 +1,64 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Repérez dès l'ouverture la **scène d'humiliation** : elle sert de cadre et oriente la lecture bien avant le moindre argument.",
+      "Gardez en tête que le texte est un **éditorial à thèse**, construit pour conduire de l'inaction européenne à un jugement moral, non une enquête contradictoire.",
+      "Un peu de **scepticisme sur les chiffres** est utile : demandez-vous d'où viennent les décomptes et s'ils mesurent vraiment la même chose."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "text": "L'accusation la plus grave du texte ne s'appuie que sur **une seule organisation**, sans corroboration indépendante ni voix adverse. Une source crédible ne dispense pas de la recouper.",
+          "references": [
+            "claim_1",
+            "pr_1",
+            "obs_1"
+          ]
+        },
+        {
+          "text": "Le **contraste chiffré central** rapproche deux périodes sans méthode de comptage commune. Un écart frappant n'est une preuve que si les deux mesures sont comparables.",
+          "references": [
+            "ia_2",
+            "obs_2",
+            "claim_2"
+          ]
+        },
+        {
+          "text": "Le passage du **silence européen à une indifférence morale** est posé comme une évidence, là où il pourrait aussi traduire une contrainte diplomatique. Méfiez-vous de ce saut présenté comme allant de soi.",
+          "references": [
+            "lr_0",
+            "er_1",
+            "bias_2"
+          ]
+        },
+        {
+          "text": "Une seule partie est entendue : la cible des accusations n'a **aucun droit de réponse** et n'est décrite que par ses adversaires. Comptez les voix avant d'adhérer au récit.",
+          "references": [
+            "bs_0",
+            "bias_1"
+          ]
+        },
+        {
+          "text": "Le 7-Octobre n'apparaît que comme **déclencheur**, jamais pesé comme explication concurrente de la dégradation des conditions. Notez ce contexte mentionné mais neutralisé.",
+          "references": [
+            "bs_2",
+            "obs_3",
+            "cb_0"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Demandez-vous ce que **la partie visée aurait répondu** : son absence change la nature de ce que vous venez de lire.",
+      "Avant de retenir le **contraste chiffré**, cherchez la méthode derrière chaque décompte.",
+      "Distinguez ce qui relève du **fait établi** de ce qui relève du jugement moral du texte, souvent fondus dans la même phrase.",
+      "Recoupez l'accusation la plus lourde avec des **sources contradictoires** avant d'en tirer une conclusion."
+    ],
+    "title_note": null,
+    "perspective": {
+      "framing": "L'article choisit un **angle moral** : il confronte l'émoi européen pour ses propres militants au silence sur les Palestiniens, et place au centre une image d'humiliation reprise en ouverture et en clôture. Le registre est celui de l'**indignation assumée**, parlant depuis la cause des détenus.",
+      "blind_spots": "Deux absences structurent le texte : **aucune réponse israélienne** n'est sollicitée, et le **motif diplomatique** invoqué par la France pour ne pas sanctionner reste passé sous silence. Le 7-Octobre est cité sans jamais être pesé comme cause concurrente.",
+      "balance": "Ces limites sont réelles, mais un **éditorial qui assume sa position** n'est pas tenu de présenter toutes les parties, et un format court ne peut être exhaustif. L'absence de contradiction est ici un **choix de genre** légitime tant que la ligne reste explicite : ce que l'analyse signale aide à calibrer la lecture, pas à disqualifier le texte."
+    }
+  }
+}

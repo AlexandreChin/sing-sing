@@ -55,7 +55,18 @@ tools/
   scrape.py, search.py, validate.py, verify.py, graph_generator.py
 ```
 
-**Data flow (`produce`):** `analyze_for_full_analysis(text)` → `ArticleFullAnalysis` JSON → `adapt()` → presentation JSON → `extract()` → trimmed document JSON → `render_from_json()` → PNG slides in `samples/outputs/<stem>_<fmt>_document/`.
+**Data flow (`produce`):** `analyze_for_full_analysis(text)` → `ArticleFullAnalysis` JSON → `adapt()` → presentation JSON → `extract()` → trimmed document JSON → `render_from_json()` → PNG slides.
+
+**Output layout:** one folder per analysis (see `_layout()` in `main.py`):
+```
+samples/outputs/<stem>/
+  analysis.json            ArticleFullAnalysis
+  steps/                   step1…step9 cache
+  <format>/                e.g. instagram_carousel_short/
+    adapt.json             InstagramCarouselPresentation
+    document.json          InstagramCarouselDocument
+    slides/                NN_*.png
+```
 
 **Formats:** registered in `extractors/registry.py`. Two carousel formats, both reusing the same `adapt()` presentation (no extra LLM call) — only the extractor + renderer differ:
 - `instagram_carousel_long` (default) — 8-slide deep dive.

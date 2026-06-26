@@ -6,8 +6,10 @@ _PROMPT = (Path(__file__).parent.parent / "prompts" / "step6_review.md").read_te
 
 _DIMENSIONS = [
     "source_rigor",
+    "factual_accuracy",
     "reasoning_structure",
     "approach_transparency",
+    "context_completeness",
     "treatment_fairness",
     "clarity",
     "angle_originality",
@@ -21,8 +23,8 @@ def _validate(data: dict) -> list[str]:
     missing = [d for d in _DIMENSIONS if d not in dims]
     if missing:
         errors.append(f"review.dimensions: missing {missing}")
-    if len(out.review.dimensions) != 6:
-        errors.append(f"review.dimensions: expected exactly 6, got {len(out.review.dimensions)}")
+    if len(out.review.dimensions) != 8:
+        errors.append(f"review.dimensions: expected exactly 8, got {len(out.review.dimensions)}")
     for d in out.review.dimensions:
         if not (1 <= d.score <= 5):
             errors.append(f"dimension '{d.dimension}': score {d.score} out of range (1–5)")
