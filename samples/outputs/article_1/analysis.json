@@ -572,134 +572,175 @@
         "dimension": "source_rigor",
         "label": "Source Rigor",
         "score": 2,
-        "rationale": "L'accusation la plus lourde — les prisons devenues « des camps de torture » — repose sur **une source unique**, B'Tselem, sans contre-expertise indépendante rapportée (`claims_and_sources`, confidence 48). Le décompte « 100 morts contre 230 » s'appuie sur des « décomptes convergents » jamais précisés et compare deux périodes sans base commune, ce qui fragilise la charge probatoire centrale.",
-        "lesson": "Vérifiez si une accusation grave s'appuie sur plus d'une source : une seule organisation, même crédible, ne fait pas un fait établi."
+        "rationale": "L'accusation la plus grave — les prisons devenues « des camps de torture » — **repose sur une source unique**, B'Tselem, sans contre-expertise rapportée (confidence 48). Le décompte mortel s'appuie sur de vagues « décomptes convergents » jamais identifiés, et aucune réponse du ministère israélien n'est sollicitée.",
+        "lesson": "Méfiez-vous d'une accusation lourde adossée à une seule organisation, même crédible : exigez une corroboration indépendante."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "La détention administrative est exposée avec exactitude et bien étayée (confidence 88), mais le **contraste chiffré 100 morts / 230** compare deux périodes sans base méthodologique commune (confidence 58). Le glissement de « se flatte de répandre la haine » fait passer une intention prêtée pour un fait (opinion_stated_as_fact).",
+        "lesson": "Vérifiez toujours qu'un contraste chiffré frappant repose sur des méthodes de décompte comparables avant d'y voir une preuve."
       },
       {
         "dimension": "reasoning_structure",
         "label": "Reasoning Structure",
-        "score": 3,
-        "rationale": "La chaîne argumentative est lisible et progresse du concret vers la thèse, mais elle dissimule deux sauts logiques : du **nombre de morts** elle infère une responsabilité directe de Ben Gvir (`logical_reasoning`, problème de soundness), et du silence européen elle déduit une indifférence morale plutôt qu'une contrainte diplomatique. Les prémisses normatives (« sanctionner relève des valeurs européennes ») sont posées comme allant de soi.",
-        "lesson": "Distinguez corrélation temporelle et responsabilité : un enchaînement de dates n'établit pas à lui seul une chaîne de causes."
+        "score": 2,
+        "rationale": "La chaîne argumentative enchaîne des sauts non signalés : du nombre de morts on infère une responsabilité directe (problème de soundness), du silence européen une indifférence morale (problème de validity). La prémisse normative « sanctionner relève des valeurs européennes » est posée comme allant de soi, sans raisonnement explicite.",
+        "lesson": "Repérez le passage d'une corrélation temporelle à une imputation de responsabilité : c'est souvent là que se cache le saut logique."
       },
       {
         "dimension": "approach_transparency",
         "label": "Approach Transparency",
         "score": 2,
-        "rationale": "Le texte laisse plusieurs angles morts non assumés : aucune réponse d'Israël ou de Ben Gvir, le motif français du refus de sanctions n'est pas exposé, et le 7-Octobre n'est traité que comme déclencheur jamais pesé (`blind_spots`). La frontière fait/jugement se brouille quand « se flatte de répandre la haine » est présenté comme un fait (`presentation: opinion_stated_as_fact`).",
-        "lesson": "Repérez ce que le texte ne dit pas : un motif adverse passé sous silence en dit autant que les arguments affichés."
+        "rationale": "Le texte ne distingue pas ses faits de ses jugements et n'avoue aucune de ses limites : les angles morts (absence de réponse israélienne, motif français du refus de sanctions) restent silencieux. L'hypothèse implicite que des sanctions changeraient le comportement israélien n'est jamais explicitée.",
+        "lesson": "Demandez ce que le texte ne dit pas de ses propres choix : un point de vue assumé est plus honnête qu'un point de vue déguisé en évidence."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Le **7-Octobre n'est traité que comme déclencheur**, jamais pesé comme explication concurrente de la dégradation des conditions de détention (blind_spots). Le motif diplomatique invoqué par la France est passé sous silence, et aucun contre-fait israélien n'équilibre le tableau.",
+        "lesson": "Cherchez systématiquement le contexte que le texte cite sans le peser : un fait mentionné mais neutralisé révèle l'angle choisi."
       },
       {
         "dimension": "treatment_fairness",
         "label": "Treatment Fairness",
         "score": 2,
-        "rationale": "L'empilement d'adjectifs (« extrême droite suprémaciste et raciste décomplexée ») oriente le jugement sur l'homme avant l'examen des actes (`biases_and_rhetoric`, langage chargé), et le ministère visé n'a aucun droit de réponse face à des accusations de torture (caution déontologique). La **fausse équivalence** entre inaction diplomatique et acte délibéré d'humiliation aplatit la complexité morale.",
-        "lesson": "Méfiez-vous des qualificatifs accumulés sur une partie : ils préparent le verdict avant que les faits ne soient exposés."
+        "rationale": "Le cadrage empile les qualificatifs chargés (« extrême droite suprémaciste et raciste décomplexée ») et une fausse équivalence place l'inaction diplomatique sur le même plan moral qu'un acte délibéré d'humiliation. Une seule partie est entendue : ni Ben Gvir ni le gouvernement israélien n'ont voix au chapitre.",
+        "lesson": "Comptez les voix : quand une seule partie parle et que l'autre n'est décrite que par ses adversaires, le récit est à charge."
       },
       {
         "dimension": "clarity",
         "label": "Clarity",
         "score": 4,
-        "rationale": "L'écriture est dense et accessible : la **détention administrative** est immédiatement explicitée (« emprisonnés sans être inculpés ni jugés »), et les images concrètes ancrent l'abstrait. Le titre reste limpide même s'il présuppose la « passivité » qu'il devrait démontrer (`title_analysis`).",
-        "lesson": "Appréciez une définition glissée en clair, mais vérifiez qu'un titre limpide ne présuppose pas déjà sa conclusion."
+        "rationale": "L'écriture est nette et accessible, et les notions techniques comme la **détention administrative** sont définies au passage (« emprisonnés sans être inculpés ni jugés »). Le cadrage par l'image d'humiliation, en ouverture et clôture, rend le propos très lisible — au prix d'une orientation forte.",
+        "lesson": "Appréciez la clarté pédagogique, mais souvenez-vous qu'une scène d'ouverture forte oriente la lecture autant qu'elle l'éclaire."
       },
       {
         "dimension": "angle_originality",
         "label": "Angle & Originality",
         "score": 3,
-        "rationale": "Le cadrage par contraste — émoi pour les militants européens contre silence sur les Palestiniens — donne un angle moral net, renforcé par le bouclage sur la mise en scène humiliante (`observations`, Cadrage ; `emphasis`). L'effort de steel man existe mais reste hors texte : l'article lui-même n'envisage pas la lecture diplomatique alternative qu'il aurait pu intégrer.",
-        "lesson": "Cherchez si l'auteur a anticipé l'objection la plus forte : un angle se renforce à intégrer la contre-lecture, pas à l'ignorer."
+        "rationale": "L'angle — confronter l'émoi européen pour ses propres militants au silence sur les Palestiniens — donne une perspective morale plus saisissante que la simple chronique des prisons. Mais l'observation reste dans le registre attendu de l'éditorial indigné, sans accès ni donnée propres au-delà des sources citées.",
+        "lesson": "Distinguez un angle moral bien construit d'une enquête originale : le premier reformule des faits connus, le second en apporte de nouveaux."
       }
     ],
     "verdict": {
       "quality": "adequate",
       "reading_recommendation": "with_reservations",
-      "for_whom": "Lecteur déjà familier du dossier israélo-palestinien, capable de recouper les chiffres et la qualification de torture avec d'autres sources, et venant chercher un point de vue éditorial assumé plutôt qu'un état des faits contradictoire.",
-      "payoff": "Vous saisirez le mécanisme rhétorique d'un éditorial à charge — comment le détail concret et le contraste chiffré construisent l'indignation — et repérerez où l'argument demande une vérification externe avant d'emporter l'adhésion.",
-      "signature_move": "Le bouclage du texte sur une même image d'humiliation physique, qui encadre toute l'analyse et substitue l'émotion morale à la démonstration.",
-      "main_blind_side": "L'absence totale de réponse israélienne ou du ministère visé révèle un choix éditorial assumé de réquisitoire plutôt que d'enquête contradictoire.",
+      "for_whom": "Le lecteur qui suit déjà le dossier des prisons israéliennes et veut une formulation morale percutante de l'inaction européenne, à condition de la recouper avec des sources contradictoires.",
+      "payoff": "Vous repartez avec un cadre clair — détention administrative, contraste chiffré, hypocrisie européenne — et une grille morale efficace. Mais vous devrez chercher ailleurs la réponse israélienne et la méthode derrière les chiffres.",
+      "signature_move": "Encadrer toute l'analyse par une même image d'humiliation, en ouverture et en clôture, pour transformer une indignation visuelle en jugement politique.",
+      "main_blind_side": "L'absence totale de réponse israélienne sollicitée révèle un texte conçu comme réquisitoire plutôt que comme enquête contradictoire.",
       "further_resource": {
-        "title": "On Photography",
-        "source": "Susan Sontag",
+        "title": "Manufacturing Consent: The Political Economy of the Mass Media",
+        "source": "Edward S. Herman & Noam Chomsky",
         "media_type": "book",
-        "why_explore": "Éclaire comment la mise en scène d'images de souffrance oriente le jugement moral avant tout argument.",
+        "why_explore": "Il outille le lecteur pour repérer comment le choix des sources et des voix entendues oriente un récit avant tout argument.",
         "url": null
       },
-      "summary": "Lecture à réserver à qui suit déjà ce dossier de près : l'éditorial est clair et frappant, mais sa charge repose sur une source unique et des chiffres non comparables, et l'absence de droit de réponse invite à recouper avant de conclure."
+      "summary": "Lecture à recommander avec réserves : l'éditorial pose un cadre moral clair et bien écrit sur l'inaction européenne, mais il s'appuie sur une source unique pour l'accusation la plus grave et n'entend jamais la partie visée. À recouper avant d'en tirer une conclusion."
     }
   },
   "blend": {
     "patterns": [
       {
-        "text": "L'accusation centrale de « camps de torture » repose sur une source unique (obs_1, claim_1), et cette fragilité probatoire se double d'un angle mort déontologique : le ministère visé n'est jamais sollicité (bs_0). Faiblesse du sourçage et absence de contradiction se renforcent mutuellement.",
+        "text": "L'accusation la plus lourde — les prisons devenues « camps de torture » — repose sur une source unique repérée par Logic, présentée telle quelle par Probe (confidence 48), sanctionnée par l'Éthique comme défaut de droit de réponse et notée 2 par Review : un même point d'appui fragile traverse quatre couches sans jamais être corroboré.",
         "layers": [
           "logic",
           "probe",
-          "ethics"
+          "ethics",
+          "review"
         ],
         "references": [
           "obs_1",
           "claim_1",
-          "bs_0"
+          "pr_1"
         ]
       },
       {
-        "text": "L'accumulation des détails dégradants opère à trois niveaux simultanés — ressort émotionnel d'indignation (er_0), biais rhétorique repéré (bias_0) et armature de cadrage qui ouvre et referme le texte (obs_0). L'émotion morale tient lieu de démonstration.",
-        "layers": [
-          "rhetoric",
-          "probe",
-          "logic"
-        ],
-        "references": [
-          "er_0",
-          "bias_0",
-          "obs_0"
-        ]
-      },
-      {
-        "text": "Le contraste 100/230 sert de pivot probatoire (obs_2, claim_2) alors que l'hypothèse de comparabilité des deux décomptes n'est jamais vérifiée (ia_2) : la preuve quantitative repose sur une équivalence méthodologique posée et non établie.",
+        "text": "La scène d'humiliation sert de cadre encadrant : Logic la repère comme dispositif de cadrage, Rhetoric en fait le moteur de l'indignation, Probe en démonte l'accumulation de détails physiques — une même image prépare la condamnation morale avant tout argument.",
         "layers": [
           "logic",
+          "rhetoric",
           "probe"
         ],
         "references": [
-          "obs_2",
-          "claim_2",
-          "ia_2"
+          "obs_0",
+          "er_0",
+          "bias_0"
         ]
       },
       {
-        "text": "Le sentiment d'hypocrisie cultivé rhétoriquement (er_1) s'appuie sur une fausse équivalence (bias_2) qui prolonge un saut logique déjà diagnostiqué (lr_0) : l'inaction diplomatique est haussée au rang d'acte moral délibéré, là où elle pourrait relever d'une contrainte.",
+        "text": "Le contraste chiffré 100/230 fonctionne comme pivot probatoire alors que Logic en doute l'hypothèse de comparabilité, Probe en pointe l'absence de méthode (« décomptes convergents ») et Review l'épingle en exactitude factuelle : un effet de preuve construit sur deux mesures hétérogènes.",
         "layers": [
-          "rhetoric",
+          "logic",
           "probe",
-          "logic"
+          "review"
         ],
         "references": [
-          "er_1",
-          "bias_2",
-          "lr_0"
+          "ia_2",
+          "obs_2",
+          "claim_2"
         ]
       },
       {
-        "text": "Nommer la France tout en gardant anonymes les trois pays ayant sanctionné (cb_1) converge avec l'angle mort sur le motif français du refus (bs_1) : le cadrage isole une faute singulière en escamotant sa justification possible.",
+        "text": "Le saut du silence européen à l'indifférence morale est à la fois une faille de validité chez Logic et une fausse équivalence chez Probe, soutenue rhétoriquement par le sentiment d'hypocrisie : la rhétorique colmate exactement le maillon logique manquant.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "lr_0",
+          "er_1",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "L'unilatéralité du récit est systémique : Logic note l'absence de réponse israélienne en angle mort, Probe relève le langage chargé qui disqualifie la partie visée, l'Éthique y voit un manquement au droit de réponse — la convergence transforme l'éditorial en réquisitoire.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "bs_0",
+          "bias_1"
+        ]
+      },
+      {
+        "text": "Le 7-Octobre n'est cité que comme déclencheur sans jamais être pesé : Logic l'isole en angle mort et en observation de contexte, ce qui sert précisément le cadrage que Rhetoric attribue à la cause palestinienne — l'explication concurrente est neutralisée au profit de la seule responsabilité de Ben Gvir.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "bs_2",
+          "obs_3",
+          "cb_0"
+        ]
+      },
+      {
+        "text": "Nommer la France tout en gardant anonymes les trois pays ayant sanctionné isole l'inaction comme faute singulière : ce choix de cadrage repéré par Rhetoric s'appuie sur l'assomption implicite, posée par Logic, que le silence équivaut à une indifférence morale plutôt qu'à une contrainte diplomatique.",
         "layers": [
           "rhetoric",
           "logic"
         ],
         "references": [
           "cb_1",
-          "bs_1"
+          "ia_1"
         ]
       },
       {
-        "text": "L'empilement d'adjectifs sur Ben Gvir (bias_1) et l'imputation d'intention présentée comme un fait, « se flatte de répandre la haine » (claim_3), prolongent le ressort d'indignation (er_0) : le jugement moral sur l'homme précède systématiquement l'examen de ses actes.",
+        "text": "« Se flatte de répandre la haine » fait passer une intention prêtée pour un fait : Probe le classe en opinion énoncée comme fait, et le registre d'indignation de Rhetoric fournit le terrain affectif qui rend ce glissement acceptable au lecteur.",
         "layers": [
           "probe",
           "rhetoric"
         ],
         "references": [
-          "bias_1",
           "claim_3",
           "er_0"
         ]
@@ -709,117 +750,112 @@
   "distill": {
     "points": [
       {
-        "text": "L'accusation centrale de **« camps de torture »** ne tient qu'à une **source unique et engagée** que ni la logique, ni la rhétorique, ni la vérification ne consolident : le lecteur prend pour fait établi ce qui reste un témoignage non recoupé.",
+        "text": "L'accusation la plus lourde de l'article — les prisons devenues « camps de torture » — repose sur une source unique, non corroborée, et traverse pourtant quatre couches d'analyse intactes : ce qui fonde la condamnation morale n'a jamais été vérifié.",
         "references": [
-          "lr_1",
-          "ia_3",
-          "cb_1",
-          "claim_0",
-          "bias_2"
+          "obs_1",
+          "claim_1",
+          "pr_1"
         ]
       },
       {
-        "text": "L'absence totale de **réponse israélienne** aux accusations n'est pas un oubli mais un **choix éditorial** : taire l'autre version permet de convertir une omission diplomatique en reniement moral, au mépris du droit de réponse.",
+        "text": "L'unilatéralité n'est pas un accident mais la structure même du texte : absence de réponse israélienne, langage disqualifiant la partie visée et manquement au droit de réponse convergent pour transformer l'éditorial en réquisitoire.",
         "references": [
           "bs_0",
-          "focus",
-          "claim_0"
-        ]
-      },
-      {
-        "text": "Le **« aussi scandaleuse que »** sert de pivot : cette **fausse équivalence** assimile l'omission à un acte délibéré et porte, seule, toute la thèse morale de l'article.",
-        "references": [
-          "lr_3",
-          "ia_2",
-          "claim_3",
           "bias_1"
         ]
       },
       {
-        "text": "L'**ancrage émotionnel** initial sur l'humiliation filmée précède et conditionne le raisonnement : l'indignation est **installée avant l'examen** des causes, disposant le lecteur à juger d'abord.",
+        "text": "Le 7-Octobre n'est cité que comme déclencheur, jamais pesé : en l'isolant comme angle mort, l'article neutralise l'explication concurrente et reporte la responsabilité entière sur Ben Gvir.",
         "references": [
-          "er_0",
-          "bias_0",
-          "obs_1"
+          "bs_2",
+          "obs_3",
+          "cb_0"
         ]
       },
       {
-        "text": "L'**opposition chiffrée** (cent morts contre 230) frappe par son effet d'effroi alors que la **méthodologie des décomptes** reste non détaillée : la force du chiffre masque la fragilité de son sourçage.",
+        "text": "Le contraste 100/230 fonctionne comme pivot de preuve alors qu'il compare deux mesures hétérogènes, sans méthode explicite : l'effet probatoire central du texte tient sur des chiffres non comparables.",
         "references": [
+          "ia_2",
+          "obs_2",
+          "claim_2"
+        ]
+      },
+      {
+        "text": "Le saut du silence européen à l'indifférence morale est un maillon logique manquant que la rhétorique de l'hypocrisie vient combler exactement là où l'argument fait défaut.",
+        "references": [
+          "lr_0",
           "er_1",
-          "claim_1",
-          "lr_2"
+          "bias_2"
         ]
       }
     ],
-    "open_question": "L'article efface-t-il les contraintes diplomatiques par parti pris assumé, ou parce que son cadre — une omission lue comme reniement — rend structurellement impensable l'hypothèse que l'Europe n'ait jamais eu le pouvoir d'infléchir le cours des choses ?"
+    "open_question": "L'unilatéralité du récit relève-t-elle d'un choix de réquisitoire assumé ou d'une contrainte éditoriale, indécidable depuis le seul texte ?"
   },
   "guide": {
     "pre_reading": [
-      "Repérez d'emblée le contraste qui structure tout le texte : l'émoi pour les militants européens opposé au silence sur les détenus palestiniens.",
-      "Lisez ceci comme un éditorial militant : attendez-vous à une thèse morale assumée plutôt qu'à un état des lieux contradictoire.",
-      "Gardez en tête que la politique carcérale israélienne relève aussi d'un arbitrage diplomatique, dimension que le texte pourrait laisser de côté.",
-      "Soyez attentif à la place du chiffre et de l'image : ils portent souvent l'émotion avant l'argument."
+      "Repérez dès l'ouverture la **scène d'humiliation** : elle sert de cadre et oriente la lecture bien avant le moindre argument.",
+      "Gardez en tête que le texte est un **éditorial à thèse**, construit pour conduire de l'inaction européenne à un jugement moral, non une enquête contradictoire.",
+      "Un peu de **scepticisme sur les chiffres** est utile : demandez-vous d'où viennent les décomptes et s'ils mesurent vraiment la même chose."
     ],
     "watch_out": {
       "items": [
         {
           "id": "",
-          "text": "L'accusation la plus grave — les prisons devenues « camps de torture » — ne s'appuie que sur une source unique et engagée, jamais recoupée. Vous risquez de prendre pour fait établi ce qui reste un témoignage non vérifié.",
+          "text": "L'accusation la plus grave du texte ne s'appuie que sur **une seule organisation**, sans corroboration indépendante ni voix adverse. Une source crédible ne dispense pas de la recouper.",
           "references": [
-            "claim_0",
-            "lr_1",
-            "bias_2"
-          ]
-        },
-        {
-          "id": "",
-          "text": "Le « aussi scandaleuse que » met sur le même plan une omission et un acte délibéré. Cette équivalence n'est pas démontrée, et pourtant elle porte à elle seule la thèse morale du texte.",
-          "references": [
-            "lr_3",
-            "ia_2",
-            "bias_1"
-          ]
-        },
-        {
-          "id": "",
-          "text": "L'ouverture sur la scène d'humiliation filmée installe l'indignation avant tout examen des causes. Méfiez-vous d'un jugement qui se forme par l'émotion plutôt que par l'analyse.",
-          "references": [
-            "er_0",
-            "bias_0",
+            "claim_1",
+            "pr_1",
             "obs_1"
           ]
         },
         {
           "id": "",
-          "text": "L'opposition chiffrée (cent morts contre 230) frappe fort, mais la méthodologie des décomptes n'est jamais détaillée. La force du chiffre peut masquer la fragilité de son sourçage.",
+          "text": "Le **contraste chiffré central** rapproche deux périodes sans méthode de comptage commune. Un écart frappant n'est une preuve que si les deux mesures sont comparables.",
           "references": [
-            "er_1",
-            "claim_1",
-            "lr_2"
+            "ia_2",
+            "obs_2",
+            "claim_2"
           ]
         },
         {
           "id": "",
-          "text": "Aucune réponse israélienne aux accusations, aucune voix palestinienne directe : une seule partie parle, l'autre n'est que décrite. Cherchez ailleurs l'autre version des faits.",
+          "text": "Le passage du **silence européen à une indifférence morale** est posé comme une évidence, là où il pourrait aussi traduire une contrainte diplomatique. Méfiez-vous de ce saut présenté comme allant de soi.",
+          "references": [
+            "lr_0",
+            "er_1",
+            "bias_2"
+          ]
+        },
+        {
+          "id": "",
+          "text": "Une seule partie est entendue : la cible des accusations n'a **aucun droit de réponse** et n'est décrite que par ses adversaires. Comptez les voix avant d'adhérer au récit.",
           "references": [
             "bs_0",
-            "claim_0"
+            "bias_1"
+          ]
+        },
+        {
+          "id": "",
+          "text": "Le 7-Octobre n'apparaît que comme **déclencheur**, jamais pesé comme explication concurrente de la dégradation des conditions. Notez ce contexte mentionné mais neutralisé.",
+          "references": [
+            "bs_2",
+            "obs_3",
+            "cb_0"
           ]
         }
       ]
     },
     "after_reading": [
-      "Avant d'adopter l'accusation centrale, demandez-vous sur combien de sources indépendantes elle repose réellement.",
-      "Retenez que le contraste émotionnel du texte est un choix de cadrage, pas une preuve que les deux situations sont comparables.",
-      "Recoupez les données vérifiables (sanctions européennes, décomptes en détention) avec des sources contradictoires avant de les tenir pour acquises.",
-      "Posez-vous la question que le texte évite : l'Europe avait-elle vraiment le pouvoir d'infléchir cette politique carcérale ?"
+      "Demandez-vous ce que **la partie visée aurait répondu** : son absence change la nature de ce que vous venez de lire.",
+      "Avant de retenir le **contraste chiffré**, cherchez la méthode derrière chaque décompte.",
+      "Distinguez ce qui relève du **fait établi** de ce qui relève du jugement moral du texte, souvent fondus dans la même phrase.",
+      "Recoupez l'accusation la plus lourde avec des **sources contradictoires** avant d'en tirer une conclusion."
     ],
-    "title_note": "Le titre pose la « passivité » comme un choix coupable, orientant la lecture vers le procès moral avant même que les faits ne soient exposés.",
+    "title_note": null,
     "perspective": {
-      "framing": "L'article adopte l'angle d'un éditorial moral construit sur un contraste : l'émoi suscité par des militants européens face au silence entourant les détenus palestiniens. Il place au centre une scène d'humiliation filmée, dont le registre émotionnel irrigue tout le raisonnement, et parle depuis la perspective des partisans de sanctions contre Israël.",
-      "blind_spots": "Le texte tait deux choses essentielles : les contraintes diplomatiques qui pourraient expliquer l'inaction européenne, et toute réponse israélienne aux accusations portées. L'hypothèse que l'Europe aurait le pouvoir et le devoir d'infléchir cette politique n'est jamais explicitée ni discutée.",
-      "balance": "Ce que l'analyse signale est réel, mais à calibrer selon le genre : un éditorial assume une position et n'est pas tenu de présenter toutes les voix, et un format court ne peut être exhaustif. L'absence de contre-arguments est ici un choix légitime de ligne éditoriale — au lecteur, dès lors, de replacer ce texte dans un ensemble de sources plutôt que de le lire comme un compte rendu équilibré."
+      "framing": "L'article choisit un **angle moral** : il confronte l'émoi européen pour ses propres militants au silence sur les Palestiniens, et place au centre une image d'humiliation reprise en ouverture et en clôture. Le registre est celui de l'**indignation assumée**, parlant depuis la cause des détenus.",
+      "blind_spots": "Deux absences structurent le texte : **aucune réponse israélienne** n'est sollicitée, et le **motif diplomatique** invoqué par la France pour ne pas sanctionner reste passé sous silence. Le 7-Octobre est cité sans jamais être pesé comme cause concurrente.",
+      "balance": "Ces limites sont réelles, mais un **éditorial qui assume sa position** n'est pas tenu de présenter toutes les parties, et un format court ne peut être exhaustif. L'absence de contradiction est ici un **choix de genre** légitime tant que la ligne reste explicite : ce que l'analyse signale aide à calibrer la lecture, pas à disqualifier le texte."
     }
   }
 }

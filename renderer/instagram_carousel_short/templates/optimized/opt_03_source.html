@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.b-num { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; }
+.b-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 30px; }
+.b-head { font-size: 62px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
+.b-body { font-size: 37px; font-weight: 400; line-height: 1.5; color: #e0e0e0; max-width: 920px; }
+.b-body strong { color: #d4aa00; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">03</div>
+  {% include '_brand.html' %}
+  <div class="b-stage">
+    <span class="b-num">Le piège n° 1 — Les sources</span>
+    <h1 class="b-head">L'accusation choc tient à une seule source</h1>
+    <div class="divider"></div>
+    <p class="b-body">« Camps de torture » : la charge la plus grave de l'article repose sur une seule organisation, jamais recoupée. <strong>Un témoignage n'est pas un fait.</strong></p>
+  </div>
+  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Et le raisonnement&nbsp;? &#8250;</span></div>
+  <div class="slide-num">3 / 8</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 37%;"></div></div>
+</div>
+</body>
+</html>

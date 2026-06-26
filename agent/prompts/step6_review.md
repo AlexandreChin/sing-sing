@@ -6,14 +6,16 @@ Evaluate the quality of this content (article, editorial, documentary, video, re
 
 ---
 
-## Dimensions — produce exactly 6, one per key, in this order:
+## Dimensions — produce exactly 8, one per key, in this order:
 
 1. source_rigor          — Label: "Source Rigor"
-2. reasoning_structure   — Label: "Reasoning Structure"
-3. approach_transparency — Label: "Approach Transparency"
-4. treatment_fairness    — Label: "Treatment Fairness"
-5. clarity               — Label: "Clarity"
-6. angle_originality     — Label: "Angle & Originality"
+2. factual_accuracy      — Label: "Factual Accuracy"
+3. reasoning_structure   — Label: "Reasoning Structure"
+4. approach_transparency — Label: "Approach Transparency"
+5. context_completeness  — Label: "Context & Completeness"
+6. treatment_fairness    — Label: "Treatment Fairness"
+7. clarity               — Label: "Clarity"
+8. angle_originality     — Label: "Angle & Originality"
 
 For each dimension:
 
@@ -31,8 +33,10 @@ Evidence mapping:
 | Dimension              | Primary evidence fields                                                                   |
 |------------------------|-------------------------------------------------------------------------------------------|
 | source_rigor           | `annotations.facts_vs_opinions.claims_and_sources`, `extraction.authority_anchors`        |
+| factual_accuracy       | `annotations.facts_vs_opinions.claims_and_sources` (confidence, `presentation`, contradicting evidence), `extraction.key_quotes` |
 | reasoning_structure    | `analysis.fond.logical_reasoning`, `analysis.fond.premisses`                              |
 | approach_transparency  | `analysis.fond.blind_spots`, `analysis.fond.implicit_assumptions`                         |
+| context_completeness   | `context.contexts`, `extraction.notable_omissions`, `analysis.fond.blind_spots`, `analysis.fond.emphasis` |
 | treatment_fairness     | `annotations.biases_and_focus.biases_and_rhetoric`, `annotations.biases_and_focus.focus`  |
 | clarity                | `analysis.forme.cadrage.title_analysis`, `context.key_terms`                              |
 | angle_originality      | `analysis.fond.observations`, `analysis.fond.emphasis`, `analysis.fond.steel_man`         |
@@ -42,6 +46,14 @@ What each dimension covers:
 source_rigor
   Diversity, independence, attribution quality. Single-source claims on heavy accusations?
   Anonymous sources justified? Expert authority earned or merely invoked?
+  This is about WHO and HOW MANY — the sourcing apparatus, not whether the facts are true.
+
+factual_accuracy
+  Whether the concrete, checkable assertions actually hold up — dates, figures, named quotes,
+  causal statements. Distinct from source_rigor: a piece can cite many sources and still get
+  facts wrong, or report a true fact thinly sourced. Look for claims presented as established
+  fact (`presentation: presented_as_established_fact` / `opinion_stated_as_fact`), low
+  `confidence`, figures compared without a common base, and any contradicting evidence.
 
 reasoning_structure
   Coherence between premises, arguments, conclusions. Inferences valid? Logical jumps
@@ -50,6 +62,14 @@ reasoning_structure
 approach_transparency
   Does the content make its POV, method, and limits explicit? Fact vs. interpretation
   vs. judgment clearly distinguished? Omissions acknowledged or silent?
+  This is about DISCLOSING the angle — not whether the substance is complete.
+
+context_completeness
+  Proportionality and completeness of substance. Does the piece give the background a reader
+  needs to judge the story, and weight elements proportionally? Or does it cherry-pick, bury
+  caveats, and omit the strongest counter-fact? Overlaps approach_transparency but differs:
+  transparency is about admitting the angle, this is about whether the content is complete
+  and balanced enough to be fair regardless of what is disclosed.
 
 treatment_fairness
   Fair voice for concerned parties? Complexity respected or flattened? Vocabulary or
@@ -71,10 +91,15 @@ It evaluates journalistic CRAFT, not content — do not restate items from the a
 Account for the Ethics findings: a piece with a critical ethics violation
 cannot be `reading_recommendation: "recommended"`.
 
+**Single thesis.** `summary`, `payoff`, and `signature_move` must all turn on the same dominant factor — the one or two things that most move the score. Never let `signature_move` foreground one issue (e.g. emotional framing) while `summary` foregrounds another (e.g. weak sourcing); lead all three with that driver and frame the technique as serving it.
+
 - quality : "exemplary" | "solid" | "adequate" | "instructive_by_contrast" | "weak"
-  Must match the dimension score average:
+  A qualitative cross-check, roughly matching the dimension score average:
   exemplary ≥ 4.5 · solid 3.5–4.4 · adequate 2.5–3.4
   instructive_by_contrast < 2.5 but pedagogically rich · weak < 2.5, no redeeming value
+  (Note: the published global score is a WEIGHTED average of the dimensions, computed
+  downstream — factual_accuracy and reasoning_structure weigh most, craft axes least.
+  Score each dimension honestly; the weighting is applied for you.)
 
 - reading_recommendation : "recommended" | "with_reservations" | "not_recommended"
   Direct verdict for the reader. Must be consistent with `quality` and the Ethics findings:

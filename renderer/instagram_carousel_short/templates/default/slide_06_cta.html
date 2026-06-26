@@ -57,7 +57,7 @@
   <div class="section-phase phase-retenir">Avant de partir</div>
 
   <div style="margin-bottom: 20px;">
-    <p class="cta-headline">Cette analyse<br>vous a <em>plu ?</em></p>
+    <p class="cta-headline">{% if cta_title %}{{ cta_title | md_bold }}{% else %}Cette analyse<br>vous a <em>plu ?</em>{% endif %}</p>
   </div>
   <div class="divider"></div>
 

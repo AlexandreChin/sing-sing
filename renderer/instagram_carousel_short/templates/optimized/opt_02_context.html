@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.kicker { font-size: 30px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #d4aa00; margin-bottom: 34px; }
+.ctx { font-size: 54px; font-weight: 800; line-height: 1.24; letter-spacing: -0.01em; color: #f0f0f0; max-width: 900px; text-wrap: balance; }
+.ctx strong { color: #d4aa00; }
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: center; align-items: center; text-align: center;">
+  <div class="slide-watermark">02</div>
+  {% include '_brand.html' %}
+  <span class="kicker">Le constat</span>
+  <p class="ctx">Un texte peut être clair, bien écrit… et <strong>mal raisonner</strong>.<br>Celui-ci en est un cas d'école.</p>
+  <div class="slide-num">2 / 8</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 25%;"></div></div>
+</div>
+</body>
+</html>

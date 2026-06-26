@@ -332,8 +332,10 @@ class ResourceReference(BaseModel):
 class ReviewDimension(BaseModel):
     dimension: Literal[
         "source_rigor",
+        "factual_accuracy",
         "reasoning_structure",
         "approach_transparency",
+        "context_completeness",
         "treatment_fairness",
         "clarity",
         "angle_originality",
@@ -356,7 +358,7 @@ class ReviewVerdict(BaseModel):
 
 
 class Review(BaseModel):
-    dimensions: list[ReviewDimension]  # exactly 6, one per dimension
+    dimensions: list[ReviewDimension]  # exactly 8, one per dimension
     verdict: ReviewVerdict
 
 

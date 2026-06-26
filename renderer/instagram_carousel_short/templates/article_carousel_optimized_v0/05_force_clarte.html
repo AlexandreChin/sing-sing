@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.b-num { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; }
+.b-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 30px; }
+.b-head { font-size: 64px; font-weight: 900; line-height: 1.08; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
+.b-body { font-size: 42px; font-weight: 400; line-height: 1.5; color: #e0e0e0; max-width: 920px; }
+.b-body strong { color: #d4aa00; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">05</div>
+  {% include '_brand.html' %}
+  <div class="b-stage">
+    <span class="b-num">Ce qui tient</span>
+    <h1 class="b-head">Une vraie clarté pédagogique.</h1>
+    <div class="divider"></div>
+    <p class="b-body">Le sujet est limpide et bien posé. <strong>Mais</strong> une ouverture forte oriente la lecture autant qu'elle l'éclaire.</p>
+  </div>
+  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Prendre du recul &#8250;</span></div>
+  <div class="slide-num">5 / 9</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 56%;"></div></div>
+</div>
+</body>
+</html>

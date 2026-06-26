@@ -1,0 +1,121 @@
+{
+  "hook": {
+    "topic": "Prisons israéliennes",
+    "sub_topic": "le silence des capitales européennes",
+    "headline": "Pourquoi l'émoi s'arrête-t-il à la porte des prisons ?",
+    "context_line": "Des images humiliantes émeuvent l'Europe, mais le sort des détenus palestiniens reste sans réaction officielle."
+  },
+  "interest": {
+    "why_read": "Voir comment une **image forte** se transforme en **jugement politique**.",
+    "pull_quote": "les prisons réservées aux Palestiniens sont devenues « des camps de torture »",
+    "next_slide_hook": "D'abord, qui parle et dans quel décor se joue la scène."
+  },
+  "title_bullets": [
+    "Notez que « **passivité** » est posée comme un fait, alors que c'est la thèse à prouver.",
+    "Repérez « **extrême droite israélienne** » : une qualification qui oriente avant tout argument.",
+    "Observez que le titre oppose l'Europe à Israël **sans nommer les Palestiniens**."
+  ],
+  "chapo_bullets": [
+    "Voyez comment le chapeau **met en regard** l'émoi européen et le silence sur les détenus.",
+    "Remarquez le glissement vers les **conditions de détention** posées d'emblée comme dégradantes."
+  ],
+  "context_next_slide_hook": "Maintenant, les trois points de vigilance à garder en tête.",
+  "watch_out_next_slide_hook": "Voyons sur quoi repose vraiment l'argument : le fond.",
+  "forme_next_slide_hook": "Place aux faits : ce qui est établi, ce qui est attribué.",
+  "biases_next_slide_hook": "Reste à rassembler les fils : la synthèse.",
+  "engagement_question": "Un éditorial qui assume sa thèse est-il obligé d'entendre la partie qu'il accuse ?",
+  "go_further": [
+    {
+      "title": "Manufacturing Consent: The Political Economy of the Mass Media",
+      "source": "Edward S. Herman & Noam Chomsky",
+      "media_type": "book",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Comprendre comment le choix des sources et des voix entendues oriente un récit avant tout argument.",
+      "cta_question_index": null
+    },
+    {
+      "title": "La détention administrative dans les territoires occupés",
+      "source": "Comité international de la Croix-Rouge",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": 20,
+      "why_explore": "Situer le cadre juridique invoqué autour d'un emprisonnement sans inculpation ni jugement.",
+      "cta_question_index": 2
+    },
+    {
+      "title": "Un véritable enfer : le système carcéral israélien",
+      "source": "B'Tselem",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": 30,
+      "why_explore": "Lire la source unique de l'accusation la plus grave, puis chercher à la recouper.",
+      "cta_question_index": 0
+    }
+  ],
+  "cta": {
+    "engagement_sentence": "Dites-nous en commentaire ou en DM : où placez-vous la frontière entre éditorial assumé et réquisitoire à charge ?",
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "Une accusation de torture portée par une seule organisation vous suffit-elle pour conclure ?",
+        "type": "article_quality"
+      },
+      {
+        "id": "q_1",
+        "question": "Le silence des capitales traduit-il une indifférence morale ou une contrainte diplomatique ?",
+        "type": "topic_substance"
+      },
+      {
+        "id": "q_2",
+        "question": "Qu'aurait répondu la partie visée, jamais entendue dans ce texte ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_3",
+        "question": "Une scène d'humiliation forte change-t-elle votre lecture avant tout argument ?",
+        "type": "reader_bias"
+      }
+    ]
+  },
+  "display": {
+    "payoff": "Un cadre moral clair sur l'inaction européenne, à recouper ailleurs.",
+    "framing": "Confronte l'émoi européen pour ses militants au silence sur les Palestiniens.",
+    "ethics": "Un point de vigilance : droit de réponse absent.",
+    "pre_reading": [
+      "L'ouverture impose une scène d'humiliation qui oriente la lecture.",
+      "C'est un éditorial à thèse, pas une enquête."
+    ],
+    "watch_out": [
+      {
+        "label": "Source unique",
+        "text": "L'accusation la plus grave repose sur une seule organisation, sans corroboration."
+      },
+      {
+        "label": "Méthodologie",
+        "text": "Le contraste chiffré compare deux périodes sans méthode de comptage commune."
+      }
+    ],
+    "distill_points": [
+      "L'accusation de « camps de torture » repose sur une source unique, jamais corroborée mais centrale.",
+      "L'unilatéralité est structurelle : aucune réponse israélienne, partie visée décrite par ses seuls adversaires.",
+      "Le contraste 100/230 sert de preuve alors qu'il compare des mesures hétérogènes."
+    ],
+    "after_reading": [
+      "Demandez ce qu'aurait répondu la partie visée.",
+      "Cherchez la méthode derrière chaque décompte.",
+      "Séparez le fait établi du jugement moral."
+    ],
+    "blind_spots": [
+      "Aucune réponse israélienne aux accusations n'est sollicitée.",
+      "Le motif diplomatique français du refus de sanctions reste tu."
+    ],
+    "balance": [
+      "Un éditorial assumé n'a pas à présenter toutes les parties.",
+      "Ces limites calibrent la lecture, elles ne disqualifient pas le texte."
+    ]
+  }
+}

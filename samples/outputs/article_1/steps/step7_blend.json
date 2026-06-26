@@ -1,0 +1,107 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "L'accusation la plus lourde — les prisons devenues « camps de torture » — repose sur une source unique repérée par Logic, présentée telle quelle par Probe (confidence 48), sanctionnée par l'Éthique comme défaut de droit de réponse et notée 2 par Review : un même point d'appui fragile traverse quatre couches sans jamais être corroboré.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "obs_1",
+          "claim_1",
+          "pr_1"
+        ]
+      },
+      {
+        "text": "La scène d'humiliation sert de cadre encadrant : Logic la repère comme dispositif de cadrage, Rhetoric en fait le moteur de l'indignation, Probe en démonte l'accumulation de détails physiques — une même image prépare la condamnation morale avant tout argument.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "obs_0",
+          "er_0",
+          "bias_0"
+        ]
+      },
+      {
+        "text": "Le contraste chiffré 100/230 fonctionne comme pivot probatoire alors que Logic en doute l'hypothèse de comparabilité, Probe en pointe l'absence de méthode (« décomptes convergents ») et Review l'épingle en exactitude factuelle : un effet de preuve construit sur deux mesures hétérogènes.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "ia_2",
+          "obs_2",
+          "claim_2"
+        ]
+      },
+      {
+        "text": "Le saut du silence européen à l'indifférence morale est à la fois une faille de validité chez Logic et une fausse équivalence chez Probe, soutenue rhétoriquement par le sentiment d'hypocrisie : la rhétorique colmate exactement le maillon logique manquant.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "lr_0",
+          "er_1",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "L'unilatéralité du récit est systémique : Logic note l'absence de réponse israélienne en angle mort, Probe relève le langage chargé qui disqualifie la partie visée, l'Éthique y voit un manquement au droit de réponse — la convergence transforme l'éditorial en réquisitoire.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "bs_0",
+          "bias_1"
+        ]
+      },
+      {
+        "text": "Le 7-Octobre n'est cité que comme déclencheur sans jamais être pesé : Logic l'isole en angle mort et en observation de contexte, ce qui sert précisément le cadrage que Rhetoric attribue à la cause palestinienne — l'explication concurrente est neutralisée au profit de la seule responsabilité de Ben Gvir.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "bs_2",
+          "obs_3",
+          "cb_0"
+        ]
+      },
+      {
+        "text": "Nommer la France tout en gardant anonymes les trois pays ayant sanctionné isole l'inaction comme faute singulière : ce choix de cadrage repéré par Rhetoric s'appuie sur l'assomption implicite, posée par Logic, que le silence équivaut à une indifférence morale plutôt qu'à une contrainte diplomatique.",
+        "layers": [
+          "rhetoric",
+          "logic"
+        ],
+        "references": [
+          "cb_1",
+          "ia_1"
+        ]
+      },
+      {
+        "text": "« Se flatte de répandre la haine » fait passer une intention prêtée pour un fait : Probe le classe en opinion énoncée comme fait, et le registre d'indignation de Rhetoric fournit le terrain affectif qui rend ce glissement acceptable au lecteur.",
+        "layers": [
+          "probe",
+          "rhetoric"
+        ],
+        "references": [
+          "claim_3",
+          "er_0"
+        ]
+      }
+    ]
+  }
+}

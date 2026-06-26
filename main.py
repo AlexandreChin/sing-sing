@@ -11,14 +11,27 @@ load_dotenv()
 OUTPUTS_DIR = Path("samples/outputs")
 
 
+def _layout(stem: str, fmt: str | None = None) -> dict:
+    """Per-analysis output layout:
+    outputs/<stem>/{analysis.json, steps/, <fmt>/{adapt.json, document.json, slides/}}."""
+    base = OUTPUTS_DIR / stem
+    paths = {"base": base, "analysis": base / "analysis.json", "steps": base / "steps"}
+    if fmt:
+        fdir = base / fmt
+        paths |= {"fmt_dir": fdir, "adapt": fdir / "adapt.json",
+                  "document": fdir / "document.json", "slides": fdir / "slides"}
+    return paths
+
 
 async def run_full_analysis(text: str, no_api: bool = False, input_path: str | None = None, extra_instructions: str | None = None) -> Path:
     analysis_input = FullAnalysisInput(body=text, extra_instructions=extra_instructions)
 
     OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
     stem = Path(input_path).stem if input_path else datetime.now().strftime("%Y%m%d_%H%M%S")
-    steps_dir = OUTPUTS_DIR / f"{stem}_steps"
-    output_path = OUTPUTS_DIR / f"{stem}_article_full_analysis.json"
+    lay = _layout(stem)
+    lay["base"].mkdir(parents=True, exist_ok=True)
+    steps_dir = lay["steps"]
+    output_path = lay["analysis"]
 
     result = await analyze_for_full_analysis(analysis_input, no_api=no_api, steps_dir=steps_dir)
 
@@ -60,7 +73,7 @@ async def main():
         if do_render and output_path:
             from renderer.instagram_carousel_long.renderer import render_from_json
             stem = Path(input_path).stem if input_path else "analysis"
-            slides_dir = OUTPUTS_DIR / stem
+            slides_dir = _layout(stem, "instagram_carousel_long")["slides"]
             print(f"Rendering slides to {slides_dir}/", file=sys.stderr)
             await asyncio.to_thread(render_from_json, output_path, slides_dir)
 
@@ -267,37 +280,33 @@ async def main():
         input_path = positional[0]
         text = Path(input_path).read_text(encoding="utf-8").strip()
         stem = Path(input_path).stem
-        steps_dir = OUTPUTS_DIR / f"{stem}_steps"
-        analysis_path = OUTPUTS_DIR / f"{stem}_article_full_analysis.json"
-        OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
+        lay = _layout(stem, fmt)
+        lay["fmt_dir"].mkdir(parents=True, exist_ok=True)
         full = await analyze_for_full_analysis(
             __import__("models", fromlist=["FullAnalysisInput"]).FullAnalysisInput(body=text),
             no_api=no_api,
-            steps_dir=steps_dir,
+            steps_dir=lay["steps"],
         )
-        analysis_path.write_text(full.model_dump_json(indent=2), encoding="utf-8")
-        print(f"Analysis written to {analysis_path}", file=sys.stderr)
+        lay["analysis"].write_text(full.model_dump_json(indent=2), encoding="utf-8")
+        print(f"Analysis written to {lay['analysis']}", file=sys.stderr)
 
         # 2. Adapt
         adapt_fn = importlib.import_module(agent_mod).adapt
         presentation = adapt_fn(full, no_api=no_api)
-        presentation_path = OUTPUTS_DIR / f"{stem}_{fmt}_adapt.json"
-        presentation_path.write_text(presentation.model_dump_json(indent=2), encoding="utf-8")
-        print(f"Presentation written to {presentation_path}", file=sys.stderr)
+        lay["adapt"].write_text(presentation.model_dump_json(indent=2), encoding="utf-8")
+        print(f"Presentation written to {lay['adapt']}", file=sys.stderr)
 
         # 3. Extract
         extract_fn = importlib.import_module(extractor_mod).extract
         doc = extract_fn(full, presentation)
-        doc_path = OUTPUTS_DIR / f"{stem}_{fmt}_document.json"
-        doc_path.write_text(doc.model_dump_json(indent=2), encoding="utf-8")
-        print(f"Document written to {doc_path}", file=sys.stderr)
+        lay["document"].write_text(doc.model_dump_json(indent=2), encoding="utf-8")
+        print(f"Document written to {lay['document']}", file=sys.stderr)
 
         # 4. Render (optional)
         if do_render:
             render_from_json = importlib.import_module(renderer_mod).render_from_json
-            slides_dir = doc_path.parent / doc_path.stem
-            print(f"Rendering slides to {slides_dir}/", file=sys.stderr)
-            await asyncio.to_thread(render_from_json, doc_path, slides_dir)
+            print(f"Rendering slides to {lay['slides']}/", file=sys.stderr)
+            await asyncio.to_thread(render_from_json, lay["document"], lay["slides"])
 
     else:
         print("Usage: python main.py <analyze|adapt|extract|produce|render|validate|verify|graph> [args]", file=sys.stderr)

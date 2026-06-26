@@ -16,6 +16,8 @@ _PROMPT = (Path(__file__).parent / "prompts" / "instagram_carousel.md").read_tex
 def _validate(data: dict) -> list[str]:
     pres = InstagramCarouselPresentation.model_validate(data)
     errors = []
+    if not pres.cta.title.strip():
+        errors.append("cta.title is empty")
     n_cta = len(pres.cta.post_reading_questions)
     if not (1 <= n_cta <= 4):
         errors.append(f"cta.post_reading_questions: expected 1–4, got {n_cta}")
@@ -54,8 +56,17 @@ def _validate(data: dict) -> list[str]:
 
 
 def _full_analysis_context(full: ArticleFullAnalysis) -> str:
+    verdict = ""
+    if full.review:
+        v = full.review.verdict
+        verdict = (
+            "VERDICT (fil conducteur — toute la présentation doit y mener) :\n"
+            f"  qualité : {v.quality} · recommandation : {v.reading_recommendation}\n"
+            f"  thèse : {v.summary}\n\n"
+        )
     return (
         f"ARTICLE METADATA :\n{_j(full.article_metadata.model_dump())}\n\n"
+        f"{verdict}"
         f"ANALYSE COMPLÈTE :\n{full.model_dump_json(indent=2)}"
     )
 

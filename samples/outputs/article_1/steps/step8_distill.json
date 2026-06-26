@@ -1,0 +1,46 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "L'accusation la plus lourde de l'article — les prisons devenues « camps de torture » — repose sur une source unique, non corroborée, et traverse pourtant quatre couches d'analyse intactes : ce qui fonde la condamnation morale n'a jamais été vérifié.",
+        "references": [
+          "obs_1",
+          "claim_1",
+          "pr_1"
+        ]
+      },
+      {
+        "text": "L'unilatéralité n'est pas un accident mais la structure même du texte : absence de réponse israélienne, langage disqualifiant la partie visée et manquement au droit de réponse convergent pour transformer l'éditorial en réquisitoire.",
+        "references": [
+          "bs_0",
+          "bias_1"
+        ]
+      },
+      {
+        "text": "Le 7-Octobre n'est cité que comme déclencheur, jamais pesé : en l'isolant comme angle mort, l'article neutralise l'explication concurrente et reporte la responsabilité entière sur Ben Gvir.",
+        "references": [
+          "bs_2",
+          "obs_3",
+          "cb_0"
+        ]
+      },
+      {
+        "text": "Le contraste 100/230 fonctionne comme pivot de preuve alors qu'il compare deux mesures hétérogènes, sans méthode explicite : l'effet probatoire central du texte tient sur des chiffres non comparables.",
+        "references": [
+          "ia_2",
+          "obs_2",
+          "claim_2"
+        ]
+      },
+      {
+        "text": "Le saut du silence européen à l'indifférence morale est un maillon logique manquant que la rhétorique de l'hypocrisie vient combler exactement là où l'argument fait défaut.",
+        "references": [
+          "lr_0",
+          "er_1",
+          "bias_2"
+        ]
+      }
+    ],
+    "open_question": "L'unilatéralité du récit relève-t-elle d'un choix de réquisitoire assumé ou d'une contrainte éditoriale, indécidable depuis le seul texte ?"
+  }
+}

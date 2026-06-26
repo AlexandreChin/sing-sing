@@ -19,6 +19,10 @@
 .grow.main .tk { height: 30px; }
 .grow.main .mk { width: 58px; height: 58px; margin-left: -29px; border-width: 10px; }
 
+/* short rationale under the main gauge */
+.score-why { font-size: 32px; font-weight: 500; line-height: 1.4; color: #e0e0e0; margin: 2px 0 6px; }
+.score-why strong { color: #d4aa00; font-weight: 700; }
+
 /* sub-gauges, indented under the main one to show hierarchy */
 .subs {
   display: flex;
@@ -45,12 +49,18 @@
 
   <p class="why-card">{{ why_read | md_bold }}</p>
 
-  <div class="section-label" style="margin: 18px 0 2px;">Notre évaluation</div>
-  <div class="cards-container" style="gap: 30px; padding-bottom: 96px;">
+  <div class="cards-container" style="gap: 26px; padding-bottom: 96px;">
     <div class="grow main lv-{{ main_gauge.level }}">
       <div class="top"><span class="nm">{{ main_gauge.name }}</span><span class="sc">{{ main_gauge.val }}</span></div>
       <div class="tk"><span class="mk" style="left: {{ main_gauge.pos }}%;"></span></div>
     </div>
+
+    {% if score_rationale %}
+    <div>
+      <div class="section-label">Le point clé</div>
+      <p class="score-why">{{ score_rationale | md_bold }}</p>
+    </div>
+    {% endif %}
 
     <div class="subs">
       {% for g in sub_gauges %}
@@ -60,8 +70,6 @@
       </div>
       {% endfor %}
     </div>
-
-    <div class="scale-foot"><span>Faible</span><span>Solide</span><span>Exemplaire</span></div>
   </div>
 
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Les clés de lecture &#8250;</span></div>
