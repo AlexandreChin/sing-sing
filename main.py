@@ -174,6 +174,38 @@ async def main():
         print(f"Rendering slides to {slides_dir}/", file=sys.stderr)
         await asyncio.to_thread(render_from_json, json_path, slides_dir)
 
+    elif args and args[0] == "html":
+        # Usage: python main.py html <carousel.json> [<output_dir>] [--format <fmt>]
+        # Step 1 of the render split: write standalone HTML slide files (no screenshots).
+        import importlib
+        from extractors.registry import FORMATS
+        fmt_args = [args[i + 1] for i, a in enumerate(args) if a == "--format" and i + 1 < len(args)]
+        fmt = fmt_args[0] if fmt_args else "instagram_carousel_long"
+        flags = {"--format"} | set(fmt_args)
+        positional = [a for a in args[1:] if a not in flags and not a.startswith("--")]
+        if not positional or fmt not in FORMATS:
+            known = ", ".join(FORMATS)
+            print(f"Usage: python main.py html <carousel.json> [<output_dir>] [--format {{{known}}}]", file=sys.stderr)
+            sys.exit(1)
+        json_path = Path(positional[0])
+        out_dir = Path(positional[1]) if len(positional) > 1 else json_path.parent / json_path.stem
+        _, _, renderer_mod = FORMATS[fmt]
+        generate_html_from_json = importlib.import_module(renderer_mod).generate_html_from_json
+        print(f"Writing HTML slides to {out_dir}/", file=sys.stderr)
+        await asyncio.to_thread(generate_html_from_json, json_path, out_dir)
+
+    elif args and args[0] == "shoot":
+        # Usage: python main.py shoot <html_dir>
+        # Step 2 of the render split: screenshot the HTML slide files to PNG.
+        from renderer.shoot import shoot_dir
+        positional = [a for a in args[1:] if not a.startswith("--")]
+        if not positional:
+            print("Usage: python main.py shoot <html_dir>", file=sys.stderr)
+            sys.exit(1)
+        html_dir = Path(positional[0])
+        print(f"Screenshotting HTML in {html_dir}/", file=sys.stderr)
+        await asyncio.to_thread(shoot_dir, html_dir)
+
     elif args and args[0] == "validate":
         # Usage: python main.py validate <analysis.json>
         from tools.validate import validate as _validate
@@ -309,7 +341,7 @@ async def main():
             await asyncio.to_thread(render_from_json, lay["document"], lay["slides"])
 
     else:
-        print("Usage: python main.py <analyze|adapt|extract|produce|render|validate|verify|graph> [args]", file=sys.stderr)
+        print("Usage: python main.py <analyze|adapt|extract|produce|render|html|shoot|validate|verify|graph> [args]", file=sys.stderr)
         sys.exit(1)
 
 
