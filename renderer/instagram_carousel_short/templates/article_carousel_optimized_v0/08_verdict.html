@@ -23,15 +23,15 @@
   <div class="v-stage">
     <span class="v-label">Notre verdict</span>
 
-    <div class="grow main lv-mid">
-      <div class="top"><span class="nm">Qualité de l'article</span><span class="sc">Moyenne</span></div>
-      <div class="tk"><span class="mk" style="left: 35%;"></span></div>
+    <div class="grow main lv-{{ gauge.level }}">
+      <div class="top"><span class="nm">{{ gauge.name }}</span><span class="sc">{{ gauge.val }}</span></div>
+      <div class="tk"><span class="mk" style="left: {{ gauge.pos }}%;"></span></div>
     </div>
-    <div class="v-num">2,4 / 5</div>
+    <div class="v-num">{{ score }} / 5</div>
 
     <div class="divider"></div>
-    <p class="v-body">Clair et bien écrit, mais sources fragiles, contexte incomplet et droit de réponse absent.</p>
-    <p class="v-final">À lire — avec réserves.</p>
+    <p class="v-body">{{ body | md_bold }}</p>
+    <p class="v-final">{{ final }}.</p>
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Avant de partir &#8595;</span></div>
   <div class="slide-num">8 / 9</div>

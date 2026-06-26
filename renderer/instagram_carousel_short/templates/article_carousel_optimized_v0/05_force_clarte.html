@@ -17,9 +17,9 @@
   {% include '_brand.html' %}
   <div class="b-stage">
     <span class="b-num">Ce qui tient</span>
-    <h1 class="b-head">Une vraie clarté pédagogique.</h1>
+    <h1 class="b-head">{{ label }}</h1>
     <div class="divider"></div>
-    <p class="b-body">Le sujet est limpide et bien posé. <strong>Mais</strong> une ouverture forte oriente la lecture autant qu'elle l'éclaire.</p>
+    <p class="b-body">{{ body | md_bold }}</p>
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Prendre du recul &#8250;</span></div>
   <div class="slide-num">5 / 9</div>

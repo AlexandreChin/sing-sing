@@ -27,9 +27,8 @@
     <h1 class="head">Le contexte, et deux failles à repérer.</h1>
     <div class="divider"></div>
     <div class="keys">
-      <div class="key ctx"><span class="mk">&#8250;</span><span>Le 20 mai 2026, Ben Gvir diffuse des images de militants propalestiniens humiliés.</span></div>
-      <div class="key wo"><span class="mk">&#9888;</span><span>L'accusation la plus lourde du texte… repose sur bien peu.</span></div>
-      <div class="key wo"><span class="mk">&#9888;</span><span>Un chiffre qui frappe fort… et se vérifie mal.</span></div>
+      <div class="key ctx"><span class="mk">&#8250;</span><span>{{ context | md_bold }}</span></div>
+      {% for c in clues %}<div class="key wo"><span class="mk">&#9888;</span><span>{{ c | md_bold }}</span></div>{% endfor %}
     </div>
   </div>
   <p class="tease"><span class="challenge">Saurez-vous les repérer&nbsp;?</span><br><span class="link">Lien vers l'article en commentaires &#8595;</span></p>

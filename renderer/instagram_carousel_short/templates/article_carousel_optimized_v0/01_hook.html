@@ -18,15 +18,15 @@
   {% include '_brand.html' %}
 
   <span class="eyebrow">— L'article —</span>
-  <p class="art-title">La passivité européenne face à l'extrême droite israélienne</p>
-  <p class="art-meta">Éditorial · 3 min</p>
+  <p class="art-title">{{ article_title }}</p>
+  {% if source_meta %}<p class="art-meta">{{ source_meta }}</p>{% endif %}
 
   <div class="sep">
     <svg width="760" height="44" viewBox="0 0 760 44" xmlns="http://www.w3.org/2000/svg"><polyline points="60,8 380,38 700,8" fill="none" stroke="#d4aa00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </div>
 
   <span class="eyebrow">— Notre analyse —</span>
-  <h1 class="cover-head">Bien écrit, bien argumenté.<br>Mais tient-il debout&nbsp;?</h1>
+  <h1 class="cover-head">{{ headline | md_bold }}</h1>
 
   <div class="swipe">Faites défiler &#8250;</div>
   <div class="slide-num">1 / 9</div>

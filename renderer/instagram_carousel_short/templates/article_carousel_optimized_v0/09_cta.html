@@ -19,7 +19,7 @@
   {% include '_brand.html' %}
 
   <div style="margin: 8px 0 18px;">
-    <p class="cta-head">Un bon style<br>ne remplace jamais<br>une <em>bonne preuve.</em></p>
+    <p class="cta-head">{% if cta_title %}{{ cta_title | md_bold }}{% else %}Un bon style<br>ne remplace jamais<br>une <em>bonne preuve.</em>{% endif %}</p>
   </div>
   <div class="divider"></div>
 
