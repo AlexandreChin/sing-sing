@@ -170,7 +170,8 @@ def _screenshot(html: str, output_path: Path) -> None:
         browser.close()
 
 
-def render_carousel(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
+def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
+    """Step 1 — write standalone HTML slide files (CSS inlined) from the document."""
     out_dir.mkdir(parents=True, exist_ok=True)
     full = doc.analysis
     pres = doc.presentation
@@ -184,56 +185,52 @@ def render_carousel(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]
     ] if x)
 
     specs = [
-        ("default/slide_01_hook.html", {
+        ("01_hook", "default/slide_01_hook.html", {
             "headline": pres.hook.headline,
             "article_title": meta.title,
             "source_meta": source_meta,
         }),
-        ("default/slide_02_evaluation.html", {
+        ("02_interet", "default/slide_02_evaluation.html", {
             "why_read": disp.payoff,
             "main_gauge": _quality_gauge(full),
             "score_rationale": disp.distill_points[0] if disp.distill_points else "",
             "sub_gauges": _dim_gauges(full),
         }),
-        ("default/slide_03_reperes.html", {
+        ("03_clefs_de_lecture", "default/slide_03_reperes.html", {
             "contexts": full.context.contexts[:1],
             "pre_reading": disp.pre_reading[:2],
             "watch_out": disp.watch_out[:2],
         }),
-        ("default/slide_04_dans_le_detail.html", {
+        ("04_essentiel", "default/slide_04_dans_le_detail.html", {
             "items": _balance_points(full),
         }),
-        ("default/slide_05_prise_de_recul.html", {
+        ("05_prise_de_recul", "default/slide_05_prise_de_recul.html", {
             "blind_spots": disp.blind_spots,
             "balance": disp.balance,
         }),
-        ("default/slide_06_cta.html", {"cta_title": pres.cta.title}),
+        ("06_cta", "default/slide_06_cta.html", {"cta_title": pres.cta.title}),
     ]
 
-    names = [
-        "01_hook.png",
-        "02_interet.png",
-        "03_clefs_de_lecture.png",
-        "04_essentiel.png",
-        "05_prise_de_recul.png",
-        "06_cta.png",
-    ]
-
-    slides = []
-    for (template, ctx), name in zip(specs, names):
+    paths = []
+    for name, template, ctx in specs:
         html = _render_html(template, ctx)
-        path = out_dir / name
-        _screenshot(html, path)
-        slides.append(path)
-        print(f"  ✓ {name}")
+        path = out_dir / f"{name}.html"
+        path.write_text(html, encoding="utf-8")
+        paths.append(path)
+        print(f"  ✓ {path.name}")
+    return paths
 
-    return slides
+
+def generate_html_from_json(json_path: Path, out_dir: Path) -> list[Path]:
+    data = json.loads(Path(json_path).read_text(encoding="utf-8"))
+    return generate_html(InstagramCarouselDocument.model_validate(data), out_dir)
 
 
 def render_from_json(json_path: Path, out_dir: Path) -> list[Path]:
-    data = json.loads(json_path.read_text(encoding="utf-8"))
-    doc = InstagramCarouselDocument.model_validate(data)
-    return render_carousel(doc, out_dir)
+    """Convenience: generate HTML then screenshot it (both steps)."""
+    from renderer.shoot import shoot_dir
+    generate_html_from_json(json_path, out_dir)
+    return shoot_dir(out_dir)
 
 
 if __name__ == "__main__":

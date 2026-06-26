@@ -9,7 +9,7 @@ from pathlib import Path
 
 from models.instagram_carousel_presentation import InstagramCarouselDocument
 from .renderer import (
-    _env, _screenshot, _LOGO_DATA_URL,
+    _env, _LOGO_DATA_URL,
     _weighted_quality, DIM_FR, DIMENSION_WEIGHTS, TYPE_FR,
 )
 
@@ -32,7 +32,7 @@ def _verdict_body(summary: str) -> str:
     return s[:1].upper() + s[1:] if s else ""
 
 
-def render_carousel(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
+def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     out_dir.mkdir(parents=True, exist_ok=True)
     full, pres = doc.analysis, doc.presentation
     meta, disp = full.article_metadata, pres.display
@@ -78,16 +78,23 @@ def render_carousel(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]
     ]
 
     env = _env()
-    slides = []
+    paths = []
     for name, ctx in specs:
         html = env.get_template(f"{TPL}/{name}.html").render(logo=_LOGO_DATA_URL, **ctx)
-        path = out_dir / f"{name}.png"
-        _screenshot(html, path)
-        slides.append(path)
-        print(f"  ✓ {name}")
-    return slides
+        path = out_dir / f"{name}.html"
+        path.write_text(html, encoding="utf-8")
+        paths.append(path)
+        print(f"  ✓ {path.name}")
+    return paths
+
+
+def generate_html_from_json(json_path: Path, out_dir: Path) -> list[Path]:
+    data = json.loads(Path(json_path).read_text(encoding="utf-8"))
+    return generate_html(InstagramCarouselDocument.model_validate(data), out_dir)
 
 
 def render_from_json(json_path: Path, out_dir: Path) -> list[Path]:
-    data = json.loads(Path(json_path).read_text(encoding="utf-8"))
-    return render_carousel(InstagramCarouselDocument.model_validate(data), out_dir)
+    """Convenience: generate HTML then screenshot it (both steps)."""
+    from renderer.shoot import shoot_dir
+    generate_html_from_json(json_path, out_dir)
+    return shoot_dir(out_dir)

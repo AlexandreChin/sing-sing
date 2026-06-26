@@ -59,9 +59,9 @@ def _screenshot(html: str, output_path: Path) -> None:
         browser.close()
 
 
-def render_carousel(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
+def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
+    """Step 1 — write standalone HTML slide files (CSS inlined) from the document."""
     out_dir.mkdir(parents=True, exist_ok=True)
-    slides = []
     full = doc.analysis
     pres = doc.presentation
 
@@ -122,20 +122,27 @@ def render_carousel(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]
         "08_cta.png",
     ]
 
+    paths = []
     for (template, ctx), name in zip(specs, names):
         html = _render_html(template, ctx)
-        path = out_dir / name
-        _screenshot(html, path)
-        slides.append(path)
-        print(f"  ✓ {name}")
+        path = out_dir / Path(name).with_suffix(".html").name
+        path.write_text(html, encoding="utf-8")
+        paths.append(path)
+        print(f"  ✓ {path.name}")
 
-    return slides
+    return paths
+
+
+def generate_html_from_json(json_path: Path, out_dir: Path) -> list[Path]:
+    data = json.loads(Path(json_path).read_text(encoding="utf-8"))
+    return generate_html(InstagramCarouselDocument.model_validate(data), out_dir)
 
 
 def render_from_json(json_path: Path, out_dir: Path) -> list[Path]:
-    data = json.loads(json_path.read_text(encoding="utf-8"))
-    doc = InstagramCarouselDocument.model_validate(data)
-    return render_carousel(doc, out_dir)
+    """Convenience: generate HTML then screenshot it (both steps)."""
+    from renderer.shoot import shoot_dir
+    generate_html_from_json(json_path, out_dir)
+    return shoot_dir(out_dir)
 
 
 if __name__ == "__main__":
