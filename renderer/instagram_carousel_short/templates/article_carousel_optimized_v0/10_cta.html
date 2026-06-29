@@ -15,11 +15,11 @@
 </head>
 <body>
 <div class="slide" style="justify-content: flex-start;">
-  <div class="slide-watermark">10</div>
+  <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
 
   <div style="margin: 8px 0 18px;">
-    <p class="cta-head">{% if cta_title %}{{ cta_title | md_bold }}{% else %}Un bon style<br>ne remplace jamais<br>une <em>bonne preuve.</em>{% endif %}</p>
+    <p class="cta-head">On <em>choisit</em>.<br>On <em>prépare</em>.<br>On <em>décrypte</em>.</p>
   </div>
   <div class="divider"></div>
 
@@ -39,8 +39,8 @@
   </div>
 
   <div style="position: absolute; bottom: 56px; left: 0; right: 0; text-align: center; font-size: 22px; color: #555; letter-spacing: 0.08em; font-style: italic;"><span style="color: #d4aa00;">Sing</span>, little bird, <span style="color: #d4aa00;">sing</span></div>
-  <div class="slide-num">10 / 10</div>
-  <div class="progress-track"><div class="progress-bar" style="width: 100%;"></div></div>
+  <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
+  <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
 </div>
 </body>
 </html>

@@ -61,6 +61,7 @@ autonome et tenir sur 1–2 lignes de slide Instagram. Pas de guillemets d'artic
 - ethics        : ≤12 mots — état déontologique explicite : propre ou non (depuis deontology.summary)
 - pre_reading   : exactement 2 items, ≤12 mots chacun — conseils d'orientation avant lecture (depuis guide.pre_reading)
 - watch_out     : exactement 2 items, chacun avec un `label` (court descripteur français, ex. "Source unique", "Méthodologie", "Droit de réponse", "Omission", "Rhétorique") et un `text` (≤15 mots, alerte sans citation de l'article) — (depuis guide.watch_out)
+- strengths     : exactement 2 items — les 2 dimensions les MIEUX notées de `review.dimensions` (score le plus élevé). Chacun avec un `label` (court descripteur français reprenant la dimension, ex. "Exactitude factuelle", "Équité de traitement", "Clarté") et un `text` (≤15 mots, ce que l'article réussit, formulé comme une affirmation lisible — SANS score de confiance, SANS identifiant de nœud, SANS citation de l'article)
 - distill_points: exactement 3 items, ≤20 mots chacun — les 3 signaux les plus importants (depuis distill.points)
 - after_reading : exactement 3 items, ≤12 mots chacun — ce que le lecteur doit retenir (depuis guide.after_reading)
 - blind_spots   : exactement 2 items, ≤15 mots chacun — ce que l'article laisse de côté (depuis perspective.blind_spots)

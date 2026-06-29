@@ -335,9 +335,13 @@ body {
 .trk-sep { color: #3a3a3a; }
 .b-num { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; }
 .b-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 30px; }
-.pts { display: flex; flex-direction: column; gap: 30px; }
-.pt { display: flex; gap: 22px; align-items: flex-start; font-size: 41px; line-height: 1.38; color: #f0f0f0; text-align: justify; hyphens: auto; }
-.pt .mk { flex: none; color: #d4aa00; font-weight: 900; font-size: 42px; line-height: 1.05; }
+.q-list { display: flex; flex-direction: column; gap: 34px; }
+.q-item { display: flex; flex-direction: column; gap: 12px; }
+.q-head { display: flex; gap: 18px; align-items: baseline; }
+.q-head .mk { flex: none; color: #d4aa00; font-weight: 900; font-size: 38px; line-height: 1; }
+.q-label { font-size: 44px; font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; color: #f0f0f0; }
+.q-body { font-size: 36px; font-weight: 400; line-height: 1.42; color: #e0e0e0; padding-left: 36px; text-align: justify; hyphens: auto; }
+.q-body strong { color: #d4aa00; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -353,13 +357,19 @@ body {
   <span class="trk"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>Verdict</span>
 </div>
   <div class="b-stage">
-    <span class="b-num">Prise de recul — Angles morts</span>
+    <span class="b-num">Ce qui tient le mieux</span>
     <div class="divider"></div>
-    <div class="pts">
-      <div class="pt"><span class="mk">&#8250;</span><span>L&#39;effet de la redistribution sociale française n&#39;est jamais chiffré.</span></div><div class="pt"><span class="mk">&#8250;</span><span>Aucune source nationale indépendante ne recoupe le diagnostic de Bruxelles.</span></div>
+    <div class="q-list">
+      <div class="q-item">
+        <div class="q-head"><span class="mk">&#10003;</span><span class="q-label">Exactitude factuelle</span></div>
+        <p class="q-body">Les chiffres cités sont conformes aux données Eurostat, exacts pris isolément.</p>
+      </div><div class="q-item">
+        <div class="q-head"><span class="mk">&#10003;</span><span class="q-label">Clarté</span></div>
+        <p class="q-body">Un propos lisible, avec des chiffres-clés bien mis en avant.</p>
+      </div>
     </div>
   </div>
-  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">À nuancer &#8250;</span></div>
+  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Prendre du recul &#8250;</span></div>
   <div class="slide-num">7 / 10</div>
   <div class="progress-track"><div class="progress-bar" style="width: 70%;"></div></div>
 </div>

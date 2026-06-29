@@ -49,6 +49,11 @@ class WatchOutItem(BaseModel):
     text: str    # ≤15 words — the alert itself, no article quotes
 
 
+class StrengthItem(BaseModel):
+    label: str   # short French descriptor, e.g. "Exactitude factuelle", "Équité de traitement"
+    text: str    # ≤15 words — what the article does well, no article quotes, no confidence/node ids
+
+
 class CarouselDisplay(BaseModel):
     """Condensed, carousel-ready display strings for the long format slides."""
     payoff: str              # ≤15 words — what the reader gets from this article
@@ -56,6 +61,7 @@ class CarouselDisplay(BaseModel):
     ethics: str              # ≤12 words — explicit clean/not-clean statement
     pre_reading: list[str]   # exactly 2 items, ≤12 words each
     watch_out: list[WatchOutItem]  # exactly 2 items, ≤15 words each, no article quotes
+    strengths: list[StrengthItem]  # exactly 2 items — the article's 2 strongest dimensions
     distill_points: list[str]  # exactly 3 items, ≤20 words each
     after_reading: list[str]   # exactly 3 items, ≤12 words each
     blind_spots: list[str]   # exactly 2 items, ≤15 words each — what the article leaves out
