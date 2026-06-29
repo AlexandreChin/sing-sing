@@ -26,6 +26,14 @@ def _fr_num(x: float) -> str:
     return f"{x:.1f}".replace(".", ",")
 
 
+def _truncate(text: str, limit: int) -> str:
+    """Trim to `limit` chars on a word boundary, adding an ellipsis if cut."""
+    s = (text or "").strip()
+    if len(s) <= limit:
+        return s
+    return s[:limit].rsplit(" ", 1)[0].rstrip(" ,;:—-") + "…"
+
+
 def _lead_clause(text: str) -> str:
     """First positive clause of a review rationale — drop everything from the
     first sentence break or contrastive 'mais' onward, so a strength reads as a
@@ -90,9 +98,7 @@ def _factcheck_items(full, focus_text: str = "", limit: int = 2) -> list[dict]:
     items = []
     for c in ranked[:limit]:
         label, cls = _READING.get(c.confidence_label, ("À vérifier", "neutral"))
-        quote = c.quote.strip()
-        if len(quote) > 120:
-            quote = quote[:120].rsplit(" ", 1)[0].rstrip(" ,;:—-") + "…"
+        quote = _truncate(c.quote, 120)
         items.append({
             "quote": quote,
             "presentation": PRESENTATION_FR.get(c.presentation, ""),
@@ -139,8 +145,10 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     specs = [
         ("01_hook", {"article_title": meta.title, "source_meta": source_meta,
                      "headline": pres.hook.headline}),
+        # Clues = pre-reading tips (what to watch for), NOT the watch_out findings
+        # (those are the proof, revealed in full on slides 4–5).
         ("02_reperes", {"context": contexts[0].text if contexts else "",
-                        "clues": [w.label for w in watch]}),
+                        "clues": list(disp.pre_reading)[:2]}),
         ("03_verif_faits", {"items": _factcheck_items(
             full, f"{pres.hook.headline} {verdict.summary if verdict else ''}")}),
         ("04_faille_1", {"label": w0.label if w0 else "", "body": w0.text if w0 else ""}),
