@@ -15,6 +15,14 @@ from .renderer import (
 )
 
 TPL = "article_carousel_optimized_v0"
+
+# Which section each slide belongs to — drives the 3-step tracker highlight.
+PHASE_OF = {
+    "02_reperes": "avant",
+    "03_verif_faits": "analyse", "04_faille_1": "analyse", "05_faille_2": "analyse",
+    "06_point_fort": "analyse", "07_angles_morts": "analyse", "08_nuance": "analyse",
+    "09_verdict": "verdict",
+}
 RECO = {
     "recommended": "Recommandé",
     "with_reservations": "À lire — avec réserves",
@@ -166,7 +174,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     env = _env()
     paths = []
     for name, ctx in specs:
-        html = env.get_template(f"{TPL}/{name}.html").render(logo=_LOGO_DATA_URL, **ctx)
+        html = env.get_template(f"{TPL}/{name}.html").render(logo=_LOGO_DATA_URL, phase=PHASE_OF.get(name), **ctx)
         path = out_dir / f"{name}.html"
         path.write_text(html, encoding="utf-8")
         paths.append(path)
