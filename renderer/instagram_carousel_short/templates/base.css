@@ -321,3 +321,10 @@ body {
 .grow .mk { position: absolute; top: 50%; width: 44px; height: 44px; margin-left: -22px; transform: translateY(-50%); border-radius: 50%; background: currentColor; border: 8px solid #0a0a0a; box-shadow: 0 0 0 4px currentColor, 0 3px 10px rgba(0,0,0,.6); }
 .lv-bad { color: #e87a7a; } .lv-mid { color: #e8a07a; } .lv-good { color: #7ec8a0; }
 .scale-foot { display: flex; justify-content: space-between; font-size: 21px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #666; }
+
+/* ── 3-step section tracker (optimized deck) ── */
+.tracker { position: absolute; top: 66px; left: 90px; display: flex; align-items: center; gap: 14px; font-size: 22px; font-weight: 700; letter-spacing: .02em; white-space: nowrap; z-index: 3; }
+.trk { display: inline-flex; align-items: center; gap: 8px; color: #5a5a5a; }
+.trk.on { color: #d4aa00; }
+.trk svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.trk-sep { color: #3a3a3a; }
