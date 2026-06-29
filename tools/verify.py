@@ -17,6 +17,7 @@ from typing import Literal
 import anthropic
 import httpx
 
+from config import MODEL
 from models.article import Claim
 from .search import search_news
 from .scrape import scrape_article
@@ -178,7 +179,7 @@ def _assess_stances(claim_text: str, sources: list[ClaimSource]) -> None:
 
     client = anthropic.Anthropic()
     response = client.messages.create(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=1024,
         system=(
             "You are a fact-checking assistant. Given a claim and a list of sources, "

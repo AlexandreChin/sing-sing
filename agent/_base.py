@@ -8,6 +8,7 @@ from pathlib import Path
 import anthropic
 from pydantic import BaseModel, Field
 
+from config import MODEL
 from models.full_analysis import (
     AnalysisFond,
     AnalyseForme,
@@ -61,7 +62,7 @@ def _call(user_message: str, schema: dict, no_api: bool = False) -> dict:
     if no_api:
         return _call_no_api(user_message, schema)
     with client.messages.stream(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=8192,
         thinking={"type": "adaptive"},
         system=_SYSTEM_PROMPT,

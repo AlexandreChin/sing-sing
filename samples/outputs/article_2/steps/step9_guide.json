@@ -1,0 +1,63 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Repérez d'emblée si le constat s'appuie sur une seule institution ou s'il est recoupé par une source indépendante.",
+      "Gardez à l'esprit la différence entre un taux relatif de pauvreté et un appauvrissement réel : ce sont deux affirmations distinctes.",
+      "Soyez attentif au moment où le texte passe de l'inquiétude au chiffre, car le registre émotionnel précède souvent la démonstration."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "text": "Le cœur de l'argument glisse d'un indicateur relatif vers un appauvrissement absolu sans étape intermédiaire démontrée ; ce raccourci n'est arrêté par aucun contradicteur dans l'article.",
+          "references": [
+            "ia_0",
+            "bias_2",
+            "lr_0"
+          ]
+        },
+        {
+          "text": "Le diagnostic repose sur une institution unique, dont l'autorité tient lieu de preuve : aucune source nationale indépendante ne vient confirmer ou nuancer le constat.",
+          "references": [
+            "obs_0",
+            "cb_1",
+            "bias_1"
+          ]
+        },
+        {
+          "text": "Une comparaison présentée comme démonstrative mêle des années de référence différentes ; des points qui ne reposent pas sur la même base ne devraient pas être lus comme une courbe continue.",
+          "references": [
+            "ia_1",
+            "claim_3",
+            "obs_3"
+          ]
+        },
+        {
+          "text": "L'effet de la redistribution sociale, qui pourrait modifier la lecture du taux, n'est jamais chiffré ; cette absence est le principal angle mort du texte.",
+          "references": [
+            "bs_1",
+            "obs_4"
+          ]
+        },
+        {
+          "text": "Le titre oppose frontalement la France au reste de l'Europe et pose le déclassement comme acquis, simplifiant une réalité plus hétérogène que ne le suggère le cadrage.",
+          "references": [
+            "cb_0",
+            "claim_2"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Demandez-vous quel aurait été le tableau si les données françaises de l'Insee et l'effet des prestations sociales avaient été intégrés.",
+      "Retenez que des chiffres exacts pris isolément peuvent servir une comparaison fragile lorsqu'ils sont posés côte à côte sans même base de référence.",
+      "Vérifiez mentalement si la partie française mise en cause a eu l'occasion de répondre avant de tenir le diagnostic pour établi.",
+      "Souvenez-vous qu'une hausse d'un taux relatif n'équivaut pas mécaniquement à des enfants réellement plus pauvres."
+    ],
+    "title_note": "En opposant la France au « reste de l'Europe », le titre dramatise un contraste net là où la réalité statistique est plus nuancée.",
+    "perspective": {
+      "framing": "L'article restitue fidèlement le paquet de printemps de la Commission européenne et place au centre le récit d'un déclassement français en matière de pauvreté infantile. Il ouvre sur un registre émotionnel et clôt sur un mystère irrésolu, dramatisant le propos avant de l'analyser, et parle largement depuis le point de vue de sa source institutionnelle.",
+      "blind_spots": "Le texte n'examine ni l'effet chiffré de la redistribution sociale française — pourtant le contre-fait le plus susceptible de renverser la lecture du taux — ni aucune source nationale indépendante qui recouperait le constat. La partie française visée par le diagnostic n'est jamais entendue.",
+      "balance": "Ces limites sont réelles, mais un compte rendu de rapport officiel n'a pas vocation à mener une enquête contradictoire complète, et un format court ne peut tout chiffrer. Le lecteur peut donc retenir les chiffres-clés comme un point de départ fiable, à condition d'aller chercher ailleurs la redistribution et la distinction entre taux relatif et niveau de vie réel."
+    }
+  }
+}

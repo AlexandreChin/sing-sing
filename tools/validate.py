@@ -36,7 +36,8 @@ def validate(path: Path) -> tuple[list[str], dict[str, str]]:
             if item.id:
                 node_registry[item.id] = label_fn(item)
 
-    _register(output.watch_out.items, lambda x: f"wo: {x.text[:40]}")
+    watch_out_items = output.guide.watch_out.items if output.guide else []
+    _register(watch_out_items, lambda x: f"wo: {x.text[:40]}")
     _register(output.context.contexts, lambda x: f"ctx: {x.text[:40]}")
     _register(output.context.important_facts, lambda x: f"fact: {x.text[:40]}")
     _register(fond.observations, lambda x: f"obs: {x.aspect}")
@@ -61,7 +62,6 @@ def validate(path: Path) -> tuple[list[str], dict[str, str]]:
 
     # ── Build seeds source maps ───────────────────────────────────────────────
     source_items: dict[str, list] = {
-        "watch_out": output.watch_out.items,
         "context": output.context.contexts,
         "important_fact": output.context.important_facts,
         "premisse": fond.premisses,
@@ -105,12 +105,6 @@ def validate(path: Path) -> tuple[list[str], dict[str, str]]:
             errs.append(f"{path_str}.seeds.excerpt is empty")
         return errs
 
-    # ── watch_out category coverage ──────────────────────────────────────────
-    wo_cats = {item.refers_to for item in output.watch_out.items}
-    for cat in ("analysis_fond", "analysis_forme", "facts_vs_opinions", "biases_and_focus"):
-        if cat not in wo_cats:
-            errors.append(f"watch_out.items: no item with refers_to='{cat}' — at least 1 required per category")
-
     # ── Count constraints ─────────────────────────────────────────────────────
     n_claims = len(output.annotations.facts_vs_opinions.claims_and_sources)
     if not (1 <= n_claims <= 6):
@@ -120,9 +114,10 @@ def validate(path: Path) -> tuple[list[str], dict[str, str]]:
     if not (1 <= n_biases <= 4):
         errors.append(f"biases_and_rhetoric: expected 1–4, got {n_biases}")
 
-    n_synthesis = len(output.synthesis.points)
-    if not (1 <= n_synthesis <= 5):
-        errors.append(f"synthesis.points: expected 1–5, got {n_synthesis}")
+    if output.distill:
+        n_distill = len(output.distill.points)
+        if not (1 <= n_distill <= 5):
+            errors.append(f"distill.points: expected 1–5, got {n_distill}")
 
     # ── proves cross-references ───────────────────────────────────────────────
     for i, claim in enumerate(output.annotations.facts_vs_opinions.claims_and_sources):

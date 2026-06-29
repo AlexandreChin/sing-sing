@@ -1,0 +1,93 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "L'hypothèse implicite « taux relatif = enfants plus pauvres » n'est jamais explicitée dans Logic, sert de pivot au glissement rhétorique vers l'appauvrissement absolu dans Probe, et n'est sanctionnée par aucun contradicteur : un même angle mort méthodologique traverse trois couches sans résistance.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "ia_0",
+          "bias_2",
+          "lr_0"
+        ]
+      },
+      {
+        "text": "La source institutionnelle unique fonctionne comme un appel à l'autorité : ce que Logic relève comme défaut de recoupement, Rhetoric le convertit en bénéfice de cadrage pour la Commission, dont l'autorité dispense l'article de démontrer son constat.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "obs_0",
+          "cb_1",
+          "bias_1"
+        ]
+      },
+      {
+        "text": "Le registre émotionnel d'ouverture et la clôture sur un mystère irrésolu encadrent les chiffres : l'inquiétude initiale et le manquement déontologique au sensationnalisme procèdent du même choix éditorial de dramatiser avant d'analyser.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "er_0",
+          "bias_0",
+          "focus"
+        ]
+      },
+      {
+        "text": "L'absence de source française est à la fois un angle mort logique et une atteinte au droit de réponse : faute de contre-éclairage national, le diagnostic accusatoire reste sans contradiction, ce qui plafonne simultanément la rigueur des sources et l'équité de traitement.",
+        "layers": [
+          "logic",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "bs_0",
+          "cb_1",
+          "claim_0"
+        ]
+      },
+      {
+        "text": "Le croisement de courbes mêlant des années de référence hétérogènes est posé comme démonstratif dans Probe, signalé comme fausse statistique en déontologie, et révèle l'hypothèse tacite de comparabilité des points 2015-2025 : une même faille de comparaison se manifeste sur trois couches.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "ia_1",
+          "claim_3",
+          "obs_3"
+        ]
+      },
+      {
+        "text": "L'omission chiffrée de la redistribution sociale, relevée comme angle mort dans Logic, est précisément le contre-fait qui pourrait renverser la lecture du taux : c'est ce manque structurel qui fonde le « principal angle mort » du verdict, signe d'un article qui suit le cadrage de sa source plutôt que de l'éprouver.",
+        "layers": [
+          "logic",
+          "review"
+        ],
+        "references": [
+          "bs_1",
+          "obs_4"
+        ]
+      },
+      {
+        "text": "Le cadrage du « déclassement » national repose sur une question rhétorique posée comme acquise : l'opinion énoncée en fait dans Probe sert directement le bénéficiaire identifié par Rhetoric, faisant valider un thème médiatique sans qu'aucune donnée mesurable ne l'étaye.",
+        "layers": [
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "cb_0",
+          "claim_2"
+        ]
+      }
+    ]
+  }
+}

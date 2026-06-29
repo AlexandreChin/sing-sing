@@ -10,6 +10,7 @@ from pathlib import Path
 
 import anthropic
 
+from config import MODEL
 from models.full_analysis import ArticleFullAnalysis
 
 client = anthropic.Anthropic()
@@ -47,7 +48,7 @@ async def simplify_carousel(json_path: Path, no_api: bool = False) -> ArticleFul
         return ArticleFullAnalysis.model_validate(json.loads(text))
 
     with client.messages.stream(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=8192,
         thinking={"type": "adaptive"},
         system=_SYSTEM_PROMPT,
