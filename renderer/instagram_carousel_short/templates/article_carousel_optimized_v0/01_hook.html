@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="slide" style="justify-content: center; align-items: center; text-align: center;">
-  <div class="slide-watermark">01</div>
+  <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
 
   <span class="eyebrow">— L'article —</span>
@@ -30,8 +30,8 @@
   <h1 class="cover-head">{{ headline | md_bold }}</h1>
 
   <div class="swipe">Avant de lire <span class="sw-sep">&#8250;</span> Le décryptage <span class="sw-sep">&#8250;</span> Verdict</div>
-  <div class="slide-num">1 / 10</div>
-  <div class="progress-track"><div class="progress-bar" style="width: 10%;"></div></div>
+  <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
+  <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
 </div>
 </body>
 </html>

@@ -20,7 +20,7 @@
 </head>
 <body>
 <div class="slide" style="justify-content: flex-start;">
-  <div class="slide-watermark">02</div>
+  <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
   {% include '_tracker.html' %}
   <div class="stage">
@@ -33,8 +33,8 @@
     </div>
   </div>
   <p class="tease"><span class="challenge">Saurez-vous les repérer&nbsp;?</span><br><span class="link">Lien vers l'article en commentaires &#8595;</span></p>
-  <div class="slide-num">2 / 10</div>
-  <div class="progress-track"><div class="progress-bar" style="width: 20%;"></div></div>
+  <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
+  <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
 </div>
 </body>
 </html>

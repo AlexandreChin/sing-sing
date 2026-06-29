@@ -11,16 +11,17 @@ from pathlib import Path
 from models.instagram_carousel_presentation import InstagramCarouselDocument
 from .renderer import (
     _env, _LOGO_DATA_URL,
-    _weighted_quality, DIM_FR, DIMENSION_WEIGHTS, TYPE_FR,
+    _weighted_quality, TYPE_FR,
 )
 
 TPL = "article_carousel_optimized_v0"
 
 # Which section each slide belongs to — drives the 3-step tracker highlight.
+# (01_hook, 02_selection and 11_cta sit outside the tracked journey.)
 PHASE_OF = {
-    "02_reperes": "avant",
-    "03_verif_faits": "analyse", "04_faille_1": "analyse", "05_faille_2": "analyse",
-    "06_point_fort": "analyse", "07_angles_morts": "analyse", "08_nuance": "analyse",
+    "03_reperes": "avant",
+    "04_verif_faits": "analyse", "05_faille_1": "analyse", "06_faille_2": "analyse",
+    "07_point_fort": "analyse", "08_prise_de_recul": "analyse",
     "09_verdict": "verdict",
 }
 RECO = {
@@ -40,17 +41,6 @@ def _truncate(text: str, limit: int) -> str:
     if len(s) <= limit:
         return s
     return s[:limit].rsplit(" ", 1)[0].rstrip(" ,;:—-") + "…"
-
-
-def _lead_clause(text: str) -> str:
-    """First positive clause of a review rationale — drop everything from the
-    first sentence break or contrastive 'mais' onward, so a strength reads as a
-    strength rather than a caveat."""
-    s = (text or "").strip()
-    for sep in (". ", " mais ", " Mais ", ", mais ", ", Mais "):
-        s = s.split(sep, 1)[0]
-    s = s.strip(" .,")
-    return s + "." if s else ""
 
 
 # ── Fact-check slide (honest framing) ─────────────────────────────────────────
@@ -116,6 +106,33 @@ def _factcheck_items(full, focus_text: str = "", limit: int = 2) -> list[dict]:
     return items
 
 
+def _quote_lookup(full) -> dict:
+    """Map claim_N / bias_N node ids → their verbatim article quote."""
+    q = {}
+    for i, c in enumerate(full.annotations.facts_vs_opinions.claims_and_sources):
+        q[f"claim_{i}"] = c.quote
+    for i, b in enumerate(full.annotations.biases_and_focus.biases_and_rhetoric):
+        q[f"bias_{i}"] = b.quote
+    return q
+
+
+def _faille_evidence(full, faille_text: str, qlookup: dict) -> str:
+    """The article's own sentence that exhibits a faille — turns an assertion into
+    proof. Match the faille to its analysis watch_out item (keyword overlap), then
+    resolve that item's first claim/bias reference to its verbatim quote."""
+    items = full.guide.watch_out.items if full.guide else []
+    ft = _keywords(faille_text)
+    if not items or not ft:
+        return ""
+    best = max(items, key=lambda it: len(_keywords(it.text) & ft))
+    if not (_keywords(best.text) & ft):
+        return ""
+    for ref in best.references:
+        if ref in qlookup:
+            return _truncate(qlookup[ref], 160)
+    return ""
+
+
 def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     out_dir.mkdir(parents=True, exist_ok=True)
     full, pres = doc.analysis, doc.presentation
@@ -130,15 +147,22 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     watch = list(disp.watch_out)
     w0 = watch[0] if len(watch) > 0 else None
     w1 = watch[1] if len(watch) > 1 else None
+    qlookup = _quote_lookup(full)
+
+    def _faille(w):
+        if not w:
+            return {"label": "", "body": "", "quote": ""}
+        return {"label": w.label, "body": w.text,
+                "quote": _faille_evidence(full, f"{w.label} {w.text}", qlookup)}
 
     dims = full.review.dimensions if full.review else []
-    top = max(dims, key=lambda d: (d.score, DIMENSION_WEIGHTS.get(d.dimension, 1.0))) if dims else None
-    # Slide 6 frames the best dimension. Only call it a strength when it actually
-    # scores well (≥4); otherwise it's just the least-weak point — say so honestly.
+    top_score = max((d.score for d in dims), default=0)
+    # Slide 7 frames the article's best dimensions, curated by the adapt step
+    # (disp.strengths — reader-facing, no rationale firehose). Only call them
+    # strengths when the best one actually scores well (≥4); else say so honestly.
     strength = {
-        "kicker": "Ce qui tient" if top and top.score >= 4 else "Ce qui tient le mieux",
-        "label": DIM_FR.get(top.dimension, top.label) if top else "",
-        "body": _lead_clause(top.rationale) if top else "",
+        "kicker": "Ce qui tient" if top_score >= 4 else "Ce qui tient le mieux",
+        "items": [{"label": s.label, "body": s.text} for s in disp.strengths],
     }
 
     wq = _weighted_quality(full)
@@ -153,28 +177,34 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     specs = [
         ("01_hook", {"article_title": meta.title, "source_meta": source_meta,
                      "headline": pres.hook.headline}),
+        # Curation beat — why this article was selected, for whom (pillar ①).
+        ("02_selection", {"for_whom": verdict.for_whom if verdict else "",
+                          "payoff": disp.payoff,
+                          "reco": RECO.get(verdict.reading_recommendation, "") if verdict else ""}),
         # Clues = pre-reading tips (what to watch for), NOT the watch_out findings
-        # (those are the proof, revealed in full on slides 4–5).
-        ("02_reperes", {"context": contexts[0].text if contexts else "",
+        # (those are the proof, revealed in full on the faille slides).
+        ("03_reperes", {"context": contexts[0].text if contexts else "",
                         "clues": list(disp.pre_reading)[:2]}),
-        ("03_verif_faits", {"items": _factcheck_items(
+        ("04_verif_faits", {"items": _factcheck_items(
             full, f"{pres.hook.headline} {verdict.summary if verdict else ''}")}),
-        ("04_faille_1", {"label": w0.label if w0 else "", "body": w0.text if w0 else ""}),
-        ("05_faille_2", {"label": w1.label if w1 else "", "body": w1.text if w1 else ""}),
-        ("06_point_fort", strength),
-        ("07_angles_morts", {"points": list(disp.blind_spots)}),
-        ("08_nuance", {"points": list(disp.balance)}),
+        ("05_faille_1", _faille(w0)),
+        ("06_faille_2", _faille(w1)),
+        ("07_point_fort", strength),
+        ("08_prise_de_recul", {"blind_spots": list(disp.blind_spots), "balance": list(disp.balance)}),
         ("09_verdict", {"gauge": main_gauge,
                         "score": _fr_num(wq["score"]) if wq else "",
                         "body": verdict.main_blind_side if verdict else "",
                         "final": RECO.get(verdict.reading_recommendation, "") if verdict else ""}),
-        ("10_cta", {"cta_title": pres.cta.title}),
+        ("10_cta", {}),
     ]
 
     env = _env()
     paths = []
-    for name, ctx in specs:
-        html = env.get_template(f"{TPL}/{name}.html").render(logo=_LOGO_DATA_URL, phase=PHASE_OF.get(name), **ctx)
+    total = len(specs)
+    for i, (name, ctx) in enumerate(specs, 1):
+        html = env.get_template(f"{TPL}/{name}.html").render(
+            logo=_LOGO_DATA_URL, phase=PHASE_OF.get(name),
+            slide_n=i, slide_total=total, progress=round(i / total * 100), **ctx)
         path = out_dir / f"{name}.html"
         path.write_text(html, encoding="utf-8")
         paths.append(path)

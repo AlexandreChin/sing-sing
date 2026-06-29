@@ -52,6 +52,13 @@ def _validate(data: dict) -> list[str]:
             errors.append(f"display.watch_out[{i}].label is empty")
         if not item.text.strip():
             errors.append(f"display.watch_out[{i}].text is empty")
+    if len(d.strengths) != 2:
+        errors.append(f"display.strengths must have exactly 2 items, got {len(d.strengths)}")
+    for i, item in enumerate(d.strengths):
+        if not item.label.strip():
+            errors.append(f"display.strengths[{i}].label is empty")
+        if not item.text.strip():
+            errors.append(f"display.strengths[{i}].text is empty")
     return errors
 
 

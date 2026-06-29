@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="slide" style="justify-content: flex-start;">
-  <div class="slide-watermark">09</div>
+  <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
   {% include '_tracker.html' %}
   <div class="v-stage">
@@ -35,8 +35,8 @@
     <p class="v-final">{{ final }}.</p>
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Avant de partir &#8595;</span></div>
-  <div class="slide-num">9 / 10</div>
-  <div class="progress-track"><div class="progress-bar" style="width: 90%;"></div></div>
+  <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
+  <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
 </div>
 </body>
 </html>

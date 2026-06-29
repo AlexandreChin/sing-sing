@@ -28,7 +28,7 @@
 </head>
 <body>
 <div class="slide" style="justify-content: flex-start;">
-  <div class="slide-watermark">03</div>
+  <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
   {% include '_tracker.html' %}
   <div class="fc-stage">
@@ -49,8 +49,8 @@
     <p class="fc-disclaimer"><strong>Notre lecture critique</strong>, à recouper&nbsp;— ce n'est pas un fact-check certifié.</p>
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Première faille&nbsp;: les sources &#8250;</span></div>
-  <div class="slide-num">3 / 10</div>
-  <div class="progress-track"><div class="progress-bar" style="width: 30%;"></div></div>
+  <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
+  <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
 </div>
 </body>
 </html>
