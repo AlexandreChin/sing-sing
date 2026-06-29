@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "L'article repose sur une **source institutionnelle unique**, le paquet de printemps de la Commission européenne, comme le montrent les `claims_and_sources` (« Les courbes se sont durablement croisées, signale la Commission européenne », appel à l'autorité). Aucune source française (Insee, France Travail) n'est consultée pour recouper un constat pourtant accusatoire, ce qui plafonne nettement la solidité du dispositif de sourçage.",
+        "lesson": "Vérifiez toujours si un constat accusatoire repose sur une seule institution ou s'il est recoupé par une source indépendante."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "Les chiffres cités sont conformes à Eurostat (confidence 92 pour la définition du seuil, 75 pour le taux de 27,5 %), donc factuellement exacts pris isolément. Mais le croisement « de 27,4 % en 2015, le taux est passé à 24,3 % en 2025 » mêle des **années de référence hétérogènes** (2015, 2023, 2025), ce qui fragilise une comparaison présentée comme démonstrative.",
+        "lesson": "Méfiez-vous des courbes qui se croisent quand les points comparés ne reposent pas sur la même année de référence."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "La chaîne argumentative dissimule un **saut logique** central, relevé dans `logical_reasoning` : la hausse d'un taux relatif devient un appauvrissement absolu (« cet appauvrissement des travailleurs et, par conséquent, des enfants ») sans étape intermédiaire démontrée. La prémisse « la Commission l'affirme, donc le constat est établi » repose sur une source unique non recoupée, ce qui mine la validité de l'ensemble.",
+        "lesson": "Repérez le glissement entre un indicateur relatif et une réalité absolue : ce sont deux affirmations distinctes."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "L'article ne signale jamais que le seuil mesure un **écart relatif** et non un niveau de vie absolu, alors que cette limite n'apparaît qu'une seule fois (cf. `emphasis`). Les `implicit_assumptions` — comparabilité des années, suffisance d'une source unique — restent tacites, si bien que le lecteur n'est pas averti des angles morts du raisonnement.",
+        "lesson": "Exigez qu'un article explicite la portée et les limites de l'indicateur qu'il met en avant."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Plusieurs `blind_spots` majeurs ne sont pas comblés : l'effet du **système de prestations sociales** français est mentionné mais « non chiffré », et aucune politique publique récente n'est examinée pour situer le retournement. Le texte empile les pourcentages d'une source unique tout en omettant le contre-fait le plus important — la redistribution — qui pourrait modifier la lecture du taux.",
+        "lesson": "Demandez ce qui manque : un chiffre sur la redistribution change souvent la portée d'un taux de pauvreté."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 3,
+        "rationale": "L'article relaie le diagnostic de Bruxelles sans contradiction (`cui_bono` : « La Commission européenne »), et n'accorde aucune voix à la partie française mise en cause (absence de droit de réponse relevée dans l'audit déontologique). Le ton reste toutefois descriptif plutôt qu'accusateur frontal, ce qui évite la caricature des acteurs.",
+        "lesson": "Vérifiez si la partie visée par un constat a pu répondre avant publication."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 3,
+        "rationale": "Le propos est lisible et les chiffres bien mis en avant, mais des termes techniques clés comme l'agrégat **AROPE** « mêlent revenus, privation et emploi sans que sa composition soit explicitée au lecteur » (`observations`, Indicateur). Le titre, en opposant frontalement la France au « reste de l'Europe », est clair mais simplifie une réalité hétérogène (`title_analysis`, Généralisation).",
+        "lesson": "Réclamez la définition des agrégats statistiques : un sigle non explicité masque souvent ce qu'il mesure."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 2,
+        "rationale": "L'angle se contente de **restituer un document officiel** du semestre européen plutôt que de mener une enquête propre (`observations`, Sourçage). Le cadrage du « déclassement » reprend un thème médiatique récurrent sans le démontrer, ce qui apporte peu de valeur ajoutée par rapport à la source institutionnelle relayée.",
+        "lesson": "Distinguez le compte rendu d'un rapport officiel d'une enquête originale qui le met à l'épreuve."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Un lecteur suivant les questions de politique sociale et familiale, capable de recouper lui-même les chiffres européens avec les données françaises de l'Insee.",
+      "payoff": "Le lecteur repart avec les chiffres-clés de la Commission sur la pauvreté infantile, mais devra aller chercher ailleurs l'effet de la redistribution et la distinction entre taux relatif et niveau de vie réel.",
+      "signature_move": "Faire reposer tout un récit de déclin national sur la restitution sans contradiction d'une source institutionnelle unique, habillée d'un registre émotionnel d'ouverture.",
+      "main_blind_side": "L'absence de chiffrage de la redistribution sociale française révèle un article qui suit le cadrage de sa source plutôt que de l'éprouver.",
+      "further_resource": {
+        "title": "Mesurer la pauvreté : le taux relatif et ses limites",
+        "source": "Insee, France, portrait social",
+        "media_type": "report",
+        "why_explore": "Il explique pourquoi un taux relatif peut monter sans appauvrissement absolu et resitue les chiffres européens dans le cadre français.",
+        "url": null
+      },
+      "summary": "Lecture à réserver à qui suit ce dossier de près : l'article restitue fidèlement des chiffres européens exacts, mais sa source unique, l'absence de réponse française et la confusion entre taux relatif et appauvrissement réel imposent de le croiser avec d'autres données."
+    }
+  }
+}

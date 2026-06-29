@@ -127,7 +127,7 @@ def _in_date_range(
 # ---------------------------------------------------------------------------
 
 async def _duckduckgo_search(
-    query: str, num_results: int, date_from: datetime | None, date_to: datetime | None
+    query: str, num_results: int, date_from: datetime | None = None, date_to: datetime | None = None
 ) -> list[dict]:
     """DuckDuckGo News — no API key required. Uses the duckduckgo-search package."""
     # DDGS.news() is synchronous; run it in a thread to avoid blocking the event loop.
@@ -142,7 +142,7 @@ async def _duckduckgo_search(
 
 
 async def _hackernews_search(
-    query: str, num_results: int, date_from: datetime | None, date_to: datetime | None
+    query: str, num_results: int, date_from: datetime | None = None, date_to: datetime | None = None
 ) -> list[dict]:
     """Hacker News via Algolia — completely free, no key needed."""
     params: dict = {"query": query, "tags": "story", "hitsPerPage": num_results}
@@ -172,7 +172,7 @@ async def _hackernews_search(
 
 
 async def _reddit_search(
-    query: str, num_results: int, date_from: datetime | None, date_to: datetime | None
+    query: str, num_results: int, date_from: datetime | None = None, date_to: datetime | None = None
 ) -> list[dict]:
     """Reddit public JSON search across r/worldnews and r/news — no key needed."""
     async with httpx.AsyncClient(headers={"User-Agent": "sing-sing-newsbot/1.0"}) as client:
@@ -221,7 +221,7 @@ async def _qwant_search(query: str, num_results: int, locale: str = "en_US") -> 
 
 
 async def _gnews_search(
-    query: str, num_results: int, api_key: str, date_from: datetime | None, date_to: datetime | None
+    query: str, num_results: int, api_key: str, date_from: datetime | None = None, date_to: datetime | None = None
 ) -> list[dict]:
     """GNews — 100 req/day free without a key; set SEARCH_API_KEY for higher limits."""
     params: dict = {"q": query, "max": num_results, "lang": "en"}
@@ -249,7 +249,7 @@ async def _gnews_search(
 # ---------------------------------------------------------------------------
 
 async def _newsapi_search(
-    query: str, num_results: int, api_key: str, date_from: datetime | None, date_to: datetime | None
+    query: str, num_results: int, api_key: str, date_from: datetime | None = None, date_to: datetime | None = None
 ) -> list[dict]:
     """NewsAPI.org — 100 req/day on the free developer tier."""
     params: dict = {"q": query, "pageSize": num_results, "sortBy": "publishedAt", "language": "en"}
@@ -273,7 +273,7 @@ async def _newsapi_search(
 
 
 async def _brave_search(
-    query: str, num_results: int, api_key: str, date_from: datetime | None, date_to: datetime | None
+    query: str, num_results: int, api_key: str, date_from: datetime | None = None, date_to: datetime | None = None
 ) -> list[dict]:
     params: dict = {"q": query, "count": num_results}
     if date_from:
@@ -295,7 +295,7 @@ async def _brave_search(
 
 
 async def _serper_search(
-    query: str, num_results: int, api_key: str, date_from: datetime | None, date_to: datetime | None
+    query: str, num_results: int, api_key: str, date_from: datetime | None = None, date_to: datetime | None = None
 ) -> list[dict]:
     payload: dict = {"q": query, "num": num_results}
     if date_from:
@@ -315,7 +315,7 @@ async def _serper_search(
 
 
 async def _tavily_search(
-    query: str, num_results: int, api_key: str, date_from: datetime | None, date_to: datetime | None
+    query: str, num_results: int, api_key: str, date_from: datetime | None = None, date_to: datetime | None = None
 ) -> list[dict]:
     payload: dict = {"api_key": api_key, "query": query, "max_results": num_results, "topic": "news"}
     if date_from:

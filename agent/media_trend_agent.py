@@ -3,6 +3,7 @@ from dataclasses import dataclass
 
 import anthropic
 
+from config import MODEL
 from .prompts import get_analyze_media_trend_prompt
 from tools.search import search_news
 
@@ -58,7 +59,7 @@ async def analyze_media_trend(
 
     response = await asyncio.to_thread(
         lambda: _client.messages.create(
-            model="claude-opus-4-6",
+            model=MODEL,
             max_tokens=6000,
             system=get_analyze_media_trend_prompt(language, audience, reference_country),
             messages=[{"role": "user", "content": user_message}],

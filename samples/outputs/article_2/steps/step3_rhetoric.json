@@ -1,0 +1,72 @@
+{
+  "emotional_register": [
+    {
+      "id": "er-1",
+      "emotion": "inquiétude",
+      "how": "Ouverture en vocabulaire chargé (« faire frémir », « déclassement ») couplée à une question rhétorique dramatisante.",
+      "effect": "Dispose le lecteur à lire les chiffres comme la preuve d'un déclin national déjà engagé.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "déclassement, thème récurrent",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "er-2",
+      "emotion": "impuissance",
+      "how": "Clôture sur l'aveu que la Commission « ne parvient pas à fournir toutes les explications », laissant le constat sans issue.",
+      "effect": "Installe l'idée d'un mal profond et inexpliqué, plus fort que toute réponse possible.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "chômage repart à la hausse",
+        "strength": 0.6,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "cb-1",
+      "beneficiary": "Le récit du déclassement français",
+      "explanation": "En isolant la France à contre-courant de l'Europe sur la foi d'une source institutionnelle, le cadrage **valide le thème du déclin national** sans avoir à le démontrer lui-même.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "déclassement, thème récurrent",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "cb-2",
+      "beneficiary": "La Commission européenne",
+      "explanation": "Le compte rendu **relaie ses chiffres et recommandations sans contradiction**, conférant à son diagnostic une autorité que nul contre-éclairage ne vient relativiser.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "semestre européen 2026",
+        "strength": 0.7,
+        "nature": "specification"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Contraste",
+        "observation": "Le titre oppose frontalement France et « reste de l'Europe » pour dramatiser une exception nationale."
+      },
+      {
+        "label": "Attribution",
+        "observation": "Le titre énonce la hausse comme un fait brut, sans dire qu'elle provient d'une seule source."
+      },
+      {
+        "label": "Généralisation",
+        "observation": "« Le reste de l'Europe » homogénéise des pays disparates en une tendance unique opposée à la France."
+      }
+    ]
+  }
+}

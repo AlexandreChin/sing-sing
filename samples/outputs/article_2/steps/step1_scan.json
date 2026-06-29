@@ -1,0 +1,151 @@
+{
+  "article_type": "news_report",
+  "key_claims": [
+    {
+      "quote": "le taux de pauvreté des enfants en France est le cinquième plus élevé de l'Union européenne",
+      "source": "Commission européenne",
+      "type": "statistical"
+    },
+    {
+      "quote": "27,5 % des enfants en France sont « à risque de pauvreté et d'exclusion sociale, bien au-dessus du reste de la population (20,8 %)»",
+      "source": "Commission européenne",
+      "type": "statistical"
+    },
+    {
+      "quote": "La situation se détériore depuis dix ans - ce taux était de 22,4 % en 2015 - tandis que dans le reste de l'Union européenne la situation s'améliore : de 27,4 % en 2015, le taux est passé à 24,3 % en 2025.",
+      "source": "Commission européenne",
+      "type": "statistical"
+    },
+    {
+      "quote": "En dix ans, il est passé de 7,5 % à 8,7 % dans notre pays, alors que dans l'UE il a baissé de 9,8 % à 8,2 %.",
+      "source": "Commission européenne",
+      "type": "statistical"
+    },
+    {
+      "quote": "Le travail à temps partiel involontaire et le travail précaire réduisent le nombre total d'heures travaillées, tandis que le nombre de travailleurs indépendants (micro-entrepreneurs et travailleurs de plateformes numériques) aux revenus très faibles et à l'autonomie limitée a augmenté.",
+      "source": "Commission européenne",
+      "type": "attributed"
+    },
+    {
+      "quote": "Parmi les parents isolés actifs, un sur cinq était menacé de pauvreté en 2025, en raison d'un travail à temps partiel involontaire et d'opportunités de carrière manquées, souvent par manque de solutions de garde d'enfants adéquates.",
+      "source": "Commission européenne",
+      "type": "statistical"
+    },
+    {
+      "quote": "L'écart entre les enfants issus de milieux favorisés et ceux issus de milieux défavorisés (36 points de pourcentage) est supérieur à la moyenne européenne (20 points de pourcentage).",
+      "source": "Commission européenne",
+      "type": "statistical"
+    },
+    {
+      "quote": "En 2023, 76 % des familles vivant dans la pauvreté n'avaient pas les moyens de faire garder leurs enfants",
+      "source": "Commission européenne",
+      "type": "statistical"
+    },
+    {
+      "quote": "9,2 % des enfants vivent dans des foyers sans emploi, soit l'un des taux les plus élevés de l'UE",
+      "source": "Commission européenne",
+      "type": "statistical"
+    },
+    {
+      "quote": "Le chômage, en hausse continue depuis le quatrième trimestre 2024, joue également un rôle prépondérant.",
+      "type": "factual"
+    }
+  ],
+  "key_quotes": [
+    "Le chiffre a de quoi surprendre, mais aussi de quoi faire frémir. Le déclassement de la France serait-il plus avancé qu'on ne le pensait jusqu'alors ?",
+    "Les indicateurs vont dans le sens opposé de la tendance européenne, le chômage a pourtant baissé en France",
+    "La pauvreté des travailleurs a fortement augmenté parmi les ménages avec enfants, touchant particulièrement les familles monoparentales, majoritairement dirigées par des mères",
+    "Un constat préoccupant dont la Commission ne parvient pas à fournir toutes les explications."
+  ],
+  "key_actors": [
+    {
+      "name": "Commission européenne",
+      "role": "Source unique des données et des analyses citées dans l'article"
+    },
+    {
+      "name": "Gilles Boutin",
+      "role": "Auteur de l'article pour Le Figaro"
+    },
+    {
+      "name": "Le Figaro",
+      "role": "Média publiant l'article"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Commission européenne",
+      "used_for": "Légitimer l'ensemble des chiffres sur la pauvreté des enfants et leur évolution comparée à l'UE"
+    },
+    {
+      "entity": "Paquet de printemps du semestre européen 2026",
+      "used_for": "Conférer un caractère officiel et institutionnel aux orientations et constats rapportés"
+    }
+  ],
+  "notable_omissions": [
+    "Aucune source autre que la Commission européenne n'est consultée — pas d'économiste, d'institut français (Insee, France Travail) ni de réponse du gouvernement.",
+    "Le mode de calcul du seuil relatif (60 % du revenu médian de chaque pays) n'est pas explicité comme limite de comparaison entre États.",
+    "Aucune ventilation entre niveau de vie absolu et taux relatif : un pays peut voir son taux relatif monter sans appauvrissement absolu.",
+    "Les politiques publiques françaises récentes (prestations familiales, réformes) ne sont pas examinées."
+  ],
+  "rhetorical_patterns": [
+    "Ouverture dramatisée par le registre de l'émotion : « de quoi faire frémir », « déclassement de la France ».",
+    "Question rhétorique en tête d'article qui suggère une réponse alarmante sans l'affirmer.",
+    "Métaphore récurrente des « courbes qui se croisent » pour matérialiser le retournement de tendance.",
+    "Empilement de pourcentages issus d'une seule source, présentés sans contre-éclairage.",
+    "Clôture sur l'aveu d'incompréhension de la Commission, qui laisse le lecteur sur une impression d'énigme préoccupante."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "text": "L'article relaie un document du **semestre européen 2026**, exercice annuel où Bruxelles adresse des recommandations budgétaires à chaque État."
+      },
+      {
+        "text": "La pauvreté infantile et le **déclassement** sont des thèmes récurrents du débat public français."
+      },
+      {
+        "text": "Le **chômage repart à la hausse** en France depuis fin 2024, toile de fond économique du constat."
+      }
+    ],
+    "who_is_speaking": [
+      "Le Figaro est un quotidien national français de centre-droit, dont la ligne éditoriale accorde une place régulière aux thèmes du déclassement et de la performance économique du pays.",
+      "L'article est signé Gilles Boutin et relève du compte rendu : il restitue un rapport institutionnel plus qu'il ne mène une enquête propre.",
+      "La quasi-totalité du propos repose sur une source unique, la Commission européenne, dont les chiffres sont rapportés sans contradiction."
+    ],
+    "important_facts": [
+      {
+        "text": "Le seuil utilisé est **relatif** : 60 % du revenu médian propre à chaque pays, ce qui mesure l'écart interne et non la richesse absolue."
+      },
+      {
+        "text": "L'indicateur « **AROPE** » combine pauvreté monétaire, privation matérielle et faible intensité de travail."
+      },
+      {
+        "text": "Les chiffres français et européens cités mélangent des années de référence différentes (2015, 2023, 2025), ce qui complique la comparaison directe."
+      },
+      {
+        "text": "La France conserve un **système de prestations sociales étendu**, dont l'effet n'est pas chiffré dans l'article."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "Risque de pauvreté et d'exclusion sociale (AROPE)",
+        "definition": "Indicateur européen qui regroupe les personnes à faibles revenus, en privation matérielle ou vivant dans un foyer où l'on travaille très peu."
+      },
+      {
+        "term": "Seuil de pauvreté à 60 % du revenu médian",
+        "definition": "Ligne fixée à 60 % du revenu situé au milieu de la population du pays ; en dessous, on est considéré comme à risque de pauvreté."
+      },
+      {
+        "term": "Revenu médian disponible après transferts sociaux",
+        "definition": "Le revenu qui partage la population en deux moitiés, une fois ajoutées les aides et déduits les impôts."
+      },
+      {
+        "term": "Semestre européen",
+        "definition": "Cycle annuel durant lequel l'Union européenne examine et oriente les politiques budgétaires de chaque pays membre."
+      },
+      {
+        "term": "Temps partiel involontaire",
+        "definition": "Situation d'une personne qui travaille à temps partiel faute de poste à temps plein disponible."
+      }
+    ]
+  }
+}

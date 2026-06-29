@@ -1,0 +1,137 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "27,5 % des enfants en France sont « à risque de pauvreté et d'exclusion sociale, bien au-dessus du reste de la population (20,8 %)»",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Ce chiffre provient du seul paquet de printemps de la Commission, sans recoupement par une source nationale.",
+        "external_sources": [
+          {
+            "name": "Eurostat (indicateur AROPE)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Insee, France Portrait social",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 75
+      },
+      {
+        "quote": "Le seuil de risque de pauvreté est fixé à 60% du revenu médian disponible après transferts sociaux dans chaque pays.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Méthode",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "La définition est conforme à Eurostat, mais elle est posée sans signaler qu'elle mesure un écart relatif, non un niveau de vie absolu.",
+        "external_sources": [
+          {
+            "name": "Eurostat, méthodologie du taux de risque de pauvreté",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 92
+      },
+      {
+        "quote": "Le déclassement de la France serait-il plus avancé qu'on ne le pensait jusqu'alors ?",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Le récit du déclassement français",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "Question rhétorique qui pose le déclin national comme acquis sans le démontrer.",
+        "external_sources": [
+          {
+            "name": "Aucune donnée mesurable (jugement éditorial)",
+            "supports": "neutral",
+            "evidence_type": "media"
+          }
+        ],
+        "confidence": null
+      },
+      {
+        "quote": "de 27,4 % en 2015, le taux est passé à 24,3 % en 2025",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Comparabilité",
+          "strength": 0.8,
+          "nature": "nuance"
+        },
+        "explanation": "Le récit mêle des points relevés en 2015, 2023 et 2025, ce qui fragilise le croisement des courbes présenté comme démonstratif.",
+        "external_sources": [
+          {
+            "name": "Eurostat, séries AROPE 2015-2025",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 70
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "Le chiffre a de quoi surprendre, mais aussi de quoi faire frémir.",
+        "item_type": "bias",
+        "label": "langage émotionnel",
+        "effect": "Remarquez comment le vocabulaire oriente la lecture du chiffre vers l'alarme avant toute analyse.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "inquiétude",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Les courbes se sont durablement croisées, signale la Commission européenne.",
+        "item_type": "bias",
+        "label": "appel à l'autorité",
+        "effect": "Remarquez comment l'attribution à Bruxelles confère au constat une autorité que rien ne vient relativiser.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "La Commission européenne",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Plusieurs raisons sont avancées pour tenter de comprendre cet appauvrissement des travailleurs et, par conséquent, des enfants.",
+        "item_type": "fallacy",
+        "label": "glissement d'un taux relatif à un appauvrissement réel",
+        "effect": "Remarquez comment la hausse d'un taux relatif devient un appauvrissement absolu sans étape intermédiaire démontrée.",
+        "proves": {
+          "type": "observation",
+          "label": "Méthode",
+          "strength": 0.8,
+          "nature": "nuance"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "Un constat préoccupant dont la Commission ne parvient pas à fournir toutes les explications.",
+      "proves": {
+        "type": "observation",
+        "label": "Sourçage",
+        "strength": 0.8,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase clôt l'article sur un mystère que l'institution elle-même ne résout pas. Elle suggère un mal profond tout en s'appuyant sur cette seule source pour le décrire. Qu'apporterait un contre-éclairage français à ce constat laissé en suspens ?"
+    }
+  }
+}

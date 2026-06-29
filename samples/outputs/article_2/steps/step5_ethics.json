@@ -1,0 +1,38 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "",
+        "category": "sensationalism",
+        "label": "Sensationalism",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Le chiffre a de quoi surprendre, mais aussi de quoi faire frémir.",
+        "explanation": "Le registre émotionnel oriente la lecture vers l'alarme avant toute analyse du chiffre."
+      },
+      {
+        "id": "",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Un constat préoccupant dont la Commission ne parvient pas à fournir toutes les explications.",
+        "explanation": "Le constat met en cause les politiques françaises sans trace de réponse sollicitée du gouvernement ou d'une institution nationale."
+      },
+      {
+        "id": "",
+        "category": "false_statistics",
+        "label": "False Statistics",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "de 27,4 % en 2015, le taux est passé à 24,3 % en 2025",
+        "explanation": "Le croisement des courbes mêle des années de référence différentes (2015, 2023, 2025), ce qui fragilise la comparaison présentée comme démonstrative."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Avant publication, solliciter une réponse française et homogénéiser les années de référence pour étayer le croisement des courbes."
+    },
+    "summary": "La déontologie n'est pas pleinement respectée : aucun manquement caractérisé, mais trois points de vigilance — registre alarmiste, absence de droit de réponse français et comparaison statistique fondée sur des années hétérogènes."
+  }
+}

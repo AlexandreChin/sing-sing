@@ -1,0 +1,46 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "L'hypothèse implicite « taux relatif = enfants plus pauvres » n'est jamais explicitée, puis glisse vers un appauvrissement absolu sans qu'aucun contradicteur ne l'arrête : **le constat central repose sur un raccourci méthodologique** qui traverse trois couches sans résistance.",
+        "references": [
+          "ia_0",
+          "bias_2",
+          "lr_0"
+        ]
+      },
+      {
+        "text": "L'omission chiffrée de la redistribution sociale est précisément **le contre-fait qui pourrait renverser la lecture du taux** : ce manque structurel fonde le principal angle mort et signale un article qui suit le cadrage de sa source plutôt que de l'éprouver.",
+        "references": [
+          "bs_1",
+          "obs_4"
+        ]
+      },
+      {
+        "text": "Le croisement de courbes mêlant des **années de référence hétérogènes** est posé comme démonstratif, signalé comme fausse statistique en déontologie, et trahit l'hypothèse tacite de comparabilité des points 2015-2025 : une même faille de comparaison se manifeste sur trois couches.",
+        "references": [
+          "ia_1",
+          "claim_3",
+          "obs_3"
+        ]
+      },
+      {
+        "text": "L'absence de source française est **un angle mort logique doublé d'une atteinte au droit de réponse** : faute de contre-éclairage national, le diagnostic accusatoire reste sans contradiction, ce qui plafonne à la fois la rigueur des sources et l'équité du traitement.",
+        "references": [
+          "bs_0",
+          "cb_1",
+          "claim_0"
+        ]
+      },
+      {
+        "text": "Le registre émotionnel d'ouverture et la clôture sur un mystère irrésolu encadrent les chiffres : **l'inquiétude initiale et le manquement déontologique au sensationnalisme** procèdent du même choix de dramatiser avant d'analyser.",
+        "references": [
+          "er_0",
+          "bias_0",
+          "focus"
+        ]
+      }
+    ],
+    "open_question": "Rien ne permet de trancher si l'omission de la redistribution sociale est un oubli méthodologique ou un choix de cadrage."
+  }
+}

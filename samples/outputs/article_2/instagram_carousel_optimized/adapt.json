@@ -1,0 +1,122 @@
+{
+  "hook": {
+    "topic": "Pauvreté infantile en France",
+    "sub_topic": "France à contre-courant européen",
+    "headline": "des chiffres exacts suffisent-ils à prouver un déclassement ?",
+    "context_line": "La Commission européenne place la France à rebours de la tendance européenne sur la pauvreté des enfants."
+  },
+  "interest": {
+    "why_read": "Comprendre pourquoi des **chiffres exacts** peuvent étayer une **comparaison fragile**.",
+    "pull_quote": "Les courbes se sont durablement croisées",
+    "next_slide_hook": "Avant les chiffres, regardons qui parle et depuis quel point de vue."
+  },
+  "title_bullets": [
+    "Repérez l'**opposition frontale** entre la France et le « reste de l'Europe ».",
+    "Méfiez-vous d'une hausse posée comme un **fait brut**, sans sa source unique.",
+    "Notez la **généralisation** qui fond des pays disparates en une seule tendance."
+  ],
+  "chapo_bullets": [
+    "Remarquez l'ouverture **émotionnelle** (« faire frémir ») qui précède toute analyse.",
+    "Observez la **question rhétorique** qui pose le déclin comme déjà engagé."
+  ],
+  "context_next_slide_hook": "Trois angles morts méritent votre vigilance dès la première lecture.",
+  "watch_out_next_slide_hook": "Voyons maintenant ce que cache le cœur de l'argument.",
+  "forme_next_slide_hook": "Distinguons à présent les faits avérés des jugements glissés.",
+  "biases_next_slide_hook": "Rassemblons les signaux en une lecture d'ensemble.",
+  "engagement_question": "Une hausse d'un taux relatif suffit-elle à dire que les enfants sont vraiment plus pauvres ?",
+  "go_further": [
+    {
+      "title": "Mesurer la pauvreté : le taux relatif et ses limites",
+      "source": "Insee, France, portrait social",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Il explique pourquoi un taux relatif peut monter sans appauvrissement absolu.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Comprendre l'indicateur AROPE",
+      "source": "Eurostat",
+      "media_type": "article",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Il détaille les trois dimensions que combine l'agrégat européen de pauvreté.",
+      "cta_question_index": 1
+    },
+    {
+      "title": "La redistribution réduit-elle la pauvreté des enfants ?",
+      "source": "France Stratégie",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Il chiffre l'effet des prestations, le contre-fait absent de l'article.",
+      "cta_question_index": 2
+    }
+  ],
+  "cta": {
+    "title": "un chiffre exact ne fait pas une comparaison juste",
+    "engagement_sentence": "Partagez en story ou en DM ce que ces chiffres vous inspirent.",
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "L'article vous a-t-il donné les moyens de juger par vous-même ?",
+        "type": "article_quality"
+      },
+      {
+        "id": "q_1",
+        "question": "Une hausse d'un taux relatif signifie-t-elle des enfants vraiment plus pauvres ?",
+        "type": "topic_substance"
+      },
+      {
+        "id": "q_2",
+        "question": "Qu'aurait changé le chiffrage de la redistribution sociale française ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_3",
+        "question": "Le mot « déclassement » oriente-t-il votre lecture des chiffres ?",
+        "type": "reader_bias"
+      }
+    ]
+  },
+  "display": {
+    "payoff": "Les chiffres-clés de la Commission, à recouper soi-même avec les données françaises.",
+    "framing": "Un déclassement français raconté depuis le seul point de vue de Bruxelles.",
+    "ethics": "Pas de faute caractérisée, mais trois points de vigilance.",
+    "pre_reading": [
+      "Vérifiez si le constat repose sur une **source unique**.",
+      "Distinguez **taux relatif** et appauvrissement réel."
+    ],
+    "watch_out": [
+      {
+        "label": "Source unique",
+        "text": "Le diagnostic repose sur la seule Commission, sans contre-éclairage national indépendant."
+      },
+      {
+        "label": "Méthodologie",
+        "text": "Une comparaison présentée comme démonstrative mêle des années de référence différentes."
+      }
+    ],
+    "distill_points": [
+      "Le constat central glisse d'un **taux relatif** vers un appauvrissement absolu, sans étape démontrée ni contradicteur.",
+      "L'effet chiffré de la **redistribution sociale** manque : c'est le contre-fait qui pourrait renverser la lecture.",
+      "Le croisement des courbes mêle des **années de référence hétérogènes**, fragilisant une comparaison posée comme démonstrative."
+    ],
+    "after_reading": [
+      "Des chiffres exacts peuvent servir une comparaison fragile.",
+      "Un taux relatif qui monte n'égale pas des enfants plus pauvres.",
+      "La partie française mise en cause n'a pas répondu."
+    ],
+    "blind_spots": [
+      "L'effet de la redistribution sociale française n'est jamais chiffré.",
+      "Aucune source nationale indépendante ne recoupe le diagnostic de Bruxelles."
+    ],
+    "balance": [
+      "Un compte rendu de rapport n'a pas vocation à enquêter contradictoirement.",
+      "Les chiffres restent un point de départ fiable, à croiser ailleurs."
+    ]
+  }
+}
