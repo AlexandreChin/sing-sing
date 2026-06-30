@@ -20,7 +20,7 @@ python main.py produce <article.txt> [--format instagram_carousel_long] [--no-ap
 python main.py analyze <article.txt> [--render] [--instructions "..."] [--instructions-file <path>]
 python main.py adapt   <analysis.json>   [--format <fmt>] [--no-api]
 python main.py extract <analysis.json> <presentation.json> [--format <fmt>] [--render]
-python main.py render  <document.json> [<output_dir>] [--format <fmt>]
+python main.py render  <extract.json> [<output_dir>] [--format <fmt>]
 
 # Utilities
 python main.py simplify <analysis.json> [--render]   # reduce an existing carousel
@@ -38,7 +38,7 @@ main.py                            CLI dispatcher for all subcommands
 agent/
   full_analysis_agent.py           analyze_for_full_analysis — 9-step pipeline (steps/ 1–9), cached per step
   steps/step1_scan.py … step9_guide.py
-  instagram_carousel_enrich_agent.py   adapt(): ArticleFullAnalysis → carousel presentation
+  instagram_carousel_adapt_agent.py    adapt(): ArticleFullAnalysis → carousel presentation
   instagram_carousel_simplify_agent.py simplify_carousel(): shrink an existing carousel
   media_trend_agent.py
 extractors/
@@ -55,7 +55,7 @@ tools/
   scrape.py, search.py, validate.py, verify.py, graph_generator.py
 ```
 
-**Data flow (`produce`):** `analyze_for_full_analysis(text)` → `ArticleFullAnalysis` JSON → `adapt()` → presentation JSON → `extract()` → trimmed document JSON → `render_from_json()` → PNG slides.
+**Data flow (`produce`):** `analyze_for_full_analysis(text)` → `ArticleFullAnalysis` JSON → `adapt()` → presentation JSON → `extract()` → trimmed render document (`extract.json`) → `render_from_json()` → PNG slides.
 
 **Output layout:** one folder per analysis (see `_layout()` in `main.py`):
 ```
@@ -64,7 +64,7 @@ samples/outputs/<stem>/
   steps/                   step1…step9 cache
   <format>/                e.g. instagram_carousel_short/
     adapt.json             InstagramCarouselPresentation
-    document.json          InstagramCarouselDocument
+    extract.json           InstagramCarouselDocument
     slides/                NN_*.png
 ```
 

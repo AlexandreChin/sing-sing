@@ -18,13 +18,13 @@ DEFAULT_FORMAT = "instagram_carousel_long"
 
 def _layout(stem: str, fmt: str | None = None) -> dict:
     """Per-analysis output layout:
-    outputs/<stem>/{analysis.json, steps/, <fmt>/{adapt.json, document.json, slides/}}."""
+    outputs/<stem>/{analysis.json, steps/, <fmt>/{adapt.json, extract.json, slides/}}."""
     base = OUTPUTS_DIR / stem
     paths = {"base": base, "analysis": base / "analysis.json", "steps": base / "steps"}
     if fmt:
         fdir = base / fmt
         paths |= {"fmt_dir": fdir, "adapt": fdir / "adapt.json",
-                  "document": fdir / "document.json",
+                  "extract": fdir / "extract.json",
                   "html": fdir / "html", "slides": fdir / "slides"}
     return paths
 
@@ -116,7 +116,7 @@ async def cmd_extract(args: argparse.Namespace) -> None:
     full = ArticleFullAnalysis.model_validate(json.loads(Path(args.analysis).read_text(encoding="utf-8")))
     presentation = InstagramCarouselPresentation.model_validate(json.loads(Path(args.presentation).read_text(encoding="utf-8")))
     doc = extract_fn(full, presentation)
-    out_path = Path(args.analysis).with_stem(Path(args.analysis).stem + f"_{args.format}_document")
+    out_path = Path(args.analysis).with_stem(Path(args.analysis).stem + f"_{args.format}_extract")
     out_path.write_text(doc.model_dump_json(indent=2), encoding="utf-8")
     print(f"Document written to {out_path}", file=sys.stderr)
     if args.render:
@@ -251,15 +251,15 @@ async def cmd_produce(args: argparse.Namespace) -> None:
     # 3. Extract
     extract_fn = importlib.import_module(extractor_mod).extract
     doc = extract_fn(full, presentation)
-    lay["document"].write_text(doc.model_dump_json(indent=2), encoding="utf-8")
-    print(f"Document written to {lay['document']}", file=sys.stderr)
+    lay["extract"].write_text(doc.model_dump_json(indent=2), encoding="utf-8")
+    print(f"Render document written to {lay['extract']}", file=sys.stderr)
 
     # 4. Render (optional) — HTML and PNG into separate subfolders
     if args.render:
         from renderer.shoot import shoot_dir
         generate_html_from_json = importlib.import_module(renderer_mod).generate_html_from_json
         print(f"Writing HTML slides to {lay['html']}/", file=sys.stderr)
-        await asyncio.to_thread(generate_html_from_json, lay["document"], lay["html"])
+        await asyncio.to_thread(generate_html_from_json, lay["extract"], lay["html"])
         print(f"Rendering PNG slides to {lay['slides']}/", file=sys.stderr)
         await asyncio.to_thread(shoot_dir, lay["html"], lay["slides"])
 
@@ -303,13 +303,13 @@ def _build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_produce)
 
     p = sub.add_parser("render", help="render slides (HTML + screenshots) from a document")
-    p.add_argument("document", help="document.json")
+    p.add_argument("document", help="extract.json (the render document)")
     p.add_argument("output_dir", nargs="?", help="output directory (default: alongside the json)")
     _add_format(p)
     p.set_defaults(func=cmd_render)
 
     p = sub.add_parser("html", help="write standalone HTML slide files (no screenshots)")
-    p.add_argument("document", help="document.json")
+    p.add_argument("document", help="extract.json (the render document)")
     p.add_argument("output_dir", nargs="?", help="output directory (default: alongside the json)")
     _add_format(p)
     p.set_defaults(func=cmd_html)
