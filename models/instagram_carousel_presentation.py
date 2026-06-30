@@ -58,6 +58,8 @@ class CarouselDisplay(BaseModel):
     """Condensed, carousel-ready display strings for the long format slides."""
     payoff: str              # ≤15 words — what the reader gets from this article
     framing: str             # ≤15 words — the article's angle in plain language
+    why_selected: str        # ≤20 words — the editorial reason this article earned a decrypt
+    selection_headline: str  # ≤12 words — punchy one-line "why we chose it" (slide 2 headline)
     ethics: str              # ≤12 words — explicit clean/not-clean statement
     pre_reading: list[str]   # exactly 2 items, ≤12 words each
     watch_out: list[WatchOutItem]  # exactly 2 items, ≤15 words each, no article quotes

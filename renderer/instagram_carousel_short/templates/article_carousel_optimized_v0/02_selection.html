@@ -5,12 +5,15 @@
 <style>
 {% include 'base.css' %}
 .sel-kick { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; }
-.sel-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 22px; }
+.sel-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 30px; }
 .sel-head { font-size: 56px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
-.sel-block { display: flex; flex-direction: column; gap: 10px; }
-.sel-block p { font-size: 35px; line-height: 1.45; color: #e0e0e0; text-align: justify; hyphens: auto; }
-.sel-block strong { color: #d4aa00; font-weight: 700; }
-.sel-reco { font-size: 38px; font-weight: 800; color: #d4aa00; letter-spacing: -0.01em; }
+.q-list { display: flex; flex-direction: column; gap: 34px; }
+.q-item { display: flex; flex-direction: column; gap: 12px; }
+.q-head { display: flex; gap: 18px; align-items: baseline; }
+.q-head .mk { flex: none; color: #d4aa00; font-weight: 900; font-size: 38px; line-height: 1; }
+.q-label { font-size: 40px; font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; color: #f0f0f0; }
+.q-body { font-size: 35px; font-weight: 400; line-height: 1.42; color: #e0e0e0; padding-left: 36px; text-align: justify; hyphens: auto; }
+.q-body strong { color: #d4aa00; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -19,20 +22,14 @@
   {% include '_brand.html' %}
   <div class="sel-stage">
     <span class="sel-kick">Pourquoi cet article</span>
-    <h1 class="sel-head">On l'a choisi pour vous.</h1>
+    <h1 class="sel-head">{{ headline }}</h1>
     <div class="divider"></div>
-    <div class="sel-block">
-      <div class="section-label">Pour qui</div>
-      <p>{{ for_whom | md_bold }}</p>
+    <div class="q-list">
+      {% for q in items %}<div class="q-item">
+        <div class="q-head"><span class="mk">&#10003;</span><span class="q-label">{{ q.label }}</span></div>
+        <p class="q-body">{{ q.body | md_bold }}</p>
+      </div>{% endfor %}
     </div>
-    <div class="sel-block">
-      <div class="section-label">Ce que vous y gagnez</div>
-      <p>{{ payoff | md_bold }}</p>
-    </div>
-    {% if reco %}<div class="sel-block">
-      <div class="section-label">Notre recommandation</div>
-      <p class="sel-reco">{{ reco }}</p>
-    </div>{% endif %}
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Comment bien le lire &#8595;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>

@@ -44,13 +44,6 @@ def _truncate(text: str, limit: int) -> str:
 
 
 # ── Fact-check slide (honest framing) ─────────────────────────────────────────
-# How the article frames each claim — surfaced so readers see the gap between
-# "presented as a fact" and how solid the claim actually is.
-PRESENTATION_FR = {
-    "presented_as_established_fact": "Présenté comme un fait",
-    "attributed_to_source": "Attribué à une source",
-    "opinion_stated_as_fact": "Opinion énoncée comme un fait",
-}
 # Our *critical reading* of how solid each claim is — deliberately a reading to
 # recheck, NOT a certified fact-check verdict (confidence is the model's own
 # estimate, not live source verification). (label, css class)
@@ -99,7 +92,6 @@ def _factcheck_items(full, focus_text: str = "", limit: int = 2) -> list[dict]:
         quote = _truncate(c.quote, 120)
         items.append({
             "quote": quote,
-            "presentation": PRESENTATION_FR.get(c.presentation, ""),
             "reading": label,
             "cls": cls,
         })
@@ -177,10 +169,12 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     specs = [
         ("01_hook", {"article_title": meta.title, "source_meta": source_meta,
                      "headline": pres.hook.headline}),
-        # Curation beat — why this article was selected, for whom (pillar ①).
-        ("02_selection", {"for_whom": verdict.for_whom if verdict else "",
-                          "payoff": disp.payoff,
-                          "reco": RECO.get(verdict.reading_recommendation, "") if verdict else ""}),
+        # Curation beat (pillar ①) — a one-line "why we chose it" headline, then
+        # two reasons in the slide-7 layout. No verdict spoiler, no topic restatement.
+        ("02_selection", {"headline": disp.selection_headline, "items": [
+            {"label": "Pourquoi on l'a retenu", "body": disp.why_selected},
+            {"label": "Ce que vous allez apprendre", "body": disp.payoff},
+        ]}),
         # Clues = pre-reading tips (what to watch for), NOT the watch_out findings
         # (those are the proof, revealed in full on the faille slides).
         ("03_reperes", {"context": contexts[0].text if contexts else "",
