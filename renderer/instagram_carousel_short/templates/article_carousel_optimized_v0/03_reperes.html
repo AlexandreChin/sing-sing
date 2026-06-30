@@ -28,7 +28,7 @@
     <h1 class="head">Le contexte, et deux failles à repérer.</h1>
     <div class="divider"></div>
     <div class="keys">
-      <div class="key ctx"><span class="mk">&#8250;</span><span>{{ context | md_bold }}</span></div>
+      {% if context %}<div class="key ctx"><span class="mk">&#8250;</span><span>{{ context | md_bold }}</span></div>{% endif %}
       {% for c in clues %}<div class="key wo"><span class="mk">&#9888;</span><span>{{ c | md_bold }}</span></div>{% endfor %}
     </div>
   </div>

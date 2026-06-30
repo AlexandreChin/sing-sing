@@ -136,14 +136,10 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         f"{meta.reading_time_minutes} min" if meta.reading_time_minutes else None,
     ] if x)
 
-    watch = list(disp.watch_out)
-    w0 = watch[0] if len(watch) > 0 else None
-    w1 = watch[1] if len(watch) > 1 else None
+    watch = list(disp.watch_out)[:2]
     qlookup = _quote_lookup(full)
 
     def _faille(w):
-        if not w:
-            return {"label": "", "body": "", "quote": ""}
         return {"label": w.label, "body": w.text,
                 "quote": _faille_evidence(full, f"{w.label} {w.text}", qlookup)}
 
@@ -166,8 +162,10 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         if wq else {"name": "Qualité de l'article", "val": "—", "pos": 50, "level": "mid"}
     )
 
+    # Build the slide list conditionally: sections with no content are dropped
+    # rather than rendered hollow, and dynamic numbering adapts to the result.
     specs = [
-        ("01_hook", {"article_title": meta.title, "source_meta": source_meta,
+        ("01_hook", {"article_title": (meta.title or "").strip(), "source_meta": source_meta,
                      "headline": pres.hook.headline}),
         # Curation beat (pillar ①) — a one-line "why we chose it" headline, then
         # two reasons in the slide-7 layout. No verdict spoiler, no topic restatement.
@@ -179,18 +177,32 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         # (those are the proof, revealed in full on the faille slides).
         ("03_reperes", {"context": contexts[0].text if contexts else "",
                         "clues": list(disp.pre_reading)[:2]}),
-        ("04_verif_faits", {"items": _factcheck_items(
-            full, f"{pres.hook.headline} {verdict.summary if verdict else ''}")}),
-        ("05_faille_1", _faille(w0)),
-        ("06_faille_2", _faille(w1)),
-        ("07_point_fort", strength),
-        ("08_prise_de_recul", {"blind_spots": list(disp.blind_spots), "balance": list(disp.balance)}),
-        ("09_verdict", {"gauge": main_gauge,
-                        "score": _fr_num(wq["score"]) if wq else "",
-                        "body": verdict.main_blind_side if verdict else "",
-                        "final": RECO.get(verdict.reading_recommendation, "") if verdict else ""}),
-        ("10_cta", {}),
     ]
+
+    fc_items = _factcheck_items(full, f"{pres.hook.headline} {verdict.summary if verdict else ''}")
+    if fc_items:
+        specs.append(("04_verif_faits", {"items": fc_items}))
+
+    # One faille slide per available watch_out item (1–2). next_hook is computed
+    # from what actually follows, so transitions stay correct with a single faille.
+    for idx, w in enumerate(watch):
+        name = "05_faille_1" if idx == 0 else "06_faille_2"
+        last = idx == len(watch) - 1
+        next_hook = ("Et ce qui marche ? ›" if strength["items"] else "Prendre du recul ›") \
+            if last else "La faille suivante ›"
+        specs.append((name, {**_faille(w), "next_hook": next_hook}))
+
+    if strength["items"]:
+        specs.append(("07_point_fort", strength))
+    if disp.blind_spots or disp.balance:
+        specs.append(("08_prise_de_recul",
+                      {"blind_spots": list(disp.blind_spots), "balance": list(disp.balance)}))
+
+    specs.append(("09_verdict", {"gauge": main_gauge,
+                                 "score": _fr_num(wq["score"]) if wq else "",
+                                 "body": verdict.main_blind_side if verdict else "",
+                                 "final": RECO.get(verdict.reading_recommendation, "") if verdict else ""}))
+    specs.append(("10_cta", {}))
 
     env = _env()
     paths = []
