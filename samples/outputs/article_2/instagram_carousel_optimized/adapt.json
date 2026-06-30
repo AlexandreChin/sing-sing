@@ -1,29 +1,29 @@
 {
   "hook": {
-    "topic": "Pauvreté infantile en France",
-    "sub_topic": "La France à contre-courant",
-    "headline": "Des chiffres exacts suffisent-ils à prouver un déclin ?",
+    "topic": "Pauvreté des enfants",
+    "sub_topic": "France à contre-courant de l'Europe",
+    "headline": "les enfants français s'appauvrissent-ils vraiment plus vite qu'ailleurs ?",
     "context_line": "Un rapport européen place la France à rebours de la tendance continentale sur la pauvreté des enfants."
   },
   "interest": {
-    "why_read": "Séparer un **chiffre exact** d'une **comparaison fragile**.",
+    "why_read": "Des chiffres exacts, mais une lecture **à manier avec précaution**.",
     "pull_quote": "Le chiffre a de quoi surprendre, mais aussi de quoi faire frémir.",
-    "next_slide_hook": "D'abord, qui parle et sur quoi repose vraiment ce constat ?"
+    "next_slide_hook": "D'abord, qui parle et sur quoi repose ce constat ?"
   },
   "title_bullets": [
-    "Repérez l'opposition frontale **France / reste de l'Europe** qui dramatise une exception.",
-    "Notez que la hausse est posée comme un **fait brut**, sans dire qu'elle vient d'une source unique.",
-    "Méfiez-vous du mot **« déclassement »**, posé comme acquis avant toute démonstration."
+    "Repérez l'opposition frontale entre la France et le **reste de l'Europe**.",
+    "Notez que la hausse est posée en **fait brut**, sans dire qu'elle vient d'une seule source.",
+    "Méfiez-vous du « reste de l'Europe » qui **homogénéise** des pays très disparates."
   ],
   "chapo_bullets": [
-    "Observez le **registre émotionnel** d'ouverture (« faire frémir ») qui précède tout chiffre.",
-    "Remarquez la **question rhétorique** qui suggère une réponse alarmante sans l'affirmer."
+    "Observez le registre émotionnel d'ouverture : « **faire frémir** » avant tout chiffre.",
+    "Repérez la question rhétorique qui pose le **déclassement** comme presque acquis."
   ],
-  "context_next_slide_hook": "Trois réflexes à garder avant d'avaler le constat.",
-  "watch_out_next_slide_hook": "Au cœur du raisonnement, un raccourci passe inaperçu.",
-  "forme_next_slide_hook": "Quand l'émotion s'efface, que disent vraiment les chiffres ?",
-  "biases_next_slide_hook": "Rassemblons les fils : que retenir au fond ?",
-  "engagement_question": "Un taux relatif qui grimpe suffit-il à dire que les enfants sont réellement plus pauvres ?",
+  "context_next_slide_hook": "Avant d'y croire, voici les réflexes à garder en tête.",
+  "watch_out_next_slide_hook": "Au cœur du raisonnement, un raccourci passe presque inaperçu.",
+  "forme_next_slide_hook": "Derrière le ton, séparons les faits des jugements.",
+  "biases_next_slide_hook": "Rassemblons maintenant les signaux à retenir.",
+  "engagement_question": "Un taux de pauvreté qui monte signifie-t-il toujours des enfants réellement plus pauvres ?",
   "go_further": [
     {
       "title": "Mesurer la pauvreté : le taux relatif et ses limites",
@@ -31,58 +31,58 @@
       "media_type": "report",
       "category": "deep_dive",
       "url": null,
-      "duration_minutes": 25,
-      "why_explore": "Il explique pourquoi un taux relatif peut monter sans appauvrissement absolu et resitue les chiffres européens.",
+      "duration_minutes": null,
+      "why_explore": "Comprendre pourquoi un taux relatif peut monter sans appauvrissement absolu.",
       "cta_question_index": null
     },
     {
-      "title": "Indicateur AROPE : méthodologie du risque de pauvreté et d'exclusion",
+      "title": "Indicateur AROPE : ce que mesure vraiment le risque de pauvreté",
       "source": "Eurostat",
       "media_type": "report",
       "category": "deep_dive",
       "url": null,
-      "duration_minutes": 20,
-      "why_explore": "Il détaille ce que mêle vraiment l'agrégat et comment le seuil à 60 % se compare entre pays.",
+      "duration_minutes": null,
+      "why_explore": "Décortiquer l'agrégat qui combine revenus, privation matérielle et faible emploi.",
       "cta_question_index": null
     },
     {
-      "title": "L'effet redistributif des prestations sur la pauvreté des enfants",
+      "title": "Redistribution et pauvreté des enfants : l'effet des prestations",
       "source": "DREES",
       "media_type": "report",
       "category": "question_answer",
       "url": null,
-      "duration_minutes": 30,
-      "why_explore": "Il chiffre la redistribution sociale française, le contre-fait absent de l'article.",
+      "duration_minutes": null,
+      "why_explore": "Chiffre l'effet de la redistribution sur la pauvreté infantile, absent de l'article.",
       "cta_question_index": 1
     }
   ],
   "cta": {
-    "title": "Un chiffre exact ne fait pas une preuve.",
-    "engagement_sentence": "Partagez en story ou en DM le chiffre qui vous a fait tiquer.",
+    "title": "Des chiffres exacts ne font pas une preuve complète.",
+    "engagement_sentence": "Dites-nous en story ou en DM : un taux de pauvreté vous a-t-il déjà induit en erreur ?",
     "post_reading_questions": [
       {
         "id": "q_0",
-        "question": "Une source institutionnelle unique suffit-elle à fonder un constat accusatoire ?",
+        "question": "L'article vous a-t-il donné les moyens de distinguer taux relatif et appauvrissement réel ?",
         "type": "article_quality"
       },
       {
         "id": "q_1",
-        "question": "Qu'aurait changé le chiffrage de la redistribution sociale française ?",
+        "question": "Que changerait au constat le chiffrage de la redistribution sociale française ?",
         "type": "blind_spot"
       },
       {
         "id": "q_2",
-        "question": "Le mot « déclassement » a-t-il orienté votre lecture avant les chiffres ?",
+        "question": "Pourquoi le récit du déclassement national nous semble-t-il si crédible ?",
         "type": "reader_bias"
       }
     ]
   },
   "display": {
-    "payoff": "Les chiffres-clés européens sur la pauvreté infantile, à recouper soi-même.",
-    "framing": "Un déclin national restitué depuis le seul point de vue de Bruxelles.",
-    "why_selected": "Un cas d'école : tout un récit de déclin bâti sur une source institutionnelle unique, jamais éprouvée.",
+    "payoff": "Les chiffres-clés européens sur la pauvreté infantile, à condition de les recouper.",
+    "framing": "Un déclassement français raconté depuis le seul point de vue de Bruxelles.",
+    "why_selected": "Un cas d'école : tout un récit de déclin bâti sur une source institutionnelle unique.",
     "selection_headline": "Tout est exact — et c'est là que ça se complique.",
-    "ethics": "Acceptable, mais alarmisme et droit de réponse manquant.",
+    "ethics": "Pas de faute, mais trois points de vigilance déontologique.",
     "pre_reading": [
       "Vérifiez si le constat repose sur une seule institution.",
       "Distinguez taux relatif de pauvreté et appauvrissement réel."
@@ -90,39 +90,39 @@
     "watch_out": [
       {
         "label": "Source unique",
-        "text": "Le diagnostic repose sur la seule Commission, sans recoupement national indépendant."
+        "text": "Aucune source française ne vient recouper le diagnostic de Bruxelles."
       },
       {
         "label": "Méthodologie",
-        "text": "Une hausse de taux relatif glisse en appauvrissement absolu, sans étape démontrée."
+        "text": "La hausse d'un taux relatif glisse en appauvrissement réel, sans étape démontrée."
       }
     ],
     "strengths": [
       {
         "label": "Exactitude factuelle",
-        "text": "Les chiffres cités sont conformes aux données européennes, exacts pris isolément."
+        "text": "Les chiffres cités sont conformes aux données européennes d'Eurostat."
       },
       {
         "label": "Clarté",
-        "text": "Le propos reste lisible et met clairement les chiffres en avant."
+        "text": "Un propos lisible, avec des chiffres-clés bien mis en avant."
       }
     ],
     "distill_points": [
-      "L'hypothèse « taux relatif = enfants plus pauvres » glisse vers l'appauvrissement absolu sans contradicteur.",
-      "La redistribution sociale, jamais chiffrée, est le contre-fait qui pourrait renverser la lecture.",
-      "Des courbes mêlant des années de référence hétérogènes sont posées comme démonstratives."
+      "Le constat central repose sur un raccourci : taux relatif assimilé à des enfants plus pauvres.",
+      "L'effet non chiffré de la redistribution sociale est le contre-fait qui pourrait renverser la lecture.",
+      "Le croisement des courbes mêle des années de référence hétérogènes (2015, 2023, 2025)."
     ],
     "after_reading": [
-      "Un taux relatif en hausse n'égale pas des enfants plus pauvres.",
-      "Imaginez le tableau avec les données françaises de l'Insee.",
+      "Une hausse du taux relatif n'égale pas des enfants plus pauvres.",
+      "Cherchez l'effet des prestations sociales, jamais chiffré ici.",
       "Vérifiez si la partie française a pu répondre."
     ],
     "blind_spots": [
-      "L'effet chiffré de la redistribution sociale française, jamais mesuré.",
-      "Aucune source nationale indépendante ni réponse du gouvernement."
+      "L'effet chiffré de la redistribution sociale française n'est jamais mesuré.",
+      "Aucune source nationale indépendante ni réponse de la partie française."
     ],
     "balance": [
-      "Un compte rendu de rapport n'a pas vocation à tout contredire.",
+      "Un compte rendu de rapport n'a pas vocation à mener l'enquête contradictoire.",
       "Format court : les chiffres restent un point de départ fiable."
     ]
   }

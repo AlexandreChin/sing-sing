@@ -128,11 +128,20 @@ async def cmd_extract(args: argparse.Namespace) -> None:
 
 async def cmd_render(args: argparse.Namespace) -> None:
     json_path = Path(args.document)
-    slides_dir = Path(args.output_dir) if args.output_dir else json_path.parent / json_path.stem
     _, _, renderer_mod = FORMATS[args.format]
-    render_from_json = importlib.import_module(renderer_mod).render_from_json
-    print(f"Rendering slides to {slides_dir}/", file=sys.stderr)
-    await asyncio.to_thread(render_from_json, json_path, slides_dir)
+    mod = importlib.import_module(renderer_mod)
+    if args.output_dir:
+        slides_dir = Path(args.output_dir)
+        print(f"Rendering slides to {slides_dir}/", file=sys.stderr)
+        await asyncio.to_thread(mod.render_from_json, json_path, slides_dir)
+    else:
+        # Default: write to the canonical html/ + slides/ next to the document,
+        # matching `produce` — not a <stem>/ subfolder.
+        from renderer.shoot import shoot_dir
+        html_dir, slides_dir = json_path.parent / "html", json_path.parent / "slides"
+        print(f"Writing HTML to {html_dir}/ and PNG to {slides_dir}/", file=sys.stderr)
+        await asyncio.to_thread(mod.generate_html_from_json, json_path, html_dir)
+        await asyncio.to_thread(shoot_dir, html_dir, slides_dir)
 
 
 async def cmd_html(args: argparse.Namespace) -> None:

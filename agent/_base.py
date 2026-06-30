@@ -42,20 +42,32 @@ def _call_no_api(user_message: str, schema: dict) -> dict:
         f"{json.dumps(schema, ensure_ascii=False, indent=2)}\n\n"
         "N'ajoute aucun texte avant ni après le JSON. Pas de balises markdown. Pas d'explication."
     )
-    result = subprocess.run(
-        ["claude", "-p", prompt],
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
-    )
-    if result.returncode != 0:
-        raise RuntimeError(f"claude CLI failed:\n{result.stderr}")
-    text = result.stdout.strip()
-    match = re.search(r"```(?:json)?\s*([\s\S]+?)\s*```", text)
-    if match:
-        text = match.group(1).strip()
-    text = re.sub(r",(\s*[}\]])", r"\1", text)
-    return json.loads(text)
+    # `claude -p` intermittently returns empty stdout; retry before giving up so a
+    # single transient blank doesn't abort the whole pipeline.
+    last_err = ""
+    for _ in range(MAX_RETRIES + 1):
+        result = subprocess.run(
+            ["claude", "-p", prompt],
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        )
+        if result.returncode != 0:
+            last_err = f"claude CLI failed:\n{result.stderr}"
+            continue
+        text = result.stdout.strip()
+        if not text:
+            last_err = "claude CLI returned empty output"
+            continue
+        match = re.search(r"```(?:json)?\s*([\s\S]+?)\s*```", text)
+        if match:
+            text = match.group(1).strip()
+        text = re.sub(r",(\s*[}\]])", r"\1", text)
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError as e:
+            last_err = f"invalid JSON from claude CLI: {e}"
+    raise RuntimeError(last_err or "claude CLI call failed")
 
 
 def _call(user_message: str, schema: dict, no_api: bool = False) -> dict:
