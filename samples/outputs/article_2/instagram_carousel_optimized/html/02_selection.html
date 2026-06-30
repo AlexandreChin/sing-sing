@@ -334,12 +334,15 @@ body {
 .trk svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .trk-sep { color: #3a3a3a; }
 .sel-kick { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; }
-.sel-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 22px; }
+.sel-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 30px; }
 .sel-head { font-size: 56px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
-.sel-block { display: flex; flex-direction: column; gap: 10px; }
-.sel-block p { font-size: 35px; line-height: 1.45; color: #e0e0e0; text-align: justify; hyphens: auto; }
-.sel-block strong { color: #d4aa00; font-weight: 700; }
-.sel-reco { font-size: 38px; font-weight: 800; color: #d4aa00; letter-spacing: -0.01em; }
+.q-list { display: flex; flex-direction: column; gap: 34px; }
+.q-item { display: flex; flex-direction: column; gap: 12px; }
+.q-head { display: flex; gap: 18px; align-items: baseline; }
+.q-head .mk { flex: none; color: #d4aa00; font-weight: 900; font-size: 38px; line-height: 1; }
+.q-label { font-size: 40px; font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; color: #f0f0f0; }
+.q-body { font-size: 35px; font-weight: 400; line-height: 1.42; color: #e0e0e0; padding-left: 36px; text-align: justify; hyphens: auto; }
+.q-body strong { color: #d4aa00; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -349,19 +352,16 @@ body {
 <div class="company-name">Sing<br>Sing</div>
   <div class="sel-stage">
     <span class="sel-kick">Pourquoi cet article</span>
-    <h1 class="sel-head">On l'a choisi pour vous.</h1>
+    <h1 class="sel-head">Tout est exact — et c&#39;est là que ça se complique.</h1>
     <div class="divider"></div>
-    <div class="sel-block">
-      <div class="section-label">Pour qui</div>
-      <p>Un lecteur suivant les questions de politique sociale et familiale, capable de recouper lui-même les chiffres européens avec les données françaises de l&#39;Insee.</p>
-    </div>
-    <div class="sel-block">
-      <div class="section-label">Ce que vous y gagnez</div>
-      <p>Les chiffres-clés européens sur la pauvreté infantile, à recouper avec les données françaises.</p>
-    </div>
-    <div class="sel-block">
-      <div class="section-label">Notre recommandation</div>
-      <p class="sel-reco">À lire — avec réserves</p>
+    <div class="q-list">
+      <div class="q-item">
+        <div class="q-head"><span class="mk">&#10003;</span><span class="q-label">Pourquoi on l&#39;a retenu</span></div>
+        <p class="q-body">Un cas d&#39;école : tout un récit de déclin bâti sur une source institutionnelle unique, jamais éprouvée.</p>
+      </div><div class="q-item">
+        <div class="q-head"><span class="mk">&#10003;</span><span class="q-label">Ce que vous allez apprendre</span></div>
+        <p class="q-body">Les chiffres-clés européens sur la pauvreté infantile, à recouper soi-même.</p>
+      </div>
     </div>
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Comment bien le lire &#8595;</span></div>

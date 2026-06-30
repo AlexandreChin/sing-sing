@@ -58,6 +58,8 @@ autonome et tenir sur 1–2 lignes de slide Instagram. Pas de guillemets d'artic
 
 - payoff        : ≤15 mots — ce que le lecteur gagne à lire cet article (depuis verdict.payoff)
 - framing       : ≤15 mots — l'angle choisi par l'article, en langage direct (depuis perspective.framing)
+- why_selected  : ≤20 mots — la RAISON ÉDITORIALE pour laquelle on a retenu cet article à décrypter (ce qu'il a d'instructif / révélateur / exemplaire), PAS un éloge ni le verdict. S'appuyer sur review.verdict.quality, signature_move et le cadrage. Ex. : « Un cas d'école : tout un récit de déclin bâti sur une source institutionnelle unique. »
+- selection_headline : ≤12 mots — l'ACCROCHE éditoriale en une ligne qui résume « pourquoi on l'a choisi » (titre de la slide « Pourquoi cet article »). Affirmation percutante, ton curatorial — PAS une question au lecteur (≠ hook), PAS le verdict. Capte la tension qui rend l'article digne d'un décryptage. Ex. : « Tout est exact — et c'est là que ça se complique. »
 - ethics        : ≤12 mots — état déontologique explicite : propre ou non (depuis deontology.summary)
 - pre_reading   : exactement 2 items, ≤12 mots chacun — conseils d'orientation avant lecture (depuis guide.pre_reading)
 - watch_out     : exactement 2 items, chacun avec un `label` (court descripteur français, ex. "Source unique", "Méthodologie", "Droit de réponse", "Omission", "Rhétorique") et un `text` (≤15 mots, alerte sans citation de l'article) — (depuis guide.watch_out)

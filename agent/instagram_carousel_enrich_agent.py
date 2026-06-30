@@ -32,7 +32,7 @@ def _validate(data: dict) -> list[str]:
                 f"go_further[{i}].cta_question_index={item.cta_question_index} out of range (0–{n_cta - 1})"
             )
     d = pres.display
-    for field in ("payoff", "framing", "ethics"):
+    for field in ("payoff", "framing", "why_selected", "selection_headline", "ethics"):
         if not getattr(d, field).strip():
             errors.append(f"display.{field} is empty")
     if len(d.blind_spots) != 2:
