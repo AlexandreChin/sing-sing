@@ -43,10 +43,10 @@ agent/
   media_trend_agent.py
 extractors/
   registry.py                      FORMATS: format name → (adapt agent, extractor, renderer) modules
-  instagram_carousel_short.py      extract(): trim to the 3 most-decisive review dimensions + 1 go_further (shared by both optimized formats)
+  instagram_carousel.py            extract(): trim to the 3 most-decisive review dimensions + 1 go_further (shared by both formats)
 renderer/
-  instagram_carousel_short/        shared renderer.py helpers + the two optimized renderers:
-    renderer.py                    _env / _weighted_quality / _LOGO_DATA_URL / TYPE_FR (shared)
+  instagram_carousel/              the two carousel renderers + shared helpers:
+    _shared.py                     _env / _weighted_quality / _LOGO_DATA_URL / TYPE_FR (shared)
     optimized.py                   10-slide optimized deck
     optimized_short.py             6-slide optimized deck
     templates/article_carousel_optimized_v0/  Jinja2 templates → PNG slides (1080×1350)
@@ -71,7 +71,7 @@ samples/outputs/<stem>/
 ```
 
 **Formats:** registered in `extractors/registry.py`. All carousel formats reuse the same `adapt()` presentation (no extra LLM call) — only the extractor + renderer differ:
-- `instagram_carousel_optimized` (default) — 10-slide deck on the `article_carousel_optimized_v0` templates: Hook → Curation → Repères → Vérif. des faits → Faille 1 → Faille 2 → Point fort → Prise de recul → Verdict → CTA. Reuses the `instagram_carousel_short` extractor; renderer builds the slide list conditionally, so absent sections drop out and numbering (`slide_n`/`slide_total`) adapts.
+- `instagram_carousel_optimized` (default) — 10-slide deck on the `article_carousel_optimized_v0` templates: Hook → Curation → Repères → Vérif. des faits → Faille 1 → Faille 2 → Point fort → Prise de recul → Verdict → CTA. renderer builds the slide list conditionally, so absent sections drop out and numbering (`slide_n`/`slide_total`) adapts.
 - `instagram_carousel_optimized_short` — 6-slide cut of the above (same templates + one merged `decryptage.html`): Hook → Curation → Repères → Le décryptage (failles merged) → Verdict → CTA.
 
 To add a format, add a `FORMATS` entry mapping to its adapt agent, extractor, and renderer modules.

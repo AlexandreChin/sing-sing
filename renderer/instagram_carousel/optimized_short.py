@@ -12,7 +12,7 @@ import json
 from pathlib import Path
 
 from models.instagram_carousel_presentation import InstagramCarouselDocument
-from .renderer import _env, _LOGO_DATA_URL, _weighted_quality, TYPE_FR
+from ._shared import _env, _LOGO_DATA_URL, _weighted_quality, TYPE_FR
 from .optimized import _fr_num
 
 TPL = "article_carousel_optimized_v0"
