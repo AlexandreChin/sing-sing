@@ -14,16 +14,16 @@ uv add <package>
 uv sync
 
 # Full pipeline: analyze → adapt → extract → render
-python main.py produce <article.txt> [--format instagram_carousel_long] [--no-api] [--render]
+python main.py produce <article.txt> [--format instagram_carousel_optimized] [--no-api] [--render]
 
 # Individual stages
-python main.py analyze <article.txt> [--render] [--instructions "..."] [--instructions-file <path>]
+python main.py analyze <article.txt> [--instructions "..."] [--instructions-file <path>]
 python main.py adapt   <analysis.json>   [--format <fmt>] [--no-api]
 python main.py extract <analysis.json> <presentation.json> [--format <fmt>] [--render]
 python main.py render  <extract.json> [<output_dir>] [--format <fmt>]
 
 # Utilities
-python main.py simplify <analysis.json> [--render]   # reduce an existing carousel
+python main.py simplify <analysis.json>              # reduce an existing carousel
 python main.py validate <analysis.json>              # node-graph integrity checks
 python main.py verify   <analysis.json> [--claim N]  # find sources for/against claims
 python main.py graph    <analysis.json> [out.html]   # render the node graph
@@ -43,11 +43,13 @@ agent/
   media_trend_agent.py
 extractors/
   registry.py                      FORMATS: format name → (adapt agent, extractor, renderer) modules
-  instagram_carousel_long.py       extract(): select/trim nodes under per-slide CAPS
-  instagram_carousel_short.py      extract(): trim to the 3 most-decisive review dimensions + 1 go_further
+  instagram_carousel_short.py      extract(): trim to the 3 most-decisive review dimensions + 1 go_further (shared by both optimized formats)
 renderer/
-  instagram_carousel_long/         Jinja2 templates + Playwright → 8 PNG slides (1080×1350)
-  instagram_carousel_short/        Jinja2 templates + Playwright → 6 PNG slides (1080×1350)
+  instagram_carousel_short/        shared renderer.py helpers + the two optimized renderers:
+    renderer.py                    _env / _weighted_quality / _LOGO_DATA_URL / TYPE_FR (shared)
+    optimized.py                   10-slide optimized deck
+    optimized_short.py             6-slide optimized deck
+    templates/article_carousel_optimized_v0/  Jinja2 templates → PNG slides (1080×1350)
 models/
   full_analysis.py                 ArticleFullAnalysis (analysis schema)
   instagram_carousel_presentation.py  InstagramCarouselPresentation / Document
@@ -62,16 +64,14 @@ tools/
 samples/outputs/<stem>/
   analysis.json            ArticleFullAnalysis
   steps/                   step1…step9 cache
-  <format>/                e.g. instagram_carousel_short/
+  <format>/                e.g. instagram_carousel_optimized/
     adapt.json             InstagramCarouselPresentation
     extract.json           InstagramCarouselDocument
     slides/                NN_*.png
 ```
 
 **Formats:** registered in `extractors/registry.py`. All carousel formats reuse the same `adapt()` presentation (no extra LLM call) — only the extractor + renderer differ:
-- `instagram_carousel_long` (default) — 8-slide deep dive.
-- `instagram_carousel_short` — 6-slide visual: Hook → Évaluation (gauge panel) → Repères → Dans le détail → Prise de recul → CTA.
-- `instagram_carousel_optimized` — 10-slide deck on the `article_carousel_optimized_v0` templates: Hook → Curation → Repères → Vérif. des faits → Faille 1 → Faille 2 → Point fort → Prise de recul → Verdict → CTA. Reuses the `instagram_carousel_short` extractor; renderer builds the slide list conditionally, so absent sections drop out and numbering (`slide_n`/`slide_total`) adapts.
+- `instagram_carousel_optimized` (default) — 10-slide deck on the `article_carousel_optimized_v0` templates: Hook → Curation → Repères → Vérif. des faits → Faille 1 → Faille 2 → Point fort → Prise de recul → Verdict → CTA. Reuses the `instagram_carousel_short` extractor; renderer builds the slide list conditionally, so absent sections drop out and numbering (`slide_n`/`slide_total`) adapts.
 - `instagram_carousel_optimized_short` — 6-slide cut of the above (same templates + one merged `decryptage.html`): Hook → Curation → Repères → Le décryptage (failles merged) → Verdict → CTA.
 
 To add a format, add a `FORMATS` entry mapping to its adapt agent, extractor, and renderer modules.

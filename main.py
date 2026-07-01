@@ -13,7 +13,7 @@ from models import FullAnalysisInput
 load_dotenv()
 
 OUTPUTS_DIR = Path("samples/outputs")
-DEFAULT_FORMAT = "instagram_carousel_long"
+DEFAULT_FORMAT = "instagram_carousel_optimized"
 
 
 def _layout(stem: str, fmt: str | None = None) -> dict:
@@ -69,13 +69,7 @@ async def cmd_analyze(args: argparse.Namespace) -> None:
         print("No article text provided (pass <article.txt> or pipe via stdin).", file=sys.stderr)
         sys.exit(1)
 
-    output_path = await run_full_analysis(text, no_api=args.no_api, input_path=input_path, extra_instructions=extra_instructions)
-    if args.render and output_path:
-        from renderer.instagram_carousel_long.renderer import render_from_json
-        stem = Path(input_path).stem if input_path else "analysis"
-        slides_dir = _layout(stem, "instagram_carousel_long")["slides"]
-        print(f"Rendering slides to {slides_dir}/", file=sys.stderr)
-        await asyncio.to_thread(render_from_json, output_path, slides_dir)
+    await run_full_analysis(text, no_api=args.no_api, input_path=input_path, extra_instructions=extra_instructions)
 
 
 async def cmd_simplify(args: argparse.Namespace) -> None:
@@ -86,11 +80,6 @@ async def cmd_simplify(args: argparse.Namespace) -> None:
     out_path = json_path.with_stem(json_path.stem + "_simplified")
     out_path.write_text(result.model_dump_json(indent=2), encoding="utf-8")
     print(f"Simplified JSON written to {out_path}", file=sys.stderr)
-    if args.render:
-        from renderer.instagram_carousel_long.renderer import render_from_json
-        slides_dir = out_path.parent / out_path.stem
-        print(f"Rendering slides to {slides_dir}/", file=sys.stderr)
-        await asyncio.to_thread(render_from_json, out_path, slides_dir)
 
 
 async def cmd_adapt(args: argparse.Namespace) -> None:
@@ -277,7 +266,6 @@ def _build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("analyze", help="run the full analysis pipeline on an article")
     p.add_argument("article", nargs="?", help="article .txt file (reads stdin if omitted)")
     p.add_argument("--no-api", action="store_true", help="use the local claude CLI instead of the API")
-    p.add_argument("--render", action="store_true", help="also render long-format slides")
     p.add_argument("--instructions", help="extra analysis instructions (inline)")
     p.add_argument("--instructions-file", help="extra analysis instructions (from file)")
     p.set_defaults(func=cmd_analyze)
@@ -321,7 +309,6 @@ def _build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("simplify", help="shrink an existing analysis for readability")
     p.add_argument("analysis", help="analysis.json")
     p.add_argument("--no-api", action="store_true")
-    p.add_argument("--render", action="store_true")
     p.set_defaults(func=cmd_simplify)
 
     p = sub.add_parser("validate", help="node-graph integrity checks on an analysis")
