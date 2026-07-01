@@ -12,7 +12,7 @@
 
   <p class="intro">{{ intro | md_bold }}</p>
 
-  <div class="kicker">Pourquoi cet article</div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>Pourquoi cet article</div>
   <p>{{ why_selected | md_bold }}</p>
   <p>{{ payoff | md_bold }}</p>
 
@@ -27,19 +27,19 @@
     <p>{{ f.reading | md_bold }}</p>
   </div>{% endfor %}
 
-  <div class="kicker">Les failles</div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><line x1="12" y1="10" x2="12" y2="14.5"/><line x1="12" y1="17.5" x2="12.01" y2="17.5"/></svg>Les failles</div>
   {% for s in failles %}<div class="sec">
     <h3>{{ s.heading }}</h3>
     <p>{{ s.body | md_bold }}</p>
   </div>{% endfor %}
 
-  <div class="kicker">Ce qui tient</div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>Ce qui tient</div>
   {% for s in strengths %}<div class="sec">
     <h3>✓ {{ s.heading }}</h3>
     <p>{{ s.body | md_bold }}</p>
   </div>{% endfor %}
 
-  <div class="kicker">Angles morts &amp; nuances</div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Angles morts &amp; nuances</div>
   <div class="plain">{% for a in angles_morts %}<div class="row"><span class="mk salmon">~</span><span>{{ a | md_bold }}</span></div>{% endfor %}</div>
 
   <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>Notre verdict</div>
@@ -56,7 +56,7 @@
     {% if for_whom %}<div class="whom">Pour qui&nbsp;: {{ for_whom }}</div>{% endif %}
   </div>
 
-  <div class="kicker">Pour aller plus loin</div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>Pour aller plus loin</div>
   {% for r in go_further %}<div class="resource">
     <div class="t">{{ r.title }}</div>
     {% if r.source %}<div class="s">{{ r.source }}</div>{% endif %}
