@@ -223,8 +223,10 @@ def generate_html_from_json(json_path: Path, out_dir: Path) -> list[Path]:
     return generate_html(InstagramCarouselDocument.model_validate(data), out_dir)
 
 
-def render_from_json(json_path: Path, out_dir: Path) -> list[Path]:
-    """Convenience: generate HTML then screenshot it (both steps)."""
+def render_from_json(json_path: Path, out_dir: Path, pdf: bool = False) -> list[Path]:
+    """Generate HTML then screenshot it, into out_dir/html and out_dir/slides.
+    `pdf` is accepted for a uniform renderer interface but unused (carousels are PNG)."""
     from renderer.shoot import shoot_dir
-    generate_html_from_json(json_path, out_dir)
-    return shoot_dir(out_dir)
+    out_dir = Path(out_dir)
+    generate_html_from_json(json_path, out_dir / "html")
+    return shoot_dir(out_dir / "html", out_dir / "slides")

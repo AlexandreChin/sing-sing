@@ -213,6 +213,50 @@ cat my_article.txt | uv run python main.py analyze
 
 ---
 
+## Recipe 9 — Generate a newsletter (Markdown + HTML + PDF)
+
+The `newsletter` format is fed by the same analysis, but produces prose instead of slides.
+`--pdf` adds a PDF (dark gold-on-black, via Chromium); without it you get `.md` + `.html`.
+
+```bash
+uv run python main.py produce samples/articles/article_2.txt \
+    --format newsletter --render --pdf
+```
+
+**Result:**
+
+```
+samples/outputs/article_2/newsletter/
+  adapt.json         newsletter prose (structured)
+  extract.json       render input
+  newsletter.md      ← paste into Substack/Beehiiv/Ghost/…
+  newsletter.html    ← web/print view
+  newsletter.pdf     ← the printable deliverable
+```
+
+## Recipe 10 — Edit the newsletter, then regenerate the PDF (no LLM)
+
+Two ways to hand-tune before the final PDF:
+
+**A. Edit the prose (`newsletter.md`)** → regenerate the PDF straight from the markdown:
+
+```bash
+# edit samples/outputs/article_2/newsletter/newsletter.md
+uv run python main.py pdf samples/outputs/article_2/newsletter/newsletter.md
+#   → newsletter.pdf (markdown → branded shell → PDF)
+```
+
+**B. Edit the structured copy (`extract.json`)** → re-render all three outputs:
+
+```bash
+# edit e.g. presentation.subject / presentation.decryptage[].body in extract.json
+uv run python main.py render samples/outputs/article_2/newsletter/extract.json \
+    --format newsletter --pdf
+```
+
+> Use **A** for quick wording tweaks (fastest), **B** when you want `.md`/`.html`/`.pdf` to
+> stay in sync. `pdf` also accepts an `.html` file if you prefer editing that.
+
 ## Troubleshooting
 
 | Symptom | Fix |

@@ -77,23 +77,31 @@ Run `uv run python main.py <command> --help` for details.
 | `render <extract.json>` | `extract.json` → HTML + PNG slides |
 | `html <extract.json>` | Write standalone HTML slides (no screenshots) |
 | `shoot <html_dir>` | Screenshot existing HTML slides → PNG |
+| `pdf <file.md\|.html>` | Render a newsletter `.md`/`.html` to PDF (for edit-then-regenerate) |
 | `simplify <analysis.json>` | Shrink an existing analysis for readability |
 | `validate <analysis.json>` | Node-graph integrity checks |
 | `verify <analysis.json>` | Find sources for/against the article's claims |
 | `graph <analysis.json>` | Render the analysis node-graph to HTML |
 
-Common flags: `--format {instagram_carousel_optimized, instagram_carousel_optimized_short}`,
-`--no-api` (use the `claude` CLI instead of the API), `--render` (also produce PNGs).
+Common flags: `--format {instagram_carousel_optimized, instagram_carousel_optimized_short, newsletter}`,
+`--no-api` (use the `claude` CLI instead of the API), `--render` (also produce the output files),
+`--pdf` (newsletter: also emit a PDF).
 
 ## Formats
 
-Both formats reuse the **same** `adapt()` presentation (no extra LLM call) — only the slide
-selection and rendering differ. Registered in `extractors/registry.py`.
+All formats are fed by the **same** `analyze` stage. The two carousel formats also share the
+same `adapt()` copy; the newsletter has its own prose adapt. Registered in `extractors/registry.py`.
 
-| Format | Slides | Arc |
-|--------|--------|-----|
-| `instagram_carousel_optimized` *(default)* | 10 | Hook → Curation → Repères → Vérif. des faits → Faille 1 → Faille 2 → Point fort → Prise de recul → Verdict → CTA |
-| `instagram_carousel_optimized_short` | 6 | Hook → Curation → Repères → Le décryptage → Verdict → CTA |
+| Format | Output | Shape |
+|--------|--------|-------|
+| `instagram_carousel_optimized` *(default)* | 10 PNG slides | Hook → Curation → Repères → Vérif. des faits → Faille 1 → Faille 2 → Point fort → Prise de recul → Verdict → CTA |
+| `instagram_carousel_optimized_short` | 6 PNG slides | Hook → Curation → Repères → Le décryptage → Verdict → CTA |
+| `newsletter` | Markdown + HTML + PDF | the carousel beats as detailed prose: Intro → Pourquoi cet article → Avant de lire → Vérification des faits → Les failles → Ce qui tient → Angles morts & nuances → Verdict → Pour aller plus loin → sign-off |
+
+```bash
+# Newsletter (Markdown + HTML, plus PDF with --pdf):
+uv run python main.py produce samples/articles/article_2.txt --format newsletter --render --pdf
+```
 
 ## Output layout
 
@@ -104,10 +112,13 @@ samples/outputs/<article-stem>/
   analysis.json                 ArticleFullAnalysis
   steps/                        step1…step9 cache (re-used on re-runs)
   <format>/
-    adapt.json                  InstagramCarouselPresentation
-    extract.json                InstagramCarouselDocument (render input)
+    adapt.json                  presentation layer (carousel or newsletter)
+    extract.json                render input
+    # carousel formats:
     html/                       one HTML file per slide
     slides/                     NN_*.png  ← the deliverable
+    # newsletter format:
+    newsletter.md / .html / .pdf   ← the deliverables
 ```
 
 ## Project structure
@@ -118,17 +129,21 @@ config.py                    MODEL constant
 agent/
   full_analysis_agent.py     the 9-step analysis pipeline
   steps/step1_scan.py … step9_guide.py
-  instagram_carousel_adapt_agent.py   adapt(): analysis → presentation
+  instagram_carousel_adapt_agent.py   adapt(): analysis → carousel presentation
+  newsletter_adapt_agent.py           adapt(): analysis → newsletter prose
 extractors/
   registry.py                format name → (adapt agent, extractor, renderer)
-  instagram_carousel.py      extract(): trim the presentation
+  instagram_carousel.py      extract(): trim the carousel presentation
+  newsletter.py              extract(): passthrough → NewsletterDocument
 renderer/
   instagram_carousel/        the carousel renderers + shared helpers
     optimized.py             10-slide deck
     optimized_short.py       6-slide deck
     _shared.py               Jinja env, gauge, logo helpers
     templates/               Jinja2 slide templates
-  shoot.py                   Playwright HTML → PNG
+  newsletter/                newsletter renderer → Markdown + HTML (+ PDF)
+  shoot.py                   Playwright HTML → PNG (slides)
+  pdf.py                     Playwright HTML → PDF (newsletter)
 models/                      Pydantic schemas
 tools/                       scrape · search · validate · verify · graph
 ```
