@@ -27,22 +27,25 @@ def _pdf_chrome() -> tuple[str, str]:
     every PDF page. Each is a full-bleed dark band (Chromium paints page margins
     white otherwise). Styling must be inline; font-size explicit."""
     _F = "font-family:Helvetica,Arial,sans-serif;"
-    # Full-bleed dark band. The extra height + negative margin push the background
-    # past Chromium's default header/footer inset so no white sliver shows at the edge.
-    _BAND = ("width:100%;box-sizing:border-box;background:#0b0b0b;"
-             "-webkit-print-color-adjust:exact;print-color-adjust:exact;"
-             "height:calc(100% + 40px);display:flex;align-items:center;padding:0 16mm;" + _F)
-    logo = (f'<img src="{_LOGO_DATA_URL}" style="height:28px;display:block;">'
+    _BOX = ("position:relative;height:100%;width:100%;box-sizing:border-box;"
+            "display:flex;align-items:center;padding:0 16mm;" + _F)
+    # Dark background bled OUTWARD to the page edge only (header up, footer down),
+    # behind the content — so it covers Chromium's white inset without hiding text.
+    _BG = ("position:absolute;left:0;right:0;background:#0b0b0b;z-index:-1;"
+           "-webkit-print-color-adjust:exact;print-color-adjust:exact;")
+    logo = (f'<img src="{_LOGO_DATA_URL}" style="height:34px;display:block;">'
             if _LOGO_DATA_URL else "")
     header = (
-        f'<div style="{_BAND}margin-top:-24px;">'
-        '<span style="display:inline-flex;align-items:center;gap:8px;">'
-        '<span style="font-size:15px;font-weight:900;letter-spacing:-0.01em;color:#d4aa00;">Sing Sing</span>'
+        f'<div style="{_BOX}justify-content:flex-end;">'
+        f'<div style="{_BG}top:-40px;bottom:0;"></div>'
+        '<span style="display:inline-flex;align-items:center;gap:9px;">'
+        '<span style="font-size:16px;font-weight:900;letter-spacing:-0.01em;color:#d4aa00;">Sing Sing</span>'
         f'{logo}</span>'
         '</div>'
     )
     footer = (
-        f'<div style="{_BAND}margin-bottom:-24px;position:relative;justify-content:center;">'
+        f'<div style="{_BOX}justify-content:center;">'
+        f'<div style="{_BG}top:0;bottom:-40px;"></div>'
         '<span style="font-size:9px;font-style:italic;letter-spacing:.06em;color:#888;">'
         '<span style="color:#d4aa00;">Sing</span>, little bird, <span style="color:#d4aa00;">sing</span></span>'
         '<span style="position:absolute;right:16mm;font-size:8px;color:#777;">'
