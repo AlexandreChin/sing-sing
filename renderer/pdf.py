@@ -11,7 +11,7 @@ from playwright.sync_api import sync_playwright
 
 
 def to_pdf(html: str, out_path, *, page_format: str = "A4",
-           margin_top: str = "34mm", margin_bottom: str = "26mm",
+           margin_top: str = "22mm", margin_bottom: str = "16mm",
            header_html: str | None = None, footer_html: str | None = None) -> Path:
     """Render a full HTML document to a paginated PDF. `print_background` keeps the
     dark theme (the root background propagates to the whole sheet). Top/bottom

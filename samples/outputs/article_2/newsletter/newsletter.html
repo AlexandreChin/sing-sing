@@ -27,7 +27,8 @@ body {
 
 /* body */
 .intro { font-size: 19px; line-height: 1.62; color: #e6e6e6; }
-.kicker { font-size: 14px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; margin: 40px 0 16px; break-after: avoid; }
+.kicker { display: flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; margin: 40px 0 16px; break-after: avoid; }
+.kicker svg { width: 16px; height: 16px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; }
 p { font-size: 17px; line-height: 1.6; color: #e6e6e6; margin: 10px 0; }
 strong { color: #d4aa00; font-weight: 700; }
 
@@ -56,11 +57,24 @@ strong { color: #d4aa00; font-weight: 700; }
 .plain .row .mk.salmon { color: #e8a07a; }
 
 /* verdict */
-.verdict { background: #161616; border-radius: 12px; padding: 26px 30px; break-inside: avoid; }
-.verdict .score { font-size: 34px; font-weight: 800; color: #d4aa00; letter-spacing: -0.01em; }
-.verdict .band { font-size: 15px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #b0b0b0; margin-left: 10px; }
-.verdict p { font-size: 18px; line-height: 1.55; color: #eaeaea; margin-top: 14px; }
+.verdict { background: #161616; border-radius: 12px; padding: 28px 30px; break-inside: avoid; }
+.verdict p { font-size: 18px; line-height: 1.55; color: #eaeaea; margin-top: 16px; }
 .verdict .whom { font-size: 15px; color: #9a9a9a; margin-top: 12px; }
+.vdivider { height: 1px; background: #2a2a2a; margin: 22px 0 4px; }
+
+/* quality gauge (reused from the carousel, scaled for print) */
+.gauge .gtop { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+.gauge .gnm { font-size: 17px; font-weight: 700; color: #f0f0f0; }
+.gauge .gsc { font-size: 17px; font-weight: 800; color: currentColor; }
+.gauge .gtk { position: relative; height: 12px; border-radius: 999px; background: linear-gradient(90deg, rgba(232,122,122,.30), rgba(232,160,122,.30) 50%, rgba(126,200,160,.30)); }
+.gauge .gmk { position: absolute; top: 50%; width: 22px; height: 22px; margin-left: -11px; transform: translateY(-50%); border-radius: 50%; background: currentColor; border: 4px solid #161616; box-shadow: 0 0 0 2px currentColor; }
+.gscore { font-size: 24px; font-weight: 800; text-align: center; margin-top: 14px; font-variant-numeric: tabular-nums; color: #d4aa00; }
+.lv-bad { color: #e87a7a; } .lv-mid { color: #e8a07a; } .lv-good { color: #7ec8a0; }
+
+/* radar chart */
+.radar-cap { text-align: center; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8a8a8a; margin-top: 22px; }
+.radar { max-width: 360px; margin: 6px auto 0; }
+.radar svg { width: 100%; height: auto; display: block; }
 
 /* resource */
 .resource { border: 1px solid #2a2a2a; border-radius: 10px; padding: 20px 24px; break-inside: avoid; }
@@ -93,11 +107,11 @@ strong { color: #d4aa00; font-weight: 700; }
   <p>C&#39;est un cas d&#39;école du compte rendu institutionnel : un rapport officiel relayé fidèlement, mais sans le contre-éclairage qui permettrait d&#39;en tester la portée. Il montre comment une source unique et un glissement méthodologique discret peuvent transformer des chiffres justes en récit orienté.</p>
   <p>Vous repartez avec les chiffres-clés de la Commission sur la pauvreté des enfants et une grille pour les lire sans vous faire piéger. Surtout, vous saurez distinguer une hausse d&#39;un taux relatif d&#39;un appauvrissement réel — une confusion qui traverse tout le texte.</p>
 
-  <div class="kicker">Avant de lire</div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>Avant de lire</div>
   <p>L&#39;article relaie le paquet de printemps du semestre européen 2026, l&#39;exercice annuel où Bruxelles adresse ses recommandations budgétaires à chaque État. La pauvreté infantile et le déclassement sont des thèmes récurrents du débat français, sur fond d&#39;un chômage qui repart à la hausse depuis fin 2024. Le seuil utilisé est relatif : 60 % du revenu médian propre à chaque pays, ce qui mesure un écart interne, pas la richesse absolue. Retenir cette distinction est indispensable pour juger le constat.</p>
   <div class="plain"><div class="row"><span class="mk gold">›</span><span>Repérez d&#39;emblée si le constat s&#39;appuie sur une seule institution ou s&#39;il est recoupé par une source indépendante.</span></div><div class="row"><span class="mk gold">›</span><span>Gardez à l&#39;esprit qu&#39;un taux relatif de pauvreté et un appauvrissement réel sont deux affirmations distinctes.</span></div></div>
 
-  <div class="kicker">Vérification des faits</div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Vérification des faits</div>
   <div class="fact">
     <div class="claim">« 27,5 % des enfants en France sont « à risque de pauvreté et d&#39;exclusion sociale, bien au-dessus du reste de la population (20,8 %) ». »</div>
     <div class="pres">attribué à une source (la Commission européenne)</div>
@@ -133,9 +147,16 @@ strong { color: #d4aa00; font-weight: 700; }
   <div class="kicker">Angles morts &amp; nuances</div>
   <div class="plain"><div class="row"><span class="mk salmon">~</span><span>L&#39;effet chiffré de la redistribution sociale française — le contre-fait le plus susceptible de renverser la lecture du taux — n&#39;est jamais mesuré.</span></div><div class="row"><span class="mk salmon">~</span><span>Aucune source nationale indépendante ne recoupe le constat, et la partie française mise en cause n&#39;est jamais entendue.</span></div><div class="row"><span class="mk salmon">~</span><span>Reste que, honnêtement, un compte rendu de rapport officiel dans un format court n&#39;a pas vocation à mener une enquête contradictoire complète.</span></div></div>
 
-  <div class="kicker">Notre verdict</div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>Notre verdict</div>
   <div class="verdict">
-    <div><span class="score">2,4 / 5</span><span class="band">Moyenne</span></div>
+    <div class="gauge lv-mid">
+      <div class="gtop"><span class="gnm">Qualité de l'article</span><span class="gsc">Moyenne</span></div>
+      <div class="gtk"><span class="gmk" style="left: 34%;"></span></div>
+    </div>
+    <div class="gscore">2,4 / 5</div>
+    <div class="radar-cap">Le détail, critère par critère (sur 5)</div>
+    <div class="radar"><svg viewBox="0 0 420 300" width="420" height="300" xmlns="http://www.w3.org/2000/svg"><polygon points="210.0,138.8 223.6,144.4 229.2,158.0 223.6,171.6 210.0,177.2 196.4,171.6 190.8,158.0 196.4,144.4" fill="none" stroke="#2b2b2b" stroke-width="1"/><polygon points="210.0,119.6 237.2,130.8 248.4,158.0 237.2,185.2 210.0,196.4 182.8,185.2 171.6,158.0 182.8,130.8" fill="none" stroke="#2b2b2b" stroke-width="1"/><polygon points="210.0,100.4 250.7,117.3 267.6,158.0 250.7,198.7 210.0,215.6 169.3,198.7 152.4,158.0 169.3,117.3" fill="none" stroke="#2b2b2b" stroke-width="1"/><polygon points="210.0,81.2 264.3,103.7 286.8,158.0 264.3,212.3 210.0,234.8 155.7,212.3 133.2,158.0 155.7,103.7" fill="none" stroke="#2b2b2b" stroke-width="1"/><polygon points="210.0,62.0 277.9,90.1 306.0,158.0 277.9,225.9 210.0,254.0 142.1,225.9 114.0,158.0 142.1,90.1" fill="none" stroke="#2b2b2b" stroke-width="1"/><line x1="210.0" y1="158.0" x2="210.0" y2="62.0" stroke="#2b2b2b" stroke-width="1"/><line x1="210.0" y1="158.0" x2="277.9" y2="90.1" stroke="#2b2b2b" stroke-width="1"/><line x1="210.0" y1="158.0" x2="306.0" y2="158.0" stroke="#2b2b2b" stroke-width="1"/><line x1="210.0" y1="158.0" x2="277.9" y2="225.9" stroke="#2b2b2b" stroke-width="1"/><line x1="210.0" y1="158.0" x2="210.0" y2="254.0" stroke="#2b2b2b" stroke-width="1"/><line x1="210.0" y1="158.0" x2="142.1" y2="225.9" stroke="#2b2b2b" stroke-width="1"/><line x1="210.0" y1="158.0" x2="114.0" y2="158.0" stroke="#2b2b2b" stroke-width="1"/><line x1="210.0" y1="158.0" x2="142.1" y2="90.1" stroke="#2b2b2b" stroke-width="1"/><polygon points="210.0,119.6 250.7,117.3 248.4,158.0 237.2,185.2 210.0,196.4 169.3,198.7 152.4,158.0 182.8,130.8" fill="rgba(212,170,0,0.22)" stroke="#d4aa00" stroke-width="2"/><circle cx="210.0" cy="119.6" r="3" fill="#d4aa00"/><circle cx="250.7" cy="117.3" r="3" fill="#d4aa00"/><circle cx="248.4" cy="158.0" r="3" fill="#d4aa00"/><circle cx="237.2" cy="185.2" r="3" fill="#d4aa00"/><circle cx="210.0" cy="196.4" r="3" fill="#d4aa00"/><circle cx="169.3" cy="198.7" r="3" fill="#d4aa00"/><circle cx="152.4" cy="158.0" r="3" fill="#d4aa00"/><circle cx="182.8" cy="130.8" r="3" fill="#d4aa00"/><text x="210.0" y="46.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#9a9a9a" font-family="Helvetica,Arial,sans-serif">Sources <tspan fill="#d4aa00" font-weight="700">2</tspan></text><text x="289.2" y="78.8" text-anchor="start" dominant-baseline="middle" font-size="11" fill="#9a9a9a" font-family="Helvetica,Arial,sans-serif">Exactitude <tspan fill="#d4aa00" font-weight="700">3</tspan></text><text x="322.0" y="158.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="#9a9a9a" font-family="Helvetica,Arial,sans-serif">Raisonnement <tspan fill="#d4aa00" font-weight="700">2</tspan></text><text x="289.2" y="237.2" text-anchor="start" dominant-baseline="middle" font-size="11" fill="#9a9a9a" font-family="Helvetica,Arial,sans-serif">Transparence <tspan fill="#d4aa00" font-weight="700">2</tspan></text><text x="210.0" y="270.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#9a9a9a" font-family="Helvetica,Arial,sans-serif">Contexte <tspan fill="#d4aa00" font-weight="700">2</tspan></text><text x="130.8" y="237.2" text-anchor="end" dominant-baseline="middle" font-size="11" fill="#9a9a9a" font-family="Helvetica,Arial,sans-serif">Équité <tspan fill="#d4aa00" font-weight="700">3</tspan></text><text x="98.0" y="158.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="#9a9a9a" font-family="Helvetica,Arial,sans-serif">Clarté <tspan fill="#d4aa00" font-weight="700">3</tspan></text><text x="130.8" y="78.8" text-anchor="end" dominant-baseline="middle" font-size="11" fill="#9a9a9a" font-family="Helvetica,Arial,sans-serif">Originalité <tspan fill="#d4aa00" font-weight="700">2</tspan></text></svg></div>
+    <div class="vdivider"></div>
     <p>À lire avec réserves. L&#39;article restitue fidèlement des chiffres européens exacts, mais sa source unique, l&#39;absence de réponse française et la confusion entre taux relatif et appauvrissement réel imposent de le croiser avec d&#39;autres données. Réservez-le à qui suit ce dossier de près et sait aller chercher les chiffres de l&#39;Insee.</p>
     <div class="whom">Pour qui&nbsp;: Un lecteur suivant les questions de politique sociale et familiale, capable de recouper lui-même les chiffres européens avec les données françaises de l&#39;Insee.</div>
   </div>

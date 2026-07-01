@@ -16,11 +16,11 @@
   <p>{{ why_selected | md_bold }}</p>
   <p>{{ payoff | md_bold }}</p>
 
-  <div class="kicker">Avant de lire</div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>Avant de lire</div>
   <p>{{ context | md_bold }}</p>
   <div class="plain">{% for r in reflexes %}<div class="row"><span class="mk gold">›</span><span>{{ r | md_bold }}</span></div>{% endfor %}</div>
 
-  <div class="kicker">Vérification des faits</div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Vérification des faits</div>
   {% for f in fact_check %}<div class="fact">
     <div class="claim">« {{ f.claim }} »</div>
     <div class="pres">{{ f.presentation }}</div>
@@ -42,9 +42,16 @@
   <div class="kicker">Angles morts &amp; nuances</div>
   <div class="plain">{% for a in angles_morts %}<div class="row"><span class="mk salmon">~</span><span>{{ a | md_bold }}</span></div>{% endfor %}</div>
 
-  <div class="kicker">Notre verdict</div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>Notre verdict</div>
   <div class="verdict">
-    {% if score %}<div><span class="score">{{ score }} / 5</span>{% if band %}<span class="band">{{ band }}</span>{% endif %}</div>{% endif %}
+    <div class="gauge lv-{{ gauge_level }}">
+      <div class="gtop"><span class="gnm">Qualité de l'article</span><span class="gsc">{{ band }}</span></div>
+      <div class="gtk"><span class="gmk" style="left: {{ gauge_pos }}%;"></span></div>
+    </div>
+    <div class="gscore">{{ score }} / 5</div>
+    {% if radar_svg %}<div class="radar-cap">Le détail, critère par critère (sur 5)</div>
+    <div class="radar">{{ radar_svg }}</div>{% endif %}
+    <div class="vdivider"></div>
     <p>{{ verdict_line | md_bold }}</p>
     {% if for_whom %}<div class="whom">Pour qui&nbsp;: {{ for_whom }}</div>{% endif %}
   </div>
