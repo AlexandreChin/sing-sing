@@ -24,5 +24,14 @@ def run(article: str, steps_dir: Path, no_api: bool = False) -> dict:
         validator=_validate,
         no_api=no_api,
     )
+    # Deterministic safety net: a scraped article's title is its first non-empty
+    # line (above the byline/date). Backfill only if the model left it blank, so a
+    # present title never depends on a coin-flip.
+    meta = data.get("article_metadata") or {}
+    if not (meta.get("title") or "").strip():
+        first_line = next((ln.strip() for ln in article.splitlines() if ln.strip()), "")
+        if first_line:
+            meta["title"] = first_line
+            data["article_metadata"] = meta
     save_step(data, steps_dir, "step1_scan.json")
     return data

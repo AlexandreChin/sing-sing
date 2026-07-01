@@ -4,15 +4,21 @@ Lis l'article et extrais sans interpréter. Ne conclus pas. Ne juge pas.
 
 ---
 
-## article_type
+## article_metadata
 
-Identifie le type parmi :
-- `editorial` — position officielle du journal, sans byline individuel
-- `news_report` — reportage factuel
-- `opinion` — tribune signée
-- `investigation` — journalisme d'enquête
-- `interview`
-- `other`
+Renseigne les métadonnées telles qu'elles figurent dans le texte source — n'invente rien au-delà de ce qui est présent, mets `null` si l'information est absente :
+- `title` : le TITRE de l'article — la ligne de titre en tête du texte, avant la signature (« Par … ») et la date. `null` seulement si le texte n'a vraiment aucun titre.
+- `source` : le média qui publie (ex. « Le Monde », « Le Figaro »). Déduis-le de la signature, du bandeau ou de mentions comme « Ajouter X à vos sources ». Ne le confonds pas avec une source citée *dans* l'article.
+- `published_at` : la date de publication telle qu'écrite (ex. « 3 juin 2026 »), sinon `null`.
+- `type` : le type de contenu parmi :
+  - `editorial` — position officielle du journal, sans byline individuel
+  - `news_report` — reportage factuel
+  - `opinion` — tribune signée
+  - `investigation` — journalisme d'enquête
+  - `interview`
+  - `other`
+- `reading_time_minutes` : estimation du temps de lecture en minutes (≈ 200 mots/min), nombre entier.
+- `chapo` : le chapô introductif (paragraphe d'accroche sous le titre) s'il existe, sinon `null`.
 
 ---
 
