@@ -5,14 +5,20 @@
 <style>
 {% include 'base.css' %}
 .kick { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; }
-.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 28px; }
 .head { font-size: 52px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
-.keys { display: flex; flex-direction: column; gap: 28px; }
-.key { display: flex; gap: 24px; align-items: flex-start; font-size: 37px; line-height: 1.4; color: #e0e0e0; text-align: justify; hyphens: auto; }
-.key .mk { flex: none; font-weight: 900; font-size: 38px; line-height: 1.05; }
-.key.ctx .mk { color: #d4aa00; }
-.key.wo .mk { color: #e8a07a; }
-.key .lab { color: #e8a07a; font-weight: 800; }
+.q-list { display: flex; flex-direction: column; gap: 30px; }
+.q-item { display: flex; flex-direction: column; gap: 12px; }
+.q-head { display: flex; gap: 18px; align-items: center; }
+.q-head .mk { flex: none; }
+.q-head .mk svg { width: 38px; height: 38px; display: block; }
+.q-label { font-size: 38px; font-weight: 900; line-height: 1.05; letter-spacing: -0.01em; color: #f0f0f0; }
+.q-body { font-size: 34px; line-height: 1.42; color: #e0e0e0; padding-left: 56px; text-align: justify; hyphens: auto; }
+.q-body strong { color: #d4aa00; font-weight: 700; }
+.r-list { display: flex; flex-direction: column; gap: 14px; padding-left: 56px; }
+.r-item { display: flex; gap: 16px; align-items: flex-start; font-size: 34px; line-height: 1.4; color: #e0e0e0; text-align: justify; hyphens: auto; }
+.r-item .rk { flex: none; color: #d4aa00; font-weight: 900; font-size: 36px; line-height: 1.1; }
+.r-item strong { color: #d4aa00; font-weight: 700; }
 .tease { line-height: 1.45; padding-bottom: 4px; }
 .tease .challenge { font-size: 34px; font-weight: 800; color: #d4aa00; }
 .tease .link { font-size: 26px; color: #f0f0f0; }
@@ -25,14 +31,22 @@
   {% include '_tracker.html' %}
   <div class="stage">
     <span class="kick">Clefs de lecture</span>
-    <h1 class="head">Le contexte, et deux failles à repérer.</h1>
+    <h1 class="head">Avant de vous lancer.</h1>
     <div class="divider"></div>
-    <div class="keys">
-      {% if context %}<div class="key ctx"><span class="mk">&#8250;</span><span>{{ context | md_bold }}</span></div>{% endif %}
-      {% for c in clues %}<div class="key wo"><span class="mk">&#9888;</span><span>{{ c | md_bold }}</span></div>{% endfor %}
+    <div class="q-list">
+      {% if context %}<div class="q-item">
+        <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span><span class="q-label">Le contexte</span></div>
+        <p class="q-body">{{ context | md_bold }}</p>
+      </div>{% endif %}
+      <div class="q-item">
+        <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="q-label">Deux réflexes</span></div>
+        <div class="r-list">
+          {% for c in clues %}<div class="r-item"><span class="rk">&#8250;</span><span>{{ c | md_bold }}</span></div>{% endfor %}
+        </div>
+      </div>
     </div>
   </div>
-  <p class="tease"><span class="challenge">Saurez-vous les repérer&nbsp;?</span><br><span class="link">Lien vers l'article en commentaires &#8595;</span></p>
+  <p class="tease"><span class="challenge">Saurez-vous les appliquer&nbsp;?</span><br><span class="link">Lien vers l'article en commentaires &#8595;</span></p>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
 </div>

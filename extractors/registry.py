@@ -16,4 +16,9 @@ FORMATS: dict[str, tuple[str, str, str]] = {
         "extractors.instagram_carousel_short",
         "renderer.instagram_carousel_short.optimized",
     ),
+    "instagram_carousel_optimized_short": (
+        "agent.instagram_carousel_adapt_agent",
+        "extractors.instagram_carousel_short",
+        "renderer.instagram_carousel_short.optimized_short",
+    ),
 }

@@ -68,9 +68,11 @@ samples/outputs/<stem>/
     slides/                NN_*.png
 ```
 
-**Formats:** registered in `extractors/registry.py`. Two carousel formats, both reusing the same `adapt()` presentation (no extra LLM call) — only the extractor + renderer differ:
+**Formats:** registered in `extractors/registry.py`. All carousel formats reuse the same `adapt()` presentation (no extra LLM call) — only the extractor + renderer differ:
 - `instagram_carousel_long` (default) — 8-slide deep dive.
 - `instagram_carousel_short` — 6-slide visual: Hook → Évaluation (gauge panel) → Repères → Dans le détail → Prise de recul → CTA.
+- `instagram_carousel_optimized` — 10-slide deck on the `article_carousel_optimized_v0` templates: Hook → Curation → Repères → Vérif. des faits → Faille 1 → Faille 2 → Point fort → Prise de recul → Verdict → CTA. Reuses the `instagram_carousel_short` extractor; renderer builds the slide list conditionally, so absent sections drop out and numbering (`slide_n`/`slide_total`) adapts.
+- `instagram_carousel_optimized_short` — 6-slide cut of the above (same templates + one merged `decryptage.html`): Hook → Curation → Repères → Le décryptage (failles merged) → Verdict → CTA.
 
 To add a format, add a `FORMATS` entry mapping to its adapt agent, extractor, and renderer modules.
 
