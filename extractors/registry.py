@@ -3,12 +3,12 @@
 FORMATS: dict[str, tuple[str, str, str]] = {
     "instagram_carousel_optimized": (
         "agent.instagram_carousel_adapt_agent",
-        "extractors.instagram_carousel_short",
-        "renderer.instagram_carousel_short.optimized",
+        "extractors.instagram_carousel",
+        "renderer.instagram_carousel.optimized",
     ),
     "instagram_carousel_optimized_short": (
         "agent.instagram_carousel_adapt_agent",
-        "extractors.instagram_carousel_short",
-        "renderer.instagram_carousel_short.optimized_short",
+        "extractors.instagram_carousel",
+        "renderer.instagram_carousel.optimized_short",
     ),
 }

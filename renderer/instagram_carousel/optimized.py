@@ -1,15 +1,15 @@
-"""Data-driven renderer for the `article_carousel_optimized_v0` carousel.
+"""Data-driven renderer for the 10-slide `article_carousel_optimized_v0` carousel.
 
-Same InstagramCarouselDocument as the short format — only the slide selection and
-templates differ. Reuses the short renderer's Jinja env, screenshot helpers, and
-gauge logic. Registered as the `instagram_carousel_optimized` format.
+Builds the slide list conditionally (absent sections drop out; numbering adapts)
+and screenshots via `renderer.shoot`. Shared helpers come from `._shared`.
+Registered as the `instagram_carousel_optimized` format.
 """
 import json
 import re
 from pathlib import Path
 
 from models.instagram_carousel_presentation import InstagramCarouselDocument
-from .renderer import (
+from ._shared import (
     _env, _LOGO_DATA_URL,
     _weighted_quality, TYPE_FR,
 )
