@@ -4,6 +4,7 @@ Reuses the carousel's shared helpers (`_weighted_quality`, logo, `md_bold`) and 
 Playwright PDF helper. HTML/PDF use the dark gold-on-black brand look.
 """
 import json
+import math
 from pathlib import Path
 
 import markdown as md_lib
@@ -22,29 +23,91 @@ def _fr_num(x: float) -> str:
 
 
 def _pdf_chrome() -> tuple[str, str]:
-    """Running header (brand) + footer (tagline + page number) drawn on every PDF
-    page in the margins. Chromium renders these in an isolated context, so all
-    styling must be inline and font-size explicit."""
-    logo = (f'<img src="{_LOGO_DATA_URL}" style="height:20px;display:block;">'
+    """Running header (brand) + footer (centered tagline + page number) drawn on
+    every PDF page. Each is a full-bleed dark band (Chromium paints page margins
+    white otherwise). Styling must be inline; font-size explicit."""
+    _F = "font-family:Helvetica,Arial,sans-serif;"
+    # Full-bleed dark band. The extra height + negative margin push the background
+    # past Chromium's default header/footer inset so no white sliver shows at the edge.
+    _BAND = ("width:100%;box-sizing:border-box;background:#0b0b0b;"
+             "-webkit-print-color-adjust:exact;print-color-adjust:exact;"
+             "height:calc(100% + 40px);display:flex;align-items:center;padding:0 16mm;" + _F)
+    logo = (f'<img src="{_LOGO_DATA_URL}" style="height:28px;display:block;">'
             if _LOGO_DATA_URL else "")
     header = (
-        '<div style="width:100%;box-sizing:border-box;padding:0 18mm;'
-        'font-family:Helvetica,Arial,sans-serif;-webkit-print-color-adjust:exact;'
-        'display:flex;align-items:center;justify-content:space-between;">'
-        '<span style="font-size:12px;font-weight:800;letter-spacing:.14em;color:#d4aa00;">SING SING</span>'
-        f'<span>{logo}</span>'
+        f'<div style="{_BAND}margin-top:-24px;">'
+        '<span style="display:inline-flex;align-items:center;gap:8px;">'
+        '<span style="font-size:15px;font-weight:900;letter-spacing:-0.01em;color:#d4aa00;">Sing Sing</span>'
+        f'{logo}</span>'
         '</div>'
     )
     footer = (
-        '<div style="width:100%;box-sizing:border-box;padding:0 18mm;'
-        'font-family:Helvetica,Arial,sans-serif;-webkit-print-color-adjust:exact;'
-        'display:flex;align-items:center;justify-content:space-between;font-size:9px;">'
-        '<span style="font-style:italic;letter-spacing:.06em;color:#666;">'
+        f'<div style="{_BAND}margin-bottom:-24px;position:relative;justify-content:center;">'
+        '<span style="font-size:9px;font-style:italic;letter-spacing:.06em;color:#888;">'
         '<span style="color:#d4aa00;">Sing</span>, little bird, <span style="color:#d4aa00;">sing</span></span>'
-        '<span style="color:#888;"><span class="pageNumber"></span> / <span class="totalPages"></span></span>'
+        '<span style="position:absolute;right:16mm;font-size:8px;color:#777;">'
+        '<span class="pageNumber"></span> / <span class="totalPages"></span></span>'
         '</div>'
     )
     return header, footer
+
+
+# Short axis labels for the radar chart (the 8 review dimensions).
+DIM_SHORT = {
+    "source_rigor": "Sources",
+    "factual_accuracy": "Exactitude",
+    "reasoning_structure": "Raisonnement",
+    "approach_transparency": "Transparence",
+    "context_completeness": "Contexte",
+    "treatment_fairness": "Équité",
+    "clarity": "Clarté",
+    "angle_originality": "Originalité",
+}
+
+
+def _radar_svg(dims) -> str:
+    """Radar (spider) chart of the review dimensions (score 1–5), gold on dark —
+    the visual breakdown behind the global score. One axis per dimension."""
+    if not dims:
+        return ""
+    n = len(dims)
+    cx, cy, R = 210.0, 158.0, 96.0
+
+    def pt(i, r):
+        ang = -math.pi / 2 + i * 2 * math.pi / n
+        return cx + r * math.cos(ang), cy + r * math.sin(ang)
+
+    def poly(r_of):
+        return " ".join(f"{x:.1f},{y:.1f}" for x, y in (pt(i, r_of(i)) for i in range(n)))
+
+    rings = "".join(
+        f'<polygon points="{poly(lambda i, rr=R*s/5: rr)}" fill="none" stroke="#2b2b2b" stroke-width="1"/>'
+        for s in range(1, 6)
+    )
+    axes = "".join(
+        f'<line x1="{cx}" y1="{cy}" x2="{x:.1f}" y2="{y:.1f}" stroke="#2b2b2b" stroke-width="1"/>'
+        for x, y in (pt(i, R) for i in range(n))
+    )
+    data = poly(lambda i: R * dims[i].score / 5)
+    shape = f'<polygon points="{data}" fill="rgba(212,170,0,0.22)" stroke="#d4aa00" stroke-width="2"/>'
+    dots = "".join(
+        f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3" fill="#d4aa00"/>'
+        for x, y in (pt(i, R * dims[i].score / 5) for i in range(n))
+    )
+    labels = []
+    for i in range(n):
+        lx, ly = pt(i, R + 16)
+        anchor = "middle" if abs(lx - cx) < 3 else ("start" if lx > cx else "end")
+        short = DIM_SHORT.get(dims[i].dimension, dims[i].label)
+        labels.append(
+            f'<text x="{lx:.1f}" y="{ly:.1f}" text-anchor="{anchor}" dominant-baseline="middle" '
+            f'font-size="11" fill="#9a9a9a" font-family="Helvetica,Arial,sans-serif">{short} '
+            f'<tspan fill="#d4aa00" font-weight="700">{dims[i].score}</tspan></text>'
+        )
+    return (
+        '<svg viewBox="0 0 420 300" width="420" height="300" xmlns="http://www.w3.org/2000/svg">'
+        + rings + axes + shape + dots + "".join(labels) + '</svg>'
+    )
 
 
 def _env() -> Environment:
@@ -87,6 +150,9 @@ def _ctx(doc: NewsletterDocument) -> dict:
         "signoff": pres.signoff,
         "score": _fr_num(wq["score"]) if wq else "",
         "band": wq["label"] if wq else "",
+        "gauge_pos": wq["pos"] if wq else 50,
+        "gauge_level": wq["level"] if wq else "mid",
+        "radar_svg": Markup(_radar_svg(full.review.dimensions)) if (full.review and full.review.dimensions) else "",
         "for_whom": verdict.for_whom if verdict else "",
         "meta_line": meta_line,
     }
