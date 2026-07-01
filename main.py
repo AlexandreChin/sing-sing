@@ -118,19 +118,12 @@ async def cmd_extract(args: argparse.Namespace) -> None:
 async def cmd_render(args: argparse.Namespace) -> None:
     json_path = Path(args.document)
     _, _, renderer_mod = FORMATS[args.format]
-    mod = importlib.import_module(renderer_mod)
-    if args.output_dir:
-        slides_dir = Path(args.output_dir)
-        print(f"Rendering slides to {slides_dir}/", file=sys.stderr)
-        await asyncio.to_thread(mod.render_from_json, json_path, slides_dir)
-    else:
-        # Default: write to the canonical html/ + slides/ next to the document,
-        # matching `produce` — not a <stem>/ subfolder.
-        from renderer.shoot import shoot_dir
-        html_dir, slides_dir = json_path.parent / "html", json_path.parent / "slides"
-        print(f"Writing HTML to {html_dir}/ and PNG to {slides_dir}/", file=sys.stderr)
-        await asyncio.to_thread(mod.generate_html_from_json, json_path, html_dir)
-        await asyncio.to_thread(shoot_dir, html_dir, slides_dir)
+    render_from_json = importlib.import_module(renderer_mod).render_from_json
+    # Default output is the format dir (the document's parent). Each renderer lays
+    # out its own files there — carousels: html/ + slides/; newsletter: .md/.html/.pdf.
+    out_dir = Path(args.output_dir) if args.output_dir else json_path.parent
+    print(f"Rendering into {out_dir}/", file=sys.stderr)
+    await asyncio.to_thread(render_from_json, json_path, out_dir, pdf=args.pdf)
 
 
 async def cmd_html(args: argparse.Namespace) -> None:
@@ -149,6 +142,19 @@ async def cmd_shoot(args: argparse.Namespace) -> None:
     html_dir = Path(args.html_dir)
     print(f"Screenshotting HTML in {html_dir}/", file=sys.stderr)
     await asyncio.to_thread(shoot_dir, html_dir)
+
+
+async def cmd_pdf(args: argparse.Namespace) -> None:
+    # Regenerate a PDF from a (possibly hand-edited) newsletter .md or .html file.
+    src = Path(args.file)
+    out = Path(args.output) if args.output else src.with_suffix(".pdf")
+    print(f"Writing PDF to {out}", file=sys.stderr)
+    if src.suffix == ".md":
+        from renderer.newsletter.renderer import md_to_pdf
+        await asyncio.to_thread(md_to_pdf, src, out)
+    else:
+        from renderer.pdf import to_pdf
+        await asyncio.to_thread(to_pdf, src.read_text(encoding="utf-8"), out)
 
 
 async def cmd_validate(args: argparse.Namespace) -> None:
@@ -243,14 +249,12 @@ async def cmd_produce(args: argparse.Namespace) -> None:
     lay["extract"].write_text(doc.model_dump_json(indent=2), encoding="utf-8")
     print(f"Render document written to {lay['extract']}", file=sys.stderr)
 
-    # 4. Render (optional) — HTML and PNG into separate subfolders
+    # 4. Render (optional) — each renderer lays out its own files under the format dir
+    #    (carousels → html/ + slides/; newsletter → newsletter.md/.html/.pdf).
     if args.render:
-        from renderer.shoot import shoot_dir
-        generate_html_from_json = importlib.import_module(renderer_mod).generate_html_from_json
-        print(f"Writing HTML slides to {lay['html']}/", file=sys.stderr)
-        await asyncio.to_thread(generate_html_from_json, lay["extract"], lay["html"])
-        print(f"Rendering PNG slides to {lay['slides']}/", file=sys.stderr)
-        await asyncio.to_thread(shoot_dir, lay["html"], lay["slides"])
+        render_from_json = importlib.import_module(renderer_mod).render_from_json
+        print(f"Rendering into {lay['fmt_dir']}/", file=sys.stderr)
+        await asyncio.to_thread(render_from_json, lay["extract"], lay["fmt_dir"], pdf=args.pdf)
 
 
 # ── Argument parser ───────────────────────────────────────────────────────────
@@ -288,12 +292,14 @@ def _build_parser() -> argparse.ArgumentParser:
     _add_format(p)
     p.add_argument("--no-api", action="store_true")
     p.add_argument("--render", action="store_true")
+    p.add_argument("--pdf", action="store_true", help="also emit a PDF (newsletter format)")
     p.set_defaults(func=cmd_produce)
 
-    p = sub.add_parser("render", help="render slides (HTML + screenshots) from a document")
+    p = sub.add_parser("render", help="render a document (carousel slides, or newsletter md/html)")
     p.add_argument("document", help="extract.json (the render document)")
     p.add_argument("output_dir", nargs="?", help="output directory (default: alongside the json)")
     _add_format(p)
+    p.add_argument("--pdf", action="store_true", help="also emit a PDF (newsletter format)")
     p.set_defaults(func=cmd_render)
 
     p = sub.add_parser("html", help="write standalone HTML slide files (no screenshots)")
@@ -305,6 +311,11 @@ def _build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("shoot", help="screenshot HTML slide files to PNG")
     p.add_argument("html_dir", help="directory of HTML slide files")
     p.set_defaults(func=cmd_shoot)
+
+    p = sub.add_parser("pdf", help="render a newsletter .md/.html file to PDF")
+    p.add_argument("file", help="newsletter.md or newsletter.html")
+    p.add_argument("output", nargs="?", help="output .pdf (default: alongside the file)")
+    p.set_defaults(func=cmd_pdf)
 
     p = sub.add_parser("simplify", help="shrink an existing analysis for readability")
     p.add_argument("analysis", help="analysis.json")

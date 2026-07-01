@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>{% include 'newsletter.css' %}</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="subject">{{ subject | md_bold }}</h1>
+  {% if meta_line %}<div class="meta">{{ meta_line }}</div>{% endif %}
+  <div class="divider"></div>
+
+  <p class="intro">{{ intro | md_bold }}</p>
+
+  <div class="kicker">Pourquoi cet article</div>
+  <p>{{ why_selected | md_bold }}</p>
+  <p>{{ payoff | md_bold }}</p>
+
+  <div class="kicker">Avant de lire</div>
+  <p>{{ context | md_bold }}</p>
+  <div class="plain">{% for r in reflexes %}<div class="row"><span class="mk gold">›</span><span>{{ r | md_bold }}</span></div>{% endfor %}</div>
+
+  <div class="kicker">Vérification des faits</div>
+  {% for f in fact_check %}<div class="fact">
+    <div class="claim">« {{ f.claim }} »</div>
+    <div class="pres">{{ f.presentation }}</div>
+    <p>{{ f.reading | md_bold }}</p>
+  </div>{% endfor %}
+
+  <div class="kicker">Les failles</div>
+  {% for s in failles %}<div class="sec">
+    <h3>{{ s.heading }}</h3>
+    <p>{{ s.body | md_bold }}</p>
+  </div>{% endfor %}
+
+  <div class="kicker">Ce qui tient</div>
+  {% for s in strengths %}<div class="sec">
+    <h3>✓ {{ s.heading }}</h3>
+    <p>{{ s.body | md_bold }}</p>
+  </div>{% endfor %}
+
+  <div class="kicker">Angles morts &amp; nuances</div>
+  <div class="plain">{% for a in angles_morts %}<div class="row"><span class="mk salmon">~</span><span>{{ a | md_bold }}</span></div>{% endfor %}</div>
+
+  <div class="kicker">Notre verdict</div>
+  <div class="verdict">
+    {% if score %}<div><span class="score">{{ score }} / 5</span>{% if band %}<span class="band">{{ band }}</span>{% endif %}</div>{% endif %}
+    <p>{{ verdict_line | md_bold }}</p>
+    {% if for_whom %}<div class="whom">Pour qui&nbsp;: {{ for_whom }}</div>{% endif %}
+  </div>
+
+  <div class="kicker">Pour aller plus loin</div>
+  {% for r in go_further %}<div class="resource">
+    <div class="t">{{ r.title }}</div>
+    {% if r.source %}<div class="s">{{ r.source }}</div>{% endif %}
+    {% if r.why %}<div class="w">{{ r.why | md_bold }}</div>{% endif %}
+  </div>{% endfor %}
+
+  <div class="signoff">{{ signoff | md_bold }}<span class="sig">— Sing Sing</span></div>
+</div>
+</body>
+</html>

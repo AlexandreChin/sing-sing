@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+@page { size: A4; }
+html, body {
+  background: #0b0b0b;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+body {
+  color: #f0f0f0;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 780px; margin: 0 auto; padding: 6px 64px 6px; }
+
+/* header */
+.brand { display: flex; align-items: center; justify-content: space-between; }
+.brand .name { font-size: 24px; font-weight: 900; color: #d4aa00; letter-spacing: -0.01em; line-height: 1.05; }
+.brand img { width: 46px; height: 46px; }
+.subject { font-size: 42px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; margin-top: 30px; }
+.subject strong, .subject em { color: #d4aa00; font-style: normal; }
+.meta { margin-top: 14px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8a8a8a; }
+.divider { height: 2px; background: linear-gradient(90deg, #d4aa00, transparent); margin: 34px 0; }
+
+/* body */
+.intro { font-size: 19px; line-height: 1.62; color: #e6e6e6; }
+.kicker { font-size: 14px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; margin: 40px 0 16px; break-after: avoid; }
+p { font-size: 17px; line-height: 1.6; color: #e6e6e6; margin: 10px 0; }
+strong { color: #d4aa00; font-weight: 700; }
+
+/* fact check */
+.fact { border-left: 3px solid #d4aa00; padding: 2px 0 2px 22px; margin: 18px 0; break-inside: avoid; }
+.fact .claim { font-size: 17px; font-style: italic; line-height: 1.4; color: #f0f0f0; }
+.fact .pres { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8a8a8a; margin: 6px 0 8px; }
+.fact p { font-size: 16px; color: #dedede; margin: 0; }
+
+/* à retenir box */
+.box { background: #161616; border-left: 4px solid #d4aa00; border-radius: 0 10px 10px 0; padding: 24px 28px; break-inside: avoid; }
+.box ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.box li { position: relative; padding-left: 30px; font-size: 17px; line-height: 1.5; color: #e6e6e6; }
+.box li::before { content: "→"; position: absolute; left: 0; color: #d4aa00; font-weight: 900; }
+
+/* décryptage sections */
+.sec { margin-top: 26px; break-inside: avoid; }
+.sec h3 { font-size: 23px; font-weight: 800; color: #f0f0f0; letter-spacing: -0.01em; margin-bottom: 8px; }
+.sec p { font-size: 17px; line-height: 1.58; color: #dedede; }
+
+/* stepping back list */
+.plain { display: flex; flex-direction: column; gap: 12px; }
+.plain .row { display: flex; gap: 16px; font-size: 17px; line-height: 1.5; color: #dedede; }
+.plain .row .mk { flex: none; font-weight: 900; }
+.plain .row .mk.gold { color: #d4aa00; }
+.plain .row .mk.salmon { color: #e8a07a; }
+
+/* verdict */
+.verdict { background: #161616; border-radius: 12px; padding: 26px 30px; break-inside: avoid; }
+.verdict .score { font-size: 34px; font-weight: 800; color: #d4aa00; letter-spacing: -0.01em; }
+.verdict .band { font-size: 15px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #b0b0b0; margin-left: 10px; }
+.verdict p { font-size: 18px; line-height: 1.55; color: #eaeaea; margin-top: 14px; }
+.verdict .whom { font-size: 15px; color: #9a9a9a; margin-top: 12px; }
+
+/* resource */
+.resource { border: 1px solid #2a2a2a; border-radius: 10px; padding: 20px 24px; break-inside: avoid; }
+.resource .t { font-size: 19px; font-weight: 800; color: #f0f0f0; }
+.resource .s { font-size: 14px; color: #8a8a8a; margin-top: 4px; text-transform: uppercase; letter-spacing: .08em; }
+.resource .w { font-size: 16px; color: #dedede; line-height: 1.5; margin-top: 10px; }
+
+.signoff { margin-top: 44px; padding-top: 22px; border-top: 1px solid #222; font-size: 16px; font-style: italic; color: #b0b0b0; }
+.signoff .sig { display: block; margin-top: 8px; font-style: normal; font-weight: 800; color: #d4aa00; letter-spacing: .04em; }
+
+/* markdown-shell fallback (edited .md → PDF): style raw markdown output */
+.md h1 { font-size: 40px; font-weight: 900; color: #f0f0f0; line-height: 1.12; margin-bottom: 20px; }
+.md h2 { font-size: 15px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #d4aa00; margin: 34px 0 12px; }
+.md h3 { font-size: 22px; font-weight: 800; color: #f0f0f0; margin: 20px 0 6px; }
+.md p { font-size: 17px; line-height: 1.6; color: #e6e6e6; margin: 10px 0; }
+.md ul { margin: 10px 0 10px 22px; }
+.md li { font-size: 17px; line-height: 1.55; color: #e6e6e6; margin: 6px 0; }
+.md em { color: #9a9a9a; }
+.md hr { border: none; height: 2px; background: linear-gradient(90deg, #d4aa00, transparent); margin: 30px 0; }</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="subject">Enfants pauvres : la France à contre-courant de l&#39;Europe ?</h1>
+  <div class="meta">Reportage</div>
+  <div class="divider"></div>
+
+  <p class="intro">Un article annonce que la pauvreté infantile grimpe en France pendant qu&#39;elle recule ailleurs en Europe. Les chiffres sont exacts, la source est prestigieuse — la Commission européenne — et pourtant quelque chose cloche dans la démonstration. On décrypte pourquoi un constat vrai peut reposer sur un raisonnement fragile, et ce qu&#39;il faut recouper avant d&#39;y adhérer.</p>
+
+  <div class="kicker">Pourquoi cet article</div>
+  <p>C&#39;est un cas d&#39;école du compte rendu institutionnel : un rapport officiel relayé fidèlement, mais sans le contre-éclairage qui permettrait d&#39;en tester la portée. Il montre comment une source unique et un glissement méthodologique discret peuvent transformer des chiffres justes en récit orienté.</p>
+  <p>Vous repartez avec les chiffres-clés de la Commission sur la pauvreté des enfants et une grille pour les lire sans vous faire piéger. Surtout, vous saurez distinguer une hausse d&#39;un taux relatif d&#39;un appauvrissement réel — une confusion qui traverse tout le texte.</p>
+
+  <div class="kicker">Avant de lire</div>
+  <p>L&#39;article relaie le paquet de printemps du semestre européen 2026, l&#39;exercice annuel où Bruxelles adresse ses recommandations budgétaires à chaque État. La pauvreté infantile et le déclassement sont des thèmes récurrents du débat français, sur fond d&#39;un chômage qui repart à la hausse depuis fin 2024. Le seuil utilisé est relatif : 60 % du revenu médian propre à chaque pays, ce qui mesure un écart interne, pas la richesse absolue. Retenir cette distinction est indispensable pour juger le constat.</p>
+  <div class="plain"><div class="row"><span class="mk gold">›</span><span>Repérez d&#39;emblée si le constat s&#39;appuie sur une seule institution ou s&#39;il est recoupé par une source indépendante.</span></div><div class="row"><span class="mk gold">›</span><span>Gardez à l&#39;esprit qu&#39;un taux relatif de pauvreté et un appauvrissement réel sont deux affirmations distinctes.</span></div></div>
+
+  <div class="kicker">Vérification des faits</div>
+  <div class="fact">
+    <div class="claim">« 27,5 % des enfants en France sont « à risque de pauvreté et d&#39;exclusion sociale, bien au-dessus du reste de la population (20,8 %) ». »</div>
+    <div class="pres">attribué à une source (la Commission européenne)</div>
+    <p>Le chiffre est conforme aux données Eurostat et tient factuellement. Mais il provient du seul paquet de printemps de la Commission, sans qu&#39;aucune source nationale — Insee, France Travail — ne vienne le recouper. À prendre comme un point de départ, pas comme un diagnostic clos.</p>
+  </div><div class="fact">
+    <div class="claim">« Le seuil de risque de pauvreté est fixé à 60 % du revenu médian disponible après transferts sociaux dans chaque pays. »</div>
+    <div class="pres">présenté comme un fait établi</div>
+    <p>La définition est exacte et conforme à Eurostat. Le problème n&#39;est pas sa véracité mais son silence : l&#39;article ne signale jamais qu&#39;elle mesure un écart interne au pays, non un niveau de vie absolu. Un taux qui monte peut donc traduire une médiane qui progresse, pas forcément des enfants plus pauvres.</p>
+  </div><div class="fact">
+    <div class="claim">« « De 27,4 % en 2015, le taux est passé à 24,3 % en 2025. » »</div>
+    <div class="pres">attribué à une source, posé comme démonstratif</div>
+    <p>Les points cités mêlent des années de référence hétérogènes (2015, 2023, 2025). Le croisement des courbes présenté comme la preuve d&#39;une exception française perd de sa force quand les repères ne reposent pas sur la même base. Exact isolément, fragile mis en série.</p>
+  </div>
+
+  <div class="kicker">Les failles</div>
+  <div class="sec">
+    <h3>Une source unique, sans contradiction</h3>
+    <p>Tout le récit repose sur une seule institution, la Commission européenne, dont les chiffres sont rapportés sans recoupement. « Les courbes se sont durablement croisées, signale la Commission européenne » : l&#39;attribution à Bruxelles tient lieu de preuve. Aucune source française — Insee, France Travail, gouvernement — n&#39;est consultée pour confirmer ou nuancer un constat pourtant accusatoire. Faute de contre-éclairage national, l&#39;autorité de la source dispense l&#39;article de démontrer lui-même son diagnostic.</p>
+  </div><div class="sec">
+    <h3>Du taux relatif à l&#39;appauvrissement réel</h3>
+    <p>Le cœur de l&#39;argument glisse d&#39;un indicateur relatif vers un appauvrissement absolu sans étape intermédiaire. L&#39;article parle de « cet appauvrissement des travailleurs et, par conséquent, des enfants » alors qu&#39;une hausse du taux à 60 % du revenu médian mesure d&#39;abord un écart interne. Cette confusion n&#39;est jamais explicitée ni arrêtée par un contradicteur. Résultat : le lecteur assimile mécaniquement hausse du taux et enfants réellement plus pauvres, ce qui n&#39;a rien d&#39;automatique.</p>
+  </div>
+
+  <div class="kicker">Ce qui tient</div>
+  <div class="sec">
+    <h3>✓ Des chiffres exacts</h3>
+    <p>Pris isolément, les chiffres sont conformes à Eurostat, tant pour la définition du seuil que pour le taux de 27,5 %. Le propos reste lisible et met bien les données en avant. Comme point de départ chiffré, l&#39;article est fiable.</p>
+  </div><div class="sec">
+    <h3>✓ Un ton descriptif, pas accusateur</h3>
+    <p>Malgré l&#39;absence de réponse française, le texte relaie le diagnostic sur un mode descriptif plutôt que dans une charge frontale. Il évite la caricature des acteurs et se garde d&#39;un verdict tranché, ce qui limite la dérive polémique.</p>
+  </div>
+
+  <div class="kicker">Angles morts &amp; nuances</div>
+  <div class="plain"><div class="row"><span class="mk salmon">~</span><span>L&#39;effet chiffré de la redistribution sociale française — le contre-fait le plus susceptible de renverser la lecture du taux — n&#39;est jamais mesuré.</span></div><div class="row"><span class="mk salmon">~</span><span>Aucune source nationale indépendante ne recoupe le constat, et la partie française mise en cause n&#39;est jamais entendue.</span></div><div class="row"><span class="mk salmon">~</span><span>Reste que, honnêtement, un compte rendu de rapport officiel dans un format court n&#39;a pas vocation à mener une enquête contradictoire complète.</span></div></div>
+
+  <div class="kicker">Notre verdict</div>
+  <div class="verdict">
+    <div><span class="score">2,4 / 5</span><span class="band">Moyenne</span></div>
+    <p>À lire avec réserves. L&#39;article restitue fidèlement des chiffres européens exacts, mais sa source unique, l&#39;absence de réponse française et la confusion entre taux relatif et appauvrissement réel imposent de le croiser avec d&#39;autres données. Réservez-le à qui suit ce dossier de près et sait aller chercher les chiffres de l&#39;Insee.</p>
+    <div class="whom">Pour qui&nbsp;: Un lecteur suivant les questions de politique sociale et familiale, capable de recouper lui-même les chiffres européens avec les données françaises de l&#39;Insee.</div>
+  </div>
+
+  <div class="kicker">Pour aller plus loin</div>
+  <div class="resource">
+    <div class="t">Mesurer la pauvreté : le taux relatif et ses limites</div>
+    <div class="s">Insee, France, portrait social</div>
+    <div class="w">Il explique pourquoi un taux relatif peut monter sans appauvrissement absolu et resitue les chiffres européens dans le cadre français.</div>
+  </div><div class="resource">
+    <div class="t">Indicateur AROPE : méthodologie et séries 2015-2025</div>
+    <div class="s">Eurostat</div>
+    <div class="w">La source directe des chiffres : elle permet de vérifier les années de référence et de voir ce que recouvre vraiment l&#39;agrégat combinant revenus, privation et emploi.</div>
+  </div><div class="resource">
+    <div class="t">L&#39;effet des prestations sociales sur la pauvreté des enfants</div>
+    <div class="s">DREES / Insee</div>
+    <div class="w">Il chiffre la redistribution française, l&#39;angle mort central de l&#39;article, et éclaire ce que le taux affiché doit aux transferts sociaux.</div>
+  </div>
+
+  <div class="signoff">Un chiffre juste peut raconter une histoire fragile — si ce décryptage vous a été utile, transmettez-le à qui partage encore l&#39;article sans le recouper.<span class="sig">— Sing Sing</span></div>
+</div>
+</body>
+</html>
