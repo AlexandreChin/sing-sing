@@ -1,0 +1,85 @@
+"""Short (6-slide) variant of the `article_carousel_optimized_v0` carousel.
+
+Same InstagramCarouselDocument, same adapt() presentation and templates as the
+optimized format — only a reduced slide selection. Registered as
+`instagram_carousel_optimized_short`.
+
+Arc: Hook → Curation → Avant de lire → Le décryptage (failles) → Verdict → CTA.
+Slides are named 01–06 for output; some reuse the full deck's templates (verdict,
+cta), so the spec carries (output_name, template_name, ctx) triples.
+"""
+import json
+from pathlib import Path
+
+from models.instagram_carousel_presentation import InstagramCarouselDocument
+from .renderer import _env, _LOGO_DATA_URL, _weighted_quality, TYPE_FR
+from .optimized import _fr_num
+
+TPL = "article_carousel_optimized_v0"
+
+# 3-step tracker highlight, keyed by output slide name.
+PHASE_OF = {"03_reperes": "avant", "04_decryptage": "analyse", "05_verdict": "verdict"}
+
+
+def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    full, pres = doc.analysis, doc.presentation
+    meta, disp = full.article_metadata, pres.display
+
+    source_meta = " · ".join(x for x in [
+        meta.source,
+        TYPE_FR.get(meta.type) if meta.type else None,
+        f"{meta.reading_time_minutes} min" if meta.reading_time_minutes else None,
+    ] if x)
+
+    contexts = full.context.contexts[:1]
+    verdict = full.review.verdict if full.review else None
+    wq = _weighted_quality(full)
+    main_gauge = (
+        {"name": "Qualité de l'article", "val": wq["label"], "pos": wq["pos"], "level": wq["level"]}
+        if wq else {"name": "Qualité de l'article", "val": "—", "pos": 50, "level": "mid"}
+    )
+
+    # Le décryptage: both failles condensed to a scannable list (no evidence quotes).
+    failles = [{"label": w.label, "body": w.text} for w in list(disp.watch_out)[:2]]
+
+    specs = [
+        ("01_hook", "01_hook", {"article_title": (meta.title or "").strip(),
+                                "source_meta": source_meta, "headline": pres.hook.headline}),
+        ("02_selection", "02_selection", {"headline": disp.selection_headline, "items": [
+            {"label": "Pourquoi on l'a retenu", "body": disp.why_selected},
+            {"label": "Ce que vous allez apprendre", "body": disp.payoff},
+        ]}),
+        ("03_reperes", "03_reperes", {"context": contexts[0].text if contexts else "",
+                                      "clues": list(disp.pre_reading)[:2]}),
+        ("04_decryptage", "decryptage", {"failles": failles}),
+        ("05_verdict", "09_verdict", {"gauge": main_gauge,
+                                      "score": _fr_num(wq["score"]) if wq else "",
+                                      "body": verdict.main_blind_side if verdict else "",
+                                      "final": ""}),
+        ("06_cta", "10_cta", {}),
+    ]
+
+    env = _env()
+    paths = []
+    total = len(specs)
+    for i, (out_name, tpl_name, ctx) in enumerate(specs, 1):
+        html = env.get_template(f"{TPL}/{tpl_name}.html").render(
+            logo=_LOGO_DATA_URL, phase=PHASE_OF.get(out_name),
+            slide_n=i, slide_total=total, progress=round(i / total * 100), **ctx)
+        path = out_dir / f"{out_name}.html"
+        path.write_text(html, encoding="utf-8")
+        paths.append(path)
+        print(f"  ✓ {path.name}")
+    return paths
+
+
+def generate_html_from_json(json_path: Path, out_dir: Path) -> list[Path]:
+    data = json.loads(Path(json_path).read_text(encoding="utf-8"))
+    return generate_html(InstagramCarouselDocument.model_validate(data), out_dir)
+
+
+def render_from_json(json_path: Path, out_dir: Path) -> list[Path]:
+    from renderer.shoot import shoot_dir
+    generate_html_from_json(json_path, out_dir)
+    return shoot_dir(out_dir)

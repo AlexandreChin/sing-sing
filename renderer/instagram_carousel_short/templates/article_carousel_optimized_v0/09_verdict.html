@@ -32,7 +32,7 @@
 
     <div class="divider"></div>
     <p class="v-body">{{ body | md_bold }}</p>
-    <p class="v-final">{{ final }}.</p>
+    {% if final %}<p class="v-final">{{ final }}.</p>{% endif %}
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Avant de partir &#8595;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
