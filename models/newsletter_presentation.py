@@ -11,6 +11,7 @@ from pydantic import BaseModel
 class NewsletterSection(BaseModel):
     heading: str   # short French section title (e.g. "Source unique", "Exactitude factuelle")
     body: str      # a detailed paragraph — the finding explained, with the article's own words
+    clue: str | None = None  # failles only — ≤12 words echoing the pre-reading reflex this finding pays off
 
 
 class FactCheckItem(BaseModel):

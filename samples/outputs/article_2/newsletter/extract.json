@@ -876,11 +876,13 @@
     "failles": [
       {
         "heading": "Une source unique, sans contradiction",
-        "body": "Tout le récit repose sur **une seule institution**, la Commission européenne, dont les chiffres sont rapportés sans recoupement. « Les courbes se sont durablement croisées, signale la Commission européenne » : **l'attribution à Bruxelles tient lieu de preuve**. Aucune source française — Insee, France Travail, gouvernement — n'est consultée pour confirmer ou nuancer un constat pourtant accusatoire. Faute de contre-éclairage national, l'autorité de la source dispense l'article de démontrer lui-même son diagnostic."
+        "body": "Tout le récit repose sur **une seule institution**, la Commission européenne, dont les chiffres sont rapportés sans recoupement. « Les courbes se sont durablement croisées, signale la Commission européenne » : **l'attribution à Bruxelles tient lieu de preuve**. Aucune source française — Insee, France Travail, gouvernement — n'est consultée pour confirmer ou nuancer un constat pourtant accusatoire. Faute de contre-éclairage national, l'autorité de la source dispense l'article de démontrer lui-même son diagnostic.",
+        "clue": "le constat tient-il à une seule institution ?"
       },
       {
         "heading": "Du taux relatif à l'appauvrissement réel",
-        "body": "Le cœur de l'argument **glisse d'un indicateur relatif vers un appauvrissement absolu** sans étape intermédiaire. L'article parle de « cet appauvrissement des travailleurs et, par conséquent, des enfants » alors qu'une hausse du taux à 60 % du revenu médian mesure d'abord un écart interne. Cette confusion n'est jamais explicitée ni arrêtée par un contradicteur. Résultat : le lecteur assimile mécaniquement hausse du taux et enfants réellement plus pauvres, ce qui **n'a rien d'automatique**."
+        "body": "Le cœur de l'argument **glisse d'un indicateur relatif vers un appauvrissement absolu** sans étape intermédiaire. L'article parle de « cet appauvrissement des travailleurs et, par conséquent, des enfants » alors qu'une hausse du taux à 60 % du revenu médian mesure d'abord un écart interne. Cette confusion n'est jamais explicitée ni arrêtée par un contradicteur. Résultat : le lecteur assimile mécaniquement hausse du taux et enfants réellement plus pauvres, ce qui **n'a rien d'automatique**.",
+        "clue": "hausse d'un taux relatif = appauvrissement réel ?"
       }
     ],
     "strengths": [

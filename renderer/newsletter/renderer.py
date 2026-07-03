@@ -110,6 +110,38 @@ def _radar_svg(dims) -> str:
 _LEVEL_COLOR = {"good": "#7ec8a0", "mid": "#e8a07a", "bad": "#e87a7a"}
 
 
+# Confidence label (from the analysis claim's 0–100 score) → (French verdict, pill
+# colour). Mirrors the carousel's colour-coded fact-check chip: the colour tracks
+# how likely the claim is to be true, not how the article frames it.
+_FC_VERDICT = {
+    "consensual":   ("Largement admis", "#3f9e73"),
+    "true":         ("Solide",          "#3f9e73"),
+    "likely true":  ("Plutôt solide",   "#5aa06a"),
+    "disputed":     ("Disputé",         "#c99a00"),
+    "likely false": ("Fragile",         "#cf4f4f"),
+    "false":        ("Fragile",         "#cf4f4f"),
+    "unverifiable": ("Invérifiable",    "#8a8f9a"),
+}
+
+
+def _fc_tokens(text: str) -> set[str]:
+    return set(re.findall(r"\w+", (text or "").lower()))
+
+
+def _fc_verdict(fc_claim: str, claims) -> tuple[str, str]:
+    """Match a newsletter fact-check claim to its analysis claim (best keyword/
+    number overlap) and return its (verdict label, colour). Falls back to
+    "Invérifiable" when nothing matches."""
+    ft = _fc_tokens(fc_claim)
+    best, best_ov = None, 0
+    for c in claims:
+        ov = len(ft & _fc_tokens(c.quote))
+        if ov > best_ov:
+            best_ov, best = ov, c
+    label = best.confidence_label if (best is not None and best_ov) else "unverifiable"
+    return _FC_VERDICT.get(label, _FC_VERDICT["unverifiable"])
+
+
 def _dim_color(score: float) -> str:
     """Per-dimension bar colour (score 1–5): green → gold → salmon → red."""
     if score >= 4:
@@ -211,6 +243,9 @@ def _ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
         "repere_facts": [f.text for f in full.context.important_facts] if full.context else [],
         "key_terms": [{"term": kt.term, "definition": kt.definition}
                       for kt in full.context.key_terms] if full.context else [],
+        # watch-out reflexes the curated `reflexes` didn't cover (the analysis
+        # often lists more pre-reading tips than the 2 kept in the presentation).
+        "extra_reflexes": (list(full.guide.pre_reading)[len(pres.reflexes):] if full.guide else []),
     }
 
 
@@ -254,6 +289,19 @@ def _email_ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
         "color": _dim_color(d.score),
     } for d in dims]
     ctx["gauge_color"] = _LEVEL_COLOR.get(ctx["gauge_level"], "#e8a07a")
+    ann = getattr(doc.analysis, "annotations", None)
+    claims = ann.facts_vs_opinions.claims_and_sources if ann else []
+    fact_check = []
+    for f in doc.presentation.fact_check:
+        verdict, color = _fc_verdict(f.claim, claims)
+        fact_check.append({
+            "claim": f.claim,
+            "presentation": f.presentation,
+            "reading": f.reading,
+            "verdict": verdict,
+            "color": color,
+        })
+    ctx["fact_check"] = fact_check
     return ctx
 
 
