@@ -14,14 +14,13 @@ uv add <package>
 uv sync
 
 # Full pipeline: analyze → adapt → extract → render
-python main.py produce <article.txt> [--format instagram_carousel_optimized] [--no-api] [--render] [--pdf]
+python main.py produce <article.txt> [--format instagram_carousel_optimized] [--no-api] [--render]
 
 # Individual stages
 python main.py analyze <article.txt> [--instructions "..."] [--instructions-file <path>]
 python main.py adapt   <analysis.json>   [--format <fmt>] [--no-api]
 python main.py extract <analysis.json> <presentation.json> [--format <fmt>] [--render]
-python main.py render  <extract.json> [<output_dir>] [--format <fmt>] [--pdf]
-python main.py pdf     <newsletter.md|.html> [out.pdf]   # newsletter → PDF (edit-then-regenerate)
+python main.py render  <extract.json> [<output_dir>] [--format <fmt>]
 
 # Utilities
 python main.py simplify <analysis.json>              # reduce an existing carousel
@@ -53,9 +52,8 @@ renderer/
     optimized.py                   10-slide optimized deck
     optimized_short.py             6-slide optimized deck
     templates/article_carousel_optimized_v0/  Jinja2 templates → PNG slides (1080×1350)
-  newsletter/                      newsletter renderer → Markdown + HTML (+ PDF); dark brand
+  newsletter/                      newsletter renderer → Markdown + HTML (rich + email); dark brand
   shoot.py                         Playwright HTML → PNG (carousel slides)
-  pdf.py                           Playwright HTML → paginated PDF (newsletter)
 models/
   full_analysis.py                 ArticleFullAnalysis (analysis schema)
   instagram_carousel_presentation.py  InstagramCarouselPresentation / Document
@@ -80,9 +78,9 @@ samples/outputs/<stem>/
 **Formats:** registered in `extractors/registry.py`, all fed by the same `analyze`. The two carousel formats also share the same `adapt()` copy; the newsletter has its own prose adapt.
 - `instagram_carousel_optimized` (default) — 10-slide deck on the `article_carousel_optimized_v0` templates: Hook → Curation → Repères → Vérif. des faits → Faille 1 → Faille 2 → Point fort → Prise de recul → Verdict → CTA. renderer builds the slide list conditionally, so absent sections drop out and numbering (`slide_n`/`slide_total`) adapts.
 - `instagram_carousel_optimized_short` — 6-slide cut of the above (same templates + one merged `decryptage.html`): Hook → Curation → Repères → Le décryptage (failles merged) → Verdict → CTA.
-- `newsletter` — prose, not slides. Own adapt agent (`newsletter_adapt_agent`) + `NewsletterPresentation`. Renders **Markdown + HTML**, and a **PDF** with `--pdf` (Chromium `page.pdf`, dark gold-on-black). Edit `newsletter.md` and run `pdf <file>` to regenerate the PDF without the LLM.
+- `newsletter` — prose, not slides. Own adapt agent (`newsletter_adapt_agent`) + `NewsletterPresentation`. Renders **Markdown** + a rich `newsletter.html` (dark gold-on-black, SVG radar) + email-safe HTML in two themes (table layout, inline styles, no SVG/flexbox): `newsletter.email.html` (light, default) and `newsletter.email.dark.html`. Themes live in `EMAIL_THEMES`; only chrome is themed, the semantic gauge/bar colours are fixed.
 
-**Rendering interface:** every renderer module exposes `render_from_json(extract_path, out_dir, pdf=False)` and lays out its own files under `out_dir` — carousels write `html/` + `slides/`, the newsletter writes `newsletter.md`/`.html`/`.pdf`. `produce` and `render` call this uniformly.
+**Rendering interface:** every renderer module exposes `render_from_json(extract_path, out_dir, pdf=False)` and lays out its own files under `out_dir` — carousels write `html/` + `slides/`, the newsletter writes `newsletter.md`/`.html`/`.email.html`. `produce` and `render` call this uniformly. (`pdf` is a vestigial no-op kept for interface uniformity.)
 
 To add a format, add a `FORMATS` entry mapping to its adapt agent, extractor, and renderer modules.
 

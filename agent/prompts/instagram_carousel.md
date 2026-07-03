@@ -23,7 +23,7 @@ Champs à produire :
 hook
 - topic : thème principal (3–5 mots)
 - sub_topic : angle spécifique (3–6 mots)
-- headline : question ou affirmation percutante (≤12 mots), sans majuscule en milieu de phrase, sans citer la source
+- headline : question ou affirmation percutante (≤12 mots), sans majuscule en milieu de phrase, sans citer la source. Mets en **gras** le mot ou groupe de mots décisif (1 seul passage, jamais toute la phrase).
 - context_line : une phrase contextuelle (≤20 mots) qui situe l'enjeu
 
 interest
