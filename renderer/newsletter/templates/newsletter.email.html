@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="color-scheme" content="{{ t.color_scheme }}">
+<meta name="supported-color-schemes" content="{{ t.color_scheme }}">
+<title>{{ subject }}</title>
+<!--[if mso]><style>* { font-family: Arial, sans-serif !important; }</style><![endif]-->
+<style>
+  /* Only progressive enhancement lives here — every client-critical style is
+     inline (the container is fluid by default, so mobile reflow does not depend
+     on this block). Outlook ignores it; that's fine. */
+  body { margin: 0; padding: 0; width: 100% !important; }
+  table { border-collapse: collapse; }
+  img { border: 0; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+  a { color: {{ t.accent_text }}; }
+  @media screen and (max-width: 640px) {
+    .container { width: 100% !important; }
+    .px { padding-left: 22px !important; padding-right: 22px !important; }
+    .subject { font-size: 30px !important; line-height: 1.15 !important; }
+  }
+</style>
+</head>
+<body style="margin:0;padding:0;background-color:{{ t.bg }};">
+<!-- preheader: inbox preview, kept off-screen -->
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:{{ t.bg }};opacity:0;">
+  {{ preheader }}&#8199;&#847;&zwnj;&nbsp;&#8199;&#847;&zwnj;&nbsp;&#8199;&#847;&zwnj;&nbsp;&#8199;&#847;&zwnj;&nbsp;&#8199;&#847;&zwnj;&nbsp;
+</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="{{ t.bg }}" style="background-color:{{ t.bg }};">
+<tr><td align="center" style="padding:0;">
+
+  <table role="presentation" class="container" width="640" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:640px;margin:0 auto;">
+
+    <!-- header: brand -->
+    <tr><td class="px" style="padding:36px 32px 0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+        <td align="left" style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:22px;font-weight:900;letter-spacing:-0.01em;color:{{ t.accent_text }};">Sing Sing</td>
+        {% if logo %}<td align="right" style="width:72px;"><img src="{{ logo }}" width="68" height="68" alt="Sing Sing" style="display:block;width:68px;height:68px;"></td>{% endif %}
+      </tr></table>
+    </td></tr>
+
+    <!-- subject -->
+    <tr><td class="px subject" style="padding:26px 32px 0;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:40px;font-weight:900;line-height:1.1;letter-spacing:-0.02em;color:{{ t.heading }};">{{ hook_title | md_bold_email(t.accent_text) }}</td></tr>
+
+    {% if orig_title %}<tr><td class="px" style="padding:18px 32px 0;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:{{ t.muted }};padding-bottom:6px;">L'article</div>
+      {% if orig_url %}<a href="{{ orig_url }}" target="_blank" rel="noopener noreferrer" style="font-size:16px;line-height:1.4;font-weight:700;color:{{ t.accent_text }};text-decoration:underline;">{{ orig_title }} &#8599;</a>{% else %}<div style="font-size:16px;line-height:1.4;font-weight:700;color:{{ t.heading }};">{{ orig_title }}</div>{% endif %}
+    </td></tr>{% endif %}
+
+    {% if meta_line %}<tr><td class="px" style="padding:14px 32px 0;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:{{ t.muted }};">{{ meta_line }}</td></tr>{% endif %}
+
+    <!-- gold divider -->
+    <tr><td class="px" style="padding:30px 32px 0;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="2" bgcolor="{{ t.accent }}" style="height:2px;font-size:0;line-height:0;background-color:{{ t.accent }};">&nbsp;</td></tr></table></td></tr>
+
+    <!-- intro -->
+    <tr><td class="px" style="padding:30px 32px 0;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:19px;line-height:1.62;color:{{ t.text }};">{{ intro | md_bold_email(t.accent_text) }}</td></tr>
+
+    {# ---- reusable section-banner / kicker / paragraph macros ---- #}
+    {# section() = one of the 3 pillars, rendered as a gold band that lists all
+       three pillar names with the active one big/dark so the reader always knows
+       where they are. `active` is 1, 2 or 3. #}
+    {% set pillars = ["Pourquoi cet article", "Avant de vous lancer", "Après lecture"] %}
+    {% set pillar_icons = ["🎯", "🧭", "🧠"] %}
+    {% macro section(active) %}
+    <tr><td style="padding:44px 0 0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="{{ t.accent }}" style="background-color:{{ t.accent }};background-image:linear-gradient(135deg,#e6c04a 0%,#d4aa00 55%,#c09800 100%);"><tr>
+        <td class="px" style="padding:22px 32px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+          {% for p in pillars %}{% if loop.index == active %}
+          <div style="font-size:24px;font-weight:900;letter-spacing:-0.01em;line-height:1.3;color:#1a1400;padding:5px 0;"><span style="font-size:22px;">{{ pillar_icons[loop.index0] }}</span>&nbsp; {{ p }}</div>
+          {% else %}
+          <div style="font-size:14px;font-weight:700;line-height:1.35;color:#7d6408;padding:5px 0;">{{ p }}</div>
+          {% endif %}{% endfor %}
+        </td>
+      </tr></table>
+    </td></tr>
+    {% endmacro %}
+    {% macro kicker(icon, text) %}
+    <tr><td class="px" style="padding:34px 32px 0;">
+      <div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;font-weight:800;letter-spacing:0.13em;text-transform:uppercase;color:{{ t.accent_text }};"><span style="font-size:17px;">{{ icon }}</span>&nbsp;&nbsp;{{ text }}</div>
+    </td></tr>
+    {% endmacro %}
+    {% macro para(html) %}
+    <tr><td class="px" style="padding:16px 32px 0;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:17px;line-height:1.62;color:{{ t.text }};">{{ html }}</td></tr>
+    {% endmacro %}
+
+    {# ===== PILLAR 1 — la curation : pourquoi cet article ===== #}
+    {{ section(1) }}
+    {{ para(why_selected | md_bold_email(t.accent_text)) }}
+    {{ para(payoff | md_bold_email(t.accent_text)) }}
+
+    {# ===== PILLAR 2 — avant de vous lancer : contexte, repères, vocabulaire, vigilance ===== #}
+    {{ section(2) }}
+
+    <!-- Le contexte -->
+    {{ kicker("🌍", "Le contexte") }}
+    {{ para(context | md_bold_email(t.accent_text)) }}
+
+    <!-- Les repères (faits-clés depuis l'analyse) -->
+    {% if repere_facts %}
+    {{ kicker("📌", "Les repères") }}
+    {% for f in repere_facts %}
+    <tr><td class="px" style="padding:14px 32px 0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+        <td valign="top" width="20" style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:17px;font-weight:900;color:{{ t.accent_text }};line-height:1.5;">&rsaquo;</td>
+        <td style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:17px;line-height:1.55;color:{{ t.text_soft }};">{{ f | md_bold_email(t.accent_text) }}</td>
+      </tr></table>
+    </td></tr>
+    {% endfor %}
+    {% endif %}
+
+    <!-- Le vocabulaire (glossaire depuis l'analyse) -->
+    {% if key_terms %}
+    {{ kicker("📖", "Le vocabulaire") }}
+    {% for kt in key_terms %}
+    <tr><td class="px" style="padding:14px 32px 0;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+      <div style="font-size:16px;font-weight:800;color:{{ t.heading }};line-height:1.3;">{{ kt.term }}</div>
+      <div style="font-size:15px;line-height:1.55;color:{{ t.text_soft }};padding-top:3px;">{{ kt.definition | md_bold_email(t.accent_text) }}</div>
+    </td></tr>
+    {% endfor %}
+    {% endif %}
+
+    <!-- À surveiller en lisant (réflexes) -->
+    {{ kicker("👀", "À surveiller en lisant") }}
+    {% for r in reflexes %}
+    <tr><td class="px" style="padding:14px 32px 0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+        <td valign="top" width="20" style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:17px;font-weight:900;color:{{ t.accent_text }};line-height:1.5;">&rsaquo;</td>
+        <td style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:17px;line-height:1.55;color:{{ t.text_soft }};">{{ r | md_bold_email(t.accent_text) }}</td>
+      </tr></table>
+    </td></tr>
+    {% endfor %}
+
+    <!-- read-the-article call to action (bridges pillar 2 → 3) -->
+    {% if orig_url %}
+    <tr><td class="px" style="padding:30px 32px 0;text-align:center;">
+      <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0"><tr>
+        <td bgcolor="{{ t.accent }}" style="border-radius:8px;">
+          <a href="{{ orig_url }}" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:15px 32px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;font-weight:800;letter-spacing:0.02em;color:#1a1400;text-decoration:none;border-radius:8px;">Lire l'article &#8599;</a>
+        </td>
+      </tr></table>
+      <div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;color:{{ t.muted }};padding-top:11px;">Lisez l'article, puis revenez pour notre analyse.</div>
+    </td></tr>
+    {% endif %}
+
+    {# ===== PILLAR 3 — après lecture : notre analyse ===== #}
+    {{ section(3) }}
+
+    <!-- Vérification des faits -->
+    {{ kicker("🔍", "Vérification des faits") }}
+    {% for f in fact_check %}
+    <tr><td class="px" style="padding:20px 32px 0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+        <td width="3" bgcolor="{{ t.accent }}" style="width:3px;font-size:0;line-height:0;background-color:{{ t.accent }};">&nbsp;</td>
+        <td style="padding-left:18px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+          <div style="font-size:17px;font-style:italic;line-height:1.45;color:{{ t.heading }};">&laquo;&nbsp;{{ f.claim }}&nbsp;&raquo;</div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.muted }};padding:8px 0 8px;">{{ f.presentation }}</div>
+          <div style="font-size:16px;line-height:1.58;color:{{ t.text_soft }};">{{ f.reading | md_bold_email(t.accent_text) }}</div>
+        </td>
+      </tr></table>
+    </td></tr>
+    {% endfor %}
+
+    <!-- Les failles -->
+    {{ kicker("⚠️", "Les failles") }}
+    {% for s in failles %}
+    <tr><td class="px" style="padding:24px 32px 0;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+      <div style="font-size:21px;font-weight:800;letter-spacing:-0.01em;color:{{ t.heading }};line-height:1.25;">{{ s.heading }}</div>
+      <div style="font-size:17px;line-height:1.6;color:{{ t.text_soft }};padding-top:9px;">{{ s.body | md_bold_email(t.accent_text) }}</div>
+    </td></tr>
+    {% endfor %}
+
+    <!-- Ce qui tient -->
+    {{ kicker("✅", "Ce qui tient") }}
+    {% for s in strengths %}
+    <tr><td class="px" style="padding:24px 32px 0;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+      <div style="font-size:21px;font-weight:800;letter-spacing:-0.01em;color:{{ t.heading }};line-height:1.25;"><span style="color:#4faa7c;">&#10003;</span> {{ s.heading }}</div>
+      <div style="font-size:17px;line-height:1.6;color:{{ t.text_soft }};padding-top:9px;">{{ s.body | md_bold_email(t.accent_text) }}</div>
+    </td></tr>
+    {% endfor %}
+
+    <!-- Angles morts & nuances -->
+    {{ kicker("🌓", "Angles morts &amp; nuances") }}
+    {% for a in angles_morts %}
+    <tr><td class="px" style="padding:14px 32px 0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+        <td valign="top" width="20" style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:17px;font-weight:900;color:#cf8a5a;line-height:1.5;">~</td>
+        <td style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:17px;line-height:1.55;color:{{ t.text_soft }};">{{ a | md_bold_email(t.accent_text) }}</td>
+      </tr></table>
+    </td></tr>
+    {% endfor %}
+
+    <!-- Notre verdict -->
+    {{ kicker("⚖️", "Notre verdict") }}
+    <tr><td class="px" style="padding:18px 32px 0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="{{ t.surface }}" style="background-color:{{ t.surface }};border-radius:12px;"><tr>
+        <td style="padding:28px 30px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+
+          <!-- overall score -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+            <td align="left" style="font-size:16px;font-weight:700;color:{{ t.heading }};">Qualit&eacute; de l'article</td>
+            <td align="right" style="font-size:16px;font-weight:800;color:{{ gauge_color }};">{{ band }}</td>
+          </tr></table>
+
+          <!-- overall gauge: red→green track + position caret below. The caret is
+               placed by a percentage-width spacer cell (works in every client,
+               incl. Outlook); the CSS gradient renders in Gmail/Apple/iOS and
+               falls back to the solid bad→mid→good segments elsewhere. -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:12px;table-layout:fixed;"><tr>
+            <td height="12" width="34%" bgcolor="#c76a6a" style="height:12px;width:34%;font-size:0;line-height:0;background-color:#c76a6a;background-image:linear-gradient(90deg,#e87a7a,#e8a07a);border-radius:6px 0 0 6px;">&nbsp;</td>
+            <td height="12" width="33%" bgcolor="#d69a6a" style="height:12px;width:33%;font-size:0;line-height:0;background-color:#d69a6a;background-image:linear-gradient(90deg,#e8a07a,#bcc890);">&nbsp;</td>
+            <td height="12" width="33%" bgcolor="#7ec8a0" style="height:12px;width:33%;font-size:0;line-height:0;background-color:#7ec8a0;background-image:linear-gradient(90deg,#bcc890,#7ec8a0);border-radius:0 6px 6px 0;">&nbsp;</td>
+          </tr></table>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+            <td width="{{ gauge_pos }}%" style="font-size:0;line-height:0;">&nbsp;</td>
+            <td style="font-size:11px;line-height:1;color:{{ gauge_color }};white-space:nowrap;"><span style="display:inline-block;margin-left:-6px;">&#9650;</span></td>
+            {% if gauge_pos < 100 %}<td style="font-size:0;line-height:0;">&nbsp;</td>{% endif %}
+          </tr></table>
+          <div style="text-align:center;font-size:24px;font-weight:800;color:{{ t.accent_text }};padding-top:8px;">{{ score }} / 5</div>
+
+          {% if dims_bars %}
+          <!-- per-dimension breakdown (replaces the SVG radar for email) -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:22px;">
+          {% for d in dims_bars %}
+            <tr>
+              <td width="34%" style="padding:6px 10px 6px 0;font-size:13px;color:{{ t.text }};line-height:1.2;">{{ d.label }}</td>
+              <td style="padding:6px 0;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                  <td bgcolor="{{ t.track }}" style="background-color:{{ t.track }};border-radius:5px;font-size:0;line-height:0;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                      <td bgcolor="{{ d.color }}" width="{{ d.pct }}%" height="10" style="background-color:{{ d.color }};height:10px;font-size:0;line-height:0;border-radius:5px;">&nbsp;</td>
+                      {% if d.pct < 100 %}<td style="font-size:0;line-height:0;">&nbsp;</td>{% endif %}
+                    </tr></table>
+                  </td>
+                </tr></table>
+              </td>
+              <td width="24" align="right" style="padding:6px 0 6px 10px;font-size:13px;font-weight:700;color:{{ d.color }};">{{ d.score }}</td>
+            </tr>
+          {% endfor %}
+          </table>
+          {% endif %}
+
+          <!-- divider -->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:24px 0 4px;"><tr><td height="1" bgcolor="{{ t.border }}" style="height:1px;font-size:0;line-height:0;background-color:{{ t.border }};">&nbsp;</td></tr></table>
+
+          <div style="font-size:17px;line-height:1.58;color:{{ t.text }};padding-top:14px;">{{ verdict_line | md_bold_email(t.accent_text) }}</div>
+          {% if for_whom %}<div style="font-size:15px;color:{{ t.muted }};padding-top:12px;">Pour qui&nbsp;: {{ for_whom }}</div>{% endif %}
+        </td>
+      </tr></table>
+    </td></tr>
+
+    <!-- Pour aller plus loin -->
+    {{ kicker("📚", "Pour aller plus loin") }}
+    {% for r in go_further %}
+    <tr><td class="px" style="padding:16px 32px 0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid {{ t.border }};border-radius:10px;"><tr>
+        <td style="padding:20px 24px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+          {% if r.type %}<div style="padding-bottom:9px;"><span style="display:inline-block;font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#1a1400;background-color:{{ t.accent }};padding:3px 9px;border-radius:4px;">{{ r.type }}</span></div>{% endif %}
+          <div style="font-size:18px;font-weight:800;color:{{ t.heading }};line-height:1.3;">{{ r.title }}</div>
+          {% if r.source %}<div style="font-size:13px;color:{{ t.muted }};text-transform:uppercase;letter-spacing:0.08em;padding-top:4px;">{{ r.source }}</div>{% endif %}
+          {% if r.why %}<div style="font-size:16px;color:{{ t.text_soft }};line-height:1.55;padding-top:10px;">{{ r.why | md_bold_email(t.accent_text) }}</div>{% endif %}
+        </td>
+      </tr></table>
+    </td></tr>
+    {% endfor %}
+
+    <!-- signoff -->
+    <tr><td class="px" style="padding:48px 32px 0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="1" bgcolor="{{ t.border }}" style="height:1px;font-size:0;line-height:0;background-color:{{ t.border }};">&nbsp;</td></tr></table>
+      <div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;font-style:italic;color:{{ t.muted }};line-height:1.58;padding-top:22px;">{{ signoff | md_bold_email(t.accent_text) }}</div>
+      <div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;font-weight:800;color:{{ t.accent_text }};letter-spacing:0.04em;padding-top:8px;">&mdash; Sing Sing</div>
+    </td></tr>
+
+    <!-- slogan (matches the carousel CTA, kept discreet) -->
+    <tr><td class="px" style="padding:20px 32px 40px;text-align:center;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:11px;font-style:italic;letter-spacing:0.1em;color:{{ t.muted }};"><span style="color:{{ t.accent_text }};">Sing</span>, little bird, <span style="color:{{ t.accent_text }};">sing</span></td></tr>
+
+  </table>
+
+</td></tr>
+</table>
+</body>
+</html>

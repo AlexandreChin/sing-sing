@@ -23,6 +23,7 @@ class Resource(BaseModel):
     title: str
     source: str
     why: str            # 1–2 sentences — what it adds / why explore it
+    type: str | None = None   # kind of resource — "étude", "documentaire", "livre", "rapport", "podcast", "article"…
 
 
 class NewsletterPresentation(BaseModel):
