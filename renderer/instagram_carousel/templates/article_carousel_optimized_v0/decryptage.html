@@ -22,12 +22,12 @@
   {% include '_brand.html' %}
   {% include '_tracker.html' %}
   <div class="stage">
-    <span class="kick">Le décryptage</span>
+    <span class="kick"><svg class="ki" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Le décryptage</span>
     <h1 class="head">Les failles à retenir.</h1>
     <div class="divider"></div>
     <div class="f-list">
       {% for f in failles %}<div class="f-item">
-        <div class="f-head"><span class="mk">{{ loop.index }}</span><span class="f-label">{{ f.label }}</span></div>
+        <div class="f-head"><span class="mk">⚠️</span><span class="f-label">{{ f.label }}</span></div>
         <p class="f-body">{{ f.body | md_bold }}</p>
       </div>{% endfor %}
     </div>
