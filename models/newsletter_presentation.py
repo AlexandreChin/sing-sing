@@ -13,7 +13,7 @@ class DecryptageItem(BaseModel):
     """One annotation in the chronological détaillé pass, in article order."""
     kind: Literal["fait", "faille"]   # drives the badge + which extras render
     quote: str          # the article sentence examined (verbatim, « … »)
-    presentation: str   # fait: how the article frames it; faille: short mechanism title
+    presentation: str   # fait: how the article frames it; faille: the device label shown in the badge (« langage émotionnel », « appel à l'autorité »…)
     reading: str        # our critical reading / the mechanism (2–4 sentences)
     clue: str | None = None   # failles only — ≤12 words echoing the paired pre-reading reflex
 
@@ -44,7 +44,9 @@ class NewsletterPresentation(BaseModel):
     strengths: list[NewsletterSection]  # 1–2 — Ce qui tient
     angles_morts: list[str]             # 2–3 — Angles morts & nuances
     verdict_line: str                   # Notre verdict, in prose (2–3 sentences)
-    go_further: list[Resource]          # 2–3 — Pour aller plus loin
+    go_further: list[Resource]          # 2–3 — Pour aller plus loin (resources)
+    prolongements: list[NewsletterSection]  # exactly 2 — Prolonger la réflexion: steel_man + cui_bono
+    open_question: str                  # closing provocation, from distill.open_question
     signoff: str                        # closing line / CTA
 
 

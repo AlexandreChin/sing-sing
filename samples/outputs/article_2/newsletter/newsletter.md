@@ -2,80 +2,75 @@
 
 *Reportage · 3 min de lecture*
 
-L'article annonce une pauvreté infantile qui grimpe en France **à rebours de la tendance européenne**, sur la foi du paquet de printemps de la Commission. Le propos ouvre sur l'émotion, empile des pourcentages et se referme sur un mystère que Bruxelles n'explique pas. Les chiffres sont réels, mais tout tient à **une seule institution** — et à un glissement discret entre taux relatif et appauvrissement réel. On déroule le texte ligne à ligne pour voir où la démonstration se fragilise.
+Un chiffre européen circule : **27,5 % des enfants** en France seraient menacés de pauvreté, à rebours d'une Europe où la tendance s'améliore. De quoi nourrir le récit d'un déclassement national — sauf que tout repose sur **une seule source**, la Commission européenne. Cette semaine, on regarde ce que ces pourcentages disent vraiment, et ce qu'ils taisent.
 
 ## Pourquoi cet article
 
-C'est un **cas d'école du compte rendu institutionnel** : un rapport officiel restitué fidèlement, mais sans contradicteur ni recoupement national. Il montre comment des chiffres exacts, posés côte à côte, peuvent servir un récit de déclin que rien ne vient éprouver.
+Cet article est un **cas d'école du compte rendu institutionnel** : il relaie fidèlement un rapport officiel, mais sans jamais le mettre à l'épreuve. On l'a retenu parce qu'il montre comment des **chiffres exacts** peuvent servir une lecture fragile dès qu'on les prive de contre-éclairage.
 
-Vous repartez avec les **chiffres-clés de la Commission** sur la pauvreté des enfants et la mécanique du seuil de risque de pauvreté. Vous saurez aussi ce qu'il manque pour trancher : l'effet de la redistribution et la distinction entre **taux relatif et niveau de vie réel**.
+Vous repartez avec les **chiffres-clés de la Commission** sur la pauvreté infantile et la définition du seuil européen. De quoi entrer dans le débat — à condition d'aller chercher ailleurs ce que l'article **laisse de côté**.
 
 ## Avant de lire
 
-L'article relaie le **semestre européen 2026**, l'exercice annuel où Bruxelles adresse ses recommandations budgétaires à chaque État. La pauvreté infantile et le déclassement sont des thèmes récurrents du débat français, sur fond d'un **chômage reparti à la hausse** depuis fin 2024. Le seuil retenu est relatif — 60 % du revenu médian de chaque pays — et mesure donc un écart interne, pas une richesse absolue. La France conserve par ailleurs un système de prestations sociales étendu, dont l'effet n'est jamais chiffré ici.
+L'article relaie le **paquet de printemps du semestre européen 2026**, l'exercice annuel où Bruxelles adresse ses recommandations budgétaires à chaque État. La pauvreté infantile et le **déclassement** sont des thèmes récurrents du débat français, sur fond de chômage qui repart à la hausse depuis fin 2024. Autant de résonances qui prédisposent à lire ces chiffres comme la preuve d'un déclin déjà engagé.
 
-- Demandez-vous si le constat s'appuie sur une seule institution ou s'il est recoupé par une source indépendante.
-- Gardez en tête qu'un taux relatif de pauvreté et un appauvrissement réel sont deux affirmations distinctes.
+- Vérifiez d'emblée si le constat s'appuie sur une seule institution ou s'il est recoupé par une source indépendante.
+- Gardez en tête la différence entre un taux relatif de pauvreté et un appauvrissement réel des familles.
 
 ## Le décryptage, pas à pas
-
-> « Le déclassement de la France serait-il plus avancé qu'on ne le pensait jusqu'alors ? »
-> *⚖️ Fait — Invérifiable · opinion présentée comme un fait*
-
-Cette question d'ouverture pose le **déclin national** comme quasi acquis avant tout chiffre. Aucune donnée mesurable ne la fonde : c'est un jugement éditorial, pas un constat. Le registre inquiet oriente déjà la lecture des pourcentages qui suivent.
 
 > « 27,5 % des enfants en France sont « à risque de pauvreté et d'exclusion sociale, bien au-dessus du reste de la population (20,8 %) »
 > *⚖️ Fait — Plutôt solide · attribué à une source*
 
-Le chiffre est **conforme aux séries Eurostat** (indicateur AROPE) et tient donc, pris isolément. Mais il provient du seul paquet de printemps de la Commission, sans recoupement par une source française. À retenir comme un point de départ fiable, à croiser avec l'Insee.
+Le chiffre est **conforme aux données d'Eurostat** et à l'indicateur AROPE : pris isolément, il tient. Mais il provient du **seul paquet de printemps de la Commission**, sans qu'aucune source nationale ne vienne le recouper. À confronter aux données de l'Insee avant d'en faire un diagnostic.
 
 > « Les courbes se sont durablement croisées, signale la Commission européenne. »
-> *⚠️ Faille · Une source unique, sans contradiction*
+> *⚠️ appel à l'autorité*
 
-L'attribution à Bruxelles confère au constat une **autorité que rien ne vient relativiser**. Aucune source nationale indépendante — Insee, France Travail — n'est consultée pour confirmer ou nuancer un diagnostic pourtant accusatoire. L'autorité de l'institution tient alors lieu de preuve.
+L'attribution à Bruxelles confère au constat une **autorité que rien ne vient relativiser**. Tout l'article repose sur cette **institution unique**, rapportée sans contradiction ni recoupement : si la Commission simplifie, l'erreur passe inaperçue.
 
 ↩ *« le constat tient-il à une seule institution ? »*
 
 > « Le seuil de risque de pauvreté est fixé à 60% du revenu médian disponible après transferts sociaux dans chaque pays. »
 > *⚖️ Fait — Largement admis · présenté comme un fait établi*
 
-La définition est **exacte et conforme à Eurostat**. Elle est toutefois posée sans signaler qu'elle mesure un écart relatif, propre à chaque pays, et non un niveau de vie absolu. Un pays peut voir ce taux monter sans que ses enfants soient réellement plus pauvres.
+La définition est **exacte et conforme à Eurostat**. Mais elle est posée sans dire qu'elle mesure un **écart interne à chaque pays**, non un niveau de vie absolu : un taux peut grimper sans que personne ne s'appauvrisse réellement.
 
 > « de 27,4 % en 2015, le taux est passé à 24,3 % en 2025 »
 > *⚖️ Fait — Plutôt solide · attribué à une source*
 
-Les valeurs correspondent aux données européennes, mais le récit mêle des **années de référence hétérogènes** (2015, 2023, 2025). Le croisement des courbes est présenté comme démonstratif alors que les points comparés ne reposent pas sur la même base. L'audit déontologique y voit d'ailleurs une comparaison statistique fragile.
+Le récit mêle des points relevés en **2015, 2023 et 2025**, années de référence hétérogènes. Le croisement des courbes, présenté comme **démonstratif**, perd de sa valeur quand les points ne reposent pas sur la même base.
 
 > « Plusieurs raisons sont avancées pour tenter de comprendre cet appauvrissement des travailleurs et, par conséquent, des enfants. »
-> *⚠️ Faille · Du taux relatif à l'appauvrissement réel*
+> *⚠️ saut logique*
 
-Ici la hausse d'un **taux relatif** devient un **appauvrissement absolu** sans étape intermédiaire démontrée. C'est le pivot de l'article : un raccourci méthodologique qu'aucun contradicteur n'arrête. Sans cette distinction, le lecteur assimile mécaniquement courbe qui monte et enfants plus pauvres.
+Ici la hausse d'un **taux relatif** devient un **appauvrissement absolu** sans étape intermédiaire démontrée. C'est le pivot du texte, et aucun contradicteur ne l'arrête : deux affirmations distinctes fondues en une seule.
 
-↩ *« une hausse du taux = des enfants plus pauvres ? »*
+↩ *« une hausse du taux, est-ce des enfants vraiment plus pauvres ? »*
 
 ## La vue d'ensemble
 
 ### Ce qui tient
 
-#### ✓ Des chiffres exacts, fidèles à la source
+#### ✓ Des chiffres exacts, pris isolément
 
-Pris un à un, les pourcentages sont **conformes à Eurostat** : la définition du seuil comme le taux de 27,5 % résistent à la vérification. L'article restitue sans les déformer les données officielles du semestre européen. C'est un socle factuel solide, à condition de le sortir du cadrage qui l'entoure.
+Les données citées sont **conformes à Eurostat** : la définition du seuil comme le taux de 27,5 % résistent à la vérification. Le problème n'est pas leur exactitude, mais l'**usage** qu'on en fait.
 
-#### ✓ Un propos lisible et bien balisé
+#### ✓ Un ton descriptif, pas accusateur
 
-Le texte est **clair** et met les chiffres en avant sans jargon inutile. Le ton reste descriptif plutôt qu'accusateur frontal, ce qui évite la caricature des acteurs. Seule ombre : des agrégats comme AROPE ne sont pas explicités, alors qu'ils recouvrent des réalités très différentes.
+Malgré l'absence de réponse française, le texte **relaie plutôt qu'il n'accuse** frontalement. Il évite la caricature des acteurs et reste **lisible**, chiffres bien mis en avant.
 
 ### Angles morts & nuances
 
-- L'effet chiffré de la redistribution sociale française — le contre-fait le plus susceptible de renverser la lecture du taux — n'est jamais mesuré.
-- Aucune source nationale indépendante ne recoupe le constat, et la partie française mise en cause n'est jamais entendue.
-- En calibrage honnête : un compte rendu de rapport officiel n'a pas vocation à mener une enquête contradictoire complète, et un format court ne peut tout chiffrer.
+- L'effet **chiffré de la redistribution sociale** française — le contre-fait le plus susceptible de renverser la lecture du taux — n'est jamais mesuré.
+- Aucune **source nationale indépendante** ni réponse de la partie française visée ne vient recouper le diagnostic de Bruxelles.
+- Reste qu'un compte rendu court d'un rapport officiel n'a pas vocation à tout chiffrer : les chiffres tiennent comme **point de départ**, pas comme conclusion.
 
 ### Notre verdict
 
 **2,4 / 5** — Moyenne
 
-**À lire avec réserves.** L'article livre des chiffres européens exacts, mais sa source unique, l'absence de réponse française et la confusion entre taux relatif et appauvrissement réel imposent de le croiser. **Réservez-le à qui suit ce dossier de près** et sait aller chercher les données de l'Insee pour compléter le tableau.
+**À lire avec réserves.** L'article donne des repères européens fiables, mais sa source unique, l'absence de réponse française et la confusion entre taux relatif et appauvrissement réel imposent de le croiser. **Réservé à qui suit ce dossier** et sait aller vérifier les chiffres du côté de l'Insee.
 
 *Pour qui : Un lecteur suivant les questions de politique sociale et familiale, capable de recouper lui-même les chiffres européens avec les données françaises de l'Insee.*
 
@@ -83,19 +78,30 @@ Le texte est **clair** et met les chiffres en avant sans jargon inutile. Le ton 
 
 **Mesurer la pauvreté : le taux relatif et ses limites** — Insee, France, portrait social
 
-Explique pourquoi un **taux relatif peut monter sans appauvrissement absolu** et resitue les chiffres européens dans le cadre français.
+Il explique pourquoi un **taux relatif** peut monter sans appauvrissement absolu, et resitue les chiffres européens dans le cadre français.
 
-**Base de données AROPE, séries par année** — Eurostat
+**Séries AROPE 2015-2025** — Eurostat
 
-Permet de consulter les taux **année par année** et d'éviter le mélange 2015-2023-2025 qui fragilise le croisement des courbes.
+Les données brutes derrière l'article, à consulter avec les **mêmes années de référence** pour éviter les courbes trompeuses.
 
-**L'effet des prestations sociales sur la pauvreté des enfants** — DREES / Insee
+**L'effet de la redistribution sur la pauvreté des enfants** — DREES
 
-Chiffre la **redistribution** que l'article laisse de côté et qui pourrait nettement modifier la lecture du taux affiché.
+Chiffre précisément l'**angle mort de l'article** : ce que les prestations sociales retranchent au taux de pauvreté affiché.
 
+## Prolonger la réflexion
+
+### L'objection la plus forte
+
+Si le seuil est **relatif**, la hausse du taux peut refléter une médiane qui progresse, non des enfants plus pauvres. Dans ce cas, la France connaîtrait une **médiane en hausse** plutôt qu'un appauvrissement absolu — l'inverse du récit alarmant.
+
+### À qui profite ce cadrage ?
+
+En isolant la France à contre-courant de l'Europe sur la foi d'une source institutionnelle, le cadrage **valide le thème du déclin national** sans avoir à le démontrer. C'est ce **récit du déclassement**, déjà installé dans le débat, qui sort renforcé — pas la rigueur de la démonstration.
+
+> L'omission de la redistribution sociale relève-t-elle d'un simple oubli méthodologique ou d'un choix de cadrage ?
 
 ---
 
-Un avis sur ce décryptage, ou un article à nous soumettre ? Répondez à ce mail — et partagez-le à qui suit ces chiffres.
+Et vous, ce chiffre vous a-t-il fait frémir avant de l'interroger ? Répondez-nous, et partagez ce décryptage autour de vous.
 
 — Sing Sing

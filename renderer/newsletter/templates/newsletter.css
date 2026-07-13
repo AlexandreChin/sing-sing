@@ -86,5 +86,8 @@ strong { color: #d4aa00; font-weight: 700; }
 .resource .s { font-size: 14px; color: #8a8a8a; margin-top: 4px; text-transform: uppercase; letter-spacing: .08em; }
 .resource .w { font-size: 16px; color: #dedede; line-height: 1.5; margin-top: 10px; }
 
+/* open question (closes "Prolonger la réflexion") */
+.openq { margin-top: 22px; padding: 18px 24px; background: #161616; border-left: 3px solid #d4aa00; border-radius: 0 10px 10px 0; font-size: 18px; font-style: italic; line-height: 1.5; color: #eaeaea; break-inside: avoid; }
+
 .signoff { margin-top: 44px; padding-top: 22px; border-top: 1px solid #222; font-size: 16px; font-style: italic; color: #b0b0b0; }
 .signoff .sig { display: block; margin-top: 8px; font-style: normal; font-weight: 800; color: #d4aa00; letter-spacing: .04em; }

@@ -250,6 +250,8 @@ def _ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
         "angles_morts": list(pres.angles_morts),
         "verdict_line": pres.verdict_line,
         "go_further": list(pres.go_further),
+        "prolongements": list(pres.prolongements),
+        "open_question": pres.open_question,
         "signoff": pres.signoff,
         "score": _fr_num(wq["score"]) if wq else "",
         "band": wq["label"] if wq else "",
