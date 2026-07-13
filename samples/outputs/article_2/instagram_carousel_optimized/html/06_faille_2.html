@@ -274,6 +274,19 @@ body {
   margin: 10px 0;
 }
 
+/* ── Section kicker icon (mirrors the newsletter's SVG line-icons) ── */
+.ki {
+  width: 0.95em;
+  height: 0.95em;
+  vertical-align: -0.14em;
+  margin-right: 0.42em;
+  stroke: #d4aa00;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* ── Section sub-header ── */
 .section-label {
   font-size: 26px;
@@ -334,6 +347,7 @@ body {
 .trk svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .trk-sep { color: #3a3a3a; }
 .b-num { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; }
+.b-warn { font-size: 32px; letter-spacing: 0; }
 .b-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
 .b-head { font-size: 54px; font-weight: 900; line-height: 1.08; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
 .evidence { border-left: 4px solid #d4aa00; background: #161616; border-radius: 0 10px 10px 0; padding: 20px 28px; display: flex; flex-direction: column; gap: 10px; }
@@ -356,11 +370,11 @@ body {
   <span class="trk"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>Verdict</span>
 </div>
   <div class="b-stage">
-    <span class="b-num">La faille n° 2</span>
-    <h1 class="b-head">Méthodologie</h1>
-    <div class="evidence"><p class="ev-quote">« Plusieurs raisons sont avancées pour tenter de comprendre cet appauvrissement des travailleurs et, par conséquent, des enfants. »</p></div>
+    <span class="b-num"><span class="b-warn">⚠️</span> La faille n° 2</span>
+    <h1 class="b-head">appel à l&#39;autorité</h1>
+    <div class="evidence"><p class="ev-quote">« Les courbes se sont durablement croisées, signale la Commission européenne. »</p></div>
     <div class="divider"></div>
-    <p class="b-body">La hausse d&#39;un taux relatif glisse en appauvrissement réel, sans étape démontrée.</p>
+    <p class="b-body">Une seule institution fait foi ; aucune source nationale ne recoupe le constat.</p>
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Et ce qui marche ? ›</span></div>
   <div class="slide-num">6 / 10</div>
