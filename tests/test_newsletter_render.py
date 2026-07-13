@@ -1,7 +1,26 @@
 from renderer.newsletter.renderer import (
-    _decryptage_ctx, generate_markdown, generate_html, generate_email_html,
+    _decryptage_ctx, _unwrap_quote, generate_markdown, generate_html, generate_email_html,
 )
+from models.newsletter_presentation import DecryptageItem
 from tests._newsletter_fixtures import sample_doc
+
+
+def test_quote_stripped_of_surrounding_guillemets():
+    # The model often returns the quote already wrapped in « … »; templates wrap it
+    # again, so the render layer must unwrap to avoid « « … » ».
+    assert _unwrap_quote("« 27,5 % des enfants »") == "27,5 % des enfants"
+    assert _unwrap_quote("  «  déjà espacé  »  ") == "déjà espacé"
+    assert _unwrap_quote("sans guillemets") == "sans guillemets"
+
+
+def test_render_does_not_double_wrap_wrapped_quotes():
+    doc = sample_doc()
+    doc.presentation.decryptage[0] = DecryptageItem(
+        kind="fait", quote="« 27,5 % des enfants »",
+        presentation="attribué à une source", reading="Lecture.",
+    )
+    for html in (generate_markdown(doc), generate_html(doc), generate_email_html(doc, "light")):
+        assert "« « " not in html and "«&nbsp;«" not in html
 
 
 def test_decryptage_ctx_preserves_order_and_kinds():
