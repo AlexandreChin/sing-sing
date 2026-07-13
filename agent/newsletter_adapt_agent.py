@@ -21,19 +21,26 @@ def _validate(data: dict) -> list[str]:
             errors.append(f"{field} is empty")
     if len(pres.reflexes) != 2:
         errors.append(f"reflexes must have exactly 2 items, got {len(pres.reflexes)}")
-    if not (2 <= len(pres.fact_check) <= 3):
-        errors.append(f"fact_check must have 2–3 items, got {len(pres.fact_check)}")
-    if len(pres.failles) != 2:
-        errors.append(f"failles must have exactly 2 items, got {len(pres.failles)}")
+    n = len(pres.decryptage)
+    faits = [d for d in pres.decryptage if d.kind == "fait"]
+    failles = [d for d in pres.decryptage if d.kind == "faille"]
+    if not (4 <= n <= 6):
+        errors.append(f"decryptage must have 4–6 items, got {n}")
+    if len(faits) < 2:
+        errors.append(f"decryptage needs at least 2 'fait' items, got {len(faits)}")
+    if len(failles) < 2:
+        errors.append(f"decryptage needs at least 2 'faille' items, got {len(failles)}")
+    for i, d in enumerate(pres.decryptage):
+        if not d.quote.strip() or not d.reading.strip():
+            errors.append(f"decryptage[{i}] has an empty quote/reading")
+        if d.kind == "faille" and not (d.clue or "").strip():
+            errors.append(f"decryptage[{i}] (faille) is missing its clue")
     if not (1 <= len(pres.strengths) <= 2):
         errors.append(f"strengths must have 1–2 items, got {len(pres.strengths)}")
     if not (2 <= len(pres.angles_morts) <= 3):
         errors.append(f"angles_morts must have 2–3 items, got {len(pres.angles_morts)}")
     if not (2 <= len(pres.go_further) <= 3):
         errors.append(f"go_further must have 2–3 items, got {len(pres.go_further)}")
-    for i, s in enumerate(pres.failles):
-        if not s.heading.strip() or not s.body.strip():
-            errors.append(f"failles[{i}] has an empty heading/body")
     for i, s in enumerate(pres.strengths):
         if not s.heading.strip() or not s.body.strip():
             errors.append(f"strengths[{i}] has an empty heading/body")

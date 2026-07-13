@@ -17,31 +17,29 @@
 - {{ r }}
 {%- endfor %}
 
-## Vérification des faits
-{% for f in fact_check %}
-> « {{ f.claim }} »
-> *{{ f.presentation }}*
+## Le décryptage, pas à pas
+{% for d in decryptage %}
+> « {{ d.quote }} »
+> *{% if d.kind == "fait" %}⚖️ Fait — {{ d.verdict }}{% else %}⚠️ Faille{% endif %} · {{ d.presentation }}*
 
-{{ f.reading }}
-{% endfor %}
-## Les failles
-{% for s in failles %}
-### {{ s.heading }}
+{{ d.reading }}
+{% if d.clue %}
+↩ *« {{ d.clue }} »*
+{% endif %}{% endfor %}
+## La vue d'ensemble
 
-{{ s.body }}
-{% endfor %}
-## Ce qui tient
+### Ce qui tient
 {% for s in strengths %}
-### ✓ {{ s.heading }}
+#### ✓ {{ s.heading }}
 
 {{ s.body }}
 {% endfor %}
-## Angles morts & nuances
+### Angles morts & nuances
 {% for a in angles_morts %}
 - {{ a }}
 {%- endfor %}
 
-## Notre verdict
+### Notre verdict
 
 {% if score %}**{{ score }} / 5**{% if band %} — {{ band }}{% endif %}
 

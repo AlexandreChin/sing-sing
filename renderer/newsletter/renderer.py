@@ -142,6 +142,29 @@ def _fc_verdict(fc_claim: str, claims) -> tuple[str, str]:
     return _FC_VERDICT.get(label, _FC_VERDICT["unverifiable"])
 
 
+def _unwrap_quote(q: str) -> str:
+    """Strip surrounding « » / whitespace: every template wraps the quote in
+    guillemets, and the model sometimes returns it already wrapped — without this
+    the rendered quote would be double-wrapped (« « … » »)."""
+    return q.strip().strip("«»").strip()
+
+
+def _decryptage_ctx(doc: NewsletterDocument) -> list[dict]:
+    """The chronological détaillé pass as render-ready dicts (article order kept).
+    `fait` items get a verdict pill (label + colour) matched to the analysis claim;
+    `faille` items keep their clue and no pill."""
+    ann = getattr(doc.analysis, "annotations", None)
+    claims = ann.facts_vs_opinions.claims_and_sources if ann else []
+    items = []
+    for d in doc.presentation.decryptage:
+        item = {"kind": d.kind, "quote": _unwrap_quote(d.quote), "presentation": d.presentation,
+                "reading": d.reading, "clue": d.clue}
+        if d.kind == "fait":
+            item["verdict"], item["color"] = _fc_verdict(d.quote, claims)
+        items.append(item)
+    return items
+
+
 def _dim_color(score: float) -> str:
     """Per-dimension bar colour (score 1–5): green → gold → salmon → red."""
     if score >= 4:
@@ -222,8 +245,7 @@ def _ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
         "payoff": pres.payoff,
         "context": pres.context,
         "reflexes": list(pres.reflexes),
-        "fact_check": list(pres.fact_check),
-        "failles": list(pres.failles),
+        "decryptage": _decryptage_ctx(doc),
         "strengths": list(pres.strengths),
         "angles_morts": list(pres.angles_morts),
         "verdict_line": pres.verdict_line,
@@ -289,19 +311,6 @@ def _email_ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
         "color": _dim_color(d.score),
     } for d in dims]
     ctx["gauge_color"] = _LEVEL_COLOR.get(ctx["gauge_level"], "#e8a07a")
-    ann = getattr(doc.analysis, "annotations", None)
-    claims = ann.facts_vs_opinions.claims_and_sources if ann else []
-    fact_check = []
-    for f in doc.presentation.fact_check:
-        verdict, color = _fc_verdict(f.claim, claims)
-        fact_check.append({
-            "claim": f.claim,
-            "presentation": f.presentation,
-            "reading": f.reading,
-            "verdict": verdict,
-            "color": color,
-        })
-    ctx["fact_check"] = fact_check
     return ctx
 
 
