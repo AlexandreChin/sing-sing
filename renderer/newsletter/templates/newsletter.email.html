@@ -69,9 +69,9 @@
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="{{ t.accent }}" style="background-color:{{ t.accent }};background-image:linear-gradient(135deg,#e6c04a 0%,#d4aa00 55%,#c09800 100%);"><tr>
         <td class="px" style="padding:22px 32px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
           {% for p in pillars %}{% if loop.index == active %}
-          <div style="font-size:24px;font-weight:900;letter-spacing:-0.01em;line-height:1.3;color:#1a1400;padding:5px 0;"><span style="font-size:22px;">{{ pillar_icons[loop.index0] }}</span>&nbsp; {{ p }}</div>
+          <div style="font-size:24px;font-weight:900;letter-spacing:-0.01em;line-height:1.3;color:#1a1400;padding:5px 0;"><span style="display:inline-block;background-color:#1a1400;border-radius:8px;padding:4px 9px;vertical-align:middle;"><span style="font-size:20px;line-height:1;">{{ pillar_icons[loop.index0] }}</span></span>&nbsp;&nbsp;{{ p }}</div>
           {% else %}
-          <div style="font-size:14px;font-weight:700;line-height:1.35;color:#7d6408;padding:5px 0;">{{ p }}</div>
+          <div style="font-size:14px;font-weight:700;line-height:1.35;color:#3d3100;padding:5px 0;">{{ p }}</div>
           {% endif %}{% endfor %}
         </td>
       </tr></table>
@@ -174,12 +174,12 @@
         <td width="3" bgcolor="{% if d.kind == 'fait' %}{{ t.accent }}{% else %}#cf8a5a{% endif %}" style="width:3px;font-size:0;line-height:0;background-color:{% if d.kind == 'fait' %}{{ t.accent }}{% else %}#cf8a5a{% endif %};">&nbsp;</td>
         <td style="padding-left:18px;">
           <div style="padding-bottom:9px;">
-            <span style="display:inline-block;font-size:11px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:{% if d.kind == 'fait' %}{{ t.accent_text }}{% else %}#cf8a5a{% endif %};">{% if d.kind == 'fait' %}&#9878;&#65039; Fait{% else %}&#9888;&#65039; Faille{% endif %}</span>
+            <span style="display:inline-block;font-size:11px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:{% if d.kind == 'fait' %}{{ t.accent_text }}{% else %}#cf8a5a{% endif %};">{% if d.kind == 'fait' %}&#9878;&#65039; Fait{% else %}&#9888;&#65039; {{ d.presentation }}{% endif %}</span>
             {% if d.kind == 'fait' %}<span style="display:inline-block;margin-left:8px;font-size:11px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:{{ d.color }};border:1.5px solid {{ d.color }};border-radius:999px;padding:3px 12px;">{{ d.verdict }}</span>{% endif %}
           </div>
           <div style="font-size:17px;font-style:italic;line-height:1.45;color:{{ t.heading }};">&laquo;&nbsp;{{ d.quote }}&nbsp;&raquo;</div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:{{ t.muted }};padding:7px 0 9px;">{{ d.presentation }}</div>
-          <div style="font-size:16px;line-height:1.58;color:{{ t.text_soft }};">{{ d.reading | md_bold_email(t.accent_text) }}</div>
+          {% if d.kind == 'fait' %}<div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:{{ t.muted }};padding:7px 0 9px;">{{ d.presentation }}</div>{% endif %}
+          <div style="font-size:16px;line-height:1.58;color:{{ t.text_soft }};{% if d.kind != 'fait' %}padding-top:9px;{% endif %}">{{ d.reading | md_bold_email(t.accent_text) }}</div>
           {% if d.clue %}<div style="font-size:15px;font-style:italic;line-height:1.4;color:{{ t.muted }};padding-top:11px;"><span style="color:{{ t.accent_text }};font-style:normal;font-weight:700;">&#8617;</span>&nbsp; &laquo;&nbsp;{{ d.clue }}&nbsp;&raquo;</div>{% endif %}
         </td>
       </tr></table>
@@ -272,6 +272,19 @@
       {% if r.source %}<div style="font-size:13px;color:{{ t.muted }};text-transform:uppercase;letter-spacing:0.08em;padding-top:4px;">{{ r.source }}</div>{% endif %}
       {% if r.why %}<div style="font-size:16px;color:{{ t.text_soft }};line-height:1.55;padding-top:10px;">{{ r.why | md_bold_email(t.accent_text) }}</div>{% endif %}
       {% endfor %}
+    {% endcall %}
+
+    <!-- Prolonger la réflexion -->
+    {% call card("💭", "Prolonger la réflexion") %}
+      {% for p in prolongements %}
+      <div style="{% if not loop.first %}padding-top:20px;{% endif %}">
+        <div style="font-size:19px;font-weight:800;letter-spacing:-0.01em;color:{{ t.heading }};line-height:1.3;">{{ p.heading }}</div>
+        <div style="font-size:16px;line-height:1.58;color:{{ t.text_soft }};padding-top:9px;">{{ p.body | md_bold_email(t.accent_text) }}</div>
+      </div>
+      {% endfor %}
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:20px 0 0;"><tr><td bgcolor="{{ t.track }}" style="background-color:{{ t.track }};border-radius:0 8px 8px 0;border-left:3px solid {{ t.accent }};padding:16px 20px;">
+        <div style="font-size:17px;font-style:italic;line-height:1.5;color:{{ t.text }};">{{ open_question }}</div>
+      </td></tr></table>
     {% endcall %}
 
     <!-- signoff -->

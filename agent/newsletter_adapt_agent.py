@@ -16,7 +16,7 @@ _PROMPT = (Path(__file__).parent / "prompts" / "newsletter.md").read_text(encodi
 def _validate(data: dict) -> list[str]:
     pres = NewsletterPresentation.model_validate(data)
     errors = []
-    for field in ("subject", "preheader", "intro", "why_selected", "payoff", "context", "verdict_line", "signoff"):
+    for field in ("subject", "preheader", "intro", "why_selected", "payoff", "context", "verdict_line", "open_question", "signoff"):
         if not getattr(pres, field).strip():
             errors.append(f"{field} is empty")
     if len(pres.reflexes) != 2:
@@ -44,6 +44,11 @@ def _validate(data: dict) -> list[str]:
     for i, s in enumerate(pres.strengths):
         if not s.heading.strip() or not s.body.strip():
             errors.append(f"strengths[{i}] has an empty heading/body")
+    if len(pres.prolongements) != 2:
+        errors.append(f"prolongements must have exactly 2 items, got {len(pres.prolongements)}")
+    for i, p in enumerate(pres.prolongements):
+        if not p.heading.strip() or not p.body.strip():
+            errors.append(f"prolongements[{i}] has an empty heading/body")
     return errors
 
 

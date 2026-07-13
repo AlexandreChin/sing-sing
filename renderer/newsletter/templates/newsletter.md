@@ -20,7 +20,7 @@
 ## Le décryptage, pas à pas
 {% for d in decryptage %}
 > « {{ d.quote }} »
-> *{% if d.kind == "fait" %}⚖️ Fait — {{ d.verdict }}{% else %}⚠️ Faille{% endif %} · {{ d.presentation }}*
+> *{% if d.kind == "fait" %}⚖️ Fait — {{ d.verdict }} · {{ d.presentation }}{% else %}⚠️ {{ d.presentation }}{% endif %}*
 
 {{ d.reading }}
 {% if d.clue %}
@@ -53,6 +53,13 @@
 {% if r.why %}
 {{ r.why }}
 {% endif %}{% endfor %}
+## Prolonger la réflexion
+{% for p in prolongements %}
+### {{ p.heading }}
+
+{{ p.body }}
+{% endfor %}
+> {{ open_question }}
 
 ---
 
