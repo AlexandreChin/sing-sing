@@ -28,11 +28,19 @@ body {
 p { font-size: 17px; line-height: 1.6; color: #e6e6e6; margin: 10px 0; }
 strong { color: #d4aa00; font-weight: 700; }
 
-/* fact check */
-.fact { border-left: 3px solid #d4aa00; padding: 2px 0 2px 22px; margin: 18px 0; break-inside: avoid; }
-.fact .claim { font-size: 17px; font-style: italic; line-height: 1.4; color: #f0f0f0; }
-.fact .pres { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8a8a8a; margin: 6px 0 8px; }
-.fact p { font-size: 16px; color: #dedede; margin: 0; }
+/* décryptage (chronological pass) */
+.decrypt { border-left: 3px solid #d4aa00; padding: 2px 0 2px 22px; margin: 22px 0; break-inside: avoid; }
+.decrypt.faille { border-left-color: #e8a07a; }
+.decrypt .dtop { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.decrypt .badge { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #d4aa00; }
+.decrypt .badge.faille { color: #e8a07a; }
+.decrypt .pill { font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; border: 1.5px solid; border-radius: 999px; padding: 3px 12px; }
+.decrypt .claim { font-size: 17px; font-style: italic; line-height: 1.4; color: #f0f0f0; }
+.decrypt .pres { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8a8a8a; margin: 6px 0 8px; }
+.decrypt p { font-size: 16px; color: #dedede; margin: 0; }
+.decrypt .clue { font-size: 15px; font-style: italic; color: #9a9a9a; margin-top: 10px; }
+.decrypt .clue .ret { color: #d4aa00; font-style: normal; font-weight: 700; }
+.kicker.vue { margin-top: 48px; }
 
 /* à retenir box */
 .box { background: #161616; border-left: 4px solid #d4aa00; border-radius: 0 10px 10px 0; padding: 24px 28px; break-inside: avoid; }

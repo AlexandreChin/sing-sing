@@ -6,18 +6,21 @@ the instagram_carousel_optimized deck, rendered as detailed paragraphs (plus a
 """
 from __future__ import annotations
 from pydantic import BaseModel
+from typing import Literal
+
+
+class DecryptageItem(BaseModel):
+    """One annotation in the chronological détaillé pass, in article order."""
+    kind: Literal["fait", "faille"]   # drives the badge + which extras render
+    quote: str          # the article sentence examined (verbatim, « … »)
+    presentation: str   # fait: how the article frames it; faille: short mechanism title
+    reading: str        # our critical reading / the mechanism (2–4 sentences)
+    clue: str | None = None   # failles only — ≤12 words echoing the paired pre-reading reflex
 
 
 class NewsletterSection(BaseModel):
-    heading: str   # short French section title (e.g. "Source unique", "Exactitude factuelle")
+    heading: str   # short French section title
     body: str      # a detailed paragraph — the finding explained, with the article's own words
-    clue: str | None = None  # failles only — ≤12 words echoing the pre-reading reflex this finding pays off
-
-
-class FactCheckItem(BaseModel):
-    claim: str          # the claim, quoted or closely paraphrased
-    presentation: str   # how the article frames it (fait établi / attribué à une source / opinion)
-    reading: str        # our critical reading — 2–3 sentences, what holds and what to recheck
 
 
 class Resource(BaseModel):
@@ -37,8 +40,7 @@ class NewsletterPresentation(BaseModel):
     payoff: str                         # what the reader gains (2–3 sentences)
     context: str                        # Avant de lire — the backdrop (3–4 sentences)
     reflexes: list[str]                 # exactly 2 — reading reflexes to keep in mind
-    fact_check: list[FactCheckItem]     # 2–3 — Vérification des faits
-    failles: list[NewsletterSection]    # exactly 2 — Les failles (detailed, with article words)
+    decryptage: list[DecryptageItem]    # 4–6, article-ordered — Le décryptage, pas à pas (faits + failles)
     strengths: list[NewsletterSection]  # 1–2 — Ce qui tient
     angles_morts: list[str]             # 2–3 — Angles morts & nuances
     verdict_line: str                   # Notre verdict, in prose (2–3 sentences)
