@@ -142,6 +142,13 @@ def _fc_verdict(fc_claim: str, claims) -> tuple[str, str]:
     return _FC_VERDICT.get(label, _FC_VERDICT["unverifiable"])
 
 
+def _unwrap_quote(q: str) -> str:
+    """Strip surrounding « » / whitespace: every template wraps the quote in
+    guillemets, and the model sometimes returns it already wrapped — without this
+    the rendered quote would be double-wrapped (« « … » »)."""
+    return q.strip().strip("«»").strip()
+
+
 def _decryptage_ctx(doc: NewsletterDocument) -> list[dict]:
     """The chronological détaillé pass as render-ready dicts (article order kept).
     `fait` items get a verdict pill (label + colour) matched to the analysis claim;
@@ -150,7 +157,7 @@ def _decryptage_ctx(doc: NewsletterDocument) -> list[dict]:
     claims = ann.facts_vs_opinions.claims_and_sources if ann else []
     items = []
     for d in doc.presentation.decryptage:
-        item = {"kind": d.kind, "quote": d.quote, "presentation": d.presentation,
+        item = {"kind": d.kind, "quote": _unwrap_quote(d.quote), "presentation": d.presentation,
                 "reading": d.reading, "clue": d.clue}
         if d.kind == "fait":
             item["verdict"], item["color"] = _fc_verdict(d.quote, claims)
