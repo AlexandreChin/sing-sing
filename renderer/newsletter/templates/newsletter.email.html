@@ -166,31 +166,27 @@
     {# ===== PILLAR 3 — après lecture : notre analyse ===== #}
     {{ section(3) }}
 
-    <!-- Vérification des faits -->
-    {% call card("🔍", "Vérification des faits") %}
-      {% for f in fact_check %}
+    <!-- Le décryptage, pas à pas -->
+    {% call card("🔍", "Le décryptage, pas à pas") %}
+      {% for d in decryptage %}
       {% if not loop.first %}<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:20px 0;"><tr><td height="1" bgcolor="{{ t.border }}" style="height:1px;font-size:0;line-height:0;background-color:{{ t.border }};">&nbsp;</td></tr></table>{% endif %}
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-        <td width="3" bgcolor="{{ f.color }}" style="width:3px;font-size:0;line-height:0;background-color:{{ f.color }};">&nbsp;</td>
+        <td width="3" bgcolor="{% if d.kind == 'fait' %}{{ t.accent }}{% else %}#cf8a5a{% endif %}" style="width:3px;font-size:0;line-height:0;background-color:{% if d.kind == 'fait' %}{{ t.accent }}{% else %}#cf8a5a{% endif %};">&nbsp;</td>
         <td style="padding-left:18px;">
-          <div style="font-size:17px;font-style:italic;line-height:1.45;color:{{ t.heading }};">&laquo;&nbsp;{{ f.claim }}&nbsp;&raquo;</div>
-          <div style="padding:9px 0 7px;"><span style="display:inline-block;font-size:11px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:{{ f.color }};border:1.5px solid {{ f.color }};border-radius:999px;padding:3px 12px;">{{ f.verdict }}</span></div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:{{ t.muted }};padding-bottom:9px;">{{ f.presentation }}</div>
-          <div style="font-size:16px;line-height:1.58;color:{{ t.text_soft }};">{{ f.reading | md_bold_email(t.accent_text) }}</div>
+          <div style="padding-bottom:9px;">
+            <span style="display:inline-block;font-size:11px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:{% if d.kind == 'fait' %}{{ t.accent_text }}{% else %}#cf8a5a{% endif %};">{% if d.kind == 'fait' %}&#9878;&#65039; Fait{% else %}&#9888;&#65039; Faille{% endif %}</span>
+            {% if d.kind == 'fait' %}<span style="display:inline-block;margin-left:8px;font-size:11px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:{{ d.color }};border:1.5px solid {{ d.color }};border-radius:999px;padding:3px 12px;">{{ d.verdict }}</span>{% endif %}
+          </div>
+          <div style="font-size:17px;font-style:italic;line-height:1.45;color:{{ t.heading }};">&laquo;&nbsp;{{ d.quote }}&nbsp;&raquo;</div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:{{ t.muted }};padding:7px 0 9px;">{{ d.presentation }}</div>
+          <div style="font-size:16px;line-height:1.58;color:{{ t.text_soft }};">{{ d.reading | md_bold_email(t.accent_text) }}</div>
+          {% if d.clue %}<div style="font-size:15px;font-style:italic;line-height:1.4;color:{{ t.muted }};padding-top:11px;"><span style="color:{{ t.accent_text }};font-style:normal;font-weight:700;">&#8617;</span>&nbsp; &laquo;&nbsp;{{ d.clue }}&nbsp;&raquo;</div>{% endif %}
         </td>
       </tr></table>
       {% endfor %}
     {% endcall %}
 
-    <!-- Les failles -->
-    {% call card("⚠️", "Les failles") %}
-      {% for s in failles %}
-      {% if not loop.first %}<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:22px 0;"><tr><td height="1" bgcolor="{{ t.border }}" style="height:1px;font-size:0;line-height:0;background-color:{{ t.border }};">&nbsp;</td></tr></table>{% endif %}
-      <div style="font-size:21px;font-weight:800;letter-spacing:-0.01em;color:{{ t.heading }};line-height:1.25;">{{ s.heading }}</div>
-      <div style="font-size:17px;line-height:1.6;color:{{ t.text_soft }};padding-top:9px;">{{ s.body | md_bold_email(t.accent_text) }}</div>
-      {% if s.clue %}<div style="font-size:15px;font-style:italic;line-height:1.4;color:{{ t.muted }};padding-top:11px;"><span style="color:{{ t.accent_text }};font-style:normal;font-weight:700;">↩</span>&nbsp; «&nbsp;{{ s.clue }}&nbsp;»</div>{% endif %}
-      {% endfor %}
-    {% endcall %}
+    {{ kicker("🧠", "La vue d'ensemble" | safe) }}
 
     <!-- Ce qui tient -->
     {% call card("✅", "Ce qui tient") %}
