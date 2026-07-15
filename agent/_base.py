@@ -32,9 +32,10 @@ MAX_RETRIES = 2
 
 # ── Core API calls ────────────────────────────────────────────────────────────
 
-def _call_no_api(user_message: str, schema: dict) -> dict:
+def _call_no_api(user_message: str, schema: dict, system: str | None = None) -> dict:
+    system_prompt = system or _SYSTEM_PROMPT
     prompt = (
-        f"{_SYSTEM_PROMPT}\n\n"
+        f"{system_prompt}\n\n"
         "---\n\n"
         f"{user_message}\n\n"
         "---\n\n"
@@ -70,14 +71,14 @@ def _call_no_api(user_message: str, schema: dict) -> dict:
     raise RuntimeError(last_err or "claude CLI call failed")
 
 
-def _call(user_message: str, schema: dict, no_api: bool = False) -> dict:
+def _call(user_message: str, schema: dict, no_api: bool = False, system: str | None = None) -> dict:
     if no_api:
-        return _call_no_api(user_message, schema)
+        return _call_no_api(user_message, schema, system=system)
     with client.messages.stream(
         model=MODEL,
         max_tokens=8192,
         thinking={"type": "adaptive"},
-        system=_SYSTEM_PROMPT,
+        system=system or _SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_message}],
         output_config={
             "format": {
@@ -96,10 +97,11 @@ def _call_with_retry(
     validator,  # (data: dict) -> list[str]
     no_api: bool = False,
     label: str = "",
+    system: str | None = None,
 ) -> dict:
     tag = f" [{label}]" if label else ""
     print(f"  → calling API{tag}…", file=sys.stderr, flush=True)
-    data = _call(user_message, schema, no_api=no_api)
+    data = _call(user_message, schema, no_api=no_api, system=system)
     print(f"  ✓ response received{tag}", file=sys.stderr, flush=True)
 
     for attempt in range(MAX_RETRIES):
@@ -124,7 +126,7 @@ def _call_with_retry(
             "Produis une version corrigée qui adresse chacun de ces points précisément. "
             "Ne change que ce qui est incohérent — conserve le reste."
         )
-        data = _call(correction_msg, schema, no_api=no_api)
+        data = _call(correction_msg, schema, no_api=no_api, system=system)
 
     errors = validator(data)
     for e in errors:
