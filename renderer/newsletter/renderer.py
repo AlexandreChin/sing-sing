@@ -16,6 +16,7 @@ from markupsafe import Markup, escape
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from models.newsletter_presentation import NewsletterDocument
+from renderer.categories import pill
 from renderer.instagram_carousel._shared import _weighted_quality, _LOGO_DATA_URL, _LOGO_PATH, _md_bold, TYPE_FR
 
 TEMPLATES_DIR = Path(__file__).parent / "templates"
@@ -260,6 +261,9 @@ def _ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
         "radar_svg": Markup(_radar_svg(full.review.dimensions)) if (full.review and full.review.dimensions) else "",
         "for_whom": verdict.for_whom if verdict else "",
         "meta_line": meta_line,
+        # Category pill (dark by default — rich newsletter); the email overrides
+        # it per theme in _email_ctx. None for "Autre"/missing → no pill.
+        "cat_pill": pill(meta.category, "dark"),
         "orig_title": meta.title or "",
         "orig_url": str(meta.url) if meta.url else "",
         # extra pre-reading material pulled straight from the analysis (no API):
@@ -277,8 +281,9 @@ def generate_markdown(doc: NewsletterDocument) -> str:
     return _env().get_template("newsletter.md").render(**_ctx(doc))
 
 
-def generate_html(doc: NewsletterDocument) -> str:
-    return _env().get_template("newsletter.html").render(logo=_LOGO_DATA_URL, **_ctx(doc))
+def generate_html(doc: NewsletterDocument, hook_title: str = "") -> str:
+    return _env().get_template("newsletter.html").render(
+        logo=_LOGO_DATA_URL, **_ctx(doc, hook_title=hook_title))
 
 
 def _carousel_hook(nl_json_path) -> str:
@@ -300,11 +305,13 @@ def _carousel_hook(nl_json_path) -> str:
     return ""
 
 
-def _email_ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
+def _email_ctx(doc: NewsletterDocument, theme: str = "light", hook_title: str = "") -> dict:
     """`_ctx` plus the bits the email needs as data (no SVG): a table-based bar
     per review dimension and the gauge's accent colour."""
     ctx = _ctx(doc, hook_title=hook_title)
     full = doc.analysis
+    # Re-resolve the category pill for the email's theme (light or dark).
+    ctx["cat_pill"] = pill(full.article_metadata.category, theme)
     dims = full.review.dimensions if (full.review and full.review.dimensions) else []
     ctx["dims_bars"] = [{
         "label": DIM_SHORT.get(d.dimension, d.label),
@@ -322,7 +329,7 @@ def generate_email_html(doc: NewsletterDocument, theme: str = "light", hook_titl
     (default) or "dark" (see EMAIL_THEMES). `hook_title` overrides the H1 headline
     (used to share the carousel's hook)."""
     return _env().get_template("newsletter.email.html").render(
-        logo=_EMAIL_LOGO, t=EMAIL_THEMES[theme], **_email_ctx(doc, hook_title=hook_title))
+        logo=_EMAIL_LOGO, t=EMAIL_THEMES[theme], **_email_ctx(doc, theme=theme, hook_title=hook_title))
 
 
 def render_from_json(json_path, out_dir, pdf: bool = False) -> list[Path]:
@@ -339,7 +346,7 @@ def render_from_json(json_path, out_dir, pdf: bool = False) -> list[Path]:
     print(f"  ✓ {md_path.name}")
 
     html_path = out_dir / "newsletter.html"
-    html_path.write_text(generate_html(doc), encoding="utf-8")
+    html_path.write_text(generate_html(doc, hook_title=hook), encoding="utf-8")
     print(f"  ✓ {html_path.name}")
 
     email_path = out_dir / "newsletter.email.html"

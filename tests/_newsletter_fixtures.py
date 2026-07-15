@@ -28,6 +28,8 @@ def sample_doc() -> NewsletterDocument:
         verdict_line="Verdict.",
         go_further=[{"title": "R1", "source": "S1", "why": "Pourquoi.", "type": "étude"},
                     {"title": "R2", "source": "S2", "why": "Pourquoi.", "type": "rapport"}],
+        prolongements=[{"heading": "Prolongement", "body": "Corps."}],
+        open_question="Et si la question était mal posée ?",
         signoff="À bientôt.",
     )
     return NewsletterDocument(analysis=full, presentation=pres)

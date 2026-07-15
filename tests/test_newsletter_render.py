@@ -49,7 +49,10 @@ def test_markdown_structure_and_order():
 def test_rich_html_has_badges():
     html = generate_html(sample_doc())
     assert "Le décryptage, pas à pas" in html
-    assert "Fait" in html and "Faille" in html
+    # fait badges render "⚖️ Fait"; faille badges render "⚠️ <presentation>",
+    # so verify the faille badge by its class rather than a literal label.
+    assert "⚖️ Fait" in html
+    assert 'class="badge faille"' in html
     assert "Vérification des faits" not in html
 
 
@@ -60,3 +63,23 @@ def test_email_both_themes():
         assert "La vue d'ensemble" in html
         assert "Vérification des faits" not in html
         assert "Les failles" not in html
+
+
+def test_category_pill_renders_with_theme_colours():
+    doc = sample_doc()
+    doc.analysis.article_metadata.category = "Société"
+    # rich newsletter uses the dark palette
+    assert "Société" in generate_html(doc) and "#c59cf0" in generate_html(doc)
+    # email pill re-resolves per theme
+    assert "#7a3fc0" in generate_email_html(doc, "light")   # light text colour
+    assert "#c59cf0" in generate_email_html(doc, "dark")    # dark text colour
+
+
+def test_no_pill_for_autre():
+    # "Autre" must render exactly like no category at all — pill-less.
+    base = sample_doc()
+    base.analysis.article_metadata.category = None
+    autre = sample_doc()
+    autre.analysis.article_metadata.category = "Autre"
+    assert generate_html(autre) == generate_html(base)
+    assert generate_email_html(autre, "dark") == generate_email_html(base, "dark")

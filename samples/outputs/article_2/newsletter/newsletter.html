@@ -22,7 +22,20 @@ body {
 .brand img { width: 46px; height: 46px; }
 .subject { font-size: 42px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; margin-top: 30px; }
 .subject strong, .subject em { color: #d4aa00; font-style: normal; }
-.meta { margin-top: 14px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8a8a8a; }
+.meta { margin-top: 12px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8a8a8a; }
+/* Centered "cover" that echoes the carousel hook slide: their article (quiet
+   italic) → chevron → our analysis (the hook). Body prose below stays left-
+   aligned; gold is reserved for our voice (the labels + the hook accents). */
+.cover { text-align: center; margin-top: 26px; }
+.cat-pill { display: inline-block; border-radius: 999px; padding: 7px 17px; font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 24px; }
+.artref-label { font-size: 13px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: #8a8a8a; }
+.artref-title { display: block; max-width: 640px; margin: 14px auto 0; font-size: 26px; line-height: 1.4; font-weight: 600; font-style: italic; color: #e8e8e8; }
+a.artref-title { color: #e8e8e8; text-decoration: underline; text-decoration-color: #666; }
+.cover .meta { margin-top: 14px; }
+.hook-sep { margin: 34px 0 0; }
+.hook-sep svg { display: block; margin: 0 auto; }
+.hook-label { font-size: 15px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: #d4aa00; margin-top: 20px; }
+.cover .subject { font-size: 46px; margin-top: 14px; text-wrap: balance; }
 .divider { height: 2px; background: linear-gradient(90deg, #d4aa00, transparent); margin: 34px 0; }
 
 /* body */
@@ -98,8 +111,15 @@ strong { color: #d4aa00; font-weight: 700; }
 </head>
 <body>
 <div class="wrap">
-  <h1 class="subject">Pauvreté des enfants : la France à contre-courant de l&#39;Europe ?</h1>
-  <div class="meta">Reportage · 3 min de lecture</div>
+  <div class="cover">
+    <div class="cat-pill" style="color:#c59cf0;background:#2a1d3e;"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.14em"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Société</div>
+    <div class="artref-label">— L'article —</div>
+    <div class="artref-title">Le taux de pauvreté des enfants augmente en France alors qu’il diminue dans le reste de l’Europe</div>
+    <div class="meta">Reportage · 3 min de lecture</div>
+    <div class="hook-sep"><svg width="480" height="30" viewBox="0 0 480 30" xmlns="http://www.w3.org/2000/svg"><polyline points="20,7 240,24 460,7" fill="none" stroke="#d4aa00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="hook-label">— Notre analyse —</div>
+    <h1 class="subject">Des chiffres exacts suffisent-ils à <strong>prouver</strong> un déclin ?</h1>
+  </div>
   <div class="divider"></div>
 
   <p class="intro">Un chiffre européen circule : <strong>27,5 % des enfants</strong> en France seraient menacés de pauvreté, à rebours d&#39;une Europe où la tendance s&#39;améliore. De quoi nourrir le récit d&#39;un déclassement national — sauf que tout repose sur <strong>une seule source</strong>, la Commission européenne. Cette semaine, on regarde ce que ces pourcentages disent vraiment, et ce qu&#39;ils taisent.</p>

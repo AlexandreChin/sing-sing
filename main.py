@@ -97,13 +97,17 @@ async def cmd_adapt(args: argparse.Namespace) -> None:
 
 
 async def cmd_extract(args: argparse.Namespace) -> None:
+    import typing
+
     from models.full_analysis import ArticleFullAnalysis
-    from models.instagram_carousel_presentation import InstagramCarouselPresentation
 
     _, extractor_mod, renderer_mod = FORMATS[args.format]
     extract_fn = importlib.import_module(extractor_mod).extract
+    # The presentation model is format-specific; read it off the extractor's own
+    # `presentation` annotation so this stays correct for every registered format.
+    presentation_model = typing.get_type_hints(extract_fn)["presentation"]
     full = ArticleFullAnalysis.model_validate(json.loads(Path(args.analysis).read_text(encoding="utf-8")))
-    presentation = InstagramCarouselPresentation.model_validate(json.loads(Path(args.presentation).read_text(encoding="utf-8")))
+    presentation = presentation_model.model_validate(json.loads(Path(args.presentation).read_text(encoding="utf-8")))
     doc = extract_fn(full, presentation)
     out_path = Path(args.analysis).with_stem(Path(args.analysis).stem + f"_{args.format}_extract")
     out_path.write_text(doc.model_dump_json(indent=2), encoding="utf-8")

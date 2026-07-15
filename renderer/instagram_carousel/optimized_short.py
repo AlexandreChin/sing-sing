@@ -12,6 +12,7 @@ import json
 from pathlib import Path
 
 from models.instagram_carousel_presentation import InstagramCarouselDocument
+from renderer.categories import pill, carousel_theme
 from ._shared import _env, _LOGO_DATA_URL, _weighted_quality, TYPE_FR
 from .optimized import _fr_num
 
@@ -45,7 +46,8 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
 
     specs = [
         ("01_hook", "01_hook", {"article_title": (meta.title or "").strip(),
-                                "source_meta": source_meta, "headline": pres.hook.headline}),
+                                "source_meta": source_meta, "cat_pill": pill(meta.category),
+                                "headline": pres.hook.headline}),
         ("02_selection", "02_selection", {"headline": disp.selection_headline, "items": [
             {"label": "Pourquoi on l'a retenu", "body": disp.why_selected},
             {"label": "Ce que vous allez apprendre", "body": disp.payoff},
@@ -61,12 +63,13 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     ]
 
     env = _env()
+    theme = carousel_theme(meta.category)  # deck background tint by category ({} = default black)
     paths = []
     total = len(specs)
     for i, (out_name, tpl_name, ctx) in enumerate(specs, 1):
         html = env.get_template(f"{TPL}/{tpl_name}.html").render(
             logo=_LOGO_DATA_URL, phase=PHASE_OF.get(out_name),
-            slide_n=i, slide_total=total, progress=round(i / total * 100), **ctx)
+            slide_n=i, slide_total=total, progress=round(i / total * 100), **theme, **ctx)
         path = out_dir / f"{out_name}.html"
         path.write_text(html, encoding="utf-8")
         paths.append(path)
