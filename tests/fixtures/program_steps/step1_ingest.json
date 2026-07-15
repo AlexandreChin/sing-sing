@@ -1,0 +1,124 @@
+{
+  "statements": [
+    {
+      "id": "st_0",
+      "domain": "Travail / Emploi",
+      "quote": "Extrait programme — Travail / Emploi.",
+      "source": {
+        "quote": "Extrait programme — Travail / Emploi.",
+        "url": null,
+        "outlet": null
+      }
+    },
+    {
+      "id": "st_1",
+      "domain": "Pouvoir d'achat",
+      "quote": "Extrait programme — Pouvoir d'achat.",
+      "source": {
+        "quote": "Extrait programme — Pouvoir d'achat.",
+        "url": null,
+        "outlet": null
+      }
+    },
+    {
+      "id": "st_2",
+      "domain": "Fiscalité / Impôts",
+      "quote": "Extrait programme — Fiscalité / Impôts.",
+      "source": {
+        "quote": "Extrait programme — Fiscalité / Impôts.",
+        "url": null,
+        "outlet": null
+      }
+    },
+    {
+      "id": "st_3",
+      "domain": "Économie & finances publiques",
+      "quote": "Extrait programme — Économie & finances publiques.",
+      "source": {
+        "quote": "Extrait programme — Économie & finances publiques.",
+        "url": null,
+        "outlet": null
+      }
+    },
+    {
+      "id": "st_4",
+      "domain": "Retraites",
+      "quote": "Extrait programme — Retraites.",
+      "source": {
+        "quote": "Extrait programme — Retraites.",
+        "url": null,
+        "outlet": null
+      }
+    },
+    {
+      "id": "st_5",
+      "domain": "Logement",
+      "quote": "Extrait programme — Logement.",
+      "source": {
+        "quote": "Extrait programme — Logement.",
+        "url": null,
+        "outlet": null
+      }
+    },
+    {
+      "id": "st_6",
+      "domain": "Écologie",
+      "quote": "Extrait programme — Écologie.",
+      "source": {
+        "quote": "Extrait programme — Écologie.",
+        "url": null,
+        "outlet": null
+      }
+    },
+    {
+      "id": "st_7",
+      "domain": "Santé & Éducation",
+      "quote": "Extrait programme — Santé & Éducation.",
+      "source": {
+        "quote": "Extrait programme — Santé & Éducation.",
+        "url": null,
+        "outlet": null
+      }
+    },
+    {
+      "id": "st_8",
+      "domain": "Société",
+      "quote": "Extrait programme — Société.",
+      "source": {
+        "quote": "Extrait programme — Société.",
+        "url": null,
+        "outlet": null
+      }
+    },
+    {
+      "id": "st_9",
+      "domain": "Immigration",
+      "quote": "Extrait programme — Immigration.",
+      "source": {
+        "quote": "Extrait programme — Immigration.",
+        "url": null,
+        "outlet": null
+      }
+    },
+    {
+      "id": "st_10",
+      "domain": "Sécurité & Justice",
+      "quote": "Extrait programme — Sécurité & Justice.",
+      "source": {
+        "quote": "Extrait programme — Sécurité & Justice.",
+        "url": null,
+        "outlet": null
+      }
+    },
+    {
+      "id": "st_11",
+      "domain": "Europe / Institutions & International",
+      "quote": "Extrait programme — Europe / Institutions & International.",
+      "source": {
+        "quote": "Extrait programme — Europe / Institutions & International.",
+        "url": null,
+        "outlet": null
+      }
+    }
+  ]
+}

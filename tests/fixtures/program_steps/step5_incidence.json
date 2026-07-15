@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "id": "inc_0",
+      "group": "Ménages modestes",
+      "effect": "benefits",
+      "explanation": "Bénéficient des mesures de pouvoir d'achat.",
+      "expert_sources": [
+        {
+          "name": "OFCE",
+          "kind": "think_tank",
+          "url": "https://ofce.example",
+          "finding": "Analyse indépendante du chiffrage."
+        }
+      ]
+    },
+    {
+      "id": "inc_1",
+      "group": "Grandes entreprises",
+      "effect": "pays",
+      "explanation": "Contribuent davantage au financement des mesures.",
+      "expert_sources": [
+        {
+          "name": "OFCE",
+          "kind": "think_tank",
+          "url": "https://ofce.example",
+          "finding": "Analyse indépendante du chiffrage."
+        }
+      ]
+    }
+  ]
+}
