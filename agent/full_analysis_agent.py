@@ -155,7 +155,13 @@ async def analyze_for_full_analysis(
     assembled = ArticleFullAnalysis(
         article_metadata=ArticleMetadata(
             url=input.url,
-            title=input.title or article_title,
+            # `_extract_title_chapo` only finds a title in scraped bodies (URL
+            # line before the title); step1_scan backfills the first non-empty
+            # line for title-first files, so fall through to it.
+            title=input.title or article_title or (ext_data.get("article_metadata") or {}).get("title"),
+            # Topical rubrique classified in step 1; default to "Autre" so older
+            # caches (pre-category) and misses stay valid and just render pill-less.
+            category=(ext_data.get("article_metadata") or {}).get("category") or "Autre",
             source=input.source,
             published_at=input.published_at,
             type=extraction.article_type,

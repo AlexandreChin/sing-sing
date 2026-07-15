@@ -76,6 +76,10 @@ class ArticleMetadata(BaseModel):
     source: str | None = None
     published_at: str | None = None
     type: Literal["editorial", "news_report", "opinion", "investigation", "interview", "other"] | None = None
+    category: Literal[
+        "Politique", "Économie", "International", "Société", "Écologie",
+        "Sciences & Santé", "Tech", "Culture", "Sport", "Autre",
+    ] | None = None
     reading_time_minutes: int | None = None
     chapo: str | None = None
 

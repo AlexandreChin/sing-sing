@@ -9,6 +9,7 @@ import re
 from pathlib import Path
 
 from models.instagram_carousel_presentation import InstagramCarouselDocument
+from renderer.categories import pill, carousel_theme
 from ._shared import (
     _env, _LOGO_DATA_URL,
     _weighted_quality, TYPE_FR,
@@ -166,7 +167,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     # rather than rendered hollow, and dynamic numbering adapts to the result.
     specs = [
         ("01_hook", {"article_title": (meta.title or "").strip(), "source_meta": source_meta,
-                     "headline": pres.hook.headline}),
+                     "cat_pill": pill(meta.category), "headline": pres.hook.headline}),
         # Curation beat (pillar ①) — a one-line "why we chose it" headline, then
         # two reasons in the slide-7 layout. No verdict spoiler, no topic restatement.
         ("02_selection", {"headline": disp.selection_headline, "items": [
@@ -205,12 +206,13 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     specs.append(("10_cta", {}))
 
     env = _env()
+    theme = carousel_theme(meta.category)  # deck background tint by category ({} = default black)
     paths = []
     total = len(specs)
     for i, (name, ctx) in enumerate(specs, 1):
         html = env.get_template(f"{TPL}/{name}.html").render(
             logo=_LOGO_DATA_URL, phase=PHASE_OF.get(name),
-            slide_n=i, slide_total=total, progress=round(i / total * 100), **ctx)
+            slide_n=i, slide_total=total, progress=round(i / total * 100), **theme, **ctx)
         path = out_dir / f"{name}.html"
         path.write_text(html, encoding="utf-8")
         paths.append(path)

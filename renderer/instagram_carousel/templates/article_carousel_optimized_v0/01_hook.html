@@ -19,6 +19,7 @@
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
 
+  {% if cat_pill %}<span class="cat-pill" style="color:{{ cat_pill.text }};background:{{ cat_pill.bg }};">{{ cat_pill.icon | safe }} {{ cat_pill.label }}</span>{% endif %}
   {% if article_title %}<span class="eyebrow">— L'article —</span>
   <p class="art-title">{{ article_title }}</p>{% endif %}
   {% if source_meta %}<p class="art-meta">{{ source_meta }}</p>{% endif %}

@@ -18,7 +18,20 @@ body {
 .brand img { width: 46px; height: 46px; }
 .subject { font-size: 42px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; margin-top: 30px; }
 .subject strong, .subject em { color: #d4aa00; font-style: normal; }
-.meta { margin-top: 14px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8a8a8a; }
+.meta { margin-top: 12px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8a8a8a; }
+/* Centered "cover" that echoes the carousel hook slide: their article (quiet
+   italic) → chevron → our analysis (the hook). Body prose below stays left-
+   aligned; gold is reserved for our voice (the labels + the hook accents). */
+.cover { text-align: center; margin-top: 26px; }
+.cat-pill { display: inline-block; border-radius: 999px; padding: 7px 17px; font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 24px; }
+.artref-label { font-size: 13px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: #8a8a8a; }
+.artref-title { display: block; max-width: 640px; margin: 14px auto 0; font-size: 26px; line-height: 1.4; font-weight: 600; font-style: italic; color: #e8e8e8; }
+a.artref-title { color: #e8e8e8; text-decoration: underline; text-decoration-color: #666; }
+.cover .meta { margin-top: 14px; }
+.hook-sep { margin: 34px 0 0; }
+.hook-sep svg { display: block; margin: 0 auto; }
+.hook-label { font-size: 15px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: #d4aa00; margin-top: 20px; }
+.cover .subject { font-size: 46px; margin-top: 14px; text-wrap: balance; }
 .divider { height: 2px; background: linear-gradient(90deg, #d4aa00, transparent); margin: 34px 0; }
 
 /* body */

@@ -17,6 +17,7 @@ Renseigne les métadonnées telles qu'elles figurent dans le texte source — n'
   - `investigation` — journalisme d'enquête
   - `interview`
   - `other`
+- `category` : la RUBRIQUE dominante de l'article, choisie STRICTEMENT dans cette liste (l'angle principal, une seule) : `Politique`, `Économie`, `International`, `Société`, `Écologie`, `Sciences & Santé`, `Tech`, `Culture`, `Sport`. Si aucune ne convient vraiment, mets `Autre`.
 - `reading_time_minutes` : estimation du temps de lecture en minutes (≈ 200 mots/min), nombre entier.
 - `chapo` : le chapô introductif (paragraphe d'accroche sous le titre) s'il existe, sinon `null`.
 

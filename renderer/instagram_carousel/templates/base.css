@@ -2,6 +2,15 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Per-deck background theme (set by the renderer from the article's category);
+   defaults reproduce today's pure-black look. Gold elements are never themed. */
+:root {
+  --slide-bg-in: {{ slide_bg_in | default('#0a0a0a') }};
+  --slide-bg-out: {{ slide_bg_out | default('#000000') }};
+  --grain-tint: {{ grain_tint | default('transparent') }};
+  --watermark-color: {{ watermark_color | default('rgba(255, 255, 255, 0.022)') }};
+}
+
 body {
   width: 1080px;
   height: 1350px;
@@ -22,13 +31,15 @@ body {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  background: radial-gradient(ellipse at 50% 40%, #0a0a0a 0%, #000000 85%);
+  background: radial-gradient(ellipse at 50% 40%, var(--slide-bg-in) 0%, var(--slide-bg-out) 85%);
 }
 .slide::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-color: var(--grain-tint);
+  background-blend-mode: screen;
   pointer-events: none;
   z-index: -1;
 }
@@ -40,7 +51,7 @@ body {
   right: 50px;
   font-size: 320px;
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.022);
+  color: var(--watermark-color);
   line-height: 1;
   pointer-events: none;
   user-select: none;
@@ -110,6 +121,18 @@ body {
 .pill.validates  { background: #0d2b1a; border-color: #2a5c3a; color: #7ec8a0; }
 .pill.contradicts { background: #2b0d0d; border-color: #5c2a2a; color: #e87a7a; }
 .pill.neutral    { background: #1a1a2b; border-color: #2a2a5c; color: #7ab3e8; }
+
+/* category rubrique pill (hook slide) — colours come inline per category */
+.cat-pill {
+  display: inline-block;
+  padding: 11px 24px;
+  border-radius: 999px;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
 
 .quote-block {
   font-family: 'Inter', sans-serif;

@@ -17,6 +17,9 @@ def _valid_data():
         verdict_line="Verdict.",
         go_further=[{"title": "R1", "source": "S1", "why": "W.", "type": "étude"},
                     {"title": "R2", "source": "S2", "why": "W.", "type": "rapport"}],
+        prolongements=[{"heading": "Prolongement 1", "body": "Corps 1."},
+                       {"heading": "Prolongement 2", "body": "Corps 2."}],
+        open_question="Question ouverte ?",
         signoff="Bye.",
     )
 
