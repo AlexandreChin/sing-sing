@@ -248,6 +248,32 @@ async def cmd_produce(args: argparse.Namespace) -> None:
         await asyncio.to_thread(render_from_json, lay["extract"], lay["fmt_dir"])
 
 
+async def cmd_program(args: argparse.Namespace) -> None:
+    from agent import analyze_program
+    from models.program_analysis import ProgramAnalysisInput
+
+    input_path = args.program
+    text = Path(input_path).read_text(encoding="utf-8").strip()
+    if not text:
+        print("Empty program file.", file=sys.stderr)
+        sys.exit(1)
+
+    stem = Path(input_path).stem
+    candidate = args.candidate or stem
+    OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
+    lay = _layout(stem)
+    lay["base"].mkdir(parents=True, exist_ok=True)
+
+    result = await analyze_program(
+        ProgramAnalysisInput(candidate=candidate, program_text=text),
+        no_api=args.no_api,
+        steps_dir=lay["steps"],
+    )
+    lay["analysis"].write_text(result.model_dump_json(indent=2), encoding="utf-8")
+    print(f"Analysis written to {lay['analysis']}", file=sys.stderr)
+    print(f"Step outputs → {lay['steps']}/", file=sys.stderr)
+
+
 # ── Argument parser ───────────────────────────────────────────────────────────
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -284,6 +310,12 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--no-api", action="store_true")
     p.add_argument("--render", action="store_true")
     p.set_defaults(func=cmd_produce)
+
+    p = sub.add_parser("program", help="analyze a candidate's program (hors-série)")
+    p.add_argument("program", help="candidate program .txt file")
+    p.add_argument("--candidate", help="candidate display name (default: file stem)")
+    p.add_argument("--no-api", action="store_true", help="use cached steps / local claude CLI")
+    p.set_defaults(func=cmd_program)
 
     p = sub.add_parser("render", help="render a document (carousel slides, or newsletter md/html)")
     p.add_argument("document", help="extract.json (the render document)")
