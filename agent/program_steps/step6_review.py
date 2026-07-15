@@ -13,6 +13,8 @@ _DIMENSIONS = ("funding_clarity", "feasibility", "internal_coherence", "evidence
 def _validate(data: dict) -> list[str]:
     r = ProgramReview.model_validate(data)
     errors = []
+    if len(r.dimensions) != 4:
+        errors.append(f"expected exactly 4 dimensions, got {len(r.dimensions)}")
     got = {d.dimension for d in r.dimensions}
     missing = [d for d in _DIMENSIONS if d not in got]
     if missing:
