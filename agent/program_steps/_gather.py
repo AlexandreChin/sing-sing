@@ -40,5 +40,5 @@ async def gather_corpus(queries: list[str], per_query: int = 5) -> tuple[str, li
         return src.get("snippet", "")
 
     bodies = await asyncio.gather(*(_body(s) for s in sources))
-    corpus = "\n\n".join(f"[{s['title']}] ({s['url']})\n{b}" for s, b in zip(sources, bodies))
+    corpus = "\n\n".join(f"[{s.get('title', '')}] ({s.get('url', '')})\n{b}" for s, b in zip(sources, bodies))
     return corpus, sources
