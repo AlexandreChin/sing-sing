@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "id": "ce_0",
+      "root_cause_id": "rc_0",
+      "verdict": "Le diagnostic de désindustrialisation est corroboré par les données Insee.",
+      "confidence": 75,
+      "expert_sources": [
+        {
+          "name": "OFCE",
+          "kind": "think_tank",
+          "url": "https://ofce.example",
+          "finding": "Analyse indépendante du chiffrage."
+        }
+      ]
+    },
+    {
+      "id": "ce_1",
+      "root_cause_id": "rc_1",
+      "verdict": "La fragmentation sociale est documentée mais ses causes sont disputées.",
+      "confidence": 55,
+      "expert_sources": [
+        {
+          "name": "OFCE",
+          "kind": "think_tank",
+          "url": "https://ofce.example",
+          "finding": "Analyse indépendante du chiffrage."
+        }
+      ]
+    }
+  ]
+}
