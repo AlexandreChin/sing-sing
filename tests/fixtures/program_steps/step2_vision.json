@@ -1,0 +1,28 @@
+{
+  "vision": "Un pays qui retrouve sa souveraineté économique et sociale.",
+  "values": "Travail, responsabilité, solidarité.",
+  "root_causes": [
+    {
+      "id": "rc_0",
+      "cause": "Désindustrialisation et perte de compétitivité.",
+      "sources": [
+        {
+          "quote": "Notre pays a perdu 2 millions d'emplois industriels en 30 ans.",
+          "url": null,
+          "outlet": null
+        }
+      ]
+    },
+    {
+      "id": "rc_1",
+      "cause": "Fragmentation du système social.",
+      "sources": [
+        {
+          "quote": "La cohésion sociale s'est dégradée depuis 20 ans.",
+          "url": null,
+          "outlet": null
+        }
+      ]
+    }
+  ]
+}
