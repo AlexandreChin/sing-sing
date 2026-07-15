@@ -5,7 +5,10 @@ from models.program_analysis import Incidence, ProgramReview, ProgramDistill
 
 @pytest.mark.asyncio
 async def test_step5_ids_and_no_api(tmp_path, monkeypatch):
-    async def fake_gather(q, per_query=5): return "", []
+    gather_called = []
+    async def fake_gather(q, per_query=5):
+        gather_called.append(True)
+        return "", []
     monkeypatch.setattr(s5, "gather_corpus", fake_gather)
     fake = {"items": [
         {"id": "", "group": "Ménages modestes", "effect": "benefits", "explanation": "…",
@@ -16,6 +19,7 @@ async def test_step5_ids_and_no_api(tmp_path, monkeypatch):
     monkeypatch.setattr(s5, "_call_with_retry", lambda *a, **k: fake)
     data = await s5.run(type("I", (), {"candidate": "X", "program_text": "…"})(), {"topics": []}, tmp_path, no_api=True)
     assert [i["id"] for i in data["items"]] == ["inc_0", "inc_1"]
+    assert not gather_called, "gather_corpus should not be called when no_api=True"
 
 
 @pytest.mark.asyncio
