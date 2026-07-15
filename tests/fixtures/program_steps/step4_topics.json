@@ -1,0 +1,364 @@
+{
+  "topics": [
+    {
+      "domain": "Travail / Emploi",
+      "headline_measures": [
+        {
+          "id": "m_0",
+          "measure": "Mesure phare pour Travail / Emploi.",
+          "detail": "Détail de mise en œuvre pour Travail / Emploi.",
+          "sources": [
+            {
+              "quote": "Nous proposons, dans le domaine Travail / Emploi, une mesure concrète.",
+              "url": null,
+              "outlet": null
+            }
+          ]
+        }
+      ],
+      "faille": {
+        "kind": "efficacy",
+        "label": "Faille — Travail / Emploi",
+        "explanation": "Le financement/la faisabilité de la mesure Travail / Emploi n'est pas clairement établi.",
+        "expert_sources": [
+          {
+            "name": "OFCE",
+            "kind": "think_tank",
+            "url": "https://ofce.example",
+            "finding": "Analyse indépendante du chiffrage."
+          }
+        ]
+      }
+    },
+    {
+      "domain": "Pouvoir d'achat",
+      "headline_measures": [
+        {
+          "id": "m_1",
+          "measure": "Mesure phare pour Pouvoir d'achat.",
+          "detail": "Détail de mise en œuvre pour Pouvoir d'achat.",
+          "sources": [
+            {
+              "quote": "Nous proposons, dans le domaine Pouvoir d'achat, une mesure concrète.",
+              "url": null,
+              "outlet": null
+            }
+          ]
+        }
+      ],
+      "faille": {
+        "kind": "funding",
+        "label": "Faille — Pouvoir d'achat",
+        "explanation": "Le financement/la faisabilité de la mesure Pouvoir d'achat n'est pas clairement établi.",
+        "expert_sources": [
+          {
+            "name": "OFCE",
+            "kind": "think_tank",
+            "url": "https://ofce.example",
+            "finding": "Analyse indépendante du chiffrage."
+          }
+        ]
+      }
+    },
+    {
+      "domain": "Fiscalité / Impôts",
+      "headline_measures": [
+        {
+          "id": "m_2",
+          "measure": "Mesure phare pour Fiscalité / Impôts.",
+          "detail": "Détail de mise en œuvre pour Fiscalité / Impôts.",
+          "sources": [
+            {
+              "quote": "Nous proposons, dans le domaine Fiscalité / Impôts, une mesure concrète.",
+              "url": null,
+              "outlet": null
+            }
+          ]
+        }
+      ],
+      "faille": {
+        "kind": "feasibility",
+        "label": "Faille — Fiscalité / Impôts",
+        "explanation": "Le financement/la faisabilité de la mesure Fiscalité / Impôts n'est pas clairement établi.",
+        "expert_sources": [
+          {
+            "name": "OFCE",
+            "kind": "think_tank",
+            "url": "https://ofce.example",
+            "finding": "Analyse indépendante du chiffrage."
+          }
+        ]
+      }
+    },
+    {
+      "domain": "Économie & finances publiques",
+      "headline_measures": [
+        {
+          "id": "m_3",
+          "measure": "Mesure phare pour Économie & finances publiques.",
+          "detail": "Détail de mise en œuvre pour Économie & finances publiques.",
+          "sources": [
+            {
+              "quote": "Nous proposons, dans le domaine Économie & finances publiques, une mesure concrète.",
+              "url": null,
+              "outlet": null
+            }
+          ]
+        }
+      ],
+      "faille": {
+        "kind": "coherence",
+        "label": "Faille — Économie & finances publiques",
+        "explanation": "Le financement/la faisabilité de la mesure Économie & finances publiques n'est pas clairement établi.",
+        "expert_sources": [
+          {
+            "name": "OFCE",
+            "kind": "think_tank",
+            "url": "https://ofce.example",
+            "finding": "Analyse indépendante du chiffrage."
+          }
+        ]
+      }
+    },
+    {
+      "domain": "Retraites",
+      "headline_measures": [
+        {
+          "id": "m_4",
+          "measure": "Mesure phare pour Retraites.",
+          "detail": "Détail de mise en œuvre pour Retraites.",
+          "sources": [
+            {
+              "quote": "Nous proposons, dans le domaine Retraites, une mesure concrète.",
+              "url": null,
+              "outlet": null
+            }
+          ]
+        }
+      ],
+      "faille": {
+        "kind": "legal",
+        "label": "Faille — Retraites",
+        "explanation": "Le financement/la faisabilité de la mesure Retraites n'est pas clairement établi.",
+        "expert_sources": [
+          {
+            "name": "OFCE",
+            "kind": "think_tank",
+            "url": "https://ofce.example",
+            "finding": "Analyse indépendante du chiffrage."
+          }
+        ]
+      }
+    },
+    {
+      "domain": "Logement",
+      "headline_measures": [
+        {
+          "id": "m_5",
+          "measure": "Mesure phare pour Logement.",
+          "detail": "Détail de mise en œuvre pour Logement.",
+          "sources": [
+            {
+              "quote": "Nous proposons, dans le domaine Logement, une mesure concrète.",
+              "url": null,
+              "outlet": null
+            }
+          ]
+        }
+      ],
+      "faille": {
+        "kind": "efficacy",
+        "label": "Faille — Logement",
+        "explanation": "Le financement/la faisabilité de la mesure Logement n'est pas clairement établi.",
+        "expert_sources": [
+          {
+            "name": "OFCE",
+            "kind": "think_tank",
+            "url": "https://ofce.example",
+            "finding": "Analyse indépendante du chiffrage."
+          }
+        ]
+      }
+    },
+    {
+      "domain": "Écologie",
+      "headline_measures": [
+        {
+          "id": "m_6",
+          "measure": "Mesure phare pour Écologie.",
+          "detail": "Détail de mise en œuvre pour Écologie.",
+          "sources": [
+            {
+              "quote": "Nous proposons, dans le domaine Écologie, une mesure concrète.",
+              "url": null,
+              "outlet": null
+            }
+          ]
+        }
+      ],
+      "faille": {
+        "kind": "funding",
+        "label": "Faille — Écologie",
+        "explanation": "Le financement/la faisabilité de la mesure Écologie n'est pas clairement établi.",
+        "expert_sources": [
+          {
+            "name": "OFCE",
+            "kind": "think_tank",
+            "url": "https://ofce.example",
+            "finding": "Analyse indépendante du chiffrage."
+          }
+        ]
+      }
+    },
+    {
+      "domain": "Santé & Éducation",
+      "headline_measures": [
+        {
+          "id": "m_7",
+          "measure": "Mesure phare pour Santé & Éducation.",
+          "detail": "Détail de mise en œuvre pour Santé & Éducation.",
+          "sources": [
+            {
+              "quote": "Nous proposons, dans le domaine Santé & Éducation, une mesure concrète.",
+              "url": null,
+              "outlet": null
+            }
+          ]
+        }
+      ],
+      "faille": {
+        "kind": "feasibility",
+        "label": "Faille — Santé & Éducation",
+        "explanation": "Le financement/la faisabilité de la mesure Santé & Éducation n'est pas clairement établi.",
+        "expert_sources": [
+          {
+            "name": "OFCE",
+            "kind": "think_tank",
+            "url": "https://ofce.example",
+            "finding": "Analyse indépendante du chiffrage."
+          }
+        ]
+      }
+    },
+    {
+      "domain": "Société",
+      "headline_measures": [
+        {
+          "id": "m_8",
+          "measure": "Mesure phare pour Société.",
+          "detail": "Détail de mise en œuvre pour Société.",
+          "sources": [
+            {
+              "quote": "Nous proposons, dans le domaine Société, une mesure concrète.",
+              "url": null,
+              "outlet": null
+            }
+          ]
+        }
+      ],
+      "faille": {
+        "kind": "coherence",
+        "label": "Faille — Société",
+        "explanation": "Le financement/la faisabilité de la mesure Société n'est pas clairement établi.",
+        "expert_sources": [
+          {
+            "name": "OFCE",
+            "kind": "think_tank",
+            "url": "https://ofce.example",
+            "finding": "Analyse indépendante du chiffrage."
+          }
+        ]
+      }
+    },
+    {
+      "domain": "Immigration",
+      "headline_measures": [
+        {
+          "id": "m_9",
+          "measure": "Mesure phare pour Immigration.",
+          "detail": "Détail de mise en œuvre pour Immigration.",
+          "sources": [
+            {
+              "quote": "Nous proposons, dans le domaine Immigration, une mesure concrète.",
+              "url": null,
+              "outlet": null
+            }
+          ]
+        }
+      ],
+      "faille": {
+        "kind": "legal",
+        "label": "Faille — Immigration",
+        "explanation": "Le financement/la faisabilité de la mesure Immigration n'est pas clairement établi.",
+        "expert_sources": [
+          {
+            "name": "OFCE",
+            "kind": "think_tank",
+            "url": "https://ofce.example",
+            "finding": "Analyse indépendante du chiffrage."
+          }
+        ]
+      }
+    },
+    {
+      "domain": "Sécurité & Justice",
+      "headline_measures": [
+        {
+          "id": "m_10",
+          "measure": "Mesure phare pour Sécurité & Justice.",
+          "detail": "Détail de mise en œuvre pour Sécurité & Justice.",
+          "sources": [
+            {
+              "quote": "Nous proposons, dans le domaine Sécurité & Justice, une mesure concrète.",
+              "url": null,
+              "outlet": null
+            }
+          ]
+        }
+      ],
+      "faille": {
+        "kind": "efficacy",
+        "label": "Faille — Sécurité & Justice",
+        "explanation": "Le financement/la faisabilité de la mesure Sécurité & Justice n'est pas clairement établi.",
+        "expert_sources": [
+          {
+            "name": "OFCE",
+            "kind": "think_tank",
+            "url": "https://ofce.example",
+            "finding": "Analyse indépendante du chiffrage."
+          }
+        ]
+      }
+    },
+    {
+      "domain": "Europe / Institutions & International",
+      "headline_measures": [
+        {
+          "id": "m_11",
+          "measure": "Mesure phare pour Europe / Institutions & International.",
+          "detail": "Détail de mise en œuvre pour Europe / Institutions & International.",
+          "sources": [
+            {
+              "quote": "Nous proposons, dans le domaine Europe / Institutions & International, une mesure concrète.",
+              "url": null,
+              "outlet": null
+            }
+          ]
+        }
+      ],
+      "faille": {
+        "kind": "funding",
+        "label": "Faille — Europe / Institutions & International",
+        "explanation": "Le financement/la faisabilité de la mesure Europe / Institutions & International n'est pas clairement établi.",
+        "expert_sources": [
+          {
+            "name": "OFCE",
+            "kind": "think_tank",
+            "url": "https://ofce.example",
+            "finding": "Analyse indépendante du chiffrage."
+          }
+        ]
+      }
+    }
+  ]
+}

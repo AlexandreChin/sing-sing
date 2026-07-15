@@ -1,0 +1,28 @@
+{
+  "dimensions": [
+    {
+      "dimension": "funding_clarity",
+      "label": "Clarté du financement",
+      "score": 3,
+      "rationale": "Le financement de plusieurs mesures reste flou."
+    },
+    {
+      "dimension": "feasibility",
+      "label": "Faisabilité",
+      "score": 3,
+      "rationale": "Certaines mesures nécessitent des délais législatifs longs."
+    },
+    {
+      "dimension": "internal_coherence",
+      "label": "Cohérence interne",
+      "score": 4,
+      "rationale": "Les mesures s'articulent globalement bien avec la vision affichée."
+    },
+    {
+      "dimension": "evidence_grounding",
+      "label": "Ancrage factuel",
+      "score": 3,
+      "rationale": "Le diagnostic s'appuie sur des données mais certaines projections sont optimistes."
+    }
+  ]
+}
