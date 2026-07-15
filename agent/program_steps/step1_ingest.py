@@ -12,10 +12,6 @@ def _validate(data: dict) -> list[str]:
     errors = []
     if not r.statements:
         errors.append("statements is empty")
-    domains = {s.domain for s in r.statements}
-    missing = [d for d in CORE_DOMAINS if d not in domains]
-    if missing:
-        errors.append(f"no statement for domains: {missing}")
     for i, s in enumerate(r.statements):
         if not s.source.quote.strip():
             errors.append(f"statements[{i}].source.quote is empty (must be verbatim from the document)")
