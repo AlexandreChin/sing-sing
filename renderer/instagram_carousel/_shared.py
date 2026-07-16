@@ -14,6 +14,9 @@ from markupsafe import Markup, escape
 from PIL import Image
 from jinja2 import Environment, FileSystemLoader
 
+from renderer.categories import CATEGORY_ICONS
+from renderer.instagram_carousel.procart import cover_art
+
 TEMPLATES_DIR = Path(__file__).parent / "templates"
 
 _LOGO_PATH = Path(__file__).parent.parent.parent / "src" / "assets" / "images" / "logo" / "logo.png"
@@ -86,3 +89,19 @@ def _env() -> Environment:
     env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)), autoescape=True)
     env.filters["md_bold"] = _md_bold
     return env
+
+
+def cover_layers(meta, headline: str) -> dict:
+    """Hook slide-1 background context, shared by both carousel renderers.
+
+    `rubrique`/`glyph` carry category identity (dropped for "Autre"/missing,
+    mirroring `pill()==None`); `art_svg` is the per-carousel procedural art,
+    seeded from the article title (headline as fallback for a title-less article).
+    """
+    glyph = CATEGORY_ICONS.get(meta.category or "", "")
+    seed = (meta.title or "").strip() or (headline or "")
+    return {
+        "rubrique": meta.category if glyph else None,
+        "glyph": glyph,
+        "art_svg": cover_art(seed),
+    }
