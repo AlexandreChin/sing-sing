@@ -12,8 +12,8 @@ import json
 from pathlib import Path
 
 from models.instagram_carousel_presentation import InstagramCarouselDocument
-from renderer.categories import pill, carousel_theme
-from ._shared import _env, _LOGO_DATA_URL, _weighted_quality, TYPE_FR
+from renderer.categories import carousel_theme
+from ._shared import _env, _LOGO_DATA_URL, _weighted_quality, TYPE_FR, cover_layers
 from .optimized import _fr_num
 
 TPL = "article_carousel_optimized_v0"
@@ -46,8 +46,8 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
 
     specs = [
         ("01_hook", "01_hook", {"article_title": (meta.title or "").strip(),
-                                "source_meta": source_meta, "cat_pill": pill(meta.category),
-                                "headline": pres.hook.headline}),
+                                "source_meta": source_meta,
+                                "headline": pres.hook.headline, **cover_layers(meta, pres.hook.headline)}),
         ("02_selection", "02_selection", {"headline": disp.selection_headline, "items": [
             {"label": "Pourquoi on l'a retenu", "body": disp.why_selected},
             {"label": "Ce que vous allez apprendre", "body": disp.payoff},
