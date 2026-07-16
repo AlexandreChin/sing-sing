@@ -9,10 +9,10 @@ import re
 from pathlib import Path
 
 from models.instagram_carousel_presentation import InstagramCarouselDocument
-from renderer.categories import pill, carousel_theme
+from renderer.categories import carousel_theme
 from ._shared import (
     _env, _LOGO_DATA_URL,
-    _weighted_quality, TYPE_FR,
+    _weighted_quality, TYPE_FR, cover_layers,
 )
 
 TPL = "article_carousel_optimized_v0"
@@ -167,7 +167,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     # rather than rendered hollow, and dynamic numbering adapts to the result.
     specs = [
         ("01_hook", {"article_title": (meta.title or "").strip(), "source_meta": source_meta,
-                     "cat_pill": pill(meta.category), "headline": pres.hook.headline}),
+                     "headline": pres.hook.headline, **cover_layers(meta, pres.hook.headline)}),
         # Curation beat (pillar ①) — a one-line "why we chose it" headline, then
         # two reasons in the slide-7 layout. No verdict spoiler, no topic restatement.
         ("02_selection", {"headline": disp.selection_headline, "items": [
