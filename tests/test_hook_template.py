@@ -32,3 +32,11 @@ def test_hook_drops_category_elements_when_absent():
     assert '<div class="rubrique-tab">' not in html
     assert '<div class="giant">' not in html
     assert '<div class="artbg">' in html            # art still present
+
+
+def test_giant_layer_neutralizes_filled_glyph_shapes():
+    # The Culture glyph uses <circle fill="currentColor">; the .giant layer must
+    # force fill:none so it renders as a faint gold outline, not solid near-white dots.
+    html = _render(rubrique="Culture", glyph=CATEGORY_ICONS["Culture"])
+    assert '<div class="giant">' in html
+    assert ".giant svg circle { fill: none" in html
