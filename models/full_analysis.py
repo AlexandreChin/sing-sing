@@ -154,6 +154,17 @@ class SteelManItem(BaseModel):
     alternative_conclusion: str  # conclusion that would follow if the counterargument holds
 
 
+class CoreElement(BaseModel):
+    statement: str                       # ≤20 words — a central element of the article, neutral
+    kind: Literal["fait", "biais", "enjeu", "affirmation", "angle"]
+    centrality: int                      # 1 (peripheral) … 5 (the article is fundamentally about this)
+    seeds: SeedsRef | None = None        # optional trace to the analysis node it comes from
+
+
+class CoreElements(BaseModel):
+    elements: list[CoreElement]          # 3–5, ordered by centrality (desc)
+
+
 class PremisseItem(BaseModel):
     id: str = ""
     statement: str  # the premise in one sentence
@@ -429,3 +440,4 @@ class ArticleFullAnalysis(BaseModel):
     blend: Blend | None = None
     distill: Distill | None = None
     guide: ReadingGuide | None = None
+    core_elements: CoreElements | None = None

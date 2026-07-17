@@ -24,7 +24,7 @@ def _doc():
             ReadingBeat(moment="Accroche", quote="+4400 %", lens_ref="chiffres", note="**pas de base**"),
             ReadingBeat(moment="Milieu", quote="donc la cause", lens_ref="causalite", note="glissement"),
         ],
-        "global_analysis": GlobalAnalysis(headline="Une méthode", mechanism=["a", "b"], signature="marque"),
+        "global_analysis": GlobalAnalysis(headline="Une méthode", core_recap=["a", "b"], note="n"),
         "open_question": "Ignore-t-il ou omet-il ?",
     })})
     return extract(full, pres)
