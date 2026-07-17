@@ -21,7 +21,7 @@ def _display(**over):
             ReadingBeat(moment="Accroche", quote="+4400 %", lens_ref="chiffres", note="pas de base"),
             ReadingBeat(moment="Milieu", quote="donc la cause", lens_ref="causalite", note="glissement"),
         ],
-        global_analysis=GlobalAnalysis(headline="Une méthode", solid=["un constat réel"], mechanism=["a", "b"], signature="marque"),
+        global_analysis=GlobalAnalysis(headline="Une méthode", core_recap=["a", "b"], note="une remarque"),
         root_issue="L'enjeu est surtout symbolique : une élite qui affiche son indifférence.",
         steel_man=SteelMan(argument="Un tourisme encadré crée des ambassadeurs", alternative="le bilan net pourrait s'inverser"),
     )
