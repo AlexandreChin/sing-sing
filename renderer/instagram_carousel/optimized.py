@@ -48,6 +48,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
 
     source_meta = " · ".join(x for x in [
         meta.source,
+        meta.published_at,
         TYPE_FR.get(meta.type) if meta.type else None,
         f"{meta.reading_time_minutes} min" if meta.reading_time_minutes else None,
     ] if x)
