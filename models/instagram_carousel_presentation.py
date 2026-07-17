@@ -69,10 +69,9 @@ class ReadingBeat(BaseModel):
 
 
 class GlobalAnalysis(BaseModel):
-    headline: str          # ≤10 words — balanced one-line read of the whole
-    solid: list[str] = Field(default_factory=list)  # 1–2 items, ≤16 words — what the article validly establishes / does well
-    mechanism: list[str]   # 1–2 items, ≤18 words each — how the article pushes / its method
-    signature: str         # ≤15 words — neutral characterization of the piece
+    headline: str                        # ≤10 words — a fair, neutral read of the article
+    core_recap: list[str] = Field(default_factory=list)  # 2–3 items, ≤16 words — the article's central elements
+    note: str = ""                       # ≤18 words — one short critical note (neutral, no verdict)
 
 
 class SteelMan(BaseModel):
@@ -92,7 +91,7 @@ class CarouselDisplay(BaseModel):
     strengths: list[StrengthItem]  # exactly 2 items — the article's 2 strongest dimensions
     distill_points: list[str]  # exactly 3 items, ≤20 words each
     after_reading: list[str]   # exactly 3 items, ≤12 words each
-    key_takeaways: list[str] = Field(default_factory=list)  # exactly 2 items, ≤14 words — the article's most memorable CONTENT points (facts/ideas the reader learns), distinct from our critique. Default [] so pre-existing extracts still load.
+    key_takeaways: list[str] = Field(default_factory=list)  # 2–3 items, ≤14 words — the article's most memorable CONTENT points (facts/ideas the reader learns), distinct from our critique. Default [] so pre-existing extracts still load.
     blind_spots: list[str]   # exactly 2 items, ≤15 words each — what the article leaves out
     balance: list[str]       # exactly 2 items, ≤15 words each — calibrating note on the analysis limits
     # 4-act "lens to read with" fields — all defaulted so old extracts still load.
