@@ -68,6 +68,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
             {"label": "Pourquoi on l'a retenu", "body": d.why_selected},
         ]}),
         ("03_reperes", "03_reperes", {
+            "reperes_headline": d.reperes_headline,
             "context": contexts[0].text if contexts else "",
             "lens_count_word": _COUNT_WORD.get(len(d.lenses), "Les"),
             "lenses": [{"name": l.name, "question": l.question} for l in d.lenses],
@@ -95,6 +96,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         }))
 
     specs.append(("09_bilan", "10_bilan", {
+        "bilan_headline": d.bilan_headline,
         "takeaways": list(d.key_takeaways),
         "reflexes": [{"name": l.name, "question": l.question} for l in d.lenses],
         "engagement": pres.cta.engagement_sentence,
