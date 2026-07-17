@@ -929,8 +929,8 @@
   },
   "presentation": {
     "hook": {
-      "topic": "Tourisme polaire de luxe",
-      "sub_topic": "Le voyage qui détruit ce qu'il vient admirer ?",
+      "topic": "Tourisme polaire de **luxe**",
+      "sub_topic": "Le voyage qui **détruit** ce qu'il vient admirer ?",
       "headline": "Observer les pôles **accélère**-t-il leur disparition ?",
       "context_line": "Des croisières de luxe emmènent une élite admirer des glaces que leur propre voyage contribue à faire fondre."
     },

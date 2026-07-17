@@ -26,7 +26,8 @@
 /* split between the source article (above) and Sing Sing's analysis (below) */
 .divider2 { width: 100%; max-width: 880px; height: 2px; background: linear-gradient(to right, #d4aa00 0%, transparent 78%); margin: 36px 0 22px; }
 .kicker { font-size: 25px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #d4aa00; }
-.cover-sub { font-size: 34px; font-weight: 700; color: #f0f0f0; margin-top: 14px; max-width: 880px; }
+.cover-sub { font-size: 37px; font-weight: 400; font-style: italic; line-height: 1.3; color: #e8e8e8; margin-top: 16px; max-width: 880px; }
+.cover-sub strong { color: #d4aa00; font-weight: 700; font-style: normal; }
 .cover-head { font-size: 74px; font-weight: 900; line-height: 1.06; letter-spacing: -0.02em; color: #f0f0f0; max-width: 880px; margin-top: 14px; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .cover-head strong { color: #d4aa00; font-weight: 900; }
 </style>
@@ -48,7 +49,7 @@
   <div class="divider2"></div>
   <span class="kicker">Lecture critique</span>
   <h1 class="cover-head">{{ (topic or headline) | md_bold }}</h1>
-  {% if sub_topic %}<p class="cover-sub">{{ sub_topic }}</p>{% endif %}
+  {% if sub_topic %}<p class="cover-sub">{{ sub_topic | md_bold }}</p>{% endif %}
 
   <div class="swipe">Avant de lire <span class="sw-sep">&#8250;</span> Décryptage <span class="sw-sep">&#8250;</span> Prise de recul</div>
   <div style="position: absolute; bottom: 56px; left: 0; right: 0; text-align: center; font-size: 22px; color: #555; letter-spacing: 0.08em; font-style: italic;"><span style="color: #d4aa00;">Sing</span>, little bird, <span style="color: #d4aa00;">sing</span></div>
