@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "L'article pose que **observer** ces milieux par des voyages carbonés **détruit** les paysages mêmes que l'on vient voir.",
+      "kind": "angle",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "observer ces milieux par des voyages carbonés contribue à leur dégradation",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Le **bilan carbone** d'une croisière polaire atteint 15 à 25 tonnes de CO2 par passager.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 0,
+        "excerpt": "15 à 25 tonnes de CO2 par passager, plus du double d'un Français",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Le tourisme polaire connaît une **croissance rapide** en Arctique comme en Antarctique.",
+      "kind": "fait",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 1,
+        "excerpt": "le tourisme polaire connaît une croissance rapide aux deux pôles",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Les croisières perturbent la **faune polaire** durant l'unique saison de reproduction des espèces menacées.",
+      "kind": "enjeu",
+      "centrality": 3,
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "l'été austral, seule saison de reproduction, coïncide avec le pic des croisières",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "statement": "L'encadrement du tourisme polaire repose sur l'**autorégulation** des opérateurs, jugée insuffisante.",
+      "kind": "enjeu",
+      "centrality": 3,
+      "seeds": {
+        "source": "premisse",
+        "index": 3,
+        "excerpt": "l'encadrement laissé aux opérateurs est insuffisant",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    }
+  ]
+}
