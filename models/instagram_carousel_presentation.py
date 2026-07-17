@@ -69,10 +69,9 @@ class ReadingBeat(BaseModel):
 
 
 class GlobalAnalysis(BaseModel):
-    headline: str          # ≤10 words — balanced one-line read of the whole
-    solid: list[str] = Field(default_factory=list)  # 1–2 items, ≤16 words — what the article validly establishes / does well
-    mechanism: list[str]   # 1–2 items, ≤18 words each — how the article pushes / its method
-    signature: str         # ≤15 words — neutral characterization of the piece
+    headline: str                        # ≤10 words — a fair, neutral read of the article
+    core_recap: list[str] = Field(default_factory=list)  # 2–3 items, ≤16 words — the article's central elements
+    note: str = ""                       # ≤18 words — one short critical note (neutral, no verdict)
 
 
 class SteelMan(BaseModel):

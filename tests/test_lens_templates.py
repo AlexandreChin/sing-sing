@@ -41,19 +41,15 @@ def test_moment_shows_factcheck_pill_when_present():
     assert "Plutôt solide" in html
 
 
-def test_vue_ensemble_renders_solid_and_mechanism():
+def test_vue_ensemble_renders_core_recap_and_note():
     html = _render("08_vue_ensemble.html", phase="verdict",
-                   headline="Un vrai sujet, une démonstration qui force le trait",
-                   solid=["Le tourisme polaire émet réellement beaucoup"],
-                   mechanism=["Empilement statistique", "Glissement causal"],
-                   signature="Un constat réel, poussé par l'empilement")
-    assert "Ce qui est solide" in html
-    assert "Le tourisme polaire émet réellement beaucoup" in html
-    assert "Le procédé" in html
-    assert "Empilement statistique" in html
-    assert "Glissement causal" in html
-    # signature is no longer shown on slide 7 (moved to the selection slide)
-    assert "Un constat réel" not in html
+                   headline="Un tourisme polaire aux multiples enjeux",
+                   core_recap=["Un fort coût carbone par passager",
+                               "Une concurrence directe avec la faune"],
+                   note="Des chiffres rarement rapportés à un total.")
+    assert "Un fort coût carbone par passager" in html
+    assert "Une concurrence directe avec la faune" in html
+    assert "Des chiffres rarement rapportés à un total." in html
 
 
 def test_bilan_shows_takeaways_reflexes_and_engagement():

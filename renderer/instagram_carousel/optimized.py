@@ -63,8 +63,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
                                 "topic": pres.hook.topic, "sub_topic": pres.hook.sub_topic,
                                 "headline": pres.hook.headline, **cover_layers(meta, pres.hook.headline)}),
         ("02_selection", "02_selection", {"headline": d.selection_headline, "items": [
-            {"label": "Pourquoi on l'a retenu",
-             "body": d.global_analysis.signature if d.global_analysis else d.why_selected},
+            {"label": "Pourquoi on l'a retenu", "body": d.why_selected},
             {"label": "Ce que vous allez apprendre", "body": d.payoff},
         ]}),
         ("03_reperes", "03_reperes", {
@@ -86,8 +85,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     if d.global_analysis:
         ga = d.global_analysis
         specs.append(("07_vue_ensemble", "08_vue_ensemble",
-                      {"headline": ga.headline, "solid": list(ga.solid),
-                       "mechanism": list(ga.mechanism), "signature": ga.signature}))
+                      {"headline": ga.headline, "core_recap": list(ga.core_recap), "note": ga.note}))
 
     if d.steel_man or d.root_issue:
         specs.append(("08_prise_de_recul", "08_prise_de_recul", {

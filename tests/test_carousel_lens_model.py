@@ -23,8 +23,8 @@ def test_lens_beat_and_global_analysis_roundtrip():
         **_BASE,
         lenses=[Lens(id="chiffres", name="Chiffres sans base", question="Rapporté à quoi ?")],
         reading_beats=[ReadingBeat(moment="L'accroche", quote="+4400 %", lens_ref="chiffres", note="pas de base")],
-        global_analysis=GlobalAnalysis(headline="Une méthode", mechanism=["a", "b"], signature="marque de fabrique"),
+        global_analysis=GlobalAnalysis(headline="Une méthode", core_recap=["a", "b"], note="une remarque"),
         open_question="Ignore-t-il ou omet-il ?",
     )
     assert d.reading_beats[0].lens_ref == "chiffres"
-    assert d.global_analysis.mechanism == ["a", "b"]
+    assert d.global_analysis.core_recap == ["a", "b"]
