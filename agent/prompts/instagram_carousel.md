@@ -21,8 +21,8 @@ Structure du carousel (pour guider les hooks de transition) :
 Champs à produire :
 
 hook — l'accroche de la slide 1. RÈGLE : la QUESTION-accroche est neutre, elle éveille la curiosité SANS trancher la conclusion et ne PARAPHRASE PAS le titre original de l'article — reformule la tension centrale à partir des `core_elements`, avec un angle neuf.
-- topic : le sujet concret en quelques mots (3–5 mots) — c'est le grand titre affiché sur la slide 1 (p. ex. « Tourisme polaire de luxe »).
-- sub_topic : la QUESTION-accroche (≤12 mots), affichée sous le titre — neutre, curieuse, sans trancher, et sans paraphraser le titre original.
+- topic : le sujet concret en quelques mots (3–5 mots) — c'est le grand titre affiché sur la slide 1. Mets UN mot décisif en **gras** (rendu en doré), p. ex. « Tourisme polaire de **luxe** ».
+- sub_topic : la QUESTION-accroche (≤12 mots), affichée sous le titre — neutre, curieuse, sans trancher, et sans paraphraser le titre original. Mets UN mot clé en **gras** (rendu en doré), p. ex. « Le voyage qui **détruit** ce qu'il vient admirer ? ».
 - headline : variante courte de la question-accroche (≤12 mots), même esprit ; sans majuscule en milieu de phrase, sans citer la source ; ne paraphrase pas le titre. Mets en **gras** le mot ou groupe de mots décisif (1 seul passage, jamais toute la phrase).
 - context_line : une phrase contextuelle (≤20 mots) qui situe l'enjeu
 
