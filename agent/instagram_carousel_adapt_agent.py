@@ -49,6 +49,8 @@ def _lens_layer_errors(d) -> list[str]:
             errors.append("display.global_analysis.note is empty")
     if not d.root_issue.strip():
         errors.append("display.root_issue is empty")
+    if not (2 <= len(d.key_takeaways) <= 3):
+        errors.append(f"display.key_takeaways must have 2–3 items, got {len(d.key_takeaways)}")
     sm = d.steel_man
     if sm is None:
         errors.append("display.steel_man is missing")
@@ -92,8 +94,6 @@ def _validate(data: dict) -> list[str]:
         errors.append(f"display.distill_points must have exactly 3 items, got {len(d.distill_points)}")
     if len(d.after_reading) != 3:
         errors.append(f"display.after_reading must have exactly 3 items, got {len(d.after_reading)}")
-    if len(d.key_takeaways) != 2:
-        errors.append(f"display.key_takeaways must have exactly 2 items, got {len(d.key_takeaways)}")
     if not (1 <= len(d.watch_out) <= 2):
         errors.append(f"display.watch_out must have 1–2 items, got {len(d.watch_out)}")
     for i, item in enumerate(d.watch_out):
@@ -113,17 +113,19 @@ def _validate(data: dict) -> list[str]:
 
 
 def _full_analysis_context(full: ArticleFullAnalysis) -> str:
-    verdict = ""
-    if full.review:
-        v = full.review.verdict
-        verdict = (
-            "VERDICT (fil conducteur — toute la présentation doit y mener) :\n"
-            f"  qualité : {v.quality} · recommandation : {v.reading_recommendation}\n"
-            f"  thèse : {v.summary}\n\n"
+    core = ""
+    if full.core_elements and full.core_elements.elements:
+        lines = "\n".join(
+            f"  - [{e.kind}, centralité {e.centrality}] {e.statement}"
+            for e in full.core_elements.elements
+        )
+        core = (
+            "ÉLÉMENTS CENTRAUX (la présentation doit les COUVRIR — ne pas se limiter "
+            "à l'angle du titre) :\n" + lines + "\n\n"
         )
     return (
         f"ARTICLE METADATA :\n{_j(full.article_metadata.model_dump())}\n\n"
-        f"{verdict}"
+        f"{core}"
         f"ANALYSE COMPLÈTE :\n{full.model_dump_json(indent=2)}"
     )
 
