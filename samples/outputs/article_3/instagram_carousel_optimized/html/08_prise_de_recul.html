@@ -332,6 +332,38 @@ body {
   overflow: hidden;
 }
 
+/* ── Réflexe pill (moment slides + bilan recap) ── */
+.reflex-pill {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1.5px solid #d4aa00;
+  border-radius: 999px;
+  padding: 9px 22px;
+}
+.reflex-pill svg { width: 26px; height: 26px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.reflex-pill .rl-tag { font-weight: 800; letter-spacing: .08em; color: #d4aa00; text-transform: uppercase; font-size: 22px; }
+.reflex-pill .rl-name { font-weight: 800; color: #f0f0f0; font-size: 26px; }
+
+/* ── Wrap-up card (slide 7 signature, slide 9 question) ── */
+.wrap-card {
+  align-self: stretch;
+  /* outdent by the padding so inner content aligns flush-left with the
+     section headers/bullets while the border still frames the card */
+  margin: 6px -30px 0;
+  border: 2px solid #d4aa00;
+  border-radius: 16px;
+  padding: 24px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.wrap-card .wc-label { display: flex; align-items: center; gap: 18px; font-size: 38px; font-weight: 900; line-height: 1.05; letter-spacing: -0.01em; color: #f0f0f0; }
+.wrap-card .wc-label svg { width: 38px; height: 38px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.wrap-card .wc-text { font-size: 34px; font-weight: 800; line-height: 1.38; color: #f5f5f5; }
+.wrap-card .wc-text strong { color: #d4aa00; font-weight: 800; }
+
 /* ── Progress bar ── */
 .progress-track {
   position: absolute;
@@ -369,14 +401,19 @@ body {
 .trk.on { color: #d4aa00; }
 .trk svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .trk-sep { color: #3a3a3a; }
-.kick { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; }
-.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+.kick { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; display: flex; align-items: center; gap: 16px; }
+.kick svg { width: 34px; height: 34px; flex: none; }
 .head { font-size: 52px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
-.keys { display: flex; flex-direction: column; gap: 20px; }
-.key { display: flex; gap: 22px; align-items: flex-start; font-size: 35px; line-height: 1.38; color: #e0e0e0; text-align: justify; hyphens: auto; }
-.key .mk { flex: none; font-weight: 900; font-size: 36px; line-height: 1.1; }
-.key.miss .mk { color: #d4aa00; }
-.key.nuance .mk { color: #e8a07a; }
+.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+.q-item { display: flex; flex-direction: column; gap: 12px; }
+.q-head { display: flex; gap: 18px; align-items: center; }
+.q-head .mk { flex: none; }
+.q-head .mk svg { width: 36px; height: 36px; display: block; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.q-label { font-size: 32px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; color: #f0f0f0; }
+.r-list { display: flex; flex-direction: column; gap: 12px; padding-left: 54px; }
+.r-item { display: flex; gap: 16px; align-items: flex-start; font-size: 34px; line-height: 1.4; color: #e0e0e0; }
+.r-item .rk { flex: none; color: #d4aa00; font-weight: 900; font-size: 36px; line-height: 1.1; }
+.r-item strong { color: #d4aa00; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -387,20 +424,28 @@ body {
   <div class="tracker">
   <span class="trk"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>Avant de lire</span>
   <span class="trk-sep">·</span>
-  <span class="trk"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Décryptage</span>
+  <span class="trk"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Pendant la lecture</span>
   <span class="trk-sep">·</span>
-  <span class="trk on"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>Prise de recul</span>
+  <span class="trk on"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>Après la lecture</span>
 </div>
   <div class="stage">
-    <span class="kick"><svg class="ki" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Prise de recul</span>
-    <h1 class="head">Angles morts et nuances.</h1>
+    <span class="kick"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="12" y2="21"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg>Prise de recul</span>
+    <h1 class="head">À vous de juger.</h1>
     <div class="divider"></div>
-    <div class="keys">
-      <div class="key miss"><span class="mk">&#8856;</span><span>La part réelle du tourisme polaire dans les émissions mondiales n&#39;est jamais chiffrée.</span></div><div class="key miss"><span class="mk">&#8856;</span><span>Retombées économiques locales et voix défendant l&#39;activité restent absentes.</span></div>
-      <div class="key nuance"><span class="mk">&#8776;</span><span>Un reportage d&#39;engagement court n&#39;a pas vocation à être exhaustif.</span></div><div class="key nuance"><span class="mk">&#8776;</span><span>Une ligne éditoriale explicite peut défendre une position sans dérouler chaque contradictoire.</span></div>
+    <div class="q-item">
+      <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="q-label">L'objection la plus solide</span></div>
+      <div class="r-list">
+        <div class="r-item"><span class="rk">&#8250;</span><span>Un tourisme encadré transforme des visiteurs en <strong>ambassadeurs de la conservation</strong>, générant soutiens politiques et financements pour protéger les pôles.</span></div>
+      </div>
+    </div>
+    <div class="q-item">
+      <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><span class="q-label">L'enjeu de fond</span></div>
+      <div class="r-list">
+        <div class="r-item"><span class="rk">&#8250;</span><span>Au-delà des chiffres absolus, marginaux dans les émissions mondiales, l&#39;enjeu est surtout <strong>symbolique</strong> : une élite qui affiche son indifférence climatique face à un monde qui surchauffe.</span></div>
+      </div>
     </div>
   </div>
-  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">À retenir &#8595;</span></div>
+  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">À retenir &#8250;</span></div>
   <div class="slide-num">8 / 10</div>
   <div class="progress-track"><div class="progress-bar" style="width: 80%;"></div></div>
 </div>

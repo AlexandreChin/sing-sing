@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+.kick { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; display: flex; align-items: center; gap: 16px; }
+.kick svg { width: 34px; height: 34px; flex: none; }
+.head { font-size: 50px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
+.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+.q-item { display: flex; flex-direction: column; gap: 12px; }
+.q-head { display: flex; gap: 18px; align-items: center; }
+.q-head .mk { flex: none; }
+.q-head .mk svg { width: 34px; height: 34px; display: block; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+.q-label { font-size: 30px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+.q-label.solide { color: #f0f0f0; }
+.q-label.procede { color: #f0f0f0; }
+.r-list { display: flex; flex-direction: column; gap: 12px; padding-left: 52px; }
+.r-item { display: flex; gap: 16px; align-items: flex-start; font-size: 33px; line-height: 1.38; color: #e0e0e0; }
+.r-item .rk { flex: none; font-weight: 900; font-size: 34px; line-height: 1.1; color: #d4aa00; }
+.r-item strong { color: #d4aa00; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
+  {% include '_brand.html' %}
+  {% include '_tracker.html' %}
+  <div class="stage">
+    <span class="kick"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>Vue d'ensemble</span>
+    <h1 class="head">{{ headline }}</h1>
+    <div class="divider"></div>
+    {% if solid %}<div class="q-item solide">
+      <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24" stroke="#d4aa00"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span><span class="q-label solide">Ce qui est solide</span></div>
+      <div class="r-list">
+        {% for s in solid %}<div class="r-item"><span class="rk">&#8250;</span><span>{{ s | md_bold }}</span></div>{% endfor %}
+      </div>
+    </div>{% endif %}
+    {% if mechanism %}<div class="q-item procede">
+      <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24" stroke="#d4aa00"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><span class="q-label procede">Le procédé</span></div>
+      <div class="r-list">
+        {% for m in mechanism %}<div class="r-item"><span class="rk">&#8250;</span><span>{{ m | md_bold }}</span></div>{% endfor %}
+      </div>
+    </div>{% endif %}
+  </div>
+  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Prendre du recul &#8250;</span></div>
+  <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
+  <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
+</div>
+</body>
+</html>

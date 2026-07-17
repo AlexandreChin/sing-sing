@@ -54,6 +54,32 @@ class StrengthItem(BaseModel):
     text: str    # ≤15 words — what the article does well, no article quotes, no confidence/node ids
 
 
+class Lens(BaseModel):
+    id: str        # canonical lens id (see agent/lenses.py), e.g. "chiffres"
+    name: str      # display name, e.g. "Chiffres sans base"
+    question: str  # the always-ask question, ≤12 words
+
+
+class ReadingBeat(BaseModel):
+    moment: str    # ≤10 words — where we are in the article (reading order)
+    quote: str     # verbatim anchor from the article
+    lens_ref: str  # must equal one selected Lens.id
+    note: str      # ≤25 words — what to notice / the check, no verdict
+    factcheck: str = ""  # confidence_label of the matching claim (or "" if not a checkable fact)
+
+
+class GlobalAnalysis(BaseModel):
+    headline: str          # ≤10 words — balanced one-line read of the whole
+    solid: list[str] = Field(default_factory=list)  # 1–2 items, ≤16 words — what the article validly establishes / does well
+    mechanism: list[str]   # 1–2 items, ≤18 words each — how the article pushes / its method
+    signature: str         # ≤15 words — neutral characterization of the piece
+
+
+class SteelMan(BaseModel):
+    argument: str      # ≤18 words — the strongest objection to the article's thesis
+    alternative: str   # ≤14 words — the conclusion that follows if it holds
+
+
 class CarouselDisplay(BaseModel):
     """Condensed, carousel-ready display strings for the long format slides."""
     payoff: str              # ≤15 words — what the reader gets from this article
@@ -69,6 +95,13 @@ class CarouselDisplay(BaseModel):
     key_takeaways: list[str] = Field(default_factory=list)  # exactly 2 items, ≤14 words — the article's most memorable CONTENT points (facts/ideas the reader learns), distinct from our critique. Default [] so pre-existing extracts still load.
     blind_spots: list[str]   # exactly 2 items, ≤15 words each — what the article leaves out
     balance: list[str]       # exactly 2 items, ≤15 words each — calibrating note on the analysis limits
+    # 4-act "lens to read with" fields — all defaulted so old extracts still load.
+    lenses: list[Lens] = Field(default_factory=list)            # Act 2 — 2–3 selected
+    reading_beats: list[ReadingBeat] = Field(default_factory=list)  # Act 3 — 2–3, reading order
+    global_analysis: GlobalAnalysis | None = None              # Act 4 slide 07
+    open_question: str = ""                                     # (legacy) — superseded by root_issue
+    root_issue: str = ""                                        # Act 4 slide 08 — the deeper problematic the article raises
+    steel_man: SteelMan | None = None                          # Act 4 slide 08 — strongest objection
 
 
 class InstagramCarouselPresentation(BaseModel):

@@ -6,7 +6,7 @@
 {% include 'base.css' %}
 .rubrique-tab { display: inline-flex; align-items: center; gap: 14px; font-size: 28px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #d4aa00; }
 .rubrique-tab svg { width: 40px; height: 40px; stroke: #d4aa00; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.swipe { position: absolute; bottom: 120px; left: 90px; right: 90px; font-size: 27px; font-weight: 700; color: #aaa; letter-spacing: .04em; }
+.swipe { position: absolute; bottom: 120px; left: 90px; right: 90px; font-size: 27px; font-weight: 700; color: #aaa; letter-spacing: .04em; text-align: center; }
 .sw-sep { color: #d4aa00; font-weight: 800; }
 /* layer 1: faint per-carousel procedural art */
 .artbg { position: absolute; inset: 0; z-index: -2; }
@@ -26,6 +26,7 @@
 /* split between the source article (above) and Sing Sing's analysis (below) */
 .divider2 { width: 100%; max-width: 880px; height: 2px; background: linear-gradient(to right, #d4aa00 0%, transparent 78%); margin: 36px 0 22px; }
 .kicker { font-size: 25px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #d4aa00; }
+.cover-sub { font-size: 34px; font-weight: 700; color: #9a9a9a; margin-top: 14px; max-width: 880px; }
 .cover-head { font-size: 74px; font-weight: 900; line-height: 1.06; letter-spacing: -0.02em; color: #f0f0f0; max-width: 880px; margin-top: 14px; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .cover-head strong { color: #d4aa00; font-weight: 900; }
 </style>
@@ -46,9 +47,11 @@
 
   <div class="divider2"></div>
   <span class="kicker">Lecture critique</span>
-  <h1 class="cover-head">{{ headline | md_bold }}</h1>
+  <h1 class="cover-head">{{ (topic or headline) | md_bold }}</h1>
+  {% if sub_topic %}<p class="cover-sub">{{ sub_topic }}</p>{% endif %}
 
   <div class="swipe">Avant de lire <span class="sw-sep">&#8250;</span> Décryptage <span class="sw-sep">&#8250;</span> Prise de recul</div>
+  <div style="position: absolute; bottom: 56px; left: 0; right: 0; text-align: center; font-size: 22px; color: #555; letter-spacing: 0.08em; font-style: italic;"><span style="color: #d4aa00;">Sing</span>, little bird, <span style="color: #d4aa00;">sing</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
 </div>

@@ -332,6 +332,38 @@ body {
   overflow: hidden;
 }
 
+/* ── Réflexe pill (moment slides + bilan recap) ── */
+.reflex-pill {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1.5px solid #d4aa00;
+  border-radius: 999px;
+  padding: 9px 22px;
+}
+.reflex-pill svg { width: 26px; height: 26px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.reflex-pill .rl-tag { font-weight: 800; letter-spacing: .08em; color: #d4aa00; text-transform: uppercase; font-size: 22px; }
+.reflex-pill .rl-name { font-weight: 800; color: #f0f0f0; font-size: 26px; }
+
+/* ── Wrap-up card (slide 7 signature, slide 9 question) ── */
+.wrap-card {
+  align-self: stretch;
+  /* outdent by the padding so inner content aligns flush-left with the
+     section headers/bullets while the border still frames the card */
+  margin: 6px -30px 0;
+  border: 2px solid #d4aa00;
+  border-radius: 16px;
+  padding: 24px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.wrap-card .wc-label { display: flex; align-items: center; gap: 18px; font-size: 38px; font-weight: 900; line-height: 1.05; letter-spacing: -0.01em; color: #f0f0f0; }
+.wrap-card .wc-label svg { width: 38px; height: 38px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.wrap-card .wc-text { font-size: 34px; font-weight: 800; line-height: 1.38; color: #f5f5f5; }
+.wrap-card .wc-text strong { color: #d4aa00; font-weight: 800; }
+
 /* ── Progress bar ── */
 .progress-track {
   position: absolute;
@@ -397,9 +429,9 @@ body {
   <div class="tracker">
   <span class="trk on"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>Avant de lire</span>
   <span class="trk-sep">·</span>
-  <span class="trk"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Décryptage</span>
+  <span class="trk"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Pendant la lecture</span>
   <span class="trk-sep">·</span>
-  <span class="trk"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>Prise de recul</span>
+  <span class="trk"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>Après la lecture</span>
 </div>
   <div class="stage">
     <span class="kick"><svg class="ki" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>Clefs de lecture</span>
@@ -410,10 +442,12 @@ body {
         <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span><span class="q-label">Le contexte</span></div>
         <p class="q-body">L&#39;article paraît en pleine <strong>canicule</strong> en France, ce qui sert de contrepoint direct au sujet.</p>
       </div>
+      
+      
       <div class="q-item">
-        <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="q-label">Deux réflexes</span></div>
+        <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="q-label">Trois réflexes</span></div>
         <div class="r-list">
-          <div class="r-item"><span class="rk">&#8250;</span><span>Repérez l&#39;angle du <strong>tourisme de la dernière chance</strong>.</span></div><div class="r-item"><span class="rk">&#8250;</span><span>Pour chaque pourcentage, cherchez sa <strong>base</strong> et son <strong>total</strong>.</span></div>
+          <div class="r-item"><span class="rk">&#8250;</span><span><strong>Cadrage</strong> — Qu&#39;est-ce qu&#39;on met en avant, et hors champ ?</span></div><div class="r-item"><span class="rk">&#8250;</span><span><strong>Chiffres sans base</strong> — Ce chiffre, rapporté à quoi ?</span></div><div class="r-item"><span class="rk">&#8250;</span><span><strong>Causalité</strong> — Vraie cause, ou simple corrélation ?</span></div>
         </div>
       </div>
     </div>

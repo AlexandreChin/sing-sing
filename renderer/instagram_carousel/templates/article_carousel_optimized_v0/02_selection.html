@@ -9,8 +9,9 @@
 .sel-head { font-size: 56px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
 .q-list { display: flex; flex-direction: column; gap: 34px; }
 .q-item { display: flex; flex-direction: column; gap: 12px; }
-.q-head { display: flex; gap: 18px; align-items: baseline; }
-.q-head .mk { flex: none; color: #d4aa00; font-weight: 900; font-size: 38px; line-height: 1; }
+.q-head { display: flex; gap: 18px; align-items: center; }
+.q-head .mk { flex: none; }
+.q-head .mk svg { width: 38px; height: 38px; display: block; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .q-label { font-size: 40px; font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; color: #f0f0f0; }
 .q-body { font-size: 35px; font-weight: 400; line-height: 1.42; color: #e0e0e0; padding-left: 36px; text-align: justify; hyphens: auto; }
 .q-body strong { color: #d4aa00; font-weight: 700; }
@@ -26,7 +27,7 @@
     <div class="divider"></div>
     <div class="q-list">
       {% for q in items %}<div class="q-item">
-        <div class="q-head"><span class="mk">&#10003;</span><span class="q-label">{{ q.label }}</span></div>
+        <div class="q-head"><span class="mk">{% if loop.first %}<svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>{% else %}<svg viewBox="0 0 24 24"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1.22.5 2.54 1.5 3.5.76.76 1.23 1.52 1.41 2.5"/></svg>{% endif %}</span><span class="q-label">{{ q.label }}</span></div>
         <p class="q-body">{{ q.body | md_bold }}</p>
       </div>{% endfor %}
     </div>
