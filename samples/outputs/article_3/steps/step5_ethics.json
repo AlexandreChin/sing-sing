@@ -1,0 +1,20 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "deo1",
+        "category": "false_statistics",
+        "label": "False Statistics",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "le nombre de voyageurs optant pour une croisière avec vol a augmenté de plus de 4 400 % en vingt ans, passant de 230 en 2004 à plus de 10 000 en 2024",
+        "explanation": "Le pourcentage spectaculaire naît d'une base minuscule (230) et provient d'un opérateur partie prenante."
+      }
+    ],
+    "verdict": {
+      "overall": "good",
+      "editorial_note": "Signaler que le chiffre de +4 400 % repose sur une base infime et sur une source commerciale intéressée."
+    },
+    "summary": "La déontologie est globalement respectée : les deux agences ont été sollicitées et Antarctica21 a pu répondre. Une seule réserve mineure, sur un pourcentage gonflé par un effet de base et issu d'un opérateur."
+  }
+}

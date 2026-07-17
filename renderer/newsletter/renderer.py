@@ -7,7 +7,6 @@ table-based, inline-styled variant that survives email clients.
 import base64
 import io
 import json
-import math
 import re
 from pathlib import Path
 
@@ -17,6 +16,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from models.newsletter_presentation import NewsletterDocument
 from renderer.categories import pill
+from renderer.radar import radar_svg, DIM_SHORT
 from renderer.instagram_carousel._shared import _weighted_quality, _LOGO_DATA_URL, _LOGO_PATH, _md_bold, TYPE_FR
 
 TEMPLATES_DIR = Path(__file__).parent / "templates"
@@ -46,64 +46,6 @@ def _email_logo_data_url(px: int = 160) -> str:
 
 
 _EMAIL_LOGO = _email_logo_data_url()
-
-
-# Short axis labels for the radar chart (the 8 review dimensions).
-DIM_SHORT = {
-    "source_rigor": "Sources",
-    "factual_accuracy": "Exactitude",
-    "reasoning_structure": "Raisonnement",
-    "approach_transparency": "Transparence",
-    "context_completeness": "Contexte",
-    "treatment_fairness": "Équité",
-    "clarity": "Clarté",
-    "angle_originality": "Originalité",
-}
-
-
-def _radar_svg(dims) -> str:
-    """Radar (spider) chart of the review dimensions (score 1–5), gold on dark —
-    the visual breakdown behind the global score. One axis per dimension."""
-    if not dims:
-        return ""
-    n = len(dims)
-    cx, cy, R = 210.0, 158.0, 96.0
-
-    def pt(i, r):
-        ang = -math.pi / 2 + i * 2 * math.pi / n
-        return cx + r * math.cos(ang), cy + r * math.sin(ang)
-
-    def poly(r_of):
-        return " ".join(f"{x:.1f},{y:.1f}" for x, y in (pt(i, r_of(i)) for i in range(n)))
-
-    rings = "".join(
-        f'<polygon points="{poly(lambda i, rr=R*s/5: rr)}" fill="none" stroke="#2b2b2b" stroke-width="1"/>'
-        for s in range(1, 6)
-    )
-    axes = "".join(
-        f'<line x1="{cx}" y1="{cy}" x2="{x:.1f}" y2="{y:.1f}" stroke="#2b2b2b" stroke-width="1"/>'
-        for x, y in (pt(i, R) for i in range(n))
-    )
-    data = poly(lambda i: R * dims[i].score / 5)
-    shape = f'<polygon points="{data}" fill="rgba(212,170,0,0.22)" stroke="#d4aa00" stroke-width="2"/>'
-    dots = "".join(
-        f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3" fill="#d4aa00"/>'
-        for x, y in (pt(i, R * dims[i].score / 5) for i in range(n))
-    )
-    labels = []
-    for i in range(n):
-        lx, ly = pt(i, R + 16)
-        anchor = "middle" if abs(lx - cx) < 3 else ("start" if lx > cx else "end")
-        short = DIM_SHORT.get(dims[i].dimension, dims[i].label)
-        labels.append(
-            f'<text x="{lx:.1f}" y="{ly:.1f}" text-anchor="{anchor}" dominant-baseline="middle" '
-            f'font-size="11" fill="#9a9a9a" font-family="Helvetica,Arial,sans-serif">{short} '
-            f'<tspan fill="#d4aa00" font-weight="700">{dims[i].score}</tspan></text>'
-        )
-    return (
-        '<svg viewBox="0 0 420 300" width="420" height="300" xmlns="http://www.w3.org/2000/svg">'
-        + rings + axes + shape + dots + "".join(labels) + '</svg>'
-    )
 
 
 # Level → accent colour, shared by the gauge and the per-dimension bars in the
@@ -258,7 +200,7 @@ def _ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
         "band": wq["label"] if wq else "",
         "gauge_pos": wq["pos"] if wq else 50,
         "gauge_level": wq["level"] if wq else "mid",
-        "radar_svg": Markup(_radar_svg(full.review.dimensions)) if (full.review and full.review.dimensions) else "",
+        "radar_svg": Markup(radar_svg(full.review.dimensions)) if (full.review and full.review.dimensions) else "",
         "for_whom": verdict.for_whom if verdict else "",
         "meta_line": meta_line,
         # Category pill (dark by default — rich newsletter); the email overrides

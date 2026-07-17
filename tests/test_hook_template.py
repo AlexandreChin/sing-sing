@@ -21,7 +21,8 @@ def test_hook_renders_layers_rubrique_and_headline():
     assert '<div class="giant">' in html
     assert '<div class="rubrique-tab">' in html
     assert "Tech" in html
-    assert "art-title" in html and "Titre de l" in html  # article_title rendered (apostrophe auto-escaped as &#39;)
+    assert '<div class="src-card">' in html and "Titre de l" in html  # source card renders article title (apostrophe auto-escaped as &#39;)
+    assert "Lecture critique" in html              # explicit split: curated read → critical-reading lens
     assert "<strong>mot</strong>" in html          # md_bold applied
     assert 'class="cat-pill"' not in html          # old pill element no longer rendered
     assert 'x1="0" y1="0" x2="10" y2="10"' in html  # art_svg injected

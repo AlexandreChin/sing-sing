@@ -34,21 +34,25 @@ MAX_RETRIES = 2
 
 def _call_no_api(user_message: str, schema: dict, system: str | None = None) -> dict:
     system_prompt = system or _SYSTEM_PROMPT
+    # `claude -p` runs the agentic Claude Code CLI, not a bare completion. Framing
+    # the task first (before the doc blob) stops it from replying conversationally,
+    # and `--output-format json` wraps its answer in an envelope whose `result`
+    # field holds the model text.
     prompt = (
-        f"{system_prompt}\n\n"
-        "---\n\n"
-        f"{user_message}\n\n"
-        "---\n\n"
-        "Réponds UNIQUEMENT avec un objet JSON valide correspondant exactement à ce schéma :\n"
-        f"{json.dumps(schema, ensure_ascii=False, indent=2)}\n\n"
-        "N'ajoute aucun texte avant ni après le JSON. Pas de balises markdown. Pas d'explication."
+        "TÂCHE : Produis UNIQUEMENT un objet JSON valide correspondant exactement au "
+        "schéma ci-dessous, à partir des instructions et données fournies. N'exécute "
+        "aucune action, n'utilise aucun outil, ne pose aucune question, n'ajoute aucun "
+        "texte avant ni après le JSON, pas de balises markdown.\n\n"
+        f"=== INSTRUCTIONS SYSTÈME ===\n{system_prompt}\n\n"
+        f"=== DONNÉES ET CONSIGNE ===\n{user_message}\n\n"
+        f"=== SCHÉMA JSON ATTENDU ===\n{json.dumps(schema, ensure_ascii=False)}\n"
     )
     # `claude -p` intermittently returns empty stdout; retry before giving up so a
     # single transient blank doesn't abort the whole pipeline.
     last_err = ""
     for _ in range(MAX_RETRIES + 1):
         result = subprocess.run(
-            ["claude", "-p", prompt],
+            ["claude", "-p", prompt, "--output-format", "json"],
             capture_output=True,
             text=True,
             encoding="utf-8",
@@ -56,9 +60,14 @@ def _call_no_api(user_message: str, schema: dict, system: str | None = None) -> 
         if result.returncode != 0:
             last_err = f"claude CLI failed:\n{result.stderr}"
             continue
-        text = result.stdout.strip()
-        if not text:
+        envelope = result.stdout.strip()
+        if not envelope:
             last_err = "claude CLI returned empty output"
+            continue
+        try:
+            text = json.loads(envelope)["result"].strip()
+        except (json.JSONDecodeError, KeyError, TypeError) as e:
+            last_err = f"unexpected claude CLI envelope: {e}"
             continue
         match = re.search(r"```(?:json)?\s*([\s\S]+?)\s*```", text)
         if match:

@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "Les experts critiques (deux géographes) sont légitimes et la voix défensive d'Antarctica21 a été sollicitée, ce qui évite le procès à charge total. Mais les chiffres clés reposent sur des **parties prenantes** : la croissance « +4 400 % » vient d'AdventureSmith Explorations (`party_statement`) et la fourchette « 15-25 tonnes » n'est **pas vérifiée indépendamment**, tandis que l'insuffisance de l'encadrement s'appuie sur un seul expert.",
+        "lesson": "Vérifie toujours qui produit le chiffre : un pourcentage spectaculaire fourni par un vendeur du marché décrit n'est pas une donnée neutre."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "La comparaison à l'empreinte moyenne d'un Français est validée par l'ADEME (`supports: validates`), ce qui ancre un repère solide. Mais plusieurs assertions sont présentées comme des faits établis sans support indépendant (« 15-25 tonnes », confidence 70 ; « tourisme de la dernière chance » classé `opinion_stated_as_fact`), et le « +4 400 % » (confidence 50) part d'une **base de 230 voyageurs** qui gonfle l'impression d'ampleur.",
+        "lesson": "Ramène tout pourcentage à sa valeur absolue de départ : une hausse énorme sur une base minuscule mesure surtout la petitesse du point de départ."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "La thèse est lisible mais s'appuie sur des sauts non signalés : le texte glisse d'une **contribution globale au réchauffement** à la destruction du **site précis visité** (`logical_reasoning`, problème de validité), et de l'échec de l'autorégulation vers la nécessité d'une sanctuarisation totale sans examiner les options intermédiaires. La qualité des prémisses est elle-même minée par des sources parties prenantes.",
+        "lesson": "Repère le passage du général au particulier : « ils réchauffent la planète » n'implique pas logiquement « ils détruisent ce paysage-ci »."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "Le point de vue écologiste est assumé, mais les limites de la démonstration restent **tues** : l'article ne reconnaît jamais que la part du tourisme polaire dans les émissions mondiales n'est pas chiffrée (`blind_spots`), ni que ses statistiques proviennent d'opérateurs. L'interprétation « dernière chance » est présentée comme un constat plutôt que comme une lecture.",
+        "lesson": "Méfie-toi d'un texte qui ne signale aucune de ses propres incertitudes : l'absence de réserves affichées est elle-même un choix éditorial."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Le reportage empile des statistiques croissantes (`emphasis` : « 4 400 %, ×10, 27 000 € ») **sans total de référence**, et laisse quatre angles morts substantiels : retombées économiques pour le Groenland/l'Islande, part réelle dans les émissions mondiales, comparaison avec d'autres tourismes long-courriers, et voix défendant l'activité. Le lecteur ne dispose donc pas des repères pour juger l'ampleur réelle du problème.",
+        "lesson": "Cherche le dénominateur manquant : sans part dans le total, un chiffre impressionnant ne dit rien de son poids réel."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Le traitement est asymétrique : deux experts critiques sont développés sur plusieurs paragraphes tandis que l'argument d'Antarctica21 est « cité une fois puis contré » (`emphasis`). Le cadrage moral d'ouverture (canicule française face au « loisir des riches ») installe le reproche avant tout chiffre (`biases_and_rhetoric`, br1), fermant l'espace du contradictoire.",
+        "lesson": "Compte l'espace accordé à chaque partie : une voix « citée puis immédiatement réfutée » n'est pas un vrai contradictoire."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "L'écriture est fluide et accessible pour un public non spécialiste, avec des détails concrets qui ancrent l'abstrait (les **sièges retirés** pour emporter le carburant du retour). Le titre travaille efficacement l'ironie et le présupposé (`title_analysis`), au prix d'une orientation implicite du lecteur mais sans nuire à la lisibilité.",
+        "lesson": "Apprécie la clarté sans baisser la garde : un texte très lisible peut aussi être très orientant, l'aisance de lecture n'est pas une garantie de neutralité."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "L'angle du « tourisme de la dernière chance » — la peur de la disparition vendue comme moteur d'un tourisme qui l'aggrave (`focus`) — offre un paradoxe fécond et un vrai fil narratif. Mais le propos reste une critique écologiste attendue, et le `steel_man` (des visiteurs devenant ambassadeurs de la conservation) qui aurait renouvelé le regard n'est pas exploré dans le texte.",
+        "lesson": "Demande-toi si l'angle original a été poussé jusqu'à son contre-argument : un paradoxe qui n'affronte pas sa propre objection reste une posture."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Le lecteur suivant les enjeux climatiques qui veut s'exercer à repérer comment un cadrage militant convertit des chiffres d'opérateurs en démonstration morale.",
+      "payoff": "Vous comprendrez comment l'accumulation de statistiques spectaculaires sans base de référence fabrique une impression d'ampleur, et vous saurez rétablir mentalement les repères manquants (valeur absolue, part dans le total, source du chiffre).",
+      "signature_move": "L'empilement de statistiques frappantes (+4 400 %, ×10, 27 000 €) jamais rapportées à un total de référence, marque de fabrique de la presse d'engagement écologiste.",
+      "main_blind_side": "La part réelle du tourisme polaire dans les émissions mondiales n'est jamais chiffrée : cette absence révèle un choix de dramatiser plutôt que de proportionner.",
+      "further_resource": {
+        "title": "Comment mentir avec les statistiques",
+        "source": "Darrell Huff",
+        "media_type": "book",
+        "why_explore": "Il outille précisément le réflexe qui manque ici : lire un pourcentage impressionnant en cherchant sa base de départ et son total de référence.",
+        "url": null
+      },
+      "summary": "Lecture à conseiller avec réserves : le reportage est clair et bâtit un paradoxe intéressant, mais il appuie sa charge morale sur des chiffres d'opérateurs non vérifiés et privés de base de comparaison — à confronter à d'autres sources pour juger l'ampleur réelle du problème."
+    }
+  }
+}

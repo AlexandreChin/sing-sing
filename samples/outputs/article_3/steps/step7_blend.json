@@ -1,0 +1,91 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "Le **glissement causal** repéré dans la rhétorique n'est pas une maladresse isolée : il exécute exactement le saut de validité diagnostiqué en logique, où une contribution globale au réchauffement devient la cause directe de la destruction du site précis observé.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "lr_0",
+          "bias_1"
+        ]
+      },
+      {
+        "text": "Le **+4 400 %** cumule trois fragilités qui se renforcent : effet de base minuscule (230 voyageurs) côté logique, source opérateur partie prenante côté probe, et unique réserve déontologique retenue en éthique — le chiffre le plus spectaculaire est aussi le moins solide.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "lr_1",
+          "claim_1",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "La **juxtaposition canicule/luxe** d'ouverture opère simultanément sur trois plans : cadrage structurant en logique, moteur d'indignation en rhétorique, biais de contraste moral en probe — un même dispositif installe le reproche avant tout chiffre.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "obs_0",
+          "er_0",
+          "bias_0"
+        ]
+      },
+      {
+        "text": "L'insistance sur l'**autorégulation** des opérateurs (logique) alimente directement le cui bono des partisans d'une sanctuarisation (rhétorique) et prépare le glissement, non examiné, du constat d'échec vers l'interdiction totale (logique).",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "obs_3",
+          "cb_0",
+          "lr_2"
+        ]
+      },
+      {
+        "text": "L'**accumulation de statistiques croissantes** relevée en probe trouve sa condition d'efficacité dans l'angle mort logique : la part réelle du tourisme polaire dans les émissions mondiales n'étant jamais chiffrée, l'empilement fabrique une ampleur que nul dénominateur ne vient contredire.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "bs_2",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "La formule « **tourisme de la dernière chance** », classée opinion présentée comme fait en probe, conforte la ligne éditoriale écologiste identifiée en rhétorique : l'interprétation de l'auteur devient constat au service de l'identité engagée du média.",
+        "layers": [
+          "probe",
+          "rhetoric"
+        ],
+        "references": [
+          "claim_2",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "Le détail des **sièges retirés** pour le carburant du retour lie un fait non vérifiable indépendamment (probe) au sentiment d'absurdité travaillé en rhétorique : le frappant logistique installe le « non-sens » avant tout examen chiffré.",
+        "layers": [
+          "probe",
+          "rhetoric"
+        ],
+        "references": [
+          "claim_3",
+          "er_1"
+        ]
+      }
+    ]
+  }
+}

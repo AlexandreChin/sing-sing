@@ -12,7 +12,7 @@ from models.instagram_carousel_presentation import InstagramCarouselDocument
 from renderer.categories import carousel_theme
 from ._shared import (
     _env, _LOGO_DATA_URL,
-    _weighted_quality, TYPE_FR, cover_layers,
+    TYPE_FR, cover_layers,
 )
 
 TPL = "article_carousel_optimized_v0"
@@ -22,18 +22,9 @@ TPL = "article_carousel_optimized_v0"
 PHASE_OF = {
     "03_reperes": "avant",
     "04_verif_faits": "analyse", "05_faille_1": "analyse", "06_faille_2": "analyse",
-    "07_point_fort": "analyse", "08_prise_de_recul": "analyse",
-    "09_verdict": "verdict",
+    "07_point_fort": "analyse",
+    "08_prise_de_recul": "verdict",
 }
-RECO = {
-    "recommended": "Recommandé",
-    "with_reservations": "À lire — avec réserves",
-    "not_recommended": "À éviter",
-}
-
-
-def _fr_num(x: float) -> str:
-    return f"{x:.1f}".replace(".", ",")
 
 
 def _truncate(text: str, limit: int) -> str:
@@ -154,14 +145,8 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         "items": [{"label": s.label, "body": s.text} for s in disp.strengths],
     }
 
-    wq = _weighted_quality(full)
     verdict = full.review.verdict if full.review else None
     contexts = full.context.contexts[:1]
-
-    main_gauge = (
-        {"name": "Qualité de l'article", "val": wq["label"], "pos": wq["pos"], "level": wq["level"]}
-        if wq else {"name": "Qualité de l'article", "val": "—", "pos": 50, "level": "mid"}
-    )
 
     # Build the slide list conditionally: sections with no content are dropped
     # rather than rendered hollow, and dynamic numbering adapts to the result.
@@ -199,10 +184,8 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         specs.append(("08_prise_de_recul",
                       {"blind_spots": list(disp.blind_spots), "balance": list(disp.balance)}))
 
-    specs.append(("09_verdict", {"gauge": main_gauge,
-                                 "score": _fr_num(wq["score"]) if wq else "",
-                                 "body": verdict.main_blind_side if verdict else "",
-                                 "final": RECO.get(verdict.reading_recommendation, "") if verdict else ""}))
+    specs.append(("09_bilan", {"takeaways": list(disp.key_takeaways) or list(disp.distill_points)[:2],
+                               "critical": list(disp.after_reading)[:2]}))
     specs.append(("10_cta", {}))
 
     env = _env()

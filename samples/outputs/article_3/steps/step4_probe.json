@@ -1,0 +1,144 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "id": "fvo1",
+        "quote": "entre 15 et 25 tonnes de CO2 par passager, soit plus du double de l'empreinte carbone annuelle moyenne d'un Français",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Comparaison",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "La comparaison à la **moyenne française** tient, mais la fourchette 15-25 tonnes n'est **pas sourcée** indépendamment.",
+        "external_sources": [
+          {
+            "name": "ADEME — empreinte carbone moyenne par habitant en France",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Bilan carbone communiqué par les agences de voyage",
+            "supports": "neutral",
+            "evidence_type": "party_statement"
+          }
+        ],
+        "confidence": 70
+      },
+      {
+        "id": "fvo2",
+        "quote": "le nombre de voyageurs optant pour une croisière avec vol a augmenté de plus de 4 400 % en vingt ans, passant de 230 en 2004 à plus de 10 000 en 2024",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre vient d'un **opérateur** partie prenante et part d'une **base minuscule** de 230 voyageurs.",
+        "external_sources": [
+          {
+            "name": "AdventureSmith Explorations (agence de voyages)",
+            "supports": "neutral",
+            "evidence_type": "party_statement"
+          }
+        ],
+        "confidence": 50
+      },
+      {
+        "id": "fvo3",
+        "quote": "Paradoxalement, la fonte de la banquise favorise l'essor du tourisme polaire, dans une forme de tourisme de la dernière chance.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Reporterre et sa ligne éditoriale écologiste",
+          "strength": 0.7,
+          "nature": "illustration"
+        },
+        "explanation": "La formule « **dernière chance** » est une **interprétation** de l'auteur, présentée comme un constat.",
+        "external_sources": [
+          {
+            "name": "Travaux académiques sur le « last chance tourism »",
+            "supports": "neutral",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": null
+      },
+      {
+        "id": "fvo4",
+        "quote": "les sièges de la classe économique sont d'ailleurs retirés afin de laisser la place au carburant nécessaire au vol retour, faute d'infrastructures de ravitaillement",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "emotional_register",
+          "label": "sentiment d'absurdité",
+          "strength": 0.7,
+          "nature": "illustration"
+        },
+        "explanation": "Détail **logistique frappant** attribué à un géographe, mais **non vérifiable** de façon indépendante.",
+        "external_sources": [
+          {
+            "name": "Rémy Knafou, géographe spécialiste du tourisme",
+            "supports": "neutral",
+            "evidence_type": "testimony"
+          }
+        ],
+        "confidence": 55
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "id": "br1",
+        "quote": "Pendant que la France étouffe sous la canicule, ceux qui peuvent se le permettre participent au boom du tourisme polaire.",
+        "item_type": "bias",
+        "label": "contraste moral",
+        "effect": "Remarquez comment la **canicule subie** placée face au **loisir des riches** installe le reproche avant tout chiffre.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "br2",
+        "quote": "En contribuant à réchauffer la planète avec ces croisières aériennes, ils détruisent les paysages qu'ils observent.",
+        "item_type": "fallacy",
+        "label": "glissement causal",
+        "effect": "Remarquez comment une **contribution globale** devient la **cause directe** de la disparition du site précis visité.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Les partisans d'une sanctuarisation des pôles",
+          "strength": 0.7,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "br3",
+        "quote": "De 22 000 voyageurs au début des années 2000, on est passé à plus de 120 000 aujourd'hui",
+        "item_type": "bias",
+        "label": "accumulation de statistiques",
+        "effect": "Remarquez comment l'**empilement de chiffres croissants** suggère un emballement, **sans total de référence**.",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 0.7,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "Ces paysages sont décrits comme étant en train de disparaître. Ce sentiment d'urgence pousse les voyageurs à vouloir les découvrir avant qu'il ne soit trop tard",
+      "proves": {
+        "type": "observation",
+        "label": "Cadrage",
+        "strength": 0.8,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase nomme le **moteur** du tourisme polaire : la peur de la disparition. Elle sous-entend que les opérateurs **vendent l'urgence** même qu'ils aggravent. Elle tait ce que voir de ses yeux change chez le voyageur : ce regard **protège-t-il** ou seulement consomme-t-il ?"
+    }
+  }
+}

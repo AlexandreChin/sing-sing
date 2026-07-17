@@ -4,7 +4,7 @@ Same InstagramCarouselDocument, same adapt() presentation and templates as the
 optimized format — only a reduced slide selection. Registered as
 `instagram_carousel_optimized_short`.
 
-Arc: Hook → Curation → Avant de lire → Le décryptage (failles) → Verdict → CTA.
+Arc: Hook → Curation → Avant de lire → Décryptage (failles) → Prise de recul (radar) → CTA.
 Slides are named 01–06 for output; some reuse the full deck's templates (verdict,
 cta), so the spec carries (output_name, template_name, ctx) triples.
 """
@@ -13,13 +13,12 @@ from pathlib import Path
 
 from models.instagram_carousel_presentation import InstagramCarouselDocument
 from renderer.categories import carousel_theme
-from ._shared import _env, _LOGO_DATA_URL, _weighted_quality, TYPE_FR, cover_layers
-from .optimized import _fr_num
+from ._shared import _env, _LOGO_DATA_URL, TYPE_FR, cover_layers
 
 TPL = "article_carousel_optimized_v0"
 
 # 3-step tracker highlight, keyed by output slide name.
-PHASE_OF = {"03_reperes": "avant", "04_decryptage": "analyse", "05_verdict": "verdict"}
+PHASE_OF = {"03_reperes": "avant", "04_decryptage": "analyse"}
 
 
 def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
@@ -34,12 +33,6 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     ] if x)
 
     contexts = full.context.contexts[:1]
-    verdict = full.review.verdict if full.review else None
-    wq = _weighted_quality(full)
-    main_gauge = (
-        {"name": "Qualité de l'article", "val": wq["label"], "pos": wq["pos"], "level": wq["level"]}
-        if wq else {"name": "Qualité de l'article", "val": "—", "pos": 50, "level": "mid"}
-    )
 
     # Le décryptage: both failles condensed to a scannable list (no evidence quotes).
     failles = [{"label": w.label, "body": w.text} for w in list(disp.watch_out)[:2]]
@@ -55,10 +48,8 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         ("03_reperes", "03_reperes", {"context": contexts[0].text if contexts else "",
                                       "clues": list(disp.pre_reading)[:2]}),
         ("04_decryptage", "decryptage", {"failles": failles}),
-        ("05_verdict", "09_verdict", {"gauge": main_gauge,
-                                      "score": _fr_num(wq["score"]) if wq else "",
-                                      "body": verdict.main_blind_side if verdict else "",
-                                      "final": ""}),
+        ("05_bilan", "09_bilan", {"takeaways": list(disp.key_takeaways) or list(disp.distill_points)[:2],
+                                  "critical": list(disp.after_reading)[:2]}),
         ("06_cta", "10_cta", {}),
     ]
 

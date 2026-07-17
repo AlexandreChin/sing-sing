@@ -45,6 +45,8 @@ def _validate(data: dict) -> list[str]:
         errors.append(f"display.distill_points must have exactly 3 items, got {len(d.distill_points)}")
     if len(d.after_reading) != 3:
         errors.append(f"display.after_reading must have exactly 3 items, got {len(d.after_reading)}")
+    if len(d.key_takeaways) != 2:
+        errors.append(f"display.key_takeaways must have exactly 2 items, got {len(d.key_takeaways)}")
     if not (1 <= len(d.watch_out) <= 2):
         errors.append(f"display.watch_out must have 1–2 items, got {len(d.watch_out)}")
     for i, item in enumerate(d.watch_out):
