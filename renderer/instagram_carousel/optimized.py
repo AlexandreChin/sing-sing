@@ -64,7 +64,6 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
                                 "headline": pres.hook.headline, **cover_layers(meta, pres.hook.headline)}),
         ("02_selection", "02_selection", {"headline": d.selection_headline, "items": [
             {"label": "Pourquoi on l'a retenu", "body": d.why_selected},
-            {"label": "Ce que vous allez apprendre", "body": d.payoff},
         ]}),
         ("03_reperes", "03_reperes", {
             "context": contexts[0].text if contexts else "",
