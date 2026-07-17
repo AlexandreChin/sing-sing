@@ -28,15 +28,16 @@ PHASE_OF = {
 # French number words for the réflexes section label on the merged repères slide.
 _COUNT_WORD = {1: "Un", 2: "Deux", 3: "Trois", 4: "Quatre"}
 
-# Fact-check verdict → (reader label, css class) for the moment-slide pill.
+# Claim reliability → (reader-action label, css class) for the moment-slide pill.
+# Labels are reader actions, not verdicts on the article; the colour keeps the signal.
 _READING = {
-    "consensual":   ("Largement admis", "consensual"),
-    "true":         ("Solide",          "true"),
-    "likely true":  ("Plutôt solide",   "likely_true"),
-    "disputed":     ("Disputé",         "disputed"),
-    "likely false": ("Fragile",         "false"),
-    "false":        ("Fragile",         "false"),
-    "unverifiable": ("Invérifiable",    "neutral"),
+    "consensual":   ("À connaître",   "consensual"),
+    "true":         ("À connaître",   "true"),
+    "likely true":  ("À confirmer",   "likely_true"),
+    "disputed":     ("À recouper",    "disputed"),
+    "likely false": ("À vérifier",    "false"),
+    "false":        ("À vérifier",    "false"),
+    "unverifiable": ("Invérifiable",  "neutral"),
 }
 
 

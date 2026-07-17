@@ -1047,7 +1047,7 @@
         },
         {
           "id": "chiffres",
-          "name": "Chiffres sans base",
+          "name": "Le bon dénominateur",
           "question": "Ce chiffre, rapporté à quoi ?"
         },
         {
@@ -1061,21 +1061,21 @@
           "moment": "L'ampleur du phénomène en chiffres",
           "quote": "le nombre de voyageurs optant pour une croisière avec vol a augmenté de plus de 4 400 % en vingt ans, passant de 230 en 2004 à plus de 10 000 en 2024",
           "lens_ref": "sources",
-          "note": "Le chiffre vient d'un **opérateur** partie prenante et part d'une base de 230 voyageurs.",
+          "note": "Devant un pourcentage spectaculaire, cherchez la **base de départ** et **qui le publie** : ici, 230 voyageurs en 2004, chiffre avancé par un opérateur.",
           "factcheck": "disputed"
         },
         {
           "moment": "Le coût carbone du voyage",
           "quote": "entre 15 et 25 tonnes de CO2 par passager, soit plus du double de l'empreinte carbone annuelle moyenne d'un Français",
           "lens_ref": "chiffres",
-          "note": "Le **repère français** parle, mais la fourchette n'est pas sourcée indépendamment.",
+          "note": "Une comparaison parlante (2× un Français) rend un chiffre convaincant — demandez d'où vient **la fourchette** avant de l'adopter.",
           "factcheck": "likely true"
         },
         {
           "moment": "Le cœur de la thèse",
           "quote": "En contribuant à réchauffer la planète avec ces croisières aériennes, ils détruisent les paysages qu'ils observent.",
           "lens_ref": "causalite",
-          "note": "Une **contribution globale** au réchauffement devient la cause directe de la disparition du site précis.",
+          "note": "Guettez le glissement du **global au local** : contribuer au réchauffement n'est pas détruire directement ce paysage précis. Cause, ou corrélation ?",
           "factcheck": ""
         }
       ],

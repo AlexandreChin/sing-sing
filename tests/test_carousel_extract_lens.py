@@ -37,5 +37,5 @@ def test_lens_name_and_question_are_canonicalized():
     lenses = [Lens(id="chiffres", name="Les chiffres", question="wrong?")]
     doc = extract(_ANALYSIS, _pres_with_beats(lenses, []))
     lens = doc.presentation.display.lenses[0]
-    assert lens.name == "Chiffres sans base"
+    assert lens.name == "Le bon dénominateur"
     assert lens.question == "Ce chiffre, rapporté à quoi ?"

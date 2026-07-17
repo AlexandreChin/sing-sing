@@ -45,13 +45,13 @@ def test_deck_follows_merged_four_act_order(tmp_path):
 def test_reperes_carries_the_lenses(tmp_path):
     opt.generate_html(_doc(), tmp_path)
     html = (tmp_path / "03_reperes.html").read_text(encoding="utf-8")
-    assert "Chiffres sans base" in html and "Causalité" in html
+    assert "Le bon dénominateur" in html and "Causalité" in html
 
 
 def test_moment_slide_carries_lens_name(tmp_path):
     opt.generate_html(_doc(), tmp_path)
     html = (tmp_path / "04_moment.html").read_text(encoding="utf-8")
-    assert "Chiffres sans base" in html and "+4400 %" in html
+    assert "Le bon dénominateur" in html and "+4400 %" in html
 
 
 def test_no_lentille_point_fort_or_verif_faits_slide(tmp_path):
