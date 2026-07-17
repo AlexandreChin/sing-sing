@@ -156,11 +156,11 @@
         "factcheck": "disputed"
       },
       {
-        "moment": "Le coût carbone du voyage",
-        "quote": "entre 15 et 25 tonnes de CO2 par passager, soit plus du double de l'empreinte carbone annuelle moyenne d'un Français",
+        "moment": "La faune polaire",
+        "quote": "Les touristes sont en compétition directe avec les animaux",
         "lens_ref": "sources",
-        "note": "Une comparaison parlante (2× un Français) convainc vite — demandez d'abord **d'où vient la fourchette** et **qui l'avance**.",
-        "factcheck": "likely true"
+        "note": "« Compétition directe » est une affirmation forte : sur quelle **observation** repose-t-elle ? Cherchez la source avant de l'admettre.",
+        "factcheck": ""
       },
       {
         "moment": "Le cœur de la thèse",

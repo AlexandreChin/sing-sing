@@ -64,11 +64,18 @@ s'afficheront en doré. Ex. : « Remettre chaque **chiffre choc** dans son **con
 **COUVERTURE DES ÉLÉMENTS CENTRAUX (obligatoire)** : la présentation doit COUVRIR les
 `core_elements` de l'analyse (fournis en contexte), pas seulement l'angle du titre. Procède
 dans cet ordre :
-1. `reading_beats` = les **3 éléments les plus centraux** (plus haute `centrality`) — un beat
-   chacun, dans l'ordre de lecture. Un beat peut être un fait, un biais ou un enjeu.
-2. `lenses` = les lentilles critiques qu'appellent ces 3 beats (leur union, 2–3 canoniques).
-   Chaque beat garde un `lens_ref` vers l'une d'elles ; `factcheck` si le beat est une
-   affirmation factuelle vérifiable.
+1. `reading_beats` = 3 moments choisis pour leur **VALEUR de lecture critique**, pas seulement
+   leur centralité — les passages où appliquer un réflexe change vraiment la façon de recevoir
+   une affirmation-clé. Tirés des `core_elements`, mais PAS forcément les 3 plus « centraux » :
+   un enjeu de fond moins chiffré (faune, régulation, éthique) peut passer devant une 2ᵉ
+   statistique. Contraintes : **au plus UN** beat purement chiffré/statistique (jamais deux fois
+   « on questionne le chiffre ») ; **au moins UN** beat sur un enjeu de fond (un impact, un lien
+   causal, une affirmation d'autorité) et non un chiffre phare. Dans l'ordre de lecture ; un beat
+   = un fait, un biais ou un enjeu.
+2. `lenses` = les **3 lentilles distinctes** qu'appellent ces beats (leur union, canoniques).
+   Chaque beat garde un `lens_ref` vers l'une d'elles ; `factcheck` UNIQUEMENT si le beat est une
+   affirmation factuelle vérifiable — le `factcheck` ne doit PAS orienter le choix des beats vers
+   les seuls chiffres.
 3. `payoff`, `key_takeaways` (2–3), `global_analysis.core_recap` et le `hook` doivent
    **refléter la diversité** des éléments centraux (p. ex. bilan carbone ET faune ET
    régulation), jamais un seul thème.
@@ -100,7 +107,7 @@ En plus des champs existants, produis dans `display` :
   - `sophismes` — « Le raisonnement tient-il logiquement ? »
   - `angles_morts` — « Qu'est-ce qui manque au tableau ? »
   Choisis les lentilles réellement pertinentes pour CET article. Reprends `name` et `question` du vocabulaire.
-- `reading_beats` : 2 à 3 moments de l'article, **dans l'ordre de lecture** (tels qu'ils apparaissent). Sélectionnés parmi les `core_elements` les plus centraux (voir couverture ci-dessus). Chaque beat : `moment` (≤10 mots, où on en est), `quote` (citation verbatim), `lens_ref` (= l'`id` d'une lentille choisie ci-dessus), `note` (≤25 mots — le RÉFLEXE de lecture à appliquer : ce que le lecteur doit CHERCHER ou se demander devant ce passage, formulé comme une habitude transférable et neutre (souvent une question), et PAS un verdict ni une critique de cet article précis. Décris les faits, laisse le lecteur conclure ; évite « manipule / charge / fabrique »), `factcheck` (si — et seulement si — la `quote` correspond à une affirmation factuelle vérifiable présente dans `annotations.facts_vs_opinions.claims_and_sources`, recopie le `confidence_label` de cette affirmation, l'une de : `consensual`, `true`, `likely true`, `disputed`, `likely false`, `false`, `unverifiable` ; sinon laisse `factcheck` vide pour les beats de cadrage/rhétorique).
+- `reading_beats` : 2 à 3 moments de l'article, **dans l'ordre de lecture** (tels qu'ils apparaissent). Sélectionnés pour leur VALEUR de lecture critique selon la règle de couverture ci-dessus (au plus un beat chiffré, au moins un enjeu de fond, 3 lentilles distinctes) — pas seulement par centralité. Chaque beat : `moment` (≤10 mots, où on en est), `quote` (citation verbatim), `lens_ref` (= l'`id` d'une lentille choisie ci-dessus), `note` (≤25 mots — le RÉFLEXE de lecture à appliquer : ce que le lecteur doit CHERCHER ou se demander devant ce passage, formulé comme une habitude transférable et neutre (souvent une question), et PAS un verdict ni une critique de cet article précis. Décris les faits, laisse le lecteur conclure ; évite « manipule / charge / fabrique »), `factcheck` (si — et seulement si — la `quote` correspond à une affirmation factuelle vérifiable présente dans `annotations.facts_vs_opinions.claims_and_sources`, recopie le `confidence_label` de cette affirmation, l'une de : `consensual`, `true`, `likely true`, `disputed`, `likely false`, `false`, `unverifiable` ; sinon laisse `factcheck` vide pour les beats de cadrage/rhétorique).
 - `global_analysis` : la **vue d'ensemble** — un récapitulatif des **éléments centraux** de l'article (pas un réquisitoire). `headline` (≤10 mots, une lecture d'ensemble juste et neutre). `core_recap` (2–3 points, ≤16 mots — les préoccupations centrales de l'article, couvrant sa diversité, d'après `core_elements`). `note` (≤18 mots — UNE seule remarque critique, neutre, sans verdict).
 - `steel_man` : à partir de `analysis.fond.steel_man`, choisis l'objection qui remet le plus en cause la **thèse/conclusion** de l'article et apporte une **perspective nouvelle** que le lecteur n'a pas encore vue — PAS celle qui répète une faille statistique ou factuelle déjà pointée dans `reading_beats` (ex. « effet de base », « chiffre sans total »). Préfère un contre-argument sur les conséquences ou les valeurs (bénéfice ignoré, arbitrage négligé). Reformule-le pour le lecteur : `argument` (≤18 mots — la meilleure objection à la thèse) et `alternative` (≤14 mots — la conclusion qui suivrait si l'objection tenait). C'est le contre-argument le plus solide que l'article n'affronte pas, pas notre avis.
 - `root_issue` : **une phrase** (pas une question) qui nomme le **fond du problème** soulevé par l'article — l'enjeu réel, souvent implicite ou même non formulé dans le texte. Va au-delà du détail chiffré vers ce qui est vraiment en jeu. Exemple : « Au-delà des chiffres absolus, marginaux dans les émissions mondiales, l'enjeu est surtout symbolique : une élite qui affiche son indifférence climatique. » Neutre, sans verdict sur l'auteur.
