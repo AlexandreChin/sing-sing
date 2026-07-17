@@ -20,10 +20,10 @@ Structure du carousel (pour guider les hooks de transition) :
 
 Champs à produire :
 
-hook
-- topic : thème principal (3–5 mots)
-- sub_topic : angle spécifique (3–6 mots)
-- headline : question ou affirmation percutante (≤12 mots), sans majuscule en milieu de phrase, sans citer la source. Mets en **gras** le mot ou groupe de mots décisif (1 seul passage, jamais toute la phrase).
+hook — l'accroche de la slide 1. RÈGLE : la QUESTION-accroche est neutre, elle éveille la curiosité SANS trancher la conclusion et ne PARAPHRASE PAS le titre original de l'article — reformule la tension centrale à partir des `core_elements`, avec un angle neuf.
+- topic : le sujet concret en quelques mots (3–5 mots) — c'est le grand titre affiché sur la slide 1 (p. ex. « Tourisme polaire de luxe »).
+- sub_topic : la QUESTION-accroche (≤12 mots), affichée sous le titre — neutre, curieuse, sans trancher, et sans paraphraser le titre original.
+- headline : variante courte de la question-accroche (≤12 mots), même esprit ; sans majuscule en milieu de phrase, sans citer la source ; ne paraphrase pas le titre. Mets en **gras** le mot ou groupe de mots décisif (1 seul passage, jamais toute la phrase).
 - context_line : une phrase contextuelle (≤20 mots) qui situe l'enjeu
 
 interest
@@ -76,7 +76,7 @@ dans cet ordre :
 - payoff        : ≤15 mots — ce que le lecteur GAGNE, formulé POSITIVEMENT comme une compétence de lecture ou un éclairage qu'il emporte, et qui couvre la diversité des enjeux de l'article, pas un seul. N'anticipe PAS la critique de cet article (pas de « comment il manipule / fabrique une fausse impression »), ne dévoile pas le verdict. Ex. : « Remettre chaque chiffre choc dans son contexte avant de vous forger un avis. »
 - framing       : ≤15 mots — l'angle choisi par l'article, en langage direct (depuis perspective.framing)
 - why_selected  : 1 à 2 phrases (≤40 mots) — c'est la SEULE section de la slide « Pourquoi cet article » : dis POURQUOI cet article vaut la lecture (ce qu'il a de concret, de clivant, de révélateur) ET ce qui en fait un bon terrain d'entraînement à la lecture critique. S'APPUYER SUR LES ÉLÉMENTS CENTRAUX (le sujet réel de l'article) — décris fidèlement ce dont il parle. PAS un éloge, PAS le verdict, PAS une critique anticipée. Ex. : « Un sujet concret et clivant : le paradoxe du tourisme polaire, qui abîme les paysages et la faune qu'il vient admirer — un plaidoyer chiffré idéal pour s'exercer à lire d'un œil critique. »
-- selection_headline : ≤12 mots — l'ACCROCHE éditoriale curatoriale (titre de la slide « Pourquoi cet article »). Donne envie de lire en captant l'INTÉRÊT DU SUJET, ton positif et invitant. PAS une question au lecteur (≠ hook), PAS le verdict, et NE dévoile PAS la faille ni la critique (elle vient plus loin). Ex. : « Fuir la canicule… jusqu'aux pôles qui fondent. »
+- selection_headline : ≤12 mots — le TITRE de la slide « Pourquoi cet article » : c'est le CONDENSÉ en une accroche de `why_selected` (le texte juste en dessous). Il DOIT porter sur le MÊME contenu que `why_selected` — écris d'abord `why_selected`, puis résume-le ici ; la raison annoncée dans le titre doit être reprise/développée dans le texte. Ton positif et invitant. PAS une question au lecteur (≠ hook), PAS le verdict, ne dévoile pas la critique. Ex. : si `why_selected` parle d'un enjeu plus large que le climat → « Un débat qui dépasse le bilan carbone. »
 - ethics        : ≤12 mots — état déontologique explicite : propre ou non (depuis deontology.summary)
 - pre_reading   : exactement 2 items, ≤12 mots chacun — conseils d'orientation avant lecture (depuis guide.pre_reading)
 - watch_out     : 1 à 2 items (2 de préférence ; n'en mets qu'1 si l'article n'a qu'une vraie faille — n'en invente pas), chacun avec un `label` et un `text` (≤15 mots, alerte sans citation de l'article) — (depuis guide.watch_out). Le `label` est l'ÉTIQUETTE du mécanisme (2–4 mots), tirée de la taxonomie de l'analyse — même vocabulaire que la newsletter : `annotations.biases_and_focus.biases_and_rhetoric[].label` (ex. « appel à l'autorité »), `analysis.forme.emotional_register[].emotion` (ex. « langage émotionnel »), `analysis.fond.logical_reasoning[]` avec un `problem_type` (ex. « saut logique », « validité », « solidité »), ou le `label` d'une `review.dimensions` faible (ex. « source unique »). **Puise dans les trois registres — faits, biais/rhétorique ET raisonnement logique** : quand l'analyse signale un problème de raisonnement (`logical_reasoning`), au moins une faille doit le porter.
