@@ -80,7 +80,7 @@
   "display": {
     "payoff": "Remettre chaque **chiffre choc** dans son contexte et peser l'impact réel des pôles.",
     "framing": "Un **angle écologiste** : un tourisme de luxe détruit les paysages qu'il vient admirer.",
-    "why_selected": "Un sujet concret et clivant : le **paradoxe** du tourisme polaire, qui abîme les paysages et la **faune** qu'il vient admirer. L'article défend cette thèse à coups de **chiffres spectaculaires** (bilan carbone, fréquentation en hausse) — le terrain idéal pour s'exercer à lire un plaidoyer écologiste d'un œil **critique**.",
+    "why_selected": "Un sujet concret et clivant : le **paradoxe** du tourisme polaire, qui abîme les paysages et la **faune** qu'il vient admirer.\nL'article défend cette thèse à coups de **chiffres spectaculaires** (bilan carbone, fréquentation en hausse) — le terrain idéal pour s'exercer à lire un plaidoyer écologiste d'un œil **critique**.",
     "selection_headline": "Fuir la canicule jusqu'aux confins des pôles.",
     "ethics": "Déontologie **globalement propre** : une réserve sur un pourcentage gonflé.",
     "pre_reading": [
@@ -177,7 +177,7 @@
         "Le tourisme polaire **croît vite**, encadré par la seule autorégulation.",
         "Les croisières perturbent la **faune** en pleine saison de reproduction."
       ],
-      "note": "Les chiffres les plus spectaculaires viennent d'**opérateurs** et manquent d'un total de référence."
+      "note": ""
     },
     "open_question": "L'auteur ignore-t-il la **part réelle** du tourisme polaire dans les émissions, ou l'omet-il pour préserver l'ampleur du récit ?",
     "root_issue": "Au-delà des tonnes de CO2, l'enjeu est surtout **symbolique** : une élite qui s'offre les derniers paysages intacts pendant que le climat se dérègle.",
