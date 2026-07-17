@@ -1,0 +1,72 @@
+{
+  "emotional_register": [
+    {
+      "id": "emo1",
+      "emotion": "indignation",
+      "how": "La **juxtaposition** entre la canicule subie en France et le luxe carboné des voyageurs polaires installe un contraste moral.",
+      "effect": "Elle prépare le lecteur à **condamner** ce tourisme comme un privilège irresponsable.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "canicule en France, contrepoint direct au sujet",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "emo2",
+      "emotion": "sentiment d'absurdité",
+      "how": "Le détail des **sièges retirés** pour emporter le carburant du retour donne à voir un dispositif poussé à l'extrême.",
+      "effect": "Il pousse à percevoir l'activité comme un **non-sens** intrinsèque avant tout examen chiffré.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 3,
+        "excerpt": "l'accès aérien exige d'emporter le carburant du retour",
+        "strength": 0.7,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "cui1",
+      "beneficiary": "Les partisans d'une sanctuarisation des pôles",
+      "explanation": "Insister sur l'**autorégulation** laissée aux opérateurs rend l'appel à une **interdiction** externe presque évident.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 1,
+        "excerpt": "l'encadrement repose sur l'autorégulation via l'IAATO",
+        "strength": 0.7,
+        "nature": "specification"
+      }
+    },
+    {
+      "id": "cui2",
+      "beneficiary": "Reporterre et sa ligne éditoriale écologiste",
+      "explanation": "Le contraste **canicule/luxe** conforte l'identité **engagée** du média auprès de son lectorat.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "canicule en France, contrepoint direct au sujet",
+        "strength": 0.7,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Ironie",
+        "observation": "« Se rafraîchir » tourne en dérision des voyageurs qui réchauffent le climat qu'ils fuient."
+      },
+      {
+        "label": "Présupposé",
+        "observation": "Le titre lie fonte des pôles et afflux touristique comme si l'un causait l'autre."
+      },
+      {
+        "label": "Attribution",
+        "observation": "« Les riches touristes » désigne un responsable de classe avant tout argument."
+      }
+    ]
+  }
+}

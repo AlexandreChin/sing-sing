@@ -4,11 +4,6 @@
 <meta charset="UTF-8">
 <style>
 {% include 'base.css' %}
-.eyebrow { font-size: 26px; font-weight: 800; letter-spacing: .20em; text-transform: uppercase; color: #888; }
-.art-title { font-size: 34px; font-weight: 700; font-style: italic; line-height: 1.3; color: #d0d0d0; max-width: 760px; margin-top: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.art-meta { font-size: 21px; font-weight: 600; letter-spacing: .10em; text-transform: uppercase; color: #888; margin-top: 12px; }
-.cover-head { font-size: 78px; font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; color: #f0f0f0; max-width: 840px; margin-top: 28px; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
-.cover-head strong { color: #d4aa00; font-weight: 900; }
 .rubrique-tab { display: inline-flex; align-items: center; gap: 14px; font-size: 28px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #d4aa00; }
 .rubrique-tab svg { width: 40px; height: 40px; stroke: #d4aa00; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .swipe { position: absolute; bottom: 120px; left: 90px; right: 90px; font-size: 27px; font-weight: 700; color: #aaa; letter-spacing: .04em; }
@@ -21,23 +16,39 @@
 .giant { position: absolute; right: -220px; bottom: -200px; width: 1000px; height: 1000px; z-index: -1; }
 .giant svg { width: 100%; height: 100%; stroke: #d4aa00; stroke-opacity: .17; fill: none; stroke-width: .7; stroke-linecap: round; stroke-linejoin: round; }
 .giant svg circle { fill: none; }
+/* — Source card: the article being analysed (a distinct, bounded object).
+   A future article thumbnail drops into this card as a left-hand image column. — */
+.src-card { margin-top: 30px; max-width: 880px; border-radius: 16px; padding: 26px 32px;
+  background: linear-gradient(#141210, #141210) padding-box, linear-gradient(135deg, #3a3500 0%, #2a2a2a 55%, #1a1a1a 100%) border-box; border: 1px solid transparent; }
+.src-label { font-size: 22px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #8a8a8a; }
+.src-title { font-size: 39px; font-weight: 700; font-style: italic; line-height: 1.26; color: #e8e8e8; margin-top: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.src-meta { font-size: 22px; font-weight: 700; letter-spacing: .10em; text-transform: uppercase; color: #9a9a9a; margin-top: 16px; }
+/* split between the source article (above) and Sing Sing's analysis (below) */
+.divider2 { width: 100%; max-width: 880px; height: 2px; background: linear-gradient(to right, #d4aa00 0%, transparent 78%); margin: 36px 0 22px; }
+.kicker { font-size: 25px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #d4aa00; }
+.cover-head { font-size: 74px; font-weight: 900; line-height: 1.06; letter-spacing: -0.02em; color: #f0f0f0; max-width: 880px; margin-top: 14px; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.cover-head strong { color: #d4aa00; font-weight: 900; }
 </style>
 </head>
 <body>
-<div class="slide" style="justify-content: flex-start; text-align: left; padding-top: 220px;">
+<div class="slide" style="justify-content: flex-start; text-align: left; padding-top: 150px;">
   <div class="artbg"><svg viewBox="0 0 1080 1350" preserveAspectRatio="xMidYMid slice">{{ art_svg | safe }}</svg></div>
   {% if glyph %}<div class="giant"><svg viewBox="0 0 24 24">{{ glyph | safe }}</svg></div>{% endif %}
   {% include '_brand.html' %}
 
   {% if rubrique %}<div class="rubrique-tab"><svg viewBox="0 0 24 24">{{ glyph | safe }}</svg>{{ rubrique }}</div>{% endif %}
 
-  {% if article_title %}<span class="eyebrow" style="margin-top:34px;">— L'article —</span>
-  <p class="art-title">{{ article_title }}</p>{% endif %}
-  {% if source_meta %}<p class="art-meta">{{ source_meta }}</p>{% endif %}
+  {% if article_title %}<div class="src-card">
+    <div class="src-label">Sélection</div>
+    <p class="src-title">{{ article_title }}</p>
+    {% if source_meta %}<p class="src-meta">{{ source_meta }}</p>{% endif %}
+  </div>{% endif %}
 
+  <div class="divider2"></div>
+  <span class="kicker">Lecture critique</span>
   <h1 class="cover-head">{{ headline | md_bold }}</h1>
 
-  <div class="swipe">Avant de lire <span class="sw-sep">&#8250;</span> Le décryptage <span class="sw-sep">&#8250;</span> Verdict</div>
+  <div class="swipe">Avant de lire <span class="sw-sep">&#8250;</span> Décryptage <span class="sw-sep">&#8250;</span> Prise de recul</div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
 </div>

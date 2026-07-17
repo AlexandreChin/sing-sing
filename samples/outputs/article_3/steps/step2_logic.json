@@ -1,0 +1,167 @@
+{
+  "main_claim": "Le tourisme polaire de luxe détruit les paysages fragiles qu'il prétend faire aimer.",
+  "premisses": [
+    {
+      "statement": "Les croisières polaires émettent 15 à 25 tonnes de CO2 par passager, soit plus du double de l'empreinte annuelle d'un Français.",
+      "quality": "Repose sur des chiffres précis, mais dont la source (les agences) n'est pas vérifiée indépendamment."
+    },
+    {
+      "statement": "Le tourisme polaire connaît une croissance rapide en Arctique comme en Antarctique.",
+      "quality": "Données convergentes, mais tirées d'opérateurs et d'associations professionnelles parties prenantes."
+    },
+    {
+      "statement": "Observer ces milieux par des voyages carbonés contribue directement à leur dégradation.",
+      "quality": "Assertion appuyée par deux experts, la causalité individuelle vers un paysage donné restant indémontrée."
+    },
+    {
+      "statement": "L'encadrement du tourisme polaire, laissé aux opérateurs, est insuffisant.",
+      "quality": "Assertion d'un seul expert, présentée comme constat plutôt que comme thèse discutée."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "statement": "La part du tourisme polaire dans le réchauffement global est assez importante pour peser réellement.",
+      "impact": "Si cette part est marginale, la dénonciation devient morale et symbolique plus qu'écologiquement décisive."
+    },
+    {
+      "statement": "Les voyageurs ne développent aucune conscience écologique susceptible de compenser leur passage.",
+      "impact": "Si le voyage crée des soutiens durables à la protection, l'argument du « non-sens » s'affaiblit."
+    },
+    {
+      "statement": "Ces émissions relèvent d'un loisir superflu, distinct des déplacements jugés légitimes.",
+      "impact": "Si on les compare à d'autres tourismes lointains, la singularité morale du reproche s'estompe."
+    }
+  ],
+  "blind_spots": [
+    {
+      "topic": "Les retombées économiques locales pour le Groenland ou l'Islande qui misent sur ce tourisme.",
+      "significance": "Leur prise en compte poserait un arbitrage entre développement local et coût climatique, absent du texte."
+    },
+    {
+      "topic": "Aucune voix de touriste ni de spécialiste défendant l'activité n'est convoquée.",
+      "significance": "L'unanimité des experts cités oriente la lecture vers une seule conclusion possible."
+    },
+    {
+      "topic": "La part du tourisme polaire dans les émissions mondiales totales n'est jamais chiffrée.",
+      "significance": "Sans ce repère, l'ampleur réelle de l'impact climatique reste indéterminée."
+    },
+    {
+      "topic": "Aucune comparaison avec d'autres formes de tourisme long-courrier tout aussi émettrices.",
+      "significance": "La comparaison permettrait de tester si ce tourisme est singulier ou simplement plus visible."
+    }
+  ],
+  "emphasis": [
+    "Le texte mobilise deux experts critiques développés sur plusieurs paragraphes, alors que l'argument défensif d'Antarctica21 est cité une fois puis contré.",
+    "L'article accumule des statistiques spectaculaires (4 400 %, ×10, 27 000 €) sans jamais rapporter ces chiffres à un total de référence.",
+    "La contradiction morale (« tourisme de la dernière chance ») structure le texte, tandis que la dimension économique n'apparaît pas."
+  ],
+  "logical_reasoning": [
+    {
+      "step": "Des émissions de CO2 des croisières, le texte conclut qu'elles détruisent les paysages précis que les voyageurs observent.",
+      "problem_type": "validity",
+      "diagnosis": "Le lien entre une contribution individuelle au réchauffement global et la dégradation du site visité est posé, non démontré."
+    },
+    {
+      "step": "De la croissance de +4 400 % en vingt ans, le texte infère un phénomène massif et préoccupant.",
+      "problem_type": "soundness",
+      "diagnosis": "Le pourcentage part d'une base minuscule (230 voyageurs) et provient d'un opérateur, ce qui gonfle l'impression d'ampleur."
+    },
+    {
+      "step": "De l'insuffisance de l'autorégulation, le texte glisse vers la nécessité d'une sanctuarisation totale.",
+      "problem_type": "validity",
+      "diagnosis": "La solution maximale est présentée comme découlant du constat, sans examen des options intermédiaires."
+    }
+  ],
+  "observations": [
+    {
+      "aspect": "Cadrage",
+      "summary": "Le reportage ouvre sur la **canicule** française pour installer d'emblée un contraste moral avec le confort des voyageurs polaires.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "canicule en France, contrepoint direct au sujet",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Sourçage",
+      "summary": "Les chiffres de croissance proviennent surtout des **opérateurs eux-mêmes**, parties prenantes du marché décrit.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "le tourisme polaire a fortement augmenté",
+        "strength": 0.7,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Comparaison",
+      "summary": "Le bilan carbone est rapporté à l'**empreinte moyenne d'un Français**, repère parlant qui dramatise l'écart.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "empreinte carbone moyenne d'un Français (9-10 tonnes)",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Encadrement",
+      "summary": "Le texte insiste sur une régulation reposant sur l'**autorégulation** des opérateurs, sans autorité contraignante externe.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 1,
+        "excerpt": "l'encadrement repose sur l'autorégulation via l'IAATO",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Temporalité",
+      "summary": "La saison des croisières coïncide avec l'**unique période de reproduction** des espèces, ce qui appuie la thèse de la compétition.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "l'été austral, seule saison de reproduction, coïncide avec le pic des croisières",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "Un tourisme polaire encadré transforme des visiteurs en ambassadeurs de la conservation, générant soutiens politiques et financements à la protection des pôles.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 1,
+        "excerpt": "les touristes ne développent aucune conscience écologique compensatoire",
+        "strength": 0.6,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Le bilan net pourrait être positif si la sensibilisation engendre plus de protection qu'elle ne coûte en émissions."
+    },
+    {
+      "counterargument": "Rapportée aux émissions mondiales, la contribution du tourisme polaire est infime au regard de l'aviation de masse ou de l'industrie.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 2,
+        "excerpt": "part dans les émissions mondiales jamais chiffrée",
+        "strength": 0.7,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Cibler ce tourisme relève surtout du symbole moral, avec un effet climatique réel très limité."
+    },
+    {
+      "counterargument": "La hausse de +4 400 % part de 230 voyageurs en 2004 : en volume absolu, le phénomène demeure minuscule.",
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 1,
+        "excerpt": "croissance +4 400 % inférée comme phénomène massif",
+        "strength": 0.8,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "L'ampleur invoquée tient à un effet de base statistique plus qu'à une réalité massive."
+    }
+  ]
+}

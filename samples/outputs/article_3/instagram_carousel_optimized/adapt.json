@@ -1,0 +1,138 @@
+{
+  "hook": {
+    "topic": "Tourisme polaire de luxe",
+    "sub_topic": "des chiffres et une charge morale",
+    "headline": "Des chiffres spectaculaires, mais **sans point de comparaison**",
+    "context_line": "En pleine canicule, un reportage dénonce le boom des croisières polaires et leur bilan carbone."
+  },
+  "interest": {
+    "why_read": "Repérer comment des chiffres d'opérateurs fabriquent une **impression d'ampleur**.",
+    "pull_quote": "C'est un non-sens total",
+    "next_slide_hook": "D'abord, qui parle et dans quel contexte l'article paraît-il ?"
+  },
+  "title_bullets": [
+    "Repérez l'**ironie** de « se rafraîchir » qui tourne les voyageurs en dérision.",
+    "Notez le **présupposé** liant fonte des pôles et afflux touristique comme une cause.",
+    "Voyez l'**attribution de classe** : « les riches touristes » désigne un coupable d'emblée."
+  ],
+  "chapo_bullets": [
+    "Remarquez le **contraste canicule/luxe** posé d'entrée, avant tout chiffre.",
+    "Voyez comment l'ouverture installe l'**indignation morale** dès la première ligne."
+  ],
+  "context_next_slide_hook": "Avant d'entrer dans le fond, trois réflexes à garder en tête.",
+  "watch_out_next_slide_hook": "Voyons maintenant sur quoi repose vraiment la démonstration.",
+  "forme_next_slide_hook": "Et quand une opinion se présente comme un fait établi ?",
+  "biases_next_slide_hook": "Rassemblons les fils : que faut-il retenir ?",
+  "engagement_question": "Un chiffre spectaculaire, sans point de comparaison, vous a-t-il déjà convaincu trop vite ?",
+  "go_further": [
+    {
+      "title": "Comment mentir avec les statistiques",
+      "source": "Darrell Huff",
+      "media_type": "book",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Il apprend à lire un pourcentage en cherchant sa base de départ et son total de référence.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Le « last chance tourism », voyager avant qu'il ne soit trop tard",
+      "source": "Annals of Tourism Research",
+      "media_type": "academic_paper",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Il éclaire le ressort psychologique que l'article décrit : visiter un lieu parce qu'il est menacé.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Antarctique : le tourisme face au climat",
+      "source": "ARTE",
+      "media_type": "documentary",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": 52,
+      "why_explore": "Il aide à situer le poids réel du tourisme polaire au regard des autres sources d'émissions.",
+      "cta_question_index": 1
+    }
+  ],
+  "cta": {
+    "title": "Un grand pourcentage n'est pas une grande preuve",
+    "engagement_sentence": "Dites-nous en story ou en DM quel chiffre vous a marqué — et lequel vous a semblé trop beau pour être neutre.",
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "Les chiffres cités vous ont-ils paru suffisamment sourcés pour porter une telle charge ?",
+        "type": "article_quality"
+      },
+      {
+        "id": "q_1",
+        "question": "Quelle est la part réelle du tourisme polaire dans les émissions mondiales ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_2",
+        "question": "Le contraste canicule/luxe a-t-il orienté votre jugement avant les faits ?",
+        "type": "reader_bias"
+      },
+      {
+        "id": "q_3",
+        "question": "Un tourisme polaire encadré peut-il créer des défenseurs durables des pôles ?",
+        "type": "topic_substance"
+      }
+    ]
+  },
+  "display": {
+    "payoff": "Rétablir les repères manquants d'un chiffre : valeur absolue, part du total, source.",
+    "framing": "Un angle écologiste assumé : un tourisme qui détruit ce qu'il vient admirer.",
+    "why_selected": "Un cas d'école : une charge morale bâtie sur des chiffres d'opérateurs jamais rapportés à un total.",
+    "selection_headline": "Des chiffres spectaculaires, une base de comparaison introuvable.",
+    "ethics": "Déontologie globalement propre : une seule réserve, un pourcentage gonflé.",
+    "pre_reading": [
+      "Repérez l'angle du **tourisme de la dernière chance**.",
+      "Pour chaque pourcentage, cherchez sa **base** et son **total**."
+    ],
+    "watch_out": [
+      {
+        "label": "Source partie prenante",
+        "text": "Le chiffre vedette provient d'un opérateur du marché décrit, non d'une source neutre."
+      },
+      {
+        "label": "Saut logique",
+        "text": "Une contribution globale au réchauffement devient la cause directe du site précis détruit."
+      }
+    ],
+    "strengths": [
+      {
+        "label": "Clarté",
+        "text": "Une écriture fluide et des détails concrets qui ancrent l'abstrait."
+      },
+      {
+        "label": "Angle & originalité",
+        "text": "Le paradoxe du « tourisme de la dernière chance » offre un vrai fil narratif."
+      }
+    ],
+    "distill_points": [
+      "Le chiffre vedette, +4 400 %, part de 230 voyageurs et d'une source opérateur : trois fragilités convergentes.",
+      "Un glissement causal fait d'une contribution globale au réchauffement la cause directe du site détruit.",
+      "L'accumulation de statistiques fonctionne faute de dénominateur : la part réelle n'est jamais chiffrée."
+    ],
+    "after_reading": [
+      "Redonnez à chaque pourcentage sa valeur absolue et sa part.",
+      "Demandez qui a **produit** les chiffres cités.",
+      "Fluidité et clarté ne garantissent pas la **neutralité**."
+    ],
+    "key_takeaways": [
+      "Une croisière polaire émettrait 15 à 25 tonnes de CO2 par passager.",
+      "Les croisiéristes en Antarctique seraient passés de 22 000 à plus de 120 000."
+    ],
+    "blind_spots": [
+      "La part réelle du tourisme polaire dans les émissions mondiales n'est jamais chiffrée.",
+      "Retombées économiques locales et voix défendant l'activité restent absentes."
+    ],
+    "balance": [
+      "Un reportage d'engagement court n'a pas vocation à être exhaustif.",
+      "Une ligne éditoriale explicite peut défendre une position sans dérouler chaque contradictoire."
+    ]
+  }
+}

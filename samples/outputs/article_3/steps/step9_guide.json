@@ -1,0 +1,63 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Repérez d'emblée l'angle du **tourisme de la dernière chance** : l'article vend la peur de la disparition comme moteur d'un voyage qui, selon lui, l'aggrave.",
+      "Gardez en tête que la **structure implicite** glisse d'une contribution globale au réchauffement vers la destruction d'un **site précis** — surveillez ce saut.",
+      "Munissez-vous d'un réflexe simple : pour chaque pourcentage spectaculaire, cherchez sa **base de départ** et son **total de référence**."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "text": "Le chiffre le plus frappant de l'article s'appuie sur une **base minuscule** et provient d'un **opérateur du marché décrit** : une hausse énorme sur un point de départ minime mesure surtout la petitesse de ce départ.",
+          "references": [
+            "lr_1",
+            "claim_1",
+            "obs_1"
+          ]
+        },
+        {
+          "text": "Méfiez-vous de l'**empilement de statistiques** croissantes : sans part réelle dans les émissions mondiales, l'accumulation fabrique une impression d'ampleur qu'**aucun dénominateur** ne vient vérifier.",
+          "references": [
+            "bs_2",
+            "bias_2"
+          ]
+        },
+        {
+          "text": "L'ouverture juxtapose canicule et loisir de luxe : ce **cadrage moral** installe le reproche **avant tout chiffre** et oriente la lecture dès la première ligne.",
+          "references": [
+            "obs_0",
+            "er_0",
+            "bias_0"
+          ]
+        },
+        {
+          "text": "Une contribution générale au réchauffement est présentée comme la **cause directe** de la dégradation du lieu visité : ce raccourci logique n'est jamais signalé comme tel.",
+          "references": [
+            "lr_0",
+            "bias_1"
+          ]
+        },
+        {
+          "text": "L'échec de l'autorégulation des opérateurs sert de tremplin vers l'idée d'une **interdiction totale**, sans que les **options intermédiaires** soient examinées.",
+          "references": [
+            "obs_3",
+            "cb_0",
+            "lr_2"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Redonnez à chaque pourcentage sa **valeur absolue** et sa part dans un total avant de juger l'ampleur du problème.",
+      "Demandez-vous qui a **produit les chiffres** cités : un opérateur du marché n'est pas une source neutre.",
+      "Cherchez les **voix absentes** — retombées économiques locales, comparaison avec d'autres tourismes long-courriers, défenseurs de l'activité — pour compléter le tableau.",
+      "Rappelez-vous que la fluidité et la clarté du texte n'en garantissent pas la **neutralité**."
+    ],
+    "title_note": "Le titre travaille l'ironie et un présupposé qui orientent implicitement le lecteur avant même l'entrée dans le texte.",
+    "perspective": {
+      "framing": "L'article adopte un **angle écologiste assumé**, centré sur le paradoxe d'un tourisme qui détruit ce qu'il vient admirer. Il met en avant des détails logistiques frappants et un registre d'**indignation morale**, parlant depuis le point de vue de la préservation face à un « loisir de riches ».",
+      "blind_spots": "Il ne chiffre jamais la **part réelle** du tourisme polaire dans les émissions mondiales et laisse de côté les **retombées économiques locales** ainsi que les voix défendant l'activité. Ces absences privent le lecteur des repères nécessaires pour proportionner le problème.",
+      "balance": "Ces limites sont réelles, mais un reportage d'engagement au format court n'a pas vocation à être exhaustif : une ligne éditoriale explicite peut légitimement défendre une position sans dérouler tous les contradictoires. Ce que l'analyse signale reste utile pour lire avec recul, sans exiger du texte un équilibre qui n'est pas son genre."
+    }
+  }
+}
