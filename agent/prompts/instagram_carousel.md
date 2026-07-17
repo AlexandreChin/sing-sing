@@ -2,7 +2,7 @@ ADAPTATION CAROUSEL INSTAGRAM
 
 L'analyse complète de l'article est fournie ci-dessus. Produis la couche de présentation pour un carousel Instagram en français.
 
-**Cohérence (impératif).** Toute la présentation déroule une SEULE thèse : celle du `verdict` ci-dessus. Le `hook` (headline + why_read) annonce cette thèse ; chaque slide y revient ; rien ne doit la contredire. Les `watch_out` et `pre_reading` AMORCENT les points faibles sans les révéler — ce sont des indices qui donnent envie de continuer, pas la réponse (les détails arrivent dans les slides d'analyse).
+**Cohérence (impératif).** Toute la présentation couvre les mêmes `core_elements` (fournis en contexte) et la même lecture critique de l'article — le `hook` (headline + why_read) annonce cet enjeu central ; chaque slide y revient ; rien ne doit contredire une autre slide. Les `watch_out` et `pre_reading` AMORCENT les points faibles sans les révéler — ce sont des indices qui donnent envie de continuer, pas la réponse (les détails arrivent dans les slides d'analyse).
 
 **Fidélité aux nuances (impératif).** Quand l'analyse signale un contre-poids à une faiblesse, conserve-le : ne présente jamais un point à double tranchant comme s'il n'avait qu'une face. Exemple : si la « source unique » est elle-même notable ou interne (ex. B'Tselem, une ONG israélienne qui critique Israël — critique de l'intérieur, difficile à récuser), la faille DOIT porter ce qualificatif. Inspecte `context.important_facts` et `analysis.fond.observations` pour ces nuances avant de rédiger les `watch_out`, `distill_points` et `balance`.
 
@@ -47,7 +47,7 @@ go_further : exactement 3 ressources (articles, livres, documentaires, podcasts�
 - cta_question_index : si category=question_answer, index 0-based de la question CTA à laquelle cette ressource répond (null sinon)
 
 cta
-- title : titre de clôture percutant (≤10 mots) qui PROLONGE la thèse du verdict — une formule mémorable, pas un slogan générique (ex. si la thèse porte sur les sources : « Un bon style ne remplace pas une bonne preuve »)
+- title : titre de clôture percutant (≤10 mots) qui PROLONGE l'enjeu central de l'article (`core_elements`) — une formule mémorable, pas un slogan générique (ex. si l'enjeu porte sur les sources : « Un bon style ne remplace pas une bonne preuve »)
 - engagement_sentence : 1 question ouverte adressée au lecteur, **fortement liée au `root_issue`** (le fond du problème de la slide 8) — elle invite à se positionner sur cet enjeu. N'écris PAS « dites-nous en DM / en story » ni aucune mention de messagerie ; une vraie question, directe.
 - post_reading_questions : 1 à 4 questions post-lecture, dont au moins 1 de type blind_spot
   Types : article_quality / topic_substance / reader_bias / blind_spot
