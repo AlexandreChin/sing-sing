@@ -82,6 +82,14 @@ def _extract_title_chapo(body: str) -> tuple[str | None, str | None]:
                             break
                     break
             break
+    # Fallback for pasted / title-first articles (no URL header): take the first
+    # substantial line as the title, skipping HTML-tagged duplicate lines.
+    if title is None:
+        for line in lines:
+            s = line.strip()
+            if len(s) > 15 and not s.startswith('http') and '<' not in s:
+                title = s
+                break
     return title, chapo
 
 

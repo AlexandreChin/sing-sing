@@ -38,12 +38,19 @@
         <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span><span class="q-label">Le contexte</span></div>
         <p class="q-body">{{ context | md_bold }}</p>
       </div>{% endif %}
-      <div class="q-item">
+      {% if framing %}<p class="q-body">{{ framing | md_bold }}</p>{% endif %}
+      {% if clues %}<div class="q-item">
         <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="q-label">Deux réflexes</span></div>
         <div class="r-list">
           {% for c in clues %}<div class="r-item"><span class="rk">&#8250;</span><span>{{ c | md_bold }}</span></div>{% endfor %}
         </div>
-      </div>
+      </div>{% endif %}
+      {% if lenses %}<div class="q-item">
+        <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="q-label">{{ lens_count_word }} réflexes</span></div>
+        <div class="r-list">
+          {% for l in lenses %}<div class="r-item"><span class="rk">&#8250;</span><span><strong>{{ l.name }}</strong> — {{ l.question }}</span></div>{% endfor %}
+        </div>
+      </div>{% endif %}
     </div>
   </div>
   <p class="tease"><span class="challenge">Saurez-vous les appliquer&nbsp;?</span><br><span class="link">Lien vers l'article en commentaires &#8595;</span></p>

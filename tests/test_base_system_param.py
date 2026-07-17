@@ -13,7 +13,9 @@ def test_no_api_uses_override_system(monkeypatch):
         captured["prompt"] = cmd[2]
         class R:  # minimal CompletedProcess stand-in
             returncode = 0
-            stdout = '{"ok": true}'
+            # `claude -p --output-format json` wraps the model output in an
+            # envelope whose `result` field holds the JSON text.
+            stdout = '{"result": "{\\"ok\\": true}"}'
             stderr = ""
         return R()
     monkeypatch.setattr(_base.subprocess, "run", fake_run)

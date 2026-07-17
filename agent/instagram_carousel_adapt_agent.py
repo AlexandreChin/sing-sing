@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 from agent._base import _call_with_retry, _j
+from agent.lenses import CANONICAL_LENSES
 from models.full_analysis import ArticleFullAnalysis
 from models.instagram_carousel_presentation import (
     InstagramCarouselPresentation,
@@ -11,6 +12,54 @@ from models.instagram_carousel_presentation import (
 )
 
 _PROMPT = (Path(__file__).parent / "prompts" / "instagram_carousel.md").read_text(encoding="utf-8")
+
+
+def _lens_layer_errors(d) -> list[str]:
+    """Validate the 4-act lens layer (Task: lens-arc). Additive — leaves the
+    legacy checks in _validate untouched so the short format keeps working."""
+    errors: list[str] = []
+    n_lens = len(d.lenses)
+    if not (2 <= n_lens <= 3):
+        errors.append(f"display.lenses must have 2–3 items, got {n_lens}")
+    selected_ids = set()
+    for i, lens in enumerate(d.lenses):
+        if lens.id not in CANONICAL_LENSES:
+            errors.append(f"display.lenses[{i}].id '{lens.id}' is not a canonical lens id")
+        else:
+            selected_ids.add(lens.id)
+    n_beats = len(d.reading_beats)
+    if not (2 <= n_beats <= 3):
+        errors.append(f"display.reading_beats must have 2–3 items, got {n_beats}")
+    for i, b in enumerate(d.reading_beats):
+        if b.lens_ref not in selected_ids:
+            errors.append(
+                f"display.reading_beats[{i}].lens_ref '{b.lens_ref}' does not match a selected lens"
+            )
+        if not b.quote.strip():
+            errors.append(f"display.reading_beats[{i}].quote is empty")
+    ga = d.global_analysis
+    if ga is None:
+        errors.append("display.global_analysis is missing")
+    else:
+        if not ga.headline.strip():
+            errors.append("display.global_analysis.headline is empty")
+        if not (1 <= len(ga.solid) <= 2):
+            errors.append(f"display.global_analysis.solid must have 1–2 items, got {len(ga.solid)}")
+        if not (1 <= len(ga.mechanism) <= 2):
+            errors.append(f"display.global_analysis.mechanism must have 1–2 items, got {len(ga.mechanism)}")
+        if not ga.signature.strip():
+            errors.append("display.global_analysis.signature is empty")
+    if not d.root_issue.strip():
+        errors.append("display.root_issue is empty")
+    sm = d.steel_man
+    if sm is None:
+        errors.append("display.steel_man is missing")
+    else:
+        if not sm.argument.strip():
+            errors.append("display.steel_man.argument is empty")
+        if not sm.alternative.strip():
+            errors.append("display.steel_man.alternative is empty")
+    return errors
 
 
 def _validate(data: dict) -> list[str]:
@@ -61,6 +110,7 @@ def _validate(data: dict) -> list[str]:
             errors.append(f"display.strengths[{i}].label is empty")
         if not item.text.strip():
             errors.append(f"display.strengths[{i}].text is empty")
+    errors.extend(_lens_layer_errors(d))
     return errors
 
 
