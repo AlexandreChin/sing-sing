@@ -24,6 +24,7 @@ from models.full_analysis import (
     ArticleExtraction,
     ArticleFullAnalysis,
     ArticleMetadata,
+    CoreElements,
     FullAnalysisInput,
     ProvenByRef,
 )
@@ -48,6 +49,7 @@ from .steps import (
     step7_blend,
     step8_distill,
     step9_guide,
+    step10_core,
 )
 
 
@@ -227,5 +229,11 @@ async def analyze_for_full_analysis(
         lambda: step9_guide.run(review_data, blend_data, distill_data, steps_dir, no_api=no_api))
     guide_out = GuideOutput.model_validate(guide_data)
     assembled = assembled.model_copy(update={"guide": guide_out.guide})
+
+    # Step 10 — Core elements (title-independent; drives the carousel)
+    print("[10] Core…", file=sys.stderr, flush=True)
+    core_data = _load_or_run(steps_dir, "step10_core.json",
+        lambda: step10_core.run(article, ext_data, fond_data, probe_data, steps_dir, no_api=no_api))
+    assembled = assembled.model_copy(update={"core_elements": CoreElements.model_validate(core_data)})
 
     return assembled
