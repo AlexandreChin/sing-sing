@@ -101,6 +101,8 @@ class CarouselDisplay(BaseModel):
     open_question: str = ""                                     # (legacy) — superseded by root_issue
     root_issue: str = ""                                        # Act 4 slide 08 — the deeper problematic the article raises
     steel_man: SteelMan | None = None                          # Act 4 slide 08 — strongest objection
+    reperes_headline: str = ""   # slide 3 headline override; empty → "Avant de vous lancer."
+    bilan_headline: str = ""     # slide 9 headline override; empty → "L'essentiel, et les bons réflexes."
 
 
 class InstagramCarouselPresentation(BaseModel):
