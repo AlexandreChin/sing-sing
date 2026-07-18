@@ -76,7 +76,7 @@ def test_reperes_omits_deux_reflexes_heading_when_no_clues():
     assert "Deux réflexes" not in html
 
 
-def test_prise_de_recul_shows_steelman_then_root_issue():
+def test_prise_de_recul_shows_root_issue_then_steelman():
     html = _render("08_prise_de_recul.html", phase="verdict",
                    steel_man={"argument": "Un tourisme encadré crée des ambassadeurs",
                               "alternative": "le bilan net pourrait s'inverser"},
@@ -87,8 +87,8 @@ def test_prise_de_recul_shows_steelman_then_root_issue():
     assert "le bilan net pourrait s&#39;inverser" not in html   # consequence line removed
     assert "L'enjeu de fond" in html
     assert "une élite qui affiche son indifférence" in html
-    # order: objection → enjeu de fond
-    assert html.index("L'objection la plus solide") < html.index("L'enjeu de fond")
+    # order: enjeu de fond → objection
+    assert html.index("L'enjeu de fond") < html.index("L'objection la plus solide")
 
 
 def test_tracker_uses_four_act_labels_but_keeps_phase_keys():
