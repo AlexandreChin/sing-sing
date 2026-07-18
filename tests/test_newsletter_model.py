@@ -14,7 +14,6 @@ def _base_kwargs(**overrides):
             DecryptageItem(kind="fait", quote="Q3", presentation="attribué", reading="L2."),
             DecryptageItem(kind="faille", quote="Q4", presentation="Glissement", reading="M2.", clue="mot neutre ?"),
         ],
-        strengths=[{"heading": "Force", "body": "Corps."}],
         angles_morts=["A1", "A2"],
         wrap_up="Synthèse.",
         go_further=[{"title": "R1", "source": "S1", "why": "W.", "type": "étude"},
@@ -37,6 +36,12 @@ def test_fact_check_and_failles_fields_removed():
     assert "fact_check" not in NewsletterPresentation.model_fields
     assert "failles" not in NewsletterPresentation.model_fields
     assert "decryptage" in NewsletterPresentation.model_fields
+
+
+def test_strengths_field_removed():
+    # "Ce qui tient" was derived from the quality-eval `review.dimensions` — the
+    # newsletter no longer grades the article, so the field is gone.
+    assert "strengths" not in NewsletterPresentation.model_fields
 
 
 def test_decryptage_kind_is_constrained():

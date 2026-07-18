@@ -27,12 +27,6 @@
 {% endif %}{% endfor %}
 ## L'architecture de l'argument
 
-### Ce qui tient
-{% for s in strengths %}
-#### ✓ {{ s.heading }}
-
-{{ s.body }}
-{% endfor %}
 ### Angles morts & nuances
 {% for a in angles_morts %}
 - {{ a }}

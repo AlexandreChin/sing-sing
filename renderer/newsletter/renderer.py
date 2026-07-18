@@ -16,7 +16,6 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from models.newsletter_presentation import NewsletterDocument
 from renderer.categories import pill
-from renderer.radar import radar_svg, DIM_SHORT
 from renderer.instagram_carousel._shared import _LOGO_DATA_URL, _LOGO_PATH, _md_bold, TYPE_FR
 
 TEMPLATES_DIR = Path(__file__).parent / "templates"
@@ -59,17 +58,6 @@ def _decryptage_ctx(doc: NewsletterDocument) -> list[dict]:
         {"quote": _unwrap_quote(d.quote), "reading": d.reading, "clue": d.clue}
         for d in doc.presentation.decryptage
     ]
-
-
-def _dim_color(score: float) -> str:
-    """Per-dimension bar colour (score 1–5): green → gold → salmon → red."""
-    if score >= 4:
-        return "#7ec8a0"
-    if score >= 3:
-        return "#d4aa00"
-    if score >= 2:
-        return "#e8a07a"
-    return "#e87a7a"
 
 
 def _md_bold_email(text, color: str = "#d4aa00") -> Markup:
@@ -140,14 +128,12 @@ def _ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
         "context": pres.context,
         "reflexes": list(pres.reflexes),
         "decryptage": _decryptage_ctx(doc),
-        "strengths": list(pres.strengths),
         "angles_morts": list(pres.angles_morts),
         "wrap_up": pres.wrap_up,
         "go_further": list(pres.go_further),
         "prolongements": list(pres.prolongements),
         "open_question": pres.open_question,
         "signoff": pres.signoff,
-        "radar_svg": Markup(radar_svg(full.review.dimensions)) if (full.review and full.review.dimensions) else "",
         "meta_line": meta_line,
         # Category pill (dark by default — rich newsletter); the email overrides
         # it per theme in _email_ctx. None for "Autre"/missing → no pill.
@@ -194,19 +180,11 @@ def _carousel_hook(nl_json_path) -> str:
 
 
 def _email_ctx(doc: NewsletterDocument, theme: str = "light", hook_title: str = "") -> dict:
-    """`_ctx` plus the bits the email needs as data (no SVG): a table-based bar
-    per review dimension (the email's stand-in for the radar)."""
+    """`_ctx` plus the bits the email needs resolved per theme (no SVG)."""
     ctx = _ctx(doc, hook_title=hook_title)
     full = doc.analysis
     # Re-resolve the category pill for the email's theme (light or dark).
     ctx["cat_pill"] = pill(full.article_metadata.category, theme)
-    dims = full.review.dimensions if (full.review and full.review.dimensions) else []
-    ctx["dims_bars"] = [{
-        "label": DIM_SHORT.get(d.dimension, d.label),
-        "score": d.score,
-        "pct": round(d.score / 5 * 100),
-        "color": _dim_color(d.score),
-    } for d in dims]
     return ctx
 
 

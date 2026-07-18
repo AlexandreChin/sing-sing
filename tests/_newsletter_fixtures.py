@@ -23,7 +23,6 @@ def sample_doc() -> NewsletterDocument:
             DecryptageItem(kind="faille", quote="Q3", presentation="", reading="Lecture 2."),
             DecryptageItem(kind="faille", quote="Q4", presentation="", reading="Mécanisme 2.", clue="le mot est-il neutre ?"),
         ],
-        strengths=[{"heading": "Une force", "body": "Corps."}],
         angles_morts=["Angle 1", "Angle 2"],
         wrap_up="Synthèse.",
         go_further=[{"title": "R1", "source": "S1", "why": "Pourquoi.", "type": "étude"},

@@ -12,7 +12,6 @@ def _valid_data():
             {"kind": "faille", "quote": "Q3", "presentation": "", "reading": "L2."},
             {"kind": "faille", "quote": "Q4", "presentation": "", "reading": "M2.", "clue": "mot neutre ?"},
         ],
-        strengths=[{"heading": "Force", "body": "Corps."}],
         angles_morts=["A1", "A2"],
         wrap_up="Synthèse.",
         go_further=[{"title": "R1", "source": "S1", "why": "W.", "type": "étude"},
