@@ -215,31 +215,11 @@
 
     <!-- À vous de juger -->
     {% call card("⚖️", "À vous de juger") %}
-          <!-- overall score -->
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-            <td align="left" style="font-size:16px;font-weight:700;color:{{ t.heading }};">Qualit&eacute; de l'article</td>
-            <td align="right" style="font-size:16px;font-weight:800;color:{{ gauge_color }};">{{ band }}</td>
-          </tr></table>
-
-          <!-- overall gauge: red→green track + position caret below. The caret is
-               placed by a percentage-width spacer cell (works in every client,
-               incl. Outlook); the CSS gradient renders in Gmail/Apple/iOS and
-               falls back to the solid bad→mid→good segments elsewhere. -->
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:12px;table-layout:fixed;"><tr>
-            <td height="12" width="34%" bgcolor="#c76a6a" style="height:12px;width:34%;font-size:0;line-height:0;background-color:#c76a6a;background-image:linear-gradient(90deg,#e87a7a,#e8a07a);border-radius:6px 0 0 6px;">&nbsp;</td>
-            <td height="12" width="33%" bgcolor="#d69a6a" style="height:12px;width:33%;font-size:0;line-height:0;background-color:#d69a6a;background-image:linear-gradient(90deg,#e8a07a,#bcc890);">&nbsp;</td>
-            <td height="12" width="33%" bgcolor="#7ec8a0" style="height:12px;width:33%;font-size:0;line-height:0;background-color:#7ec8a0;background-image:linear-gradient(90deg,#bcc890,#7ec8a0);border-radius:0 6px 6px 0;">&nbsp;</td>
-          </tr></table>
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-            <td width="{{ gauge_pos }}%" style="font-size:0;line-height:0;">&nbsp;</td>
-            <td style="font-size:11px;line-height:1;color:{{ gauge_color }};white-space:nowrap;"><span style="display:inline-block;margin-left:-6px;">&#9650;</span></td>
-            {% if gauge_pos < 100 %}<td style="font-size:0;line-height:0;">&nbsp;</td>{% endif %}
-          </tr></table>
-          <div style="text-align:center;font-size:24px;font-weight:800;color:{{ t.accent_text }};padding-top:8px;">{{ score }} / 5</div>
-
           {% if dims_bars %}
-          <!-- per-dimension breakdown (replaces the SVG radar for email) -->
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:22px;">
+          <!-- profil de lecture: per-dimension breakdown (the email's stand-in
+               for the SVG radar) -->
+          <div style="font-size:13px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.muted }};padding-bottom:12px;">Profil de lecture</div>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           {% for d in dims_bars %}
             <tr>
               <td width="34%" style="padding:6px 10px 6px 0;font-size:13px;color:{{ t.text }};line-height:1.2;">{{ d.label }}</td>
@@ -257,13 +237,12 @@
             </tr>
           {% endfor %}
           </table>
-          {% endif %}
 
           <!-- divider -->
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:24px 0 4px;"><tr><td height="1" bgcolor="{{ t.border }}" style="height:1px;font-size:0;line-height:0;background-color:{{ t.border }};">&nbsp;</td></tr></table>
+          {% endif %}
 
           <div style="font-size:17px;line-height:1.58;color:{{ t.text }};padding-top:14px;">{{ wrap_up | md_bold_email(t.accent_text) }}</div>
-          {% if for_whom %}<div style="font-size:15px;color:{{ t.muted }};padding-top:12px;">Pour qui&nbsp;: {{ for_whom }}</div>{% endif %}
     {% endcall %}
 
     <!-- Pour aller plus loin -->

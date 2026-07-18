@@ -1,8 +1,8 @@
 """Newsletter renderer: NewsletterDocument → Markdown + HTML (rich + email).
 
-Reuses the carousel's shared helpers (`_weighted_quality`, logo, `md_bold`).
-The rich HTML uses the dark gold-on-black brand look; the email HTML is a
-table-based, inline-styled variant that survives email clients.
+Reuses the carousel's shared helpers (logo, `md_bold`). The rich HTML uses the
+dark gold-on-black brand look; the email HTML is a table-based, inline-styled
+variant that survives email clients.
 """
 import base64
 import io
@@ -17,13 +17,9 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from models.newsletter_presentation import NewsletterDocument
 from renderer.categories import pill
 from renderer.radar import radar_svg, DIM_SHORT
-from renderer.instagram_carousel._shared import _weighted_quality, _LOGO_DATA_URL, _LOGO_PATH, _md_bold, TYPE_FR
+from renderer.instagram_carousel._shared import _LOGO_DATA_URL, _LOGO_PATH, _md_bold, TYPE_FR
 
 TEMPLATES_DIR = Path(__file__).parent / "templates"
-
-
-def _fr_num(x: float) -> str:
-    return f"{x:.1f}".replace(".", ",")
 
 
 def _email_logo_data_url(px: int = 160) -> str:
@@ -46,11 +42,6 @@ def _email_logo_data_url(px: int = 160) -> str:
 
 
 _EMAIL_LOGO = _email_logo_data_url()
-
-
-# Level → accent colour, shared by the gauge and the per-dimension bars in the
-# email build (matches the .lv-* classes in newsletter.css).
-_LEVEL_COLOR = {"good": "#7ec8a0", "mid": "#e8a07a", "bad": "#e87a7a"}
 
 
 def _unwrap_quote(q: str) -> str:
@@ -94,8 +85,8 @@ def _md_bold_email(text, color: str = "#d4aa00") -> Markup:
 
 
 # Email colour themes. Only "chrome" (backgrounds, text, borders) is themed; the
-# semantic gauge/bar colours (red→green) are fixed since they read on either
-# background. `accent` is the decorative gold (rails, bars, wordmark rule);
+# semantic per-dimension bar colours (red→green) are fixed since they read on
+# either background. `accent` is the decorative gold (rails, bars, wordmark rule);
 # `accent_text` is a version dark enough to read as text/links on the background.
 EMAIL_THEMES = {
     "dark": {
@@ -128,8 +119,6 @@ def _env() -> Environment:
 def _ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
     full, pres = doc.analysis, doc.presentation
     meta = full.article_metadata
-    wq = _weighted_quality(full)
-    verdict = full.review.verdict if full.review else None
 
     reading = f"{meta.reading_time_minutes} min de lecture" if meta.reading_time_minutes else None
     meta_line = " · ".join(x for x in [
@@ -158,12 +147,7 @@ def _ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
         "prolongements": list(pres.prolongements),
         "open_question": pres.open_question,
         "signoff": pres.signoff,
-        "score": _fr_num(wq["score"]) if wq else "",
-        "band": wq["label"] if wq else "",
-        "gauge_pos": wq["pos"] if wq else 50,
-        "gauge_level": wq["level"] if wq else "mid",
         "radar_svg": Markup(radar_svg(full.review.dimensions)) if (full.review and full.review.dimensions) else "",
-        "for_whom": verdict.for_whom if verdict else "",
         "meta_line": meta_line,
         # Category pill (dark by default — rich newsletter); the email overrides
         # it per theme in _email_ctx. None for "Autre"/missing → no pill.
@@ -211,7 +195,7 @@ def _carousel_hook(nl_json_path) -> str:
 
 def _email_ctx(doc: NewsletterDocument, theme: str = "light", hook_title: str = "") -> dict:
     """`_ctx` plus the bits the email needs as data (no SVG): a table-based bar
-    per review dimension and the gauge's accent colour."""
+    per review dimension (the email's stand-in for the radar)."""
     ctx = _ctx(doc, hook_title=hook_title)
     full = doc.analysis
     # Re-resolve the category pill for the email's theme (light or dark).
@@ -223,7 +207,6 @@ def _email_ctx(doc: NewsletterDocument, theme: str = "light", hook_title: str = 
         "pct": round(d.score / 5 * 100),
         "color": _dim_color(d.score),
     } for d in dims]
-    ctx["gauge_color"] = _LEVEL_COLOR.get(ctx["gauge_level"], "#e8a07a")
     return ctx
 
 

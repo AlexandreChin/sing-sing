@@ -45,16 +45,10 @@
 
   <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>À vous de juger</div>
   <div class="verdict">
-    <div class="gauge lv-{{ gauge_level }}">
-      <div class="gtop"><span class="gnm">Qualité de l'article</span><span class="gsc">{{ band }}</span></div>
-      <div class="gtk"><span class="gmk" style="left: {{ gauge_pos }}%;"></span></div>
-    </div>
-    <div class="gscore">{{ score }} / 5</div>
-    {% if radar_svg %}<div class="radar-cap">Le détail, critère par critère (sur 5)</div>
-    <div class="radar">{{ radar_svg }}</div>{% endif %}
-    <div class="vdivider"></div>
+    {% if radar_svg %}<div class="radar-cap">Profil de lecture</div>
+    <div class="radar">{{ radar_svg }}</div>
+    <div class="vdivider"></div>{% endif %}
     <p>{{ wrap_up | md_bold }}</p>
-    {% if for_whom %}<div class="whom">Pour qui&nbsp;: {{ for_whom }}</div>{% endif %}
   </div>
 
   <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>Pour aller plus loin</div>
