@@ -2,7 +2,7 @@ ADAPTATION NEWSLETTER
 
 L'analyse complète de l'article est fournie ci-dessus. Produis la couche de présentation pour une **newsletter** en français — de la PROSE détaillée qui se lit d'une traite. La newsletter suit les MÊMES temps que le carousel « optimized », mais en paragraphes développés (pas des fragments), plus une section « Pour aller plus loin ».
 
-**Cohérence (impératif).** Toute la newsletter déroule une SEULE thèse : celle du `verdict` ci-dessus. Le `subject` et l'`intro` l'annoncent ; chaque section y revient.
+**Cohérence (impératif).** La newsletter COUVRE les `ÉLÉMENTS CENTRAUX` de l'article (fournis ci-dessus) et leur lecture critique — elle ne réduit jamais l'article à l'angle du titre, ni à une seule dimension. Le `verdict` ci-dessus reste une donnée disponible (voir `verdict_line`), mais n'est PAS le fil conducteur de l'ensemble.
 
 **Fidélité aux nuances (impératif).** Quand l'analyse signale un contre-poids à une faiblesse, conserve-le. Inspecte `context.important_facts`, `analysis.fond.observations` et `guide.perspective` avant de rédiger.
 
