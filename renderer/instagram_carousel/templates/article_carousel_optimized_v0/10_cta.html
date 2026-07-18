@@ -15,6 +15,7 @@
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
 .cta-head { font-size: 60px; font-weight: 900; color: #f0f0f0; line-height: 1.12; letter-spacing: -0.01em; }
 .cta-head em { color: #d4aa00; font-style: normal; }
+.cta-head .l-gold { color: #d4aa00; }
 .sec-row { display: flex; align-items: baseline; gap: 18px; }
 .sec-row svg { width: 38px; height: 38px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; align-self: center; }
 .sec-row .sec-label { font-size: 38px; font-weight: 900; color: #f0f0f0; }
@@ -28,7 +29,7 @@
   {% if glyph %}<div class="giant"><svg viewBox="0 0 24 24">{{ glyph | safe }}</svg></div>{% endif %}
   {% include '_brand.html' %}
   <div class="stage">
-    <h1 class="cta-head">On <em>sélectionne</em>.<br>On <em>éclaire</em>.<br><em>Vous</em> jugez.</h1>
+    <h1 class="cta-head">On <em>sélectionne</em>.<br>On <em>éclaire</em>.<br><span class="l-gold">Vous jugez.</span></h1>
     <div class="divider"></div>
     <div class="sec-row"><svg viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg><span><span class="sec-label">Sauvegardez &amp; partagez</span> <span class="sec-body">— à relire, et à transmettre.</span></span></div>
     <div class="sec-row"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span><span class="sec-label">Commentez</span> <span class="sec-body">— votre avis, ou un article à décrypter.</span></span></div>
