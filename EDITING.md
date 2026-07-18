@@ -32,12 +32,31 @@ source line also reads `analysis.article_metadata`.
 |-------|----------|
 | 1 — Hook | `presentation.hook.topic` (big title), `presentation.hook.sub_topic` (question); source line: `analysis.article_metadata.source`, `.published_at`, `.type`, `.reading_time_minutes` |
 | 2 — Sélection | `presentation.display.selection_headline` (subtitle), `presentation.display.why_selected` (body) |
-| 3 — Repères | `presentation.display.reperes_headline` (headline), `analysis.context.contexts[0].text` ("Le contexte"), `presentation.display.lenses[].name` / `.question` |
-| 4–6 — Moments | `presentation.display.reading_beats[]` → `moment`, `quote`, `note`, `lens_ref`, `factcheck` |
-| 7 — Vue d'ensemble | `presentation.display.global_analysis` → `headline`, `core_recap[]`, `note` |
-| 8 — Prise de recul | `presentation.display.steel_man` (`argument`, `alternative`), `presentation.display.root_issue` |
-| 9 — Bilan | `presentation.display.bilan_headline` (headline), `presentation.display.key_takeaways[]`, `presentation.display.lenses` (the pills), `presentation.cta.engagement_sentence` ("La question") |
+| 3 — Repères | `presentation.display.reperes_headline` (headline), `analysis.context.contexts[0].text` ("Le contexte"); the réflexe list is **derived from the selected reading beats** (see Cherry-picking) |
+| 4–6 — Moments | `presentation.display.reading_beats[]` — a **candidate pool**; the `selected` ones render (see Cherry-picking). Per beat: `moment` (subtitle), `quote`, `note`, `lens_ref`, `factcheck` |
+| 7 — Architecture de l'argument | `presentation.display.global_analysis` → `headline`, `core_recap[]` |
+| 8 — À emporter | `presentation.display.bilan_headline` (headline), `presentation.display.key_takeaways[]`; the réflexe pills are **derived from the selected beats** |
+| 9 — À vous de juger | `presentation.display.root_issue` ("L'enjeu de fond"), `presentation.display.steel_man` (`argument`), `presentation.cta.engagement_sentence` ("La question") |
 | 10 — CTA | `presentation.cta.post_reading_questions[]` |
+
+## Cherry-picking the reading beats (slides 4–6)
+
+`reading_beats` is a **candidate pool** (~6–8). Only the beats with
+`"selected": true` render — as slides 4, 5, 6 in list order (max 3). To pick a
+different beat, flip `selected` on the one you want to `true` and the one you
+want to drop to `false`, then re-shoot. Keep **2–3 selected** (a distinct
+`lens_ref` each reads best).
+
+The réflexe lenses on **slides 3, 8 and 9's pills are derived automatically**
+from the selected beats (via the canonical vocabulary in `agent/lenses.py`) —
+so you don't edit any lens list; picking a beat updates those slides for you.
+
+Each candidate also carries editor-only aids (not rendered) to help you choose:
+`theme`, `centrality` (1–5), `kind`, `rationale`.
+
+Canonical `lens_ref` ids: `sources`, `chiffres`, `causalite`, `cadrage`,
+`equilibre`, `sophismes`, `angles_morts` (a beat's `lens_ref` must be one of
+these).
 
 ## Formatting tricks
 

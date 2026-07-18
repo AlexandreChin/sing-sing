@@ -18,25 +18,19 @@ def _lens_layer_errors(d) -> list[str]:
     """Validate the 4-act lens layer (Task: lens-arc). Additive — leaves the
     legacy checks in _validate untouched so the short format keeps working."""
     errors: list[str] = []
-    n_lens = len(d.lenses)
-    if not (2 <= n_lens <= 3):
-        errors.append(f"display.lenses must have 2–3 items, got {n_lens}")
-    selected_ids = set()
-    for i, lens in enumerate(d.lenses):
-        if lens.id not in CANONICAL_LENSES:
-            errors.append(f"display.lenses[{i}].id '{lens.id}' is not a canonical lens id")
-        else:
-            selected_ids.add(lens.id)
-    n_beats = len(d.reading_beats)
-    if not (2 <= n_beats <= 3):
-        errors.append(f"display.reading_beats must have 2–3 items, got {n_beats}")
-    for i, b in enumerate(d.reading_beats):
-        if b.lens_ref not in selected_ids:
-            errors.append(
-                f"display.reading_beats[{i}].lens_ref '{b.lens_ref}' does not match a selected lens"
-            )
+    # reading_beats is a candidate POOL; the renderer shows the `selected` ones and
+    # derives the lenses from them, so we validate the pool, not an authored lens list.
+    beats = d.reading_beats
+    if len(beats) < 3:
+        errors.append(f"display.reading_beats (candidate pool) should have ≥3 items, got {len(beats)}")
+    for i, b in enumerate(beats):
+        if b.lens_ref not in CANONICAL_LENSES:
+            errors.append(f"display.reading_beats[{i}].lens_ref '{b.lens_ref}' is not a canonical lens id")
         if not b.quote.strip():
             errors.append(f"display.reading_beats[{i}].quote is empty")
+    n_selected = sum(1 for b in beats if b.selected)
+    if not (2 <= n_selected <= 3):
+        errors.append(f"display.reading_beats must have 2–3 selected, got {n_selected}")
     ga = d.global_analysis
     if ga is None:
         errors.append("display.global_analysis is missing")

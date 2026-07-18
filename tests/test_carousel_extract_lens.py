@@ -4,7 +4,7 @@ from pathlib import Path
 from extractors.instagram_carousel import extract
 from models.full_analysis import ArticleFullAnalysis
 from models.instagram_carousel_presentation import (
-    InstagramCarouselPresentation, Lens, ReadingBeat,
+    InstagramCarouselPresentation, ReadingBeat,
 )
 
 _ANALYSIS = ArticleFullAnalysis.model_validate(
@@ -15,27 +15,20 @@ _PRES = InstagramCarouselPresentation.model_validate(
 )
 
 
-def _pres_with_beats(lenses, beats):
+def _pres_with_beats(beats):
     return _PRES.model_copy(update={"display": _PRES.display.model_copy(update={
-        "lenses": lenses, "reading_beats": beats,
+        "reading_beats": beats,
     })})
 
 
-def test_dangling_lens_ref_beats_are_dropped_order_preserved():
-    lenses = [Lens(id="chiffres", name="Chiffres sans base", question="?")]
+def test_extract_keeps_full_beat_pool_untouched():
+    # extract must NOT trim the candidate pool — cherry-picking happens later
     beats = [
-        ReadingBeat(moment="A", quote="q1", lens_ref="chiffres", note="n"),
-        ReadingBeat(moment="B", quote="q2", lens_ref="cadrage", note="n"),   # not selected → drop
-        ReadingBeat(moment="C", quote="q3", lens_ref="chiffres", note="n"),
+        ReadingBeat(moment="A", quote="q1", lens_ref="chiffres", note="n", selected=True),
+        ReadingBeat(moment="B", quote="q2", lens_ref="cadrage", note="n", selected=False),
+        ReadingBeat(moment="C", quote="q3", lens_ref="sources", note="n", selected=True),
     ]
-    doc = extract(_ANALYSIS, _pres_with_beats(lenses, beats))
+    doc = extract(_ANALYSIS, _pres_with_beats(beats))
     kept = doc.presentation.display.reading_beats
-    assert [b.moment for b in kept] == ["A", "C"]
-
-
-def test_lens_name_and_question_are_canonicalized():
-    lenses = [Lens(id="chiffres", name="Les chiffres", question="wrong?")]
-    doc = extract(_ANALYSIS, _pres_with_beats(lenses, []))
-    lens = doc.presentation.display.lenses[0]
-    assert lens.name == "Le bon dénominateur"
-    assert lens.question == "Ce chiffre, rapporté à quoi ?"
+    assert [b.moment for b in kept] == ["A", "B", "C"]          # nothing dropped, order preserved
+    assert [b.selected for b in kept] == [True, False, True]    # selected flags preserved

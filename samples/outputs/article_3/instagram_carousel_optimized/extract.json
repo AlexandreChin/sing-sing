@@ -1042,7 +1042,7 @@
       "lenses": [
         {
           "id": "sources",
-          "name": "Sources",
+          "name": "La source",
           "question": "Qui l'affirme, et comment le sait-on ?"
         },
         {
@@ -1052,7 +1052,7 @@
         },
         {
           "id": "causalite",
-          "name": "Causalité",
+          "name": "Cause ou corrélation",
           "question": "Vraie cause, ou simple corrélation ?"
         }
       ],
@@ -1062,21 +1062,72 @@
           "quote": "le nombre de voyageurs optant pour une croisière avec vol a augmenté de plus de 4 400 % en vingt ans, passant de 230 en 2004 à plus de 10 000 en 2024",
           "lens_ref": "chiffres",
           "note": "Devant un pourcentage spectaculaire, cherchez la **base de départ** : +4 400 % part de seulement **230 voyageurs** en 2004.",
-          "factcheck": "disputed"
+          "factcheck": "disputed",
+          "selected": true,
+          "theme": "croissance",
+          "centrality": 4,
+          "kind": "statistique",
+          "rationale": "l'effet de base spectaculaire"
         },
         {
           "moment": "La faune polaire",
           "quote": "Les touristes sont en compétition directe avec les animaux",
           "lens_ref": "sources",
           "note": "« Compétition directe » est une affirmation forte : sur quelle **observation** repose-t-elle ? Cherchez la source avant de l'admettre.",
-          "factcheck": ""
+          "factcheck": "",
+          "selected": true,
+          "theme": "faune",
+          "centrality": 3,
+          "kind": "enjeu",
+          "rationale": "l'impact affirmé sur la faune"
         },
         {
           "moment": "Le cœur de la thèse",
           "quote": "En contribuant à réchauffer la planète avec ces croisières aériennes, ils détruisent les paysages qu'ils observent.",
           "lens_ref": "causalite",
           "note": "Guettez le glissement du **global au local** : contribuer au réchauffement n'est pas détruire directement ce paysage précis. Cause, ou corrélation ?",
-          "factcheck": ""
+          "factcheck": "",
+          "selected": true,
+          "theme": "thèse",
+          "centrality": 5,
+          "kind": "angle",
+          "rationale": "le glissement causal central"
+        },
+        {
+          "moment": "Le coût carbone du voyage",
+          "quote": "entre 15 et 25 tonnes de CO2 par passager, soit plus du double de l'empreinte carbone annuelle moyenne d'un Français",
+          "lens_ref": "chiffres",
+          "note": "Une comparaison parlante (2× un Français) convainc vite — demandez d'où vient **la fourchette**.",
+          "factcheck": "likely true",
+          "selected": false,
+          "theme": "carbone",
+          "centrality": 4,
+          "kind": "statistique",
+          "rationale": "le chiffre carbone emblématique"
+        },
+        {
+          "moment": "Le tourisme de la dernière chance",
+          "quote": "Ces paysages sont décrits comme étant en train de disparaître. Ce sentiment d'urgence pousse les voyageurs à vouloir les découvrir avant qu'il ne soit trop tard",
+          "lens_ref": "cadrage",
+          "note": "Repérez le ressort de l'**urgence** : « avant qu'il ne soit trop tard » pousse à agir sans peser.",
+          "factcheck": "",
+          "selected": false,
+          "theme": "cadrage",
+          "centrality": 3,
+          "kind": "biais",
+          "rationale": "le ressort « dernière chance »"
+        },
+        {
+          "moment": "Le procès des opérateurs",
+          "quote": "Ces entreprises ne cherchent qu'à faire du profit. Elles ne sont pas là pour sauver la planète",
+          "lens_ref": "sources",
+          "note": "Une charge forte : **qui** l'affirme, et sur quelles preuves ? Cherchez la source.",
+          "factcheck": "",
+          "selected": false,
+          "theme": "acteurs",
+          "centrality": 3,
+          "kind": "affirmation",
+          "rationale": "opinion d'expert à sourcer"
         }
       ],
       "global_analysis": {
