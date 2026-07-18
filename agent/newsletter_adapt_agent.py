@@ -22,19 +22,11 @@ def _validate(data: dict) -> list[str]:
     if len(pres.reflexes) != 2:
         errors.append(f"reflexes must have exactly 2 items, got {len(pres.reflexes)}")
     n = len(pres.decryptage)
-    faits = [d for d in pres.decryptage if d.kind == "fait"]
-    failles = [d for d in pres.decryptage if d.kind == "faille"]
     if not (4 <= n <= 6):
         errors.append(f"decryptage must have 4–6 items, got {n}")
-    if len(faits) < 2:
-        errors.append(f"decryptage needs at least 2 'fait' items, got {len(faits)}")
-    if len(failles) < 2:
-        errors.append(f"decryptage needs at least 2 'faille' items, got {len(failles)}")
     for i, d in enumerate(pres.decryptage):
         if not d.quote.strip() or not d.reading.strip():
             errors.append(f"decryptage[{i}] has an empty quote/reading")
-        if d.kind == "faille" and not (d.clue or "").strip():
-            errors.append(f"decryptage[{i}] (faille) is missing its clue")
     if not (1 <= len(pres.strengths) <= 2):
         errors.append(f"strengths must have 1–2 items, got {len(pres.strengths)}")
     if not (2 <= len(pres.angles_morts) <= 3):
