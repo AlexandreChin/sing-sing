@@ -19,11 +19,11 @@
 
   <p class="intro">{{ intro | md_bold }}</p>
 
-  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>Pourquoi cet article</div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>L'intérêt</div>
   <p>{{ why_selected | md_bold }}</p>
   <p>{{ payoff | md_bold }}</p>
 
-  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>Avant de lire</div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>Les repères</div>
   <p>{{ context | md_bold }}</p>
   <div class="plain">{% for r in reflexes %}<div class="row"><span class="mk gold">›</span><span>{{ r | md_bold }}</span></div>{% endfor %}</div>
 
@@ -34,7 +34,7 @@
     {% if d.clue %}<div class="clue"><span class="ret">↩</span> «&nbsp;{{ d.clue }}&nbsp;»</div>{% endif %}
   </div>{% endfor %}
 
-  <div class="kicker vue"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>La vue d'ensemble</div>
+  <div class="kicker vue"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>L'architecture de l'argument</div>
   {% for s in strengths %}<div class="sec">
     <h3>✓ {{ s.heading }}</h3>
     <p>{{ s.body | md_bold }}</p>

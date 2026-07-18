@@ -4,13 +4,13 @@
 
 {% endif %}{{ intro }}
 
-## Pourquoi cet article
+## L'intérêt
 
 {{ why_selected }}
 
 {{ payoff }}
 
-## Avant de lire
+## Les repères
 
 {{ context }}
 {% for r in reflexes %}
@@ -25,7 +25,7 @@
 {% if d.clue %}
 ↩ *« {{ d.clue }} »*
 {% endif %}{% endfor %}
-## La vue d'ensemble
+## L'architecture de l'argument
 
 ### Ce qui tient
 {% for s in strengths %}
