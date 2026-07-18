@@ -70,7 +70,7 @@
     {# section() = one of the 3 pillars, rendered as a gold band that lists all
        three pillar names with the active one big/dark so the reader always knows
        where they are. `active` is 1, 2 or 3. #}
-    {% set pillars = ["Pourquoi cet article", "Avant de vous lancer", "Après lecture"] %}
+    {% set pillars = ["L'intérêt", "Avant de vous lancer", "Après lecture"] %}
     {% set pillar_icons = ["🎯", "🧭", "🧠"] %}
     {% macro section(active) %}
     <tr><td style="padding:44px 0 0;">
@@ -189,7 +189,7 @@
       {% endfor %}
     {% endcall %}
 
-    {{ kicker("🧠", "La vue d'ensemble" | safe) }}
+    {{ kicker("🧠", "L'architecture de l'argument" | safe) }}
 
     <!-- Ce qui tient -->
     {% call card("✅", "Ce qui tient") %}

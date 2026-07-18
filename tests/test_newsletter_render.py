@@ -38,10 +38,10 @@ def test_decryptage_ctx_carries_quote_reading_clue():
 def test_markdown_structure_and_order():
     md = generate_markdown(sample_doc())
     assert "Au fil de la lecture" in md
-    assert "La vue d'ensemble" in md
+    assert "L'architecture de l'argument" in md
     assert "Vérification des faits" not in md
     assert "## Les failles" not in md
-    assert md.index("Au fil de la lecture") < md.index("La vue d'ensemble") < md.index("À vous de juger")
+    assert md.index("Au fil de la lecture") < md.index("L'architecture de l'argument") < md.index("À vous de juger")
 
 
 def test_rich_html_has_no_grade_badge():
@@ -57,7 +57,7 @@ def test_email_both_themes():
     for theme in ("light", "dark"):
         html = generate_email_html(sample_doc(), theme)
         assert "Au fil de la lecture" in html
-        assert "La vue d'ensemble" in html
+        assert "L'architecture de l'argument" in html
         assert "Vérification des faits" not in html
         assert "Les failles" not in html
 
