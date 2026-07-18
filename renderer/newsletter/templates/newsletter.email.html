@@ -109,6 +109,7 @@
     {# ===== PILLAR 1 — la curation : pourquoi cet article ===== #}
     {{ section(1) }}
     {% call card() %}
+      <div style="font-size:20px;font-style:italic;line-height:1.4;color:{{ t.heading }};padding-bottom:14px;">{{ selection_headline }}</div>
       <div style="font-size:17px;line-height:1.62;color:{{ t.text }};">{{ why_selected | md_bold_email(t.accent_text) }}</div>
       <div style="font-size:17px;line-height:1.62;color:{{ t.text }};padding-top:14px;">{{ payoff | md_bold_email(t.accent_text) }}</div>
     {% endcall %}
@@ -189,47 +190,80 @@
       {% endfor %}
     {% endcall %}
 
-    {{ kicker("🧠", "L'architecture de l'argument" | safe) }}
-
-    <!-- Angles morts & nuances -->
-    {% call card("🌓", "Angles morts & nuances") %}
+    <!-- L'architecture de l'argument : colonne vertébrale + clé de voûte -->
+    {% call card("🧠", "L'architecture de l'argument") %}
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-      {% for a in angles_morts %}
+      {% for s in architecture.spine %}
+      <tr>
+        <td valign="top" width="34" style="{% if not loop.first %}padding-top:14px;{% endif %}"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td width="26" height="26" align="center" valign="middle" bgcolor="{{ t.accent }}" style="width:26px;height:26px;border-radius:13px;background-color:{{ t.accent }};font-size:14px;font-weight:900;color:#1a1400;line-height:26px;">{{ loop.index }}</td></tr></table></td>
+        <td style="font-size:17px;line-height:1.55;color:{{ t.text_soft }};{% if not loop.first %}padding-top:14px;{% endif %}">{{ s | md_bold_email(t.accent_text) }}</td>
+      </tr>
+      {% endfor %}
+      </table>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:20px 0 0;"><tr><td bgcolor="{{ t.track }}" style="background-color:{{ t.track }};border-radius:0 8px 8px 0;border-left:3px solid {{ t.accent }};padding:16px 20px;">
+        <div style="font-size:17px;font-style:italic;line-height:1.5;color:{{ t.text }};">{{ architecture.keystone }}</div>
+      </td></tr></table>
+    {% endcall %}
+
+    <!-- À emporter : à retenir + réflexes critiques -->
+    {% call card("🎒", "À emporter") %}
+      <div style="font-size:14px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.accent_text }};padding-bottom:12px;">À retenir</div>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+      {% for tk in a_emporter.key_takeaways %}
+      <tr>
+        <td valign="top" width="20" style="font-size:17px;font-weight:900;color:{{ t.accent_text }};line-height:1.5;{% if not loop.first %}padding-top:12px;{% endif %}">&rarr;</td>
+        <td style="font-size:17px;line-height:1.55;color:{{ t.text_soft }};{% if not loop.first %}padding-top:12px;{% endif %}">{{ tk | md_bold_email(t.accent_text) }}</td>
+      </tr>
+      {% endfor %}
+      </table>
+      <div style="font-size:14px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.accent_text }};padding:24px 0 12px;">Les réflexes critiques</div>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+      {% for r in a_emporter.reflexes_critiques %}
+      <tr>
+        <td valign="top" width="20" style="font-size:17px;font-weight:900;color:{{ t.accent_text }};line-height:1.5;{% if not loop.first %}padding-top:12px;{% endif %}">&rsaquo;</td>
+        <td style="font-size:17px;line-height:1.55;color:{{ t.text_soft }};{% if not loop.first %}padding-top:12px;{% endif %}">{{ r | md_bold_email(t.accent_text) }}</td>
+      </tr>
+      {% endfor %}
+      </table>
+    {% endcall %}
+
+    <!-- À vous de juger : enjeu + objection + tient/fragile + angles morts + la question -->
+    {% call card("🤔", "À vous de juger") %}
+      <div style="font-size:14px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.accent_text }};padding-bottom:10px;">L'enjeu de fond</div>
+      <div style="font-size:17px;line-height:1.58;color:{{ t.text }};">{{ verdict.enjeu | md_bold_email(t.accent_text) }}</div>
+      <div style="font-size:14px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.accent_text }};padding:22px 0 10px;">L'objection la plus solide</div>
+      <div style="font-size:17px;line-height:1.58;color:{{ t.text }};">{{ verdict.objection | md_bold_email(t.accent_text) }}</div>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:18px 0;"><tr><td bgcolor="{{ t.track }}" style="background-color:{{ t.track }};border-radius:8px;padding:16px 20px;">
+        <div style="font-size:16px;line-height:1.55;color:{{ t.text }};">{{ verdict.tient_fragile | md_bold_email(t.accent_text) }}</div>
+      </td></tr></table>
+      <div style="font-size:14px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.accent_text }};padding:6px 0 10px;">Angles morts &amp; nuances</div>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+      {% for a in verdict.angles_morts %}
       <tr>
         <td valign="top" width="20" style="font-size:17px;font-weight:900;color:#cf8a5a;line-height:1.5;{% if not loop.first %}padding-top:12px;{% endif %}">~</td>
         <td style="font-size:17px;line-height:1.55;color:{{ t.text_soft }};{% if not loop.first %}padding-top:12px;{% endif %}">{{ a | md_bold_email(t.accent_text) }}</td>
       </tr>
       {% endfor %}
       </table>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:20px 0 0;"><tr><td bgcolor="{{ t.track }}" style="background-color:{{ t.track }};border-radius:0 8px 8px 0;border-left:3px solid {{ t.accent }};padding:16px 20px;">
+        <div style="font-size:17px;font-style:italic;line-height:1.5;color:{{ t.text }};">{{ verdict.la_question }}</div>
+      </td></tr></table>
     {% endcall %}
 
-    <!-- À vous de juger -->
-    {% call card("🤔", "À vous de juger") %}
-          <div style="font-size:17px;line-height:1.58;color:{{ t.text }};">{{ wrap_up | md_bold_email(t.accent_text) }}</div>
-    {% endcall %}
-
-    <!-- Pour aller plus loin -->
-    {% call card("📚", "Pour aller plus loin") %}
+    <!-- Prolonger la réflexion : cui bono + pour aller plus loin -->
+    {% call card("💭", "Prolonger la réflexion") %}
+      <div style="font-size:19px;font-weight:800;letter-spacing:-0.01em;color:{{ t.heading }};line-height:1.3;">À qui profite ce cadrage ?</div>
+      <div style="font-size:16px;line-height:1.58;color:{{ t.text_soft }};padding-top:9px;">{{ cui_bono | md_bold_email(t.accent_text) }}</div>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:22px 0 0;"><tr><td height="1" bgcolor="{{ t.border }}" style="height:1px;font-size:0;line-height:0;background-color:{{ t.border }};">&nbsp;</td></tr></table>
+      <div style="font-size:14px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.accent_text }};padding:22px 0 4px;">Pour aller plus loin</div>
       {% for r in go_further %}
-      {% if not loop.first %}<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:20px 0;"><tr><td height="1" bgcolor="{{ t.border }}" style="height:1px;font-size:0;line-height:0;background-color:{{ t.border }};">&nbsp;</td></tr></table>{% endif %}
+      <div style="padding-top:16px;">
       {% if r.type %}<div style="padding-bottom:9px;"><span style="display:inline-block;font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#1a1400;background-color:{{ t.accent }};padding:3px 9px;border-radius:4px;">{{ r.type }}</span></div>{% endif %}
       <div style="font-size:18px;font-weight:800;color:{{ t.heading }};line-height:1.3;">{{ r.title }}</div>
       {% if r.source %}<div style="font-size:13px;color:{{ t.muted }};text-transform:uppercase;letter-spacing:0.08em;padding-top:4px;">{{ r.source }}</div>{% endif %}
       {% if r.why %}<div style="font-size:16px;color:{{ t.text_soft }};line-height:1.55;padding-top:10px;">{{ r.why | md_bold_email(t.accent_text) }}</div>{% endif %}
-      {% endfor %}
-    {% endcall %}
-
-    <!-- Prolonger la réflexion -->
-    {% call card("💭", "Prolonger la réflexion") %}
-      {% for p in prolongements %}
-      <div style="{% if not loop.first %}padding-top:20px;{% endif %}">
-        <div style="font-size:19px;font-weight:800;letter-spacing:-0.01em;color:{{ t.heading }};line-height:1.3;">{{ p.heading }}</div>
-        <div style="font-size:16px;line-height:1.58;color:{{ t.text_soft }};padding-top:9px;">{{ p.body | md_bold_email(t.accent_text) }}</div>
       </div>
       {% endfor %}
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:20px 0 0;"><tr><td bgcolor="{{ t.track }}" style="background-color:{{ t.track }};border-radius:0 8px 8px 0;border-left:3px solid {{ t.accent }};padding:16px 20px;">
-        <div style="font-size:17px;font-style:italic;line-height:1.5;color:{{ t.text }};">{{ open_question }}</div>
-      </td></tr></table>
     {% endcall %}
 
     <!-- signoff -->

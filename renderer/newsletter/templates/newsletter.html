@@ -20,11 +20,14 @@
   <p class="intro">{{ intro | md_bold }}</p>
 
   <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>L'intérêt</div>
+  <p class="subtitle">{{ selection_headline }}</p>
   <p>{{ why_selected | md_bold }}</p>
   <p>{{ payoff | md_bold }}</p>
 
   <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>Les repères</div>
+  <h3 class="subhead">Le contexte</h3>
   <p>{{ context | md_bold }}</p>
+  <h3 class="subhead">Les réflexes</h3>
   <div class="plain">{% for r in reflexes %}<div class="row"><span class="mk gold">›</span><span>{{ r | md_bold }}</span></div>{% endfor %}</div>
 
   <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Au fil de la lecture</div>
@@ -35,28 +38,38 @@
   </div>{% endfor %}
 
   <div class="kicker vue"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>L'architecture de l'argument</div>
+  <div class="spine">{% for s in architecture.spine %}<div class="row"><span class="n">{{ loop.index }}</span><span>{{ s | md_bold }}</span></div>{% endfor %}</div>
+  <div class="openq">{{ architecture.keystone }}</div>
 
-  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Angles morts &amp; nuances</div>
-  <div class="plain">{% for a in angles_morts %}<div class="row"><span class="mk salmon">~</span><span>{{ a | md_bold }}</span></div>{% endfor %}</div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h11l3 3v15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M9 12l2 2 4-4"/></svg>À emporter</div>
+  <h3 class="subhead">À retenir</h3>
+  <div class="box"><ul>{% for t in a_emporter.key_takeaways %}<li>{{ t | md_bold }}</li>{% endfor %}</ul></div>
+  <h3 class="subhead">Les réflexes critiques</h3>
+  <div class="plain">{% for r in a_emporter.reflexes_critiques %}<div class="row"><span class="mk gold">›</span><span>{{ r | md_bold }}</span></div>{% endfor %}</div>
 
   <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>À vous de juger</div>
+  <h3 class="subhead">L'enjeu de fond</h3>
+  <p>{{ verdict.enjeu | md_bold }}</p>
+  <h3 class="subhead">L'objection la plus solide</h3>
+  <p>{{ verdict.objection | md_bold }}</p>
   <div class="verdict">
-    <p>{{ wrap_up | md_bold }}</p>
+    <p>{{ verdict.tient_fragile | md_bold }}</p>
   </div>
+  <h3 class="subhead">Angles morts &amp; nuances</h3>
+  <div class="plain">{% for a in verdict.angles_morts %}<div class="row"><span class="mk salmon">~</span><span>{{ a | md_bold }}</span></div>{% endfor %}</div>
+  <div class="openq">{{ verdict.la_question }}</div>
 
-  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>Pour aller plus loin</div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-4 10.5c.6.6 1 1.4 1 2.3V17h6v-1.2c0-.9.4-1.7 1-2.3A6 6 0 0 0 12 3Z"/><path d="M9 21h6"/></svg>Prolonger la réflexion</div>
+  <div class="sec">
+    <h3>À qui profite ce cadrage ?</h3>
+    <p>{{ cui_bono | md_bold }}</p>
+  </div>
+  <h3 class="subhead">Pour aller plus loin</h3>
   {% for r in go_further %}<div class="resource">
     <div class="t">{{ r.title }}</div>
     {% if r.source %}<div class="s">{{ r.source }}</div>{% endif %}
     {% if r.why %}<div class="w">{{ r.why | md_bold }}</div>{% endif %}
   </div>{% endfor %}
-
-  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-4 10.5c.6.6 1 1.4 1 2.3V17h6v-1.2c0-.9.4-1.7 1-2.3A6 6 0 0 0 12 3Z"/><path d="M9 21h6"/></svg>Prolonger la réflexion</div>
-  {% for p in prolongements %}<div class="sec">
-    <h3>{{ p.heading }}</h3>
-    <p>{{ p.body | md_bold }}</p>
-  </div>{% endfor %}
-  <div class="openq">{{ open_question }}</div>
 
   <div class="signoff">{{ signoff | md_bold }}<span class="sig">— Sing Sing</span></div>
 </div>
