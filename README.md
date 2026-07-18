@@ -83,19 +83,18 @@ Run `uv run python main.py <command> --help` for details.
 | `verify <analysis.json>` | Find sources for/against the article's claims |
 | `graph <analysis.json>` | Render the analysis node-graph to HTML |
 
-Common flags: `--format {instagram_carousel_optimized, instagram_carousel_optimized_short, newsletter}`,
+Common flags: `--format {instagram_carousel_optimized, newsletter}`,
 `--no-api` (use the `claude` CLI instead of the API), `--render` (also produce the output files),
 `--pdf` (newsletter: also emit a PDF).
 
 ## Formats
 
-All formats are fed by the **same** `analyze` stage. The two carousel formats also share the
-same `adapt()` copy; the newsletter has its own prose adapt. Registered in `extractors/registry.py`.
+All formats are fed by the **same** `analyze` stage. The carousel has its own `adapt()` copy;
+the newsletter has its own prose adapt. Registered in `extractors/registry.py`.
 
 | Format | Output | Shape |
 |--------|--------|-------|
-| `instagram_carousel_optimized` *(default)* | 10 PNG slides | Hook → Curation → Repères → Vérif. des faits → Faille 1 → Faille 2 → Point fort → Prise de recul → Verdict → CTA |
-| `instagram_carousel_optimized_short` | 6 PNG slides | Hook → Curation → Repères → Le décryptage → Verdict → CTA |
+| `instagram_carousel_optimized` *(default)* | 10 PNG slides | Hook → Sélection → Repères → 3 moments de lecture → Architecture de l'argument → À emporter → À vous de juger → CTA |
 | `newsletter` | Markdown + HTML + PDF | the carousel beats as detailed prose: Intro → Pourquoi cet article → Avant de lire → Vérification des faits → Les failles → Ce qui tient → Angles morts & nuances → Verdict → Pour aller plus loin → sign-off |
 
 ```bash
@@ -136,9 +135,8 @@ extractors/
   instagram_carousel.py      extract(): trim the carousel presentation
   newsletter.py              extract(): passthrough → NewsletterDocument
 renderer/
-  instagram_carousel/        the carousel renderers + shared helpers
+  instagram_carousel/        the carousel renderer + shared helpers
     optimized.py             10-slide deck
-    optimized_short.py       6-slide deck
     _shared.py               Jinja env, gauge, logo helpers
     templates/               Jinja2 slide templates
   newsletter/                newsletter renderer → Markdown + HTML (+ PDF)

@@ -1,8 +1,8 @@
-"""Shared rendering helpers for the optimized carousel renderers.
+"""Shared rendering helpers for the carousel renderer.
 
-`optimized.py` and `optimized_short.py` import from here: the Jinja environment
-(`_env`), the logo data URL, the weighted global-quality gauge (`_weighted_quality`),
-and the `TYPE_FR` label map. Slide generation itself lives in each renderer module.
+`optimized.py` imports from here: the Jinja environment (`_env`), the logo data
+URL, the weighted global-quality gauge (`_weighted_quality`, used by the
+newsletter), and the `TYPE_FR` label map. Slide generation lives in the renderer.
 """
 
 import base64
