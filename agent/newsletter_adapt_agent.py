@@ -53,16 +53,27 @@ def _validate(data: dict) -> list[str]:
 
 
 def _context(full: ArticleFullAnalysis) -> str:
+    core = ""
+    if full.core_elements and full.core_elements.elements:
+        lines = "\n".join(
+            f"  - [{e.kind}, centralité {e.centrality}] {e.statement}"
+            for e in full.core_elements.elements
+        )
+        core = (
+            "ÉLÉMENTS CENTRAUX (la newsletter doit les COUVRIR — ne pas se limiter "
+            "à l'angle du titre) :\n" + lines + "\n\n"
+        )
     verdict = ""
     if full.review:
         v = full.review.verdict
         verdict = (
-            "VERDICT (fil conducteur — toute la newsletter doit y mener) :\n"
+            "VERDICT (disponible, PAS le fil conducteur) :\n"
             f"  qualité : {v.quality} · recommandation : {v.reading_recommendation}\n"
             f"  thèse : {v.summary}\n\n"
         )
     return (
         f"ARTICLE METADATA :\n{_j(full.article_metadata.model_dump())}\n\n"
+        f"{core}"
         f"{verdict}"
         f"ANALYSE COMPLÈTE :\n{full.model_dump_json(indent=2)}"
     )
