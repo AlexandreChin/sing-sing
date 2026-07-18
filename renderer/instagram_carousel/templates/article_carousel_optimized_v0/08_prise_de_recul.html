@@ -25,22 +25,22 @@
   {% include '_brand.html' %}
   {% include '_tracker.html' %}
   <div class="stage">
-    <span class="kick"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>Prise de recul</span>
+    <span class="kick"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{{ ICONS.widen | safe }}</svg>Prise de recul</span>
     <h1 class="head">À vous de juger.</h1>
     <div class="divider"></div>
     {% if root_issue %}<div class="q-item">
-      <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg></span><span class="q-label">L'enjeu de fond</span></div>
+      <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.anchor | safe }}</svg></span><span class="q-label">L'enjeu de fond</span></div>
       <div class="r-list">
         <div class="r-item"><span class="rk">&#8250;</span><span>{{ root_issue | md_bold }}</span></div>
       </div>
     </div>{% endif %}
     {% if steel_man %}<div class="q-item">
-      <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="q-label">L'objection la plus solide</span></div>
+      <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.shield | safe }}</svg></span><span class="q-label">L'objection la plus solide</span></div>
       <div class="r-list">
         <div class="r-item"><span class="rk">&#8250;</span><span>{{ steel_man.argument | md_bold }}</span></div>
       </div>
     </div>{% endif %}
-    {% if engagement %}<div class="wrap-card"><div class="wc-label"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>La question</div><div class="wc-text">{{ engagement | md_bold }}</div></div>{% endif %}
+    {% if engagement %}<div class="wrap-card"><div class="wc-label"><svg viewBox="0 0 24 24">{{ ICONS.speech_bubble | safe }}</svg>La question</div><div class="wc-text">{{ engagement | md_bold }}</div></div>{% endif %}
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Avant de partir &#8250;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>

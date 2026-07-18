@@ -71,7 +71,7 @@
        three pillar names with the active one big/dark so the reader always knows
        where they are. `active` is 1, 2 or 3. #}
     {% set pillars = ["L'intérêt", "Avant de vous lancer", "Après lecture"] %}
-    {% set pillar_icons = ["🎯", "🧭", "🧠"] %}
+    {% set pillar_icons = ["🔥", "🧭", "🧠"] %}
     {% macro section(active) %}
     <tr><td style="padding:44px 0 0;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="{{ t.accent }}" style="background-color:{{ t.accent }};background-image:linear-gradient(135deg,#e6c04a 0%,#d4aa00 55%,#c09800 100%);"><tr>
@@ -148,8 +148,8 @@
     {% endcall %}
     {% endif %}
 
-    <!-- À surveiller en lisant (réflexes + tout point de vigilance supplémentaire) -->
-    {% call card("👀", "À surveiller en lisant") %}
+    <!-- Les réflexes (réflexes + tout point de vigilance supplémentaire) -->
+    {% call card("💡", "Les réflexes") %}
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
       {% for r in reflexes + extra_reflexes %}
       <tr>
@@ -176,7 +176,7 @@
     {{ section(3) }}
 
     <!-- Au fil de la lecture -->
-    {% call card("🔍", "Au fil de la lecture") %}
+    {% call card("📖", "Au fil de la lecture") %}
       {% for d in decryptage %}
       {% if not loop.first %}<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:20px 0;"><tr><td height="1" bgcolor="{{ t.border }}" style="height:1px;font-size:0;line-height:0;background-color:{{ t.border }};">&nbsp;</td></tr></table>{% endif %}
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
@@ -191,7 +191,7 @@
     {% endcall %}
 
     <!-- L'architecture de l'argument : colonne vertébrale + clé de voûte -->
-    {% call card("🧠", "L'architecture de l'argument") %}
+    {% call card("🧭", "L'architecture de l'argument") %}
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
       {% for s in architecture.spine %}
       <tr>
@@ -206,8 +206,8 @@
     {% endcall %}
 
     <!-- À emporter : à retenir + réflexes critiques -->
-    {% call card("🎒", "À emporter") %}
-      <div style="font-size:14px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.accent_text }};padding-bottom:12px;">À retenir</div>
+    {% call card("🛍", "À emporter") %}
+      <div style="font-size:14px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.accent_text }};padding-bottom:12px;">📌&nbsp;&nbsp;À retenir</div>
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
       {% for tk in a_emporter.key_takeaways %}
       <tr>
@@ -216,7 +216,7 @@
       </tr>
       {% endfor %}
       </table>
-      <div style="font-size:14px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.accent_text }};padding:24px 0 12px;">Les réflexes critiques</div>
+      <div style="font-size:14px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.accent_text }};padding:24px 0 12px;">💡&nbsp;&nbsp;Les réflexes critiques</div>
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
       {% for r in a_emporter.reflexes_critiques %}
       <tr>
@@ -229,9 +229,9 @@
 
     <!-- À vous de juger : enjeu + objection + tient/fragile + angles morts + la question -->
     {% call card("🤔", "À vous de juger") %}
-      <div style="font-size:14px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.accent_text }};padding-bottom:10px;">L'enjeu de fond</div>
+      <div style="font-size:14px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.accent_text }};padding-bottom:10px;">⚓&nbsp;&nbsp;L'enjeu de fond</div>
       <div style="font-size:17px;line-height:1.58;color:{{ t.text }};">{{ verdict.enjeu | md_bold_email(t.accent_text) }}</div>
-      <div style="font-size:14px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.accent_text }};padding:22px 0 10px;">L'objection la plus solide</div>
+      <div style="font-size:14px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.accent_text }};padding:22px 0 10px;">🛡&nbsp;&nbsp;L'objection la plus solide</div>
       <div style="font-size:17px;line-height:1.58;color:{{ t.text }};">{{ verdict.objection | md_bold_email(t.accent_text) }}</div>
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:18px 0;"><tr><td bgcolor="{{ t.track }}" style="background-color:{{ t.track }};border-radius:8px;padding:16px 20px;">
         <div style="font-size:16px;line-height:1.55;color:{{ t.text }};">{{ verdict.tient_fragile | md_bold_email(t.accent_text) }}</div>
@@ -246,6 +246,7 @@
       {% endfor %}
       </table>
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:20px 0 0;"><tr><td bgcolor="{{ t.track }}" style="background-color:{{ t.track }};border-radius:0 8px 8px 0;border-left:3px solid {{ t.accent }};padding:16px 20px;">
+        <div style="font-size:13px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:{{ t.accent_text }};padding-bottom:8px;">💬&nbsp;&nbsp;La question</div>
         <div style="font-size:17px;font-style:italic;line-height:1.5;color:{{ t.text }};">{{ verdict.la_question }}</div>
       </td></tr></table>
     {% endcall %}

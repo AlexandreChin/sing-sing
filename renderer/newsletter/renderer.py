@@ -16,7 +16,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from models.newsletter_presentation import NewsletterDocument
 from renderer.categories import pill
-from renderer.instagram_carousel._shared import _LOGO_DATA_URL, _LOGO_PATH, _md_bold, TYPE_FR
+from renderer.instagram_carousel._shared import _LOGO_DATA_URL, _LOGO_PATH, _md_bold, TYPE_FR, ICONS
 
 TEMPLATES_DIR = Path(__file__).parent / "templates"
 
@@ -101,6 +101,7 @@ def _env() -> Environment:
     )
     env.filters["md_bold"] = _md_bold
     env.filters["md_bold_email"] = _md_bold_email
+    env.globals["ICONS"] = ICONS
     return env
 
 
