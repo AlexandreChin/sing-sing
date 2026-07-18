@@ -60,7 +60,8 @@ def _load_carousel_backbone(analysis_path: str | Path | None) -> str | None:
 def _validate(data: dict) -> list[str]:
     pres = NewsletterPresentation.model_validate(data)
     errors = []
-    for field in ("subject", "preheader", "intro", "why_selected", "payoff", "context", "wrap_up", "open_question", "signoff"):
+    for field in ("subject", "preheader", "intro", "selection_headline", "why_selected",
+                  "payoff", "context", "cui_bono", "signoff"):
         if not getattr(pres, field).strip():
             errors.append(f"{field} is empty")
     if len(pres.reflexes) != 2:
@@ -71,15 +72,25 @@ def _validate(data: dict) -> list[str]:
     for i, d in enumerate(pres.decryptage):
         if not d.quote.strip() or not d.reading.strip():
             errors.append(f"decryptage[{i}] has an empty quote/reading")
-    if not (2 <= len(pres.angles_morts) <= 3):
-        errors.append(f"angles_morts must have 2–3 items, got {len(pres.angles_morts)}")
+    # L'architecture de l'argument
+    if not pres.architecture.keystone.strip():
+        errors.append("architecture.keystone is empty")
+    if not (2 <= len(pres.architecture.spine) <= 3):
+        errors.append(f"architecture.spine must have 2–3 items, got {len(pres.architecture.spine)}")
+    # À emporter
+    if not (2 <= len(pres.a_emporter.key_takeaways) <= 3):
+        errors.append(f"a_emporter.key_takeaways must have 2–3 items, got {len(pres.a_emporter.key_takeaways)}")
+    if not (2 <= len(pres.a_emporter.reflexes_critiques) <= 3):
+        errors.append(f"a_emporter.reflexes_critiques must have 2–3 items, got {len(pres.a_emporter.reflexes_critiques)}")
+    # À vous de juger
+    for field in ("enjeu", "objection", "tient_fragile", "la_question"):
+        if not getattr(pres.verdict, field).strip():
+            errors.append(f"verdict.{field} is empty")
+    if not (2 <= len(pres.verdict.angles_morts) <= 3):
+        errors.append(f"verdict.angles_morts must have 2–3 items, got {len(pres.verdict.angles_morts)}")
+    # Prolonger la réflexion
     if not (2 <= len(pres.go_further) <= 3):
         errors.append(f"go_further must have 2–3 items, got {len(pres.go_further)}")
-    if len(pres.prolongements) != 2:
-        errors.append(f"prolongements must have exactly 2 items, got {len(pres.prolongements)}")
-    for i, p in enumerate(pres.prolongements):
-        if not p.heading.strip() or not p.body.strip():
-            errors.append(f"prolongements[{i}] has an empty heading/body")
     return errors
 
 

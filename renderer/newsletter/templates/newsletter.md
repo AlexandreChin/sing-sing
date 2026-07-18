@@ -6,13 +6,19 @@
 
 ## L'intérêt
 
+*{{ selection_headline }}*
+
 {{ why_selected }}
 
 {{ payoff }}
 
 ## Les repères
 
+### Le contexte
+
 {{ context }}
+
+### Les réflexes
 {% for r in reflexes %}
 - {{ r }}
 {%- endfor %}
@@ -26,30 +32,57 @@
 ↩ *« {{ d.clue }} »*
 {% endif %}{% endfor %}
 ## L'architecture de l'argument
+{% for s in architecture.spine %}
+{{ loop.index }}. {{ s }}
+{%- endfor %}
+
+> {{ architecture.keystone }}
+
+## À emporter
+
+### À retenir
+{% for t in a_emporter.key_takeaways %}
+- {{ t }}
+{%- endfor %}
+
+### Les réflexes critiques
+{% for r in a_emporter.reflexes_critiques %}
+- {{ r }}
+{%- endfor %}
+
+## À vous de juger
+
+### L'enjeu de fond
+
+{{ verdict.enjeu }}
+
+### L'objection la plus solide
+
+{{ verdict.objection }}
+
+{{ verdict.tient_fragile }}
 
 ### Angles morts & nuances
-{% for a in angles_morts %}
+{% for a in verdict.angles_morts %}
 - {{ a }}
 {%- endfor %}
 
-### À vous de juger
+### La question
 
-{{ wrap_up }}
+> {{ verdict.la_question }}
 
-## Pour aller plus loin
+## Prolonger la réflexion
+
+### À qui profite ce cadrage ?
+
+{{ cui_bono }}
+
+### Pour aller plus loin
 {% for r in go_further %}
 **{{ r.title }}**{% if r.source %} — {{ r.source }}{% endif %}
 {% if r.why %}
 {{ r.why }}
 {% endif %}{% endfor %}
-## Prolonger la réflexion
-{% for p in prolongements %}
-### {{ p.heading }}
-
-{{ p.body }}
-{% endfor %}
-> {{ open_question }}
-
 ---
 
 {{ signoff }}
