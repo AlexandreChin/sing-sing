@@ -63,9 +63,15 @@ class Lens(BaseModel):
 class ReadingBeat(BaseModel):
     moment: str    # ≤10 words — where we are in the article (reading order)
     quote: str     # verbatim anchor from the article
-    lens_ref: str  # must equal one selected Lens.id
+    lens_ref: str  # a canonical lens id (see agent/lenses.py), e.g. "chiffres"
     note: str      # ≤25 words — what to notice / the check, no verdict
     factcheck: str = ""  # confidence_label of the matching claim (or "" if not a checkable fact)
+    # candidate-pool fields (for manual cherry-picking; not rendered except `selected`)
+    selected: bool = True   # render this beat as a moment slide (default True → old extracts keep working)
+    theme: str = ""         # editor aid — the dimension this beat covers (carbone, faune, régulation…)
+    centrality: int = 0     # editor aid — importance 1–5 (0 = unset)
+    kind: str = ""          # editor aid — fait | biais | enjeu | statistique | affirmation
+    rationale: str = ""     # editor aid — one line on why this beat is worth a slide
 
 
 class GlobalAnalysis(BaseModel):

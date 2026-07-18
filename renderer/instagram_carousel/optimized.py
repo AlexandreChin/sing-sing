@@ -7,6 +7,7 @@ Registered as the `instagram_carousel_optimized` format.
 import json
 from pathlib import Path
 
+from agent.lenses import CANONICAL_LENSES
 from models.instagram_carousel_presentation import InstagramCarouselDocument
 from ._shared import (
     _env, _LOGO_DATA_URL, _LOGO_TIGHT_DATA_URL,
@@ -55,7 +56,20 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
 
     d = disp
     contexts = full.context.contexts[:1]
-    lens_by_id = {lens.id: lens for lens in d.lenses}
+
+    # Candidate-pool cherry-picking: render the `selected` reading beats (max 3
+    # moment slides), and derive the réflexe lenses (slides 3 & 9) from them via
+    # the canonical vocabulary — so picking a beat updates the lenses too.
+    selected_beats = [b for b in d.reading_beats if b.selected]
+    if len(selected_beats) > 3:
+        import sys
+        print(f"[optimized] {len(selected_beats)} beats selected; rendering the first 3.", file=sys.stderr)
+    selected_beats = selected_beats[:3]
+    display_lenses = []
+    for b in selected_beats:
+        canon = CANONICAL_LENSES.get(b.lens_ref)
+        if canon and b.lens_ref not in {x["id"] for x in display_lenses}:
+            display_lenses.append({"id": b.lens_ref, "name": canon["name"], "question": canon["question"]})
 
     # (output_name, template_name, ctx) triples — same pattern as the short deck.
     # Act 2 "Avant de lire" is a single merged slide: context + the lenses shown
@@ -71,17 +85,17 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         ("03_reperes", "03_reperes", {
             "reperes_headline": d.reperes_headline,
             "context": contexts[0].text if contexts else "",
-            "lens_count_word": _COUNT_WORD.get(len(d.lenses), "Les"),
-            "lenses": [{"name": l.name, "question": l.question} for l in d.lenses],
+            "lens_count_word": _COUNT_WORD.get(len(display_lenses), "Les"),
+            "lenses": [{"name": l["name"], "question": l["question"]} for l in display_lenses],
         }),
     ]
 
-    for idx, b in enumerate(d.reading_beats[:3]):
-        lens = lens_by_id[b.lens_ref]  # extractor guarantees lens_ref resolves
+    for idx, b in enumerate(selected_beats):
+        canon = CANONICAL_LENSES.get(b.lens_ref, {})
         fc = _READING.get(b.factcheck)  # fact-check pill only when the beat is a checkable fact
         specs.append((f"0{4 + idx}_moment", "moment", {
             "moment": b.moment, "quote": b.quote, "note": b.note,
-            "lens_name": lens.name,
+            "lens_name": canon.get("name", b.lens_ref),
             "factcheck": {"label": fc[0], "cls": fc[1]} if fc else None,
         }))
 
@@ -94,7 +108,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     specs.append(("08_a_emporter", "10_bilan", {
         "bilan_headline": d.bilan_headline,
         "takeaways": list(d.key_takeaways),
-        "reflexes": [{"name": l.name, "question": l.question} for l in d.lenses],
+        "reflexes": [{"name": l["name"], "question": l["question"]} for l in display_lenses],
     }))
 
     # Slide 9 — À vous de juger: the wrap-up (objection + deep stake + the closing question)

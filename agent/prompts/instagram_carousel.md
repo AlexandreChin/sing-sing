@@ -64,18 +64,18 @@ s'afficheront en doré. Ex. : « Remettre chaque **chiffre choc** dans son **con
 **COUVERTURE DES ÉLÉMENTS CENTRAUX (obligatoire)** : la présentation doit COUVRIR les
 `core_elements` de l'analyse (fournis en contexte), pas seulement l'angle du titre. Procède
 dans cet ordre :
-1. `reading_beats` = 3 moments choisis pour leur **VALEUR de lecture critique**, pas seulement
-   leur centralité — les passages où appliquer un réflexe change vraiment la façon de recevoir
-   une affirmation-clé. Tirés des `core_elements`, mais PAS forcément les 3 plus « centraux » :
-   un enjeu de fond moins chiffré (faune, régulation, éthique) peut passer devant une 2ᵉ
-   statistique. Contraintes : **au plus UN** beat purement chiffré/statistique (jamais deux fois
-   « on questionne le chiffre ») ; **au moins UN** beat sur un enjeu de fond (un impact, un lien
-   causal, une affirmation d'autorité) et non un chiffre phare. Dans l'ordre de lecture ; un beat
-   = un fait, un biais ou un enjeu.
-2. `lenses` = les **3 lentilles distinctes** qu'appellent ces beats (leur union, canoniques).
-   Chaque beat garde un `lens_ref` vers l'une d'elles ; `factcheck` UNIQUEMENT si le beat est une
-   affirmation factuelle vérifiable — le `factcheck` ne doit PAS orienter le choix des beats vers
-   les seuls chiffres.
+1. `reading_beats` = un **VIVIER de 6 à 8 moments candidats** (dans l'ordre de lecture), pour
+   permettre un choix éditorial manuel ensuite. Couvre les `core_elements` dans leur diversité
+   (chiffres, faune, régulation, cadrage, thèse…), et VARIE les lentilles (`lens_ref`). Chaque
+   candidat porte des métadonnées d'aide au tri : `theme` (la dimension couverte), `centrality`
+   (1–5), `kind` (`fait`/`biais`/`enjeu`/`statistique`/`affirmation`), `rationale` (≤12 mots :
+   pourquoi ce moment mérite une slide).
+2. Marque `selected: true` sur les **3 meilleurs** (les autres `selected: false`). Les 3
+   sélectionnés respectent : **au plus UN** beat chiffré/statistique ; **au moins UN** enjeu de
+   fond (impact, lien causal, affirmation d'autorité) ; **3 lentilles distinctes**. Les lentilles
+   affichées (slides « réflexes ») sont DÉRIVÉES automatiquement des beats sélectionnés — n'écris
+   pas de liste `lenses` séparée. `factcheck` UNIQUEMENT si le beat est une affirmation factuelle
+   vérifiable ; il ne doit PAS orienter le choix vers les seuls chiffres.
 3. `payoff`, `key_takeaways` (2–3), `global_analysis.core_recap` et le `hook` doivent
    **refléter la diversité** des éléments centraux (p. ex. bilan carbone ET faune ET
    régulation), jamais un seul thème.
@@ -98,7 +98,7 @@ dans cet ordre :
 
 En plus des champs existants, produis dans `display` :
 
-- `lenses` : 2 à 3 réflexes de lecture critique choisis EXCLUSIVEMENT dans ce vocabulaire canonique (utilise l'`id` exact) :
+- Vocabulaire canonique des lentilles (pour `lens_ref` — utilise l'`id` exact ; n'écris PAS de liste `lenses` séparée, elle est dérivée des beats sélectionnés) :
   - `sources` — « Qui l'affirme, et comment le sait-on ? »
   - `chiffres` — « Ce chiffre, rapporté à quoi ? »
   - `causalite` — « Vraie cause, ou simple corrélation ? »
@@ -106,8 +106,10 @@ En plus des champs existants, produis dans `display` :
   - `equilibre` — « L'autre partie a-t-elle voix au chapitre ? »
   - `sophismes` — « Le raisonnement tient-il logiquement ? »
   - `angles_morts` — « Qu'est-ce qui manque au tableau ? »
-  Choisis les lentilles réellement pertinentes pour CET article. Reprends `name` et `question` du vocabulaire.
-- `reading_beats` : 2 à 3 moments de l'article, **dans l'ordre de lecture** (tels qu'ils apparaissent). Sélectionnés pour leur VALEUR de lecture critique selon la règle de couverture ci-dessus (au plus un beat chiffré, au moins un enjeu de fond, 3 lentilles distinctes) — pas seulement par centralité. Chaque beat : `moment` (≤10 mots, où on en est), `quote` (citation verbatim), `lens_ref` (= l'`id` d'une lentille choisie ci-dessus), `note` (≤25 mots — le RÉFLEXE de lecture à appliquer : ce que le lecteur doit CHERCHER ou se demander devant ce passage, formulé comme une habitude transférable et neutre (souvent une question), et PAS un verdict ni une critique de cet article précis. Décris les faits, laisse le lecteur conclure ; évite « manipule / charge / fabrique »), `factcheck` (si — et seulement si — la `quote` correspond à une affirmation factuelle vérifiable présente dans `annotations.facts_vs_opinions.claims_and_sources`, recopie le `confidence_label` de cette affirmation, l'une de : `consensual`, `true`, `likely true`, `disputed`, `likely false`, `false`, `unverifiable` ; sinon laisse `factcheck` vide pour les beats de cadrage/rhétorique).
+- `reading_beats` : un VIVIER de **6 à 8 moments candidats**, **dans l'ordre de lecture** (voir la règle de couverture ci-dessus : vivier diversifié, puis 3 `selected`). Chaque beat :
+  - `moment` (≤10 mots, où on en est), `quote` (citation verbatim), `lens_ref` (= un `id` canonique ci-dessus), `note` (≤25 mots — le RÉFLEXE de lecture : ce que le lecteur doit CHERCHER ou se demander, habitude transférable et neutre (souvent une question), PAS un verdict ni une critique de cet article ; décris les faits, laisse le lecteur conclure ; évite « manipule / charge / fabrique »).
+  - `factcheck` (si — et seulement si — la `quote` correspond à une affirmation factuelle vérifiable présente dans `annotations.facts_vs_opinions.claims_and_sources`, recopie le `confidence_label` : `consensual`/`true`/`likely true`/`disputed`/`likely false`/`false`/`unverifiable` ; sinon vide).
+  - `selected` (bool — `true` pour les 3 retenus, `false` sinon), et les métadonnées d'aide au tri : `theme` (dimension), `centrality` (1–5), `kind` (`fait`/`biais`/`enjeu`/`statistique`/`affirmation`), `rationale` (≤12 mots).
 - `global_analysis` : l'**architecture de l'argument** — le regard GLOBAL sur le raisonnement de l'article (vs les slides 4–6, qui sont des annotations LOCALES). PAS un récapitulatif des faits (ça, c'est `key_takeaways`, slide 9 — ne le répète pas). NE CONCLUS PAS à la place du lecteur (jamais « non démontré / glissement / saut » ni verdict), et surtout NE RÉDUIS PAS l'article à un seul de ses enjeux : si la thèse s'appuie sur plusieurs dimensions (p. ex. climat ET faune ET dégradation locale ET symbole — regarde les `core_elements`), l'architecture doit TOUTES les refléter, sans se ramener à un seul angle (typiquement, ne ramène pas tout au climat). Appuie-toi sur `fond.logical_reasoning`, `fond.implicit_assumptions` ET `core_elements`. `headline` (≤10 mots — une question qui invite à examiner la thèse). `core_recap` (2 points, ≤16 mots : §1 = le fil du raisonnement décrit NEUTREMENT, souvent en chaîne `A → B → C`, qui COUVRE les différentes dimensions de la thèse ; §2 = la question CENTRALE à tester — soit le maillon/l'hypothèse qui porte réellement l'ensemble, soit, si la thèse repose sur plusieurs piliers, le RÉFLEXE commun à leur appliquer — posée en question ouverte que le lecteur tranche, sans verdict ni réduction à un seul enjeu).
 - `steel_man` : à partir de `analysis.fond.steel_man`, choisis l'objection qui remet le plus en cause la **thèse/conclusion** de l'article et apporte une **perspective nouvelle** que le lecteur n'a pas encore vue — PAS celle qui répète une faille statistique ou factuelle déjà pointée dans `reading_beats` (ex. « effet de base », « chiffre sans total »). Préfère un contre-argument sur les conséquences ou les valeurs (bénéfice ignoré, arbitrage négligé). Reformule-le pour le lecteur : `argument` (≤18 mots — la meilleure objection à la thèse) et `alternative` (≤14 mots — la conclusion qui suivrait si l'objection tenait). C'est le contre-argument le plus solide que l'article n'affronte pas, pas notre avis.
 - `root_issue` : **une phrase** (pas une question) qui nomme le **fond du problème** soulevé par l'article — l'enjeu réel, souvent implicite ou même non formulé dans le texte. Va au-delà du détail chiffré vers ce qui est vraiment en jeu. Exemple : « Au-delà des chiffres absolus, marginaux dans les émissions mondiales, l'enjeu est surtout symbolique : une élite qui affiche son indifférence climatique. » Neutre, sans verdict sur l'auteur.
