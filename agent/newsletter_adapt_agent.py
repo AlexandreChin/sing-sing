@@ -3,6 +3,7 @@
 Same analysis as the carousel — but the copy is flowing prose (subject line,
 preheader, sections), not slide fragments.
 """
+import json
 import sys
 from pathlib import Path
 
@@ -11,6 +12,49 @@ from models.full_analysis import ArticleFullAnalysis
 from models.newsletter_presentation import NewsletterPresentation
 
 _PROMPT = (Path(__file__).parent / "prompts" / "newsletter.md").read_text(encoding="utf-8")
+
+# Sibling carousel output, relative to the analysis file's own output folder
+# (outputs/<stem>/analysis.json → outputs/<stem>/instagram_carousel_optimized/adapt.json).
+_CAROUSEL_ADAPT_REL = Path("instagram_carousel_optimized") / "adapt.json"
+
+
+def _load_carousel_backbone(analysis_path: str | Path | None) -> str | None:
+    """Load the sibling carousel `adapt.json` (if present) and render it as the
+    structural backbone the newsletter must expand — same beats, same
+    architecture, same à-retenir. Returns None (→ standalone) if there is no
+    analysis_path, no sibling file, or it fails to parse."""
+    if analysis_path is None:
+        return None
+    sibling = Path(analysis_path).parent / _CAROUSEL_ADAPT_REL
+    if not sibling.exists():
+        return None
+    try:
+        carousel = json.loads(sibling.read_text(encoding="utf-8"))
+        hook = carousel["hook"]
+        display = carousel["display"]
+        backbone = {
+            "hook": {"topic": hook["topic"], "sub_topic": hook["sub_topic"]},
+            "selection_headline": display["selection_headline"],
+            "why_selected": display["why_selected"],
+            "reading_beats": [
+                {"moment": b["moment"], "quote": b["quote"], "note": b["note"], "lens_ref": b["lens_ref"]}
+                for b in display.get("reading_beats", [])
+                if b.get("selected", True)
+            ],
+            "global_analysis": display.get("global_analysis"),
+            "key_takeaways": [
+                t["text"] for t in display.get("key_takeaways", [])
+                if t.get("selected", True)
+            ],
+            "root_issue": display.get("root_issue", ""),
+            "steel_man": display.get("steel_man"),
+        }
+    except (OSError, json.JSONDecodeError, KeyError, TypeError):
+        return None
+    return (
+        "STRUCTURE DU CAROUSEL (à reprendre) — la newsletter DÉVELOPPE cette "
+        "structure en prose, elle n'en invente pas une autre :\n" + _j(backbone)
+    )
 
 
 def _validate(data: dict) -> list[str]:
@@ -39,7 +83,7 @@ def _validate(data: dict) -> list[str]:
     return errors
 
 
-def _context(full: ArticleFullAnalysis) -> str:
+def _context(full: ArticleFullAnalysis, backbone: str | None = None) -> str:
     core = ""
     if full.core_elements and full.core_elements.elements:
         lines = "\n".join(
@@ -55,11 +99,19 @@ def _context(full: ArticleFullAnalysis) -> str:
         f"{core}"
         "ANALYSE COMPLÈTE :\n"
         f"{full.model_dump_json(indent=2, exclude={'review', 'deontology'})}"
+        + (f"\n\n{backbone}" if backbone else "")
     )
 
 
-def adapt(full: ArticleFullAnalysis, no_api: bool = False) -> NewsletterPresentation:
-    user_msg = f"{_context(full)}\n\n---\n\n{_PROMPT}"
+def adapt(
+    full: ArticleFullAnalysis,
+    no_api: bool = False,
+    analysis_path: str | Path | None = None,
+) -> NewsletterPresentation:
+    backbone = _load_carousel_backbone(analysis_path)
+    if backbone is not None:
+        print("Backbone carousel détecté — expansion en prose.", file=sys.stderr, flush=True)
+    user_msg = f"{_context(full, backbone)}\n\n---\n\n{_PROMPT}"
     print("Adaptation newsletter…", file=sys.stderr, flush=True)
     data = _call_with_retry(
         user_msg,
