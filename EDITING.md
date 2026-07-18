@@ -20,8 +20,7 @@ The renderer reads **`extract.json`**, not `adapt.json`. So:
 > Use `render` on `extract.json` — **not** `extract --render`, which writes to a
 > scratch folder instead of the canonical one.
 
-(`instagram_carousel_optimized` is the 10-slide deck; use
-`instagram_carousel_optimized_short` for the 6-slide cut.)
+(`instagram_carousel_optimized` is the 10-slide deck.)
 
 ## Where each slide's text lives
 

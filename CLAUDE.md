@@ -47,10 +47,9 @@ extractors/
   instagram_carousel.py            extract(): trim to the 3 most-decisive review dimensions + 1 go_further (both carousel formats)
   newsletter.py                    extract(): passthrough → NewsletterDocument
 renderer/
-  instagram_carousel/              the two carousel renderers + shared helpers:
+  instagram_carousel/              the carousel renderer + shared helpers:
     _shared.py                     _env / _weighted_quality / _LOGO_DATA_URL / TYPE_FR (shared)
     optimized.py                   10-slide optimized deck
-    optimized_short.py             6-slide optimized deck
     templates/article_carousel_optimized_v0/  Jinja2 templates → PNG slides (1080×1350)
   newsletter/                      newsletter renderer → Markdown + HTML (rich + email); dark brand
   shoot.py                         Playwright HTML → PNG (carousel slides)
@@ -75,9 +74,8 @@ samples/outputs/<stem>/
     slides/                NN_*.png
 ```
 
-**Formats:** registered in `extractors/registry.py`, all fed by the same `analyze`. The two carousel formats also share the same `adapt()` copy; the newsletter has its own prose adapt.
-- `instagram_carousel_optimized` (default) — 10-slide deck on the `article_carousel_optimized_v0` templates: Hook → Curation → Repères → Vérif. des faits → Faille 1 → Faille 2 → Point fort → Prise de recul → Verdict → CTA. renderer builds the slide list conditionally, so absent sections drop out and numbering (`slide_n`/`slide_total`) adapts.
-- `instagram_carousel_optimized_short` — 6-slide cut of the above (same templates + one merged `decryptage.html`): Hook → Curation → Repères → Le décryptage (failles merged) → Verdict → CTA.
+**Formats:** registered in `extractors/registry.py`, all fed by the same `analyze`. The carousel has its own `adapt()` copy; the newsletter has its own prose adapt.
+- `instagram_carousel_optimized` (default) — 10-slide "lens to read with" deck on the `article_carousel_optimized_v0` templates: Hook (On décrypte) → Sélection (L'intérêt) → Repères → 3 moments de lecture (Au fil de la lecture) → Architecture de l'argument → À emporter → À vous de juger → CTA. The renderer builds the slide list conditionally (numbering adapts); reading beats are a candidate pool (`selected`), and the réflexe lenses are derived from the selected beats.
 - `newsletter` — prose, not slides. Own adapt agent (`newsletter_adapt_agent`) + `NewsletterPresentation`. Renders **Markdown** + a rich `newsletter.html` (dark gold-on-black, SVG radar) + email-safe HTML in two themes (table layout, inline styles, no SVG/flexbox): `newsletter.email.html` (light, default) and `newsletter.email.dark.html`. Themes live in `EMAIL_THEMES`; only chrome is themed, the semantic gauge/bar colours are fixed.
 
 **Rendering interface:** every renderer module exposes `render_from_json(extract_path, out_dir, pdf=False)` and lays out its own files under `out_dir` — carousels write `html/` + `slides/`, the newsletter writes `newsletter.md`/`.html`/`.email.html`. `produce` and `render` call this uniformly. (`pdf` is a vestigial no-op kept for interface uniformity.)

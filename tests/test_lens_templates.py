@@ -66,16 +66,6 @@ def test_reperes_renders_framing_branch_for_optimized():
     assert "Un angle militant" in html
 
 
-def test_reperes_still_renders_clues_branch_for_short():
-    html = _render("03_reperes.html", context="Contexte polaire", clues=["Surveille les chiffres", "Note le cadrage"])
-    assert "Surveille les chiffres" in html
-
-
-def test_reperes_omits_deux_reflexes_heading_when_no_clues():
-    html = _render("03_reperes.html", context="Contexte polaire", framing="Un angle militant")
-    assert "Deux réflexes" not in html
-
-
 def test_prise_de_recul_shows_root_issue_then_steelman():
     html = _render("08_prise_de_recul.html", phase="verdict",
                    steel_man={"argument": "Un tourisme encadré crée des ambassadeurs",
