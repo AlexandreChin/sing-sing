@@ -843,5 +843,69 @@
       "blind_spots": "Le texte n'examine ni l'effet chiffré de la redistribution sociale française — pourtant le contre-fait le plus susceptible de renverser la lecture du taux — ni aucune source nationale indépendante qui recouperait le constat. La partie française visée par le diagnostic n'est jamais entendue.",
       "balance": "Ces limites sont réelles, mais un compte rendu de rapport officiel n'a pas vocation à mener une enquête contradictoire complète, et un format court ne peut tout chiffrer. Le lecteur peut donc retenir les chiffres-clés comme un point de départ fiable, à condition d'aller chercher ailleurs la redistribution et la distinction entre taux relatif et niveau de vie réel."
     }
+  },
+  "core_elements": {
+    "elements": [
+      {
+        "statement": "La pauvreté infantile progresse en France à contre-courant de la tendance européenne.",
+        "kind": "enjeu",
+        "centrality": 5,
+        "seeds": {
+          "source": "premisse",
+          "index": 1,
+          "excerpt": "La hausse du taux relatif traduit un appauvrissement réel des familles.",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "statement": "La précarisation du travail — temps partiel involontaire, indépendants à faibles revenus — expliquerait cet appauvrissement.",
+        "kind": "angle",
+        "centrality": 4,
+        "seeds": {
+          "source": "premisse",
+          "index": 2,
+          "excerpt": "La précarisation du travail explique l'appauvrissement des enfants.",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "statement": "Les familles monoparentales, surtout des mères, sont frappées faute de solutions de garde accessibles.",
+        "kind": "enjeu",
+        "centrality": 4,
+        "seeds": {
+          "source": "context",
+          "index": 1,
+          "excerpt": "pauvreté infantile et déclassement, thèmes du débat public",
+          "strength": 0.7,
+          "nature": "specification"
+        }
+      },
+      {
+        "statement": "La hausse du chômage depuis fin 2024 est présentée comme un facteur prépondérant.",
+        "kind": "fait",
+        "centrality": 3,
+        "seeds": {
+          "source": "context",
+          "index": 2,
+          "excerpt": "le chômage repart à la hausse en France depuis fin 2024",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "statement": "Tout le constat repose sur une source institutionnelle unique, rapportée sans contradiction.",
+        "kind": "biais",
+        "centrality": 3,
+        "seeds": {
+          "source": "blind_spot",
+          "index": 0,
+          "excerpt": "aucune source française consultée",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      }
+    ]
   }
 }
