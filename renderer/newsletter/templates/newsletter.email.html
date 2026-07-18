@@ -214,7 +214,7 @@
     {% endcall %}
 
     <!-- À vous de juger -->
-    {% call card("⚖️", "À vous de juger") %}
+    {% call card("🤔", "À vous de juger") %}
           {% if dims_bars %}
           <!-- profil de lecture: per-dimension breakdown (the email's stand-in
                for the SVG radar) -->
@@ -233,7 +233,6 @@
                   </td>
                 </tr></table>
               </td>
-              <td width="24" align="right" style="padding:6px 0 6px 10px;font-size:13px;font-weight:700;color:{{ d.color }};">{{ d.score }}</td>
             </tr>
           {% endfor %}
           </table>

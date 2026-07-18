@@ -33,8 +33,8 @@ class Resource(BaseModel):
 
 
 class NewsletterPresentation(BaseModel):
-    """Reader-facing newsletter prose, mirroring the optimized carousel beats.
-    Structured bits (score, recommendation, for_whom) are read from the analysis."""
+    """Reader-facing newsletter prose, mirroring the optimized carousel beats
+    (critical-reading companion — no grade/verdict)."""
     subject: str                        # ≤12 words — email subject line
     preheader: str                      # ≤15 words — inbox preview
     intro: str                          # hook / central tension (3–4 sentences)
