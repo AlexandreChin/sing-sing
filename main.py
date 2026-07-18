@@ -1,6 +1,7 @@
 import argparse
 import asyncio
 import importlib
+import inspect
 import json
 import sys
 from datetime import datetime
@@ -90,7 +91,10 @@ async def cmd_adapt(args: argparse.Namespace) -> None:
     json_path = Path(args.analysis)
     data = json.loads(json_path.read_text(encoding="utf-8"))
     full = ArticleFullAnalysis.model_validate(data)
-    presentation = adapt_fn(full, no_api=args.no_api)
+    kwargs = {"no_api": args.no_api}
+    if "analysis_path" in inspect.signature(adapt_fn).parameters:
+        kwargs["analysis_path"] = json_path
+    presentation = adapt_fn(full, **kwargs)
     out_path = json_path.with_stem(json_path.stem + f"_{args.format}_adapt")
     out_path.write_text(presentation.model_dump_json(indent=2), encoding="utf-8")
     print(f"Presentation written to {out_path}", file=sys.stderr)
@@ -230,7 +234,10 @@ async def cmd_produce(args: argparse.Namespace) -> None:
 
     # 2. Adapt
     adapt_fn = importlib.import_module(agent_mod).adapt
-    presentation = adapt_fn(full, no_api=args.no_api)
+    kwargs = {"no_api": args.no_api}
+    if "analysis_path" in inspect.signature(adapt_fn).parameters:
+        kwargs["analysis_path"] = lay["analysis"]
+    presentation = adapt_fn(full, **kwargs)
     lay["adapt"].write_text(presentation.model_dump_json(indent=2), encoding="utf-8")
     print(f"Presentation written to {lay['adapt']}", file=sys.stderr)
 

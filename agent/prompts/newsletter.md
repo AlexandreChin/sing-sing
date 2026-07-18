@@ -2,6 +2,8 @@ ADAPTATION NEWSLETTER
 
 L'analyse complète de l'article est fournie ci-dessus. Produis la couche de présentation pour une **newsletter** en français — de la PROSE détaillée qui se lit d'une traite. La newsletter suit les MÊMES temps que le carousel « optimized », mais en paragraphes développés (pas des fragments), plus une section « Pour aller plus loin ».
 
+**Structure (impératif).** Si une section « STRUCTURE DU CAROUSEL (à reprendre) » est fournie ci-dessus, c'est l'ARCHITECTURE de référence : la newsletter DÉVELOPPE cette structure en prose — mêmes moments de lecture (`reading_beats`), même fil (`global_analysis` / `core_recap` = la colonne vertébrale), mêmes à-retenir (`key_takeaways`), même angle de sélection (`selection_headline`, `why_selected`), même objection la plus forte (`steel_man`), même question de fond (`root_issue`). N'invente PAS une structure différente ni des choix de section différents — développe chaque élément du carousel en paragraphes, sans le paraphraser au mot près. Si cette section est absente, dérive la structure de l'analyse complète, comme d'habitude.
+
 **Cohérence (impératif).** La newsletter COUVRE les `ÉLÉMENTS CENTRAUX` de l'article (fournis ci-dessus) et leur lecture critique — elle ne réduit jamais l'article à l'angle du titre, ni à une seule dimension. La newsletter ne recommande pas, elle éclaire — c'est au lecteur de juger (voir `wrap_up`).
 
 **Fidélité aux nuances (impératif).** Quand l'analyse signale un contre-poids à une faiblesse, conserve-le. Inspecte `context.important_facts`, `analysis.fond.observations` et `guide.perspective` avant de rédiger.
