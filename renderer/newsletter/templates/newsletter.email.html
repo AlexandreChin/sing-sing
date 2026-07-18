@@ -70,7 +70,7 @@
     {# section() = one of the 3 pillars, rendered as a gold band that lists all
        three pillar names with the active one big/dark so the reader always knows
        where they are. `active` is 1, 2 or 3. #}
-    {% set pillars = ["Pourquoi cet article", "Avant de vous lancer", "Après lecture"] %}
+    {% set pillars = ["L'intérêt", "Avant de vous lancer", "Après lecture"] %}
     {% set pillar_icons = ["🎯", "🧭", "🧠"] %}
     {% macro section(active) %}
     <tr><td style="padding:44px 0 0;">
@@ -174,27 +174,22 @@
     {# ===== PILLAR 3 — après lecture : notre analyse ===== #}
     {{ section(3) }}
 
-    <!-- Le décryptage, pas à pas -->
-    {% call card("🔍", "Le décryptage, pas à pas") %}
+    <!-- Au fil de la lecture -->
+    {% call card("🔍", "Au fil de la lecture") %}
       {% for d in decryptage %}
       {% if not loop.first %}<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:20px 0;"><tr><td height="1" bgcolor="{{ t.border }}" style="height:1px;font-size:0;line-height:0;background-color:{{ t.border }};">&nbsp;</td></tr></table>{% endif %}
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-        <td width="3" bgcolor="{% if d.kind == 'fait' %}{{ t.accent }}{% else %}#cf8a5a{% endif %}" style="width:3px;font-size:0;line-height:0;background-color:{% if d.kind == 'fait' %}{{ t.accent }}{% else %}#cf8a5a{% endif %};">&nbsp;</td>
+        <td width="3" bgcolor="{{ t.accent }}" style="width:3px;font-size:0;line-height:0;background-color:{{ t.accent }};">&nbsp;</td>
         <td style="padding-left:18px;">
-          <div style="padding-bottom:9px;">
-            <span style="display:inline-block;font-size:11px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:{% if d.kind == 'fait' %}{{ t.accent_text }}{% else %}#cf8a5a{% endif %};">{% if d.kind == 'fait' %}&#9878;&#65039; Fait{% else %}&#9888;&#65039; {{ d.presentation }}{% endif %}</span>
-            {% if d.kind == 'fait' %}<span style="display:inline-block;margin-left:8px;font-size:11px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:{{ d.color }};border:1.5px solid {{ d.color }};border-radius:999px;padding:3px 12px;">{{ d.verdict }}</span>{% endif %}
-          </div>
           <div style="font-size:17px;font-style:italic;line-height:1.45;color:{{ t.heading }};">&laquo;&nbsp;{{ d.quote }}&nbsp;&raquo;</div>
-          {% if d.kind == 'fait' %}<div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:{{ t.muted }};padding:7px 0 9px;">{{ d.presentation }}</div>{% endif %}
-          <div style="font-size:16px;line-height:1.58;color:{{ t.text_soft }};{% if d.kind != 'fait' %}padding-top:9px;{% endif %}">{{ d.reading | md_bold_email(t.accent_text) }}</div>
+          <div style="font-size:16px;line-height:1.58;color:{{ t.text_soft }};padding-top:9px;">{{ d.reading | md_bold_email(t.accent_text) }}</div>
           {% if d.clue %}<div style="font-size:15px;font-style:italic;line-height:1.4;color:{{ t.muted }};padding-top:11px;"><span style="color:{{ t.accent_text }};font-style:normal;font-weight:700;">&#8617;</span>&nbsp; &laquo;&nbsp;{{ d.clue }}&nbsp;&raquo;</div>{% endif %}
         </td>
       </tr></table>
       {% endfor %}
     {% endcall %}
 
-    {{ kicker("🧠", "La vue d'ensemble" | safe) }}
+    {{ kicker("🧠", "L'architecture de l'argument" | safe) }}
 
     <!-- Ce qui tient -->
     {% call card("✅", "Ce qui tient") %}
@@ -218,33 +213,13 @@
       </table>
     {% endcall %}
 
-    <!-- Notre verdict -->
-    {% call card("⚖️", "Notre verdict") %}
-          <!-- overall score -->
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-            <td align="left" style="font-size:16px;font-weight:700;color:{{ t.heading }};">Qualit&eacute; de l'article</td>
-            <td align="right" style="font-size:16px;font-weight:800;color:{{ gauge_color }};">{{ band }}</td>
-          </tr></table>
-
-          <!-- overall gauge: red→green track + position caret below. The caret is
-               placed by a percentage-width spacer cell (works in every client,
-               incl. Outlook); the CSS gradient renders in Gmail/Apple/iOS and
-               falls back to the solid bad→mid→good segments elsewhere. -->
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:12px;table-layout:fixed;"><tr>
-            <td height="12" width="34%" bgcolor="#c76a6a" style="height:12px;width:34%;font-size:0;line-height:0;background-color:#c76a6a;background-image:linear-gradient(90deg,#e87a7a,#e8a07a);border-radius:6px 0 0 6px;">&nbsp;</td>
-            <td height="12" width="33%" bgcolor="#d69a6a" style="height:12px;width:33%;font-size:0;line-height:0;background-color:#d69a6a;background-image:linear-gradient(90deg,#e8a07a,#bcc890);">&nbsp;</td>
-            <td height="12" width="33%" bgcolor="#7ec8a0" style="height:12px;width:33%;font-size:0;line-height:0;background-color:#7ec8a0;background-image:linear-gradient(90deg,#bcc890,#7ec8a0);border-radius:0 6px 6px 0;">&nbsp;</td>
-          </tr></table>
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-            <td width="{{ gauge_pos }}%" style="font-size:0;line-height:0;">&nbsp;</td>
-            <td style="font-size:11px;line-height:1;color:{{ gauge_color }};white-space:nowrap;"><span style="display:inline-block;margin-left:-6px;">&#9650;</span></td>
-            {% if gauge_pos < 100 %}<td style="font-size:0;line-height:0;">&nbsp;</td>{% endif %}
-          </tr></table>
-          <div style="text-align:center;font-size:24px;font-weight:800;color:{{ t.accent_text }};padding-top:8px;">{{ score }} / 5</div>
-
+    <!-- À vous de juger -->
+    {% call card("🤔", "À vous de juger") %}
           {% if dims_bars %}
-          <!-- per-dimension breakdown (replaces the SVG radar for email) -->
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:22px;">
+          <!-- profil de lecture: per-dimension breakdown (the email's stand-in
+               for the SVG radar) -->
+          <div style="font-size:13px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.muted }};padding-bottom:12px;">Profil de lecture</div>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           {% for d in dims_bars %}
             <tr>
               <td width="34%" style="padding:6px 10px 6px 0;font-size:13px;color:{{ t.text }};line-height:1.2;">{{ d.label }}</td>
@@ -258,17 +233,15 @@
                   </td>
                 </tr></table>
               </td>
-              <td width="24" align="right" style="padding:6px 0 6px 10px;font-size:13px;font-weight:700;color:{{ d.color }};">{{ d.score }}</td>
             </tr>
           {% endfor %}
           </table>
-          {% endif %}
 
           <!-- divider -->
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:24px 0 4px;"><tr><td height="1" bgcolor="{{ t.border }}" style="height:1px;font-size:0;line-height:0;background-color:{{ t.border }};">&nbsp;</td></tr></table>
+          {% endif %}
 
-          <div style="font-size:17px;line-height:1.58;color:{{ t.text }};padding-top:14px;">{{ verdict_line | md_bold_email(t.accent_text) }}</div>
-          {% if for_whom %}<div style="font-size:15px;color:{{ t.muted }};padding-top:12px;">Pour qui&nbsp;: {{ for_whom }}</div>{% endif %}
+          <div style="font-size:17px;line-height:1.58;color:{{ t.text }};padding-top:14px;">{{ wrap_up | md_bold_email(t.accent_text) }}</div>
     {% endcall %}
 
     <!-- Pour aller plus loin -->
