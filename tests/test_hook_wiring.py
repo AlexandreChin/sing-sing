@@ -21,9 +21,7 @@ def test_cover_layers_output_renders_in_hook():
 def test_renderers_no_longer_pass_cat_pill():
     # guard against a half-done wiring edit
     import renderer.instagram_carousel.optimized as opt
-    import renderer.instagram_carousel.optimized_short as short
     import inspect
-    for mod in (opt, short):
-        src = inspect.getsource(mod.generate_html)
-        assert "cat_pill" not in src
-        assert "cover_layers(" in src
+    src = inspect.getsource(opt.generate_html)
+    assert "cat_pill" not in src
+    assert "cover_layers(" in src

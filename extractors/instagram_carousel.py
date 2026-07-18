@@ -1,9 +1,9 @@
-"""Extractor for the 6-slide short Instagram carousel format.
+"""Extractor for the Instagram carousel format.
 
-Keeps the full analysis intact (all six review dimensions, so each slide can
-select what it needs — the gauges pick the most decisive, the balanced analysis
-picks top/bottom) and trims only go_further. Reuses the enrich agent's
-presentation — no extra LLM call.
+Keeps the full analysis intact and passes the adapt presentation through
+(trimming only go_further). Reuses the adapt agent's presentation — no extra
+LLM call. The candidate pool of reading beats / takeaways is preserved for
+manual cherry-picking; the renderer selects and derives from it.
 """
 from __future__ import annotations
 
