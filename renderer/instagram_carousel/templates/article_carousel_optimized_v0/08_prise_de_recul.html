@@ -35,13 +35,14 @@
       </div>
     </div>{% endif %}
     {% if root_issue %}<div class="q-item">
-      <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><span class="q-label">L'enjeu de fond</span></div>
+      <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg></span><span class="q-label">L'enjeu de fond</span></div>
       <div class="r-list">
         <div class="r-item"><span class="rk">&#8250;</span><span>{{ root_issue | md_bold }}</span></div>
       </div>
     </div>{% endif %}
+    {% if engagement %}<div class="wrap-card"><div class="wc-label"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>La question</div><div class="wc-text">{{ engagement | md_bold }}</div></div>{% endif %}
   </div>
-  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">À retenir &#8250;</span></div>
+  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Avant de partir &#8250;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
 </div>
