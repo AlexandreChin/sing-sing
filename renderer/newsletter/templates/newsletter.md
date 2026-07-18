@@ -39,11 +39,11 @@
 - {{ a }}
 {%- endfor %}
 
-### Notre verdict
+### À vous de juger
 
 {% if score %}**{{ score }} / 5**{% if band %} — {{ band }}{% endif %}
 
-{% endif %}{{ verdict_line }}
+{% endif %}{{ wrap_up }}
 {% if for_whom %}
 *Pour qui : {{ for_whom }}*
 {% endif %}

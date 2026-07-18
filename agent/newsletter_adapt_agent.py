@@ -16,7 +16,7 @@ _PROMPT = (Path(__file__).parent / "prompts" / "newsletter.md").read_text(encodi
 def _validate(data: dict) -> list[str]:
     pres = NewsletterPresentation.model_validate(data)
     errors = []
-    for field in ("subject", "preheader", "intro", "why_selected", "payoff", "context", "verdict_line", "open_question", "signoff"):
+    for field in ("subject", "preheader", "intro", "why_selected", "payoff", "context", "wrap_up", "open_question", "signoff"):
         if not getattr(pres, field).strip():
             errors.append(f"{field} is empty")
     if len(pres.reflexes) != 2:
