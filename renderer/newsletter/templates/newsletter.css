@@ -43,13 +43,7 @@ strong { color: #d4aa00; font-weight: 700; }
 
 /* décryptage (chronological pass) */
 .decrypt { border-left: 3px solid #d4aa00; padding: 2px 0 2px 22px; margin: 22px 0; break-inside: avoid; }
-.decrypt.faille { border-left-color: #e8a07a; }
-.decrypt .dtop { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-.decrypt .badge { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #d4aa00; }
-.decrypt .badge.faille { color: #e8a07a; }
-.decrypt .pill { font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; border: 1.5px solid; border-radius: 999px; padding: 3px 12px; }
 .decrypt .claim { font-size: 17px; font-style: italic; line-height: 1.4; color: #f0f0f0; }
-.decrypt .pres { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8a8a8a; margin: 6px 0 8px; }
 .decrypt p { font-size: 16px; color: #dedede; margin: 0; }
 .decrypt .clue { font-size: 15px; font-style: italic; color: #9a9a9a; margin-top: 10px; }
 .decrypt .clue .ret { color: #d4aa00; font-style: normal; font-weight: 700; }
@@ -76,17 +70,7 @@ strong { color: #d4aa00; font-weight: 700; }
 /* verdict */
 .verdict { background: #161616; border-radius: 12px; padding: 28px 30px; break-inside: avoid; }
 .verdict p { font-size: 18px; line-height: 1.55; color: #eaeaea; margin-top: 16px; }
-.verdict .whom { font-size: 15px; color: #9a9a9a; margin-top: 12px; }
 .vdivider { height: 1px; background: #2a2a2a; margin: 22px 0 4px; }
-
-/* quality gauge (reused from the carousel, scaled for print) */
-.gauge .gtop { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
-.gauge .gnm { font-size: 17px; font-weight: 700; color: #f0f0f0; }
-.gauge .gsc { font-size: 17px; font-weight: 800; color: currentColor; }
-.gauge .gtk { position: relative; height: 12px; border-radius: 999px; background: linear-gradient(90deg, rgba(232,122,122,.30), rgba(232,160,122,.30) 50%, rgba(126,200,160,.30)); }
-.gauge .gmk { position: absolute; top: 50%; width: 22px; height: 22px; margin-left: -11px; transform: translateY(-50%); border-radius: 50%; background: currentColor; border: 4px solid #161616; box-shadow: 0 0 0 2px currentColor; }
-.gscore { font-size: 24px; font-weight: 800; text-align: center; margin-top: 14px; font-variant-numeric: tabular-nums; color: #d4aa00; }
-.lv-bad { color: #e87a7a; } .lv-mid { color: #e8a07a; } .lv-good { color: #7ec8a0; }
 
 /* radar chart */
 .radar-cap { text-align: center; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8a8a8a; margin-top: 22px; }

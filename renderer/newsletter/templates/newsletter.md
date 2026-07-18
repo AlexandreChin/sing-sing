@@ -4,29 +4,28 @@
 
 {% endif %}{{ intro }}
 
-## Pourquoi cet article
+## L'intérêt
 
 {{ why_selected }}
 
 {{ payoff }}
 
-## Avant de lire
+## Les repères
 
 {{ context }}
 {% for r in reflexes %}
 - {{ r }}
 {%- endfor %}
 
-## Le décryptage, pas à pas
+## Au fil de la lecture
 {% for d in decryptage %}
 > « {{ d.quote }} »
-> *{% if d.kind == "fait" %}⚖️ Fait — {{ d.verdict }} · {{ d.presentation }}{% else %}⚠️ {{ d.presentation }}{% endif %}*
 
 {{ d.reading }}
 {% if d.clue %}
 ↩ *« {{ d.clue }} »*
 {% endif %}{% endfor %}
-## La vue d'ensemble
+## L'architecture de l'argument
 
 ### Ce qui tient
 {% for s in strengths %}
@@ -39,14 +38,10 @@
 - {{ a }}
 {%- endfor %}
 
-### Notre verdict
+### À vous de juger
 
-{% if score %}**{{ score }} / 5**{% if band %} — {{ band }}{% endif %}
+{{ wrap_up }}
 
-{% endif %}{{ verdict_line }}
-{% if for_whom %}
-*Pour qui : {{ for_whom }}*
-{% endif %}
 ## Pour aller plus loin
 {% for r in go_further %}
 **{{ r.title }}**{% if r.source %} — {{ r.source }}{% endif %}
