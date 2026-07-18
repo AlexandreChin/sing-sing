@@ -48,25 +48,7 @@ Open `samples/outputs/article_2/instagram_carousel_optimized/slides/` to see the
 
 ---
 
-## Recipe 2 — The short (6-slide) deck
-
-Same command, different `--format`:
-
-```bash
-uv run python main.py produce samples/articles/article_2.txt \
-    --format instagram_carousel_optimized_short \
-    --render
-```
-
-→ `samples/outputs/article_2/instagram_carousel_optimized_short/slides/` (6 PNGs:
-Hook → Curation → Repères → Le décryptage → Verdict → CTA).
-
-Both formats share the **same** `adapt.json`, so if you've already produced one format
-you can generate the other cheaply — see Recipe 5.
-
----
-
-## Recipe 3 — Run it without an API key (`--no-api`)
+## Recipe 2 — Run it without an API key (`--no-api`)
 
 `--no-api` swaps the Anthropic API for your local `claude` CLI (each LLM step shells out
 to `claude -p`). Everything else is identical.
@@ -81,7 +63,7 @@ what's missing.
 
 ---
 
-## Recipe 4 — Run each stage by hand (to understand the pipeline)
+## Recipe 3 — Run each stage by hand (to understand the pipeline)
 
 `produce` is these four steps bundled. Running them individually is useful for
 inspecting intermediate output or re-doing just one stage.
@@ -118,7 +100,7 @@ re-run them freely.
 
 ---
 
-## Recipe 5 — Re-render after tweaking the copy (no LLM)
+## Recipe 4 — Re-render after tweaking the copy (no LLM)
 
 Rendering reads `extract.json`. To fix a headline or a slide's text and regenerate the
 PNGs without re-running any Claude calls, **edit the field in `extract.json`, then
@@ -158,24 +140,7 @@ uv run python main.py shoot myslides      # PNGs land next to the HTML
 
 ---
 
-## Recipe 6 — Generate the second format cheaply from an existing run
-
-Because both formats share `adapt.json`/`extract.json`, you can render the short deck
-from an already-produced `extract.json` without re-analyzing or re-adapting:
-
-```bash
-mkdir -p samples/outputs/article_2/instagram_carousel_optimized_short
-cp samples/outputs/article_2/instagram_carousel_optimized/extract.json \
-   samples/outputs/article_2/instagram_carousel_optimized_short/extract.json
-
-uv run python main.py render \
-   samples/outputs/article_2/instagram_carousel_optimized_short/extract.json \
-   --format instagram_carousel_optimized_short
-```
-
----
-
-## Recipe 7 — Utilities
+## Recipe 5 — Utilities
 
 ```bash
 # Node-graph integrity checks on an analysis
@@ -194,15 +159,15 @@ uv run python main.py simplify samples/outputs/article_2/analysis.json
 
 ---
 
-## Recipe 8 — Use your own article
+## Recipe 6 — Use your own article
 
 Any UTF-8 `.txt` works. For scraped articles, keep the **title on the first line**
 (byline/date below) — step 1 uses that as the title fallback.
 
 ```bash
 uv run python main.py produce path/to/my_article.txt \
-    --format instagram_carousel_optimized_short --render
-# → samples/outputs/my_article/instagram_carousel_optimized_short/slides/
+    --format instagram_carousel_optimized --render
+# → samples/outputs/my_article/instagram_carousel_optimized/slides/
 ```
 
 You can also pipe text via stdin to `analyze`:
@@ -213,7 +178,7 @@ cat my_article.txt | uv run python main.py analyze
 
 ---
 
-## Recipe 9 — Generate a newsletter (Markdown + HTML + PDF)
+## Recipe 7 — Generate a newsletter (Markdown + HTML + PDF)
 
 The `newsletter` format is fed by the same analysis, but produces prose instead of slides.
 `--pdf` adds a PDF (dark gold-on-black, via Chromium); without it you get `.md` + `.html`.
@@ -234,7 +199,7 @@ samples/outputs/article_2/newsletter/
   newsletter.pdf     ← the printable deliverable
 ```
 
-## Recipe 10 — Edit the newsletter, then regenerate the PDF (no LLM)
+## Recipe 8 — Edit the newsletter, then regenerate the PDF (no LLM)
 
 Two ways to hand-tune before the final PDF:
 

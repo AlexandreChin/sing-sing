@@ -234,7 +234,7 @@ def _carousel_hook(nl_json_path) -> str:
     analysis folder; "" if no carousel was produced. First letter capitalised
     (the carousel stores it lowercase)."""
     stem_dir = Path(nl_json_path).resolve().parent.parent
-    for fmt in ("instagram_carousel_optimized", "instagram_carousel_optimized_short"):
+    for fmt in ("instagram_carousel_optimized",):
         f = stem_dir / fmt / "adapt.json"
         if not f.exists():
             continue
