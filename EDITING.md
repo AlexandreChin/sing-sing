@@ -35,7 +35,7 @@ source line also reads `analysis.article_metadata`.
 | 3 — Repères | `presentation.display.reperes_headline` (headline), `analysis.context.contexts[0].text` ("Le contexte"); the réflexe list is **derived from the selected reading beats** (see Cherry-picking) |
 | 4–6 — Moments | `presentation.display.reading_beats[]` — a **candidate pool**; the `selected` ones render (see Cherry-picking). Per beat: `moment` (subtitle), `quote`, `note`, `lens_ref`, `factcheck` |
 | 7 — Architecture de l'argument | `presentation.display.global_analysis` → `headline`, `core_recap[]` |
-| 8 — À emporter | `presentation.display.bilan_headline` (headline), `presentation.display.key_takeaways[]`; the réflexe pills are **derived from the selected beats** |
+| 8 — À emporter | `presentation.display.bilan_headline` (headline), `presentation.display.key_takeaways[]` (a **pool** — the `selected` ones render, see Cherry-picking); the réflexe pills are **derived from the selected beats** |
 | 9 — À vous de juger | `presentation.display.root_issue` ("L'enjeu de fond"), `presentation.display.steel_man` (`argument`), `presentation.cta.engagement_sentence` ("La question") |
 | 10 — CTA | `presentation.cta.post_reading_questions[]` |
 
@@ -57,6 +57,24 @@ Each candidate also carries editor-only aids (not rendered) to help you choose:
 Canonical `lens_ref` ids: `sources`, `chiffres`, `causalite`, `cadrage`,
 `equilibre`, `sophismes`, `angles_morts` (a beat's `lens_ref` must be one of
 these).
+
+## Cherry-picking À-retenir (slide 8)
+
+`key_takeaways` is also a pool of `{"text": …, "selected": …}`. The
+`selected: true` ones (keep **2–3**) render; flip flags to swap, then re-shoot.
+
+## Alternatives menus (paste-to-swap)
+
+For the fields you re-word most, `adapt` also writes a **menu of alternatives**
+right next to the live value. They're **not rendered** — pick one and paste it
+into the live field, then re-shoot:
+
+| Live field | Menu |
+|---|---|
+| `hook.sub_topic` (hook question) | `hook.sub_topic_alt[]` |
+| `display.selection_headline` (slide-2 subtitle) | `display.selection_headline_alt[]` |
+| `cta.engagement_sentence` (slide-9 question) | `cta.engagement_sentence_alt[]` |
+| `display.global_analysis.headline` (slide-7 title) | `display.global_analysis.headline_alt[]` |
 
 ## Formatting tricks
 

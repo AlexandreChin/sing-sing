@@ -107,7 +107,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     # Slide 8 — À emporter: consolidate what to keep (à retenir + réflexes)
     specs.append(("08_a_emporter", "10_bilan", {
         "bilan_headline": d.bilan_headline,
-        "takeaways": list(d.key_takeaways),
+        "takeaways": [t.text for t in d.key_takeaways if t.selected][:3],
         "reflexes": [{"name": l["name"], "question": l["question"]} for l in display_lenses],
     }))
 

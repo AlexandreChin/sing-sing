@@ -52,7 +52,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
                                       "clues": list(disp.pre_reading)[:2]}),
         ("04_decryptage", "decryptage", {"failles": failles}),
         ("05_bilan", "09_bilan", {"bilan_headline": disp.bilan_headline,
-                                  "takeaways": list(disp.key_takeaways) or list(disp.distill_points)[:2],
+                                  "takeaways": [t.text for t in disp.key_takeaways if t.selected] or list(disp.distill_points)[:2],
                                   "critical": list(disp.after_reading)[:2]}),
         ("06_cta", "10_cta", {}),
     ]

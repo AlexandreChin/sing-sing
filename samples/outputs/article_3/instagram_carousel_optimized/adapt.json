@@ -3,7 +3,12 @@
     "topic": "Tourisme polaire de **luxe**",
     "sub_topic": "Le voyage qui **détruit** ce qu'il vient admirer ?",
     "headline": "Observer les pôles **accélère**-t-il leur disparition ?",
-    "context_line": "Des croisières de luxe emmènent une élite admirer des glaces que leur propre voyage contribue à faire fondre."
+    "context_line": "Des croisières de luxe emmènent une élite admirer des glaces que leur propre voyage contribue à faire fondre.",
+    "sub_topic_alt": [
+      "Et si admirer les pôles **précipitait** leur fonte ?",
+      "Fuir la canicule… en **réchauffant** la planète ?",
+      "Voir les pôles avant qu'ils **fondent** — à quel prix ?"
+    ]
   },
   "interest": {
     "why_read": "Décoder comment des **chiffres chocs** fabriquent une impression d'ampleur.",
@@ -75,6 +80,10 @@
         "question": "Un voyage aux pôles peut-il créer plus de défenseurs qu'il ne coûte en carbone ?",
         "type": "topic_substance"
       }
+    ],
+    "engagement_sentence_alt": [
+      "Le **poids climatique réel**, ou ce que ce tourisme **symbolise** : sur quoi juger ?",
+      "Un tourisme à **condamner**, ou un **révélateur** de nos contradictions ?"
     ]
   },
   "display": {
@@ -118,9 +127,26 @@
       "Cherchez les **voix absentes** du reportage."
     ],
     "key_takeaways": [
-      "Une croisière polaire émet **15 à 25 tonnes** de CO2 par passager.",
-      "Le tourisme polaire a **fortement augmenté** en Arctique comme en Antarctique.",
-      "L'encadrement repose sur l'**autorégulation** des opérateurs via l'IAATO."
+      {
+        "text": "Une croisière polaire émet **15 à 25 tonnes** de CO2 par passager.",
+        "selected": true
+      },
+      {
+        "text": "Le tourisme polaire a **fortement augmenté** en Arctique comme en Antarctique.",
+        "selected": true
+      },
+      {
+        "text": "L'encadrement repose sur l'**autorégulation** des opérateurs via l'IAATO.",
+        "selected": true
+      },
+      {
+        "text": "Les croisières perturbent la **faune** en pleine saison de reproduction.",
+        "selected": false
+      },
+      {
+        "text": "Le voyage vise des paysages « **dernière chance** », décrits comme condamnés.",
+        "selected": false
+      }
     ],
     "blind_spots": [
       "La **part réelle** du tourisme polaire dans les émissions mondiales n'est jamais chiffrée.",
@@ -226,6 +252,10 @@
       "core_recap": [
         "Le fil : des impacts — **carbone**, **faune**, paysages — attribués aux touristes, puis un appel à restreindre.",
         "À tester : chaque impact est-il **rapporté à son échelle**, et son lien au tourisme **établi** ?"
+      ],
+      "headline_alt": [
+        "Le fil de l'argument, maillon par maillon.",
+        "De quoi dépend la conclusion ?"
       ]
     },
     "open_question": "L'auteur ignore-t-il la **part réelle** du tourisme polaire dans les émissions, ou l'omet-il pour préserver l'ampleur du récit ?",
@@ -235,6 +265,11 @@
       "alternative": "Le bilan net serait **positif** si la sensibilisation protège plus qu'elle n'émet."
     },
     "reperes_headline": "Avant de vous lancer.",
-    "bilan_headline": "L'essentiel, et les bons réflexes."
+    "bilan_headline": "L'essentiel, et les bons réflexes.",
+    "selection_headline_alt": [
+      "Un sujet où juger demande plus que des chiffres.",
+      "Le bon terrain pour muscler son regard critique.",
+      "Derrière les chiffres, une vraie question de valeurs."
+    ]
   }
 }
