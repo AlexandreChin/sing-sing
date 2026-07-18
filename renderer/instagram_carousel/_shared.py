@@ -64,7 +64,7 @@ def _weighted_quality(full) -> dict | None:
     return {"score": score, "label": label, "band": band, "pos": round((score - 1) / 4 * 100), "level": level}
 
 
-def _logo_data_url(path: Path, white_threshold: int = 240) -> str:
+def _logo_data_url(path: Path, white_threshold: int = 240, crop: bool = False) -> str:
     img = Image.open(path).convert("RGBA")
     pixels = img.getdata()
     new_pixels = [
@@ -72,12 +72,17 @@ def _logo_data_url(path: Path, white_threshold: int = 240) -> str:
         for r, g, b, a in pixels
     ]
     img.putdata(new_pixels)
+    if crop:  # trim the transparent padding so the bird can be sized to the text
+        bbox = img.getbbox()
+        if bbox:
+            img = img.crop(bbox)
     buf = io.BytesIO()
     img.save(buf, format="PNG")
     return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
 
 
 _LOGO_DATA_URL = _logo_data_url(_LOGO_PATH) if _LOGO_PATH.exists() else ""
+_LOGO_TIGHT_DATA_URL = _logo_data_url(_LOGO_PATH, crop=True) if _LOGO_PATH.exists() else ""
 
 
 def _md_bold(text) -> Markup:

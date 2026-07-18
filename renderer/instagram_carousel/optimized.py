@@ -9,7 +9,7 @@ from pathlib import Path
 
 from models.instagram_carousel_presentation import InstagramCarouselDocument
 from ._shared import (
-    _env, _LOGO_DATA_URL,
+    _env, _LOGO_DATA_URL, _LOGO_TIGHT_DATA_URL,
     TYPE_FR, cover_layers,
 )
 
@@ -63,6 +63,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     specs = [
         ("01_hook", "01_hook", {"article_title": (meta.title or "").strip(), "source_meta": source_meta,
                                 "topic": pres.hook.topic, "sub_topic": pres.hook.sub_topic,
+                                "kicker_logo": _LOGO_TIGHT_DATA_URL,
                                 "headline": pres.hook.headline, **cover_layers(meta, pres.hook.headline)}),
         ("02_selection", "02_selection", {"headline": d.selection_headline, "items": [
             {"label": "L'intérêt", "body": d.why_selected},
