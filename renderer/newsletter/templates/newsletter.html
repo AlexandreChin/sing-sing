@@ -48,7 +48,7 @@
   <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Angles morts &amp; nuances</div>
   <div class="plain">{% for a in angles_morts %}<div class="row"><span class="mk salmon">~</span><span>{{ a | md_bold }}</span></div>{% endfor %}</div>
 
-  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>Notre verdict</div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>À vous de juger</div>
   <div class="verdict">
     <div class="gauge lv-{{ gauge_level }}">
       <div class="gtop"><span class="gnm">Qualité de l'article</span><span class="gsc">{{ band }}</span></div>
@@ -58,7 +58,7 @@
     {% if radar_svg %}<div class="radar-cap">Le détail, critère par critère (sur 5)</div>
     <div class="radar">{{ radar_svg }}</div>{% endif %}
     <div class="vdivider"></div>
-    <p>{{ verdict_line | md_bold }}</p>
+    <p>{{ wrap_up | md_bold }}</p>
     {% if for_whom %}<div class="whom">Pour qui&nbsp;: {{ for_whom }}</div>{% endif %}
   </div>
 

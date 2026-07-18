@@ -14,7 +14,7 @@ def _valid_data():
         ],
         strengths=[{"heading": "Force", "body": "Corps."}],
         angles_morts=["A1", "A2"],
-        verdict_line="Verdict.",
+        wrap_up="Synthèse.",
         go_further=[{"title": "R1", "source": "S1", "why": "W.", "type": "étude"},
                     {"title": "R2", "source": "S2", "why": "W.", "type": "rapport"}],
         prolongements=[{"heading": "Prolongement 1", "body": "Corps 1."},

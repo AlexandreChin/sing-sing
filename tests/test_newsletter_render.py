@@ -43,7 +43,7 @@ def test_markdown_structure_and_order():
     assert "La vue d'ensemble" in md
     assert "Vérification des faits" not in md
     assert "## Les failles" not in md
-    assert md.index("Le décryptage") < md.index("La vue d'ensemble") < md.index("Notre verdict")
+    assert md.index("Le décryptage") < md.index("La vue d'ensemble") < md.index("À vous de juger")
 
 
 def test_rich_html_has_badges():

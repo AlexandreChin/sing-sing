@@ -218,8 +218,8 @@
       </table>
     {% endcall %}
 
-    <!-- Notre verdict -->
-    {% call card("⚖️", "Notre verdict") %}
+    <!-- À vous de juger -->
+    {% call card("⚖️", "À vous de juger") %}
           <!-- overall score -->
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
             <td align="left" style="font-size:16px;font-weight:700;color:{{ t.heading }};">Qualit&eacute; de l'article</td>
@@ -267,7 +267,7 @@
           <!-- divider -->
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:24px 0 4px;"><tr><td height="1" bgcolor="{{ t.border }}" style="height:1px;font-size:0;line-height:0;background-color:{{ t.border }};">&nbsp;</td></tr></table>
 
-          <div style="font-size:17px;line-height:1.58;color:{{ t.text }};padding-top:14px;">{{ verdict_line | md_bold_email(t.accent_text) }}</div>
+          <div style="font-size:17px;line-height:1.58;color:{{ t.text }};padding-top:14px;">{{ wrap_up | md_bold_email(t.accent_text) }}</div>
           {% if for_whom %}<div style="font-size:15px;color:{{ t.muted }};padding-top:12px;">Pour qui&nbsp;: {{ for_whom }}</div>{% endif %}
     {% endcall %}
 

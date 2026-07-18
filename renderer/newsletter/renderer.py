@@ -191,7 +191,7 @@ def _ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
         "decryptage": _decryptage_ctx(doc),
         "strengths": list(pres.strengths),
         "angles_morts": list(pres.angles_morts),
-        "verdict_line": pres.verdict_line,
+        "wrap_up": pres.wrap_up,
         "go_further": list(pres.go_further),
         "prolongements": list(pres.prolongements),
         "open_question": pres.open_question,

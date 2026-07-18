@@ -43,7 +43,7 @@ class NewsletterPresentation(BaseModel):
     decryptage: list[DecryptageItem]    # 4–6, article-ordered — Le décryptage, pas à pas (faits + failles)
     strengths: list[NewsletterSection]  # 1–2 — Ce qui tient
     angles_morts: list[str]             # 2–3 — Angles morts & nuances
-    verdict_line: str                   # Notre verdict, in prose (2–3 sentences)
+    wrap_up: str                        # neutral synthesis / prise de recul, no recommendation (2–3 sentences)
     go_further: list[Resource]          # 2–3 — Pour aller plus loin (resources)
     prolongements: list[NewsletterSection]  # exactly 2 — Prolonger la réflexion: steel_man + cui_bono
     open_question: str                  # closing provocation, from distill.open_question
