@@ -27,15 +27,10 @@ def _validate(data: dict) -> list[str]:
     for i, d in enumerate(pres.decryptage):
         if not d.quote.strip() or not d.reading.strip():
             errors.append(f"decryptage[{i}] has an empty quote/reading")
-    if not (1 <= len(pres.strengths) <= 2):
-        errors.append(f"strengths must have 1–2 items, got {len(pres.strengths)}")
     if not (2 <= len(pres.angles_morts) <= 3):
         errors.append(f"angles_morts must have 2–3 items, got {len(pres.angles_morts)}")
     if not (2 <= len(pres.go_further) <= 3):
         errors.append(f"go_further must have 2–3 items, got {len(pres.go_further)}")
-    for i, s in enumerate(pres.strengths):
-        if not s.heading.strip() or not s.body.strip():
-            errors.append(f"strengths[{i}] has an empty heading/body")
     if len(pres.prolongements) != 2:
         errors.append(f"prolongements must have exactly 2 items, got {len(pres.prolongements)}")
     for i, p in enumerate(pres.prolongements):
@@ -55,19 +50,11 @@ def _context(full: ArticleFullAnalysis) -> str:
             "ÉLÉMENTS CENTRAUX (la newsletter doit les COUVRIR — ne pas se limiter "
             "à l'angle du titre) :\n" + lines + "\n\n"
         )
-    verdict = ""
-    if full.review:
-        v = full.review.verdict
-        verdict = (
-            "VERDICT (disponible, PAS le fil conducteur) :\n"
-            f"  qualité : {v.quality} · recommandation : {v.reading_recommendation}\n"
-            f"  thèse : {v.summary}\n\n"
-        )
     return (
         f"ARTICLE METADATA :\n{_j(full.article_metadata.model_dump())}\n\n"
         f"{core}"
-        f"{verdict}"
-        f"ANALYSE COMPLÈTE :\n{full.model_dump_json(indent=2)}"
+        "ANALYSE COMPLÈTE :\n"
+        f"{full.model_dump_json(indent=2, exclude={'review', 'deontology'})}"
     )
 
 

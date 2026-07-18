@@ -191,16 +191,6 @@
 
     {{ kicker("🧠", "L'architecture de l'argument" | safe) }}
 
-    <!-- Ce qui tient -->
-    {% call card("✅", "Ce qui tient") %}
-      {% for s in strengths %}
-      <div style="{% if not loop.first %}padding-top:20px;{% endif %}">
-        <div style="font-size:21px;font-weight:800;letter-spacing:-0.01em;color:{{ t.heading }};line-height:1.25;"><span style="color:#4faa7c;">&#10003;</span> {{ s.heading }}</div>
-        <div style="font-size:17px;line-height:1.6;color:{{ t.text_soft }};padding-top:9px;">{{ s.body | md_bold_email(t.accent_text) }}</div>
-      </div>
-      {% endfor %}
-    {% endcall %}
-
     <!-- Angles morts & nuances -->
     {% call card("🌓", "Angles morts & nuances") %}
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -215,33 +205,7 @@
 
     <!-- À vous de juger -->
     {% call card("🤔", "À vous de juger") %}
-          {% if dims_bars %}
-          <!-- profil de lecture: per-dimension breakdown (the email's stand-in
-               for the SVG radar) -->
-          <div style="font-size:13px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:{{ t.muted }};padding-bottom:12px;">Profil de lecture</div>
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-          {% for d in dims_bars %}
-            <tr>
-              <td width="34%" style="padding:6px 10px 6px 0;font-size:13px;color:{{ t.text }};line-height:1.2;">{{ d.label }}</td>
-              <td style="padding:6px 0;">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-                  <td bgcolor="{{ t.track }}" style="background-color:{{ t.track }};border-radius:5px;font-size:0;line-height:0;">
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-                      <td bgcolor="{{ d.color }}" width="{{ d.pct }}%" height="10" style="background-color:{{ d.color }};height:10px;font-size:0;line-height:0;border-radius:5px;">&nbsp;</td>
-                      {% if d.pct < 100 %}<td style="font-size:0;line-height:0;">&nbsp;</td>{% endif %}
-                    </tr></table>
-                  </td>
-                </tr></table>
-              </td>
-            </tr>
-          {% endfor %}
-          </table>
-
-          <!-- divider -->
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:24px 0 4px;"><tr><td height="1" bgcolor="{{ t.border }}" style="height:1px;font-size:0;line-height:0;background-color:{{ t.border }};">&nbsp;</td></tr></table>
-          {% endif %}
-
-          <div style="font-size:17px;line-height:1.58;color:{{ t.text }};padding-top:14px;">{{ wrap_up | md_bold_email(t.accent_text) }}</div>
+          <div style="font-size:17px;line-height:1.58;color:{{ t.text }};">{{ wrap_up | md_bold_email(t.accent_text) }}</div>
     {% endcall %}
 
     <!-- Pour aller plus loin -->

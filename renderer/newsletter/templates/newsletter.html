@@ -35,19 +35,12 @@
   </div>{% endfor %}
 
   <div class="kicker vue"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>L'architecture de l'argument</div>
-  {% for s in strengths %}<div class="sec">
-    <h3>✓ {{ s.heading }}</h3>
-    <p>{{ s.body | md_bold }}</p>
-  </div>{% endfor %}
 
   <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Angles morts &amp; nuances</div>
   <div class="plain">{% for a in angles_morts %}<div class="row"><span class="mk salmon">~</span><span>{{ a | md_bold }}</span></div>{% endfor %}</div>
 
   <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>À vous de juger</div>
   <div class="verdict">
-    {% if radar_svg %}<div class="radar-cap">Profil de lecture</div>
-    <div class="radar">{{ radar_svg }}</div>
-    <div class="vdivider"></div>{% endif %}
     <p>{{ wrap_up | md_bold }}</p>
   </div>
 

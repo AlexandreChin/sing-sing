@@ -43,7 +43,6 @@ class NewsletterPresentation(BaseModel):
     context: str                        # Avant de lire — the backdrop (3–4 sentences)
     reflexes: list[str]                 # exactly 2 — reading reflexes to keep in mind
     decryptage: list[DecryptageItem]    # 4–6, article-ordered — Au fil de la lecture (neutral reading moments)
-    strengths: list[NewsletterSection]  # 1–2 — Ce qui tient
     angles_morts: list[str]             # 2–3 — Angles morts & nuances
     wrap_up: str                        # neutral synthesis / prise de recul, no recommendation (2–3 sentences)
     go_further: list[Resource]          # 2–3 — Pour aller plus loin (resources)

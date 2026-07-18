@@ -70,12 +70,6 @@ strong { color: #d4aa00; font-weight: 700; }
 /* verdict */
 .verdict { background: #161616; border-radius: 12px; padding: 28px 30px; break-inside: avoid; }
 .verdict p { font-size: 18px; line-height: 1.55; color: #eaeaea; margin-top: 16px; }
-.vdivider { height: 1px; background: #2a2a2a; margin: 22px 0 4px; }
-
-/* radar chart */
-.radar-cap { text-align: center; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8a8a8a; margin-top: 22px; }
-.radar { max-width: 360px; margin: 6px auto 0; }
-.radar svg { width: 100%; height: auto; display: block; }
 
 /* resource */
 .resource { border: 1px solid #2a2a2a; border-radius: 10px; padding: 20px 24px; break-inside: avoid; }
