@@ -87,7 +87,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     if d.global_analysis:
         ga = d.global_analysis
         specs.append(("07_vue_ensemble", "08_vue_ensemble",
-                      {"headline": ga.headline, "core_recap": list(ga.core_recap), "note": ga.note}))
+                      {"headline": ga.headline, "core_recap": list(ga.core_recap)}))
 
     if d.steel_man or d.root_issue:
         specs.append(("08_prise_de_recul", "08_prise_de_recul", {

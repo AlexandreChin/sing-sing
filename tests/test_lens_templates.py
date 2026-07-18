@@ -41,15 +41,13 @@ def test_moment_shows_factcheck_pill_when_present():
     assert "Plutôt solide" in html
 
 
-def test_vue_ensemble_renders_core_recap_and_note():
+def test_vue_ensemble_renders_core_recap():
     html = _render("08_vue_ensemble.html", phase="verdict",
                    headline="Un tourisme polaire aux multiples enjeux",
                    core_recap=["Un fort coût carbone par passager",
-                               "Une concurrence directe avec la faune"],
-                   note="Des chiffres rarement rapportés à un total.")
+                               "Une concurrence directe avec la faune"])
     assert "Un fort coût carbone par passager" in html
     assert "Une concurrence directe avec la faune" in html
-    assert "Des chiffres rarement rapportés à un total." in html
 
 
 def test_bilan_shows_takeaways_reflexes_and_engagement():
