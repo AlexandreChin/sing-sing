@@ -76,9 +76,15 @@ dans cet ordre :
    affichées (slides « réflexes ») sont DÉRIVÉES automatiquement des beats sélectionnés — n'écris
    pas de liste `lenses` séparée. `factcheck` UNIQUEMENT si le beat est une affirmation factuelle
    vérifiable ; il ne doit PAS orienter le choix vers les seuls chiffres.
-3. `payoff`, `key_takeaways` (2–3), `global_analysis.core_recap` et le `hook` doivent
-   **refléter la diversité** des éléments centraux (p. ex. bilan carbone ET faune ET
+3. `payoff`, `key_takeaways` (2–3 sélectionnés), `global_analysis.core_recap` et le `hook`
+   doivent **refléter la diversité** des éléments centraux (p. ex. bilan carbone ET faune ET
    régulation), jamais un seul thème.
+
+**MENUS D'ALTERNATIVES (pour cherry-pick manuel — non rendus)** : en plus de la valeur active,
+propose 2 à 4 variantes courtes pour les champs souvent retravaillés — `hook.sub_topic_alt`
+(questions d'accroche), `selection_headline_alt` (sous-titres slide 2), `cta.engagement_sentence_alt`
+(questions de clôture), `global_analysis.headline_alt` (titres slide 7). Même registre/contraintes
+que le champ actif ; ce sont des options à copier-coller si besoin, jamais affichées telles quelles.
 
 - payoff        : ≤15 mots — ce que le lecteur GAGNE, formulé POSITIVEMENT comme une compétence de lecture ou un éclairage qu'il emporte, et qui couvre la diversité des enjeux de l'article, pas un seul. N'anticipe PAS la critique de cet article (pas de « comment il manipule / fabrique une fausse impression »), ne dévoile pas le verdict. Ex. : « Remettre chaque chiffre choc dans son contexte avant de vous forger un avis. »
 - framing       : ≤15 mots — l'angle choisi par l'article, en langage direct (depuis perspective.framing)
@@ -90,7 +96,7 @@ dans cet ordre :
 - strengths     : 1 à 2 items — les dimensions les MIEUX notées de `review.dimensions` (score le plus élevé ; 2 de préférence, 1 seul si une seule se distingue vraiment). Chacun avec un `label` (court descripteur français reprenant la dimension, ex. "Exactitude factuelle", "Équité de traitement", "Clarté") et un `text` (≤15 mots, ce que l'article réussit, formulé comme une affirmation lisible — SANS score de confiance, SANS identifiant de nœud, SANS citation de l'article)
 - distill_points: exactement 3 items, ≤20 mots chacun — les 3 signaux les plus importants (depuis distill.points)
 - after_reading : exactement 3 items, ≤12 mots chacun — ce que le lecteur doit retenir (depuis guide.after_reading)
-- key_takeaways : 2 à 3 items, ≤14 mots chacun — les points de CONTENU les plus marquants à retenir de l'article lui-même (faits, chiffres, idées-clés que le lecteur apprend), et NON notre critique, couvrant des éléments centraux distincts. Puise dans `annotations.facts_vs_opinions.claims_and_sources`, `context.important_facts` et `article_metadata.chapo`. Formulation neutre et informative (pas de jugement, pas de citation d'article).
+- key_takeaways : un VIVIER de 4 à 6 candidats, chacun un objet `{"text": …, "selected": …}`, ≤14 mots — points de CONTENU marquants de l'article (faits, chiffres, idées-clés que le lecteur apprend), NON notre critique, couvrant des éléments centraux distincts. Marque `selected: true` sur les **2–3 meilleurs** (les autres `false`) ; ce sont eux qui s'affichent (slide « À emporter »). Puise dans `annotations.facts_vs_opinions.claims_and_sources`, `context.important_facts` et `article_metadata.chapo`. Formulation neutre et informative (pas de jugement, pas de citation d'article).
 - blind_spots   : 1 à 2 items (2 de préférence), ≤15 mots chacun — ce que l'article laisse de côté (depuis perspective.blind_spots)
 - balance       : 1 à 2 items (2 de préférence), ≤15 mots chacun — note de calibration sur les limites de l'analyse (depuis perspective.balance)
 

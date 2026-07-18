@@ -932,7 +932,12 @@
       "topic": "Tourisme polaire de **luxe**",
       "sub_topic": "Le voyage qui **détruit** ce qu'il vient admirer ?",
       "headline": "Observer les pôles **accélère**-t-il leur disparition ?",
-      "context_line": "Des croisières de luxe emmènent une élite admirer des glaces que leur propre voyage contribue à faire fondre."
+      "context_line": "Des croisières de luxe emmènent une élite admirer des glaces que leur propre voyage contribue à faire fondre.",
+      "sub_topic_alt": [
+        "Et si admirer les pôles **précipitait** leur fonte ?",
+        "Fuir la canicule… en **réchauffant** la planète ?",
+        "Voir les pôles avant qu'ils **fondent** — à quel prix ?"
+      ]
     },
     "interest": {
       "why_read": "Décoder comment des **chiffres chocs** fabriquent une impression d'ampleur.",
@@ -968,6 +973,10 @@
     "cta": {
       "title": "Un chiffre spectaculaire n'est pas une démonstration.",
       "engagement_sentence": "Faut-il juger ce tourisme sur son **poids climatique réel**, ou sur ce qu'il dit d'une **élite indifférente** au dérèglement ?",
+      "engagement_sentence_alt": [
+        "Le **poids climatique réel**, ou ce que ce tourisme **symbolise** : sur quoi juger ?",
+        "Un tourisme à **condamner**, ou un **révélateur** de nos contradictions ?"
+      ],
       "post_reading_questions": [
         {
           "id": "q_0",
@@ -991,6 +1000,11 @@
       "framing": "Un **angle écologiste** : un tourisme de luxe détruit les paysages qu'il vient admirer.",
       "why_selected": "Un sujet concret et clivant dont les enjeux **dépassent le bilan carbone** : la **faune** polaire, l'encadrement du secteur, la croissance rapide de la fréquentation.\nEt parce qu'il relève du **tourisme de luxe**, le débat prend une portée sociale qui dépasse la seule écologie.",
       "selection_headline": "Un débat qui dépasse largement le bilan carbone.",
+      "selection_headline_alt": [
+        "Un sujet où juger demande plus que des chiffres.",
+        "Le bon terrain pour muscler son regard critique.",
+        "Derrière les chiffres, une vraie question de valeurs."
+      ],
       "ethics": "Déontologie **globalement propre** : une réserve sur un pourcentage gonflé.",
       "pre_reading": [
         "Repérez l'angle du **tourisme de la dernière chance**.",
@@ -1027,9 +1041,26 @@
         "Cherchez les **voix absentes** du reportage."
       ],
       "key_takeaways": [
-        "Une croisière polaire émet **15 à 25 tonnes** de CO2 par passager.",
-        "Le tourisme polaire a **fortement augmenté** en Arctique comme en Antarctique.",
-        "L'encadrement repose sur l'**autorégulation** des opérateurs via l'IAATO."
+        {
+          "text": "Une croisière polaire émet **15 à 25 tonnes** de CO2 par passager.",
+          "selected": true
+        },
+        {
+          "text": "Le tourisme polaire a **fortement augmenté** en Arctique comme en Antarctique.",
+          "selected": true
+        },
+        {
+          "text": "L'encadrement repose sur l'**autorégulation** des opérateurs via l'IAATO.",
+          "selected": true
+        },
+        {
+          "text": "Les croisières perturbent la **faune** en pleine saison de reproduction.",
+          "selected": false
+        },
+        {
+          "text": "Le voyage vise des paysages « **dernière chance** », décrits comme condamnés.",
+          "selected": false
+        }
       ],
       "blind_spots": [
         "La **part réelle** du tourisme polaire dans les émissions mondiales n'est jamais chiffrée.",
@@ -1132,6 +1163,10 @@
       ],
       "global_analysis": {
         "headline": "Sur quoi tient toute la thèse ?",
+        "headline_alt": [
+          "Le fil de l'argument, maillon par maillon.",
+          "De quoi dépend la conclusion ?"
+        ],
         "core_recap": [
           "Le fil : des impacts — **carbone**, **faune**, paysages — attribués aux touristes, puis un appel à restreindre.",
           "À tester : chaque impact est-il **rapporté à son échelle**, et son lien au tourisme **établi** ?"

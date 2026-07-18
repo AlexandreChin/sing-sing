@@ -5,7 +5,7 @@ the format-agnostic ArticleFullAnalysis.
 """
 from __future__ import annotations
 from typing import Literal
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 
 class Hook(BaseModel):
@@ -13,6 +13,7 @@ class Hook(BaseModel):
     sub_topic: str
     headline: str
     context_line: str
+    sub_topic_alt: list[str] = Field(default_factory=list)  # menu of alt hook questions (render-ignored; paste to swap)
 
 
 class Interest(BaseModel):
@@ -41,6 +42,7 @@ class PostReadingQuestion(BaseModel):
 class CTA(BaseModel):
     title: str = ""   # punchy closing headline (≤10 words) that echoes the verdict's thesis
     engagement_sentence: str
+    engagement_sentence_alt: list[str] = Field(default_factory=list)  # menu of alt closing questions (render-ignored)
     post_reading_questions: list[PostReadingQuestion]
 
 
@@ -76,7 +78,13 @@ class ReadingBeat(BaseModel):
 
 class GlobalAnalysis(BaseModel):
     headline: str                        # ≤10 words — the "mise en perspective" invitation, neutral
+    headline_alt: list[str] = Field(default_factory=list)  # menu of alt headlines (render-ignored; paste to swap)
     core_recap: list[str] = Field(default_factory=list)  # 2–3 items, ≤16 words — proportion/scale points
+
+
+class KeyTakeaway(BaseModel):
+    text: str
+    selected: bool = True   # render on slide 8; the pool holds candidates you cherry-pick
 
 
 class SteelMan(BaseModel):
@@ -90,13 +98,14 @@ class CarouselDisplay(BaseModel):
     framing: str             # ≤15 words — the article's angle in plain language
     why_selected: str        # ≤20 words — the editorial reason this article earned a decrypt
     selection_headline: str  # ≤12 words — punchy one-line "why we chose it" (slide 2 headline)
+    selection_headline_alt: list[str] = Field(default_factory=list)  # menu of alt subtitles (render-ignored)
     ethics: str              # ≤12 words — explicit clean/not-clean statement
     pre_reading: list[str]   # exactly 2 items, ≤12 words each
     watch_out: list[WatchOutItem]  # exactly 2 items, ≤15 words each, no article quotes
     strengths: list[StrengthItem]  # exactly 2 items — the article's 2 strongest dimensions
     distill_points: list[str]  # exactly 3 items, ≤20 words each
     after_reading: list[str]   # exactly 3 items, ≤12 words each
-    key_takeaways: list[str] = Field(default_factory=list)  # 2–3 items, ≤14 words — the article's most memorable CONTENT points (facts/ideas the reader learns), distinct from our critique. Default [] so pre-existing extracts still load.
+    key_takeaways: list[KeyTakeaway] = Field(default_factory=list)  # candidate POOL; the `selected` ones (2–3) render on slide 8. Plain strings are coerced to selected takeaways (back-compat).
     blind_spots: list[str]   # exactly 2 items, ≤15 words each — what the article leaves out
     balance: list[str]       # exactly 2 items, ≤15 words each — calibrating note on the analysis limits
     # 4-act "lens to read with" fields — all defaulted so old extracts still load.
@@ -108,6 +117,15 @@ class CarouselDisplay(BaseModel):
     steel_man: SteelMan | None = None                          # Act 4 slide 08 — strongest objection
     reperes_headline: str = ""   # slide 3 headline override; empty → "Avant de vous lancer."
     bilan_headline: str = ""     # slide 9 headline override; empty → "L'essentiel, et les bons réflexes."
+
+    @field_validator("key_takeaways", mode="before")
+    @classmethod
+    def _coerce_key_takeaways(cls, v):
+        """Accept a plain list of strings (old extracts / hand edits) and coerce
+        each into a selected KeyTakeaway."""
+        if isinstance(v, list):
+            return [{"text": x} if isinstance(x, str) else x for x in v]
+        return v
 
 
 class InstagramCarouselPresentation(BaseModel):
