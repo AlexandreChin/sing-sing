@@ -22,7 +22,7 @@ TPL = "article_carousel_optimized_v0"
 PHASE_OF = {
     "03_reperes": "avant",
     "04_moment": "analyse", "05_moment": "analyse", "06_moment": "analyse",
-    "07_vue_ensemble": "verdict", "08_prise_de_recul": "verdict", "09_bilan": "verdict",
+    "07_vue_ensemble": "verdict", "08_a_emporter": "verdict", "09_prise_de_recul": "verdict",
 }
 
 # French number words for the réflexes section label on the merged repères slide.
@@ -89,18 +89,20 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         specs.append(("07_vue_ensemble", "08_vue_ensemble",
                       {"headline": ga.headline, "core_recap": list(ga.core_recap)}))
 
-    if d.steel_man or d.root_issue:
-        specs.append(("08_prise_de_recul", "08_prise_de_recul", {
-            "steel_man": {"argument": d.steel_man.argument, "alternative": d.steel_man.alternative} if d.steel_man else None,
-            "root_issue": d.root_issue,
-        }))
-
-    specs.append(("09_bilan", "10_bilan", {
+    # Slide 8 — À emporter: consolidate what to keep (à retenir + réflexes)
+    specs.append(("08_a_emporter", "10_bilan", {
         "bilan_headline": d.bilan_headline,
         "takeaways": list(d.key_takeaways),
         "reflexes": [{"name": l.name, "question": l.question} for l in d.lenses],
-        "engagement": pres.cta.engagement_sentence,
     }))
+
+    # Slide 9 — À vous de juger: the wrap-up (objection + deep stake + the closing question)
+    if d.steel_man or d.root_issue or pres.cta.engagement_sentence:
+        specs.append(("09_prise_de_recul", "08_prise_de_recul", {
+            "steel_man": {"argument": d.steel_man.argument, "alternative": d.steel_man.alternative} if d.steel_man else None,
+            "root_issue": d.root_issue,
+            "engagement": pres.cta.engagement_sentence,
+        }))
     specs.append(("10_cta", "10_cta", cover_layers(meta, pres.hook.headline)))
 
     env = _env()

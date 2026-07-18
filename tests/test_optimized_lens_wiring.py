@@ -38,7 +38,7 @@ def test_deck_follows_merged_four_act_order(tmp_path):
     assert names == [
         "01_hook", "02_selection", "03_reperes",
         "04_moment", "05_moment",
-        "07_vue_ensemble", "08_prise_de_recul", "09_bilan", "10_cta",
+        "07_vue_ensemble", "08_a_emporter", "09_prise_de_recul", "10_cta",
     ]
 
 
