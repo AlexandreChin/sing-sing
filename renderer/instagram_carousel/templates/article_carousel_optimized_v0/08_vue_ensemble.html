@@ -12,8 +12,6 @@
 .rc-item { display: flex; gap: 16px; align-items: flex-start; font-size: 36px; line-height: 1.4; color: #e0e0e0; }
 .rc-item .rk { flex: none; color: #d4aa00; font-weight: 900; font-size: 36px; line-height: 1.1; }
 .rc-item strong { color: #d4aa00; font-weight: 700; }
-.note { border-top: 1px solid #2a2a2a; padding-top: 16px; font-size: 30px; font-weight: 500; line-height: 1.4; color: #9a9a9a; }
-.note strong { color: #d4aa00; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -28,7 +26,6 @@
     <div class="rc-list">
       {% for c in core_recap %}<div class="rc-item"><span class="rk">&#8250;</span><span>{{ c | md_bold }}</span></div>{% endfor %}
     </div>
-    {% if note %}<p class="note">{{ note | md_bold }}</p>{% endif %}
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Prendre du recul &#8250;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>

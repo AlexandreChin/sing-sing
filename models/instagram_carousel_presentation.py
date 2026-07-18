@@ -69,9 +69,8 @@ class ReadingBeat(BaseModel):
 
 
 class GlobalAnalysis(BaseModel):
-    headline: str                        # ≤10 words — a fair, neutral read of the article
-    core_recap: list[str] = Field(default_factory=list)  # 2–3 items, ≤16 words — the article's central elements
-    note: str = ""                       # ≤18 words — one short critical note (neutral, no verdict)
+    headline: str                        # ≤10 words — the "mise en perspective" invitation, neutral
+    core_recap: list[str] = Field(default_factory=list)  # 2–3 items, ≤16 words — proportion/scale points
 
 
 class SteelMan(BaseModel):
