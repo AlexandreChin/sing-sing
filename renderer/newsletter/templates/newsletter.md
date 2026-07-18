@@ -40,12 +40,8 @@
 
 ### À vous de juger
 
-{% if score %}**{{ score }} / 5**{% if band %} — {{ band }}{% endif %}
+{{ wrap_up }}
 
-{% endif %}{{ wrap_up }}
-{% if for_whom %}
-*Pour qui : {{ for_whom }}*
-{% endif %}
 ## Pour aller plus loin
 {% for r in go_further %}
 **{{ r.title }}**{% if r.source %} — {{ r.source }}{% endif %}
