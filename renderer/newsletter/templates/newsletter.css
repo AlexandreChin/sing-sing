@@ -43,8 +43,6 @@ strong { color: #d4aa00; font-weight: 700; }
 
 /* décryptage (chronological pass) */
 .decrypt { border-left: 3px solid #d4aa00; padding: 2px 0 2px 22px; margin: 22px 0; break-inside: avoid; }
-.decrypt.faille { border-left-color: #e8a07a; }
-.decrypt .dtop { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
 .decrypt .claim { font-size: 17px; font-style: italic; line-height: 1.4; color: #f0f0f0; }
 .decrypt p { font-size: 16px; color: #dedede; margin: 0; }
 .decrypt .clue { font-size: 15px; font-style: italic; color: #9a9a9a; margin-top: 10px; }
