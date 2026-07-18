@@ -27,14 +27,9 @@
   <p>{{ context | md_bold }}</p>
   <div class="plain">{% for r in reflexes %}<div class="row"><span class="mk gold">›</span><span>{{ r | md_bold }}</span></div>{% endfor %}</div>
 
-  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Le décryptage, pas à pas</div>
-  {% for d in decryptage %}<div class="decrypt {{ d.kind }}">
-    <div class="dtop">
-      <span class="badge {{ d.kind }}">{% if d.kind == 'fait' %}⚖️ Fait{% else %}⚠️ {{ d.presentation }}{% endif %}</span>
-      {% if d.kind == 'fait' %}<span class="pill" style="color:{{ d.color }};border-color:{{ d.color }};">{{ d.verdict }}</span>{% endif %}
-    </div>
+  <div class="kicker"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Au fil de la lecture</div>
+  {% for d in decryptage %}<div class="decrypt">
     <div class="claim">« {{ d.quote }} »</div>
-    {% if d.kind == 'fait' %}<div class="pres">{{ d.presentation }}</div>{% endif %}
     <p>{{ d.reading | md_bold }}</p>
     {% if d.clue %}<div class="clue"><span class="ret">↩</span> «&nbsp;{{ d.clue }}&nbsp;»</div>{% endif %}
   </div>{% endfor %}

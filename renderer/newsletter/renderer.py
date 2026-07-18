@@ -53,38 +53,6 @@ _EMAIL_LOGO = _email_logo_data_url()
 _LEVEL_COLOR = {"good": "#7ec8a0", "mid": "#e8a07a", "bad": "#e87a7a"}
 
 
-# Confidence label (from the analysis claim's 0–100 score) → (French verdict, pill
-# colour). Mirrors the carousel's colour-coded fact-check chip: the colour tracks
-# how likely the claim is to be true, not how the article frames it.
-_FC_VERDICT = {
-    "consensual":   ("Largement admis", "#3f9e73"),
-    "true":         ("Solide",          "#3f9e73"),
-    "likely true":  ("Plutôt solide",   "#5aa06a"),
-    "disputed":     ("Disputé",         "#c99a00"),
-    "likely false": ("Fragile",         "#cf4f4f"),
-    "false":        ("Fragile",         "#cf4f4f"),
-    "unverifiable": ("Invérifiable",    "#8a8f9a"),
-}
-
-
-def _fc_tokens(text: str) -> set[str]:
-    return set(re.findall(r"\w+", (text or "").lower()))
-
-
-def _fc_verdict(fc_claim: str, claims) -> tuple[str, str]:
-    """Match a newsletter fact-check claim to its analysis claim (best keyword/
-    number overlap) and return its (verdict label, colour). Falls back to
-    "Invérifiable" when nothing matches."""
-    ft = _fc_tokens(fc_claim)
-    best, best_ov = None, 0
-    for c in claims:
-        ov = len(ft & _fc_tokens(c.quote))
-        if ov > best_ov:
-            best_ov, best = ov, c
-    label = best.confidence_label if (best is not None and best_ov) else "unverifiable"
-    return _FC_VERDICT.get(label, _FC_VERDICT["unverifiable"])
-
-
 def _unwrap_quote(q: str) -> str:
     """Strip surrounding « » / whitespace: every template wraps the quote in
     guillemets, and the model sometimes returns it already wrapped — without this
@@ -93,19 +61,13 @@ def _unwrap_quote(q: str) -> str:
 
 
 def _decryptage_ctx(doc: NewsletterDocument) -> list[dict]:
-    """The chronological détaillé pass as render-ready dicts (article order kept).
-    `fait` items get a verdict pill (label + colour) matched to the analysis claim;
-    `faille` items keep their clue and no pill."""
-    ann = getattr(doc.analysis, "annotations", None)
-    claims = ann.facts_vs_opinions.claims_and_sources if ann else []
-    items = []
-    for d in doc.presentation.decryptage:
-        item = {"kind": d.kind, "quote": _unwrap_quote(d.quote), "presentation": d.presentation,
-                "reading": d.reading, "clue": d.clue}
-        if d.kind == "fait":
-            item["verdict"], item["color"] = _fc_verdict(d.quote, claims)
-        items.append(item)
-    return items
+    """The "Au fil de la lecture" pass as render-ready dicts (article order kept):
+    each item is a neutral reading moment — quote, our reading, and the
+    transferable reflex (`clue`). No fait/faille grade badge."""
+    return [
+        {"quote": _unwrap_quote(d.quote), "reading": d.reading, "clue": d.clue}
+        for d in doc.presentation.decryptage
+    ]
 
 
 def _dim_color(score: float) -> str:

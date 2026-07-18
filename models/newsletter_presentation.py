@@ -10,12 +10,14 @@ from typing import Literal
 
 
 class DecryptageItem(BaseModel):
-    """One annotation in the chronological détaillé pass, in article order."""
-    kind: Literal["fait", "faille"]   # drives the badge + which extras render
+    """One reading moment in the chronological "Au fil de la lecture" pass, in
+    article order. Neutral: no fait/faille grade badge is rendered — `kind` and
+    `presentation` are kept for schema compatibility but unused by the templates."""
+    kind: Literal["fait", "faille"]   # unused by rendering — kept for compatibility
     quote: str          # the article sentence examined (verbatim, « … »)
-    presentation: str   # fait: how the article frames it; faille: the device label shown in the badge (« langage émotionnel », « appel à l'autorité »…)
-    reading: str        # our critical reading / the mechanism (2–4 sentences)
-    clue: str | None = None   # failles only — ≤12 words echoing the paired pre-reading reflex
+    presentation: str   # unused by rendering — kept for compatibility
+    reading: str        # our neutral critical reading — what to notice (2–4 sentences)
+    clue: str | None = None   # ≤12 words — the transferable reflex, echoing a paired pre-reading reflex
 
 
 class NewsletterSection(BaseModel):
@@ -40,7 +42,7 @@ class NewsletterPresentation(BaseModel):
     payoff: str                         # what the reader gains (2–3 sentences)
     context: str                        # Avant de lire — the backdrop (3–4 sentences)
     reflexes: list[str]                 # exactly 2 — reading reflexes to keep in mind
-    decryptage: list[DecryptageItem]    # 4–6, article-ordered — Le décryptage, pas à pas (faits + failles)
+    decryptage: list[DecryptageItem]    # 4–6, article-ordered — Au fil de la lecture (neutral reading moments)
     strengths: list[NewsletterSection]  # 1–2 — Ce qui tient
     angles_morts: list[str]             # 2–3 — Angles morts & nuances
     wrap_up: str                        # neutral synthesis / prise de recul, no recommendation (2–3 sentences)

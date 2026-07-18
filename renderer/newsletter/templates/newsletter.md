@@ -17,10 +17,9 @@
 - {{ r }}
 {%- endfor %}
 
-## Le décryptage, pas à pas
+## Au fil de la lecture
 {% for d in decryptage %}
 > « {{ d.quote }} »
-> *{% if d.kind == "fait" %}⚖️ Fait — {{ d.verdict }} · {{ d.presentation }}{% else %}⚠️ {{ d.presentation }}{% endif %}*
 
 {{ d.reading }}
 {% if d.clue %}
