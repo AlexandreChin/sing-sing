@@ -39,7 +39,15 @@ a.artref-title { color: #e8e8e8; text-decoration: underline; text-decoration-col
 .kicker { display: flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; margin: 40px 0 16px; break-after: avoid; }
 .kicker svg { width: 16px; height: 16px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; }
 p { font-size: 17px; line-height: 1.6; color: #e6e6e6; margin: 10px 0; }
+p.subtitle { font-size: 20px; font-style: italic; color: #f0f0f0; margin: 0 0 14px; }
+h3.subhead { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #c9c9c9; margin: 24px 0 10px; break-after: avoid; }
+h3.subhead svg { width: 15px; height: 15px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 strong { color: #d4aa00; font-weight: 700; }
+
+/* argument spine (numbered chain A→B→C) */
+.spine { display: flex; flex-direction: column; gap: 14px; margin: 6px 0 4px; }
+.spine .row { display: flex; gap: 16px; align-items: flex-start; font-size: 17px; line-height: 1.5; color: #e6e6e6; }
+.spine .row .n { flex: none; width: 26px; height: 26px; border-radius: 50%; background: #d4aa00; color: #0b0b0b; font-weight: 900; font-size: 14px; display: flex; align-items: center; justify-content: center; }
 
 /* décryptage (chronological pass) */
 .decrypt { border-left: 3px solid #d4aa00; padding: 2px 0 2px 22px; margin: 22px 0; break-inside: avoid; }
@@ -70,12 +78,6 @@ strong { color: #d4aa00; font-weight: 700; }
 /* verdict */
 .verdict { background: #161616; border-radius: 12px; padding: 28px 30px; break-inside: avoid; }
 .verdict p { font-size: 18px; line-height: 1.55; color: #eaeaea; margin-top: 16px; }
-.vdivider { height: 1px; background: #2a2a2a; margin: 22px 0 4px; }
-
-/* radar chart */
-.radar-cap { text-align: center; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8a8a8a; margin-top: 22px; }
-.radar { max-width: 360px; margin: 6px auto 0; }
-.radar svg { width: 100%; height: auto; display: block; }
 
 /* resource */
 .resource { border: 1px solid #2a2a2a; border-radius: 10px; padding: 20px 24px; break-inside: avoid; }
@@ -83,8 +85,10 @@ strong { color: #d4aa00; font-weight: 700; }
 .resource .s { font-size: 14px; color: #8a8a8a; margin-top: 4px; text-transform: uppercase; letter-spacing: .08em; }
 .resource .w { font-size: 16px; color: #dedede; line-height: 1.5; margin-top: 10px; }
 
-/* open question (closes "Prolonger la réflexion") */
+/* open question (keystone quote in L'architecture, "La question" in À vous de juger) */
 .openq { margin-top: 22px; padding: 18px 24px; background: #161616; border-left: 3px solid #d4aa00; border-radius: 0 10px 10px 0; font-size: 18px; font-style: italic; line-height: 1.5; color: #eaeaea; break-inside: avoid; }
+.openq .oq-label { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800; font-style: normal; letter-spacing: .12em; text-transform: uppercase; color: #d4aa00; margin-bottom: 10px; }
+.openq .oq-label svg { width: 14px; height: 14px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 .signoff { margin-top: 44px; padding-top: 22px; border-top: 1px solid #222; font-size: 16px; font-style: italic; color: #b0b0b0; }
 .signoff .sig { display: block; margin-top: 8px; font-style: normal; font-weight: 800; color: #d4aa00; letter-spacing: .04em; }

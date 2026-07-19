@@ -37,11 +37,21 @@ def test_decryptage_ctx_carries_quote_reading_clue():
 
 def test_markdown_structure_and_order():
     md = generate_markdown(sample_doc())
-    assert "Au fil de la lecture" in md
-    assert "L'architecture de l'argument" in md
     assert "Vérification des faits" not in md
     assert "## Les failles" not in md
-    assert md.index("Au fil de la lecture") < md.index("L'architecture de l'argument") < md.index("À vous de juger")
+    # the full arc, in carousel order, as ## sections
+    sections = [
+        "## L'intérêt", "## Les repères", "## Au fil de la lecture",
+        "## L'architecture de l'argument", "## À emporter", "## À vous de juger",
+        "## Prolonger la réflexion",
+    ]
+    positions = [md.index(s) for s in sections]
+    assert positions == sorted(positions), "arc sections out of order"
+    # "Pour aller plus loin" is folded into Prolonger la réflexion — never standalone
+    assert "\n## Pour aller plus loin" not in md
+    assert "\n### Pour aller plus loin" in md
+    # Angles morts now lives inside À vous de juger, before Prolonger la réflexion
+    assert md.index("## À vous de juger") < md.index("Angles morts") < md.index("## Prolonger la réflexion")
 
 
 def test_rich_html_has_no_grade_badge():
@@ -58,6 +68,9 @@ def test_email_both_themes():
         html = generate_email_html(sample_doc(), theme)
         assert "Au fil de la lecture" in html
         assert "L'architecture de l'argument" in html
+        assert "À emporter" in html
+        assert "À qui profite ce cadrage ?" in html
+        assert "Pour aller plus loin" in html
         assert "Vérification des faits" not in html
         assert "Les failles" not in html
 
