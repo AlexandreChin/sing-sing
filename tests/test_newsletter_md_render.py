@@ -241,13 +241,15 @@ def test_generated_markdown_has_front_matter_and_parses():
     fm, body = parse_source(md)
     assert fm["hook_title"] == "Le hook"
     assert fm["subject"]
-    assert "## L'intérêt" in body
+    assert "## Pourquoi cet article" in body
 
 
-def test_generated_markdown_go_further_includes_resource_type():
+def test_generated_markdown_go_further_includes_title_and_source():
+    # `type` (étude/rapport/…) is no longer rendered in "Pour aller plus loin" —
+    # just the title and source (4-act template, Task 1 of the Phase 2 migration).
     md = generate_markdown(sample_doc(), hook_title="Le hook")
-    assert "**R1** — S1 · étude" in md
-    assert "**R2** — S2 · rapport" in md
+    assert "**R1** — S1" in md
+    assert "**R2** — S2" in md
 
 
 def test_render_from_markdown_writes_three_html_files(tmp_path):
