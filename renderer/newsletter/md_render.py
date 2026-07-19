@@ -119,7 +119,8 @@ class _RichBody(HTMLRenderer):
     def heading(self, text: str, level: int, **attrs) -> str:
         title, explicit_icon = _heading_meta(text)
         self.section = title
-        self._seen_heading = True
+        if level >= 2:
+            self._seen_heading = True
         icon = explicit_icon or ICON_BY_TITLE.get(title)
         if level <= 2:
             return f'<div class="kicker">{_icon_svg(icon)}{title}</div>\n'
@@ -225,7 +226,8 @@ class _EmailBody(HTMLRenderer):
     def heading(self, text: str, level: int, **attrs) -> str:
         title, _ = _heading_meta(text)
         self.section = title
-        self._seen_heading = True
+        if level >= 2:
+            self._seen_heading = True
         role = "kicker" if level <= 2 else "subhead"
         return f'<div style="{self.s[role]}">{title}</div>\n'
 
