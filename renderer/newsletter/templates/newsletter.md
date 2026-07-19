@@ -1,8 +1,15 @@
-# {{ subject }}
+---
+subject: {{ subject | tojson }}
+preheader: {{ preheader | tojson }}
+hook_title: {{ hook_title | tojson }}
+{% if cat_pill %}category: {{ orig_category | tojson }}
+{% endif %}article_title: {{ orig_title | tojson }}
+article_url: {{ orig_url | tojson }}
+meta_line: {{ meta_line | tojson }}
+signoff: {{ signoff | tojson }}
+---
 
-{% if meta_line %}*{{ meta_line }}*
-
-{% endif %}{{ intro }}
+{{ intro }}
 
 ## L'intérêt
 
@@ -79,12 +86,7 @@
 
 ### Pour aller plus loin
 {% for r in go_further %}
-**{{ r.title }}**{% if r.source %} — {{ r.source }}{% endif %}
+**{{ r.title }}**{% if r.source %} — {{ r.source }}{% endif %}{% if r.type %} · {{ r.type }}{% endif %}
 {% if r.why %}
 {{ r.why }}
 {% endif %}{% endfor %}
----
-
-{{ signoff }}
-
-— Sing Sing
