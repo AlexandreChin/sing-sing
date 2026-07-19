@@ -128,8 +128,10 @@ class _RichBody(HTMLRenderer):
         return [t for t in text.split("\x00") if t]
 
     def list_item(self, text: str) -> str:
-        # sentinel-delimit items so list() can re-wrap per style
-        return text.strip() + "\x00"
+        # sentinel-delimit items so list() can re-wrap per style; strip <p>
+        # tags (loose lists wrap item content in <p>…</p>) so re-wrapping in
+        # <span>/<li> doesn't nest a block element inside an inline one.
+        return re.sub(r"</?p>", "", text).strip() + "\x00"
 
     def list(self, text: str, ordered: bool, **attrs) -> str:
         items = self._items(text)

@@ -70,3 +70,39 @@ def test_bold_becomes_strong_and_divider():
     html = render_body_html("para **gras**\n\n---\n")
     assert "<strong>gras</strong>" in html
     assert 'class="divider"' in html
+
+
+def test_loose_list_does_not_leak_p_tags():
+    html = render_body_html("### Les réflexes\n\n- un\n\n- deux\n")
+    assert 'class="mk gold"' in html and "›" in html
+    assert "<p>" not in html and "</p>" not in html
+
+
+def test_blockquote_claim_style_under_au_fil_de_la_lecture():
+    html = render_body_html("### Au fil de la lecture\n\n> some quote\n")
+    assert 'class="decrypt"' in html and 'class="claim"' in html
+
+
+def test_blockquote_default_openq_style_without_quote_style_entry():
+    html = render_body_html("### Le contexte\n\n> some quote\n")
+    assert 'class="openq"' in html
+    assert 'class="claim"' not in html
+
+
+def test_forced_keystone_overrides_claim_default():
+    html = render_body_html(
+        "### Au fil de la lecture\n\n::: keystone\n> some quote\n:::\n"
+    )
+    assert 'class="openq"' in html
+    assert 'class="claim"' not in html
+
+
+def test_paragraph_starting_with_hook_char_is_clue():
+    html = render_body_html("↩ back to something\n")
+    assert 'class="clue"' in html
+    assert 'class="ret">↩</span>' in html
+
+
+def test_italic_only_paragraph_is_subtitle():
+    html = render_body_html("*italic text*\n")
+    assert 'class="subtitle"' in html
