@@ -8,6 +8,8 @@ from renderer.newsletter.md_render import (
     render_html,
     segment,
 )
+from renderer.newsletter.renderer import generate_markdown, render_from_markdown
+from tests._newsletter_fixtures import sample_doc
 
 
 def test_parse_source_splits_front_matter_and_body():
@@ -192,3 +194,20 @@ def test_render_email_html_wraps_body_and_cta():
     assert "https://example.com/a" in html   # CTA link
     assert "point un" in html
     assert "<svg" not in html                 # email body has no SVG
+
+
+def test_generated_markdown_has_front_matter_and_parses():
+    md = generate_markdown(sample_doc(), hook_title="Le hook")
+    fm, body = parse_source(md)
+    assert fm["hook_title"] == "Le hook"
+    assert fm["subject"]
+    assert "## L'intérêt" in body
+
+
+def test_render_from_markdown_writes_three_html_files(tmp_path):
+    md = generate_markdown(sample_doc(), hook_title="Le hook")
+    (tmp_path / "newsletter.md").write_text(md, encoding="utf-8")
+    paths = render_from_markdown(tmp_path / "newsletter.md", tmp_path)
+    names = {p.name for p in paths}
+    assert names == {"newsletter.html", "newsletter.email.html", "newsletter.email.dark.html"}
+    assert (tmp_path / "newsletter.md").read_text(encoding="utf-8") == md  # md untouched

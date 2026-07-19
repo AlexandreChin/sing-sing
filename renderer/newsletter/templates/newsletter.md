@@ -1,3 +1,14 @@
+---
+subject: {{ subject | tojson }}
+preheader: {{ preheader | tojson }}
+hook_title: {{ hook_title | tojson }}
+{% if cat_pill %}category: {{ orig_category | tojson }}
+{% endif %}article_title: {{ orig_title | tojson }}
+article_url: {{ orig_url | tojson }}
+meta_line: {{ meta_line | tojson }}
+signoff: {{ signoff | tojson }}
+---
+
 # {{ subject }}
 
 {% if meta_line %}*{{ meta_line }}*
