@@ -1,4 +1,11 @@
-from renderer.newsletter.md_render import parse_source, render_body_html, segment
+import pytest
+
+from renderer.newsletter.md_render import (
+    parse_source,
+    render_body_html,
+    render_email_body_html,
+    segment,
+)
 
 
 def test_parse_source_splits_front_matter_and_body():
@@ -106,3 +113,25 @@ def test_paragraph_starting_with_hook_char_is_clue():
 def test_italic_only_paragraph_is_subtitle():
     html = render_body_html("*italic text*\n")
     assert 'class="subtitle"' in html
+
+
+@pytest.mark.parametrize("theme", ["light", "dark"])
+def test_email_body_inline_styles_no_svg(theme):
+    html = render_email_body_html("### Les réflexes\n\n- un\n- deux\n", theme)
+    assert "style=" in html          # inline styles present
+    assert "<svg" not in html        # no SVG in email body
+    assert "class=" not in html      # email body carries no class hooks
+
+
+@pytest.mark.parametrize("theme", ["light", "dark"])
+def test_email_salmon_and_bold(theme):
+    html = render_email_body_html(
+        "### Angles morts & nuances\n\n- un **gras**\n", theme)
+    assert "~" in html
+    assert "<strong" in html and "font-weight:700" in html
+
+
+@pytest.mark.parametrize("theme", ["light", "dark"])
+def test_email_loose_list_does_not_leak_p_tags(theme):
+    html = render_email_body_html("### Les réflexes\n\n- un\n\n- deux\n", theme)
+    assert "<p>" not in html and "</p>" not in html
