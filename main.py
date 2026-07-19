@@ -124,14 +124,15 @@ async def cmd_extract(args: argparse.Namespace) -> None:
 
 
 async def cmd_render(args: argparse.Namespace) -> None:
-    json_path = Path(args.document)
     _, _, renderer_mod = FORMATS[args.format]
-    render_from_json = importlib.import_module(renderer_mod).render_from_json
-    # Default output is the format dir (the document's parent). Each renderer lays
-    # out its own files there — carousels: html/ + slides/; newsletter: .md/.html.
+    mod = importlib.import_module(renderer_mod)
+    json_path = Path(args.document)
     out_dir = Path(args.output_dir) if args.output_dir else json_path.parent
     print(f"Rendering into {out_dir}/", file=sys.stderr)
-    await asyncio.to_thread(render_from_json, json_path, out_dir)
+    if json_path.suffix == ".md" and hasattr(mod, "render_from_markdown"):
+        await asyncio.to_thread(mod.render_from_markdown, json_path, out_dir)
+    else:
+        await asyncio.to_thread(mod.render_from_json, json_path, out_dir)
 
 
 async def cmd_html(args: argparse.Namespace) -> None:

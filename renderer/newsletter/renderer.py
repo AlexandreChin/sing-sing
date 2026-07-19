@@ -17,6 +17,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from models.newsletter_presentation import NewsletterDocument
 from renderer.categories import pill
 from renderer.instagram_carousel._shared import _LOGO_DATA_URL, _LOGO_PATH, _md_bold, TYPE_FR, ICONS
+from renderer.newsletter import md_render
 
 TEMPLATES_DIR = Path(__file__).parent / "templates"
 
@@ -137,11 +138,14 @@ def _ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
         "go_further": list(pres.go_further),
         "signoff": pres.signoff,
         "meta_line": meta_line,
-        # Category pill (dark by default — rich newsletter); the email overrides
-        # it per theme in _email_ctx. None for "Autre"/missing → no pill.
+        # Category pill (dark by default) — only used here to gate whether the
+        # front-matter carries a category at all ("Autre"/missing → no pill);
+        # the actual per-theme colour is re-resolved from that raw category by
+        # md_render (render_html / render_email_html) at render time.
         "cat_pill": pill(meta.category, "dark"),
         "orig_title": meta.title or "",
         "orig_url": str(meta.url) if meta.url else "",
+        "orig_category": meta.category or "",
         # extra pre-reading material pulled straight from the analysis (no API):
         # key facts to keep in mind + a short glossary of the article's terms.
         "repere_facts": [f.text for f in full.context.important_facts] if full.context else [],
@@ -153,13 +157,12 @@ def _ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
     }
 
 
-def generate_markdown(doc: NewsletterDocument) -> str:
-    return _env().get_template("newsletter.md").render(**_ctx(doc))
+def generate_markdown(doc: NewsletterDocument, hook_title: str = "") -> str:
+    return _env().get_template("newsletter.md").render(**_ctx(doc, hook_title=hook_title))
 
 
 def generate_html(doc: NewsletterDocument, hook_title: str = "") -> str:
-    return _env().get_template("newsletter.html").render(
-        logo=_LOGO_DATA_URL, **_ctx(doc, hook_title=hook_title))
+    return md_render.render_html(generate_markdown(doc, hook_title=hook_title))
 
 
 def _carousel_hook(nl_json_path) -> str:
@@ -181,22 +184,32 @@ def _carousel_hook(nl_json_path) -> str:
     return ""
 
 
-def _email_ctx(doc: NewsletterDocument, theme: str = "light", hook_title: str = "") -> dict:
-    """`_ctx` plus the bits the email needs resolved per theme (no SVG)."""
-    ctx = _ctx(doc, hook_title=hook_title)
-    full = doc.analysis
-    # Re-resolve the category pill for the email's theme (light or dark).
-    ctx["cat_pill"] = pill(full.article_metadata.category, theme)
-    return ctx
-
-
 def generate_email_html(doc: NewsletterDocument, theme: str = "light", hook_title: str = "") -> str:
     """Responsive, email-client-safe HTML (table layout + inline styles, no SVG/
     flexbox) that can be pasted straight into an email send. `theme` is "light"
     (default) or "dark" (see EMAIL_THEMES). `hook_title` overrides the H1 headline
     (used to share the carousel's hook)."""
-    return _env().get_template("newsletter.email.html").render(
-        logo=_EMAIL_LOGO, t=EMAIL_THEMES[theme], **_email_ctx(doc, theme=theme, hook_title=hook_title))
+    return md_render.render_email_html(generate_markdown(doc, hook_title=hook_title), theme)
+
+
+def render_from_markdown(md_path, out_dir, pdf: bool = False) -> list[Path]:
+    """Render an existing (possibly hand-edited) newsletter.md to html/email.
+    Never rewrites the .md."""
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    md_text = Path(md_path).read_text(encoding="utf-8")
+    outputs = {
+        "newsletter.html": md_render.render_html(md_text),
+        "newsletter.email.html": md_render.render_email_html(md_text, "light"),
+        "newsletter.email.dark.html": md_render.render_email_html(md_text, "dark"),
+    }
+    written = []
+    for name, html in outputs.items():
+        p = out_dir / name
+        p.write_text(html, encoding="utf-8")
+        print(f"  ✓ {p.name}")
+        written.append(p)
+    return written
 
 
 def render_from_json(json_path, out_dir, pdf: bool = False) -> list[Path]:
@@ -209,19 +222,8 @@ def render_from_json(json_path, out_dir, pdf: bool = False) -> list[Path]:
     hook = _carousel_hook(json_path)
 
     md_path = out_dir / "newsletter.md"
-    md_path.write_text(generate_markdown(doc), encoding="utf-8")
+    md_text = generate_markdown(doc, hook_title=hook)
+    md_path.write_text(md_text, encoding="utf-8")
     print(f"  ✓ {md_path.name}")
 
-    html_path = out_dir / "newsletter.html"
-    html_path.write_text(generate_html(doc, hook_title=hook), encoding="utf-8")
-    print(f"  ✓ {html_path.name}")
-
-    email_path = out_dir / "newsletter.email.html"
-    email_path.write_text(generate_email_html(doc, "light", hook_title=hook), encoding="utf-8")
-    print(f"  ✓ {email_path.name}")
-
-    email_dark_path = out_dir / "newsletter.email.dark.html"
-    email_dark_path.write_text(generate_email_html(doc, "dark", hook_title=hook), encoding="utf-8")
-    print(f"  ✓ {email_dark_path.name}")
-
-    return [md_path, html_path, email_path, email_dark_path]
+    return [md_path, *render_from_markdown(md_path, out_dir)]
