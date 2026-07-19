@@ -36,6 +36,26 @@ DIMENSION_WEIGHTS = {
 TYPE_FR = {"editorial": "Éditorial", "news_report": "Reportage", "opinion": "Tribune",
            "investigation": "Enquête", "interview": "Interview", "other": "Article"}
 
+# Section glyphs shared by the carousel templates and the newsletter renderer,
+# so the two stay visually in sync (same icon per matching section). Values are
+# the raw <svg> children (paths/shapes only, no wrapping <svg> tag) — each
+# consumer wraps them in its own `<svg viewBox="0 0 24 24" ...>`.
+ICONS = {
+    "bookmark": '<path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/>',
+    "flame": '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+    "lightbulb": '<line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1.22.5 2.54 1.5 3.5.76.76 1.23 1.52 1.41 2.5"/>',
+    "eye": '<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/>',
+    "info": '<circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12.01" y2="8"/>',
+    "book": '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+    "hierarchy": '<rect x="9" y="3" width="6" height="5" rx="1"/><rect x="2" y="16" width="6" height="5" rx="1"/><rect x="16" y="16" width="6" height="5" rx="1"/><path d="M12 8v5M5 13h14M5 13v3M19 13v3"/>',
+    "bag": '<path d="M6 2L4 6v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6l-2-4z"/><line x1="4" y1="6" x2="20" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>',
+    "pushpin": '<path d="M9 4v6l-2 4v2h10v-2l-2-4V4"/><path d="M12 16v5"/><path d="M8 4h8"/>',
+    "widen": '<path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>',
+    "anchor": '<circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/>',
+    "shield": '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+    "speech_bubble": '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+}
+
 
 def _weighted_quality(full) -> dict | None:
     """Global score = weighted average of the review dimensions (1–5), mapped to a
@@ -93,6 +113,7 @@ def _md_bold(text) -> Markup:
 def _env() -> Environment:
     env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)), autoescape=True)
     env.filters["md_bold"] = _md_bold
+    env.globals["ICONS"] = ICONS
     return env
 
 

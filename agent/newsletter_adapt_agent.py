@@ -3,6 +3,7 @@
 Same analysis as the carousel — but the copy is flowing prose (subject line,
 preheader, sections), not slide fragments.
 """
+import json
 import sys
 from pathlib import Path
 
@@ -12,11 +13,55 @@ from models.newsletter_presentation import NewsletterPresentation
 
 _PROMPT = (Path(__file__).parent / "prompts" / "newsletter.md").read_text(encoding="utf-8")
 
+# Sibling carousel output, relative to the analysis file's own output folder
+# (outputs/<stem>/analysis.json → outputs/<stem>/instagram_carousel_optimized/adapt.json).
+_CAROUSEL_ADAPT_REL = Path("instagram_carousel_optimized") / "adapt.json"
+
+
+def _load_carousel_backbone(analysis_path: str | Path | None) -> str | None:
+    """Load the sibling carousel `adapt.json` (if present) and render it as the
+    structural backbone the newsletter must expand — same beats, same
+    architecture, same à-retenir. Returns None (→ standalone) if there is no
+    analysis_path, no sibling file, or it fails to parse."""
+    if analysis_path is None:
+        return None
+    sibling = Path(analysis_path).parent / _CAROUSEL_ADAPT_REL
+    if not sibling.exists():
+        return None
+    try:
+        carousel = json.loads(sibling.read_text(encoding="utf-8"))
+        hook = carousel["hook"]
+        display = carousel["display"]
+        backbone = {
+            "hook": {"topic": hook["topic"], "sub_topic": hook["sub_topic"]},
+            "selection_headline": display["selection_headline"],
+            "why_selected": display["why_selected"],
+            "reading_beats": [
+                {"moment": b["moment"], "quote": b["quote"], "note": b["note"], "lens_ref": b["lens_ref"]}
+                for b in display.get("reading_beats", [])
+                if b.get("selected", True)
+            ],
+            "global_analysis": display.get("global_analysis"),
+            "key_takeaways": [
+                t["text"] for t in display.get("key_takeaways", [])
+                if t.get("selected", True)
+            ],
+            "root_issue": display.get("root_issue", ""),
+            "steel_man": display.get("steel_man"),
+        }
+    except (OSError, json.JSONDecodeError, KeyError, TypeError):
+        return None
+    return (
+        "STRUCTURE DU CAROUSEL (à reprendre) — la newsletter DÉVELOPPE cette "
+        "structure en prose, elle n'en invente pas une autre :\n" + _j(backbone)
+    )
+
 
 def _validate(data: dict) -> list[str]:
     pres = NewsletterPresentation.model_validate(data)
     errors = []
-    for field in ("subject", "preheader", "intro", "why_selected", "payoff", "context", "wrap_up", "open_question", "signoff"):
+    for field in ("subject", "preheader", "intro", "selection_headline", "why_selected",
+                  "payoff", "context", "cui_bono", "signoff"):
         if not getattr(pres, field).strip():
             errors.append(f"{field} is empty")
     if len(pres.reflexes) != 2:
@@ -27,24 +72,29 @@ def _validate(data: dict) -> list[str]:
     for i, d in enumerate(pres.decryptage):
         if not d.quote.strip() or not d.reading.strip():
             errors.append(f"decryptage[{i}] has an empty quote/reading")
-    if not (1 <= len(pres.strengths) <= 2):
-        errors.append(f"strengths must have 1–2 items, got {len(pres.strengths)}")
-    if not (2 <= len(pres.angles_morts) <= 3):
-        errors.append(f"angles_morts must have 2–3 items, got {len(pres.angles_morts)}")
+    # L'architecture de l'argument
+    if not pres.architecture.keystone.strip():
+        errors.append("architecture.keystone is empty")
+    if not (2 <= len(pres.architecture.spine) <= 3):
+        errors.append(f"architecture.spine must have 2–3 items, got {len(pres.architecture.spine)}")
+    # À emporter
+    if not (2 <= len(pres.a_emporter.key_takeaways) <= 3):
+        errors.append(f"a_emporter.key_takeaways must have 2–3 items, got {len(pres.a_emporter.key_takeaways)}")
+    if not (2 <= len(pres.a_emporter.reflexes_critiques) <= 3):
+        errors.append(f"a_emporter.reflexes_critiques must have 2–3 items, got {len(pres.a_emporter.reflexes_critiques)}")
+    # À vous de juger
+    for field in ("enjeu", "objection", "tient_fragile", "la_question"):
+        if not getattr(pres.verdict, field).strip():
+            errors.append(f"verdict.{field} is empty")
+    if not (2 <= len(pres.verdict.angles_morts) <= 3):
+        errors.append(f"verdict.angles_morts must have 2–3 items, got {len(pres.verdict.angles_morts)}")
+    # Prolonger la réflexion
     if not (2 <= len(pres.go_further) <= 3):
         errors.append(f"go_further must have 2–3 items, got {len(pres.go_further)}")
-    for i, s in enumerate(pres.strengths):
-        if not s.heading.strip() or not s.body.strip():
-            errors.append(f"strengths[{i}] has an empty heading/body")
-    if len(pres.prolongements) != 2:
-        errors.append(f"prolongements must have exactly 2 items, got {len(pres.prolongements)}")
-    for i, p in enumerate(pres.prolongements):
-        if not p.heading.strip() or not p.body.strip():
-            errors.append(f"prolongements[{i}] has an empty heading/body")
     return errors
 
 
-def _context(full: ArticleFullAnalysis) -> str:
+def _context(full: ArticleFullAnalysis, backbone: str | None = None) -> str:
     core = ""
     if full.core_elements and full.core_elements.elements:
         lines = "\n".join(
@@ -55,24 +105,24 @@ def _context(full: ArticleFullAnalysis) -> str:
             "ÉLÉMENTS CENTRAUX (la newsletter doit les COUVRIR — ne pas se limiter "
             "à l'angle du titre) :\n" + lines + "\n\n"
         )
-    verdict = ""
-    if full.review:
-        v = full.review.verdict
-        verdict = (
-            "VERDICT (disponible, PAS le fil conducteur) :\n"
-            f"  qualité : {v.quality} · recommandation : {v.reading_recommendation}\n"
-            f"  thèse : {v.summary}\n\n"
-        )
     return (
         f"ARTICLE METADATA :\n{_j(full.article_metadata.model_dump())}\n\n"
         f"{core}"
-        f"{verdict}"
-        f"ANALYSE COMPLÈTE :\n{full.model_dump_json(indent=2)}"
+        "ANALYSE COMPLÈTE :\n"
+        f"{full.model_dump_json(indent=2, exclude={'review', 'deontology'})}"
+        + (f"\n\n{backbone}" if backbone else "")
     )
 
 
-def adapt(full: ArticleFullAnalysis, no_api: bool = False) -> NewsletterPresentation:
-    user_msg = f"{_context(full)}\n\n---\n\n{_PROMPT}"
+def adapt(
+    full: ArticleFullAnalysis,
+    no_api: bool = False,
+    analysis_path: str | Path | None = None,
+) -> NewsletterPresentation:
+    backbone = _load_carousel_backbone(analysis_path)
+    if backbone is not None:
+        print("Backbone carousel détecté — expansion en prose.", file=sys.stderr, flush=True)
+    user_msg = f"{_context(full, backbone)}\n\n---\n\n{_PROMPT}"
     print("Adaptation newsletter…", file=sys.stderr, flush=True)
     data = _call_with_retry(
         user_msg,
