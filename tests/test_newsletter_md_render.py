@@ -219,6 +219,23 @@ def test_render_email_html_wraps_body_and_cta():
     assert "<svg" not in html                 # email body has no SVG
 
 
+def test_render_html_real_pipeline_has_no_duplicated_chrome():
+    # Drives the real path (generate_markdown → render_html), unlike _MD above
+    # which hand-omits the leading `# subject` the real template used to emit.
+    html = render_html(generate_markdown(sample_doc(), hook_title="Le hook"))
+    assert '<p class="intro">' in html            # intro styled via the real pipeline
+    assert '<div class="kicker">Objet test' not in html  # subject is not a body kicker
+    assert html.count("— Sing Sing") == 1          # signoff/branding renders once
+
+
+def test_render_email_html_real_pipeline_intro_and_single_signoff():
+    email = render_email_html(generate_markdown(sample_doc(), hook_title="Le hook"), "light")
+    # first content paragraph uses the intro lead inline style (font-size 19px)
+    assert '<p style="font-size:19px;line-height:1.62' in email
+    # email footer uses an HTML entity dash, not the literal em-dash character
+    assert email.count("&mdash; Sing Sing") == 1
+
+
 def test_generated_markdown_has_front_matter_and_parses():
     md = generate_markdown(sample_doc(), hook_title="Le hook")
     fm, body = parse_source(md)

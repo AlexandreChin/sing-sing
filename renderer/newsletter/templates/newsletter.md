@@ -9,11 +9,7 @@ meta_line: {{ meta_line | tojson }}
 signoff: {{ signoff | tojson }}
 ---
 
-# {{ subject }}
-
-{% if meta_line %}*{{ meta_line }}*
-
-{% endif %}{{ intro }}
+{{ intro }}
 
 ## L'intérêt
 
@@ -94,8 +90,3 @@ signoff: {{ signoff | tojson }}
 {% if r.why %}
 {{ r.why }}
 {% endif %}{% endfor %}
----
-
-{{ signoff }}
-
-— Sing Sing
