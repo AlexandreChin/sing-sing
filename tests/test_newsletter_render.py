@@ -76,6 +76,14 @@ def test_category_pill_renders_with_theme_colours():
     assert "#c59cf0" in generate_email_html(doc, "dark")    # dark text colour
 
 
+def test_markdown_has_all_new_subsections():
+    md = generate_markdown(sample_doc())
+    for sub in ("### Les enjeux de fond", "### Les objections les plus solides",
+                "### Les questions à se poser", "### Les réflexes critiques"):
+        assert sub in md
+    assert "tient" not in md.lower() or "ce qui tient" not in md.lower()
+
+
 def test_no_pill_for_autre():
     # "Autre" must render exactly like no category at all — pill-less.
     base = sample_doc()
