@@ -62,24 +62,29 @@ LIST_STYLE = {
 # section title → default block-quote style ("openq" keystone, "claim", "plain")
 QUOTE_STYLE = {
     "L'architecture de l'argument": "keystone",
-    "La question": "keystone",
     "Les questions à se poser": "keystone",
     "Au fil de la lecture": "claim",
 }
 # section title → kicker icon (an ICONS key)
 ICON_BY_TITLE = {
-    "L'intérêt": "flame",
-    "Les repères": "eye",
+    # acts
+    "Pourquoi cet article": "bookmark",
+    "Avant de vous lancer": "eye",
     "Au fil de la lecture": "book",
-    "L'architecture de l'argument": "hierarchy",
-    "À emporter": "bag",
-    "À vous de juger": "widen",
-    "Prolonger la réflexion": "lightbulb",
+    "Après la lecture": "hierarchy",
+    # subheads
     "Le contexte": "info",
     "Les réflexes": "lightbulb",
-    "Les réflexes critiques": "lightbulb",
+    "Les faits à garder en tête": "pushpin",
+    "Le lexique": "info",
+    "L'architecture de l'argument": "hierarchy",
     "À retenir": "pushpin",
-    "La question": "speech_bubble",
+    "Les réflexes critiques": "lightbulb",
+    "Les enjeux de fond": "anchor",
+    "Les objections les plus solides": "shield",
+    "Les questions à se poser": "speech_bubble",
+    "À qui profite ce cadrage ?": "widen",
+    "Pour aller plus loin": "widen",
 }
 
 _ATTR_RE = re.compile(r"\s*\{([^}]*)\}\s*$")
