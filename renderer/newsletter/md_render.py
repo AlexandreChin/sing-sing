@@ -182,3 +182,99 @@ def render_body_html(body_md: str) -> str:
         out.append(md(chunk))
     renderer.forced = None
     return "".join(out)
+
+
+def _email_styles(t: dict) -> dict:
+    """Inline style strings keyed by role, resolved for an EMAIL_THEMES entry `t`."""
+    return {
+        "kicker": f"font-size:14px;font-weight:800;letter-spacing:.16em;"
+                  f"text-transform:uppercase;color:{t['accent_text']};"
+                  f"margin:32px 0 12px;",
+        "subhead": f"font-size:15px;font-weight:800;letter-spacing:.1em;"
+                   f"text-transform:uppercase;color:{t['heading']};margin:22px 0 8px;",
+        "p": f"font-size:17px;line-height:1.6;color:{t['text']};margin:10px 0;",
+        "subtitle": f"font-size:20px;font-style:italic;color:{t['heading']};margin:0 0 12px;",
+        "clue": f"font-size:15px;font-style:italic;color:{t['muted']};margin-top:8px;",
+        "row": f"font-size:17px;line-height:1.5;color:{t['text']};margin:8px 0;",
+        "mark_gold": f"color:{t['accent_text']};font-weight:900;",
+        "mark_salmon": "color:#e8a07a;font-weight:900;",
+        "box": f"background:{t['surface']};border-left:4px solid {t['accent']};"
+               f"padding:18px 22px;margin:12px 0;",
+        "quote": f"background:{t['surface']};border-left:3px solid {t['accent']};"
+                 f"padding:14px 20px;margin:16px 0;font-style:italic;color:{t['text']};",
+        "divider": f"border:0;border-top:2px solid {t['accent']};margin:28px 0;",
+        "n": f"color:{t['accent_text']};font-weight:900;",
+    }
+
+
+def _md_bold_inline(text: str, color: str) -> str:
+    return re.sub(r"\*\*(.+?)\*\*",
+                  rf'<strong style="color:{color};font-weight:700;">\1</strong>', text)
+
+
+class _EmailBody(HTMLRenderer):
+    def __init__(self, s: dict, t: dict) -> None:
+        super().__init__()
+        self.s, self.t = s, t
+        self.section = ""
+        self.forced: str | None = None
+
+    def heading(self, text: str, level: int, **attrs) -> str:
+        title, _ = _heading_meta(text)
+        self.section = title
+        role = "kicker" if level <= 2 else "subhead"
+        return f'<div style="{self.s[role]}">{title}</div>\n'
+
+    def list_item(self, text: str) -> str:
+        # strip <p> tags (loose lists wrap item content in <p>…</p>) so
+        # re-wrapping in <div>/<span> doesn't nest a block element inline.
+        return re.sub(r"</?p>", "", text).strip() + "\x00"
+
+    def list(self, text: str, ordered: bool, **attrs) -> str:
+        items = [t for t in text.split("\x00") if t]
+        if ordered:
+            return "".join(
+                f'<div style="{self.s["row"]}"><span style="{self.s["n"]}">{i}.</span> {it}</div>'
+                for i, it in enumerate(items, 1)
+            ) + "\n"
+        style = self.forced or LIST_STYLE.get(self.section, "plain")
+        if style == "box":
+            rows = "".join(f'<div style="{self.s["row"]}">→ {it}</div>' for it in items)
+            return f'<div style="{self.s["box"]}">{rows}</div>\n'
+        mark = "~" if style == "salmon" else "›"
+        mstyle = self.s["mark_salmon"] if style == "salmon" else self.s["mark_gold"]
+        return "".join(
+            f'<div style="{self.s["row"]}"><span style="{mstyle}">{mark}</span> {it}</div>'
+            for it in items
+        ) + "\n"
+
+    def block_quote(self, text: str) -> str:
+        inner = re.sub(r"</?p[^>]*>", "", text).strip()
+        return f'<div style="{self.s["quote"]}">{inner}</div>\n'
+
+    def paragraph(self, text: str) -> str:
+        stripped = text.strip()
+        if stripped.startswith("↩"):
+            return f'<div style="{self.s["clue"]}">↩ {stripped[1:].strip()}</div>\n'
+        if stripped.startswith("<em>") and stripped.endswith("</em>"):
+            return f'<div style="{self.s["subtitle"]}">{stripped[4:-5]}</div>\n'
+        return f'<p style="{self.s["p"]}">{stripped}</p>\n'
+
+    def thematic_break(self) -> str:
+        return f'<hr style="{self.s["divider"]}">\n'
+
+    def strong(self, text: str) -> str:
+        return f'<strong style="color:{self.t["accent_text"]};font-weight:700;">{text}</strong>'
+
+
+def render_email_body_html(body_md: str, theme: str) -> str:
+    from renderer.newsletter.renderer import EMAIL_THEMES
+    t = EMAIL_THEMES[theme]
+    renderer = _EmailBody(_email_styles(t), t)
+    md = mistune.create_markdown(renderer=renderer)
+    out = []
+    for forced, chunk in segment(body_md):
+        renderer.forced = forced
+        out.append(md(chunk))
+    renderer.forced = None
+    return "".join(out)
