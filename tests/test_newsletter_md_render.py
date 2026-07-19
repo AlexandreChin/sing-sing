@@ -111,6 +111,16 @@ def test_forced_keystone_overrides_claim_default():
     assert 'class="claim"' not in html
 
 
+def test_blockquote_keystone_style_under_architecture_de_largument():
+    html = render_body_html("### L'architecture de l'argument\n\n> some quote\n")
+    assert 'class="openq"' in html
+
+
+def test_blockquote_keystone_style_under_les_questions_a_se_poser():
+    html = render_body_html("### Les questions à se poser\n\n> some quote\n")
+    assert 'class="openq"' in html
+
+
 def test_paragraph_starting_with_hook_char_is_clue():
     html = render_body_html("↩ back to something\n")
     assert 'class="clue"' in html
@@ -245,11 +255,9 @@ def test_generated_markdown_has_front_matter_and_parses():
 
 
 def test_generated_markdown_go_further_includes_title_and_source():
-    # `type` (étude/rapport/…) is no longer rendered in "Pour aller plus loin" —
-    # just the title and source (4-act template, Task 1 of the Phase 2 migration).
     md = generate_markdown(sample_doc(), hook_title="Le hook")
-    assert "**R1** — S1" in md
-    assert "**R2** — S2" in md
+    assert "**R1** — S1 · étude" in md
+    assert "**R2** — S2 · rapport" in md
 
 
 def test_render_from_markdown_writes_three_html_files(tmp_path):
