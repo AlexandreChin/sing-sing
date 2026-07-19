@@ -4,6 +4,8 @@ from renderer.newsletter.md_render import (
     parse_source,
     render_body_html,
     render_email_body_html,
+    render_email_html,
+    render_html,
     segment,
 )
 
@@ -155,3 +157,38 @@ def test_email_forced_keystone_overrides_claim_default(theme):
     html = render_email_body_html(
         "### Au fil de la lecture\n\n::: keystone\n> some quote\n:::\n", theme)
     assert "background:" in html
+
+
+_MD = """---
+subject: Objet test
+preheader: Aperçu
+hook_title: On décrypte
+category: politique
+article_title: Le titre original
+article_url: https://example.com/a
+meta_line: Source · 5 min
+---
+
+Intro para.
+
+## L'intérêt
+
+- point un
+"""
+
+
+def test_render_html_wraps_body_in_chrome():
+    html = render_html(_MD)
+    assert "<!DOCTYPE html>" in html or "<html" in html
+    assert "On décrypte" in html          # hook_title in cover
+    assert "Le titre original" in html    # article ref
+    assert 'class="kicker"' in html       # body rendered
+    assert "point un" in html
+
+
+def test_render_email_html_wraps_body_and_cta():
+    html = render_email_html(_MD, "light")
+    assert "Le titre original" in html
+    assert "https://example.com/a" in html   # CTA link
+    assert "point un" in html
+    assert "<svg" not in html                 # email body has no SVG

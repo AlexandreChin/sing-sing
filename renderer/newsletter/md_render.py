@@ -277,3 +277,38 @@ def render_email_body_html(body_md: str, theme: str) -> str:
         out.append(md(chunk))
     renderer.forced = None
     return "".join(out)
+
+
+def _shell_ctx(fm: dict) -> dict:
+    """Chrome context from front-matter (keys mirror the current _ctx names the
+    shell templates already use)."""
+    return {
+        "subject": fm.get("subject", ""),
+        "preheader": fm.get("preheader", ""),
+        "hook_title": fm.get("hook_title") or fm.get("subject", ""),
+        "orig_title": fm.get("article_title", ""),
+        "orig_url": fm.get("article_url", ""),
+        "meta_line": fm.get("meta_line", ""),
+        "signoff": fm.get("signoff", ""),
+    }
+
+
+def render_html(md_text: str) -> str:
+    from renderer.newsletter.renderer import _env, _LOGO_DATA_URL
+    from renderer.categories import pill
+    fm, body_md = parse_source(md_text)
+    ctx = _shell_ctx(fm)
+    ctx["cat_pill"] = pill(fm.get("category"), "dark")
+    ctx["body"] = render_body_html(body_md)
+    return _env().get_template("newsletter.html").render(logo=_LOGO_DATA_URL, **ctx)
+
+
+def render_email_html(md_text: str, theme: str = "light") -> str:
+    from renderer.newsletter.renderer import _env, _EMAIL_LOGO, EMAIL_THEMES
+    from renderer.categories import pill
+    fm, body_md = parse_source(md_text)
+    ctx = _shell_ctx(fm)
+    ctx["cat_pill"] = pill(fm.get("category"), theme)
+    ctx["body"] = render_email_body_html(body_md, theme)
+    return _env().get_template("newsletter.email.html").render(
+        logo=_EMAIL_LOGO, t=EMAIL_THEMES[theme], **ctx)
