@@ -202,14 +202,11 @@ def _email_styles(t: dict) -> dict:
                f"padding:18px 22px;margin:12px 0;",
         "quote": f"background:{t['surface']};border-left:3px solid {t['accent']};"
                  f"padding:14px 20px;margin:16px 0;font-style:italic;color:{t['text']};",
+        "quote_claim": f"border-left:3px solid {t['accent']};padding:2px 0 2px 18px;"
+                       f"font-style:italic;color:{t['text']};margin:16px 0;",
         "divider": f"border:0;border-top:2px solid {t['accent']};margin:28px 0;",
         "n": f"color:{t['accent_text']};font-weight:900;",
     }
-
-
-def _md_bold_inline(text: str, color: str) -> str:
-    return re.sub(r"\*\*(.+?)\*\*",
-                  rf'<strong style="color:{color};font-weight:700;">\1</strong>', text)
 
 
 class _EmailBody(HTMLRenderer):
@@ -249,8 +246,10 @@ class _EmailBody(HTMLRenderer):
         ) + "\n"
 
     def block_quote(self, text: str) -> str:
+        style = self.forced or QUOTE_STYLE.get(self.section, "plain")
         inner = re.sub(r"</?p[^>]*>", "", text).strip()
-        return f'<div style="{self.s["quote"]}">{inner}</div>\n'
+        role = "quote_claim" if style == "claim" else "quote"
+        return f'<div style="{self.s[role]}">{inner}</div>\n'
 
     def paragraph(self, text: str) -> str:
         stripped = text.strip()

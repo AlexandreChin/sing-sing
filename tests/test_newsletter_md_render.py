@@ -135,3 +135,23 @@ def test_email_salmon_and_bold(theme):
 def test_email_loose_list_does_not_leak_p_tags(theme):
     html = render_email_body_html("### Les réflexes\n\n- un\n\n- deux\n", theme)
     assert "<p>" not in html and "</p>" not in html
+
+
+@pytest.mark.parametrize("theme", ["light", "dark"])
+def test_email_blockquote_claim_style_under_au_fil_de_la_lecture(theme):
+    html = render_email_body_html("### Au fil de la lecture\n\n> some quote\n", theme)
+    assert "border-left" in html
+    assert "background:" not in html
+
+
+@pytest.mark.parametrize("theme", ["light", "dark"])
+def test_email_blockquote_default_boxed_style_without_quote_style_entry(theme):
+    html = render_email_body_html("### Le contexte\n\n> some quote\n", theme)
+    assert "background:" in html
+
+
+@pytest.mark.parametrize("theme", ["light", "dark"])
+def test_email_forced_keystone_overrides_claim_default(theme):
+    html = render_email_body_html(
+        "### Au fil de la lecture\n\n::: keystone\n> some quote\n:::\n", theme)
+    assert "background:" in html
