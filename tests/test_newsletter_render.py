@@ -37,21 +37,14 @@ def test_decryptage_ctx_carries_quote_reading_clue():
 
 def test_markdown_structure_and_order():
     md = generate_markdown(sample_doc())
-    assert "Vérification des faits" not in md
-    assert "## Les failles" not in md
-    # the full arc, in carousel order, as ## sections
-    sections = [
-        "## L'intérêt", "## Les repères", "## Au fil de la lecture",
-        "## L'architecture de l'argument", "## À emporter", "## À vous de juger",
-        "## Prolonger la réflexion",
-    ]
-    positions = [md.index(s) for s in sections]
-    assert positions == sorted(positions), "arc sections out of order"
-    # "Pour aller plus loin" is folded into Prolonger la réflexion — never standalone
-    assert "\n## Pour aller plus loin" not in md
-    assert "\n### Pour aller plus loin" in md
-    # Angles morts now lives inside À vous de juger, before Prolonger la réflexion
-    assert md.index("## À vous de juger") < md.index("Angles morts") < md.index("## Prolonger la réflexion")
+    acts = ["## Pourquoi cet article", "## Avant de vous lancer",
+            "## Au fil de la lecture", "## Après la lecture"]
+    positions = [md.index(a) for a in acts]
+    assert positions == sorted(positions), "acts out of order"
+    # subsections live under "Après la lecture"
+    assert md.index("## Après la lecture") < md.index("### L'architecture de l'argument")
+    assert md.index("### Angles morts & nuances") < md.index("### Pour aller plus loin")
+    assert "\n## Pour aller plus loin" not in md  # folded, never a top-level act
 
 
 def test_rich_html_has_no_grade_badge():
@@ -68,11 +61,9 @@ def test_email_both_themes():
         html = generate_email_html(sample_doc(), theme)
         assert "Au fil de la lecture" in html
         assert "L'architecture de l'argument" in html
-        assert "À emporter" in html
+        assert "À retenir" in html
         assert "À qui profite ce cadrage ?" in html
         assert "Pour aller plus loin" in html
-        assert "Vérification des faits" not in html
-        assert "Les failles" not in html
 
 
 def test_category_pill_renders_with_theme_colours():
@@ -83,6 +74,14 @@ def test_category_pill_renders_with_theme_colours():
     # email pill re-resolves per theme
     assert "#7a3fc0" in generate_email_html(doc, "light")   # light text colour
     assert "#c59cf0" in generate_email_html(doc, "dark")    # dark text colour
+
+
+def test_markdown_has_all_new_subsections():
+    md = generate_markdown(sample_doc())
+    for sub in ("### Les enjeux de fond", "### Les objections les plus solides",
+                "### Les questions à se poser", "### Les réflexes critiques"):
+        assert sub in md
+    assert "tient" not in md.lower() or "ce qui tient" not in md.lower()
 
 
 def test_no_pill_for_autre():

@@ -64,8 +64,8 @@ def _validate(data: dict) -> list[str]:
                   "payoff", "context", "cui_bono", "signoff"):
         if not getattr(pres, field).strip():
             errors.append(f"{field} is empty")
-    if len(pres.reflexes) != 2:
-        errors.append(f"reflexes must have exactly 2 items, got {len(pres.reflexes)}")
+    if not (4 <= len(pres.reflexes) <= 6):
+        errors.append(f"reflexes must have 4–6 items, got {len(pres.reflexes)}")
     n = len(pres.decryptage)
     if not (4 <= n <= 6):
         errors.append(f"decryptage must have 4–6 items, got {n}")
@@ -75,22 +75,25 @@ def _validate(data: dict) -> list[str]:
     # L'architecture de l'argument
     if not pres.architecture.keystone.strip():
         errors.append("architecture.keystone is empty")
-    if not (2 <= len(pres.architecture.spine) <= 3):
-        errors.append(f"architecture.spine must have 2–3 items, got {len(pres.architecture.spine)}")
+    if not (3 <= len(pres.architecture.spine) <= 5):
+        errors.append(f"architecture.spine must have 3–5 items, got {len(pres.architecture.spine)}")
     # À emporter
-    if not (2 <= len(pres.a_emporter.key_takeaways) <= 3):
-        errors.append(f"a_emporter.key_takeaways must have 2–3 items, got {len(pres.a_emporter.key_takeaways)}")
-    if not (2 <= len(pres.a_emporter.reflexes_critiques) <= 3):
-        errors.append(f"a_emporter.reflexes_critiques must have 2–3 items, got {len(pres.a_emporter.reflexes_critiques)}")
+    if not (3 <= len(pres.a_emporter.key_takeaways) <= 5):
+        errors.append(f"a_emporter.key_takeaways must have 3–5 items, got {len(pres.a_emporter.key_takeaways)}")
+    if not (3 <= len(pres.a_emporter.reflexes_critiques) <= 5):
+        errors.append(f"a_emporter.reflexes_critiques must have 3–5 items, got {len(pres.a_emporter.reflexes_critiques)}")
     # À vous de juger
-    for field in ("enjeu", "objection", "tient_fragile", "la_question"):
-        if not getattr(pres.verdict, field).strip():
-            errors.append(f"verdict.{field} is empty")
+    if not (1 <= len(pres.verdict.enjeux) <= 3):
+        errors.append(f"verdict.enjeux must have 1–3 items, got {len(pres.verdict.enjeux)}")
+    if not (1 <= len(pres.verdict.objections) <= 3):
+        errors.append(f"verdict.objections must have 1–3 items, got {len(pres.verdict.objections)}")
     if not (2 <= len(pres.verdict.angles_morts) <= 3):
         errors.append(f"verdict.angles_morts must have 2–3 items, got {len(pres.verdict.angles_morts)}")
+    if not (1 <= len(pres.verdict.questions) <= 2):
+        errors.append(f"verdict.questions must have 1–2 items, got {len(pres.verdict.questions)}")
     # Prolonger la réflexion
-    if not (2 <= len(pres.go_further) <= 3):
-        errors.append(f"go_further must have 2–3 items, got {len(pres.go_further)}")
+    if not (3 <= len(pres.go_further) <= 5):
+        errors.append(f"go_further must have 3–5 items, got {len(pres.go_further)}")
     return errors
 
 
