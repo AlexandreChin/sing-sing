@@ -77,6 +77,14 @@ samples/outputs/<stem>/
 **Formats:** registered in `extractors/registry.py`, all fed by the same `analyze`. The carousel has its own `adapt()` copy; the newsletter has its own prose adapt.
 - `instagram_carousel_optimized` (default) — 10-slide "lens to read with" deck on the `article_carousel_optimized_v0` templates: Hook (On décrypte) → Sélection (L'intérêt) → Repères → 3 moments de lecture (Au fil de la lecture) → Architecture de l'argument → À emporter → À vous de juger → CTA. The renderer builds the slide list conditionally (numbering adapts); reading beats are a candidate pool (`selected`), and the réflexe lenses are derived from the selected beats.
 - `newsletter` — prose, not slides. Own adapt agent (`newsletter_adapt_agent`) + `NewsletterPresentation`. Renders **Markdown** + a rich `newsletter.html` (dark gold-on-black, SVG radar) + email-safe HTML in two themes (table layout, inline styles, no SVG/flexbox): `newsletter.email.html` (light, default) and `newsletter.email.dark.html`. Themes live in `EMAIL_THEMES`; only chrome is themed, the semantic gauge/bar colours are fixed.
+  Manual editing: the newsletter's editable source is `newsletter.md` (YAML
+  front-matter + Markdown body). Edit it, then `python main.py render
+  <newsletter.md> --format newsletter` to rebuild html/email from it. Per-block
+  styling is inferred from section titles; override with `::: salmon|box|keystone`
+  containers or a `## Title {icon=<name>}` attribute. (The carousel, by contrast,
+  is edited as JSON — format matches the medium; same `render <file>` workflow.)
+  Re-running `produce`/`render <extract.json>` regenerates `newsletter.md` and
+  overwrites hand edits — the edit-safe loop always renders from the `.md`.
 
 **Rendering interface:** every renderer module exposes `render_from_json(extract_path, out_dir, pdf=False)` and lays out its own files under `out_dir` — carousels write `html/` + `slides/`, the newsletter writes `newsletter.md`/`.html`/`.email.html`. `produce` and `render` call this uniformly. (`pdf` is a vestigial no-op kept for interface uniformity.)
 
