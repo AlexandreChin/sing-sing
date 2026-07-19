@@ -114,10 +114,12 @@ class _RichBody(HTMLRenderer):
         super().__init__()
         self.section = ""
         self.forced: str | None = None
+        self._seen_heading = False
 
     def heading(self, text: str, level: int, **attrs) -> str:
         title, explicit_icon = _heading_meta(text)
         self.section = title
+        self._seen_heading = True
         icon = explicit_icon or ICON_BY_TITLE.get(title)
         if level <= 2:
             return f'<div class="kicker">{_icon_svg(icon)}{title}</div>\n'
@@ -167,6 +169,8 @@ class _RichBody(HTMLRenderer):
             return f'<div class="clue"><span class="ret">↩</span> {body}</div>\n'
         if stripped.startswith("<em>") and stripped.endswith("</em>"):
             return f'<p class="subtitle">{stripped[4:-5]}</p>\n'
+        if not self._seen_heading:
+            return f'<p class="intro">{stripped}</p>\n'
         return f"<p>{stripped}</p>\n"
 
     def thematic_break(self) -> str:
@@ -193,6 +197,7 @@ def _email_styles(t: dict) -> dict:
         "subhead": f"font-size:15px;font-weight:800;letter-spacing:.1em;"
                    f"text-transform:uppercase;color:{t['heading']};margin:22px 0 8px;",
         "p": f"font-size:17px;line-height:1.6;color:{t['text']};margin:10px 0;",
+        "intro": f"font-size:19px;line-height:1.62;color:{t['text']};margin:0 0 10px;",
         "subtitle": f"font-size:20px;font-style:italic;color:{t['heading']};margin:0 0 12px;",
         "clue": f"font-size:15px;font-style:italic;color:{t['muted']};margin-top:8px;",
         "row": f"font-size:17px;line-height:1.5;color:{t['text']};margin:8px 0;",
@@ -215,10 +220,12 @@ class _EmailBody(HTMLRenderer):
         self.s, self.t = s, t
         self.section = ""
         self.forced: str | None = None
+        self._seen_heading = False
 
     def heading(self, text: str, level: int, **attrs) -> str:
         title, _ = _heading_meta(text)
         self.section = title
+        self._seen_heading = True
         role = "kicker" if level <= 2 else "subhead"
         return f'<div style="{self.s[role]}">{title}</div>\n'
 
@@ -257,6 +264,8 @@ class _EmailBody(HTMLRenderer):
             return f'<div style="{self.s["clue"]}">↩ {stripped[1:].strip()}</div>\n'
         if stripped.startswith("<em>") and stripped.endswith("</em>"):
             return f'<div style="{self.s["subtitle"]}">{stripped[4:-5]}</div>\n'
+        if not self._seen_heading:
+            return f'<p style="{self.s["intro"]}">{stripped}</p>\n'
         return f'<p style="{self.s["p"]}">{stripped}</p>\n'
 
     def thematic_break(self) -> str:

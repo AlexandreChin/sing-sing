@@ -122,6 +122,14 @@ def test_italic_only_paragraph_is_subtitle():
     assert 'class="subtitle"' in html
 
 
+def test_intro_lead_paragraph_gets_intro_class():
+    html = render_body_html(
+        "Lead intro para.\n\n## Pourquoi cet article\n\nAutre.\n"
+    )
+    assert '<p class="intro">Lead intro para.</p>' in html
+    assert "<p>Autre.</p>" in html
+
+
 @pytest.mark.parametrize("theme", ["light", "dark"])
 def test_email_body_inline_styles_no_svg(theme):
     html = render_email_body_html("### Les réflexes\n\n- un\n- deux\n", theme)
@@ -162,6 +170,18 @@ def test_email_forced_keystone_overrides_claim_default(theme):
     html = render_email_body_html(
         "### Au fil de la lecture\n\n::: keystone\n> some quote\n:::\n", theme)
     assert "background:" in html
+
+
+@pytest.mark.parametrize("theme", ["light", "dark"])
+def test_email_intro_lead_paragraph_uses_larger_style(theme):
+    html = render_email_body_html(
+        "Lead intro para.\n\n## Pourquoi cet article\n\nAutre.\n", theme)
+    assert 'font-size:19px' in html
+    assert '<p style="font-size:19px;line-height:1.62' in html
+    # the post-heading paragraph must not carry the intro style
+    autre_idx = html.index("Autre.")
+    autre_p_start = html.rindex("<p", 0, autre_idx)
+    assert "font-size:19px" not in html[autre_p_start:autre_idx]
 
 
 _MD = """---
@@ -205,6 +225,12 @@ def test_generated_markdown_has_front_matter_and_parses():
     assert fm["hook_title"] == "Le hook"
     assert fm["subject"]
     assert "## L'intérêt" in body
+
+
+def test_generated_markdown_go_further_includes_resource_type():
+    md = generate_markdown(sample_doc(), hook_title="Le hook")
+    assert "**R1** — S1 · étude" in md
+    assert "**R2** — S2 · rapport" in md
 
 
 def test_render_from_markdown_writes_three_html_files(tmp_path):

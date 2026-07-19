@@ -90,7 +90,7 @@ signoff: {{ signoff | tojson }}
 
 ### Pour aller plus loin
 {% for r in go_further %}
-**{{ r.title }}**{% if r.source %} — {{ r.source }}{% endif %}
+**{{ r.title }}**{% if r.source %} — {{ r.source }}{% endif %}{% if r.type %} · {{ r.type }}{% endif %}
 {% if r.why %}
 {{ r.why }}
 {% endif %}{% endfor %}
