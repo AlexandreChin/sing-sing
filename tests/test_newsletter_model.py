@@ -1,6 +1,6 @@
 import pytest
 from pydantic import ValidationError
-from models.newsletter_presentation import NewsletterPresentation, DecryptageItem
+from models.newsletter_presentation import NewsletterPresentation, DecryptageItem, AVousDeJuger
 
 
 def _base_kwargs(**overrides):
@@ -8,7 +8,7 @@ def _base_kwargs(**overrides):
         subject="Objet", preheader="Aperçu", intro="Intro.",
         selection_headline="Un cas d'école.",
         why_selected="Pourquoi.", payoff="Gain.", context="Contexte.",
-        reflexes=["R1", "R2"],
+        reflexes=["R1", "R2", "R3", "R4"],
         decryptage=[
             DecryptageItem(kind="fait", quote="Q1", presentation="fait", reading="L1."),
             DecryptageItem(kind="faille", quote="Q2", presentation="Source unique", reading="M.", clue="une seule source ?"),
@@ -16,13 +16,15 @@ def _base_kwargs(**overrides):
             DecryptageItem(kind="faille", quote="Q4", presentation="Glissement", reading="M2.", clue="mot neutre ?"),
         ],
         architecture={"keystone": "Sur quoi tient la thèse ?", "spine": ["A.", "B.", "C."]},
-        a_emporter={"key_takeaways": ["T1.", "T2."], "reflexes_critiques": ["RC1.", "RC2."]},
-        verdict={"enjeu": "Enjeu.", "objection": "Objection.",
-                 "tient_fragile": "Tient/fragile.", "angles_morts": ["A1", "A2"],
-                 "la_question": "Question ouverte ?"},
+        a_emporter={"key_takeaways": ["T1.", "T2.", "T3."], "reflexes_critiques": ["RC1.", "RC2.", "RC3."]},
+        verdict={"enjeux": ["Enjeu 1.", "Enjeu 2."],
+                 "objections": ["Objection 1."],
+                 "angles_morts": ["A1", "A2"],
+                 "questions": ["Question ouverte ?"]},
         cui_bono="Cui bono.",
         go_further=[{"title": "R1", "source": "S1", "why": "W.", "type": "étude"},
-                    {"title": "R2", "source": "S2", "why": "W.", "type": "rapport"}],
+                    {"title": "R2", "source": "S2", "why": "W.", "type": "rapport"},
+                    {"title": "R3", "source": "S3", "why": "W.", "type": "livre"}],
         signoff="Bye.",
     )
     kwargs.update(overrides)
@@ -60,3 +62,10 @@ def test_arc_fields_present_and_leftovers_removed():
 def test_decryptage_kind_is_constrained():
     with pytest.raises(ValidationError):
         DecryptageItem(kind="autre", quote="Q", presentation="p", reading="r")
+
+
+def test_verdict_uses_lists_and_drops_tient_fragile():
+    fields = AVousDeJuger.model_fields
+    assert set(("enjeux", "objections", "angles_morts", "questions")) <= set(fields)
+    for gone in ("enjeu", "objection", "tient_fragile", "la_question"):
+        assert gone not in fields
