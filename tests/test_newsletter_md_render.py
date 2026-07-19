@@ -1,5 +1,8 @@
+import asyncio
+import argparse
 import pytest
 
+from main import cmd_render
 from renderer.newsletter.md_render import (
     parse_source,
     render_body_html,
@@ -211,3 +214,13 @@ def test_render_from_markdown_writes_three_html_files(tmp_path):
     names = {p.name for p in paths}
     assert names == {"newsletter.html", "newsletter.email.html", "newsletter.email.dark.html"}
     assert (tmp_path / "newsletter.md").read_text(encoding="utf-8") == md  # md untouched
+
+
+def test_cmd_render_dispatches_on_md(tmp_path):
+    md = generate_markdown(sample_doc(), hook_title="Hook")
+    md_path = tmp_path / "newsletter.md"
+    md_path.write_text(md, encoding="utf-8")
+    args = argparse.Namespace(document=str(md_path), output_dir=str(tmp_path), format="newsletter")
+    asyncio.run(cmd_render(args))
+    assert (tmp_path / "newsletter.html").exists()
+    assert (tmp_path / "newsletter.email.html").exists()
