@@ -90,9 +90,8 @@ def test_markdown_reordered_after_reading():
     # critiques) → extend (pour aller plus loin → avant de partir).
     md = generate_markdown(sample_doc())
     order = ["### L'architecture de l'argument", "### À qui profite ce cadrage ?",
-             "### Les enjeux de fond", "### Les questions à se poser",
-             "### À retenir", "### Les réflexes critiques",
-             "### Pour aller plus loin", "### Avant de partir"]
+             "### Les enjeux de fond", "### À retenir", "### Les réflexes critiques",
+             "### Les questions à se poser", "### Pour aller plus loin", "### Avant de partir"]
     positions = [md.index(s) for s in order]
     assert positions == sorted(positions), "Après la lecture subsections out of order"
     # the exercise lands at the end of "Au fil de la lecture", before "Après la lecture"

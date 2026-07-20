@@ -84,10 +84,6 @@ signoff: {{ signoff | tojson }}
 - {{ a }}
 {%- endfor %}
 
-### Les questions à se poser
-{% for q in verdict.questions %}
-> {{ q }}
-{% endfor %}
 ### À retenir
 {% for t in a_emporter.key_takeaways %}
 - {{ t }}
@@ -98,6 +94,10 @@ signoff: {{ signoff | tojson }}
 - **{{ r.name }}** — {{ r.rule }}{% if r.reusable_on %} *(réutilisable : {{ r.reusable_on }})*{% endif %}
 {%- endfor %}
 
+### Les questions à se poser
+{% for q in verdict.questions %}
+> {{ q }}
+{% endfor %}
 ### Pour aller plus loin
 {% for r in go_further %}
 **{% if r.url %}[{{ r.title }}]({{ 'https://' + r.url if '://' not in r.url else r.url }}){% else %}{{ r.title }}{% endif %}**{% if r.source %} — {{ r.source }}{% endif %}{% if r.type %} · {{ r.type }}{% endif %}

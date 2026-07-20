@@ -140,12 +140,6 @@ Insister sur l'**autorégulation** laissée aux opérateurs rend presque éviden
 - Les **retombées économiques** locales pour les territoires qui misent sur ce tourisme restent hors champ.
 - Aucune **comparaison** avec d'autres tourismes long-courriers tout aussi émetteurs ne vient tester la singularité du phénomène.
 
-### Les questions à se poser
-
-> La part réelle du tourisme polaire dans les émissions : la connaît-on, et change-t-elle l'ampleur du problème ?
-
-> Un voyage au bout du monde crée-t-il des protecteurs des pôles, ou seulement des consommateurs de paysages ?
-
 ### À retenir
 
 - Une croisière polaire émet **15 à 25 tonnes** de CO2 par passager.
@@ -161,6 +155,12 @@ Insister sur l'**autorégulation** laissée aux opérateurs rend presque éviden
 - **Le réflexe de la source intéressée** — Demandez qui a **produit** un chiffre : une partie prenante du marché n'est pas une source neutre. *(réutilisable : études d'entreprise, lobbies, communiqués)*
 - **Le réflexe du global au local** — Vérifiez qu'une contribution à un **phénomène global** n'est pas présentée comme la **cause directe** d'un dommage précis. *(réutilisable : pollution, épidémies, économie)*
 - **Le réflexe du cadrage d'ouverture** — Repérez le **contraste** posé dès les premières lignes : il oriente la lecture avant tout argument. *(réutilisable : politique, faits divers, publicité)*
+
+### Les questions à se poser
+
+> La part réelle du tourisme polaire dans les émissions : la connaît-on, et change-t-elle l'ampleur du problème ?
+
+> Un voyage au bout du monde crée-t-il des protecteurs des pôles, ou seulement des consommateurs de paysages ?
 
 ### Pour aller plus loin
 
