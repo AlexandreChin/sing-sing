@@ -27,6 +27,7 @@ def _doc():
         "global_analysis": GlobalAnalysis(headline="Une méthode", core_recap=["a", "b"], note="n"),
         "open_question": "Ignore-t-il ou omet-il ?",
         "essentiel": ["La thèse.", "L'appui chiffré.", "La conclusion."],
+        "essentiel_summary": "L'article avance sa **thèse** et conclut.",
     })})
     return extract(full, pres)
 
@@ -47,7 +48,8 @@ def test_deck_follows_merged_four_act_order(tmp_path):
 def test_essentiel_slide_carries_the_summary(tmp_path):
     opt.generate_html(_doc(), tmp_path)
     html = (tmp_path / "02_essentiel.html").read_text(encoding="utf-8")
-    assert "L'essentiel de l'article" in html and "La thèse." in html
+    assert "L'essentiel de l'article" in html
+    assert "avance sa" in html and "<strong>thèse</strong>" in html  # prose summary, bold rendered
 
 
 def test_reperes_carries_the_lenses(tmp_path):

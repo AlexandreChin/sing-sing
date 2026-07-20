@@ -41,6 +41,8 @@ def _lens_layer_errors(d) -> list[str]:
             errors.append(f"display.global_analysis.core_recap must have 2–3 items, got {len(ga.core_recap)}")
     if not d.root_issue.strip():
         errors.append("display.root_issue is empty")
+    if not d.essentiel_summary.strip():
+        errors.append("display.essentiel_summary is empty")
     if len(d.essentiel) != 3 or any(not p.strip() for p in d.essentiel):
         errors.append(f"display.essentiel must have exactly 3 non-empty points, got {len(d.essentiel)}")
     n_takeaways = sum(1 for t in d.key_takeaways if t.selected)
