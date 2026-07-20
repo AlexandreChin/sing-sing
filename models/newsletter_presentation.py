@@ -30,6 +30,24 @@ class Resource(BaseModel):
     source: str
     why: str            # 1–2 sentences — what it adds / why explore it
     type: str | None = None   # kind of resource — "étude", "documentaire", "livre", "rapport", "podcast", "article"…
+    url: str | None = None    # ONLY a stable canonical URL; blank otherwise (filled during manual fine-tuning)
+
+
+class Reflexe(BaseModel):
+    """A named, collectible critical-reading reflex — the newsletter's transferable
+    payoff (rendered under "Les réflexes critiques"). `reusable_on` names other
+    domains the same tool applies to, to signal it generalizes beyond this article."""
+    name: str          # "Le réflexe de la base de départ"
+    rule: str          # the transferable one-liner
+    reusable_on: str | None = None   # domains it generalizes to — "santé, économie, sondages"
+
+
+class Exercice(BaseModel):
+    """A short "now you try" practice (rendered under "À vous de repérer"): a real
+    article quote to inspect, a prompt, and the folded answer."""
+    quote: str          # a verbatim article sentence to inspect
+    prompt: str         # what the reader should spot
+    answer: str         # the revealed answer, teaching the reflex
 
 
 class Architecture(BaseModel):
@@ -41,8 +59,8 @@ class Architecture(BaseModel):
 
 class AEmporter(BaseModel):
     """À emporter — what to keep: the key takeaways + the critical-reading reflexes recap."""
-    key_takeaways: list[str]       # 3–5 — À retenir (the article's load-bearing facts)
-    reflexes_critiques: list[str]  # 3–5 — Les réflexes critiques (the reading lenses recap)
+    key_takeaways: list[str]       # 4–6 — À retenir (the article's load-bearing facts)
+    reflexes_critiques: list[Reflexe]  # 3–5 — Les réflexes critiques (named, collectible reflexes)
 
 
 class AVousDeJuger(BaseModel):
@@ -66,9 +84,10 @@ class NewsletterPresentation(BaseModel):
     payoff: str               # what the reader gains (2–3 sentences)
     # Avant de vous lancer
     context: str              # Le contexte — the backdrop (3–4 sentences)
-    reflexes: list[str]       # 4–6 — Les réflexes: reading lenses + questions
+    reflexes: list[str]       # 3–5 — Les réflexes: light "lenses before you read" (paired with, not restating, the named reflexes_critiques)
     # Au fil de la lecture
-    decryptage: list[DecryptageItem]    # 4–6, article-ordered — neutral reading moments
+    decryptage: list[DecryptageItem]    # 5–7, article-ordered — neutral reading moments
+    exercices: list[Exercice]           # 1–2 — À vous de repérer (a pool; the editor keeps ~1)
     # Après la lecture — L'architecture de l'argument
     architecture: Architecture
     # Après la lecture — À emporter
@@ -77,7 +96,10 @@ class NewsletterPresentation(BaseModel):
     verdict: AVousDeJuger
     # Après la lecture — Prolonger la réflexion
     cui_bono: str             # « À qui profite ce cadrage ? » — beneficiary + why the framing serves them
-    go_further: list[Resource]  # 3–5 — Pour aller plus loin (folded into Prolonger la réflexion)
+    go_further: list[Resource]  # 4–6 — Pour aller plus loin
+    # Avant de partir — engagement / share loop
+    share_line: str           # forward hook (neutral, no recommendation)
+    reply_prompt: str         # invite a reply (neutral)
     # signoff
     signoff: str              # closing line — "On sélectionne. On éclaire. Vous jugez."
 

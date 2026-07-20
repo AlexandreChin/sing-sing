@@ -253,7 +253,9 @@ def test_generated_markdown_has_front_matter_and_parses():
 
 def test_generated_markdown_go_further_includes_title_and_source():
     md = generate_markdown(sample_doc(), hook_title="Le hook")
-    assert "**R1** — S1 · étude" in md
+    # R1 carries a canonical url → title renders as a markdown link
+    assert "**[R1](https://ademe.fr)** — S1 · étude" in md
+    # R2 has no url → plain bold title
     assert "**R2** — S2 · rapport" in md
 
 

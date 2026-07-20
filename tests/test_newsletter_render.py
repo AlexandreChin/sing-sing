@@ -25,14 +25,14 @@ def test_render_does_not_double_wrap_wrapped_quotes():
 
 def test_decryptage_ctx_preserves_order_and_shape():
     items = _decryptage_ctx(sample_doc())
-    assert [i["quote"] for i in items] == ["Q1", "Q2", "Q3", "Q4"]
+    assert [i["quote"] for i in items] == ["Q1", "Q2", "Q3", "Q4", "Q5"]
     assert all("kind" not in i and "verdict" not in i and "color" not in i for i in items)
 
 
 def test_decryptage_ctx_carries_quote_reading_clue():
     items = _decryptage_ctx(sample_doc())
     assert all(i.get("quote") and i.get("reading") for i in items)
-    assert [bool(i.get("clue")) for i in items] == [False, True, False, True]
+    assert [bool(i.get("clue")) for i in items] == [False, True, False, True, True]
 
 
 def test_markdown_structure_and_order():
@@ -79,9 +79,33 @@ def test_category_pill_renders_with_theme_colours():
 def test_markdown_has_all_new_subsections():
     md = generate_markdown(sample_doc())
     for sub in ("### Les enjeux de fond", "### Les objections les plus solides",
-                "### Les questions à se poser", "### Les réflexes critiques"):
+                "### Les questions à se poser", "### Les réflexes critiques",
+                "### À vous de repérer", "### Avant de partir"):
         assert sub in md
     assert "tient" not in md.lower() or "ce qui tient" not in md.lower()
+
+
+def test_markdown_reordered_after_reading():
+    # machinery (architecture → cui bono) → judge → keep (à retenir → réflexes
+    # critiques) → extend (pour aller plus loin → avant de partir).
+    md = generate_markdown(sample_doc())
+    order = ["### L'architecture de l'argument", "### À qui profite ce cadrage ?",
+             "### Les enjeux de fond", "### À retenir", "### Les réflexes critiques",
+             "### Les questions à se poser", "### Pour aller plus loin", "### Avant de partir"]
+    positions = [md.index(s) for s in order]
+    assert positions == sorted(positions), "Après la lecture subsections out of order"
+    # the exercise lands at the end of "Au fil de la lecture", before "Après la lecture"
+    assert md.index("### À vous de repérer") < md.index("## Après la lecture")
+
+
+def test_named_reflexes_and_source_link_render():
+    md = generate_markdown(sample_doc())
+    # named, tagged critical reflex
+    assert "**Le réflexe de la base**" in md and "*(réutilisable : santé, économie)*" in md
+    # a canonical url renders as a markdown link on the resource title
+    assert "[R1](https://ademe.fr)" in md
+    # a resource without a url stays plain (no empty link)
+    assert "[R2]()" not in md
 
 
 def test_no_pill_for_autre():

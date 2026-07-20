@@ -64,6 +64,7 @@ QUOTE_STYLE = {
     "L'architecture de l'argument": "keystone",
     "Les questions à se poser": "keystone",
     "Au fil de la lecture": "claim",
+    "À vous de repérer": "claim",
 }
 # section title → kicker icon (an ICONS key)
 ICON_BY_TITLE = {
@@ -77,6 +78,7 @@ ICON_BY_TITLE = {
     "Les réflexes": "lightbulb",
     "Les faits à garder en tête": "pushpin",
     "Le lexique": "info",
+    "À vous de repérer": "eye",
     "L'architecture de l'argument": "hierarchy",
     "À retenir": "pushpin",
     "Les réflexes critiques": "lightbulb",
@@ -85,6 +87,7 @@ ICON_BY_TITLE = {
     "Les questions à se poser": "speech_bubble",
     "À qui profite ce cadrage ?": "widen",
     "Pour aller plus loin": "widen",
+    "Avant de partir": "speech_bubble",
 }
 
 _ATTR_RE = re.compile(r"\s*\{([^}]*)\}\s*$")
@@ -207,11 +210,11 @@ _ACT_EMOJI = {
 # sensible additions for the 4-act subsections).
 EMOJI_BY_TITLE = {
     "Le contexte": "🌍", "Les réflexes": "💡", "Les faits à garder en tête": "📌",
-    "Le lexique": "📖", "L'architecture de l'argument": "🧭", "À retenir": "🛍",
-    "Les réflexes critiques": "💡", "Les enjeux de fond": "🤔",
+    "Le lexique": "📖", "À vous de repérer": "🔍", "L'architecture de l'argument": "🧭",
+    "À retenir": "🛍", "Les réflexes critiques": "💡", "Les enjeux de fond": "🤔",
     "Les objections les plus solides": "🛡️", "Angles morts & nuances": "⚠️",
     "Les questions à se poser": "❓", "À qui profite ce cadrage ?": "🎯",
-    "Pour aller plus loin": "📚",
+    "Pour aller plus loin": "📚", "Avant de partir": "✉️",
 }
 
 

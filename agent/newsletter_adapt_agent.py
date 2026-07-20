@@ -61,27 +61,35 @@ def _validate(data: dict) -> list[str]:
     pres = NewsletterPresentation.model_validate(data)
     errors = []
     for field in ("subject", "preheader", "intro", "selection_headline", "why_selected",
-                  "payoff", "context", "cui_bono", "signoff"):
+                  "payoff", "context", "cui_bono", "share_line", "reply_prompt", "signoff"):
         if not getattr(pres, field).strip():
             errors.append(f"{field} is empty")
-    if not (4 <= len(pres.reflexes) <= 6):
-        errors.append(f"reflexes must have 4–6 items, got {len(pres.reflexes)}")
+    if not (3 <= len(pres.reflexes) <= 5):
+        errors.append(f"reflexes must have 3–5 items, got {len(pres.reflexes)}")
     n = len(pres.decryptage)
-    if not (4 <= n <= 6):
-        errors.append(f"decryptage must have 4–6 items, got {n}")
+    if not (5 <= n <= 7):
+        errors.append(f"decryptage must have 5–7 items, got {n}")
     for i, d in enumerate(pres.decryptage):
         if not d.quote.strip() or not d.reading.strip():
             errors.append(f"decryptage[{i}] has an empty quote/reading")
+    if not (1 <= len(pres.exercices) <= 2):
+        errors.append(f"exercices must have 1–2 items, got {len(pres.exercices)}")
+    for i, ex in enumerate(pres.exercices):
+        if not ex.quote.strip() or not ex.prompt.strip() or not ex.answer.strip():
+            errors.append(f"exercices[{i}] has an empty quote/prompt/answer")
     # L'architecture de l'argument
     if not pres.architecture.keystone.strip():
         errors.append("architecture.keystone is empty")
     if not (3 <= len(pres.architecture.spine) <= 5):
         errors.append(f"architecture.spine must have 3–5 items, got {len(pres.architecture.spine)}")
     # À emporter
-    if not (3 <= len(pres.a_emporter.key_takeaways) <= 5):
-        errors.append(f"a_emporter.key_takeaways must have 3–5 items, got {len(pres.a_emporter.key_takeaways)}")
+    if not (4 <= len(pres.a_emporter.key_takeaways) <= 6):
+        errors.append(f"a_emporter.key_takeaways must have 4–6 items, got {len(pres.a_emporter.key_takeaways)}")
     if not (3 <= len(pres.a_emporter.reflexes_critiques) <= 5):
         errors.append(f"a_emporter.reflexes_critiques must have 3–5 items, got {len(pres.a_emporter.reflexes_critiques)}")
+    for i, r in enumerate(pres.a_emporter.reflexes_critiques):
+        if not r.name.strip() or not r.rule.strip():
+            errors.append(f"a_emporter.reflexes_critiques[{i}] has an empty name/rule")
     # À vous de juger
     if not (1 <= len(pres.verdict.enjeux) <= 3):
         errors.append(f"verdict.enjeux must have 1–3 items, got {len(pres.verdict.enjeux)}")
@@ -92,8 +100,8 @@ def _validate(data: dict) -> list[str]:
     if not (1 <= len(pres.verdict.questions) <= 2):
         errors.append(f"verdict.questions must have 1–2 items, got {len(pres.verdict.questions)}")
     # Prolonger la réflexion
-    if not (3 <= len(pres.go_further) <= 5):
-        errors.append(f"go_further must have 3–5 items, got {len(pres.go_further)}")
+    if not (4 <= len(pres.go_further) <= 6):
+        errors.append(f"go_further must have 4–6 items, got {len(pres.go_further)}")
     return errors
 
 
