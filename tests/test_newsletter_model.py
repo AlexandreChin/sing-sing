@@ -25,6 +25,7 @@ def _base_kwargs(**overrides):
         verdict={"enjeux": ["Enjeu 1.", "Enjeu 2."],
                  "objections": ["Objection 1."],
                  "angles_morts": ["A1", "A2"],
+                 "nuances": ["N1", "N2"],
                  "questions": ["Question ouverte ?"]},
         cui_bono="Cui bono.",
         go_further=[{"title": "R1", "source": "S1", "why": "W.", "type": "étude"},
@@ -74,6 +75,6 @@ def test_decryptage_kind_is_constrained():
 
 def test_verdict_uses_lists_and_drops_tient_fragile():
     fields = AVousDeJuger.model_fields
-    assert set(("enjeux", "objections", "angles_morts", "questions")) <= set(fields)
+    assert set(("enjeux", "objections", "angles_morts", "nuances", "questions")) <= set(fields)
     for gone in ("enjeu", "objection", "tient_fragile", "la_question"):
         assert gone not in fields

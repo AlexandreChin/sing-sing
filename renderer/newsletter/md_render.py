@@ -56,7 +56,7 @@ def segment(body_md: str) -> list[tuple[str | None, str]]:
 
 # section title → default list style ("plain" gold ›, "salmon" ~, "box")
 LIST_STYLE = {
-    "Angles morts & nuances": "salmon",
+    "Angles morts": "salmon",
     "À retenir": "box",
 }
 # section title → default block-quote style ("openq" keystone, "claim", "plain")
@@ -84,6 +84,8 @@ ICON_BY_TITLE = {
     "Les réflexes critiques": "lightbulb",
     "Les enjeux de fond": "anchor",
     "Les objections les plus solides": "shield",
+    "Angles morts": "eye",
+    "Nuances": "info",
     "Les questions à se poser": "speech_bubble",
     "À qui profite ce cadrage ?": "widen",
     "Pour aller plus loin": "widen",
@@ -212,7 +214,7 @@ EMOJI_BY_TITLE = {
     "Le contexte": "🌍", "Les réflexes": "💡", "Les faits à garder en tête": "📌",
     "Le lexique": "📖", "À vous de repérer": "🔍", "L'architecture de l'argument": "🧭",
     "À retenir": "🛍", "Les réflexes critiques": "💡", "Les enjeux de fond": "🤔",
-    "Les objections les plus solides": "🛡️", "Angles morts & nuances": "⚠️",
+    "Les objections les plus solides": "🛡️", "Angles morts": "⚠️", "Nuances": "⚖️",
     "Les questions à se poser": "❓", "À qui profite ce cadrage ?": "🎯",
     "Pour aller plus loin": "📚", "Avant de partir": "✉️",
 }

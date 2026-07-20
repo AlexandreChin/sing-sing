@@ -8,7 +8,7 @@ Steps:
   5. Ethics   — hard red line audit (violations list)
   6. Review   — journalistic quality evaluation across 6 dimensions
   7. Blend    — cross-layer pattern integration (up to 8 patterns)
-  8. Distill  — select top 3–5 patterns + open_question
+  8. Distill  — select top 3–5 patterns + open_questions
   9. Guide    — reader companion: pre_reading, watch_out, after_reading
 """
 import json

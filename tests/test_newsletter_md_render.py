@@ -43,7 +43,7 @@ def test_segment_no_container_is_single_chunk():
 
 
 def test_inference_salmon_list_under_angles_morts():
-    html = render_body_html("### Angles morts & nuances\n\n- un\n- deux\n")
+    html = render_body_html("### Angles morts\n\n- un\n- deux\n")
     assert 'class="mk salmon"' in html and "~" in html
 
 
@@ -151,7 +151,7 @@ def test_email_body_inline_styles_no_svg(theme):
 @pytest.mark.parametrize("theme", ["light", "dark"])
 def test_email_salmon_and_bold(theme):
     html = render_email_body_html(
-        "### Angles morts & nuances\n\n- un **gras**\n", theme)
+        "### Angles morts\n\n- un **gras**\n", theme)
     assert "~" in html
     assert "<strong" in html and "font-weight:700" in html
 

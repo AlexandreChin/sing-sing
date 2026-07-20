@@ -102,11 +102,16 @@ Ce cadrage sert d'abord les **partisans d'une sanctuarisation** des pôles : ins
 
 - Un tourisme polaire **encadré** peut transformer des visiteurs en **ambassadeurs** de la conservation, générant soutiens politiques et financements pour la protection des pôles. Si la sensibilisation protège plus qu'elle n'émet, le **bilan net** pourrait être positif — et l'argument du « non-sens » s'affaiblirait d'autant.
 
-### Angles morts & nuances
+### Angles morts
 
-- L'article ne chiffre jamais la **part réelle** du tourisme polaire dans les émissions mondiales.
-- Les **retombées économiques locales** (Groenland, Islande) sont absentes, tout comme les voix défendant l'activité.
-- Nuance honnête : un reportage d'engagement court n'a pas vocation à l'exhaustivité — ces manques sont réels mais ne le disqualifient pas.
+- La **part réelle** du tourisme polaire dans les émissions mondiales n'est jamais chiffrée.
+- Les **retombées économiques locales** (Groenland, Islande) pour les territoires concernés restent hors champ.
+- Les **voix qui défendent** un tourisme polaire encadré ne sont pas rapportées.
+
+### Nuances
+
+- Le **réchauffement** des pôles est un fait établi ; c'est le **poids causal** du tourisme lui-même qui reste discuté.
+- La hausse de la fréquentation est **réelle**, mais son ampleur dépend de la **base** et de la période retenues.
 
 ### À retenir
 
@@ -125,7 +130,7 @@ Ce cadrage sert d'abord les **partisans d'une sanctuarisation** des pôles : ins
 
 ### Les questions à se poser
 
-> L'auteur ignore-t-il la part réelle de ce tourisme dans les émissions, ou l'omet-il pour préserver l'ampleur du récit ?
+> La part réelle de ce tourisme dans les émissions mondiales : la connaît-on, et change-t-elle l'ampleur du problème ?
 
 > Un tourisme fortement encadré protégerait-il plus qu'il ne détruit — et selon quel critère le mesurerait-on ?
 

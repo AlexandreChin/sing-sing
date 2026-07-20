@@ -43,7 +43,7 @@ def test_markdown_structure_and_order():
     assert positions == sorted(positions), "acts out of order"
     # subsections live under "Après la lecture"
     assert md.index("## Après la lecture") < md.index("### L'architecture de l'argument")
-    assert md.index("### Angles morts & nuances") < md.index("### Pour aller plus loin")
+    assert md.index("### Angles morts") < md.index("### Nuances") < md.index("### Pour aller plus loin")
     assert "\n## Pour aller plus loin" not in md  # folded, never a top-level act
 
 
@@ -90,7 +90,9 @@ def test_markdown_reordered_after_reading():
     # critiques) → extend (pour aller plus loin → avant de partir).
     md = generate_markdown(sample_doc())
     order = ["### L'architecture de l'argument", "### À qui profite ce cadrage ?",
-             "### Les enjeux de fond", "### À retenir", "### Les réflexes critiques",
+             "### Les enjeux de fond", "### Les objections les plus solides",
+             "### Angles morts", "### Nuances",
+             "### À retenir", "### Les réflexes critiques",
              "### Les questions à se poser", "### Pour aller plus loin", "### Avant de partir"]
     positions = [md.index(s) for s in order]
     assert positions == sorted(positions), "Après la lecture subsections out of order"

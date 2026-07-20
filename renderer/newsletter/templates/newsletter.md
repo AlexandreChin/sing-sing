@@ -79,9 +79,14 @@ signoff: {{ signoff | tojson }}
 - {{ o }}
 {%- endfor %}
 
-### Angles morts & nuances
+### Angles morts
 {% for a in verdict.angles_morts %}
 - {{ a }}
+{%- endfor %}
+
+### Nuances
+{% for n in verdict.nuances %}
+- {{ n }}
 {%- endfor %}
 
 ### À retenir

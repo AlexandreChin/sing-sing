@@ -1,6 +1,6 @@
 from __future__ import annotations
 from typing import Literal
-from pydantic import BaseModel, Field, HttpUrl, computed_field, field_validator
+from pydantic import BaseModel, Field, HttpUrl, computed_field, field_validator, model_validator
 
 
 # ── Cross-reference types ─────────────────────────────────────────────────────
@@ -392,8 +392,18 @@ class Blend(BaseModel):
 # ── Step 8: Distill ───────────────────────────────────────────────────────────
 
 class Distill(BaseModel):
-    points: list[DistillPoint]  # 3–5, most important first
-    open_question: str
+    points: list[DistillPoint]   # 3–5, most important first
+    open_questions: list[str]    # 2–3 — neutral, subject-level analytical questions (never author motive)
+
+    @model_validator(mode="before")
+    @classmethod
+    def _migrate_open_question(cls, data):
+        # Legacy analyses carried a single `open_question` string; fold it into the list.
+        if isinstance(data, dict) and "open_questions" not in data and "open_question" in data:
+            oq = data.get("open_question")
+            data = {k: v for k, v in data.items() if k != "open_question"}
+            data["open_questions"] = [oq] if isinstance(oq, str) and oq.strip() else []
+        return data
 
     @field_validator("points", mode="before")
     @classmethod

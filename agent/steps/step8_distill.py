@@ -11,8 +11,11 @@ def _validate(data: dict) -> list[str]:
     n = len(out.distill.points)
     if not (3 <= n <= 5):
         errors.append(f"distill.points: expected 3–5, got {n}")
-    if not out.distill.open_question.strip():
-        errors.append("distill.open_question is empty")
+    if not (2 <= len(out.distill.open_questions) <= 3):
+        errors.append(f"distill.open_questions: expected 2–3, got {len(out.distill.open_questions)}")
+    for i, q in enumerate(out.distill.open_questions):
+        if not q.strip():
+            errors.append(f"distill.open_questions[{i}] is empty")
     for i, pt in enumerate(out.distill.points):
         if not pt.references:
             errors.append(f"distill.points[{i}]: references is empty")
