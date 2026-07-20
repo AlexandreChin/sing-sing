@@ -194,47 +194,119 @@ def render_body_html(body_md: str) -> str:
     return "".join(out)
 
 
+# The four acts, in order — the email renders each `##` act as a gold progress
+# band listing all four with the active one highlighted, mirroring the 6221e68
+# pillar band. Emoji echo the original email's card icons.
+_ACTS = ["Pourquoi cet article", "Avant de vous lancer",
+         "Au fil de la lecture", "Après la lecture"]
+_ACT_EMOJI = {
+    "Pourquoi cet article": "🔥", "Avant de vous lancer": "🧭",
+    "Au fil de la lecture": "📖", "Après la lecture": "🧠",
+}
+# subsection (`###`) title → card emoji (6221e68 emoji where the section existed,
+# sensible additions for the 4-act subsections).
+EMOJI_BY_TITLE = {
+    "Le contexte": "🌍", "Les réflexes": "💡", "Les faits à garder en tête": "📌",
+    "Le lexique": "📖", "L'architecture de l'argument": "🧭", "À retenir": "🛍",
+    "Les réflexes critiques": "💡", "Les enjeux de fond": "🤔",
+    "Les objections les plus solides": "🛡️", "Angles morts & nuances": "⚠️",
+    "Les questions à se poser": "❓", "À qui profite ce cadrage ?": "🎯",
+    "Pour aller plus loin": "📚",
+}
+
+
 def _email_styles(t: dict) -> dict:
     """Inline style strings keyed by role, resolved for an EMAIL_THEMES entry `t`."""
     return {
-        "kicker": f"font-size:14px;font-weight:800;letter-spacing:.16em;"
-                  f"text-transform:uppercase;color:{t['accent_text']};"
-                  f"margin:32px 0 12px;",
-        "subhead": f"font-size:15px;font-weight:800;letter-spacing:.1em;"
-                   f"text-transform:uppercase;color:{t['heading']};margin:22px 0 8px;",
-        "p": f"font-size:17px;line-height:1.6;color:{t['text']};margin:10px 0;",
-        "intro": f"font-size:19px;line-height:1.62;color:{t['text']};margin:0 0 10px;",
-        "subtitle": f"font-size:20px;font-style:italic;color:{t['heading']};margin:0 0 12px;",
+        "p": f"font-size:17px;line-height:1.62;color:{t['text']};margin:0 0 12px;",
+        "intro": f"font-size:19px;line-height:1.62;color:{t['text']};margin:0;",
+        "subtitle": f"font-size:20px;font-style:italic;line-height:1.4;color:{t['heading']};margin:0 0 14px;",
         "clue": f"font-size:15px;font-style:italic;color:{t['muted']};margin-top:8px;",
-        "row": f"font-size:17px;line-height:1.5;color:{t['text']};margin:8px 0;",
+        "row": f"font-size:17px;line-height:1.55;color:{t['text']};margin:0 0 10px;",
         "mark_gold": f"color:{t['accent_text']};font-weight:900;",
         "mark_salmon": "color:#e8a07a;font-weight:900;",
-        "box": f"background:{t['surface']};border-left:4px solid {t['accent']};"
-               f"padding:18px 22px;margin:12px 0;",
-        "quote": f"background:{t['surface']};border-left:3px solid {t['accent']};"
-                 f"padding:14px 20px;margin:16px 0;font-style:italic;color:{t['text']};",
-        "quote_claim": f"border-left:3px solid {t['accent']};padding:2px 0 2px 18px;"
-                       f"font-style:italic;color:{t['text']};margin:16px 0;",
-        "divider": f"border:0;border-top:2px solid {t['accent']};margin:28px 0;",
+        # quotes sit inside surface cards, so no nested box — border-left only.
+        "quote": f"border-left:3px solid {t['accent']};padding:2px 0 2px 18px;"
+                 f"font-style:italic;color:{t['text']};margin:14px 0;",
+        "divider": f"border:0;border-top:2px solid {t['accent']};margin:24px 0;",
         "n": f"color:{t['accent_text']};font-weight:900;",
+        # lead intro (before the first act band) + section cards + act band
+        "intro_wrap": "padding:30px 32px 0;",
+        "card": f"margin:16px 32px 0;background:{t['surface']};border-radius:12px;",
+        "card_pad": "padding:28px 30px;",
+        "card_head": f"font-size:15px;font-weight:800;letter-spacing:0.13em;"
+                     f"text-transform:uppercase;color:{t['accent_text']};padding-bottom:16px;",
+        "banner": f"background:{t['accent']};background-image:linear-gradient(135deg,"
+                  f"#e6c04a 0%,#d4aa00 55%,#c09800 100%);padding:22px 32px;margin-top:44px;",
+        "banner_on": "font-size:22px;font-weight:900;letter-spacing:-0.01em;"
+                     "line-height:1.3;color:#1a1400;padding:5px 0;",
+        "banner_chip": "display:inline-block;background-color:#1a1400;border-radius:8px;"
+                       "padding:4px 9px;vertical-align:middle;",
+        "banner_off": "font-size:14px;font-weight:700;line-height:1.35;color:#3d3100;padding:5px 0;",
     }
 
 
 class _EmailBody(HTMLRenderer):
+    """Card-based email renderer echoing the 6221e68 layout: each `##` act is a
+    gold band listing all four acts (active one highlighted), each `###`
+    subsection a rounded surface card with an emoji+title header; content before
+    the first act is the lead intro. Rebuilt from the edited markdown."""
+
     def __init__(self, s: dict, t: dict) -> None:
         super().__init__()
         self.s, self.t = s, t
         self.section = ""
         self.forced: str | None = None
-        self._seen_heading = False
+        self._seen_act = False
+        self._card_open = False
 
+    # --- card / band chrome ---
+    def close_card(self) -> str:
+        if self._card_open:
+            self._card_open = False
+            return "</div></div>\n"
+        return ""
+
+    def _open_card(self, title: str = "") -> str:
+        self._card_open = True
+        head = ""
+        if title:
+            emoji = EMOJI_BY_TITLE.get(title, "")
+            chip = f'<span style="font-size:17px;">{emoji}</span>&nbsp;&nbsp;' if emoji else ""
+            head = f'<div style="{self.s["card_head"]}">{chip}{title}</div>'
+        return f'<div style="{self.s["card"]}"><div style="{self.s["card_pad"]}">{head}'
+
+    def _band(self, active: str) -> str:
+        rows = []
+        for name in _ACTS:
+            if name == active:
+                emoji = _ACT_EMOJI.get(name, "")
+                rows.append(
+                    f'<div style="{self.s["banner_on"]}"><span style="{self.s["banner_chip"]}">'
+                    f'<span style="font-size:20px;line-height:1;">{emoji}</span></span>'
+                    f'&nbsp;&nbsp;{name}</div>')
+            else:
+                rows.append(f'<div style="{self.s["banner_off"]}">{name}</div>')
+        return f'<div style="{self.s["banner"]}">{"".join(rows)}</div>\n'
+
+    def _content(self, html: str) -> str:
+        """Route a content block: into the open card, into a fresh untitled card
+        (act with direct content), or into the lead-intro region (pre-act)."""
+        if self._card_open:
+            return html
+        if self._seen_act:
+            return self._open_card() + html
+        return f'<div style="{self.s["intro_wrap"]}">{html}</div>\n'
+
+    # --- block renderers ---
     def heading(self, text: str, level: int, **attrs) -> str:
         title, _ = _heading_meta(text)
         self.section = title
-        if level >= 2:
-            self._seen_heading = True
-        role = "kicker" if level <= 2 else "subhead"
-        return f'<div style="{self.s[role]}">{title}</div>\n'
+        if level <= 2:
+            out = self.close_card() + self._band(title)
+            self._seen_act = True
+            return out
+        return self.close_card() + self._open_card(title)
 
     def list_item(self, text: str) -> str:
         # strip <p> tags (loose lists wrap item content in <p>…</p>) so
@@ -244,39 +316,38 @@ class _EmailBody(HTMLRenderer):
     def list(self, text: str, ordered: bool, **attrs) -> str:
         items = [t for t in text.split("\x00") if t]
         if ordered:
-            return "".join(
+            html = "".join(
                 f'<div style="{self.s["row"]}"><span style="{self.s["n"]}">{i}.</span> {it}</div>'
-                for i, it in enumerate(items, 1)
-            ) + "\n"
+                for i, it in enumerate(items, 1))
+            return self._content(html)
         style = self.forced or LIST_STYLE.get(self.section, "plain")
         if style == "box":
-            rows = "".join(f'<div style="{self.s["row"]}">→ {it}</div>' for it in items)
-            return f'<div style="{self.s["box"]}">{rows}</div>\n'
+            html = "".join(
+                f'<div style="{self.s["row"]}"><span style="{self.s["mark_gold"]}">&rarr;</span> {it}</div>'
+                for it in items)
+            return self._content(html)
         mark = "~" if style == "salmon" else "›"
         mstyle = self.s["mark_salmon"] if style == "salmon" else self.s["mark_gold"]
-        return "".join(
+        html = "".join(
             f'<div style="{self.s["row"]}"><span style="{mstyle}">{mark}</span> {it}</div>'
-            for it in items
-        ) + "\n"
+            for it in items)
+        return self._content(html)
 
     def block_quote(self, text: str) -> str:
-        style = self.forced or QUOTE_STYLE.get(self.section, "plain")
         inner = re.sub(r"</?p[^>]*>", "", text).strip()
-        role = "quote_claim" if style == "claim" else "quote"
-        return f'<div style="{self.s[role]}">{inner}</div>\n'
+        return self._content(f'<div style="{self.s["quote"]}">{inner}</div>')
 
     def paragraph(self, text: str) -> str:
         stripped = text.strip()
         if stripped.startswith("↩"):
-            return f'<div style="{self.s["clue"]}">↩ {stripped[1:].strip()}</div>\n'
+            return self._content(f'<div style="{self.s["clue"]}">↩ {stripped[1:].strip()}</div>')
         if stripped.startswith("<em>") and stripped.endswith("</em>"):
-            return f'<div style="{self.s["subtitle"]}">{stripped[4:-5]}</div>\n'
-        if not self._seen_heading:
-            return f'<p style="{self.s["intro"]}">{stripped}</p>\n'
-        return f'<p style="{self.s["p"]}">{stripped}</p>\n'
+            return self._content(f'<div style="{self.s["subtitle"]}">{stripped[4:-5]}</div>')
+        role = "intro" if not self._seen_act else "p"
+        return self._content(f'<p style="{self.s[role]}">{stripped}</p>')
 
     def thematic_break(self) -> str:
-        return f'<hr style="{self.s["divider"]}">\n'
+        return self._content(f'<hr style="{self.s["divider"]}">')
 
     def strong(self, text: str) -> str:
         return f'<strong style="color:{self.t["accent_text"]};font-weight:700;">{text}</strong>'
@@ -292,6 +363,7 @@ def render_email_body_html(body_md: str, theme: str) -> str:
         renderer.forced = forced
         out.append(md(chunk))
     renderer.forced = None
+    out.append(renderer.close_card())  # close the final card
     return "".join(out)
 
 

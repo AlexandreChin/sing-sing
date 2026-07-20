@@ -163,23 +163,20 @@ def test_email_loose_list_does_not_leak_p_tags(theme):
 
 
 @pytest.mark.parametrize("theme", ["light", "dark"])
-def test_email_blockquote_claim_style_under_au_fil_de_la_lecture(theme):
+def test_email_blockquote_is_border_left_inside_a_card(theme):
+    # In the card-based email, every blockquote renders with the border-left
+    # italic "quote" style and sits inside a surface card (border-radius box).
     html = render_email_body_html("### Au fil de la lecture\n\n> some quote\n", theme)
-    assert "border-left" in html
-    assert "background:" not in html
+    assert "border-left:3px solid" in html   # the quote's own style
+    assert "border-radius:12px" in html       # wrapped in a section card
 
 
 @pytest.mark.parametrize("theme", ["light", "dark"])
-def test_email_blockquote_default_boxed_style_without_quote_style_entry(theme):
+def test_email_blockquote_border_left_regardless_of_section(theme):
+    # No per-section quote distinction in email — a quote under any subhead is
+    # the same border-left style.
     html = render_email_body_html("### Le contexte\n\n> some quote\n", theme)
-    assert "background:" in html
-
-
-@pytest.mark.parametrize("theme", ["light", "dark"])
-def test_email_forced_keystone_overrides_claim_default(theme):
-    html = render_email_body_html(
-        "### Au fil de la lecture\n\n::: keystone\n> some quote\n:::\n", theme)
-    assert "background:" in html
+    assert "border-left:3px solid" in html
 
 
 @pytest.mark.parametrize("theme", ["light", "dark"])
