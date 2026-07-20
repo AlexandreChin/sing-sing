@@ -19,11 +19,11 @@ TPL = "article_carousel_optimized_v0"
 # Which act each output slide belongs to — drives the 3-pip tracker highlight.
 # Keys stay avant/analyse/verdict (shared _tracker.html + short format); only
 # the tracker's visible labels changed to the 4-act names.
-# (01_hook, 02_selection, 11_cta sit outside the tracked journey.)
+# (01_hook, 02_essentiel, 03_selection, 10_cta sit outside the tracked journey.)
 PHASE_OF = {
-    "03_reperes": "avant",
-    "04_moment": "analyse", "05_moment": "analyse", "06_moment": "analyse",
-    "07_vue_ensemble": "verdict", "08_a_emporter": "verdict", "09_prise_de_recul": "verdict",
+    "04_reperes": "avant",
+    "05_moment": "analyse", "06_moment": "analyse", "07_moment": "analyse",
+    "08_vue_ensemble": "verdict", "09_prise_de_recul": "verdict",
 }
 
 # French number words for the réflexes section label on the merged repères slide.
@@ -79,10 +79,12 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
                                 "topic": pres.hook.topic, "sub_topic": pres.hook.sub_topic,
                                 "kicker_logo": _LOGO_TIGHT_DATA_URL,
                                 "headline": pres.hook.headline, **cover_layers(meta, pres.hook.headline)}),
-        ("02_selection", "02_selection", {"headline": d.selection_headline, "items": [
+        # Slide 2 — L'essentiel: neutral summary of the article, right after the hook
+        ("02_essentiel", "02_essentiel", {"essentiel": list(d.essentiel)[:3]}),
+        ("03_selection", "02_selection", {"headline": d.selection_headline, "items": [
             {"label": "L'intérêt", "body": d.why_selected},
         ]}),
-        ("03_reperes", "03_reperes", {
+        ("04_reperes", "03_reperes", {
             "reperes_headline": d.reperes_headline,
             "context": contexts[0].text if contexts else "",
             "lens_count_word": _COUNT_WORD.get(len(display_lenses), "Les"),
@@ -93,7 +95,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     for idx, b in enumerate(selected_beats):
         canon = CANONICAL_LENSES.get(b.lens_ref, {})
         fc = _READING.get(b.factcheck)  # fact-check pill only when the beat is a checkable fact
-        specs.append((f"0{4 + idx}_moment", "moment", {
+        specs.append((f"0{5 + idx}_moment", "moment", {
             "moment": b.moment, "quote": b.quote, "note": b.note,
             "lens_name": canon.get("name", b.lens_ref),
             "factcheck": {"label": fc[0], "cls": fc[1]} if fc else None,
@@ -101,15 +103,8 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
 
     if d.global_analysis:
         ga = d.global_analysis
-        specs.append(("07_vue_ensemble", "08_vue_ensemble",
+        specs.append(("08_vue_ensemble", "08_vue_ensemble",
                       {"headline": ga.headline, "core_recap": list(ga.core_recap)}))
-
-    # Slide 8 — À emporter: consolidate what to keep (à retenir + réflexes)
-    specs.append(("08_a_emporter", "10_bilan", {
-        "bilan_headline": d.bilan_headline,
-        "takeaways": [t.text for t in d.key_takeaways if t.selected][:3],
-        "reflexes": [{"name": l["name"], "question": l["question"]} for l in display_lenses],
-    }))
 
     # Slide 9 — À vous de juger: the wrap-up (objection + deep stake + the closing question)
     if d.steel_man or d.root_issue or pres.cta.engagement_sentence:

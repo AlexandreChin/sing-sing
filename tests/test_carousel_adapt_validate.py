@@ -23,6 +23,7 @@ def _display(**over):
         root_issue="L'enjeu est surtout symbolique : une élite qui affiche son indifférence.",
         steel_man=SteelMan(argument="Un tourisme encadré crée des ambassadeurs", alternative="le bilan net pourrait s'inverser"),
         key_takeaways=["a", "b"],
+        essentiel=["La thèse de l'article.", "Son appui chiffré.", "Sa conclusion."],
     )
     good.update(over)
     return CarouselDisplay(**_BASE, **good)
