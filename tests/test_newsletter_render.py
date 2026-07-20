@@ -43,8 +43,10 @@ def test_markdown_structure_and_order():
     assert positions == sorted(positions), "acts out of order"
     # subsections live under "Après la lecture"
     assert md.index("## Après la lecture") < md.index("### L'architecture de l'argument")
-    assert md.index("### Angles morts") < md.index("### Nuances") < md.index("### Pour aller plus loin")
-    assert "\n## Pour aller plus loin" not in md  # folded, never a top-level act
+    assert md.index("### Angles morts") < md.index("### Nuances")
+    # go_further is structured (front-matter) + a body marker at its position
+    assert md.index("### Nuances") < md.index("::: gofurther") < md.index("### Avant de partir")
+    assert "### Pour aller plus loin" not in md  # rendered from structured data, not a md heading
 
 
 def test_rich_html_has_no_grade_badge():
@@ -101,7 +103,7 @@ def test_markdown_reordered_after_reading():
              "### Les enjeux de fond", "### Les objections les plus solides",
              "### Angles morts", "### Nuances",
              "### À retenir", "### Les réflexes critiques",
-             "### Les questions à se poser", "### Pour aller plus loin", "### Avant de partir"]
+             "### Les questions à se poser", "::: gofurther", "### Avant de partir"]
     positions = [md.index(s) for s in order]
     assert positions == sorted(positions), "Après la lecture subsections out of order"
 
@@ -111,10 +113,16 @@ def test_named_reflexes_and_source_link_render():
     # lens-anchored critical reflex: icon + canonical name from agent/lenses.py
     assert "📊 **Chiffres** — De combien à combien ?" in md
     assert "*(réutilisable : santé, économie)*" in md
-    # a canonical url renders as a markdown link on the resource title
-    assert "[R1](https://ademe.fr)" in md
-    # a resource without a url stays plain (no empty link)
-    assert "[R2]()" not in md
+
+
+def test_go_further_renders_pill_cards():
+    from renderer.newsletter.renderer import generate_html, generate_email_html
+    doc = sample_doc()
+    for html in (generate_html(doc), generate_email_html(doc, "light")):
+        assert "Pour aller plus loin" in html
+        assert "étude" in html            # resource type rendered (as a pill)
+        assert "https://ademe.fr" in html  # linked title
+        assert "R1" in html
 
 
 def test_beats_carry_lens_tag():

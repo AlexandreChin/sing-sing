@@ -54,11 +54,13 @@ def segment(body_md: str) -> list[tuple[str | None, str]]:
     return segs
 
 
-# section title → default list style ("plain" gold ›, "salmon" ~, "box")
+# section title → default list style ("plain" gold ›, "box")
 LIST_STYLE = {
-    "Angles morts": "salmon",
     "À retenir": "box",
 }
+# sections whose items are each rendered as a standalone sub-card (::: card in the
+# template); in email the heading becomes a plain label instead of a wrapping card.
+CARD_LIST_SECTIONS = {"Pour aller plus loin"}
 # section title → default block-quote style ("openq" keystone, "claim", "plain")
 QUOTE_STYLE = {
     "L'architecture de l'argument": "keystone",
@@ -156,10 +158,8 @@ class _RichBody(HTMLRenderer):
         if style == "box":
             lis = "".join(f"<li>{it}</li>" for it in items)
             return f'<div class="box"><ul>{lis}</ul></div>\n'
-        mark = "~" if style == "salmon" else "›"
-        cls = "salmon" if style == "salmon" else "gold"
         rows = "".join(
-            f'<div class="row"><span class="mk {cls}">{mark}</span><span>{it}</span></div>'
+            f'<div class="row"><span class="mk gold">›</span><span>{it}</span></div>'
             for it in items
         )
         return f'<div class="plain">{rows}</div>\n'
@@ -173,6 +173,8 @@ class _RichBody(HTMLRenderer):
 
     def paragraph(self, text: str) -> str:
         stripped = text.strip()
+        if stripped.startswith("→"):   # beat answer — gold arrow, no "Réponse" label
+            return f'<div class="answer"><span class="ans-mk">›</span> {stripped[1:].strip()}</div>\n'
         if stripped.startswith("↩"):
             body = stripped[1:].strip()
             return f'<div class="clue"><span class="ret">↩</span> {body}</div>\n'
@@ -186,13 +188,81 @@ class _RichBody(HTMLRenderer):
         return '<div class="divider"></div>\n'
 
 
-def render_body_html(body_md: str) -> str:
+_BOLD_RE = re.compile(r"\*\*(.+?)\*\*")
+
+
+def _norm_url(u: str) -> str:
+    return u if "://" in u else "https://" + u
+
+
+def _gofurther_rich(items: list) -> str:
+    """« Pour aller plus loin » — one card, each resource a type-pill + title +
+    source + why, separated by a divider (mirrors the 6221e68 layout)."""
+    if not items:
+        return ""
+    rows = []
+    for i, r in enumerate(items):
+        if i:
+            rows.append('<div class="res-sep"></div>')
+        if r.get("type"):
+            rows.append(f'<div class="restype"><span class="pill">{_html.escape(r["type"])}</span></div>')
+        title = _html.escape(r.get("title", ""))
+        if r.get("url"):
+            title = f'<a href="{_html.escape(_norm_url(r["url"]))}">{title}</a>'
+        rows.append(f'<div class="rtitle">{title}</div>')
+        if r.get("source"):
+            rows.append(f'<div class="rsource">{_html.escape(r["source"])}</div>')
+        if r.get("why"):
+            rows.append(f'<div class="rwhy">{_BOLD_RE.sub(r"<strong>\1</strong>", _html.escape(r["why"]))}</div>')
+    icon = _icon_svg("widen")
+    return (f'<div class="kicker">{icon}Pour aller plus loin</div>\n'
+            f'<div class="subcard reslist">{"".join(rows)}</div>\n')
+
+
+def _gofurther_email(items: list, s: dict, t: dict) -> str:
+    """Email « Pour aller plus loin » — label + one surface card, verbatim 6221e68
+    resource layout (type pill on top, title, source, why), divider between."""
+    if not items:
+        return ""
+    rows = []
+    for i, r in enumerate(items):
+        if i:
+            rows.append(f'<hr style="{s["divider"]}">')
+        if r.get("type"):
+            rows.append('<div style="padding-bottom:9px;"><span style="display:inline-block;'
+                        'font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;'
+                        f'color:#1a1400;background-color:{t["accent"]};padding:3px 9px;border-radius:4px;">'
+                        f'{_html.escape(r["type"])}</span></div>')
+        title = _html.escape(r.get("title", ""))
+        if r.get("url"):
+            title = (f'<a href="{_html.escape(_norm_url(r["url"]))}" '
+                     f'style="color:{t["heading"]};text-decoration:underline;">{title}</a>')
+        rows.append(f'<div style="font-size:18px;font-weight:800;color:{t["heading"]};line-height:1.3;">{title}</div>')
+        if r.get("source"):
+            rows.append(f'<div style="font-size:13px;color:{t["muted"]};text-transform:uppercase;'
+                        f'letter-spacing:0.08em;padding-top:4px;">{_html.escape(r["source"])}</div>')
+        if r.get("why"):
+            why = _BOLD_RE.sub(rf'<strong style="color:{t["accent_text"]};font-weight:700;">\1</strong>',
+                               _html.escape(r["why"]))
+            rows.append(f'<div style="font-size:16px;color:{t["text"]};line-height:1.55;padding-top:10px;">{why}</div>')
+    label = f'<div style="{s["card_label"]}">📚&nbsp;&nbsp;Pour aller plus loin</div>'
+    card = f'<div style="{s["card"]}"><div style="{s["card_pad"]}">{"".join(rows)}</div></div>'
+    return label + card
+
+
+def render_body_html(body_md: str, go_further: list | None = None) -> str:
     renderer = _RichBody()
     md = mistune.create_markdown(renderer=renderer)
     out = []
     for forced, chunk in segment(body_md):
-        renderer.forced = forced
-        out.append(md(chunk))
+        if forced == "gofurther":   # structured resource cards (from front-matter)
+            out.append(_gofurther_rich(go_further or []))
+        elif forced == "card":   # each beat in its own sub-card
+            renderer.forced = None
+            out.append(f'<div class="subcard">\n{md(chunk)}</div>\n')
+        else:
+            renderer.forced = forced
+            out.append(md(chunk))
     renderer.forced = None
     return "".join(out)
 
@@ -225,6 +295,9 @@ def _email_styles(t: dict) -> dict:
         "intro": f"font-size:19px;line-height:1.62;color:{t['text']};margin:0;",
         "subtitle": f"font-size:20px;font-style:italic;line-height:1.4;color:{t['heading']};margin:0 0 14px;",
         "clue": f"font-size:15px;font-style:italic;color:{t['muted']};margin-top:8px;",
+        "answer": f"font-size:17px;line-height:1.55;color:{t['text']};margin:10px 0 0;",
+        "card_label": f"margin:26px 32px 4px;font-size:15px;font-weight:800;letter-spacing:0.13em;"
+                      f"text-transform:uppercase;color:{t['accent_text']};",
         "row": f"font-size:17px;line-height:1.55;color:{t['text']};margin:0 0 10px;",
         "mark_gold": f"color:{t['accent_text']};font-weight:900;",
         "mark_salmon": "color:#e8a07a;font-weight:900;",
@@ -309,6 +382,11 @@ class _EmailBody(HTMLRenderer):
             out = self.close_card() + self._band(title)
             self._seen_act = True
             return out
+        if title in CARD_LIST_SECTIONS:
+            # heading is a plain label; each item becomes its own sub-card (no nesting)
+            emoji = EMOJI_BY_TITLE.get(title, "")
+            chip = f'<span style="font-size:17px;">{emoji}</span>&nbsp;&nbsp;' if emoji else ""
+            return self.close_card() + f'<div style="{self.s["card_label"]}">{chip}{title}</div>\n'
         return self.close_card() + self._open_card(title)
 
     def list_item(self, text: str) -> str:
@@ -326,13 +404,11 @@ class _EmailBody(HTMLRenderer):
         style = self.forced or LIST_STYLE.get(self.section, "plain")
         if style == "box":
             html = "".join(
-                f'<div style="{self.s["row"]}"><span style="{self.s["mark_gold"]}">&rarr;</span> {it}</div>'
+                f'<div style="{self.s["row"]}"><span style="{self.s["mark_gold"]}">›</span> {it}</div>'
                 for it in items)
             return self._content(html)
-        mark = "~" if style == "salmon" else "›"
-        mstyle = self.s["mark_salmon"] if style == "salmon" else self.s["mark_gold"]
         html = "".join(
-            f'<div style="{self.s["row"]}"><span style="{mstyle}">{mark}</span> {it}</div>'
+            f'<div style="{self.s["row"]}"><span style="{self.s["mark_gold"]}">›</span> {it}</div>'
             for it in items)
         return self._content(html)
 
@@ -342,6 +418,10 @@ class _EmailBody(HTMLRenderer):
 
     def paragraph(self, text: str) -> str:
         stripped = text.strip()
+        if stripped.startswith("→"):   # beat answer — gold arrow, no "Réponse" label
+            return self._content(
+                f'<div style="{self.s["answer"]}"><span style="{self.s["mark_gold"]}">›</span> '
+                f'{stripped[1:].strip()}</div>')
         if stripped.startswith("↩"):
             return self._content(f'<div style="{self.s["clue"]}">↩ {stripped[1:].strip()}</div>')
         if stripped.startswith("<em>") and stripped.endswith("</em>"):
@@ -356,15 +436,21 @@ class _EmailBody(HTMLRenderer):
         return f'<strong style="color:{self.t["accent_text"]};font-weight:700;">{text}</strong>'
 
 
-def render_email_body_html(body_md: str, theme: str) -> str:
+def render_email_body_html(body_md: str, theme: str, go_further: list | None = None) -> str:
     from renderer.newsletter.renderer import EMAIL_THEMES
     t = EMAIL_THEMES[theme]
     renderer = _EmailBody(_email_styles(t), t)
     md = mistune.create_markdown(renderer=renderer)
     out = []
     for forced, chunk in segment(body_md):
-        renderer.forced = forced
-        out.append(md(chunk))
+        if forced == "gofurther":   # structured resource cards (from front-matter)
+            out.append(renderer.close_card() + _gofurther_email(go_further or [], renderer.s, renderer.t))
+        elif forced == "card":   # each beat in its own surface sub-card
+            renderer.forced = None
+            out.append(renderer.close_card() + renderer._open_card() + md(chunk) + renderer.close_card())
+        else:
+            renderer.forced = forced
+            out.append(md(chunk))
     renderer.forced = None
     out.append(renderer.close_card())  # close the final card
     return "".join(out)
@@ -390,7 +476,7 @@ def render_html(md_text: str) -> str:
     fm, body_md = parse_source(md_text)
     ctx = _shell_ctx(fm)
     ctx["cat_pill"] = pill(fm.get("category"), "dark")
-    ctx["body"] = render_body_html(body_md)
+    ctx["body"] = render_body_html(body_md, fm.get("go_further"))
     return _env().get_template("newsletter.html").render(logo=_LOGO_DATA_URL, **ctx)
 
 
@@ -400,6 +486,6 @@ def render_email_html(md_text: str, theme: str = "light") -> str:
     fm, body_md = parse_source(md_text)
     ctx = _shell_ctx(fm)
     ctx["cat_pill"] = pill(fm.get("category"), theme)
-    ctx["body"] = render_email_body_html(body_md, theme)
+    ctx["body"] = render_email_body_html(body_md, theme, fm.get("go_further"))
     return _env().get_template("newsletter.email.html").render(
         logo=_EMAIL_LOGO, t=EMAIL_THEMES[theme], **ctx)

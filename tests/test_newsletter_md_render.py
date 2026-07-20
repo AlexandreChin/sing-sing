@@ -42,9 +42,11 @@ def test_segment_no_container_is_single_chunk():
     assert segs == [(None, "just text\nmore")]
 
 
-def test_inference_salmon_list_under_angles_morts():
+def test_angles_morts_list_is_gold_chevron():
+    # salmon removed — one arrow type (gold ›) everywhere, incl. Angles morts
     html = render_body_html("### Angles morts\n\n- un\n- deux\n")
-    assert 'class="mk salmon"' in html and "~" in html
+    assert 'class="mk gold"' in html and "›" in html
+    assert 'class="mk salmon"' not in html and "~" not in html
 
 
 def test_inference_box_list_under_a_retenir():
@@ -63,9 +65,9 @@ def test_ordered_list_is_spine():
 
 
 def test_forced_style_overrides_section_default():
-    # Under "Les réflexes" the default is gold; ::: salmon forces salmon.
-    html = render_body_html("### Les réflexes\n\n::: salmon\n- x\n:::\n")
-    assert 'class="mk salmon"' in html
+    # Under "Les réflexes" the default is gold plain; ::: box forces the boxed style.
+    html = render_body_html("### Les réflexes\n\n::: box\n- x\n:::\n")
+    assert 'class="box"' in html and "<li>" in html
 
 
 def test_heading_icon_attribute_sets_icon_and_strips_braces():
@@ -149,10 +151,10 @@ def test_email_body_inline_styles_no_svg(theme):
 
 
 @pytest.mark.parametrize("theme", ["light", "dark"])
-def test_email_salmon_and_bold(theme):
+def test_email_list_gold_and_bold(theme):
     html = render_email_body_html(
         "### Angles morts\n\n- un **gras**\n", theme)
-    assert "~" in html
+    assert "›" in html and "~" not in html
     assert "<strong" in html and "font-weight:700" in html
 
 
@@ -251,12 +253,13 @@ def test_generated_markdown_has_front_matter_and_parses():
     assert "## Pourquoi cet article" in body
 
 
-def test_generated_markdown_go_further_includes_title_and_source():
+def test_generated_markdown_go_further_in_front_matter():
     md = generate_markdown(sample_doc(), hook_title="Le hook")
-    # R1 carries a canonical url → title renders as a markdown link
-    assert "**[R1](https://ademe.fr)** — S1 · étude" in md
-    # R2 has no url → plain bold title
-    assert "**R2** — S2 · rapport" in md
+    # go_further is structured YAML in the front-matter (rendered as pill cards)
+    assert "go_further:" in md
+    assert 'title: "R1"' in md and 'source: "S1"' in md
+    assert 'url: "https://ademe.fr"' in md
+    assert "**[R1]" not in md   # no longer a prose line in the body
 
 
 def test_render_from_markdown_writes_three_html_files(tmp_path):

@@ -53,19 +53,22 @@ strong { color: #d4aa00; font-weight: 700; }
 .spine .row { display: flex; gap: 16px; align-items: flex-start; font-size: 17px; line-height: 1.5; color: #e6e6e6; }
 .spine .row .n { flex: none; width: 26px; height: 26px; border-radius: 50%; background: #d4aa00; color: #0b0b0b; font-weight: 900; font-size: 14px; display: flex; align-items: center; justify-content: center; }
 
-/* décryptage (chronological pass) */
-.decrypt { border-left: 3px solid #d4aa00; padding: 2px 0 2px 22px; margin: 22px 0; break-inside: avoid; }
-.decrypt .claim { font-size: 17px; font-style: italic; line-height: 1.4; color: #f0f0f0; }
-.decrypt p { font-size: 16px; color: #dedede; margin: 0; }
-.decrypt .clue { font-size: 15px; font-style: italic; color: #9a9a9a; margin-top: 10px; }
-.decrypt .clue .ret { color: #d4aa00; font-style: normal; font-weight: 700; }
+/* décryptage (chronological pass) — each beat / resource in its own sub-card */
+.subcard { background: #141414; border: 1px solid #242424; border-radius: 12px; padding: 22px 26px; margin: 16px 0; break-inside: avoid; }
+.subcard > :first-child { margin-top: 0; }
+.subcard > :last-child { margin-bottom: 0; }
+.decrypt { border-left: 3px solid #d4aa00; padding: 2px 0 2px 18px; margin: 0 0 6px; }
+.decrypt .claim { font-size: 18px; font-style: italic; line-height: 1.4; color: #f0f0f0; }
+/* beat answer — gold arrow, no italic, no "Réponse" label */
+.answer { font-size: 16px; line-height: 1.55; color: #dedede; margin-top: 12px; }
+.answer .ans-mk { color: #d4aa00; font-weight: 900; margin-right: 8px; }
 .kicker.vue { margin-top: 48px; }
 
 /* à retenir box */
 .box { background: #161616; border-left: 4px solid #d4aa00; border-radius: 0 10px 10px 0; padding: 24px 28px; break-inside: avoid; }
 .box ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
 .box li { position: relative; padding-left: 30px; font-size: 17px; line-height: 1.5; color: #e6e6e6; }
-.box li::before { content: "→"; position: absolute; left: 0; color: #d4aa00; font-weight: 900; }
+.box li::before { content: "\203A"; position: absolute; left: 0; color: #d4aa00; font-weight: 900; }
 
 /* décryptage sections */
 .sec { margin-top: 26px; break-inside: avoid; }
@@ -83,11 +86,15 @@ strong { color: #d4aa00; font-weight: 700; }
 .verdict { background: #161616; border-radius: 12px; padding: 28px 30px; break-inside: avoid; }
 .verdict p { font-size: 18px; line-height: 1.55; color: #eaeaea; margin-top: 16px; }
 
-/* resource */
-.resource { border: 1px solid #2a2a2a; border-radius: 10px; padding: 20px 24px; break-inside: avoid; }
-.resource .t { font-size: 19px; font-weight: 800; color: #f0f0f0; }
-.resource .s { font-size: 14px; color: #8a8a8a; margin-top: 4px; text-transform: uppercase; letter-spacing: .08em; }
-.resource .w { font-size: 16px; color: #dedede; line-height: 1.5; margin-top: 10px; }
+/* « Pour aller plus loin » — one card; each resource: type pill, title, source, why (6221e68) */
+.restype { margin-bottom: 9px; }
+.pill { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #1a1400; background: #d4aa00; padding: 4px 10px; border-radius: 4px; }
+.rtitle { font-size: 21px; font-weight: 800; color: #f0f0f0; line-height: 1.3; }
+.rtitle a { color: #f0f0f0; text-decoration: underline; text-decoration-color: #666; }
+.rsource { font-size: 13px; color: #8a8a8a; text-transform: uppercase; letter-spacing: .08em; margin-top: 5px; }
+.rwhy { font-size: 16px; color: #dedede; line-height: 1.55; margin-top: 11px; }
+.rwhy strong { color: #d4aa00; }
+.res-sep { height: 1px; background: #2a2a2a; margin: 22px 0; }
 
 /* open question (keystone quote in L'architecture, "La question" in À vous de juger) */
 .openq { margin-top: 22px; padding: 18px 24px; background: #161616; border-left: 3px solid #d4aa00; border-radius: 0 10px 10px 0; font-size: 18px; font-style: italic; line-height: 1.5; color: #eaeaea; break-inside: avoid; }
@@ -124,27 +131,41 @@ strong { color: #d4aa00; font-weight: 700; }
 <h3 class="subhead"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Le lexique</h3>
 <div class="plain"><div class="row"><span class="mk gold">›</span><span><strong>Croisière aérienne (fly &amp; cruise)</strong> — Formule où un avion transporte un petit groupe d'une étape à l'autre, comme le ferait un navire de croisière.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Banquise</strong> — Étendue de glace formée par le gel de l'eau de mer, présente aux pôles.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Bilan carbone</strong> — Quantité de gaz à effet de serre émise par une activité, exprimée en tonnes de CO2.</span></div><div class="row"><span class="mk gold">›</span><span><strong>IAATO</strong> — Association internationale des voyagistes antarctiques, qui fixe les règles que ses membres s'appliquent eux-mêmes.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Passage de Drake</strong> — Bras de mer réputé agité séparant l'Amérique du Sud de l'Antarctique.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Tourisme de la dernière chance</strong> — Fait de visiter un lieu menacé de disparition précisément parce qu'il pourrait bientôt ne plus exister.</span></div></div>
 <div class="kicker"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Au fil de la lecture</div>
+<div class="subcard">
 <div class="decrypt"><div class="claim">« Pendant que la France étouffe sous la canicule, ceux qui peuvent se le permettre participent au boom du tourisme polaire. »</div></div>
 <p>🖼️ <strong>Cadrage</strong> — Repérez le jugement moral posé avant le premier fait.</p>
-<p><strong>Réponse —</strong> L'article s'ouvre en plaçant côte à côte la <strong>canicule subie</strong> en France et le loisir de ceux qui « peuvent se le permettre ». Ce contraste installe un reproche moral avant le premier chiffre. Rien n'est faux ; c'est l'<strong>ordre</strong> qui oriente — on lit la suite avec un jugement déjà amorcé.</p>
+<div class="answer"><span class="ans-mk">›</span> L'article s'ouvre en plaçant côte à côte la <strong>canicule subie</strong> en France et le loisir de ceux qui « peuvent se le permettre ». Ce contraste installe un reproche moral avant le premier chiffre. Rien n'est faux ; c'est l'<strong>ordre</strong> qui oriente — on lit la suite avec un jugement déjà amorcé.</div>
+</div>
+<div class="subcard">
 <div class="decrypt"><div class="claim">« En contribuant à réchauffer la planète avec ces croisières aériennes, ils détruisent les paysages qu'ils observent. »</div></div>
 <p>🔗 <strong>Causalité</strong> — Repérez le glissement du global au local.</p>
-<p><strong>Réponse —</strong> C'est le cœur de la thèse. Notez le passage du <strong>global au local</strong> : contribuer au réchauffement planétaire n'est pas la même chose que détruire ce paysage-là, celui qu'on vient visiter. Le lien est posé comme une évidence ; il reste à établir. Cause directe, ou contribution diffuse parmi des milliers d'autres ?</p>
+<div class="answer"><span class="ans-mk">›</span> C'est le cœur de la thèse. Notez le passage du <strong>global au local</strong> : contribuer au réchauffement planétaire n'est pas la même chose que détruire ce paysage-là, celui qu'on vient visiter. Le lien est posé comme une évidence ; il reste à établir. Cause directe, ou contribution diffuse parmi des milliers d'autres ?</div>
+</div>
+<div class="subcard">
 <div class="decrypt"><div class="claim">« entre 15 et 25 tonnes de CO2 par passager, soit plus du double de l'empreinte carbone annuelle moyenne d'un Français »</div></div>
 <p>🔎 <strong>Sources</strong> — Cherchez d'où vient le chiffre et à quoi il se compare.</p>
-<p><strong>Réponse —</strong> La comparaison à l'<strong>empreinte d'un Français</strong> (9 à 10 tonnes par an) est parlante et tient. En revanche la fourchette 15-25 tonnes n'est pas sourcée indépendamment — elle vient des agences. Un repère utile, à condition de savoir qui l'a calculé.</p>
+<div class="answer"><span class="ans-mk">›</span> La comparaison à l'<strong>empreinte d'un Français</strong> (9 à 10 tonnes par an) est parlante et tient. En revanche la fourchette 15-25 tonnes n'est pas sourcée indépendamment — elle vient des agences. Un repère utile, à condition de savoir qui l'a calculé.</div>
+</div>
+<div class="subcard">
 <div class="decrypt"><div class="claim">« le nombre de voyageurs optant pour une croisière avec vol a augmenté de plus de 4 400 % en vingt ans, passant de 230 en 2004 à plus de 10 000 en 2024 »</div></div>
 <p>📊 <strong>Chiffres</strong> — Cherchez la base de départ de ce pourcentage.</p>
-<p><strong>Réponse —</strong> Le pourcentage est spectaculaire, mais il part de <strong>230 voyageurs</strong> en 2004 : une base minuscule gonfle mécaniquement le taux. Le chiffre provient en outre d'un <strong>opérateur</strong> du marché décrit. Une hausse énorme sur un point de départ minime mesure surtout la petitesse de ce départ.</p>
+<div class="answer"><span class="ans-mk">›</span> Le pourcentage est spectaculaire, mais il part de <strong>230 voyageurs</strong> en 2004 : une base minuscule gonfle mécaniquement le taux. Le chiffre provient en outre d'un <strong>opérateur</strong> du marché décrit. Une hausse énorme sur un point de départ minime mesure surtout la petitesse de ce départ.</div>
+</div>
+<div class="subcard">
 <div class="decrypt"><div class="claim">« De 22 000 voyageurs au début des années 2000, on est passé à plus de 120 000 aujourd'hui »</div></div>
 <p>📊 <strong>Chiffres</strong> — Cherchez le total de référence qui manque.</p>
-<p><strong>Réponse —</strong> Les chiffres croissants s'empilent d'un paragraphe à l'autre et donnent une impression d'<strong>emballement</strong>. Il manque le dénominateur : quelle part ces flux représentent-ils du CO2 mondial ? Sans total de référence, l'accumulation suggère une ampleur qu'aucune proportion ne vient confirmer.</p>
+<div class="answer"><span class="ans-mk">›</span> Les chiffres croissants s'empilent d'un paragraphe à l'autre et donnent une impression d'<strong>emballement</strong>. Il manque le dénominateur : quelle part ces flux représentent-ils du CO2 mondial ? Sans total de référence, l'accumulation suggère une ampleur qu'aucune proportion ne vient confirmer.</div>
+</div>
+<div class="subcard">
 <div class="decrypt"><div class="claim">« les sièges de la classe économique sont d'ailleurs retirés afin de laisser la place au carburant nécessaire au vol retour, faute d'infrastructures de ravitaillement »</div></div>
 <p>🔎 <strong>Sources</strong> — Demandez si ce détail est vérifiable ou seulement frappant.</p>
-<p><strong>Réponse —</strong> Le détail est frappant et installe un <strong>sentiment d'absurdité</strong>. Il est attribué à un géographe mais reste difficile à vérifier de façon indépendante. Un fait marquant fonctionne comme une image ; il gagne à être <strong>recoupé</strong> avant d'être tenu pour acquis.</p>
+<div class="answer"><span class="ans-mk">›</span> Le détail est frappant et installe un <strong>sentiment d'absurdité</strong>. Il est attribué à un géographe mais reste difficile à vérifier de façon indépendante. Un fait marquant fonctionne comme une image ; il gagne à être <strong>recoupé</strong> avant d'être tenu pour acquis.</div>
+</div>
+<div class="subcard">
 <div class="decrypt"><div class="claim">« Paradoxalement, la fonte de la banquise favorise l'essor du tourisme polaire, dans une forme de tourisme de la dernière chance. »</div></div>
 <p>🖼️ <strong>Cadrage</strong> — Distinguez le fait observé de l'interprétation.</p>
-<p><strong>Réponse —</strong> L'expression « tourisme de la <strong>dernière chance</strong> » est une interprétation, présentée ici comme un constat. Elle nomme un moteur réel — la peur de la disparition — mais tait ce que voir de ses yeux change chez le voyageur. Ce regard <strong>protège-t-il</strong>, ou ne fait-il que consommer ?</p>
+<div class="answer"><span class="ans-mk">›</span> L'expression « tourisme de la <strong>dernière chance</strong> » est une interprétation, présentée ici comme un constat. Elle nomme un moteur réel — la peur de la disparition — mais tait ce que voir de ses yeux change chez le voyageur. Ce regard <strong>protège-t-il</strong>, ou ne fait-il que consommer ?</div>
+</div>
 <div class="kicker"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="2" y="16" width="6" height="5" rx="1"/><rect x="16" y="16" width="6" height="5" rx="1"/><path d="M12 8v5M5 13h14M5 13v3M19 13v3"/></svg>Après la lecture</div>
 <h3 class="subhead"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="2" y="16" width="6" height="5" rx="1"/><rect x="16" y="16" width="6" height="5" rx="1"/><path d="M12 8v5M5 13h14M5 13v3M19 13v3"/></svg>L'architecture de l'argument</h3>
 <div class="spine"><div class="row"><span class="n">1</span><span>Point de départ : le tourisme polaire <strong>croît vite</strong> et émet beaucoup de CO2 par passager.</span></div><div class="row"><span class="n">2</span><span>Deuxième maillon : ces émissions <strong>réchauffent</strong> la planète et accélèrent la fonte des pôles.</span></div><div class="row"><span class="n">3</span><span>Troisième maillon : en réchauffant, les voyageurs <strong>détruisent les paysages</strong> qu'ils viennent admirer.</span></div><div class="row"><span class="n">4</span><span>Conclusion : il faudrait donc <strong>restreindre</strong>, voire sanctuariser, cette activité.</span></div><div class="row"><span class="n">5</span><span>Le maillon à tester : chaque impact est-il <strong>rapporté à son échelle</strong> et son lien au tourisme établi ?</span></div></div>
@@ -156,7 +177,7 @@ strong { color: #d4aa00; font-weight: 700; }
 <h3 class="subhead"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Les objections les plus solides</h3>
 <div class="plain"><div class="row"><span class="mk gold">›</span><span>Un tourisme encadré peut transformer des visiteurs en <strong>ambassadeurs</strong> de la conservation, générant soutiens politiques et financements à la protection des pôles. Si la sensibilisation protège plus qu'elle n'émet, le <strong>bilan net</strong> pourrait être positif — l'argument du « non-sens » s'affaiblirait.</span></div></div>
 <h3 class="subhead"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>Angles morts</h3>
-<div class="plain"><div class="row"><span class="mk salmon">~</span><span>Les retombées économiques locales pour le Groenland ou l'Islande, qui misent sur ce tourisme, ne sont pas évoquées.</span></div><div class="row"><span class="mk salmon">~</span><span>Aucune voix de touriste, ni de spécialiste défendant l'activité, n'est convoquée.</span></div><div class="row"><span class="mk salmon">~</span><span>Aucune comparaison avec d'autres formes de tourisme long-courrier tout aussi émettrices n'est proposée.</span></div></div>
+<div class="plain"><div class="row"><span class="mk gold">›</span><span>Les retombées économiques locales pour le Groenland ou l'Islande, qui misent sur ce tourisme, ne sont pas évoquées.</span></div><div class="row"><span class="mk gold">›</span><span>Aucune voix de touriste, ni de spécialiste défendant l'activité, n'est convoquée.</span></div><div class="row"><span class="mk gold">›</span><span>Aucune comparaison avec d'autres formes de tourisme long-courrier tout aussi émettrices n'est proposée.</span></div></div>
 <h3 class="subhead"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Nuances</h3>
 <div class="plain"><div class="row"><span class="mk gold">›</span><span>Le réchauffement et la fonte des pôles sont des faits établis ; c'est le <strong>poids causal</strong> du tourisme sur un paysage donné qui reste en débat.</span></div><div class="row"><span class="mk gold">›</span><span>La perturbation de la faune en saison de reproduction est plausible ; reste à établir son <strong>ampleur</strong> espèce par espèce.</span></div><div class="row"><span class="mk gold">›</span><span>Que l'autorégulation soit « insuffisante » est une appréciation ; le niveau de contrainte souhaitable demeure un <strong>arbitrage ouvert</strong>.</span></div></div>
 <h3 class="subhead"><svg viewBox="0 0 24 24"><path d="M9 4v6l-2 4v2h10v-2l-2-4V4"/><path d="M12 16v5"/><path d="M8 4h8"/></svg>À retenir</h3>
@@ -166,19 +187,8 @@ strong { color: #d4aa00; font-weight: 700; }
 <h3 class="subhead"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Les questions à se poser</h3>
 <div class="openq">Quelle est la part réelle du tourisme polaire dans les émissions mondiales, et pèse-t-elle assez pour en faire une priorité ?</div>
 <div class="openq">Une restriction forte réduirait-elle vraiment les émissions, et à quel coût pour les économies qui en vivent ?</div>
-<h3 class="subhead"><svg viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>Pour aller plus loin</h3>
-<p><strong><a href="https://ademe.fr">Empreinte carbone moyenne des Français</a></strong> — ADEME · données</p>
-<p>Situe les 15-25 tonnes du voyage face aux <strong>9-10 tonnes</strong> annuelles d'un Français.</p>
-<p><strong><a href="https://ipcc.ch">Rapports sur le réchauffement des régions polaires</a></strong> — GIEC (IPCC) · rapport</p>
-<p>Éclaire l'état des connaissances sur la <strong>fonte</strong> des glaces, indépendamment des opérateurs.</p>
-<p><strong>Le Traité sur l'Antarctique</strong> — Secrétariat du Traité sur l'Antarctique · référence</p>
-<p>Explique le <strong>cadre juridique</strong> qui régit les activités humaines sur le continent.</p>
-<p><strong>Données de fréquentation touristique de l'Antarctique</strong> — IAATO · données</p>
-<p>Permet de recouper les chiffres de flux directement à la <strong>source</strong> citée par l'article.</p>
-<p><strong>Recherches sur le « last chance tourism »</strong> — Travaux académiques · étude</p>
-<p>Interroge si visiter un lieu menacé nourrit sa <strong>protection</strong> ou seulement sa consommation.</p>
-<p><strong>Statut de conservation du manchot empereur</strong> — UICN · données</p>
-<p>Documente le classement « <strong>en danger</strong> » évoqué à propos de la faune polaire.</p>
+<div class="kicker"><svg viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>Pour aller plus loin</div>
+<div class="subcard reslist"><div class="restype"><span class="pill">données</span></div><div class="rtitle"><a href="https://ademe.fr">Empreinte carbone moyenne des Français</a></div><div class="rsource">ADEME</div><div class="rwhy">Situe les 15-25 tonnes du voyage face aux <strong>9-10 tonnes</strong> annuelles d&#x27;un Français.</div><div class="res-sep"></div><div class="restype"><span class="pill">rapport</span></div><div class="rtitle"><a href="https://ipcc.ch">Rapports sur le réchauffement des régions polaires</a></div><div class="rsource">GIEC (IPCC)</div><div class="rwhy">Éclaire l&#x27;état des connaissances sur la <strong>fonte</strong> des glaces, indépendamment des opérateurs.</div><div class="res-sep"></div><div class="restype"><span class="pill">référence</span></div><div class="rtitle">Le Traité sur l&#x27;Antarctique</div><div class="rsource">Secrétariat du Traité sur l&#x27;Antarctique</div><div class="rwhy">Explique le <strong>cadre juridique</strong> qui régit les activités humaines sur le continent.</div><div class="res-sep"></div><div class="restype"><span class="pill">données</span></div><div class="rtitle">Données de fréquentation touristique de l&#x27;Antarctique</div><div class="rsource">IAATO</div><div class="rwhy">Permet de recouper les chiffres de flux directement à la <strong>source</strong> citée par l&#x27;article.</div><div class="res-sep"></div><div class="restype"><span class="pill">étude</span></div><div class="rtitle">Recherches sur le « last chance tourism »</div><div class="rsource">Travaux académiques</div><div class="rwhy">Interroge si visiter un lieu menacé nourrit sa <strong>protection</strong> ou seulement sa consommation.</div><div class="res-sep"></div><div class="restype"><span class="pill">données</span></div><div class="rtitle">Statut de conservation du manchot empereur</div><div class="rsource">UICN</div><div class="rwhy">Documente le classement « <strong>en danger</strong> » évoqué à propos de la faune polaire.</div></div>
 <h3 class="subhead"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Avant de partir</h3>
 <div class="plain"><div class="row"><span class="mk gold">›</span><span><strong>Abonnez-vous</strong> à la newsletter pour recevoir chaque décryptage.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Partagez</strong> cette édition à quelqu'un qui aime lire de près.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Réagissez</strong> et commentez sur Instagram : <a href="https://instagram.com/singsing.media">@singsing.media</a>.</span></div></div>
 
