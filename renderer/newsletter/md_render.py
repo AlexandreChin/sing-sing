@@ -216,7 +216,7 @@ EMOJI_BY_TITLE = {
     "À retenir": "🛍", "Les réflexes critiques": "💡", "Les enjeux de fond": "🤔",
     "Les objections les plus solides": "🛡️", "Angles morts": "⚠️", "Nuances": "⚖️",
     "Les questions à se poser": "❓", "À qui profite ce cadrage ?": "🎯",
-    "Pour aller plus loin": "📚", "Avant de partir": "✉️",
+    "Pour aller plus loin": "📚", "Avant de partir": "📣",
 }
 
 

@@ -31,8 +31,6 @@ def _valid_data():
                     {"title": "R2", "source": "S2", "why": "W.", "type": "rapport"},
                     {"title": "R3", "source": "S3", "why": "W.", "type": "livre"},
                     {"title": "R4", "source": "S4", "why": "W.", "type": "données"}],
-        share_line="Transférez.",
-        reply_prompt="Répondez.",
         signoff="Bye.",
     )
 
@@ -142,9 +140,3 @@ def test_go_further_out_of_range_fails():
     d = _valid_data()
     d["go_further"] = d["go_further"][:2]
     assert any("go_further" in e for e in _validate(d))
-
-
-def test_empty_share_reply_fails():
-    d = _valid_data()
-    d["share_line"] = ""
-    assert any("share_line" in e for e in _validate(d))

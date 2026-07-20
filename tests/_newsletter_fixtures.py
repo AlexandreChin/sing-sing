@@ -44,8 +44,6 @@ def sample_doc() -> NewsletterDocument:
                     {"title": "R2", "source": "S2", "why": "Pourquoi.", "type": "rapport"},
                     {"title": "R3", "source": "S3", "why": "Pourquoi.", "type": "livre"},
                     {"title": "R4", "source": "S4", "why": "Pourquoi.", "type": "données"}],
-        share_line="Transférez ce numéro.",
-        reply_prompt="Ça tient ou ça craque ? Répondez.",
         signoff="À bientôt.",
     )
     return NewsletterDocument(analysis=full, presentation=pres)

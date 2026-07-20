@@ -111,6 +111,6 @@ signoff: {{ signoff | tojson }}
 {% endif %}{% endfor %}
 ### Avant de partir
 
-{{ share_line }}
-
-{{ reply_prompt }}
+- **Abonnez-vous** à la newsletter pour recevoir chaque décryptage.
+- **Partagez** cette édition à quelqu'un qui aime lire de près.
+- **Réagissez** et commentez sur Instagram : [@singsing.media](https://instagram.com/singsing.media).

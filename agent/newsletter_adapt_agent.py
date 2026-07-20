@@ -61,7 +61,7 @@ def _validate(data: dict) -> list[str]:
     pres = NewsletterPresentation.model_validate(data)
     errors = []
     for field in ("subject", "preheader", "intro", "selection_headline", "why_selected",
-                  "payoff", "context", "cui_bono", "share_line", "reply_prompt", "signoff"):
+                  "payoff", "context", "cui_bono", "signoff"):
         if not getattr(pres, field).strip():
             errors.append(f"{field} is empty")
     if not (3 <= len(pres.reflexes) <= 5):

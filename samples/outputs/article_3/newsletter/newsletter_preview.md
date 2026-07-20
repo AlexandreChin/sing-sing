@@ -159,9 +159,9 @@ La base scientifique pour distinguer le fait établi (les pôles se réchauffent
 
 ### Avant de partir
 
-Un proche s'est déjà fait emporter par un chiffre spectaculaire ? **Transférez-lui ce numéro** — le réflexe de la base de départ lui resservira.
-
-Et vous : ce **+4 400 %**, il tient ou il craque ? **Répondez à ce mail**, on lit tout.
+- **Abonnez-vous** à la newsletter pour recevoir chaque décryptage.
+- **Partagez** cette édition à quelqu'un qui aime lire de près.
+- **Réagissez** et commentez sur Instagram : [@singsing.media](https://instagram.com/singsing.media).
 
 ---
 
