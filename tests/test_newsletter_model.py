@@ -5,23 +5,24 @@ from models.newsletter_presentation import NewsletterPresentation, DecryptageIte
 
 def _base_kwargs(**overrides):
     kwargs = dict(
-        subject="Objet", preheader="Aperçu", intro="Intro.",
+        subject="Objet", preheader="Aperçu",
+        essentiel="L'article avance sa thèse et conclut.",
         selection_headline="Un cas d'école.",
-        why_selected="Pourquoi.", payoff="Gain.", context="Contexte.",
-        reflexes=["R1", "R2", "R3", "R4"],
+        why_selected="Pourquoi.", payoff="Gain.",
+        context="Contexte.",
+        reading_posture="Cadrage moral et chiffres-chocs.",
         decryptage=[
-            DecryptageItem(kind="fait", quote="Q1", presentation="fait", reading="L1."),
-            DecryptageItem(kind="faille", quote="Q2", presentation="Source unique", reading="M.", clue="une seule source ?"),
-            DecryptageItem(kind="fait", quote="Q3", presentation="attribué", reading="L2."),
-            DecryptageItem(kind="faille", quote="Q4", presentation="Glissement", reading="M2.", clue="mot neutre ?"),
+            DecryptageItem(kind="fait", quote="Q1", presentation="fait", reading="L1.", prompt="Repérez.", lens_ref="cadrage"),
+            DecryptageItem(kind="faille", quote="Q2", presentation="Source unique", reading="M.", prompt="Cherchez la source.", lens_ref="sources"),
+            DecryptageItem(kind="fait", quote="Q3", presentation="attribué", reading="L2.", prompt="Quelle base ?", lens_ref="chiffres"),
+            DecryptageItem(kind="faille", quote="Q4", presentation="Glissement", reading="M2.", prompt="Le mot est-il neutre ?", lens_ref="cadrage"),
         ],
-        exercices=[{"quote": "un chiffre", "prompt": "Repérez.", "answer": "La base."}],
         architecture={"keystone": "Sur quoi tient la thèse ?", "spine": ["A.", "B.", "C."]},
         a_emporter={"key_takeaways": ["T1.", "T2.", "T3.", "T4."],
                     "reflexes_critiques": [
-                        {"name": "Le réflexe A", "rule": "Règle A.", "reusable_on": "santé"},
-                        {"name": "Le réflexe B", "rule": "Règle B."},
-                        {"name": "Le réflexe C", "rule": "Règle C."}]},
+                        {"lens_ref": "chiffres", "rule": "Règle A.", "reusable_on": "santé"},
+                        {"lens_ref": "sources", "rule": "Règle B."},
+                        {"lens_ref": "causalite", "rule": "Règle C."}]},
         verdict={"enjeux": ["Enjeu 1.", "Enjeu 2."],
                  "objections": ["Objection 1."],
                  "angles_morts": ["A1", "A2"],
@@ -41,7 +42,7 @@ def _base_kwargs(**overrides):
 def test_presentation_accepts_decryptage_list():
     pres = NewsletterPresentation(**_base_kwargs())
     assert [d.kind for d in pres.decryptage] == ["fait", "faille", "fait", "faille"]
-    assert pres.decryptage[1].clue == "une seule source ?"
+    assert pres.decryptage[1].prompt == "Cherchez la source."
 
 
 def test_fact_check_and_failles_fields_removed():

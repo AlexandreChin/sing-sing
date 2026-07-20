@@ -9,7 +9,7 @@ meta_line: {{ meta_line | tojson }}
 signoff: {{ signoff | tojson }}
 ---
 
-{{ intro }}
+{{ essentiel }}
 
 ## Pourquoi cet article
 
@@ -25,10 +25,9 @@ signoff: {{ signoff | tojson }}
 
 {{ context }}
 
-### Les réflexes
-{% for r in reflexes %}
-- {{ r }}
-{%- endfor %}
+### Comment le lire
+
+{{ reading_posture }}
 {% if repere_facts %}
 ### Les faits à garder en tête
 {% for f in repere_facts %}
@@ -44,18 +43,10 @@ signoff: {{ signoff | tojson }}
 {% for d in decryptage %}
 > « {{ d.quote }} »
 
-{{ d.reading }}
-{% if d.clue %}
-↩ *« {{ d.clue }} »*
-{% endif %}{% endfor %}{% if exercices %}
-### À vous de repérer
-{% for ex in exercices %}
-> « {{ ex.quote }} »
+{% if d.lens_icon %}{{ d.lens_icon }} **{{ d.lens_name }}** — {% endif %}{{ d.prompt }}
 
-{{ ex.prompt }}
-
-**Réponse —** {{ ex.answer }}
-{% endfor %}{% endif %}
+**Réponse —** {{ d.reading }}
+{% endfor %}
 ## Après la lecture
 
 ### L'architecture de l'argument
@@ -95,8 +86,8 @@ signoff: {{ signoff | tojson }}
 {%- endfor %}
 
 ### Les réflexes critiques
-{% for r in a_emporter.reflexes_critiques %}
-- **{{ r.name }}** — {{ r.rule }}{% if r.reusable_on %} *(réutilisable : {{ r.reusable_on }})*{% endif %}
+{% for r in a_emporter.reflexes_critiques %}{% set L = LENSES.get(r.lens_ref, {}) %}
+- {{ L.icon }} **{{ L.name }}** — {{ r.rule }}{% if r.reusable_on %} *(réutilisable : {{ r.reusable_on }})*{% endif %}
 {%- endfor %}
 
 ### Les questions à se poser
