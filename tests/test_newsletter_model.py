@@ -15,8 +15,13 @@ def _base_kwargs(**overrides):
             DecryptageItem(kind="fait", quote="Q3", presentation="attribué", reading="L2."),
             DecryptageItem(kind="faille", quote="Q4", presentation="Glissement", reading="M2.", clue="mot neutre ?"),
         ],
+        exercices=[{"quote": "un chiffre", "prompt": "Repérez.", "answer": "La base."}],
         architecture={"keystone": "Sur quoi tient la thèse ?", "spine": ["A.", "B.", "C."]},
-        a_emporter={"key_takeaways": ["T1.", "T2.", "T3."], "reflexes_critiques": ["RC1.", "RC2.", "RC3."]},
+        a_emporter={"key_takeaways": ["T1.", "T2.", "T3.", "T4."],
+                    "reflexes_critiques": [
+                        {"name": "Le réflexe A", "rule": "Règle A.", "reusable_on": "santé"},
+                        {"name": "Le réflexe B", "rule": "Règle B."},
+                        {"name": "Le réflexe C", "rule": "Règle C."}]},
         verdict={"enjeux": ["Enjeu 1.", "Enjeu 2."],
                  "objections": ["Objection 1."],
                  "angles_morts": ["A1", "A2"],
@@ -24,7 +29,10 @@ def _base_kwargs(**overrides):
         cui_bono="Cui bono.",
         go_further=[{"title": "R1", "source": "S1", "why": "W.", "type": "étude"},
                     {"title": "R2", "source": "S2", "why": "W.", "type": "rapport"},
-                    {"title": "R3", "source": "S3", "why": "W.", "type": "livre"}],
+                    {"title": "R3", "source": "S3", "why": "W.", "type": "livre"},
+                    {"title": "R4", "source": "S4", "why": "W.", "type": "données"}],
+        share_line="Transférez.",
+        reply_prompt="Répondez.",
         signoff="Bye.",
     )
     kwargs.update(overrides)
