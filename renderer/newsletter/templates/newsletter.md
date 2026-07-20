@@ -47,7 +47,15 @@ signoff: {{ signoff | tojson }}
 {{ d.reading }}
 {% if d.clue %}
 ↩ *« {{ d.clue }} »*
-{% endif %}{% endfor %}
+{% endif %}{% endfor %}{% if exercices %}
+### À vous de repérer
+{% for ex in exercices %}
+> « {{ ex.quote }} »
+
+{{ ex.prompt }}
+
+**Réponse —** {{ ex.answer }}
+{% endfor %}{% endif %}
 ## Après la lecture
 
 ### L'architecture de l'argument
@@ -57,15 +65,9 @@ signoff: {{ signoff | tojson }}
 
 > {{ architecture.keystone }}
 
-### À retenir
-{% for t in a_emporter.key_takeaways %}
-- {{ t }}
-{%- endfor %}
+### À qui profite ce cadrage ?
 
-### Les réflexes critiques
-{% for r in a_emporter.reflexes_critiques %}
-- {{ r }}
-{%- endfor %}
+{{ cui_bono }}
 
 ### Les enjeux de fond
 {% for e in verdict.enjeux %}
@@ -82,17 +84,28 @@ signoff: {{ signoff | tojson }}
 - {{ a }}
 {%- endfor %}
 
+### À retenir
+{% for t in a_emporter.key_takeaways %}
+- {{ t }}
+{%- endfor %}
+
+### Les réflexes critiques
+{% for r in a_emporter.reflexes_critiques %}
+- **{{ r.name }}** — {{ r.rule }}{% if r.reusable_on %} *(réutilisable : {{ r.reusable_on }})*{% endif %}
+{%- endfor %}
+
 ### Les questions à se poser
 {% for q in verdict.questions %}
 > {{ q }}
 {% endfor %}
-### À qui profite ce cadrage ?
-
-{{ cui_bono }}
-
 ### Pour aller plus loin
 {% for r in go_further %}
-**{{ r.title }}**{% if r.source %} — {{ r.source }}{% endif %}{% if r.type %} · {{ r.type }}{% endif %}
+**{% if r.url %}[{{ r.title }}]({{ 'https://' + r.url if '://' not in r.url else r.url }}){% else %}{{ r.title }}{% endif %}**{% if r.source %} — {{ r.source }}{% endif %}{% if r.type %} · {{ r.type }}{% endif %}
 {% if r.why %}
 {{ r.why }}
 {% endif %}{% endfor %}
+### Avant de partir
+
+{{ share_line }}
+
+{{ reply_prompt }}
