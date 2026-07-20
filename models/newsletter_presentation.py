@@ -21,8 +21,9 @@ class DecryptageItem(BaseModel):
     kind: Literal["fait", "faille"]   # unused by rendering — kept for compatibility
     quote: str          # the article sentence examined (verbatim, « … »)
     presentation: str   # unused by rendering — kept for compatibility
-    reading: str        # our neutral critical reading — what to notice (2–4 sentences)
-    clue: str | None = None   # ≤12 words — the transferable reflex, echoing a paired pre-reading reflex
+    reading: str        # our neutral critical reading = the ANSWER (rendered "Réponse —"), 2–4 sentences
+    prompt: str | None = None   # ≤12 words — the lens-tagged instruction ("what to spot"), rendered before the answer
+    lens_ref: str | None = None   # canonical lens id (agent/lenses.py) this beat exercises — supplies the icon+name tag
 
 
 class Resource(BaseModel):
@@ -34,20 +35,14 @@ class Resource(BaseModel):
 
 
 class Reflexe(BaseModel):
-    """A named, collectible critical-reading reflex — the newsletter's transferable
-    payoff (rendered under "Les réflexes critiques"). `reusable_on` names other
-    domains the same tool applies to, to signal it generalizes beyond this article."""
-    name: str          # "Le réflexe de la base de départ"
-    rule: str          # the transferable one-liner
+    """A lens-anchored critical-reading reflex — the newsletter's transferable payoff
+    (rendered under "Les réflexes critiques"). Anchored to a canonical lens
+    (agent/lenses.py), which supplies its icon + name so it matches the beats that
+    exercised it. `rule` is this article's concrete application; `reusable_on` names
+    other domains it generalizes to."""
+    lens_ref: str      # canonical lens id (agent/lenses.py) — supplies icon + name
+    rule: str          # the transferable one-liner (this article's application)
     reusable_on: str | None = None   # domains it generalizes to — "santé, économie, sondages"
-
-
-class Exercice(BaseModel):
-    """A short "now you try" practice (rendered under "À vous de repérer"): a real
-    article quote to inspect, a prompt, and the folded answer."""
-    quote: str          # a verbatim article sentence to inspect
-    prompt: str         # what the reader should spot
-    answer: str         # the revealed answer, teaching the reflex
 
 
 class Architecture(BaseModel):
@@ -78,17 +73,17 @@ class NewsletterPresentation(BaseModel):
     carousel deck (same sections, same order, expanded; no grade/verdict)."""
     subject: str            # ≤12 words — email subject line
     preheader: str          # ≤15 words — inbox preview
-    intro: str              # hook / central tension (3–4 sentences)
+    # Avant de vous lancer — L'essentiel is the title-less lead paragraph (opens the newsletter)
+    essentiel: str            # L'essentiel de l'article — neutral ≈120–160-word restatement covering every element the analysis dissects (no critique)
     # Pourquoi cet article
     selection_headline: str   # the subtitle — punchy one-line "why we chose it"
     why_selected: str         # why we picked it to decrypt, expanded (2–3 sentences)
     payoff: str               # what the reader gains (2–3 sentences)
-    # Avant de vous lancer
+    # Avant de vous lancer (cont.)
     context: str              # Le contexte — the backdrop (3–4 sentences)
-    reflexes: list[str]       # 3–5 — Les réflexes: light "lenses before you read" (paired with, not restating, the named reflexes_critiques)
+    reading_posture: str      # Comment le lire — 1 sentence on the article's rhetorical shape (primes; the toolkit lives in reflexes_critiques)
     # Au fil de la lecture
     decryptage: list[DecryptageItem]    # 5–7, article-ordered — neutral reading moments
-    exercices: list[Exercice]           # 1–2 — À vous de repérer (a pool; the editor keeps ~1)
     # Après la lecture — L'architecture de l'argument
     architecture: Architecture
     # Après la lecture — À emporter

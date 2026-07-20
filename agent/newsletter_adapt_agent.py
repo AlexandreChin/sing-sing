@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 
 from agent._base import _call_with_retry, _j
+from agent.lenses import LENS_IDS
 from models.full_analysis import ArticleFullAnalysis
 from models.newsletter_presentation import NewsletterPresentation
 
@@ -60,36 +61,33 @@ def _load_carousel_backbone(analysis_path: str | Path | None) -> str | None:
 def _validate(data: dict) -> list[str]:
     pres = NewsletterPresentation.model_validate(data)
     errors = []
-    for field in ("subject", "preheader", "intro", "selection_headline", "why_selected",
-                  "payoff", "context", "cui_bono", "signoff"):
+    for field in ("subject", "preheader", "selection_headline", "why_selected",
+                  "payoff", "essentiel", "context", "reading_posture", "cui_bono", "signoff"):
         if not getattr(pres, field).strip():
             errors.append(f"{field} is empty")
-    if not (3 <= len(pres.reflexes) <= 5):
-        errors.append(f"reflexes must have 3–5 items, got {len(pres.reflexes)}")
     n = len(pres.decryptage)
     if not (5 <= n <= 7):
         errors.append(f"decryptage must have 5–7 items, got {n}")
     for i, d in enumerate(pres.decryptage):
-        if not d.quote.strip() or not d.reading.strip():
-            errors.append(f"decryptage[{i}] has an empty quote/reading")
-    if not (1 <= len(pres.exercices) <= 2):
-        errors.append(f"exercices must have 1–2 items, got {len(pres.exercices)}")
-    for i, ex in enumerate(pres.exercices):
-        if not ex.quote.strip() or not ex.prompt.strip() or not ex.answer.strip():
-            errors.append(f"exercices[{i}] has an empty quote/prompt/answer")
+        if not d.quote.strip() or not d.reading.strip() or not (d.prompt or "").strip():
+            errors.append(f"decryptage[{i}] has an empty quote/prompt/reading")
+        if d.lens_ref not in LENS_IDS:
+            errors.append(f"decryptage[{i}].lens_ref must be a canonical lens id, got {d.lens_ref!r}")
     # L'architecture de l'argument
     if not pres.architecture.keystone.strip():
         errors.append("architecture.keystone is empty")
     if not (3 <= len(pres.architecture.spine) <= 5):
         errors.append(f"architecture.spine must have 3–5 items, got {len(pres.architecture.spine)}")
     # À emporter
-    if not (4 <= len(pres.a_emporter.key_takeaways) <= 6):
-        errors.append(f"a_emporter.key_takeaways must have 4–6 items, got {len(pres.a_emporter.key_takeaways)}")
+    if not (3 <= len(pres.a_emporter.key_takeaways) <= 4):
+        errors.append(f"a_emporter.key_takeaways must have 3–4 items, got {len(pres.a_emporter.key_takeaways)}")
     if not (3 <= len(pres.a_emporter.reflexes_critiques) <= 5):
         errors.append(f"a_emporter.reflexes_critiques must have 3–5 items, got {len(pres.a_emporter.reflexes_critiques)}")
     for i, r in enumerate(pres.a_emporter.reflexes_critiques):
-        if not r.name.strip() or not r.rule.strip():
-            errors.append(f"a_emporter.reflexes_critiques[{i}] has an empty name/rule")
+        if r.lens_ref not in LENS_IDS:
+            errors.append(f"a_emporter.reflexes_critiques[{i}].lens_ref must be a canonical lens id, got {r.lens_ref!r}")
+        if not r.rule.strip():
+            errors.append(f"a_emporter.reflexes_critiques[{i}] has an empty rule")
     # À vous de juger
     if not (1 <= len(pres.verdict.enjeux) <= 3):
         errors.append(f"verdict.enjeux must have 1–3 items, got {len(pres.verdict.enjeux)}")

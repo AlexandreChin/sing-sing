@@ -3,24 +3,25 @@ from agent.newsletter_adapt_agent import _validate
 
 def _valid_data():
     return dict(
-        subject="Objet", preheader="Aperçu", intro="Intro.",
+        subject="Objet", preheader="Aperçu",
+        essentiel="L'article avance sa thèse et conclut.",
         selection_headline="Un cas d'école.",
-        why_selected="Pourquoi.", payoff="Gain.", context="Contexte.",
-        reflexes=["R1", "R2", "R3", "R4"],
+        why_selected="Pourquoi.", payoff="Gain.",
+        context="Contexte.",
+        reading_posture="Cadrage moral et chiffres-chocs.",
         decryptage=[
-            {"kind": "faille", "quote": "Q1", "presentation": "", "reading": "L1."},
-            {"kind": "faille", "quote": "Q2", "presentation": "", "reading": "M.", "clue": "une source ?"},
-            {"kind": "faille", "quote": "Q3", "presentation": "", "reading": "L2."},
-            {"kind": "faille", "quote": "Q4", "presentation": "", "reading": "M2.", "clue": "mot neutre ?"},
-            {"kind": "faille", "quote": "Q5", "presentation": "", "reading": "L3.", "clue": "quelle base ?"},
+            {"kind": "faille", "quote": "Q1", "presentation": "", "reading": "L1.", "prompt": "Repérez.", "lens_ref": "cadrage"},
+            {"kind": "faille", "quote": "Q2", "presentation": "", "reading": "M.", "prompt": "Cherchez la source.", "lens_ref": "sources"},
+            {"kind": "faille", "quote": "Q3", "presentation": "", "reading": "L2.", "prompt": "Quelle base ?", "lens_ref": "chiffres"},
+            {"kind": "faille", "quote": "Q4", "presentation": "", "reading": "M2.", "prompt": "Le mot est-il neutre ?", "lens_ref": "cadrage"},
+            {"kind": "faille", "quote": "Q5", "presentation": "", "reading": "L3.", "prompt": "Quelle base ?", "lens_ref": "chiffres"},
         ],
-        exercices=[{"quote": "un chiffre", "prompt": "Repérez.", "answer": "La base."}],
         architecture={"keystone": "Sur quoi tient la thèse ?", "spine": ["A.", "B.", "C."]},
         a_emporter={"key_takeaways": ["T1.", "T2.", "T3.", "T4."],
                     "reflexes_critiques": [
-                        {"name": "Le réflexe A", "rule": "Règle A.", "reusable_on": "santé"},
-                        {"name": "Le réflexe B", "rule": "Règle B."},
-                        {"name": "Le réflexe C", "rule": "Règle C."}]},
+                        {"lens_ref": "chiffres", "rule": "Règle A.", "reusable_on": "santé"},
+                        {"lens_ref": "sources", "rule": "Règle B."},
+                        {"lens_ref": "causalite", "rule": "Règle C."}]},
         verdict={"enjeux": ["Enjeu 1.", "Enjeu 2."],
                  "objections": ["Objection 1."],
                  "angles_morts": ["Omission 1", "Omission 2"],
@@ -63,17 +64,29 @@ def test_empty_reading_fails():
     assert any("decryptage" in e for e in _validate(d))
 
 
-def test_missing_clue_does_not_fail():
-    # clue is no longer required per-item now that the faits/failles quota is gone.
+def test_missing_prompt_fails():
+    # each beat is a quote → prompt → answer; the prompt (instruction) is required.
     d = _valid_data()
-    d["decryptage"][1].pop("clue")
-    assert _validate(d) == []
+    d["decryptage"][1].pop("prompt")
+    assert any("decryptage" in e for e in _validate(d))
 
 
-def test_reflexes_out_of_range_fails():
+def test_empty_reading_posture_fails():
     d = _valid_data()
-    d["reflexes"] = ["only one"]
-    assert any("reflexes" in e for e in _validate(d))
+    d["reading_posture"] = "  "
+    assert any("reading_posture" in e for e in _validate(d))
+
+
+def test_beat_bad_lens_ref_fails():
+    d = _valid_data()
+    d["decryptage"][0]["lens_ref"] = "pas_une_lentille"
+    assert any("lens_ref" in e for e in _validate(d))
+
+
+def test_reflexe_critique_bad_lens_ref_fails():
+    d = _valid_data()
+    d["a_emporter"]["reflexes_critiques"][0]["lens_ref"] = "bidon"
+    assert any("lens_ref" in e for e in _validate(d))
 
 
 def test_spine_out_of_range_fails():
@@ -118,21 +131,9 @@ def test_empty_cui_bono_fails():
     assert any("cui_bono" in e for e in _validate(d))
 
 
-def test_missing_exercices_fails():
+def test_reflexe_critique_needs_rule():
     d = _valid_data()
-    d["exercices"] = []
-    assert any("exercices" in e for e in _validate(d))
-
-
-def test_empty_exercice_answer_fails():
-    d = _valid_data()
-    d["exercices"][0]["answer"] = "  "
-    assert any("exercices" in e for e in _validate(d))
-
-
-def test_reflexe_critique_needs_name_and_rule():
-    d = _valid_data()
-    d["a_emporter"]["reflexes_critiques"][0]["name"] = ""
+    d["a_emporter"]["reflexes_critiques"][0]["rule"] = "  "
     assert any("reflexes_critiques" in e for e in _validate(d))
 
 

@@ -29,10 +29,10 @@ def test_decryptage_ctx_preserves_order_and_shape():
     assert all("kind" not in i and "verdict" not in i and "color" not in i for i in items)
 
 
-def test_decryptage_ctx_carries_quote_reading_clue():
+def test_decryptage_ctx_carries_quote_prompt_reading():
+    # each beat is a three-part exercise: quote → prompt (instruction) → reading (answer)
     items = _decryptage_ctx(sample_doc())
-    assert all(i.get("quote") and i.get("reading") for i in items)
-    assert [bool(i.get("clue")) for i in items] == [False, True, False, True, True]
+    assert all(i.get("quote") and i.get("prompt") and i.get("reading") for i in items)
 
 
 def test_markdown_structure_and_order():
@@ -76,12 +76,20 @@ def test_category_pill_renders_with_theme_colours():
     assert "#c59cf0" in generate_email_html(doc, "dark")    # dark text colour
 
 
+def test_essentiel_is_titleless_lead():
+    md = generate_markdown(sample_doc())
+    # the summary opens the newsletter, title-less, before "## Pourquoi cet article"
+    assert "### L'essentiel de l'article" not in md
+    assert md.index("L'article avance sa thèse et conclut.") < md.index("## Pourquoi cet article")
+
+
 def test_markdown_has_all_new_subsections():
     md = generate_markdown(sample_doc())
     for sub in ("### Les enjeux de fond", "### Les objections les plus solides",
                 "### Les questions à se poser", "### Les réflexes critiques",
-                "### À vous de repérer", "### Avant de partir"):
+                "### Avant de partir"):
         assert sub in md
+    assert "### À vous de repérer" not in md   # exercises removed (redundant with beats)
     assert "tient" not in md.lower() or "ce qui tient" not in md.lower()
 
 
@@ -96,18 +104,24 @@ def test_markdown_reordered_after_reading():
              "### Les questions à se poser", "### Pour aller plus loin", "### Avant de partir"]
     positions = [md.index(s) for s in order]
     assert positions == sorted(positions), "Après la lecture subsections out of order"
-    # the exercise lands at the end of "Au fil de la lecture", before "Après la lecture"
-    assert md.index("### À vous de repérer") < md.index("## Après la lecture")
 
 
 def test_named_reflexes_and_source_link_render():
     md = generate_markdown(sample_doc())
-    # named, tagged critical reflex
-    assert "**Le réflexe de la base**" in md and "*(réutilisable : santé, économie)*" in md
+    # lens-anchored critical reflex: icon + canonical name from agent/lenses.py
+    assert "📊 **Chiffres** — De combien à combien ?" in md
+    assert "*(réutilisable : santé, économie)*" in md
     # a canonical url renders as a markdown link on the resource title
     assert "[R1](https://ademe.fr)" in md
     # a resource without a url stays plain (no empty link)
     assert "[R2]()" not in md
+
+
+def test_beats_carry_lens_tag():
+    md = generate_markdown(sample_doc())
+    # a beat with a clue shows its lens icon + name before the clue
+    assert "🔎 **Sources** —" in md   # Q2, lens_ref="sources", has a clue
+    assert "📊 **Chiffres** —" in md   # Q5, lens_ref="chiffres", has a clue
 
 
 def test_no_pill_for_autre():

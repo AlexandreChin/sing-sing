@@ -14,6 +14,7 @@ from PIL import Image
 from markupsafe import Markup, escape
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+from agent.lenses import CANONICAL_LENSES
 from models.newsletter_presentation import NewsletterDocument
 from renderer.categories import pill
 from renderer.instagram_carousel._shared import _LOGO_DATA_URL, _LOGO_PATH, _md_bold, TYPE_FR, ICONS
@@ -55,10 +56,14 @@ def _decryptage_ctx(doc: NewsletterDocument) -> list[dict]:
     """The "Au fil de la lecture" pass as render-ready dicts (article order kept):
     each item is a neutral reading moment — quote, our reading, and the
     transferable reflex (`clue`). No fait/faille grade badge."""
-    return [
-        {"quote": _unwrap_quote(d.quote), "reading": d.reading, "clue": d.clue}
-        for d in doc.presentation.decryptage
-    ]
+    out = []
+    for d in doc.presentation.decryptage:
+        lens = CANONICAL_LENSES.get(d.lens_ref or "", {})
+        out.append({
+            "quote": _unwrap_quote(d.quote), "reading": d.reading, "prompt": d.prompt,
+            "lens_icon": lens.get("icon", ""), "lens_name": lens.get("name", ""),
+        })
+    return out
 
 
 def _md_bold_email(text, color: str = "#d4aa00") -> Markup:
@@ -103,6 +108,7 @@ def _env() -> Environment:
     env.filters["md_bold"] = _md_bold
     env.filters["md_bold_email"] = _md_bold_email
     env.globals["ICONS"] = ICONS
+    env.globals["LENSES"] = CANONICAL_LENSES
     return env
 
 
@@ -124,14 +130,13 @@ def _ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
         # formats), otherwise the newsletter's own subject line.
         "hook_title": hook_title or pres.subject,
         "preheader": pres.preheader,
-        "intro": pres.intro,
         "selection_headline": pres.selection_headline,
         "why_selected": pres.why_selected,
         "payoff": pres.payoff,
+        "essentiel": pres.essentiel,
         "context": pres.context,
-        "reflexes": list(pres.reflexes),
+        "reading_posture": pres.reading_posture,
         "decryptage": _decryptage_ctx(doc),
-        "exercices": list(pres.exercices),
         "architecture": pres.architecture,
         "a_emporter": pres.a_emporter,
         "verdict": pres.verdict,
@@ -152,9 +157,6 @@ def _ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
         "repere_facts": [f.text for f in full.context.important_facts] if full.context else [],
         "key_terms": [{"term": kt.term, "definition": kt.definition}
                       for kt in full.context.key_terms] if full.context else [],
-        # watch-out reflexes the curated `reflexes` didn't cover (the analysis
-        # often lists more pre-reading tips than the 2 kept in the presentation).
-        "extra_reflexes": (list(full.guide.pre_reading)[len(pres.reflexes):] if full.guide else []),
     }
 
 
