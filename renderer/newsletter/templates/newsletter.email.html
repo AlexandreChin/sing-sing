@@ -63,8 +63,9 @@
     <!-- gold divider -->
     <tr><td class="px" style="padding:30px 32px 0;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="2" bgcolor="{{ t.accent }}" style="height:2px;font-size:0;line-height:0;background-color:{{ t.accent }};">&nbsp;</td></tr></table></td></tr>
 
-    <!-- body: the full markdown-rendered analysis -->
-    <tr><td class="px" style="padding:8px 32px 0;">{{ body | safe }}</td></tr>
+    <!-- body: the full markdown-rendered analysis (edge-to-edge; the body's own
+         cards/bands/intro manage their horizontal insets) -->
+    <tr><td style="padding:8px 0 0;">{{ body | safe }}</td></tr>
 
     <!-- read-the-article call to action -->
     {% if orig_url %}
