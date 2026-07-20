@@ -24,6 +24,7 @@ def _display(**over):
         steel_man=SteelMan(argument="Un tourisme encadré crée des ambassadeurs", alternative="le bilan net pourrait s'inverser"),
         key_takeaways=["a", "b"],
         essentiel=["La thèse de l'article.", "Son appui chiffré.", "Sa conclusion."],
+        essentiel_summary="L'article avance sa thèse, l'appuie sur un chiffre, et conclut.",
     )
     good.update(over)
     return CarouselDisplay(**_BASE, **good)

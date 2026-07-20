@@ -79,11 +79,10 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
                                 "topic": pres.hook.topic, "sub_topic": pres.hook.sub_topic,
                                 "kicker_logo": _LOGO_TIGHT_DATA_URL,
                                 "headline": pres.hook.headline, **cover_layers(meta, pres.hook.headline)}),
-        # Slide 2 — L'essentiel: neutral summary of the article, right after the hook
-        ("02_essentiel", "02_essentiel", {"essentiel": list(d.essentiel)[:3]}),
-        ("03_selection", "02_selection", {"headline": d.selection_headline, "items": [
-            {"label": "L'intérêt", "body": d.why_selected},
-        ]}),
+        # Slide 2 — L'essentiel: neutral prose summary of the article, right after the hook
+        # (the 3 `essentiel` bullets are kept in the model but not rendered)
+        ("02_essentiel", "02_essentiel", {"essentiel_summary": d.essentiel_summary}),
+        ("03_selection", "02_selection", {"headline": d.selection_headline, "why_selected": d.why_selected}),
         ("04_reperes", "03_reperes", {
             "reperes_headline": d.reperes_headline,
             "context": contexts[0].text if contexts else "",

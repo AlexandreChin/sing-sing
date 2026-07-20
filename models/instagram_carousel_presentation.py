@@ -117,7 +117,8 @@ class CarouselDisplay(BaseModel):
     steel_man: SteelMan | None = None                          # Act 4 slide 08 — strongest objection
     reperes_headline: str = ""   # slide 3 headline override; empty → "Avant de vous lancer."
     bilan_headline: str = ""     # slide 9 headline override; empty → "L'essentiel, et les bons réflexes."
-    essentiel: list[str] = Field(default_factory=list)  # 3 slide-sized points — neutral summary of the article (slide right after the hook)
+    essentiel: list[str] = Field(default_factory=list)  # 3 slide-sized points — kept in the pipeline (not rendered), reserve for later
+    essentiel_summary: str = ""  # ≤50 words — the neutral prose summary rendered on the "L'essentiel" slide (right after the hook)
 
     @field_validator("key_takeaways", mode="before")
     @classmethod

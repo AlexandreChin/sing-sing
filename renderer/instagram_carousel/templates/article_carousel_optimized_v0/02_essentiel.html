@@ -4,27 +4,22 @@
 <meta charset="UTF-8">
 <style>
 {% include 'base.css' %}
-.kick { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; display: flex; align-items: center; gap: 16px; }
-.kick svg { width: 34px; height: 34px; flex: none; }
-.es-lead { font-size: 26px; color: #9a9a9a; letter-spacing: .01em; }
-.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 30px; }
-.es-list { display: flex; flex-direction: column; gap: 26px; }
-.es-item { display: flex; gap: 18px; align-items: flex-start; font-size: 40px; line-height: 1.38; color: #e8e8e8; }
-.es-item .rk { flex: none; color: #d4aa00; font-weight: 900; font-size: 40px; line-height: 1.1; }
-.es-item strong { color: #d4aa00; font-weight: 700; }
+.sel-kick { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; }
+.sel-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 30px; }
+.sel-head { font-size: 56px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
+.es-summary { font-size: 40px; font-weight: 400; line-height: 1.45; color: #e0e0e0; text-align: justify; hyphens: auto; }
+.es-summary strong { color: #d4aa00; font-weight: 700; }
 </style>
 </head>
 <body>
 <div class="slide" style="justify-content: flex-start;">
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
-  {% include '_tracker.html' %}
-  <div class="stage">
-    <span class="kick"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{{ ICONS.book | safe }}</svg>L'essentiel de l'article</span>
-    <div class="es-lead">Ce que dit l'article, en bref.</div>
-    <div class="es-list">
-      {% for p in essentiel %}<div class="es-item"><span class="rk">&#8250;</span><span>{{ p | md_bold }}</span></div>{% endfor %}
-    </div>
+  <div class="sel-stage">
+    <span class="sel-kick"><svg class="ki" viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>L'essentiel de l'article</span>
+    <h1 class="sel-head">En bref</h1>
+    <div class="divider"></div>
+    <div class="es-summary">{{ essentiel_summary | md_bold }}</div>
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Pourquoi cet article &#8250;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
