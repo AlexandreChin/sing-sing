@@ -26,31 +26,39 @@ def _doc():
         ],
         "global_analysis": GlobalAnalysis(headline="Une méthode", core_recap=["a", "b"], note="n"),
         "open_question": "Ignore-t-il ou omet-il ?",
+        "essentiel": ["La thèse.", "L'appui chiffré.", "La conclusion."],
     })})
     return extract(full, pres)
 
 
 def test_deck_follows_merged_four_act_order(tmp_path):
-    # 2 reading beats in the fixture → 2 moment slides; repères merges the lenses,
-    # so there is no standalone lens slide.
+    # L'essentiel sits right after the hook; À emporter is removed. 2 reading beats
+    # → 2 moment slides; repères merges the lenses (no standalone lens slide).
     paths = opt.generate_html(_doc(), tmp_path)
     names = [p.stem for p in paths]
     assert names == [
-        "01_hook", "02_selection", "03_reperes",
-        "04_moment", "05_moment",
-        "07_vue_ensemble", "08_a_emporter", "09_prise_de_recul", "10_cta",
+        "01_hook", "02_essentiel", "03_selection", "04_reperes",
+        "05_moment", "06_moment",
+        "08_vue_ensemble", "09_prise_de_recul", "10_cta",
     ]
+    assert "08_a_emporter" not in names   # À emporter removed
+
+
+def test_essentiel_slide_carries_the_summary(tmp_path):
+    opt.generate_html(_doc(), tmp_path)
+    html = (tmp_path / "02_essentiel.html").read_text(encoding="utf-8")
+    assert "L'essentiel de l'article" in html and "La thèse." in html
 
 
 def test_reperes_carries_the_lenses(tmp_path):
     opt.generate_html(_doc(), tmp_path)
-    html = (tmp_path / "03_reperes.html").read_text(encoding="utf-8")
+    html = (tmp_path / "04_reperes.html").read_text(encoding="utf-8")
     assert "Chiffres" in html and "Causalité" in html
 
 
 def test_moment_slide_carries_lens_name(tmp_path):
     opt.generate_html(_doc(), tmp_path)
-    html = (tmp_path / "04_moment.html").read_text(encoding="utf-8")
+    html = (tmp_path / "05_moment.html").read_text(encoding="utf-8")
     assert "Chiffres" in html and "+4400 %" in html
 
 

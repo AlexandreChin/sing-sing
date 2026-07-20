@@ -64,6 +64,10 @@
   "cta": {
     "title": "Un chiffre spectaculaire n'est pas une démonstration.",
     "engagement_sentence": "Faut-il juger ce tourisme sur son **poids climatique réel**, ou sur ce qu'il dit d'une **élite indifférente** au dérèglement ?",
+    "engagement_sentence_alt": [
+      "Le **poids climatique réel**, ou ce que ce tourisme **symbolise** : sur quoi juger ?",
+      "Un tourisme à **condamner**, ou un **révélateur** de nos contradictions ?"
+    ],
     "post_reading_questions": [
       {
         "id": "q_0",
@@ -80,10 +84,6 @@
         "question": "Un voyage aux pôles peut-il créer plus de défenseurs qu'il ne coûte en carbone ?",
         "type": "topic_substance"
       }
-    ],
-    "engagement_sentence_alt": [
-      "Le **poids climatique réel**, ou ce que ce tourisme **symbolise** : sur quoi juger ?",
-      "Un tourisme à **condamner**, ou un **révélateur** de nos contradictions ?"
     ]
   },
   "display": {
@@ -91,6 +91,11 @@
     "framing": "Un **angle écologiste** : un tourisme de luxe détruit les paysages qu'il vient admirer.",
     "why_selected": "Un sujet concret et clivant dont les enjeux **dépassent le bilan carbone** : la **faune** polaire, l'encadrement du secteur, la croissance rapide de la fréquentation.\nEt parce qu'il relève du **tourisme de luxe**, le débat prend une portée sociale qui dépasse la seule écologie.",
     "selection_headline": "Un débat qui dépasse largement le bilan carbone.",
+    "selection_headline_alt": [
+      "Un sujet où juger demande plus que des chiffres.",
+      "Le bon terrain pour muscler son regard critique.",
+      "Derrière les chiffres, une vraie question de valeurs."
+    ],
     "ethics": "Déontologie **globalement propre** : une réserve sur un pourcentage gonflé.",
     "pre_reading": [
       "Repérez l'angle du **tourisme de la dernière chance**.",
@@ -249,13 +254,13 @@
     ],
     "global_analysis": {
       "headline": "Sur quoi tient toute la thèse ?",
-      "core_recap": [
-        "Le fil : des impacts — **carbone**, **faune**, paysages — attribués aux touristes, puis un appel à restreindre.",
-        "À tester : chaque impact est-il **rapporté à son échelle**, et son lien au tourisme **établi** ?"
-      ],
       "headline_alt": [
         "Le fil de l'argument, maillon par maillon.",
         "De quoi dépend la conclusion ?"
+      ],
+      "core_recap": [
+        "Le fil : des impacts — **carbone**, **faune**, paysages — attribués aux touristes, puis un appel à restreindre.",
+        "À tester : chaque impact est-il **rapporté à son échelle**, et son lien au tourisme **établi** ?"
       ]
     },
     "open_question": "L'auteur ignore-t-il la **part réelle** du tourisme polaire dans les émissions, ou l'omet-il pour préserver l'ampleur du récit ?",
@@ -266,10 +271,10 @@
     },
     "reperes_headline": "Avant de vous lancer.",
     "bilan_headline": "L'essentiel, et les bons réflexes.",
-    "selection_headline_alt": [
-      "Un sujet où juger demande plus que des chiffres.",
-      "Le bon terrain pour muscler son regard critique.",
-      "Derrière les chiffres, une vraie question de valeurs."
+    "essentiel": [
+      "Le **tourisme polaire de luxe** connaît un essor rapide.",
+      "Chaque voyage émet **15 à 25 t** de CO2, plus du double d'un Français.",
+      "L'article conclut qu'il faudrait **restreindre**, voire sanctuariser, l'activité."
     ]
   }
 }
