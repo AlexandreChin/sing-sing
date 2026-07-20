@@ -97,6 +97,8 @@ def _validate(data: dict) -> list[str]:
         errors.append(f"verdict.objections must have 1–3 items, got {len(pres.verdict.objections)}")
     if not (2 <= len(pres.verdict.angles_morts) <= 3):
         errors.append(f"verdict.angles_morts must have 2–3 items, got {len(pres.verdict.angles_morts)}")
+    if not (2 <= len(pres.verdict.nuances) <= 3):
+        errors.append(f"verdict.nuances must have 2–3 items, got {len(pres.verdict.nuances)}")
     if not (1 <= len(pres.verdict.questions) <= 2):
         errors.append(f"verdict.questions must have 1–2 items, got {len(pres.verdict.questions)}")
     # Prolonger la réflexion

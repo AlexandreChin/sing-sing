@@ -68,7 +68,8 @@ class AVousDeJuger(BaseModel):
     judge the TOPIC (never the article's quality or the author)."""
     enjeux: list[str]        # 1–3 — Les enjeux de fond (the deeper problematics)
     objections: list[str]    # 1–3 — Les objections les plus solides (steel-man counters)
-    angles_morts: list[str]  # 2–3 — Angles morts & nuances (topic omissions; no quality verdict)
+    angles_morts: list[str]  # 2–3 — Angles morts (topic omissions; no article-genre verdict)
+    nuances: list[str]       # 2–3 — Nuances (topic-level qualifications; never the article's genre)
     questions: list[str]     # 1–2 — open reader questions from root_issue (no author criticism)
 
 

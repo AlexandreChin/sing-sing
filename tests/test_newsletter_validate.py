@@ -23,7 +23,8 @@ def _valid_data():
                         {"name": "Le réflexe C", "rule": "Règle C."}]},
         verdict={"enjeux": ["Enjeu 1.", "Enjeu 2."],
                  "objections": ["Objection 1."],
-                 "angles_morts": ["A1", "A2"],
+                 "angles_morts": ["Omission 1", "Omission 2"],
+                 "nuances": ["Nuance 1", "Nuance 2"],
                  "questions": ["Question ouverte ?"]},
         cui_bono="Cui bono.",
         go_further=[{"title": "R1", "source": "S1", "why": "W.", "type": "étude", "url": "https://ademe.fr"},
@@ -93,6 +94,12 @@ def test_verdict_angles_morts_out_of_range_fails():
     d = _valid_data()
     d["verdict"]["angles_morts"] = ["one"]
     assert any("angles_morts" in e for e in _validate(d))
+
+
+def test_verdict_nuances_out_of_range_fails():
+    d = _valid_data()
+    d["verdict"]["nuances"] = ["one"]
+    assert any("nuances" in e for e in _validate(d))
 
 
 def test_enjeux_out_of_range_fails():

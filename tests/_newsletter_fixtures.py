@@ -37,6 +37,7 @@ def sample_doc() -> NewsletterDocument:
         verdict={"enjeux": ["Enjeu 1.", "Enjeu 2."],
                  "objections": ["Objection 1."],
                  "angles_morts": ["Angle 1", "Angle 2"],
+                 "nuances": ["Nuance 1", "Nuance 2"],
                  "questions": ["Et si on posait la question autrement ?"]},
         cui_bono="À qui profite ce cadrage.",
         go_further=[{"title": "R1", "source": "S1", "why": "Pourquoi.", "type": "étude", "url": "https://ademe.fr"},
