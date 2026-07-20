@@ -98,9 +98,7 @@ class NewsletterPresentation(BaseModel):
     # Après la lecture — Prolonger la réflexion
     cui_bono: str             # « À qui profite ce cadrage ? » — beneficiary + why the framing serves them
     go_further: list[Resource]  # 4–6 — Pour aller plus loin
-    # Avant de partir — engagement / share loop
-    share_line: str           # forward hook (neutral, no recommendation)
-    reply_prompt: str         # invite a reply (neutral)
+    # (Avant de partir is static CTA chrome in the template — not generated)
     # signoff
     signoff: str              # closing line — "On sélectionne. On éclaire. Vous jugez."
 

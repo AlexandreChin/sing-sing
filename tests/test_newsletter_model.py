@@ -32,8 +32,6 @@ def _base_kwargs(**overrides):
                     {"title": "R2", "source": "S2", "why": "W.", "type": "rapport"},
                     {"title": "R3", "source": "S3", "why": "W.", "type": "livre"},
                     {"title": "R4", "source": "S4", "why": "W.", "type": "données"}],
-        share_line="Transférez.",
-        reply_prompt="Répondez.",
         signoff="Bye.",
     )
     kwargs.update(overrides)

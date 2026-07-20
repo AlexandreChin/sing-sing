@@ -137,8 +137,6 @@ def _ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
         "verdict": pres.verdict,
         "cui_bono": pres.cui_bono,
         "go_further": list(pres.go_further),
-        "share_line": pres.share_line,
-        "reply_prompt": pres.reply_prompt,
         "signoff": pres.signoff,
         "meta_line": meta_line,
         # Category pill (dark by default) — only used here to gate whether the

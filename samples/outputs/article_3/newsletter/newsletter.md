@@ -194,6 +194,6 @@ Documente le classement « **en danger** » évoqué à propos de la faune polai
 
 ### Avant de partir
 
-Un proche s'est fait emporter par un chiffre à **+4 400 %** ? Transférez-lui ce numéro.
-
-Et vous, ce **« non-sens »** annoncé : il tient une fois les chiffres remis à l'échelle ? Répondez, on lit tout.
+- **Abonnez-vous** à la newsletter pour recevoir chaque décryptage.
+- **Partagez** cette édition à quelqu'un qui aime lire de près.
+- **Réagissez** et commentez sur Instagram : [@singsing.media](https://instagram.com/singsing.media).
