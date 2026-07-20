@@ -40,6 +40,6 @@ Produis 2 à 4 items par liste, 1 phrase courte par item. Présente les faits co
 
 - `who_is_speaking` : qui produit ce contenu — positionnement du média, financement connu, ligne éditoriale sur ce sujet. Si l'article est signé : parcours de l'auteur, positions connues, historique sur ce sujet. Pour un éditorial non signé : l'institution, sa ligne, ce que signer collectivement implique.
 
-- `important_facts` : faits saillants que le lecteur doit connaître pour bien évaluer l'article — peuvent être mentionnés dans l'article ou totalement absents de celui-ci. Ces faits servent d'ancrage aux étapes suivantes.
+- `important_facts` : des faits EXTERNES que l'article NE fournit PAS lui-même (repères chiffrés, données de référence, contexte factuel, ordres de grandeur) et que le lecteur doit connaître pour évaluer l'article de façon autonome. PAS un rappel ni un résumé de ce que l'article dit déjà : chaque item apporte un élément que le texte n'apporte pas. Ces faits servent d'ancrage aux étapes suivantes.
 
 - `key_terms` : termes techniques, acronymes ou concepts spécifiques que le lecteur non spécialiste pourrait ne pas connaître. Chaque item : `term` (le mot ou sigle) + `definition` (1 phrase, sans jargon, en langage courant).
