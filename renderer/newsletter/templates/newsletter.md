@@ -7,7 +7,13 @@ hook_title: {{ hook_title | tojson }}
 article_url: {{ orig_url | tojson }}
 meta_line: {{ meta_line | tojson }}
 signoff: {{ signoff | tojson }}
----
+{% if go_further %}go_further:
+{% for r in go_further %}  - type: {{ (r.type or "") | tojson }}
+    title: {{ r.title | tojson }}
+    source: {{ (r.source or "") | tojson }}
+    url: {{ (r.url or "") | tojson }}
+    why: {{ (r.why or "") | tojson }}
+{% endfor %}{% endif %}---
 
 {{ essentiel }}
 
@@ -41,11 +47,13 @@ signoff: {{ signoff | tojson }}
 {% endif %}
 ## Au fil de la lecture
 {% for d in decryptage %}
+::: card
 > « {{ d.quote }} »
 
 {% if d.lens_icon %}{{ d.lens_icon }} **{{ d.lens_name }}** — {% endif %}{{ d.prompt }}
 
-**Réponse —** {{ d.reading }}
+→ {{ d.reading }}
+:::
 {% endfor %}
 ## Après la lecture
 
@@ -94,12 +102,9 @@ signoff: {{ signoff | tojson }}
 {% for q in verdict.questions %}
 > {{ q }}
 {% endfor %}
-### Pour aller plus loin
-{% for r in go_further %}
-**{% if r.url %}[{{ r.title }}]({{ 'https://' + r.url if '://' not in r.url else r.url }}){% else %}{{ r.title }}{% endif %}**{% if r.source %} — {{ r.source }}{% endif %}{% if r.type %} · {{ r.type }}{% endif %}
-{% if r.why %}
-{{ r.why }}
-{% endif %}{% endfor %}
+::: gofurther
+:::
+
 ### Avant de partir
 
 - **Abonnez-vous** à la newsletter pour recevoir chaque décryptage.

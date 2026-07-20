@@ -6,6 +6,37 @@ article_title: "Les p\u00f4les fondent ? les riches touristes se pr\u00e9cipiten
 article_url: ""
 meta_line: "Reportage \u00b7 6 min de lecture"
 signoff: "On s\u00e9lectionne. On \u00e9claire. Vous jugez."
+go_further:
+  - type: "donn\u00e9es"
+    title: "Empreinte carbone moyenne des Fran\u00e7ais"
+    source: "ADEME"
+    url: "https://ademe.fr"
+    why: "Situe les 15-25 tonnes du voyage face aux **9-10 tonnes** annuelles d\u0027un Fran\u00e7ais."
+  - type: "rapport"
+    title: "Rapports sur le r\u00e9chauffement des r\u00e9gions polaires"
+    source: "GIEC (IPCC)"
+    url: "https://ipcc.ch"
+    why: "\u00c9claire l\u0027\u00e9tat des connaissances sur la **fonte** des glaces, ind\u00e9pendamment des op\u00e9rateurs."
+  - type: "r\u00e9f\u00e9rence"
+    title: "Le Trait\u00e9 sur l\u0027Antarctique"
+    source: "Secr\u00e9tariat du Trait\u00e9 sur l\u0027Antarctique"
+    url: ""
+    why: "Explique le **cadre juridique** qui r\u00e9git les activit\u00e9s humaines sur le continent."
+  - type: "donn\u00e9es"
+    title: "Donn\u00e9es de fr\u00e9quentation touristique de l\u0027Antarctique"
+    source: "IAATO"
+    url: ""
+    why: "Permet de recouper les chiffres de flux directement \u00e0 la **source** cit\u00e9e par l\u0027article."
+  - type: "\u00e9tude"
+    title: "Recherches sur le \u00ab last chance tourism \u00bb"
+    source: "Travaux acad\u00e9miques"
+    url: ""
+    why: "Interroge si visiter un lieu menac\u00e9 nourrit sa **protection** ou seulement sa consommation."
+  - type: "donn\u00e9es"
+    title: "Statut de conservation du manchot empereur"
+    source: "UICN"
+    url: ""
+    why: "Documente le classement \u00ab **en danger** \u00bb \u00e9voqu\u00e9 \u00e0 propos de la faune polaire."
 ---
 
 Reporterre décrit l'essor rapide du **tourisme polaire de luxe**, porté par des croisières aériennes très émettrices : la fréquentation serait passée de quelques centaines à plus de 10 000 voyageurs en vingt ans. L'article avance qu'un tel voyage émet **15 à 25 tonnes** de CO2 par passager — plus du double de l'empreinte annuelle d'un Français — et que ces visiteurs perturbent une faune fragile en pleine saison de reproduction. Sa thèse : en contribuant au réchauffement, ces touristes **détruisent les paysages qu'ils viennent admirer**, un « tourisme de la dernière chance ». L'encadrement reposant sur la seule autorégulation des opérateurs (IAATO), jugée insuffisante, il conclut qu'il faudrait restreindre, voire sanctuariser, l'activité.
@@ -46,47 +77,61 @@ Ce reportage avance par un **cadrage moral** posé dès l'ouverture et une séri
 
 ## Au fil de la lecture
 
+::: card
 > « Pendant que la France étouffe sous la canicule, ceux qui peuvent se le permettre participent au boom du tourisme polaire. »
 
 🖼️ **Cadrage** — Repérez le jugement moral posé avant le premier fait.
 
-**Réponse —** L'article s'ouvre en plaçant côte à côte la **canicule subie** en France et le loisir de ceux qui « peuvent se le permettre ». Ce contraste installe un reproche moral avant le premier chiffre. Rien n'est faux ; c'est l'**ordre** qui oriente — on lit la suite avec un jugement déjà amorcé.
+→ L'article s'ouvre en plaçant côte à côte la **canicule subie** en France et le loisir de ceux qui « peuvent se le permettre ». Ce contraste installe un reproche moral avant le premier chiffre. Rien n'est faux ; c'est l'**ordre** qui oriente — on lit la suite avec un jugement déjà amorcé.
+:::
 
+::: card
 > « En contribuant à réchauffer la planète avec ces croisières aériennes, ils détruisent les paysages qu'ils observent. »
 
 🔗 **Causalité** — Repérez le glissement du global au local.
 
-**Réponse —** C'est le cœur de la thèse. Notez le passage du **global au local** : contribuer au réchauffement planétaire n'est pas la même chose que détruire ce paysage-là, celui qu'on vient visiter. Le lien est posé comme une évidence ; il reste à établir. Cause directe, ou contribution diffuse parmi des milliers d'autres ?
+→ C'est le cœur de la thèse. Notez le passage du **global au local** : contribuer au réchauffement planétaire n'est pas la même chose que détruire ce paysage-là, celui qu'on vient visiter. Le lien est posé comme une évidence ; il reste à établir. Cause directe, ou contribution diffuse parmi des milliers d'autres ?
+:::
 
+::: card
 > « entre 15 et 25 tonnes de CO2 par passager, soit plus du double de l'empreinte carbone annuelle moyenne d'un Français »
 
 🔎 **Sources** — Cherchez d'où vient le chiffre et à quoi il se compare.
 
-**Réponse —** La comparaison à l'**empreinte d'un Français** (9 à 10 tonnes par an) est parlante et tient. En revanche la fourchette 15-25 tonnes n'est pas sourcée indépendamment — elle vient des agences. Un repère utile, à condition de savoir qui l'a calculé.
+→ La comparaison à l'**empreinte d'un Français** (9 à 10 tonnes par an) est parlante et tient. En revanche la fourchette 15-25 tonnes n'est pas sourcée indépendamment — elle vient des agences. Un repère utile, à condition de savoir qui l'a calculé.
+:::
 
+::: card
 > « le nombre de voyageurs optant pour une croisière avec vol a augmenté de plus de 4 400 % en vingt ans, passant de 230 en 2004 à plus de 10 000 en 2024 »
 
 📊 **Chiffres** — Cherchez la base de départ de ce pourcentage.
 
-**Réponse —** Le pourcentage est spectaculaire, mais il part de **230 voyageurs** en 2004 : une base minuscule gonfle mécaniquement le taux. Le chiffre provient en outre d'un **opérateur** du marché décrit. Une hausse énorme sur un point de départ minime mesure surtout la petitesse de ce départ.
+→ Le pourcentage est spectaculaire, mais il part de **230 voyageurs** en 2004 : une base minuscule gonfle mécaniquement le taux. Le chiffre provient en outre d'un **opérateur** du marché décrit. Une hausse énorme sur un point de départ minime mesure surtout la petitesse de ce départ.
+:::
 
+::: card
 > « De 22 000 voyageurs au début des années 2000, on est passé à plus de 120 000 aujourd'hui »
 
 📊 **Chiffres** — Cherchez le total de référence qui manque.
 
-**Réponse —** Les chiffres croissants s'empilent d'un paragraphe à l'autre et donnent une impression d'**emballement**. Il manque le dénominateur : quelle part ces flux représentent-ils du CO2 mondial ? Sans total de référence, l'accumulation suggère une ampleur qu'aucune proportion ne vient confirmer.
+→ Les chiffres croissants s'empilent d'un paragraphe à l'autre et donnent une impression d'**emballement**. Il manque le dénominateur : quelle part ces flux représentent-ils du CO2 mondial ? Sans total de référence, l'accumulation suggère une ampleur qu'aucune proportion ne vient confirmer.
+:::
 
+::: card
 > « les sièges de la classe économique sont d'ailleurs retirés afin de laisser la place au carburant nécessaire au vol retour, faute d'infrastructures de ravitaillement »
 
 🔎 **Sources** — Demandez si ce détail est vérifiable ou seulement frappant.
 
-**Réponse —** Le détail est frappant et installe un **sentiment d'absurdité**. Il est attribué à un géographe mais reste difficile à vérifier de façon indépendante. Un fait marquant fonctionne comme une image ; il gagne à être **recoupé** avant d'être tenu pour acquis.
+→ Le détail est frappant et installe un **sentiment d'absurdité**. Il est attribué à un géographe mais reste difficile à vérifier de façon indépendante. Un fait marquant fonctionne comme une image ; il gagne à être **recoupé** avant d'être tenu pour acquis.
+:::
 
+::: card
 > « Paradoxalement, la fonte de la banquise favorise l'essor du tourisme polaire, dans une forme de tourisme de la dernière chance. »
 
 🖼️ **Cadrage** — Distinguez le fait observé de l'interprétation.
 
-**Réponse —** L'expression « tourisme de la **dernière chance** » est une interprétation, présentée ici comme un constat. Elle nomme un moteur réel — la peur de la disparition — mais tait ce que voir de ses yeux change chez le voyageur. Ce regard **protège-t-il**, ou ne fait-il que consommer ?
+→ L'expression « tourisme de la **dernière chance** » est une interprétation, présentée ici comme un constat. Elle nomme un moteur réel — la peur de la disparition — mais tait ce que voir de ses yeux change chez le voyageur. Ce regard **protège-t-il**, ou ne fait-il que consommer ?
+:::
 
 ## Après la lecture
 
@@ -144,31 +189,8 @@ Insister sur l'**autorégulation** laissée aux opérateurs rend presque éviden
 
 > Une restriction forte réduirait-elle vraiment les émissions, et à quel coût pour les économies qui en vivent ?
 
-### Pour aller plus loin
-
-**[Empreinte carbone moyenne des Français](https://ademe.fr)** — ADEME · données
-
-Situe les 15-25 tonnes du voyage face aux **9-10 tonnes** annuelles d'un Français.
-
-**[Rapports sur le réchauffement des régions polaires](https://ipcc.ch)** — GIEC (IPCC) · rapport
-
-Éclaire l'état des connaissances sur la **fonte** des glaces, indépendamment des opérateurs.
-
-**Le Traité sur l'Antarctique** — Secrétariat du Traité sur l'Antarctique · référence
-
-Explique le **cadre juridique** qui régit les activités humaines sur le continent.
-
-**Données de fréquentation touristique de l'Antarctique** — IAATO · données
-
-Permet de recouper les chiffres de flux directement à la **source** citée par l'article.
-
-**Recherches sur le « last chance tourism »** — Travaux académiques · étude
-
-Interroge si visiter un lieu menacé nourrit sa **protection** ou seulement sa consommation.
-
-**Statut de conservation du manchot empereur** — UICN · données
-
-Documente le classement « **en danger** » évoqué à propos de la faune polaire.
+::: gofurther
+:::
 
 ### Avant de partir
 
