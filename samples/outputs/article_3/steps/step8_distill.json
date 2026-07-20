@@ -2,7 +2,7 @@
   "distill": {
     "points": [
       {
-        "text": "Le chiffre le plus spectaculaire de l'article, le **+4 400 %**, est aussi le plus fragile : il repose sur un **effet de base minuscule** (230 voyageurs), une **source opérateur partie prenante** et la seule réserve déontologique retenue de l'analyse — trois faiblesses convergentes que renforce le manquement éthique.",
+        "text": "Le chiffre le plus spectaculaire, le **+4 400 %**, est aussi le plus fragile : **effet de base minuscule** (230 voyageurs), source opérateur partie prenante et unique réserve déontologique retenue se cumulent.",
         "references": [
           "lr_1",
           "claim_1",
@@ -10,36 +10,40 @@
         ]
       },
       {
-        "text": "Le **glissement causal** de la rhétorique n'est pas une maladresse : il exécute un saut de validité par lequel une **contribution globale** au réchauffement devient la **cause directe** de la destruction du site précis observé.",
+        "text": "Le **glissement causal** n'est pas une maladresse isolée : une contribution globale au réchauffement y devient la **cause directe** de la destruction du site précis observé.",
         "references": [
           "lr_0",
           "bias_1"
         ]
       },
       {
-        "text": "L'**accumulation de statistiques croissantes** ne fonctionne que grâce à un angle mort : la **part réelle du tourisme polaire** dans les émissions mondiales n'étant jamais chiffrée, l'empilement fabrique une ampleur qu'**aucun dénominateur** ne vient contredire.",
+        "text": "L'**accumulation de statistiques croissantes** tire son efficacité d'un angle mort : la part réelle du tourisme polaire dans les émissions n'étant **jamais chiffrée**, l'empilement fabrique une ampleur qu'aucun dénominateur ne contredit.",
         "references": [
           "bs_2",
           "bias_2"
         ]
       },
       {
-        "text": "L'insistance sur l'**échec de l'autorégulation** des opérateurs alimente le cui bono des partisans d'une sanctuarisation et prépare un **glissement non examiné**, du constat d'échec vers l'**interdiction totale**.",
-        "references": [
-          "obs_3",
-          "cb_0",
-          "lr_2"
-        ]
-      },
-      {
-        "text": "La **juxtaposition canicule/luxe** d'ouverture agit sur trois plans à la fois — cadrage, indignation, contraste moral — un même dispositif qui **installe le reproche avant tout chiffre**.",
+        "text": "La **juxtaposition canicule/luxe** d'ouverture agit sur trois plans — cadrage, indignation, contraste moral — et installe le **reproche avant tout chiffre**.",
         "references": [
           "obs_0",
           "er_0",
           "bias_0"
         ]
+      },
+      {
+        "text": "L'insistance sur l'**échec de l'autorégulation** prépare un glissement non examiné du constat vers l'**interdiction totale**, présentée comme seule issue.",
+        "references": [
+          "obs_3",
+          "cb_0",
+          "lr_2"
+        ]
       }
     ],
-    "open_question": "L'auteur ignore-t-il la part réelle du tourisme polaire dans les émissions, ou l'omet-il pour préserver l'ampleur du récit ?"
+    "open_questions": [
+      "Quelle est la part réelle du tourisme polaire dans les émissions mondiales ?",
+      "Au-delà du +4 400 %, quelle est l'ampleur absolue des flux concernés ?",
+      "Une interdiction totale réduirait-elle les émissions, à quel coût comparé aux alternatives ?"
+    ]
   }
 }

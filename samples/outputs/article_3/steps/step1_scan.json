@@ -3,7 +3,7 @@
   "key_claims": [
     {
       "quote": "pour survoler la banquise et observer les icebergs depuis un hublot, il faut compter au minimum 27 000 euros",
-      "type": "statistical"
+      "type": "factual"
     },
     {
       "quote": "entre 15 et 25 tonnes de CO2 par passager, soit plus du double de l'empreinte carbone annuelle moyenne d'un Français",
@@ -15,13 +15,8 @@
       "type": "statistical"
     },
     {
-      "quote": "le nombre de visiteurs internationaux, arrivant par avion ou par bateau, est passé d'environ 500 000 en 2008 à plus de 2 millions aujourd'hui",
-      "source": "Islande",
-      "type": "statistical"
-    },
-    {
       "quote": "De 22 000 voyageurs au début des années 2000, on est passé à plus de 120 000 aujourd'hui",
-      "source": "IAATO",
+      "source": "Association internationale des voyagistes antarctiques (IAATO)",
       "type": "statistical"
     },
     {
@@ -33,19 +28,14 @@
       "type": "statistical"
     },
     {
-      "quote": "Selon une étude de Nature Climate Change, 60 % des volumes de glace pourraient avoir disparu en 2100",
+      "quote": "60 % des volumes de glace pourraient avoir disparu en 2100",
       "source": "Nature Climate Change",
       "type": "statistical"
     },
     {
-      "quote": "Une étude publiée dans Nature Sustainability en 2025 montre que la pollution liée aux navires et aux avions est dix fois plus élevée qu'il y a quarante ans en Antarctique",
-      "source": "Nature Sustainability",
+      "quote": "la pollution liée aux navires et aux avions est dix fois plus élevée qu'il y a quarante ans en Antarctique",
+      "source": "Nature Sustainability, 2025",
       "type": "statistical"
-    },
-    {
-      "quote": "Depuis avril, ces derniers sont d'ailleurs classés « espèce en danger » par l'Union internationale pour la conservation de la nature",
-      "source": "UICN",
-      "type": "factual"
     },
     {
       "quote": "C'est un non-sens total",
@@ -53,173 +43,169 @@
       "type": "testimonial"
     },
     {
-      "quote": "Nous sommes convaincus que l'on protège ce que l'on comprend. Ceux qui ont la chance de découvrir l'Antarctique de manière responsable peuvent saisir par eux-mêmes l'importance de cet écosystème pour la planète et la nécessité de le protéger",
+      "quote": "Les touristes sont en compétition directe avec les animaux",
+      "source": "Rémy Knafou",
+      "type": "attributed"
+    },
+    {
+      "quote": "Nous sommes convaincus que l'on protège ce que l'on comprend.",
       "source": "Antarctica21",
       "type": "attributed"
+    },
+    {
+      "quote": "Depuis avril, ces derniers sont d'ailleurs classés « espèce en danger » par l'Union internationale pour la conservation de la nature.",
+      "source": "UICN",
+      "type": "factual"
     }
   ],
   "key_quotes": [
-    "Un tour du monde dans le Grand Nord inédit, au milieu d'une nature encore vierge",
-    "C'est un non-sens total",
-    "un tourisme de luxe où l'on enchaîne nappes blanches et couverts en argent tout en consommant des quantités massives de carburant",
-    "Ces entreprises ne cherchent qu'à faire du profit. Elles ne sont pas là pour sauver la planète",
-    "Ces paysages sont décrits comme étant en train de disparaître. Ce sentiment d'urgence pousse les voyageurs à vouloir les découvrir avant qu'il ne soit trop tard",
-    "Les touristes sont en compétition directe avec les animaux",
-    "Les observer participe à leur dégradation : les émissions de carbone accélèrent la fonte de la banquise et des glaciers, mettant en péril les espèces qui dépendent de ces écosystèmes pour vivre",
-    "Nous sommes convaincus que l'on protège ce que l'on comprend"
+    "« Un tour du monde dans le Grand Nord inédit, au milieu d'une nature encore vierge »",
+    "« C'est un non-sens total », estime l'explorateur Matthieu Tordeur, qui dénonce « un tourisme de luxe où l'on enchaîne nappes blanches et couverts en argent tout en consommant des quantités massives de carburant ».",
+    "« Ces paysages sont décrits comme étant en train de disparaître. Ce sentiment d'urgence pousse les voyageurs à vouloir les découvrir avant qu'il ne soit trop tard »",
+    "« Ces entreprises ne cherchent qu'à faire du profit. Elles ne sont pas là pour sauver la planète »",
+    "« Nous sommes convaincus que l'on protège ce que l'on comprend. Ceux qui ont la chance de découvrir l'Antarctique de manière responsable peuvent saisir par eux-mêmes l'importance de cet écosystème pour la planète et la nécessité de le protéger »",
+    "« Les touristes sont en compétition directe avec les animaux »",
+    "« Les voyagistes membres de l'IAATO sont chargés de réguler leur propre activité »"
   ],
   "key_actors": [
     {
       "name": "Matthieu Tordeur",
-      "role": "Explorateur polaire, membre de la Société des explorateurs français, critique du tourisme polaire"
+      "role": "Explorateur, membre de la Société des explorateurs français, participe à des expéditions scientifiques en régions polaires"
     },
     {
       "name": "Rémy Knafou",
-      "role": "Géographe spécialiste du tourisme, analyse et critique le phénomène"
-    },
-    {
-      "name": "Connaisseurs du voyage",
-      "role": "Agence française spécialiste des croisières aériennes, n'a pas répondu à Reporterre"
-    },
-    {
-      "name": "Antarctica21",
-      "role": "Opérateur chilien pionnier du « fly & cruise », défend un tourisme responsable"
-    },
-    {
-      "name": "AdventureSmith Explorations",
-      "role": "Agence de voyages étasunienne, source des chiffres de croissance"
-    },
-    {
-      "name": "IAATO",
-      "role": "Association internationale des voyagistes antarctiques, organe d'autorégulation"
+      "role": "Géographe spécialiste du tourisme"
     },
     {
       "name": "Heïdi Sevestre",
-      "role": "Glaciologue, a traversé l'Antarctique avec Tordeur pour documenter les changements"
+      "role": "Glaciologue ayant traversé l'Antarctique en kite-skis avec Tordeur en 2025-2026"
     },
     {
-      "name": "Reporterre",
-      "role": "Média auteur de l'article, a sollicité les agences"
+      "name": "Connaisseurs du voyage",
+      "role": "Agence spécialiste des croisières aériennes, sollicitée mais n'a pas répondu"
+    },
+    {
+      "name": "AdventureSmith Explorations",
+      "role": "Agence de voyages étasunienne proposant des expéditions vers les deux pôles"
+    },
+    {
+      "name": "Antarctica21",
+      "role": "Opérateur chilien pionnier des formules « fly & cruise » depuis 2003"
+    },
+    {
+      "name": "IAATO",
+      "role": "Association internationale des voyagistes antarctiques, cadre d'autorégulation du secteur"
     }
   ],
   "authority_anchors": [
     {
-      "entity": "Rémy Knafou (géographe spécialiste du tourisme)",
-      "used_for": "Légitimer l'analyse des **mécanismes** du tourisme polaire et l'appel à une **sanctuarisation** de l'Antarctique"
+      "entity": "Matthieu Tordeur, explorateur",
+      "used_for": "Qualifier le tourisme polaire de « non-sens » et affirmer que l'observation participe à la dégradation des milieux"
     },
     {
-      "entity": "Matthieu Tordeur (explorateur, Société des explorateurs français)",
-      "used_for": "Appuyer la dénonciation d'un **non-sens** écologique par une voix de **terrain**"
+      "entity": "Rémy Knafou, géographe spécialiste du tourisme",
+      "used_for": "Expliquer l'essor et les mécanismes du tourisme polaire, et juger les mesures d'encadrement insuffisantes"
     },
     {
       "entity": "Nature Climate Change",
-      "used_for": "Chiffrer la **disparition** possible de 60 % des volumes de glace en 2100"
+      "used_for": "Chiffrer la perte possible de 60 % des volumes de glace en 2100"
     },
     {
       "entity": "Nature Sustainability (étude 2025)",
-      "used_for": "Établir que la **pollution** liée aux navires et avions est dix fois plus élevée qu'il y a quarante ans"
+      "used_for": "Établir que la pollution des navires et avions est dix fois supérieure à il y a quarante ans"
     },
     {
       "entity": "IAATO",
-      "used_for": "Documenter l'**explosion** du nombre de croisiéristes en Antarctique"
+      "used_for": "Fournir les données de fréquentation touristique de l'Antarctique"
     },
     {
       "entity": "UICN",
-      "used_for": "Attester le **classement** du manchot empereur comme espèce en danger"
-    },
-    {
-      "entity": "AdventureSmith Explorations",
-      "used_for": "Fournir le chiffre de **+4 400 %** de croissance des croisières avec vol"
+      "used_for": "Attester du classement du manchot empereur en « espèce en danger »"
     }
   ],
   "notable_omissions": [
-    "Aucune **voix de touristes** eux-mêmes, ni de leurs motivations au-delà de la citation des agences.",
-    "Les deux experts cités partagent la **même position critique** ; aucun spécialiste défendant l'activité n'est convoqué.",
-    "Rien sur les **retombées économiques** locales pour le Groenland ou l'Islande qui misent sur ce tourisme.",
-    "Aucune mise en **perspective chiffrée** de la part du tourisme polaire dans les émissions mondiales totales."
+    "L'agence **Connaisseurs du voyage n'a pas répondu**, laissant l'un des principaux acteurs mis en cause sans voix.",
+    "**Aucun touriste** n'est interviewé sur ses motivations, alors que l'article prête des intentions à ces voyageurs.",
+    "Les **populations et économies locales** (Groenland, Islande) tirant des revenus du tourisme ne sont pas évoquées.",
+    "La **part du tourisme polaire dans les émissions mondiales** n'est jamais chiffrée, ce qui empêche de mesurer l'ampleur relative du phénomène."
   ],
   "rhetorical_patterns": [
-    "Titre en **paradoxe ironique** : les pôles fondent, les riches s'y précipitent « pour se rafraîchir ».",
-    "**Juxtaposition** récurrente entre la canicule que subit la France et le luxe des voyageurs polaires.",
-    "**Accumulation** de statistiques spectaculaires (4 400 %, ×10, 27 000 €) pour marquer l'ampleur.",
-    "Champ lexical de la **destruction** et de la **compétition** (« détruisent », « en compétition directe avec les animaux »).",
-    "Encadrement en **« tourisme de la dernière chance »** qui souligne la contradiction interne du phénomène."
+    "Le **titre interrogatif et ironique** oppose fonte des pôles et confort des touristes fortunés.",
+    "Le chapô construit un **paradoxe moral** : les voyageurs « détruisent les paysages qu'ils observent ».",
+    "La **juxtaposition canicule française / voyage pour se rafraîchir** installe un contraste accusateur dès l'ouverture.",
+    "Les **voix expertes citées convergent toutes** vers la critique, sans contradicteur défendant l'activité.",
+    "Un **champ lexical de la disparition et de la dégradation** (fonte, non-sens, péril, dernière chance) traverse le texte."
   ],
   "context": {
     "contexts": [
       {
         "id": "ctx1",
-        "text": "L'article paraît en pleine **canicule** en France, ce qui sert de contrepoint direct au sujet."
+        "text": "L'article paraît **pendant une canicule** en France liée au changement climatique, ce qui aiguise la question du coût carbone du loisir."
       },
       {
         "id": "ctx2",
-        "text": "Le **tourisme polaire** a fortement augmenté ces dernières années, en Arctique comme en Antarctique."
+        "text": "La **guerre en Ukraine** complique les liaisons aériennes avec la Russie et a supprimé certaines étapes de ces circuits."
       },
       {
         "id": "ctx3",
-        "text": "La **guerre en Ukraine** complique les liaisons avec la Russie et a supprimé certaines étapes."
+        "text": "Les régions polaires connaissent une **hausse rapide et documentée de leur fréquentation touristique** depuis vingt ans."
       },
       {
         "id": "ctx4",
-        "text": "Les pôles connaissent un **réchauffement accéléré**, toile de fond scientifique du reportage."
+        "text": "Le débat porte sur un **secteur largement autorégulé**, où les opérateurs fixent eux-mêmes leurs règles."
       }
     ],
     "who_is_speaking": [
-      "Reporterre est un média français **spécialisé en écologie**, à la ligne éditoriale ouvertement **engagée** pour l'environnement.",
-      "Le traitement mobilise deux **experts critiques** et confronte les agences, dont l'une a refusé de répondre.",
-      "L'angle privilégie le **coût climatique** et la **contradiction morale** du tourisme polaire plutôt qu'un bilan neutre."
+      "Reporterre est un **média français indépendant spécialisé dans l'écologie**, dont la ligne éditoriale défend l'environnement.",
+      "Le sujet est traité sous un **angle critique du tourisme de luxe** et de son empreinte carbone.",
+      "L'article s'appuie surtout sur des **experts et opérateurs**, l'agence principale mise en cause n'ayant pas répondu."
     ],
     "important_facts": [
       {
         "id": "fact1",
-        "text": "L'empreinte carbone moyenne d'un Français est d'environ **9 à 10 tonnes** de CO2 par an, repère implicite du chiffre avancé."
+        "text": "L'**empreinte carbone moyenne d'un Français** est d'environ 9 à 10 tonnes de CO2 par an, repère utile pour situer les 15-25 tonnes du voyage."
       },
       {
         "id": "fact2",
-        "text": "En Antarctique, l'encadrement repose sur l'**autorégulation** des opérateurs via l'IAATO, sans autorité contraignante externe."
+        "text": "L'Antarctique est régi par un **traité international (1959)** gelant les revendications territoriales et encadrant les activités."
       },
       {
         "id": "fact3",
-        "text": "L'**été austral**, seule saison de reproduction des espèces polaires, coïncide avec le pic des croisières."
+        "text": "L'objectif de l'**accord de Paris** vise à limiter le réchauffement bien en deçà de 2 °C par rapport à l'ère préindustrielle."
       },
       {
         "id": "fact4",
-        "text": "L'Antarctique n'a **aucune population permanente** et son accès aérien exige d'emporter le carburant du retour."
+        "text": "Le **transport aérien représente environ 2 à 3 % des émissions mondiales de CO2**, avec un impact climatique par passager élevé sur les longues distances."
       }
     ],
     "key_terms": [
       {
-        "term": "Croisière aérienne / « fly & cruise »",
-        "definition": "Voyage où un avion privé relie les étapes ou remplace le trajet en bateau, à la manière d'une croisière."
-      },
-      {
-        "term": "Bilan carbone",
-        "definition": "Quantité totale de CO2 émise par une activité, ici exprimée en tonnes par passager."
+        "term": "Croisière aérienne (fly & cruise)",
+        "definition": "Formule où un avion transporte un petit groupe d'une étape à l'autre, comme le ferait un navire de croisière."
       },
       {
         "term": "Banquise",
-        "definition": "Étendue de glace de mer formée par le gel de l'eau de l'océan."
+        "definition": "Étendue de glace formée par le gel de l'eau de mer, présente aux pôles."
       },
       {
-        "term": "Tourisme de la dernière chance",
-        "definition": "Fait de visiter un lieu justement parce qu'il est menacé de disparaître prochainement."
+        "term": "Bilan carbone",
+        "definition": "Quantité de gaz à effet de serre émise par une activité, exprimée en tonnes de CO2."
       },
       {
         "term": "IAATO",
-        "definition": "Association qui regroupe les voyagistes de l'Antarctique et fixe leurs propres règles d'activité."
+        "definition": "Association internationale des voyagistes antarctiques, qui fixe les règles que ses membres s'appliquent eux-mêmes."
       },
       {
         "term": "Passage de Drake",
-        "definition": "Bras de mer réputé agité qui sépare l'Amérique du Sud de l'Antarctique."
+        "definition": "Bras de mer réputé agité séparant l'Amérique du Sud de l'Antarctique."
       },
       {
-        "term": "Calotte glaciaire",
-        "definition": "Vaste masse de glace permanente recouvrant une région, comme le Groenland."
+        "term": "Tourisme de la dernière chance",
+        "definition": "Fait de visiter un lieu menacé de disparition précisément parce qu'il pourrait bientôt ne plus exister."
       }
     ]
   },
   "article_metadata": {
-    "title": "Contenu de l'article :",
-    "category": "Écologie"
+    "title": "Contenu de l'article :"
   }
 }
