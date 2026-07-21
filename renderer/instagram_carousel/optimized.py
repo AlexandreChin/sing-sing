@@ -29,18 +29,6 @@ PHASE_OF = {
 # French number words for the réflexes section label on the merged repères slide.
 _COUNT_WORD = {1: "Un", 2: "Deux", 3: "Trois", 4: "Quatre"}
 
-# Claim reliability → (reader-action label, css class) for the moment-slide pill.
-# Labels are reader actions, not verdicts on the article; the colour keeps the signal.
-_READING = {
-    "consensual":   ("À connaître",   "consensual"),
-    "true":         ("À connaître",   "true"),
-    "likely true":  ("À confirmer",   "likely_true"),
-    "disputed":     ("À recouper",    "disputed"),
-    "likely false": ("À vérifier",    "false"),
-    "false":        ("À vérifier",    "false"),
-    "unverifiable": ("Invérifiable",  "neutral"),
-}
-
 
 def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -69,7 +57,8 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     for b in selected_beats:
         canon = CANONICAL_LENSES.get(b.lens_ref)
         if canon and b.lens_ref not in {x["id"] for x in display_lenses}:
-            display_lenses.append({"id": b.lens_ref, "name": canon["name"], "question": canon["question"]})
+            display_lenses.append({"id": b.lens_ref, "name": canon["name"], "question": canon["question"],
+                                   "icon_svg": canon.get("icon_svg", "")})
 
     # (output_name, template_name, ctx) triples — same pattern as the short deck.
     # Act 2 "Avant de lire" is a single merged slide: context + the lenses shown
@@ -87,17 +76,18 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
             "reperes_headline": d.reperes_headline,
             "context": contexts[0].text if contexts else "",
             "lens_count_word": _COUNT_WORD.get(len(display_lenses), "Les"),
-            "lenses": [{"name": l["name"], "question": l["question"]} for l in display_lenses],
+            "lenses": [{"name": l["name"], "question": l["question"], "icon_svg": l["icon_svg"]} for l in display_lenses],
         }),
     ]
 
     for idx, b in enumerate(selected_beats):
         canon = CANONICAL_LENSES.get(b.lens_ref, {})
-        fc = _READING.get(b.factcheck)  # fact-check pill only when the beat is a checkable fact
         specs.append((f"0{5 + idx}_moment", "moment", {
-            "moment": b.moment, "quote": b.quote, "note": b.note,
+            "moment": b.moment, "quote": b.quote,
+            "note": b.note,      # the challenge (lens + imperative line)
+            "answer": b.answer,  # the reveal (gold-arrow payoff)
             "lens_name": canon.get("name", b.lens_ref),
-            "factcheck": {"label": fc[0], "cls": fc[1]} if fc else None,
+            "lens_icon_svg": canon.get("icon_svg", ""),
         }))
 
     if d.global_analysis:

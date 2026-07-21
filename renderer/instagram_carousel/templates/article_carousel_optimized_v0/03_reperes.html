@@ -42,7 +42,7 @@
       {% if lenses %}<div class="q-item">
         <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{{ ICONS.lightbulb | safe }}</svg></span><span class="q-label">{{ lens_count_word }} réflexes</span></div>
         <div class="r-list">
-          {% for l in lenses %}<div class="r-item"><span class="rk">&#8250;</span><span><strong>{{ l.name }}</strong> — {{ l.question }}</span></div>{% endfor %}
+          {% for l in lenses %}<div class="r-item"><span class="rk">{% if l.icon_svg %}<svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block">{{ l.icon_svg | safe }}</svg>{% else %}&#8250;{% endif %}</span><span><strong>{{ l.name }}</strong> — {{ l.question }}</span></div>{% endfor %}
         </div>
       </div>{% endif %}
     </div>

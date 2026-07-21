@@ -925,7 +925,7 @@
   "presentation": {
     "hook": {
       "topic": "Tourisme polaire de **luxe**",
-      "sub_topic": "Le voyage qui **détruit** ce qu'il vient admirer ?",
+      "sub_topic": "Peut-on **aimer** un lieu au point de le **condamner** ?",
       "headline": "Observer les pôles **accélère**-t-il leur disparition ?",
       "context_line": "Des croisières de luxe emmènent une élite admirer des glaces que leur propre voyage contribue à faire fondre.",
       "sub_topic_alt": [
@@ -1087,37 +1087,40 @@
           "moment": "L'ampleur du phénomène en chiffres",
           "quote": "le nombre de voyageurs optant pour une croisière avec vol a augmenté de plus de 4 400 % en vingt ans, passant de 230 en 2004 à plus de 10 000 en 2024",
           "lens_ref": "chiffres",
-          "note": "Devant un pourcentage spectaculaire, cherchez la **base de départ** : +4 400 % part de seulement **230 voyageurs** en 2004.",
+          "note": "Devant un pourcentage spectaculaire, cherchez la **base de départ**.",
           "factcheck": "disputed",
           "selected": true,
           "theme": "croissance",
           "centrality": 4,
           "kind": "statistique",
-          "rationale": "l'effet de base spectaculaire"
+          "rationale": "l'effet de base spectaculaire",
+          "answer": "Il part de **230 voyageurs** en 2004 : une base minuscule gonfle mécaniquement le taux. Le chiffre vient en outre d'un **opérateur** du marché décrit."
         },
         {
           "moment": "La faune polaire",
           "quote": "Les touristes sont en compétition directe avec les animaux",
           "lens_ref": "sources",
-          "note": "« Compétition directe » est une affirmation forte : sur quelle **observation** repose-t-elle ? Cherchez la source avant de l'admettre.",
+          "note": "« Compétition directe » est une affirmation forte : sur quelle **observation** repose-t-elle ?",
           "factcheck": "",
           "selected": true,
           "theme": "faune",
           "centrality": 3,
           "kind": "enjeu",
-          "rationale": "l'impact affirmé sur la faune"
+          "rationale": "l'impact affirmé sur la faune",
+          "answer": "L'idée est plausible, mais reste à établir **espèce par espèce** — le reportage ne cite pas la mesure. Cherchez la **source** avant de l'admettre."
         },
         {
           "moment": "Le cœur de la thèse",
           "quote": "En contribuant à réchauffer la planète avec ces croisières aériennes, ils détruisent les paysages qu'ils observent.",
           "lens_ref": "causalite",
-          "note": "Guettez le glissement du **global au local** : contribuer au réchauffement n'est pas détruire directement ce paysage précis. Cause, ou corrélation ?",
+          "note": "Guettez le glissement du **global au local** : cause directe, ou corrélation ?",
           "factcheck": "",
           "selected": true,
           "theme": "thèse",
           "centrality": 5,
           "kind": "angle",
-          "rationale": "le glissement causal central"
+          "rationale": "le glissement causal central",
+          "answer": "Contribuer au réchauffement **planétaire** n'est pas détruire **ce paysage précis**. Le lien est posé comme une évidence ; il reste une contribution diffuse parmi des milliers d'autres."
         },
         {
           "moment": "Le coût carbone du voyage",
@@ -1129,7 +1132,8 @@
           "theme": "carbone",
           "centrality": 4,
           "kind": "statistique",
-          "rationale": "le chiffre carbone emblématique"
+          "rationale": "le chiffre carbone emblématique",
+          "answer": ""
         },
         {
           "moment": "Le tourisme de la dernière chance",
@@ -1141,7 +1145,8 @@
           "theme": "cadrage",
           "centrality": 3,
           "kind": "biais",
-          "rationale": "le ressort « dernière chance »"
+          "rationale": "le ressort « dernière chance »",
+          "answer": ""
         },
         {
           "moment": "Le procès des opérateurs",
@@ -1153,7 +1158,8 @@
           "theme": "acteurs",
           "centrality": 3,
           "kind": "affirmation",
-          "rationale": "opinion d'expert à sourcer"
+          "rationale": "opinion d'expert à sourcer",
+          "answer": ""
         }
       ],
       "global_analysis": {
@@ -1180,7 +1186,7 @@
         "Chaque voyage émet **15 à 25 t** de CO2, plus du double d'un Français.",
         "L'article conclut qu'il faudrait **restreindre**, voire sanctuariser, l'activité."
       ],
-      "essentiel_summary": "Reporterre décrit l'**essor du tourisme polaire de luxe** : chaque voyage émettrait **15 à 25 t** de CO2 par passager et menacerait une faune fragile. Sa thèse — ces touristes **détruisent les paysages qu'ils viennent admirer** — le conduit à réclamer de **restreindre** l'activité."
+      "essentiel_summary": "Reporterre décrit un tourisme polaire de luxe en plein essor — **230 voyageurs en 2004, plus de 10 000 en 2024** — chacun émettant **15 à 25 t** de CO2, le double d'un Français. Faune perturbée, autorégulation jugée insuffisante : l'article conclut qu'il faudrait **restreindre**, voire sanctuariser, l'activité."
     }
   }
 }

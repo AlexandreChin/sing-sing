@@ -405,18 +405,21 @@ body {
 .kick svg { width: 34px; height: 34px; flex: none; }
 .head { font-size: 52px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
-.evidence { border-left: 4px solid #d4aa00; background: #161616; border-radius: 0 10px 10px 0; padding: 20px 28px; display: flex; flex-direction: column; gap: 16px; }
+.evidence { border-left: 4px solid #d4aa00; background: #161616; border-radius: 0 10px 10px 0; padding: 22px 28px; }
 .ev-quote { font-size: 34px; font-style: italic; line-height: 1.4; color: #f0f0f0; }
-.fc-row { display: flex; align-items: center; gap: 14px; }
-.fc-scale { font-size: 30px; line-height: 1; }
-.fc-chip { font-size: 24px; font-weight: 800; padding: 6px 18px; border-radius: 8px; border: 1px solid; letter-spacing: .02em; }
-.fc-chip.true, .fc-chip.likely_true { border-color: #2a5c3a; color: #7ec8a0; background: #0d2b1a; }
-.fc-chip.consensual { border-color: #1a4a2a; color: #5eb88a; background: #0d2b1a; }
-.fc-chip.disputed { border-color: #5c5320; color: #d8c87a; background: #23200d; }
-.fc-chip.false { border-color: #5c2a2a; color: #e87a7a; background: #2b0d0d; }
-.fc-chip.neutral { border-color: #2a2a5c; color: #9ab0d8; background: #14172b; }
-.note { font-size: 38px; line-height: 1.45; color: #e0e0e0; max-width: 920px; text-align: justify; hyphens: auto; }
-.note strong { color: #d4aa00; font-weight: 700; }
+
+/* ── Watch-out: the challenge (lens + imperative, one line) ── */
+.watch { display: flex; gap: 16px; align-items: flex-start; }
+.watch svg { width: 40px; height: 40px; flex: none; margin-top: 4px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.watch .wtxt { font-size: 37px; font-weight: 700; line-height: 1.34; color: #f0f0f0; }
+.watch .wtxt .wl { color: #d4aa00; font-weight: 900; }
+.watch .wtxt strong { color: #d4aa00; font-weight: 900; }
+
+/* ── Reveal: the answer ── */
+.reveal { display: flex; gap: 18px; align-items: flex-start; }
+.reveal .arw { flex: none; font-size: 40px; line-height: 1.15; color: #d4aa00; font-weight: 900; }
+.reveal .rev { font-size: 33px; line-height: 1.42; color: #cfcfcf; text-align: justify; hyphens: auto; }
+.reveal .rev strong { color: #d4aa00; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -436,8 +439,8 @@ body {
     <h1 class="head">Le cœur de la thèse</h1>
     <div class="divider"></div>
     <div class="evidence"><p class="ev-quote">« En contribuant à réchauffer la planète avec ces croisières aériennes, ils détruisent les paysages qu&#39;ils observent. »</p></div>
-    <p class="note">Guettez le glissement du <strong>global au local</strong> : contribuer au réchauffement n&#39;est pas détruire directement ce paysage précis. Cause, ou corrélation ?</p>
-    <span class="reflex-pill"><svg viewBox="0 0 24 24"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1.22.5 2.54 1.5 3.5.76.76 1.23 1.52 1.41 2.5"/></svg><span class="rl-tag">Réflexe &#8594;</span><span class="rl-name">Causalité</span></span>
+    <p class="watch"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span class="wtxt"><span class="wl">Causalité</span> — Guettez le glissement du <strong>global au local</strong> : cause directe, ou corrélation ?</span></p>
+    <div class="reveal"><span class="arw">&#8594;</span><p class="rev">Contribuer au réchauffement <strong>planétaire</strong> n&#39;est pas détruire <strong>ce paysage précis</strong>. Le lien est posé comme une évidence ; il reste une contribution diffuse parmi des milliers d&#39;autres.</p></div>
   </div>
   <div class="slide-num">7 / 10</div>
   <div class="progress-track"><div class="progress-bar" style="width: 70%;"></div></div>
