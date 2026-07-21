@@ -925,10 +925,11 @@
   "presentation": {
     "hook": {
       "topic": "Tourisme polaire de **luxe**",
-      "sub_topic": "Peut-on **aimer** un lieu au point de le **condamner** ?",
+      "sub_topic": "Derrière les **tonnes de CO₂**, qu'est-ce qui **dérange vraiment** ?",
       "headline": "Observer les pôles **accélère**-t-il leur disparition ?",
       "context_line": "Des croisières de luxe emmènent une élite admirer des glaces que leur propre voyage contribue à faire fondre.",
       "sub_topic_alt": [
+        "Peut-on **aimer** un lieu au point de le **condamner** ?",
         "Et si admirer les pôles **précipitait** leur fonte ?",
         "Fuir la canicule… en **réchauffant** la planète ?",
         "Voir les pôles avant qu'ils **fondent** — à quel prix ?"
@@ -1037,7 +1038,7 @@
       ],
       "key_takeaways": [
         {
-          "text": "Une croisière polaire émet **15 à 25 tonnes** de CO2 par passager.",
+          "text": "Une croisière polaire émet **15 à 25 tonnes** de CO₂ par passager.",
           "selected": true
         },
         {
@@ -1124,7 +1125,7 @@
         },
         {
           "moment": "Le coût carbone du voyage",
-          "quote": "entre 15 et 25 tonnes de CO2 par passager, soit plus du double de l'empreinte carbone annuelle moyenne d'un Français",
+          "quote": "entre 15 et 25 tonnes de CO₂ par passager, soit plus du double de l'empreinte carbone annuelle moyenne d'un Français",
           "lens_ref": "chiffres",
           "note": "Une comparaison parlante (2× un Français) convainc vite — demandez d'où vient **la fourchette**.",
           "factcheck": "likely true",
@@ -1174,7 +1175,7 @@
         ]
       },
       "open_question": "L'auteur ignore-t-il la **part réelle** du tourisme polaire dans les émissions, ou l'omet-il pour préserver l'ampleur du récit ?",
-      "root_issue": "Au-delà des tonnes de CO2, l'enjeu est surtout **symbolique** : une élite qui s'offre les derniers paysages intacts pendant que le climat se dérègle.",
+      "root_issue": "Au-delà des tonnes de CO₂, l'enjeu est surtout **symbolique** : une élite qui s'offre les derniers paysages intacts pendant que le climat se dérègle.",
       "steel_man": {
         "argument": "Un tourisme encadré peut transformer les visiteurs en **ambassadeurs** de la conservation des pôles.",
         "alternative": "Le bilan net serait **positif** si la sensibilisation protège plus qu'elle n'émet."
@@ -1183,10 +1184,10 @@
       "bilan_headline": "L'essentiel, et les bons réflexes.",
       "essentiel": [
         "Le **tourisme polaire de luxe** connaît un essor rapide.",
-        "Chaque voyage émet **15 à 25 t** de CO2, plus du double d'un Français.",
+        "Chaque voyage émet **15 à 25 t** de CO₂, plus du double d'un Français.",
         "L'article conclut qu'il faudrait **restreindre**, voire sanctuariser, l'activité."
       ],
-      "essentiel_summary": "Reporterre décrit un tourisme polaire de luxe en plein essor — **230 voyageurs en 2004, plus de 10 000 en 2024** — chacun émettant **15 à 25 t** de CO2, le double d'un Français. Faune perturbée, autorégulation jugée insuffisante : l'article conclut qu'il faudrait **restreindre**, voire sanctuariser, l'activité."
+      "essentiel_summary": "Reporterre décrit un tourisme polaire de luxe en plein essor — **230 voyageurs en 2004, plus de 10 000 en 2024** — chacun émettant **15 à 25 t** de CO₂, le double d'un Français. Faune perturbée, autorégulation jugée insuffisante : l'article conclut qu'il faudrait **restreindre**, voire sanctuariser, l'activité."
     }
   }
 }
