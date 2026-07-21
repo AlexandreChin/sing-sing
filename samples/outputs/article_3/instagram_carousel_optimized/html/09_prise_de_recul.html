@@ -297,6 +297,10 @@ body {
   margin: 10px 0;
 }
 
+/* ── Section kicker (shared across all optimized slides) ── */
+.kick { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; display: flex; align-items: center; gap: 16px; }
+.kick svg { width: 34px; height: 34px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
 /* ── Section kicker icon (mirrors the newsletter's SVG line-icons) ── */
 .ki {
   width: 0.95em;
@@ -401,16 +405,14 @@ body {
 .trk.on { color: #d4aa00; }
 .trk svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .trk-sep { color: #3a3a3a; }
-.kick { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; display: flex; align-items: center; gap: 16px; }
-.kick svg { width: 34px; height: 34px; flex: none; }
 .head { font-size: 52px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
 .q-item { display: flex; flex-direction: column; gap: 12px; }
 .q-head { display: flex; gap: 18px; align-items: center; }
 .q-head .mk { flex: none; }
-.q-head .mk svg { width: 36px; height: 36px; display: block; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.q-label { font-size: 32px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; color: #f0f0f0; }
-.r-list { display: flex; flex-direction: column; gap: 12px; padding-left: 54px; }
+.q-head .mk svg { width: 38px; height: 38px; display: block; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.q-label { font-size: 38px; font-weight: 900; line-height: 1.05; letter-spacing: -0.01em; color: #f0f0f0; }
+.r-list { display: flex; flex-direction: column; gap: 12px; padding-left: 56px; }
 .r-item { display: flex; gap: 16px; align-items: flex-start; font-size: 34px; line-height: 1.4; color: #e0e0e0; }
 .r-item .rk { flex: none; color: #d4aa00; font-weight: 900; font-size: 36px; line-height: 1.1; }
 .r-item strong { color: #d4aa00; font-weight: 700; }
@@ -429,7 +431,7 @@ body {
   <span class="trk on"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>Après la lecture</span>
 </div>
   <div class="stage">
-    <span class="kick"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>Prise de recul</span>
+    <span class="kick"><svg viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>Prise de recul</span>
     <h1 class="head">À vous de juger.</h1>
     <div class="divider"></div>
     <div class="q-item">

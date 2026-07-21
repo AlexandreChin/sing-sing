@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <style>
 {% include 'base.css' %}
-.kick { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; }
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 28px; }
 .head { font-size: 52px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
 .q-list { display: flex; flex-direction: column; gap: 30px; }
@@ -30,7 +29,7 @@
   {% include '_brand.html' %}
   {% include '_tracker.html' %}
   <div class="stage">
-    <span class="kick"><svg class="ki" viewBox="0 0 24 24">{{ ICONS.eye | safe }}</svg>Clefs de lecture</span>
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.eye | safe }}</svg>Clefs de lecture</span>
     <h1 class="head">{{ reperes_headline or "Avant de vous lancer." }}</h1>
     <div class="divider"></div>
     <div class="q-list">

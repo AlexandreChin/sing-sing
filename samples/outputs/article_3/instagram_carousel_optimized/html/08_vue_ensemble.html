@@ -297,6 +297,10 @@ body {
   margin: 10px 0;
 }
 
+/* ── Section kicker (shared across all optimized slides) ── */
+.kick { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; display: flex; align-items: center; gap: 16px; }
+.kick svg { width: 34px; height: 34px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
 /* ── Section kicker icon (mirrors the newsletter's SVG line-icons) ── */
 .ki {
   width: 0.95em;
@@ -401,9 +405,7 @@ body {
 .trk.on { color: #d4aa00; }
 .trk svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .trk-sep { color: #3a3a3a; }
-.kick { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; display: flex; align-items: center; gap: 16px; }
-.kick svg { width: 34px; height: 34px; flex: none; }
-.head { font-size: 50px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
+.head { font-size: 52px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
 .rc-list { display: flex; flex-direction: column; gap: 18px; }
 .rc-item { display: flex; gap: 16px; align-items: flex-start; font-size: 36px; line-height: 1.4; color: #e0e0e0; }
@@ -424,7 +426,7 @@ body {
   <span class="trk on"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>Après la lecture</span>
 </div>
   <div class="stage">
-    <span class="kick"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="2" y="16" width="6" height="5" rx="1"/><rect x="16" y="16" width="6" height="5" rx="1"/><path d="M12 8v5M5 13h14M5 13v3M19 13v3"/></svg>L'architecture de l'argument</span>
+    <span class="kick"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="2" y="16" width="6" height="5" rx="1"/><rect x="16" y="16" width="6" height="5" rx="1"/><path d="M12 8v5M5 13h14M5 13v3M19 13v3"/></svg>L'architecture de l'argument</span>
     <h1 class="head">Sur quoi tient toute la thèse ?</h1>
     <div class="divider"></div>
     <div class="rc-list">
