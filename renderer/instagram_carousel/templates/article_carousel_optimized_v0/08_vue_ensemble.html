@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <style>
 {% include 'base.css' %}
-.kick { font-size: 30px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; display: flex; align-items: center; gap: 16px; }
-.kick svg { width: 34px; height: 34px; flex: none; }
-.head { font-size: 50px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
+.head { font-size: 52px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
 .rc-list { display: flex; flex-direction: column; gap: 18px; }
 .rc-item { display: flex; gap: 16px; align-items: flex-start; font-size: 36px; line-height: 1.4; color: #e0e0e0; }
@@ -20,7 +18,7 @@
   {% include '_brand.html' %}
   {% include '_tracker.html' %}
   <div class="stage">
-    <span class="kick"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{{ ICONS.hierarchy | safe }}</svg>L'architecture de l'argument</span>
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.hierarchy | safe }}</svg>L'architecture de l'argument</span>
     <h1 class="head">{{ headline }}</h1>
     <div class="divider"></div>
     <div class="rc-list">
