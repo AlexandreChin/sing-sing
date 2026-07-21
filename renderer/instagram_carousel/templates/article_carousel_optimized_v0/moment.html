@@ -8,18 +8,21 @@
 .kick svg { width: 34px; height: 34px; flex: none; }
 .head { font-size: 52px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
-.evidence { border-left: 4px solid #d4aa00; background: #161616; border-radius: 0 10px 10px 0; padding: 20px 28px; display: flex; flex-direction: column; gap: 16px; }
+.evidence { border-left: 4px solid #d4aa00; background: #161616; border-radius: 0 10px 10px 0; padding: 22px 28px; }
 .ev-quote { font-size: 34px; font-style: italic; line-height: 1.4; color: #f0f0f0; }
-.fc-row { display: flex; align-items: center; gap: 14px; }
-.fc-scale { font-size: 30px; line-height: 1; }
-.fc-chip { font-size: 24px; font-weight: 800; padding: 6px 18px; border-radius: 8px; border: 1px solid; letter-spacing: .02em; }
-.fc-chip.true, .fc-chip.likely_true { border-color: #2a5c3a; color: #7ec8a0; background: #0d2b1a; }
-.fc-chip.consensual { border-color: #1a4a2a; color: #5eb88a; background: #0d2b1a; }
-.fc-chip.disputed { border-color: #5c5320; color: #d8c87a; background: #23200d; }
-.fc-chip.false { border-color: #5c2a2a; color: #e87a7a; background: #2b0d0d; }
-.fc-chip.neutral { border-color: #2a2a5c; color: #9ab0d8; background: #14172b; }
-.note { font-size: 38px; line-height: 1.45; color: #e0e0e0; max-width: 920px; text-align: justify; hyphens: auto; }
-.note strong { color: #d4aa00; font-weight: 700; }
+
+/* ── Watch-out: the challenge (lens + imperative, one line) ── */
+.watch { display: flex; gap: 16px; align-items: flex-start; }
+.watch svg { width: 40px; height: 40px; flex: none; margin-top: 4px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.watch .wtxt { font-size: 37px; font-weight: 700; line-height: 1.34; color: #f0f0f0; }
+.watch .wtxt .wl { color: #d4aa00; font-weight: 900; }
+.watch .wtxt strong { color: #d4aa00; font-weight: 900; }
+
+/* ── Reveal: the answer ── */
+.reveal { display: flex; gap: 18px; align-items: flex-start; }
+.reveal .arw { flex: none; font-size: 40px; line-height: 1.15; color: #d4aa00; font-weight: 900; }
+.reveal .rev { font-size: 33px; line-height: 1.42; color: #cfcfcf; text-align: justify; hyphens: auto; }
+.reveal .rev strong { color: #d4aa00; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -31,9 +34,9 @@
     <span class="kick"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{{ ICONS.book | safe }}</svg>Au fil de la lecture</span>
     <h1 class="head">{{ moment }}</h1>
     <div class="divider"></div>
-    {% if quote %}<div class="evidence">{% if factcheck %}<div class="fc-row"><span class="fc-scale">&#9878;&#65039;</span><span class="fc-chip {{ factcheck.cls }}">{{ factcheck.label }}</span></div>{% endif %}<p class="ev-quote">« {{ quote }} »</p></div>{% endif %}
-    <p class="note">{{ note | md_bold }}</p>
-    <span class="reflex-pill"><svg viewBox="0 0 24 24">{{ ICONS.lightbulb | safe }}</svg><span class="rl-tag">Réflexe &#8594;</span><span class="rl-name">{{ lens_name }}</span></span>
+    {% if quote %}<div class="evidence"><p class="ev-quote">« {{ quote }} »</p></div>{% endif %}
+    <p class="watch"><svg viewBox="0 0 24 24">{% if lens_icon_svg %}{{ lens_icon_svg | safe }}{% else %}{{ ICONS.lightbulb | safe }}{% endif %}</svg><span class="wtxt"><span class="wl">{{ lens_name }}</span> — {{ note | md_bold }}</span></p>
+    {% if answer %}<div class="reveal"><span class="arw">&#8594;</span><p class="rev">{{ answer | md_bold }}</p></div>{% endif %}
   </div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>

@@ -15,9 +15,9 @@ def _display(**over):
     good = dict(
         # candidate pool: ≥3 beats, canonical lens_refs; default selected=True → 3 selected
         reading_beats=[
-            ReadingBeat(moment="A", quote="+4400 %", lens_ref="chiffres", note="n"),
-            ReadingBeat(moment="B", quote="donc la cause", lens_ref="causalite", note="n"),
-            ReadingBeat(moment="C", quote="qui l'affirme", lens_ref="sources", note="n"),
+            ReadingBeat(moment="A", quote="+4400 %", lens_ref="chiffres", note="n", answer="r"),
+            ReadingBeat(moment="B", quote="donc la cause", lens_ref="causalite", note="n", answer="r"),
+            ReadingBeat(moment="C", quote="qui l'affirme", lens_ref="sources", note="n", answer="r"),
         ],
         global_analysis=GlobalAnalysis(headline="Une méthode", core_recap=["a", "b"]),
         root_issue="L'enjeu est surtout symbolique : une élite qui affiche son indifférence.",
@@ -59,6 +59,16 @@ def test_rejects_pool_too_small():
         ReadingBeat(moment="B", quote="q", lens_ref="causalite", note="n"),
     ]))
     assert any("reading_beats" in e for e in errs)
+
+
+def test_rejects_selected_beat_without_answer():
+    # a selected beat renders as a gamified slide, so it needs the reveal (`answer`)
+    errs = _lens_layer_errors(_display(reading_beats=[
+        ReadingBeat(moment="A", quote="q", lens_ref="chiffres", note="n", answer="", selected=True),
+        ReadingBeat(moment="B", quote="q", lens_ref="causalite", note="n", answer="r", selected=True),
+        ReadingBeat(moment="C", quote="q", lens_ref="sources", note="n", answer="r", selected=False),
+    ]))
+    assert any("answer is empty" in e for e in errs)
 
 
 def test_rejects_missing_global_analysis_and_empty_root_issue():

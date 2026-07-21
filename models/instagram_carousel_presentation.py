@@ -66,7 +66,8 @@ class ReadingBeat(BaseModel):
     moment: str    # ≤10 words — where we are in the article (reading order)
     quote: str     # verbatim anchor from the article
     lens_ref: str  # a canonical lens id (see agent/lenses.py), e.g. "chiffres"
-    note: str      # ≤25 words — what to notice / the check, no verdict
+    note: str      # ≤20 words — the CHALLENGE: what to look for (imperative/question), no verdict
+    answer: str = ""  # ≤35 words — the REVEAL: what one finds / why it matters, no verdict
     factcheck: str = ""  # confidence_label of the matching claim (or "" if not a checkable fact)
     # candidate-pool fields (for manual cherry-picking; not rendered except `selected`)
     selected: bool = True   # render this beat as a moment slide (default True → old extracts keep working)

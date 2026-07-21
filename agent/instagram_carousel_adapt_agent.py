@@ -28,6 +28,10 @@ def _lens_layer_errors(d) -> list[str]:
             errors.append(f"display.reading_beats[{i}].lens_ref '{b.lens_ref}' is not a canonical lens id")
         if not b.quote.strip():
             errors.append(f"display.reading_beats[{i}].quote is empty")
+        # selected beats render as gamified slides: they need both the challenge
+        # (`note`) and the reveal (`answer`).
+        if b.selected and not b.answer.strip():
+            errors.append(f"display.reading_beats[{i}].answer is empty (required for selected beats)")
     n_selected = sum(1 for b in beats if b.selected)
     if not (2 <= n_selected <= 3):
         errors.append(f"display.reading_beats must have 2–3 selected, got {n_selected}")

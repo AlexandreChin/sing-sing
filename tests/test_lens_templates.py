@@ -21,24 +21,23 @@ def test_reperes_renders_lenses_as_reflexes():
     assert "Causalité" in html
 
 
-def test_moment_shows_quote_note_and_single_line_reflexe():
+def test_moment_gamifies_quote_challenge_and_reveal():
     html = _render("moment.html", index=1, moment="L'accroche",
-                   quote="+4400 %", note="pas de base de référence",
+                   quote="+4400 %", note="cherchez la **base de départ**",
+                   answer="il part de **230 voyageurs** en 2004",
                    lens_name="Chiffres sans base")
-    assert "+4400 %" in html
-    assert "pas de base de référence" in html
-    assert "Réflexe" in html                  # single-line reflexe tag
-    assert "Chiffres sans base" in html       # lens name on one line
-    assert "L&#39;accroche" in html           # apostrophe auto-escaped
-    assert 'class="fc-row"' not in html       # no fact-check pill element when factcheck absent
+    assert "+4400 %" in html                       # quote (clue)
+    assert "base de départ" in html                # challenge (note) in the watch line
+    assert "Chiffres sans base" in html            # lens name leads the watch line
+    assert 'class="reveal"' in html                # gold-arrow reveal block
+    assert "230 voyageurs" in html                 # answer text
+    assert "L&#39;accroche" in html                # apostrophe auto-escaped
 
 
-def test_moment_shows_factcheck_pill_when_present():
-    html = _render("moment.html", index=1, moment="Le bilan carbone",
-                   quote="15 à 25 tonnes de CO2", note="fourchette non sourcée",
-                   lens_name="Sources", factcheck={"label": "Plutôt solide", "cls": "likely_true"})
-    assert "fc-chip likely_true" in html
-    assert "Plutôt solide" in html
+def test_moment_hides_reveal_when_answer_absent():
+    html = _render("moment.html", index=1, moment="m",
+                   quote="q", note="cherchez la base", lens_name="Sources")
+    assert 'class="reveal"' not in html            # no empty reveal block for old extracts
 
 
 def test_vue_ensemble_renders_core_recap():

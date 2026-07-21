@@ -38,7 +38,7 @@ def _load_carousel_backbone(analysis_path: str | Path | None) -> str | None:
             "selection_headline": display["selection_headline"],
             "why_selected": display["why_selected"],
             "reading_beats": [
-                {"moment": b["moment"], "quote": b["quote"], "note": b["note"], "lens_ref": b["lens_ref"]}
+                {"moment": b["moment"], "quote": b["quote"], "note": b["note"], "answer": b.get("answer", ""), "lens_ref": b["lens_ref"]}
                 for b in display.get("reading_beats", [])
                 if b.get("selected", True)
             ],
