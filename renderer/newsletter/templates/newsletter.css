@@ -36,12 +36,12 @@ a.artref-title { color: #e8e8e8; text-decoration: underline; text-decoration-col
 
 /* body */
 .intro { font-size: 19px; line-height: 1.62; color: #e6e6e6; }
-.kicker { display: flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00; margin: 40px 0 16px; break-after: avoid; }
-.kicker svg { width: 16px; height: 16px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; }
+.kicker { display: flex; align-items: center; gap: 11px; font-size: 22px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: #d4aa00; margin: 40px 0 16px; break-after: avoid; }
+.kicker svg { width: 19px; height: 19px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; }
 p { font-size: 17px; line-height: 1.6; color: #e6e6e6; margin: 10px 0; }
-p.subtitle { font-size: 20px; font-style: italic; color: #f0f0f0; margin: 0 0 14px; }
-h3.subhead { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #c9c9c9; margin: 24px 0 10px; break-after: avoid; }
-h3.subhead svg { width: 15px; height: 15px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+p.subtitle { font-size: 20px; color: #f0f0f0; margin: 0 0 14px; }
+h3.subhead { display: flex; align-items: center; gap: 9px; font-size: 20px; font-weight: 700; color: #f0f0f0; margin: 28px 0 10px; break-after: avoid; }
+h3.subhead svg { width: 17px; height: 17px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 strong { color: #d4aa00; font-weight: 700; }
 
 /* argument spine (numbered chain A→B→C) */
@@ -53,7 +53,8 @@ strong { color: #d4aa00; font-weight: 700; }
 .subcard { background: #141414; border: 1px solid #242424; border-radius: 12px; padding: 22px 26px; margin: 16px 0; break-inside: avoid; }
 .subcard > :first-child { margin-top: 0; }
 .subcard > :last-child { margin-bottom: 0; }
-.decrypt { border-left: 3px solid #d4aa00; padding: 2px 0 2px 18px; margin: 0 0 6px; }
+.subcard .kicker { margin: 0 0 18px; }
+.decrypt { border-left: 3px solid #d4aa00; padding-left: 16px; margin: 0 0 10px; }
 .decrypt .claim { font-size: 18px; font-style: italic; line-height: 1.4; color: #f0f0f0; }
 /* beat answer — gold arrow, no italic, no "Réponse" label */
 .answer { font-size: 16px; line-height: 1.55; color: #dedede; margin-top: 12px; }
@@ -61,7 +62,7 @@ strong { color: #d4aa00; font-weight: 700; }
 .kicker.vue { margin-top: 48px; }
 
 /* à retenir box */
-.box { background: #161616; border-left: 4px solid #d4aa00; border-radius: 0 10px 10px 0; padding: 24px 28px; break-inside: avoid; }
+.box { background: #161616; border: 1px solid #2a2a2a; border-radius: 10px; padding: 24px 28px; break-inside: avoid; }
 .box ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
 .box li { position: relative; padding-left: 30px; font-size: 17px; line-height: 1.5; color: #e6e6e6; }
 .box li::before { content: "\203A"; position: absolute; left: 0; color: #d4aa00; font-weight: 900; }
@@ -73,6 +74,7 @@ strong { color: #d4aa00; font-weight: 700; }
 
 /* stepping back list */
 .plain { display: flex; flex-direction: column; gap: 12px; }
+.qlist { margin-top: 14px; }
 .plain .row { display: flex; gap: 16px; font-size: 17px; line-height: 1.5; color: #dedede; }
 .plain .row .mk { flex: none; font-weight: 900; }
 .plain .row .mk.gold { color: #d4aa00; }
@@ -93,9 +95,11 @@ strong { color: #d4aa00; font-weight: 700; }
 .res-sep { height: 1px; background: #2a2a2a; margin: 22px 0; }
 
 /* open question (keystone quote in L'architecture, "La question" in À vous de juger) */
-.openq { margin-top: 22px; padding: 18px 24px; background: #161616; border-left: 3px solid #d4aa00; border-radius: 0 10px 10px 0; font-size: 18px; font-style: italic; line-height: 1.5; color: #eaeaea; break-inside: avoid; }
+.openq { margin-top: 22px; padding: 18px 24px; background: #161616; border: 1px solid #2a2a2a; border-radius: 10px; font-size: 18px; line-height: 1.5; color: #eaeaea; break-inside: avoid; }
 .openq .oq-label { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800; font-style: normal; letter-spacing: .12em; text-transform: uppercase; color: #d4aa00; margin-bottom: 10px; }
 .openq .oq-label svg { width: 14px; height: 14px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-.signoff { margin-top: 44px; padding-top: 22px; border-top: 1px solid #222; font-size: 16px; font-style: italic; color: #b0b0b0; }
-.signoff .sig { display: block; margin-top: 8px; font-style: normal; font-weight: 800; color: #d4aa00; letter-spacing: .04em; }
+.read-cta-wrap { text-align: center; margin: 36px 0 6px; }
+.read-cta { display: inline-block; padding: 14px 30px; background: #d4aa00; color: #1a1400; text-decoration: none; font-weight: 800; font-size: 16px; letter-spacing: .02em; border-radius: 8px; }
+.read-cta-note { font-size: 13px; color: #8a8a8a; margin-top: 11px; }
+.signoff { margin-top: 44px; padding-top: 22px; border-top: 1px solid #222; font-size: 16px; color: #b0b0b0; text-align: center; }

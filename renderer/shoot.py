@@ -11,6 +11,26 @@ from playwright.sync_api import sync_playwright
 SLIDE_W, SLIDE_H = 1080, 1350
 
 
+def shoot_page(html_file, png=None, width=720, scale=2) -> Path:
+    """Full-page screenshot of a single self-contained HTML file to PNG.
+
+    Unlike `shoot_dir` (fixed-size carousel slides), this captures the whole
+    scroll height — for previewing the newsletter's html/email renders, which
+    have no fixed dimensions. PNG lands at `png` if given, else next to the HTML.
+    """
+    html_file = Path(html_file)
+    png = Path(png) if png else html_file.with_suffix(".png")
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page(viewport={"width": width, "height": 1000},
+                                device_scale_factor=scale)
+        page.set_content(html_file.read_text(encoding="utf-8"), wait_until="networkidle")
+        page.screenshot(path=str(png), full_page=True)
+        browser.close()
+    print(f"  ✓ {png.name}")
+    return png
+
+
 def shoot_dir(html_dir, out_dir=None) -> list[Path]:
     """Screenshot every *.html in `html_dir` to a .png (sorted by name).
 

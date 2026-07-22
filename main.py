@@ -146,11 +146,16 @@ async def cmd_html(args: argparse.Namespace) -> None:
 
 
 async def cmd_shoot(args: argparse.Namespace) -> None:
-    # Step 2 of the render split: screenshot the HTML slide files to PNG.
-    from renderer.shoot import shoot_dir
-    html_dir = Path(args.html_dir)
-    print(f"Screenshotting HTML in {html_dir}/", file=sys.stderr)
-    await asyncio.to_thread(shoot_dir, html_dir)
+    # Step 2 of the render split: screenshot HTML to PNG.
+    # A directory → every slide (shoot_dir); a single HTML file → full-page (shoot_page).
+    from renderer.shoot import shoot_dir, shoot_page
+    path = Path(args.path)
+    if path.is_dir():
+        print(f"Screenshotting HTML in {path}/", file=sys.stderr)
+        await asyncio.to_thread(shoot_dir, path)
+    else:
+        print(f"Screenshotting {path.name}", file=sys.stderr)
+        await asyncio.to_thread(shoot_page, path, args.output)
 
 
 async def cmd_validate(args: argparse.Namespace) -> None:
@@ -337,8 +342,9 @@ def _build_parser() -> argparse.ArgumentParser:
     _add_format(p)
     p.set_defaults(func=cmd_html)
 
-    p = sub.add_parser("shoot", help="screenshot HTML slide files to PNG")
-    p.add_argument("html_dir", help="directory of HTML slide files")
+    p = sub.add_parser("shoot", help="screenshot HTML to PNG (slide dir → each slide; single html → full page)")
+    p.add_argument("path", help="directory of HTML slides, or a single HTML file (e.g. newsletter.email.html)")
+    p.add_argument("output", nargs="?", help="output PNG path (single-file mode only; default: alongside the html)")
     p.set_defaults(func=cmd_shoot)
 
     p = sub.add_parser("simplify", help="shrink an existing analysis for readability")

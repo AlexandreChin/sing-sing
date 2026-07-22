@@ -13,6 +13,7 @@
      inline (the container is fluid by default, so mobile reflow does not depend
      on this block). Outlook ignores it; that's fine. */
   body { margin: 0; padding: 0; width: 100% !important; }
+  body, table, td, div, p, a, span, h1, h2, h3, li { font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
   table { border-collapse: collapse; }
   img { border: 0; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
   a { color: {{ t.accent_text }}; }
@@ -23,7 +24,7 @@
   }
 </style>
 </head>
-<body style="margin:0;padding:0;background-color:{{ t.bg }};">
+<body style="margin:0;padding:0;background-color:{{ t.bg }};font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
 <!-- preheader: inbox preview, kept off-screen -->
 <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:{{ t.bg }};opacity:0;">
   {{ preheader }}&#8199;&#847;&zwnj;&nbsp;&#8199;&#847;&zwnj;&nbsp;&#8199;&#847;&zwnj;&nbsp;&#8199;&#847;&zwnj;&nbsp;&#8199;&#847;&zwnj;&nbsp;
@@ -65,25 +66,12 @@
 
     <!-- body: the full markdown-rendered analysis (edge-to-edge; the body's own
          cards/bands/intro manage their horizontal insets) -->
-    <tr><td style="padding:8px 0 0;">{{ body | safe }}</td></tr>
-
-    <!-- read-the-article call to action -->
-    {% if orig_url %}
-    <tr><td class="px" style="padding:30px 32px 0;text-align:center;">
-      <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0"><tr>
-        <td bgcolor="{{ t.accent }}" style="border-radius:8px;">
-          <a href="{{ orig_url }}" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:15px 32px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;font-weight:800;letter-spacing:0.02em;color:#1a1400;text-decoration:none;border-radius:8px;">Lire l'article &#8599;</a>
-        </td>
-      </tr></table>
-      <div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;color:{{ t.muted }};padding-top:11px;">Lisez l'article, puis revenez pour notre analyse.</div>
-    </td></tr>
-    {% endif %}
+    <tr><td style="padding:8px 0 0;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">{{ body | safe }}</td></tr>
 
     <!-- signoff -->
     <tr><td class="px" style="padding:48px 32px 0;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="1" bgcolor="{{ t.border }}" style="height:1px;font-size:0;line-height:0;background-color:{{ t.border }};">&nbsp;</td></tr></table>
-      <div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;font-style:italic;color:{{ t.muted }};line-height:1.58;padding-top:22px;">{{ signoff | md_bold_email(t.accent_text) }}</div>
-      <div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;font-weight:800;color:{{ t.accent_text }};letter-spacing:0.04em;padding-top:8px;">&mdash; Sing Sing</div>
+      <div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;color:{{ t.muted }};line-height:1.58;padding-top:22px;text-align:center;">{{ signoff | md_bold_email(t.accent_text) }}</div>
     </td></tr>
 
     <!-- slogan (matches the carousel CTA, kept discreet) -->
