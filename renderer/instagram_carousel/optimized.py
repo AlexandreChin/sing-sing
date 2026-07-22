@@ -80,20 +80,42 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         }),
     ]
 
+    number_done = False
     for idx, b in enumerate(selected_beats):
         canon = CANONICAL_LENSES.get(b.lens_ref, {})
-        specs.append((f"0{5 + idx}_moment", "moment", {
-            "moment": b.moment, "quote": b.quote,
+        common = {
             "note": b.note,      # the challenge (lens + imperative line)
             "answer": b.answer,  # the reveal (gold-arrow payoff)
             "lens_name": canon.get("name", b.lens_ref),
             "lens_icon_svg": canon.get("icon_svg", ""),
-        }))
+        }
+        if b.figure and not number_done:
+            # #1 — number-forward slide: only when the beat carries a figure
+            # (filled by the adapt agent for a figure-centric chiffres beat).
+            number_done = True
+            specs.append((f"0{5 + idx}_moment", "moment_number", {
+                "moment": b.moment, "figure": b.figure,
+                "figure_label": b.figure_label, "figure_caption": b.figure_caption,
+                **common,
+            }))
+        else:
+            specs.append((f"0{5 + idx}_moment", "moment", {
+                "moment": b.moment, "quote": b.quote, **common,
+            }))
 
     if d.global_analysis:
         ga = d.global_analysis
+        # Each core_recap item reads "Label : body" (e.g. "Le fil : …", "À tester : …");
+        # render the label as a subtitle-with-icon, like the other slides.
+        recap_icons = {"Le fil": "link", "À questionner": "help"}
+        recap_items = []
+        for c in ga.core_recap:
+            label, sep, body = c.partition(":")
+            label, body = (label.strip(), body.strip()) if sep else ("", c.strip())
+            recap_items.append({"label": label, "body": body,
+                                "icon": recap_icons.get(label, "hierarchy")})
         specs.append(("08_vue_ensemble", "08_vue_ensemble",
-                      {"headline": ga.headline, "core_recap": list(ga.core_recap)}))
+                      {"headline": ga.headline, "recap_items": recap_items}))
 
     # Slide 9 — À vous de juger: the wrap-up (objection + deep stake + the closing question)
     if d.steel_man or d.root_issue or pres.cta.engagement_sentence:
