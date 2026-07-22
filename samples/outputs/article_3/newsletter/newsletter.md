@@ -39,7 +39,9 @@ go_further:
     why: "Documente le classement \u00ab **en danger** \u00bb \u00e9voqu\u00e9 \u00e0 propos de la faune polaire."
 ---
 
-Reporterre décrit l'essor rapide du tourisme polaire de luxe, porté par des croisières aériennes très émettrices : la fréquentation serait passée de quelques centaines à plus de 10 000 voyageurs en vingt ans. L'article avance qu'un tel voyage émet 15 à 25 tonnes de CO2 par passager (plus du double de l'empreinte annuelle d'un Français) et que ces visiteurs perturbent une faune fragile en pleine saison de reproduction. Sa thèse : en contribuant au réchauffement, ces touristes **détruisent les paysages qu'ils viennent admirer**, un « tourisme de la dernière chance ». L'encadrement reposant sur la seule autorégulation des opérateurs (IAATO), jugée insuffisante, il conclut qu'il faudrait restreindre, voire sanctuariser, l'activité.
+Reporterre décrit l'essor rapide du tourisme polaire de luxe, porté par des croisières aériennes très émettrices : la fréquentation serait passée de quelques centaines à plus de 10 000 voyageurs en vingt ans. L'article avance qu'un tel voyage émet 15 à 25 tonnes de CO2 par passager (plus du double de l'empreinte annuelle d'un Français) et que ces visiteurs perturbent une faune fragile en pleine saison de reproduction.
+
+Sa thèse : en contribuant au réchauffement, ces touristes **détruisent les paysages qu'ils viennent admirer**, un « tourisme de la dernière chance ». L'encadrement reposant sur la seule autorégulation des opérateurs (IAATO), jugée insuffisante, il conclut qu'il faudrait restreindre, voire sanctuariser, l'activité.
 
 ## Pourquoi cet article
 
