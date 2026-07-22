@@ -925,35 +925,34 @@
   "presentation": {
     "hook": {
       "topic": "Tourisme polaire de **luxe**",
-      "sub_topic": "Derrière les **tonnes de CO₂**, qu'est-ce qui **dérange vraiment** ?",
-      "headline": "Observer les pôles **accélère**-t-il leur disparition ?",
-      "context_line": "Des croisières de luxe emmènent une élite admirer des glaces que leur propre voyage contribue à faire fondre.",
+      "sub_topic": "Au-delà du **bilan carbone**, qu'est-ce qui **gêne** le plus ?",
+      "headline": "au-delà du coût carbone, un malaise plus **profond** ?",
+      "context_line": "Un tourisme polaire de luxe en **plein essor**, alors que les pôles fondent et que la France suffoque.",
       "sub_topic_alt": [
-        "Peut-on **aimer** un lieu au point de le **condamner** ?",
-        "Et si admirer les pôles **précipitait** leur fonte ?",
-        "Fuir la canicule… en **réchauffant** la planète ?",
-        "Voir les pôles avant qu'ils **fondent** — à quel prix ?"
+        "Un **chiffre choc** suffit-il à faire un problème ?",
+        "Pourquoi ce **loisir** dérange-t-il autant ?",
+        "Un impact **réel**, ou surtout une affaire de **regard** ?"
       ]
     },
     "interest": {
-      "why_read": "Décoder comment des **chiffres chocs** fabriquent une impression d'ampleur.",
-      "pull_quote": "C'est un non-sens total",
-      "next_slide_hook": "D'abord : qui parle, et dans quel contexte médiatique ?"
+      "why_read": "Situer un **chiffre choc** sans perdre de vue les **angles morts**.",
+      "pull_quote": "« Les touristes sont en compétition directe avec les animaux »",
+      "next_slide_hook": "D'abord les faits : que dit exactement l'article ?"
     },
     "title_bullets": [
-      "Notez l'**ironie** : « se rafraîchir » raille ceux qui réchauffent le climat.",
-      "Repérez le **présupposé** qui lie fonte des pôles et afflux touristique.",
+      "Repérez l'**ironie** de « se rafraîchir » quand ces voyages réchauffent le climat.",
+      "Notez le **présupposé** : la fonte causerait l'afflux touristique.",
       "Voyez comment « **les riches** » désigne un coupable avant tout argument."
     ],
     "chapo_bullets": [
-      "Observez le **contraste** canicule française / luxe polaire posé d'emblée.",
-      "Remarquez que le **reproche moral** s'installe avant le moindre chiffre."
+      "Observez le **paradoxe moral** posé d'emblée : détruire ce qu'on vient admirer.",
+      "Repérez la **juxtaposition** canicule française / voyage pour se rafraîchir."
     ],
-    "context_next_slide_hook": "Avant de plonger : trois réflexes à garder en tête.",
-    "watch_out_next_slide_hook": "Voyons maintenant ce que dit vraiment l'argumentation.",
-    "forme_next_slide_hook": "Mais quels chiffres tiennent, et lesquels sont interprétés ?",
-    "biases_next_slide_hook": "Rassemblons tout : que retenir de cette lecture ?",
-    "engagement_question": "Faut-il interdire un tourisme qui abîme ce qu'il fait aimer, ou parier qu'il crée des défenseurs ?",
+    "context_next_slide_hook": "Avant de plonger, trois réflexes à garder en tête.",
+    "watch_out_next_slide_hook": "Voyons maintenant comment l'article bâtit sa démonstration.",
+    "forme_next_slide_hook": "Ces effets de style s'appuient-ils sur des faits vérifiés ?",
+    "biases_next_slide_hook": "Rassemblons les signaux : que retenir de cette lecture ?",
+    "engagement_question": "Cibler ce tourisme, est-ce s'attaquer à l'impact réel ou à un **symbole** ?",
     "go_further": [
       {
         "title": "Comment mentir avec les statistiques",
@@ -962,236 +961,276 @@
         "category": "deep_dive",
         "url": null,
         "duration_minutes": null,
-        "why_explore": "Il outille le réflexe qui manque ici : lire un pourcentage en cherchant sa base et son total de référence.",
+        "why_explore": "Il outille le réflexe qui manque ici : lire un pourcentage en cherchant sa base et son total.",
         "cta_question_index": null
       }
     ],
     "cta": {
-      "title": "Un chiffre spectaculaire n'est pas une démonstration.",
-      "engagement_sentence": "Faut-il juger ce tourisme sur son **poids climatique réel**, ou sur ce qu'il dit d'une **élite indifférente** au dérèglement ?",
+      "title": "Le plus lourd n'est pas toujours le plus **chiffrable**.",
+      "engagement_sentence": "Faut-il juger ce tourisme sur ses **émissions réelles** ou sur ce qu'il **symbolise** ?",
       "engagement_sentence_alt": [
-        "Le **poids climatique réel**, ou ce que ce tourisme **symbolise** : sur quoi juger ?",
-        "Un tourisme à **condamner**, ou un **révélateur** de nos contradictions ?"
+        "Un impact marginal dans les émissions mondiales change-t-il votre jugement ?",
+        "Où placez-vous la ligne entre loisir légitime et excès moral ?",
+        "Faut-il interdire, encadrer, ou laisser choisir chacun ?"
       ],
       "post_reading_questions": [
         {
           "id": "q_0",
-          "question": "Une fois leur source connue, les chiffres avancés vous ont-ils paru solides ?",
-          "type": "article_quality"
-        },
-        {
-          "id": "q_1",
-          "question": "Que changerait la part réelle du tourisme polaire dans les émissions mondiales ?",
+          "question": "Quelles voix manquent pour juger vraiment l'ampleur du problème ?",
           "type": "blind_spot"
         },
         {
-          "id": "q_2",
-          "question": "Un voyage aux pôles peut-il créer plus de défenseurs qu'il ne coûte en carbone ?",
+          "id": "q_1",
+          "question": "Un tourisme qui fait aimer les pôles peut-il aussi les protéger ?",
           "type": "topic_substance"
+        },
+        {
+          "id": "q_2",
+          "question": "Votre jugement change-t-il parce qu'il s'agit d'un loisir de riches ?",
+          "type": "reader_bias"
+        },
+        {
+          "id": "q_3",
+          "question": "Les chiffres avancés vous semblent-ils suffisamment sourcés ?",
+          "type": "article_quality"
         }
       ]
     },
     "display": {
-      "payoff": "Remettre chaque **chiffre choc** dans son contexte et peser l'impact réel des pôles.",
-      "framing": "Un **angle écologiste** : un tourisme de luxe détruit les paysages qu'il vient admirer.",
-      "why_selected": "Un sujet concret et clivant dont les enjeux **dépassent le bilan carbone** : la **faune** polaire, l'encadrement du secteur, la croissance rapide de la fréquentation.\nEt parce qu'il relève du **tourisme de luxe**, le débat prend une portée sociale qui dépasse la seule écologie.",
-      "selection_headline": "Bien plus qu'une question de climat.",
+      "payoff": "Situer chaque **chiffre choc**, repérer les **voix absentes** et peser l'enjeu réel.",
+      "framing": "Un angle **écologiste** : un tourisme de luxe qui détruit ce qu'il admire.",
+      "why_selected": "Un sujet concret et clivant dont les enjeux dépassent le **bilan carbone** : la faune en pleine reproduction, l'encadrement du secteur, la croissance de la fréquentation.\nEt parce qu'il relève du **luxe**, le débat prend une portée sociale qui déborde la seule écologie.",
+      "selection_headline": "Un débat qui va bien au-delà du **climat**.",
       "selection_headline_alt": [
-        "Un débat qui dépasse largement le bilan carbone.",
-        "Un sujet où juger demande plus que des chiffres.",
-        "Le bon terrain pour muscler son regard critique.",
-        "Derrière les chiffres, une vraie question de valeurs."
+        "Un sujet aux **multiples facettes**.",
+        "Quand l'écologie croise le **loisir de riches**.",
+        "Plus qu'une histoire de **tonnes de CO₂**."
       ],
-      "ethics": "Déontologie **globalement propre** : une réserve sur un pourcentage gonflé.",
+      "ethics": "Déontologie globalement respectée ; une réserve sur un **pourcentage gonflé**.",
       "pre_reading": [
         "Repérez l'angle du **tourisme de la dernière chance**.",
-        "Pour chaque pourcentage, cherchez sa **base de départ**."
+        "Pour chaque pourcentage, cherchez sa **base** et son total."
       ],
       "watch_out": [
         {
-          "label": "Source intéressée",
-          "text": "Le chiffre le plus spectaculaire vient d'un **opérateur** du marché décrit."
+          "label": "Effet de base",
+          "text": "Le chiffre le plus **spectaculaire** part d'un point de départ minuscule."
         },
         {
           "label": "Glissement causal",
-          "text": "Réchauffer globalement le climat n'implique pas **détruire ce paysage-ci**."
+          "text": "Un raccourci **logique** relie le réchauffement global à un paysage précis."
         }
       ],
       "strengths": [
         {
           "label": "Clarté",
-          "text": "Une écriture **fluide** et des détails concrets rendent l'abstrait tangible."
+          "text": "Une écriture **fluide** qui rend un sujet technique très lisible."
         },
         {
           "label": "Angle & originalité",
-          "text": "Le paradoxe du **tourisme de la dernière chance** offre un vrai fil narratif."
+          "text": "Un **paradoxe fécond** : un tourisme qui aggrave ce qu'il admire."
         }
       ],
       "distill_points": [
-        "Le **+4 400 %** repose sur une base de 230 voyageurs et une source opérateur.",
-        "Un **glissement causal** transforme une contribution globale en cause directe du site visité.",
-        "L'**accumulation de chiffres** fabrique une ampleur qu'aucun dénominateur ne vient vérifier."
+        "Le chiffre le plus **spectaculaire** (+4 400 %) est aussi le plus fragile : base minuscule et source opérateur.",
+        "Un **glissement causal** transforme une contribution globale au réchauffement en cause directe du site observé.",
+        "L'**accumulation de statistiques** fabrique une ampleur qu'aucun total de référence ne vient contredire."
       ],
       "after_reading": [
-        "Redonnez à chaque pourcentage sa **valeur absolue**.",
-        "Demandez qui a **produit les chiffres** cités.",
-        "Cherchez les **voix absentes** du reportage."
+        "Rendez à chaque pourcentage sa **valeur absolue**.",
+        "Demandez qui a **produit** les chiffres cités.",
+        "Cherchez les **voix absentes** du tableau."
       ],
       "key_takeaways": [
         {
-          "text": "Une croisière polaire émet **15 à 25 tonnes** de CO₂ par passager.",
+          "text": "Une croisière polaire émet **15 à 25 t** de CO₂ par passager, le double d'un Français.",
           "selected": true
         },
         {
-          "text": "Le tourisme polaire a **fortement augmenté** en Arctique comme en Antarctique.",
+          "text": "Croisières avec vol : **230 voyageurs en 2004**, plus de 10 000 en 2024.",
           "selected": true
         },
         {
-          "text": "L'encadrement repose sur l'**autorégulation** des opérateurs via l'IAATO.",
+          "text": "La saison des croisières coïncide avec l'**unique période de reproduction** des espèces menacées.",
           "selected": true
         },
         {
-          "text": "Les croisières perturbent la **faune** en pleine saison de reproduction.",
+          "text": "En Antarctique, la fréquentation est passée de **22 000 à plus de 120 000** visiteurs.",
           "selected": false
         },
         {
-          "text": "Le voyage vise des paysages « **dernière chance** », décrits comme condamnés.",
+          "text": "L'encadrement repose sur l'**autorégulation** des voyagistes membres de l'IAATO.",
+          "selected": false
+        },
+        {
+          "text": "Le manchot empereur est classé **espèce en danger** par l'UICN.",
           "selected": false
         }
       ],
       "blind_spots": [
         "La **part réelle** du tourisme polaire dans les émissions mondiales n'est jamais chiffrée.",
-        "Les **retombées économiques** locales et les voix défendant l'activité manquent."
+        "Les **retombées économiques locales** et les voix défendant l'activité manquent."
       ],
       "balance": [
-        "Un reportage d'engagement **court** n'a pas vocation à être exhaustif.",
-        "Une ligne éditoriale **assumée** peut légitimement défendre une position."
+        "Un reportage **d'engagement** court n'a pas vocation à l'exhaustivité.",
+        "Une **ligne éditoriale** explicite peut défendre une position sans dérouler tous les contradictoires."
       ],
-      "lenses": [
-        {
-          "id": "sources",
-          "name": "La source",
-          "question": "Qui l'affirme, et comment le sait-on ?"
-        },
-        {
-          "id": "chiffres",
-          "name": "Le bon dénominateur",
-          "question": "Ce chiffre, rapporté à quoi ?"
-        },
-        {
-          "id": "causalite",
-          "name": "Cause ou corrélation",
-          "question": "Vraie cause, ou simple corrélation ?"
-        }
-      ],
+      "lenses": [],
       "reading_beats": [
         {
-          "moment": "L'ampleur du phénomène en chiffres",
-          "quote": "le nombre de voyageurs optant pour une croisière avec vol a augmenté de plus de 4 400 % en vingt ans, passant de 230 en 2004 à plus de 10 000 en 2024",
-          "lens_ref": "chiffres",
-          "note": "Devant un pourcentage spectaculaire, cherchez la **base de départ**.",
-          "factcheck": "disputed",
-          "selected": true,
-          "theme": "croissance",
+          "moment": "Dès l'ouverture",
+          "quote": "Pendant que la France étouffe sous la canicule, ceux qui peuvent se le permettre participent au boom du tourisme polaire.",
+          "lens_ref": "cadrage",
+          "note": "Repérez le **cadre moral** posé avant tout chiffre : qui met-on en scène ?",
+          "answer": "La **canicule subie** en France est placée face au **loisir des riches** : le contraste installe le reproche dès la première ligne.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "factcheck": "",
+          "selected": false,
+          "theme": "Cadrage",
           "centrality": 4,
-          "kind": "statistique",
-          "rationale": "l'effet de base spectaculaire",
-          "answer": "Il part de **230 voyageurs** en 2004 : une base minuscule gonfle mécaniquement le taux. Le chiffre vient en outre d'un **opérateur** du marché décrit.",
-          "figure": "4 400 %",
-          "figure_label": "de voyageurs polaires en 20 ans",
-          "figure_caption": "230 en 2004 → 10 000 en 2024"
+          "kind": "biais",
+          "rationale": "Le contraste d'ouverture oriente d'emblée la lecture."
         },
         {
-          "moment": "La faune polaire",
-          "quote": "Les touristes sont en compétition directe avec les animaux",
-          "lens_ref": "sources",
-          "note": "« Compétition directe » est une affirmation forte : sur quelle **observation** repose-t-elle ?",
-          "factcheck": "",
+          "moment": "Le bilan carbone annoncé",
+          "quote": "entre 15 et 25 tonnes de CO2 par passager, soit plus du double de l'empreinte carbone annuelle moyenne d'un Français",
+          "lens_ref": "chiffres",
+          "note": "Face à un bilan carbone, cherchez le **repère** auquel on le compare.",
+          "answer": "Les **15-25 tonnes** sont rapportées à l'empreinte d'un Français (9-10 t/an) : la comparaison parle, mais la fourchette n'est **pas sourcée** indépendamment.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "factcheck": "likely true",
+          "selected": false,
+          "theme": "Chiffres",
+          "centrality": 4,
+          "kind": "statistique",
+          "rationale": "Chiffre central, comparaison parlante mais non vérifiée."
+        },
+        {
+          "moment": "La croissance mise en avant",
+          "quote": "le nombre de voyageurs optant pour une croisière avec vol a augmenté de plus de 4 400 % en vingt ans, passant de 230 en 2004 à plus de 10 000 en 2024",
+          "lens_ref": "chiffres",
+          "note": "Devant un pourcentage spectaculaire, cherchez la **base de départ** et la source.",
+          "answer": "Il part de **230 voyageurs** en 2004 : une base minuscule gonfle mécaniquement le taux, et le chiffre provient d'un **opérateur** du marché décrit.",
+          "figure": "4 400 %",
+          "figure_label": "de voyageurs en croisière avec vol en vingt ans",
+          "figure_caption": "230 en 2004 → 10 000 en 2024",
+          "factcheck": "disputed",
           "selected": true,
-          "theme": "faune",
-          "centrality": 3,
-          "kind": "enjeu",
-          "rationale": "l'impact affirmé sur la faune",
-          "answer": "L'idée est plausible, mais reste à établir **espèce par espèce** — le reportage ne cite pas la mesure. Cherchez la **source** avant de l'admettre."
+          "theme": "Croissance",
+          "centrality": 4,
+          "kind": "statistique",
+          "rationale": "Le chiffre le plus frappant, et le plus fragile."
         },
         {
           "moment": "Le cœur de la thèse",
           "quote": "En contribuant à réchauffer la planète avec ces croisières aériennes, ils détruisent les paysages qu'ils observent.",
           "lens_ref": "causalite",
-          "note": "Guettez le glissement du **global au local** : cause directe, ou corrélation ?",
+          "note": "Quand un texte relie deux faits, demandez si c'est une **cause** ou une **coïncidence**.",
+          "answer": "L'article passe d'une **contribution globale** au réchauffement à la destruction du **site précis** visité : deux échelles différentes reliées d'un seul trait.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
           "factcheck": "",
           "selected": true,
-          "theme": "thèse",
+          "theme": "Lien causal",
           "centrality": 5,
-          "kind": "angle",
-          "rationale": "le glissement causal central",
-          "answer": "Contribuer au réchauffement **planétaire** n'est pas détruire **ce paysage précis**. Le lien est posé comme une évidence ; il reste une contribution diffuse parmi des milliers d'autres."
+          "kind": "affirmation",
+          "rationale": "La thèse repose sur ce saut d'échelle."
         },
         {
-          "moment": "Le coût carbone du voyage",
-          "quote": "entre 15 et 25 tonnes de CO₂ par passager, soit plus du double de l'empreinte carbone annuelle moyenne d'un Français",
-          "lens_ref": "chiffres",
-          "note": "Une comparaison parlante (2× un Français) convainc vite — demandez d'où vient **la fourchette**.",
-          "factcheck": "likely true",
-          "selected": false,
-          "theme": "carbone",
-          "centrality": 4,
-          "kind": "statistique",
-          "rationale": "le chiffre carbone emblématique",
-          "answer": ""
+          "moment": "La question de l'encadrement",
+          "quote": "Les voyagistes membres de l'IAATO sont chargés de réguler leur propre activité",
+          "lens_ref": "sophismes",
+          "note": "Suivez le pas entre le **constat** et la **solution** : découle-t-elle vraiment ?",
+          "answer": "Du constat que l'**autorégulation** ne suffit pas, le texte tend vers la **sanctuarisation**, sans examiner les encadrements intermédiaires possibles.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "factcheck": "",
+          "selected": true,
+          "theme": "Régulation",
+          "centrality": 3,
+          "kind": "enjeu",
+          "rationale": "Le passage du diagnostic à la solution maximale."
         },
         {
-          "moment": "Le tourisme de la dernière chance",
-          "quote": "Ces paysages sont décrits comme étant en train de disparaître. Ce sentiment d'urgence pousse les voyageurs à vouloir les découvrir avant qu'il ne soit trop tard",
-          "lens_ref": "cadrage",
-          "note": "Repérez le ressort de l'**urgence** : « avant qu'il ne soit trop tard » pousse à agir sans peser.",
+          "moment": "La faune polaire",
+          "quote": "Les touristes sont en compétition directe avec les animaux",
+          "lens_ref": "angles_morts",
+          "note": "Demandez ce qui se joue **hors du chiffre carbone** : quels autres impacts ?",
+          "answer": "La saison des croisières coïncide avec l'**unique période de reproduction** des espèces : un impact local, distinct du bilan climatique global.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
           "factcheck": "",
           "selected": false,
-          "theme": "cadrage",
+          "theme": "Faune",
+          "centrality": 3,
+          "kind": "enjeu",
+          "rationale": "Un impact concret souvent éclipsé par le CO₂."
+        },
+        {
+          "moment": "La voix des opérateurs",
+          "quote": "Nous sommes convaincus que l'on protège ce que l'on comprend. Ceux qui ont la chance de découvrir l'Antarctique de manière responsable peuvent saisir par eux-mêmes l'importance de cet écosystème pour la planète et la nécessité de le protéger",
+          "lens_ref": "equilibre",
+          "note": "Quand une partie répond, mesurez l'**espace** qu'on lui laisse.",
+          "answer": "L'argument des opérateurs — on protège ce qu'on comprend — est **cité une fois** puis aussitôt relativisé par les experts critiques.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "factcheck": "",
+          "selected": false,
+          "theme": "Contradictoire",
           "centrality": 3,
           "kind": "biais",
-          "rationale": "le ressort « dernière chance »",
-          "answer": ""
+          "rationale": "Teste si l'autre partie a vraiment voix au chapitre."
         },
         {
-          "moment": "Le procès des opérateurs",
-          "quote": "Ces entreprises ne cherchent qu'à faire du profit. Elles ne sont pas là pour sauver la planète",
-          "lens_ref": "sources",
-          "note": "Une charge forte : **qui** l'affirme, et sur quelles preuves ? Cherchez la source.",
+          "moment": "Le moteur du voyage",
+          "quote": "Ces paysages sont décrits comme étant en train de disparaître. Ce sentiment d'urgence pousse les voyageurs à vouloir les découvrir avant qu'il ne soit trop tard",
+          "lens_ref": "cadrage",
+          "note": "Cherchez le **mot d'auteur** présenté comme un simple constat.",
+          "answer": "La formule « **dernière chance** » interprète la motivation des voyageurs : une lecture de l'auteur, non une donnée mesurée.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
           "factcheck": "",
           "selected": false,
-          "theme": "acteurs",
-          "centrality": 3,
-          "kind": "affirmation",
-          "rationale": "opinion d'expert à sourcer",
-          "answer": ""
+          "theme": "Dernière chance",
+          "centrality": 4,
+          "kind": "cadrage",
+          "rationale": "Une interprétation glissée en constat."
         }
       ],
       "global_analysis": {
-        "headline": "Sur quoi tient toute la thèse ?",
+        "headline": "Sur quoi repose vraiment la **thèse** de l'article ?",
         "headline_alt": [
-          "Le fil de l'argument, maillon par maillon.",
-          "De quoi dépend la conclusion ?"
+          "La démonstration tient-elle sur tous ses **appuis** ?",
+          "Observer les pôles, est-ce déjà les **abîmer** ?"
         ],
         "core_recap": [
-          "Le fil : des impacts — **carbone**, **faune**, paysages — attribués aux touristes, puis un appel à restreindre.",
-          "À questionner : chaque impact est-il **rapporté à son échelle**, et son lien au tourisme **établi** ?"
+          "Le fil : croissance rapide → bilan carbone lourd → faune perturbée → l'observation elle-même **dégrade** les pôles.",
+          "À questionner : ce voyage ne crée-t-il aucune **conscience** capable de compenser son empreinte ?"
         ]
       },
-      "open_question": "L'auteur ignore-t-il la **part réelle** du tourisme polaire dans les émissions, ou l'omet-il pour préserver l'ampleur du récit ?",
-      "root_issue": "Au-delà des tonnes de CO₂, l'enjeu est surtout **symbolique** : une élite qui s'offre les derniers paysages intacts pendant que le climat se dérègle.",
+      "open_question": "Au-delà du +4 400 %, quelle est l'ampleur absolue des flux concernés ?",
+      "root_issue": "Au-delà d'un impact climatique **marginal** dans les émissions mondiales, l'enjeu est surtout **symbolique** : une élite s'offre ce qu'elle contribue à faire disparaître.",
       "steel_man": {
-        "argument": "Un tourisme encadré peut transformer les visiteurs en **ambassadeurs** de la conservation des pôles.",
+        "argument": "Un tourisme encadré peut transformer les visiteurs en **ambassadeurs** de la conservation, générant soutiens et financements.",
         "alternative": "Le bilan net serait **positif** si la sensibilisation protège plus qu'elle n'émet."
       },
-      "reperes_headline": "Avant de vous lancer.",
-      "bilan_headline": "L'essentiel, et les bons réflexes.",
+      "reperes_headline": "Un débat clivant, des enjeux multiples.",
+      "bilan_headline": "",
       "essentiel": [
-        "Le **tourisme polaire de luxe** connaît un essor rapide.",
-        "Chaque voyage émet **15 à 25 t** de CO₂, plus du double d'un Français.",
-        "L'article conclut qu'il faudrait **restreindre**, voire sanctuariser, l'activité."
+        "Un tourisme polaire de luxe en **forte croissance** aux deux pôles.",
+        "**15 à 25 t** de CO₂ par passager, le double d'un Français.",
+        "Faune perturbée et autorégulation : l'article plaide pour **restreindre** l'activité."
       ],
-      "essentiel_summary": "Reporterre décrit un tourisme polaire de luxe en plein essor — **230 voyageurs en 2004, plus de 10 000 en 2024** — chacun émettant **15 à 25 t** de CO₂, le double d'un Français. Faune perturbée, autorégulation jugée insuffisante : l'article conclut qu'il faudrait **restreindre**, voire sanctuariser, l'activité."
+      "essentiel_summary": "Reporterre décrit un tourisme polaire de luxe en plein essor — **230 voyageurs en 2004, plus de 10 000 en 2024** — chacun émettant **15 à 25 t** de CO₂, le double d'un Français. Faune perturbée en pleine reproduction, encadrement laissé à l'autorégulation : l'article conclut que l'activité **détruit** les paysages qu'elle fait admirer."
     }
   }
 }
