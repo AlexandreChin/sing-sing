@@ -62,8 +62,6 @@ signoff: {{ signoff | tojson }}
 {{ loop.index }}. {{ s }}
 {%- endfor %}
 
-> {{ architecture.keystone }}
-
 ### À qui profite ce cadrage ?
 
 {{ cui_bono }}

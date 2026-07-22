@@ -133,6 +133,8 @@ class _RichBody(HTMLRenderer):
             self._seen_heading = True
         icon = explicit_icon or ICON_BY_TITLE.get(title)
         if level <= 2:
+            if title == "Au fil de la lecture":
+                return ""   # rendered as the grouped beats-card title instead
             return f'<div class="kicker">{_icon_svg(icon)}{title}</div>\n'
         return f'<h3 class="subhead">{_icon_svg(icon)}{title}</h3>\n'
 
@@ -169,7 +171,8 @@ class _RichBody(HTMLRenderer):
         inner = re.sub(r"</?p>", "", text).strip()
         if style == "claim":
             return f'<div class="decrypt"><div class="claim">{inner}</div></div>\n'
-        return f'<div class="openq">{inner}</div>\n'
+        # keystone / reader questions: a gold-chevron row, like the plain list sections
+        return f'<div class="plain qlist"><div class="row"><span class="mk gold">›</span><span>{inner}</span></div></div>\n'
 
     def paragraph(self, text: str) -> str:
         stripped = text.strip()
@@ -214,9 +217,8 @@ def _gofurther_rich(items: list) -> str:
             rows.append(f'<div class="rsource">{_html.escape(r["source"])}</div>')
         if r.get("why"):
             rows.append(f'<div class="rwhy">{_BOLD_RE.sub(r"<strong>\1</strong>", _html.escape(r["why"]))}</div>')
-    icon = _icon_svg("widen")
-    return (f'<div class="kicker">{icon}Pour aller plus loin</div>\n'
-            f'<div class="subcard reslist">{"".join(rows)}</div>\n')
+    head = f'<h3 class="subhead">{_icon_svg("widen")}Pour aller plus loin</h3>'
+    return f'<div class="subcard reslist">{head}{"".join(rows)}</div>\n'
 
 
 def _gofurther_email(items: list, s: dict, t: dict) -> str:
@@ -245,24 +247,73 @@ def _gofurther_email(items: list, s: dict, t: dict) -> str:
             why = _BOLD_RE.sub(rf'<strong style="color:{t["accent_text"]};font-weight:700;">\1</strong>',
                                _html.escape(r["why"]))
             rows.append(f'<div style="font-size:16px;color:{t["text"]};line-height:1.55;padding-top:10px;">{why}</div>')
-    label = f'<div style="{s["card_label"]}">📚&nbsp;&nbsp;Pour aller plus loin</div>'
-    card = f'<div style="{s["card"]}"><div style="{s["card_pad"]}">{"".join(rows)}</div></div>'
-    return label + card
+    head = f'<div style="{s["card_head"]}">📚&nbsp;&nbsp;Pour aller plus loin</div>'
+    card = f'<div style="{s["card"]}"><div style="{s["card_pad"]}">{head}{"".join(rows)}</div></div>'
+    return card
 
 
-def render_body_html(body_md: str, go_further: list | None = None) -> str:
+def _read_cta_rich(url: str) -> str:
+    """« Lire l'article » CTA (rich) — opens the source in a new tab."""
+    if not url:
+        return ""
+    href = _html.escape(_norm_url(url))
+    return (
+        '<div class="read-cta-wrap">'
+        f'<a class="read-cta" href="{href}" target="_blank" rel="noopener noreferrer">Lire l\'article ↗</a>'
+        '<div class="read-cta-note">Lisez l\'article, puis revenez pour notre analyse.</div>'
+        '</div>\n'
+    )
+
+
+def _read_cta_email(url: str, t: dict) -> str:
+    """« Lire l'article » CTA (email, table-safe) — opens the source in a new tab."""
+    if not url:
+        return ""
+    href = _html.escape(_norm_url(url))
+    return (
+        '<div style="padding:34px 32px 4px;text-align:center;">'
+        '<table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0"><tr>'
+        f'<td bgcolor="{t["accent"]}" style="border-radius:8px;">'
+        f'<a href="{href}" target="_blank" rel="noopener noreferrer" '
+        "style=\"display:inline-block;padding:15px 32px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;"
+        'font-size:16px;font-weight:800;letter-spacing:0.02em;color:#1a1400;text-decoration:none;border-radius:8px;">'
+        "Lire l'article &#8599;</a></td></tr></table>"
+        f'<div style="font-family:-apple-system,\'Segoe UI\',Roboto,Helvetica,Arial,sans-serif;'
+        f'font-size:13px;color:{t["muted"]};padding-top:11px;">'
+        "Lisez l'article, puis revenez pour notre analyse.</div></div>\n"
+    )
+
+
+def render_body_html(body_md: str, go_further: list | None = None, orig_url: str = "") -> str:
     renderer = _RichBody()
     md = mistune.create_markdown(renderer=renderer)
+    segs = segment(body_md)
     out = []
-    for forced, chunk in segment(body_md):
+    i = 0
+    while i < len(segs):
+        forced, chunk = segs[i]
         if forced == "gofurther":   # structured resource cards (from front-matter)
             out.append(_gofurther_rich(go_further or []))
-        elif forced == "card":   # each beat in its own sub-card
-            renderer.forced = None
-            out.append(f'<div class="subcard">\n{md(chunk)}</div>\n')
+            i += 1
+        elif forced == "card":   # the reading beats — one card, a rule between each
+            beats = []
+            while i < len(segs):
+                f, c = segs[i]
+                if f == "card":
+                    renderer.forced = None
+                    beats.append(md(c))
+                    i += 1
+                elif f is None and not c.strip():
+                    i += 1   # blank gap between beats
+                else:
+                    break
+            head = f'<div class="kicker">{_icon_svg(ICON_BY_TITLE.get("Au fil de la lecture"))}Au fil de la lecture</div>'
+            body = '<div class="res-sep"></div>'.join(beats)
+            out.append(_read_cta_rich(orig_url) + f'<div class="subcard beats">{head}{body}</div>\n')
         else:
             renderer.forced = forced
             out.append(md(chunk))
+            i += 1
     renderer.forced = None
     return "".join(out)
 
@@ -293,39 +344,35 @@ def _email_styles(t: dict) -> dict:
     return {
         "p": f"font-size:17px;line-height:1.62;color:{t['text']};margin:0 0 12px;",
         "intro": f"font-size:19px;line-height:1.62;color:{t['text']};margin:0;",
-        "subtitle": f"font-size:20px;font-style:italic;line-height:1.4;color:{t['heading']};margin:0 0 14px;",
-        "clue": f"font-size:15px;font-style:italic;color:{t['muted']};margin-top:8px;",
+        "subtitle": f"font-size:20px;line-height:1.4;color:{t['heading']};margin:0 0 14px;",
+        "clue": f"font-size:15px;color:{t['muted']};margin-top:8px;",
         "answer": f"font-size:17px;line-height:1.55;color:{t['text']};margin:10px 0 0;",
         "card_label": f"margin:26px 32px 4px;font-size:15px;font-weight:800;letter-spacing:0.13em;"
                       f"text-transform:uppercase;color:{t['accent_text']};",
         "row": f"font-size:17px;line-height:1.55;color:{t['text']};margin:0 0 10px;",
         "mark_gold": f"color:{t['accent_text']};font-weight:900;",
         "mark_salmon": "color:#e8a07a;font-weight:900;",
-        # quotes sit inside surface cards, so no nested box — border-left only.
-        "quote": f"border-left:3px solid {t['accent']};padding:2px 0 2px 18px;"
-                 f"font-style:italic;color:{t['text']};margin:14px 0;",
+        # article quotes: italic pull-quote with a gold vertical rule (carousel style).
+        "quote": f"border-left:3px solid {t['accent']};padding-left:16px;font-size:18px;"
+                 f"font-style:italic;line-height:1.4;color:{t['heading']};margin:14px 0;",
         "divider": f"border:0;border-top:2px solid {t['accent']};margin:24px 0;",
         "n": f"color:{t['accent_text']};font-weight:900;",
-        # lead intro (before the first act band) + section cards + act band
+        # lead intro (before the first act) + section cards + act header
         "intro_wrap": "padding:30px 32px 0;",
         "card": f"margin:16px 32px 0;background:{t['surface']};border-radius:12px;",
         "card_pad": "padding:28px 30px;",
-        "card_head": f"font-size:15px;font-weight:800;letter-spacing:0.13em;"
-                     f"text-transform:uppercase;color:{t['accent_text']};padding-bottom:16px;",
-        "banner": f"background:{t['accent']};background-image:linear-gradient(135deg,"
-                  f"#e6c04a 0%,#d4aa00 55%,#c09800 100%);padding:22px 32px;margin-top:44px;",
-        "banner_on": "font-size:22px;font-weight:900;letter-spacing:-0.01em;"
-                     "line-height:1.3;color:#1a1400;padding:5px 0;",
-        "banner_chip": "display:inline-block;background-color:#1a1400;border-radius:8px;"
-                       "padding:4px 9px;vertical-align:middle;",
-        "banner_off": "font-size:14px;font-weight:700;line-height:1.35;color:#3d3100;padding:5px 0;",
+        "card_head": f"font-size:20px;font-weight:700;color:{t['heading']};padding-bottom:14px;",
+        # act header: a single gold label over a thin gold rule (no band, no re-listing)
+        "act": f"margin:46px 32px 6px;padding-bottom:12px;border-bottom:2px solid {t['accent']};"
+               f"font-size:22px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;"
+               f"color:{t['accent_text']};",
     }
 
 
 class _EmailBody(HTMLRenderer):
-    """Card-based email renderer echoing the 6221e68 layout: each `##` act is a
-    gold band listing all four acts (active one highlighted), each `###`
-    subsection a rounded surface card with an emoji+title header; content before
+    """Card-based email renderer: each `##` act is a gold header over a thin
+    rule, each `###` subsection a rounded surface card with an emoji+title
+    header; content before
     the first act is the lead intro. Rebuilt from the edited markdown."""
 
     def __init__(self, s: dict, t: dict) -> None:
@@ -335,6 +382,7 @@ class _EmailBody(HTMLRenderer):
         self.forced: str | None = None
         self._seen_act = False
         self._card_open = False
+        self.orig_url = ""
 
     # --- card / band chrome ---
     def close_card(self) -> str:
@@ -353,17 +401,10 @@ class _EmailBody(HTMLRenderer):
         return f'<div style="{self.s["card"]}"><div style="{self.s["card_pad"]}">{head}'
 
     def _band(self, active: str) -> str:
-        rows = []
-        for name in _ACTS:
-            if name == active:
-                emoji = _ACT_EMOJI.get(name, "")
-                rows.append(
-                    f'<div style="{self.s["banner_on"]}"><span style="{self.s["banner_chip"]}">'
-                    f'<span style="font-size:20px;line-height:1;">{emoji}</span></span>'
-                    f'&nbsp;&nbsp;{name}</div>')
-            else:
-                rows.append(f'<div style="{self.s["banner_off"]}">{name}</div>')
-        return f'<div style="{self.s["banner"]}">{"".join(rows)}</div>\n'
+        # a single clean act header: emoji + name over a thin gold rule (no band).
+        emoji = _ACT_EMOJI.get(active, "")
+        chip = f'<span style="font-size:20px;">{emoji}</span>&nbsp;&nbsp;' if emoji else ""
+        return f'<div style="{self.s["act"]}">{chip}{active}</div>\n'
 
     def _content(self, html: str) -> str:
         """Route a content block: into the open card, into a fresh untitled card
@@ -379,7 +420,10 @@ class _EmailBody(HTMLRenderer):
         title, _ = _heading_meta(text)
         self.section = title
         if level <= 2:
-            out = self.close_card() + self._band(title)
+            # « Lire l'article » CTA closes out « Avant de vous lancer », just
+            # before the « Au fil de la lecture » act header.
+            cta = _read_cta_email(self.orig_url, self.t) if title == "Au fil de la lecture" else ""
+            out = self.close_card() + cta + self._band(title)
             self._seen_act = True
             return out
         if title in CARD_LIST_SECTIONS:
@@ -414,6 +458,10 @@ class _EmailBody(HTMLRenderer):
 
     def block_quote(self, text: str) -> str:
         inner = re.sub(r"</?p[^>]*>", "", text).strip()
+        style = self.forced or QUOTE_STYLE.get(self.section, "plain")
+        if style == "keystone":   # reader questions: gold-chevron row, like other sections
+            return self._content(
+                f'<div style="{self.s["row"]}"><span style="{self.s["mark_gold"]}">›</span> {inner}</div>')
         return self._content(f'<div style="{self.s["quote"]}">{inner}</div>')
 
     def paragraph(self, text: str) -> str:
@@ -436,21 +484,39 @@ class _EmailBody(HTMLRenderer):
         return f'<strong style="color:{self.t["accent_text"]};font-weight:700;">{text}</strong>'
 
 
-def render_email_body_html(body_md: str, theme: str, go_further: list | None = None) -> str:
+def render_email_body_html(body_md: str, theme: str, go_further: list | None = None, orig_url: str = "") -> str:
     from renderer.newsletter.renderer import EMAIL_THEMES
     t = EMAIL_THEMES[theme]
     renderer = _EmailBody(_email_styles(t), t)
+    renderer.orig_url = orig_url
     md = mistune.create_markdown(renderer=renderer)
+    segs = segment(body_md)
     out = []
-    for forced, chunk in segment(body_md):
+    i = 0
+    while i < len(segs):
+        forced, chunk = segs[i]
         if forced == "gofurther":   # structured resource cards (from front-matter)
             out.append(renderer.close_card() + _gofurther_email(go_further or [], renderer.s, renderer.t))
-        elif forced == "card":   # each beat in its own surface sub-card
-            renderer.forced = None
-            out.append(renderer.close_card() + renderer._open_card() + md(chunk) + renderer.close_card())
+            i += 1
+        elif forced == "card":   # the reading beats — one card, a rule between each
+            opened = renderer.close_card() + renderer._open_card()
+            parts = []
+            while i < len(segs):
+                f, c = segs[i]
+                if f == "card":
+                    renderer.forced = None
+                    parts.append(md(c))
+                    i += 1
+                elif f is None and not c.strip():
+                    i += 1   # blank gap between beats
+                else:
+                    break
+            sep = f'<hr style="{renderer.s["divider"]}">'
+            out.append(opened + sep.join(parts) + renderer.close_card())
         else:
             renderer.forced = forced
             out.append(md(chunk))
+            i += 1
     renderer.forced = None
     out.append(renderer.close_card())  # close the final card
     return "".join(out)
@@ -476,7 +542,7 @@ def render_html(md_text: str) -> str:
     fm, body_md = parse_source(md_text)
     ctx = _shell_ctx(fm)
     ctx["cat_pill"] = pill(fm.get("category"), "dark")
-    ctx["body"] = render_body_html(body_md, fm.get("go_further"))
+    ctx["body"] = render_body_html(body_md, fm.get("go_further"), fm.get("article_url", ""))
     return _env().get_template("newsletter.html").render(logo=_LOGO_DATA_URL, **ctx)
 
 
@@ -486,6 +552,6 @@ def render_email_html(md_text: str, theme: str = "light") -> str:
     fm, body_md = parse_source(md_text)
     ctx = _shell_ctx(fm)
     ctx["cat_pill"] = pill(fm.get("category"), theme)
-    ctx["body"] = render_email_body_html(body_md, theme, fm.get("go_further"))
+    ctx["body"] = render_email_body_html(body_md, theme, fm.get("go_further"), fm.get("article_url", ""))
     return _env().get_template("newsletter.email.html").render(
         logo=_EMAIL_LOGO, t=EMAIL_THEMES[theme], **ctx)

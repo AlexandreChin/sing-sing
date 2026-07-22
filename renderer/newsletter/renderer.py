@@ -93,7 +93,7 @@ EMAIL_THEMES = {
         "color_scheme": "light",
         "bg": "#fbf8f1", "surface": "#f4efe4", "track": "#e7e0d0", "border": "#e2d9c6",
         "text": "#33322e", "text_soft": "#454339", "heading": "#1c1a15", "muted": "#6f6a5d",
-        "accent": "#d4aa00", "accent_text": "#9a7a06",
+        "accent": "#d4aa00", "accent_text": "#8a6d00",
     },
 }
 
