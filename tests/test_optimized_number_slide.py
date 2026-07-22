@@ -57,3 +57,15 @@ def test_chiffres_beat_without_figure_uses_standard_moment(tmp_path):
     html = (tmp_path / "05_moment.html").read_text(encoding="utf-8")
     assert "num-fig" not in html             # NOT the number layout
     assert "evidence" in html and "citation" in html  # standard evidence box
+
+
+def test_recap_labels_render_as_subtitle_with_icons(tmp_path):
+    from renderer.instagram_carousel._shared import ICONS
+    beats = [ReadingBeat(moment="m", quote="q", lens_ref="chiffres", note="n")]
+    doc = _doc(beats, core_recap=["Le fil : la chaîne du raisonnement",
+                                   "À questionner : l'hypothèse centrale ?"])
+    opt.generate_html(doc, tmp_path)
+    html = (tmp_path / "08_vue_ensemble.html").read_text(encoding="utf-8")
+    assert "Le fil" in html and "À questionner" in html          # labels as subtitles
+    assert "la chaîne du raisonnement" in html                   # body split from label
+    assert ICONS["link"] in html and ICONS["help"] in html       # the two new icons
