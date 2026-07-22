@@ -68,6 +68,11 @@ class ReadingBeat(BaseModel):
     lens_ref: str  # a canonical lens id (see agent/lenses.py), e.g. "chiffres"
     note: str      # ≤20 words — the CHALLENGE: what to look for (imperative/question), no verdict
     answer: str = ""  # ≤35 words — the REVEAL: what one finds / why it matters, no verdict
+    # number-forward slide (optional): filled only for a chiffres beat built around
+    # one striking figure; empty → the beat renders on the standard moment template
+    figure: str = ""          # the headline number, e.g. "4 400 %"
+    figure_label: str = ""    # one line: what it measures, e.g. "de voyageurs polaires en 20 ans"
+    figure_caption: str = ""  # optional reveal, e.g. "230 en 2004 → 10 000 en 2024"
     factcheck: str = ""  # confidence_label of the matching claim (or "" if not a checkable fact)
     # candidate-pool fields (for manual cherry-picking; not rendered except `selected`)
     selected: bool = True   # render this beat as a moment slide (default True → old extracts keep working)
