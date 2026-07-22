@@ -28,7 +28,7 @@
   {% include '_tracker.html' %}
   <div class="stage">
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>Au fil de la lecture</span>
-    <h1 class="head">{{ moment }}</h1>
+    <h1 class="head">{{ moment | md_bold }}</h1>
     <div class="divider"></div>
     <div>
       <div class="num-fig">{{ figure }}</div>
