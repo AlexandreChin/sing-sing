@@ -30,19 +30,22 @@ signoff: {{ signoff | tojson }}
 ### Le contexte
 
 {{ context }}
-
+{% if key_terms %}
+### Le lexique
+{% for kt in key_terms %}
+- **{{ kt.term }}** : {{ kt.definition }}
+{%- endfor %}
+{% endif %}
 ### Comment le lire
 
-{{ reading_posture }}
+{{ reading_posture }} Voici les réflexes à garder sous la main :
+{% for r in a_emporter.reflexes_critiques %}{% set L = LENSES.get(r.lens_ref, {}) %}
+- {{ L.icon }} **{{ L.name }}** : {{ r.rule }}
+{%- endfor %}
 {% if repere_facts %}
 ### Les faits à garder en tête
 {% for f in repere_facts %}
 - {{ f }}
-{%- endfor %}
-{% endif %}{% if key_terms %}
-### Le lexique
-{% for kt in key_terms %}
-- **{{ kt.term }}** — {{ kt.definition }}
 {%- endfor %}
 {% endif %}
 ## Au fil de la lecture
@@ -50,7 +53,7 @@ signoff: {{ signoff | tojson }}
 ::: card
 > « {{ d.quote }} »
 
-{% if d.lens_icon %}{{ d.lens_icon }} **{{ d.lens_name }}** — {% endif %}{{ d.prompt }}
+{% if d.lens_icon %}{{ d.lens_icon }} **{{ d.lens_name }}** : {% endif %}{{ d.prompt }}
 
 → {{ d.reading }}
 :::
@@ -84,16 +87,6 @@ signoff: {{ signoff | tojson }}
 ### Nuances
 {% for n in verdict.nuances %}
 - {{ n }}
-{%- endfor %}
-
-### À retenir
-{% for t in a_emporter.key_takeaways %}
-- {{ t }}
-{%- endfor %}
-
-### Les réflexes critiques
-{% for r in a_emporter.reflexes_critiques %}{% set L = LENSES.get(r.lens_ref, {}) %}
-- {{ L.icon }} **{{ L.name }}** — {{ r.rule }}{% if r.reusable_on %} *(réutilisable : {{ r.reusable_on }})*{% endif %}
 {%- endfor %}
 
 ### Les questions à se poser

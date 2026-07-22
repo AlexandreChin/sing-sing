@@ -1,0 +1,64 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Gardez en tête qu'il s'agit d'un **portrait signé** en hors-série : attendez-vous à un angle admiratif où Keynes se défend surtout par ses propres citations, sans contradicteur.",
+      "Repérez la structure implicite de l'argument : une critique **juste en 1936** y est traitée comme valide aujourd'hui, sans que le pont entre les deux époques soit établi.",
+      "Un peu de recul historique aide ici : connaître la **stagflation**, les critiques monétaristes et Bretton Woods permet de voir ce que le portrait laisse de côté."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "text": "La réfutation de l'orthodoxie économique repose presque uniquement sur la **voix du sujet lui-même** : ses citations tiennent lieu de preuve, et des verbes interprétatifs présentent comme acquis ce qui reste débattu.",
+          "references": [
+            "lr_2",
+            "bias_1",
+            "claim_2"
+          ]
+        },
+        {
+          "text": "Le texte fait glisser une critique **pertinente en 1936** vers une validité présente sans démontrer le lien : la continuité entre les deux époques est posée, pas établie.",
+          "references": [
+            "lr_0",
+            "er_1",
+            "bias_2"
+          ]
+        },
+        {
+          "text": "Les métaphores de combat **héroïsent le personnage** et laissent croire que la qualité de l'homme garantit la justesse de sa théorie : l'adhésion s'installe par l'affect avant le raisonnement.",
+          "references": [
+            "er_0",
+            "bias_0",
+            "lr_1"
+          ]
+        },
+        {
+          "text": "Un **contexte décisif manque** : ni l'échec historique associé à la stagflation, ni les critiques monétaristes, ni le rôle de Keynes à Bretton Woods ne viennent mettre la pensée à l'épreuve de ses effets.",
+          "references": [
+            "bs_0",
+            "obs_3",
+            "er_1"
+          ]
+        },
+        {
+          "text": "La mise à l'écart des politiques de l'offre passe par une **assimilation présentée comme un fait** alors qu'elle relève de l'interprétation de l'auteur.",
+          "references": [
+            "cb_1",
+            "claim_3"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Demandez-vous si la critique de 1936 **s'applique vraiment** aux économies d'aujourd'hui, et à quelles conditions.",
+      "Rappelez-vous que vous avez entendu la **défense de Keynes**, pas ses adversaires : complétez par une source contradictoire avant de trancher.",
+      "Distinguez ce que Keynes **voulait faire** de ce que ses idées ont produit à l'épreuve de l'histoire.",
+      "Retenez que la clarté et la vivacité du récit peuvent faire **passer pour acquise** une réfutation qui restait contestée."
+    ],
+    "title_note": "Le jeu de mots du titre, « Libre panseur », condense d'emblée la thèse — soigner le capitalisme plutôt que l'abattre — et oriente la lecture avant même le premier paragraphe.",
+    "perspective": {
+      "framing": "L'article choisit le **portrait admiratif** et place Keynes au centre comme réparateur venu « sauver le capitalisme de lui-même », dans un registre d'**indignation actualisante** (rentiers, héritage) et de métaphores guerrières. Il parle depuis une position clairement favorable, laissant le sujet se défendre par ses propres mots.",
+      "blind_spots": "Deux absences pèsent : l'**échec historique** associé à la stagflation et aux critiques monétaristes, et le rôle concret de Keynes à **Bretton Woods** — soit précisément ce qui jugerait la pensée à ses effets plutôt qu'à ses intentions.",
+      "balance": "Ces limites tiennent en partie au **genre** : un hors-série portrait, à l'angle assumé et signé, n'a pas vocation à l'exhaustivité ni à l'équilibre contradictoire d'une enquête. Les manques relevés sont réels, mais un format court et ouvertement admiratif fixe un attendu raisonnable — à lire comme une **porte d'entrée**, à compléter ensuite."
+    }
+  }
+}

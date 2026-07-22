@@ -63,7 +63,8 @@ def test_email_both_themes():
         html = generate_email_html(sample_doc(), theme)
         assert "Au fil de la lecture" in html
         assert "L'architecture de l'argument" in html
-        assert "À retenir" in html
+        assert "À retenir" not in html          # "À retenir" section removed
+        assert "Comment le lire" in html         # réflexes now live under "Comment le lire"
         assert "À qui profite ce cadrage ?" in html
         assert "Pour aller plus loin" in html
 
@@ -87,22 +88,23 @@ def test_essentiel_is_titleless_lead():
 
 def test_markdown_has_all_new_subsections():
     md = generate_markdown(sample_doc())
-    for sub in ("### Les enjeux de fond", "### Les objections les plus solides",
-                "### Les questions à se poser", "### Les réflexes critiques",
-                "### Avant de partir"):
+    for sub in ("### Le lexique", "### Comment le lire",
+                "### Les enjeux de fond", "### Les objections les plus solides",
+                "### Les questions à se poser", "### Avant de partir"):
         assert sub in md
+    assert "### À retenir" not in md                # "À retenir" removed
+    assert "### Les réflexes critiques" not in md   # merged into "Comment le lire"
     assert "### À vous de repérer" not in md   # exercises removed (redundant with beats)
     assert "tient" not in md.lower() or "ce qui tient" not in md.lower()
 
 
 def test_markdown_reordered_after_reading():
-    # machinery (architecture → cui bono) → judge → keep (à retenir → réflexes
-    # critiques) → extend (pour aller plus loin → avant de partir).
+    # machinery (architecture → cui bono) → judge (enjeux → objections → angles
+    # morts → nuances → questions) → extend (pour aller plus loin → avant de partir).
     md = generate_markdown(sample_doc())
     order = ["### L'architecture de l'argument", "### À qui profite ce cadrage ?",
              "### Les enjeux de fond", "### Les objections les plus solides",
              "### Angles morts", "### Nuances",
-             "### À retenir", "### Les réflexes critiques",
              "### Les questions à se poser", "::: gofurther", "### Avant de partir"]
     positions = [md.index(s) for s in order]
     assert positions == sorted(positions), "Après la lecture subsections out of order"
@@ -111,8 +113,8 @@ def test_markdown_reordered_after_reading():
 def test_named_reflexes_and_source_link_render():
     md = generate_markdown(sample_doc())
     # lens-anchored critical reflex: icon + canonical name from agent/lenses.py
-    assert "📊 **Chiffres** — De combien à combien ?" in md
-    assert "*(réutilisable : santé, économie)*" in md
+    assert "📊 **Chiffres** : De combien à combien ?" in md   # colon separator, under "Comment le lire"
+    assert "*(réutilisable" not in md                          # reusable tag removed
 
 
 def test_go_further_renders_pill_cards():
@@ -128,8 +130,8 @@ def test_go_further_renders_pill_cards():
 def test_beats_carry_lens_tag():
     md = generate_markdown(sample_doc())
     # a beat with a clue shows its lens icon + name before the clue
-    assert "🔎 **Sources** —" in md   # Q2, lens_ref="sources", has a clue
-    assert "📊 **Chiffres** —" in md   # Q5, lens_ref="chiffres", has a clue
+    assert "🔎 **Sources** :" in md   # Q2, lens_ref="sources", has a clue
+    assert "📊 **Chiffres** :" in md   # Q5, lens_ref="chiffres", has a clue
 
 
 def test_no_pill_for_autre():

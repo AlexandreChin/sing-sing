@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Keynes fut un **radical** cherchant non à abattre le capitalisme mais à le **sauver** de ses dérives.",
+      "kind": "angle",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 1,
+        "excerpt": "sauver le capitalisme de lui-même",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Keynes **réfute les fondements** du laissez-faire et de la loi de Say, piliers de l'orthodoxie.",
+      "kind": "affirmation",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 1,
+        "excerpt": "réfuté les fondements du laissez-faire et de la loi de Say",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Le texte relie constamment sa pensée aux **débats actuels** sur l'héritage et les rentiers.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "débats actuels ... rentiers",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Le portrait **admiratif** multiplie les citations de Keynes sans **aucune voix contradictoire**.",
+      "kind": "biais",
+      "centrality": 3,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 2,
+        "excerpt": "aucune voix libérale ou monétariste ... contrepoint",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "**Héritier anticonformiste** et **agent multipositionné**, Keynes navigue entre université, administration, affaires et politique.",
+      "kind": "fait",
+      "centrality": 3,
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "agent multipositionné",
+        "strength": 0.7,
+        "nature": "specification"
+      }
+    }
+  ]
+}

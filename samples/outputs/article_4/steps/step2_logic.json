@@ -1,0 +1,168 @@
+{
+  "main_claim": "Keynes fut un radical cherchant non à abattre le capitalisme mais à le sauver.",
+  "premisses": [
+    {
+      "statement": "Le portrait de l'économiste idéal que Keynes dresse pour Marshall est en réalité son **autoportrait**.",
+      "quality": "Repose sur une **lecture interprétative** de l'auteur, présentée comme évidente mais non démontrée."
+    },
+    {
+      "statement": "Keynes a **réfuté les fondements** du laissez-faire et de la loi de Say.",
+      "quality": "Appuyée sur une **abondance de citations verbatim** de Keynes lui-même, sans contre-expertise."
+    },
+    {
+      "statement": "La pensée de Keynes **éclaire directement** les débats économiques actuels.",
+      "quality": "Étayée par **simple assertion** et renvois au présent, sans démonstration du lien."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "statement": "Les critiques que Keynes adresse à l'orthodoxie sont **fondées et toujours valides**.",
+      "impact": "Si elles ont été **réfutées depuis**, l'actualité revendiquée de sa pensée s'effondre."
+    },
+    {
+      "statement": "Une pensée se juge à ses **intentions** plus qu'à ses **effets historiques**.",
+      "impact": "Si l'on juge le keynésianisme à ses **résultats**, le portrait admiratif vacille."
+    },
+    {
+      "statement": "Laisser Keynes **parler par citations** suffit à établir la justesse de ses thèses.",
+      "impact": "Si l'**autocitation ne vaut pas preuve**, l'argument repose sur la seule autorité du personnage."
+    }
+  ],
+  "blind_spots": [
+    {
+      "topic": "Aucune **critique de fond** du keynésianisme ni mention de la **stagflation**.",
+      "significance": "Un contrepoint aurait nuancé le portrait d'une pensée **« toujours d'actualité »**."
+    },
+    {
+      "topic": "L'**eugénisme** de Keynes est cité en passant, **jamais interrogé**.",
+      "significance": "L'examiner aurait compliqué la figure du penseur **soucieux de justice sociale**."
+    },
+    {
+      "topic": "Aucune **voix libérale ou monétariste** n'est convoquée en contrepoint.",
+      "significance": "Leur présence aurait transformé le portrait en **débat contradictoire**."
+    },
+    {
+      "topic": "Le rôle à **Bretton Woods** et l'héritage d'après-guerre sont **absents**.",
+      "significance": "Ils auraient permis de juger la pensée à ses **effets concrets**, non à ses seules intentions."
+    }
+  ],
+  "emphasis": [
+    "Le texte multiplie les **citations verbatim** de Keynes alors qu'**aucune voix contradictoire** n'est citée.",
+    "Plusieurs paragraphes détaillent la **réfutation du laissez-faire** tandis que l'**eugénisme** n'occupe qu'une demi-phrase.",
+    "Le **miroir avec Marx** est filé d'un bout à l'autre quand les **critiques historiques** du keynésianisme sont absentes."
+  ],
+  "logical_reasoning": [
+    {
+      "step": "Keynes critique brillamment l'orthodoxie, donc sa pensée reste **pertinente aujourd'hui**.",
+      "problem_type": "validity",
+      "diagnosis": "La **pertinence passée** d'une critique n'implique pas sa **validité présente**."
+    },
+    {
+      "step": "Keynes incarne l'**économiste-honnête homme** idéal, donc ses thèses méritent adhésion.",
+      "problem_type": "validity",
+      "diagnosis": "La **qualité du personnage** ne garantit pas la **justesse de la théorie**."
+    },
+    {
+      "step": "Les citations de Keynes démontent le laissez-faire, donc celui-ci est **réfuté**.",
+      "problem_type": "soundness",
+      "diagnosis": "Les citations **exposent la position** de Keynes, elles ne constituent pas une **preuve indépendante**."
+    },
+    {
+      "step": "Keynes cherchait à **sauver le capitalisme**, donc son projet était modéré et raisonnable.",
+      "problem_type": null,
+      "diagnosis": null
+    }
+  ],
+  "observations": [
+    {
+      "aspect": "Cadrage",
+      "summary": "L'article ouvre un **hors-série** consacré aux grandes figures de la pensée économique, format qui privilégie le **portrait** sur le débat.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "hors-série ... série 1/8",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Actualisation",
+      "summary": "Le texte relie constamment Keynes aux **débats actuels** sur l'héritage et le retour des **rentiers**.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "débats actuels ... rentiers",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Périmètre",
+      "summary": "Le rôle central de Keynes à **Bretton Woods** en 1944 n'est **jamais évoqué**, alors qu'il incarne l'application concrète de sa pensée.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "Bretton Woods (1944), non mentionnée",
+        "strength": 0.9,
+        "nature": "contradiction"
+      }
+    },
+    {
+      "aspect": "Contradiction",
+      "summary": "La **stagflation** des années 1970 et les **critiques monétaristes** qu'elle a nourries sont absentes du portrait.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 3,
+        "excerpt": "stagflation ... critiques monétaristes ... absentes",
+        "strength": 0.9,
+        "nature": "contradiction"
+      }
+    },
+    {
+      "aspect": "Contexte",
+      "summary": "Le **keynésianisme** a dominé l'après-guerre jusqu'au **tournant néolibéral**, trajectoire que l'article ne retrace pas.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 1,
+        "excerpt": "keynésianisme ... tournant néolibéral",
+        "strength": 0.7,
+        "nature": "inference"
+      }
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "La **stagflation** des années 1970 a exposé les **limites empiriques** du modèle keynésien.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "aucune critique de fond ... stagflation",
+        "strength": 0.9,
+        "nature": null
+      },
+      "alternative_conclusion": "La pensée de Keynes apparaîtrait **datée** plutôt que « toujours d'actualité »."
+    },
+    {
+      "counterargument": "Juger une pensée à ses **seules intentions** ignore ses **effets historiques** réels.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 1,
+        "excerpt": "intentions plus qu'à ses effets",
+        "strength": 0.8,
+        "nature": null
+      },
+      "alternative_conclusion": "Le portrait admiratif tiendrait moins face au **bilan concret** du keynésianisme."
+    },
+    {
+      "counterargument": "Multiplier les **citations de Keynes** n'établit pas la justesse de ses thèses face à ses critiques.",
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 2,
+        "excerpt": "citations ... démontent le laissez-faire",
+        "strength": 0.7,
+        "nature": null
+      },
+      "alternative_conclusion": "L'argument reposerait sur l'**autorité du personnage** plutôt que sur une démonstration."
+    }
+  ]
+}
