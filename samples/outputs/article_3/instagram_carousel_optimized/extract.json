@@ -1096,7 +1096,10 @@
           "centrality": 4,
           "kind": "statistique",
           "rationale": "l'effet de base spectaculaire",
-          "answer": "Il part de **230 voyageurs** en 2004 : une base minuscule gonfle mécaniquement le taux. Le chiffre vient en outre d'un **opérateur** du marché décrit."
+          "answer": "Il part de **230 voyageurs** en 2004 : une base minuscule gonfle mécaniquement le taux. Le chiffre vient en outre d'un **opérateur** du marché décrit.",
+          "figure": "4 400 %",
+          "figure_label": "de voyageurs polaires en 20 ans",
+          "figure_caption": "230 en 2004 → 10 000 en 2024"
         },
         {
           "moment": "La faune polaire",
@@ -1172,7 +1175,7 @@
         ],
         "core_recap": [
           "Le fil : des impacts — **carbone**, **faune**, paysages — attribués aux touristes, puis un appel à restreindre.",
-          "À tester : chaque impact est-il **rapporté à son échelle**, et son lien au tourisme **établi** ?"
+          "À questionner : chaque impact est-il **rapporté à son échelle**, et son lien au tourisme **établi** ?"
         ]
       },
       "open_question": "L'auteur ignore-t-il la **part réelle** du tourisme polaire dans les émissions, ou l'omet-il pour préserver l'ampleur du récit ?",
