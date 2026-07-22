@@ -19,7 +19,7 @@ CANONICAL_LENSES: dict[str, dict] = {
                      "icon_svg": '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>'},
     "equilibre":    {"name": "Équilibre",  "icon": "⚖️", "question": "L'autre partie a-t-elle voix au chapitre ?",
                      "icon_svg": '<path d="M12 3v18"/><path d="M4 21h16"/><path d="M5 7h14"/><path d="M5 7l-3 6h6z"/><path d="M19 7l-3 6h6z"/>'},
-    "sophismes":    {"name": "Sophismes",  "icon": "🧩", "question": "Le raisonnement tient-il logiquement ?",
+    "sophismes":    {"name": "Logique",  "icon": "🧩", "question": "Le raisonnement tient-il logiquement ?",
                      "icon_svg": '<path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>'},
     "angles_morts": {"name": "Angles morts", "icon": "🕳️", "question": "Qu'est-ce qui manque au tableau ?",
                      "icon_svg": '<path d="M17.9 17.9A10 10 0 0 1 12 20c-7 0-11-8-11-8a18.4 18.4 0 0 1 5-5.9M9.9 4.2A9 9 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.2 3.2m-6.7-1.1a3 3 0 1 1-4.2-4.2"/><line x1="1" y1="1" x2="23" y2="23"/>'},

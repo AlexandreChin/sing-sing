@@ -30,7 +30,7 @@
   {% include '_tracker.html' %}
   <div class="stage">
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>Au fil de la lecture</span>
-    <h1 class="head">{{ moment }}</h1>
+    <h1 class="head">{{ moment | md_bold }}</h1>
     <div class="divider"></div>
     {% if quote %}<div class="evidence"><p class="ev-quote">« {{ quote }} »</p></div>{% endif %}
     <p class="watch"><svg viewBox="0 0 24 24">{% if lens_icon_svg %}{{ lens_icon_svg | safe }}{% else %}{{ ICONS.lightbulb | safe }}{% endif %}</svg><span class="wtxt"><span class="wl">{{ lens_name }}</span> — {{ note | md_bold }}</span></p>

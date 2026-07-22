@@ -30,7 +30,7 @@
   {% include '_tracker.html' %}
   <div class="stage">
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.eye | safe }}</svg>Clefs de lecture</span>
-    <h1 class="head">{{ reperes_headline or "Avant de vous lancer." }}</h1>
+    <h1 class="head">{{ (reperes_headline or "Avant de vous lancer.") | md_bold }}</h1>
     <div class="divider"></div>
     <div class="q-list">
       {% if context %}<div class="q-item">
