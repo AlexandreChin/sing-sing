@@ -99,28 +99,31 @@ def test_blockquote_claim_style_under_au_fil_de_la_lecture():
     assert 'class="decrypt"' in html and 'class="claim"' in html
 
 
-def test_blockquote_default_openq_style_without_quote_style_entry():
+def test_blockquote_default_renders_qlist_row():
+    # non-claim blockquotes now render as a gold-chevron row (like the plain
+    # list sections), not the old boxed openq.
     html = render_body_html("### Le contexte\n\n> some quote\n")
-    assert 'class="openq"' in html
+    assert 'class="plain qlist"' in html
     assert 'class="claim"' not in html
+    assert 'class="openq"' not in html
 
 
-def test_forced_keystone_overrides_claim_default():
+def test_forced_keystone_renders_qlist_row():
     html = render_body_html(
         "### Au fil de la lecture\n\n::: keystone\n> some quote\n:::\n"
     )
-    assert 'class="openq"' in html
+    assert 'class="plain qlist"' in html
     assert 'class="claim"' not in html
 
 
-def test_blockquote_keystone_style_under_architecture_de_largument():
+def test_blockquote_under_architecture_renders_qlist_row():
     html = render_body_html("### L'architecture de l'argument\n\n> some quote\n")
-    assert 'class="openq"' in html
+    assert 'class="plain qlist"' in html
 
 
-def test_blockquote_keystone_style_under_les_questions_a_se_poser():
+def test_blockquote_under_questions_renders_qlist_row():
     html = render_body_html("### Les questions à se poser\n\n> some quote\n")
-    assert 'class="openq"' in html
+    assert 'class="plain qlist"' in html
 
 
 def test_paragraph_starting_with_hook_char_is_clue():
@@ -234,15 +237,17 @@ def test_render_html_real_pipeline_has_no_duplicated_chrome():
     html = render_html(generate_markdown(sample_doc(), hook_title="Le hook"))
     assert '<p class="intro">' in html            # intro styled via the real pipeline
     assert '<div class="kicker">Objet test' not in html  # subject is not a body kicker
-    assert html.count("— Sing Sing") == 1          # signoff/branding renders once
+    assert "— Sing Sing" not in html               # the signature was removed
+    assert html.count('class="signoff"') == 1      # signoff chrome renders once
 
 
 def test_render_email_html_real_pipeline_intro_and_single_signoff():
     email = render_email_html(generate_markdown(sample_doc(), hook_title="Le hook"), "light")
     # first content paragraph uses the intro lead inline style (font-size 19px)
     assert '<p style="font-size:19px;line-height:1.62' in email
-    # email footer uses an HTML entity dash, not the literal em-dash character
-    assert email.count("&mdash; Sing Sing") == 1
+    # the "— Sing Sing" signature was removed; the signoff renders exactly once
+    assert "&mdash; Sing Sing" not in email
+    assert email.count("À bientôt.") == 1
 
 
 def test_generated_markdown_has_front_matter_and_parses():

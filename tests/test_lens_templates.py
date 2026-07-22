@@ -41,12 +41,17 @@ def test_moment_hides_reveal_when_answer_absent():
 
 
 def test_vue_ensemble_renders_core_recap():
+    # slide 08 now takes parsed recap_items (label + body + icon), which
+    # optimized.py builds from the "Label : body" core_recap strings.
     html = _render("08_vue_ensemble.html", phase="verdict",
                    headline="Un tourisme polaire aux multiples enjeux",
-                   core_recap=["Un fort coût carbone par passager",
-                               "Une concurrence directe avec la faune"])
+                   recap_items=[
+                       {"label": "Le fil", "body": "Un fort coût carbone par passager", "icon": "link"},
+                       {"label": "À questionner", "body": "Une concurrence directe avec la faune", "icon": "help"},
+                   ])
     assert "Un fort coût carbone par passager" in html
     assert "Une concurrence directe avec la faune" in html
+    assert "Le fil" in html and "À questionner" in html
 
 
 def test_bilan_shows_takeaways_reflexes_and_engagement():
