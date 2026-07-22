@@ -1,0 +1,139 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "id": "c1",
+        "quote": "« les deux vices marquants du monde économique où nous vivons sont que le plein-emploi n'y est pas assuré et que la répartition de la richesse et des revenus y est arbitraire et injuste »",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Indignation",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "La citation est **correctement créditée** à la Théorie générale de Keynes.",
+        "external_sources": [
+          {
+            "name": "J. M. Keynes, Théorie générale de l'emploi, de l'intérêt et de la monnaie (1936)",
+            "supports": "validates",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": 90
+      },
+      {
+        "id": "c2",
+        "quote": "Bien avant l'ère des podcasts, il donne ainsi une série d'allocutions radiophoniques intitulée « La pauvreté dans l'abondance »",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Admiration",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "Keynes a **effectivement donné** ces causeries radiophoniques « Poverty in Plenty » à la BBC en 1934.",
+        "external_sources": [
+          {
+            "name": "Collected Writings of J. M. Keynes, vol. XIII (Royal Economic Society)",
+            "supports": "validates",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": 85
+      },
+      {
+        "id": "c3",
+        "quote": "il démonte les « principes métaphysiques » sur lesquels repose le laissez-faire",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "cui_bono",
+          "label": "La pensée économique hétérodoxe et interventionniste",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "Le verbe **« démonte »** présente comme **acquise** une réfutation qui reste une position théorique contestée.",
+        "external_sources": [
+          {
+            "name": "Débats sur l'héritage keynésien (écoles néoclassique et monétariste)",
+            "supports": "contradicts",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": null
+      },
+      {
+        "id": "c4",
+        "quote": "Une croyance qui semble encore aujourd'hui animer les partisans des politiques de l'offre, focalisés sur la seule baisse des coûts de production, et en particulier du travail",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Les critiques des politiques de l'offre",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "L'**assimilation** des politiques de l'offre à la loi de Say relève de l'**interprétation de l'auteur**, non d'une position revendiquée par ces partisans.",
+        "external_sources": [
+          {
+            "name": "Analyses des politiques de l'offre (OFCE, France Stratégie)",
+            "supports": "neutral",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": null
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "id": "b1",
+        "quote": "Un double uppercut dans les gencives de John Locke et d'Adam Smith et sa fameuse « main invisible »",
+        "item_type": "bias",
+        "label": "métaphore guerrière",
+        "effect": "Remarquez comment l'**image du combat** fait paraître la réfutation **acquise** et sans réplique.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Admiration",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "b2",
+        "quote": "Rien de plus fallacieux, démontre Keynes.",
+        "item_type": "bias",
+        "label": "appel à l'autorité",
+        "effect": "Remarquez comment le mot **« démontre »** confie la conclusion à Keynes lui-même, **seule voix** convoquée.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "La pensée économique hétérodoxe et interventionniste",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "b3",
+        "quote": "Une leçon toujours d'actualité à l'heure où l'héritage – qui s'oppose pourtant frontalement à l'idéal méritocratique dominant – semble plébiscité",
+        "item_type": "fallacy",
+        "label": "glissement du passé au présent",
+        "effect": "Remarquez comment l'**actualité de la leçon** est posée d'emblée, sans que le **lien** entre l'époque de Keynes et la nôtre soit établi.",
+        "proves": {
+          "type": "observation",
+          "label": "Actualisation",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "En somme, Keynes cherche avant tout à sauver le capitalisme de lui-même en apposant un certain nombre de rustines sur ses failles.",
+      "proves": {
+        "type": "observation",
+        "label": "Cadrage",
+        "strength": 0.9,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase résume Keynes en **réparateur** du capitalisme, non en fossoyeur. Elle sous-entend que le système **valait d'être sauvé** et pouvait l'être. Elle tait ce qu'il advint de ces « rustines » une fois confrontées à l'histoire — qui décide qu'une théorie a **« sauvé »** un système ?"
+    }
+  }
+}

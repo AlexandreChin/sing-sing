@@ -1,0 +1,1072 @@
+{
+  "analysis": {
+    "article_metadata": {
+      "url": null,
+      "title": "John Maynard Keynes, un libre panseur du capitalisme",
+      "source": null,
+      "published_at": null,
+      "type": "opinion",
+      "category": "Autre",
+      "reading_time_minutes": 9,
+      "chapo": null
+    },
+    "extraction": {
+      "authority_anchors": [
+        {
+          "entity": "Alfred Marshall",
+          "used_for": "Ouvrir l'article sur un portrait de l'économiste idéal, présenté comme l'**autoportrait implicite** de Keynes."
+        },
+        {
+          "entity": "Les sociologues",
+          "used_for": "Légitimer la caractérisation de Keynes en **« agent multipositionné »**."
+        },
+        {
+          "entity": "Virginia Woolf",
+          "used_for": "Signaler le **prestige intellectuel** du milieu de Bloomsbury qui a formé Keynes."
+        },
+        {
+          "entity": "Karl Marx",
+          "used_for": "Servir de **référence comparative** pour mesurer la radicalité revendiquée de Keynes."
+        }
+      ],
+      "key_quotes": [
+        "La guerre des classes me trouvera toujours du côté de la bourgeoisie cultivée",
+        "recherche d'améliorations techniques possibles du capitalisme moderne par le moyen de l'action collective",
+        "Or, je me range moi-même parmi les hérétiques.",
+        "les deux vices marquants du monde économique où nous vivons sont que le plein-emploi n'y est pas assuré et que la répartition de la richesse et des revenus y est arbitraire et injuste",
+        "Les idées, justes ou fausses, des philosophes de l'économie et de la politique ont plus d'importance qu'on ne le pense en général.",
+        "Les hommes d'action qui se croient parfaitement affranchis des influences doctrinales sont d'ordinaire les esclaves de quelque économiste passé."
+      ],
+      "notable_omissions": [
+        "Aucune **critique de fond** du keynésianisme ni mention de ses **échecs historiques** comme la stagflation.",
+        "L'**eugénisme** de Keynes est cité en passant mais **jamais interrogé**.",
+        "Aucune **voix libérale ou monétariste** n'est convoquée en contrepoint.",
+        "Les **limites** de la formule « euthanasier les rentiers » ne sont pas discutées.",
+        "Le rôle de Keynes à **Bretton Woods** et l'héritage keynésien de l'après-guerre sont **absents**."
+      ],
+      "rhetorical_patterns": [
+        "Des **métaphores de combat** répétées (« double uppercut dans les gencives », « faire exploser », « démonter »).",
+        "Un **jeu de miroirs** avec Marx, convoqué en double inversé de Keynes tout au long du texte.",
+        "L'ouverture pose le **portrait de Marshall** en autoportrait, cadrant d'emblée Keynes en **honnête homme**.",
+        "Des **renvois constants au présent** (« toujours d'actualité », notes de bas de page) qui **actualisent** sa pensée.",
+        "Une **abondance de citations verbatim** qui laissent Keynes **parler à la première personne**."
+      ]
+    },
+    "context": {
+      "contexts": [
+        {
+          "id": "ctx_0",
+          "text": "L'article ouvre un **hors-série** consacré aux figures qui ont façonné la pensée économique (**série 1/8**)."
+        },
+        {
+          "id": "ctx_1",
+          "text": "Il fait écho à des **débats actuels** sur l'héritage, le retour des **rentiers** et les politiques de l'offre."
+        },
+        {
+          "id": "ctx_2",
+          "text": "Le regain d'intérêt pour Keynes accompagne le **retour des questions** sur les inégalités et le rôle de l'État."
+        }
+      ],
+      "who_is_speaking": [
+        "Article signé **Igor Martinache**, enseignant et collaborateur d'une presse économique de sensibilité **hétérodoxe et sociale**.",
+        "Le texte s'inscrit dans un **format de vulgarisation** (hors-série), qui privilégie le portrait plutôt que le débat contradictoire.",
+        "Le ton est ouvertement **admiratif** envers Keynes, présenté en **pourfendeur de l'orthodoxie**."
+      ],
+      "important_facts": [
+        {
+          "id": "fact_0",
+          "text": "Keynes est mort en **1946** ; l'article donne sa naissance (1883) mais pas cette date."
+        },
+        {
+          "id": "fact_1",
+          "text": "Le **keynésianisme** a dominé les politiques d'après-guerre jusqu'au **tournant néolibéral** des années 1970-1980."
+        },
+        {
+          "id": "fact_2",
+          "text": "Keynes a joué un rôle central à la conférence de **Bretton Woods (1944)**, non mentionnée ici."
+        },
+        {
+          "id": "fact_3",
+          "text": "La **stagflation** des années 1970 a nourri les **critiques monétaristes** du modèle keynésien, absentes de l'article."
+        }
+      ],
+      "key_terms": [
+        {
+          "term": "laissez-faire",
+          "definition": "Doctrine selon laquelle l'État doit s'abstenir d'intervenir dans l'économie."
+        },
+        {
+          "term": "loi de Say",
+          "definition": "Idée que « l'offre crée sa propre demande », donc que toute production trouve nécessairement des acheteurs."
+        },
+        {
+          "term": "demande effective",
+          "definition": "La demande anticipée par les entreprises, qui commande leur niveau de production et d'emploi."
+        },
+        {
+          "term": "marché des fonds prêtables",
+          "definition": "Théorie où le taux d'intérêt équilibrerait l'épargne offerte et l'investissement demandé."
+        },
+        {
+          "term": "préférence pour la liquidité",
+          "definition": "Le fait de vouloir garder de la monnaie disponible ; pour Keynes, le taux d'intérêt en est la rémunération."
+        },
+        {
+          "term": "néoclassiques",
+          "definition": "Courant économique dominant fondé sur les marchés et le calcul rationnel des individus."
+        },
+        {
+          "term": "économie positive / normative",
+          "definition": "Distinction entre décrire ce qui est (positive) et dire ce qui devrait être (normative)."
+        },
+        {
+          "term": "agent multipositionné",
+          "definition": "Personne occupant en même temps plusieurs positions sociales (administration, université, affaires, politique)."
+        },
+        {
+          "term": "eugénisme",
+          "definition": "Doctrine visant à « améliorer » la population humaine en orientant les naissances."
+        },
+        {
+          "term": "chômage involontaire",
+          "definition": "Situation où des personnes cherchent un emploi au salaire courant sans en trouver."
+        },
+        {
+          "term": "euthanasie des rentiers",
+          "definition": "Formule de Keynes appelant à faire disparaître les revenus tirés de la seule détention de capital."
+        }
+      ]
+    },
+    "analysis": {
+      "fond": {
+        "main_claim": "Keynes fut un radical cherchant non à abattre le capitalisme mais à le sauver.",
+        "premisses": [
+          {
+            "id": "pr_0",
+            "statement": "Le portrait de l'économiste idéal que Keynes dresse pour Marshall est en réalité son **autoportrait**.",
+            "quality": "Repose sur une **lecture interprétative** de l'auteur, présentée comme évidente mais non démontrée."
+          },
+          {
+            "id": "pr_1",
+            "statement": "Keynes a **réfuté les fondements** du laissez-faire et de la loi de Say.",
+            "quality": "Appuyée sur une **abondance de citations verbatim** de Keynes lui-même, sans contre-expertise."
+          },
+          {
+            "id": "pr_2",
+            "statement": "La pensée de Keynes **éclaire directement** les débats économiques actuels.",
+            "quality": "Étayée par **simple assertion** et renvois au présent, sans démonstration du lien."
+          }
+        ],
+        "implicit_assumptions": [
+          {
+            "id": "ia_0",
+            "statement": "Les critiques que Keynes adresse à l'orthodoxie sont **fondées et toujours valides**.",
+            "impact": "Si elles ont été **réfutées depuis**, l'actualité revendiquée de sa pensée s'effondre."
+          },
+          {
+            "id": "ia_1",
+            "statement": "Une pensée se juge à ses **intentions** plus qu'à ses **effets historiques**.",
+            "impact": "Si l'on juge le keynésianisme à ses **résultats**, le portrait admiratif vacille."
+          },
+          {
+            "id": "ia_2",
+            "statement": "Laisser Keynes **parler par citations** suffit à établir la justesse de ses thèses.",
+            "impact": "Si l'**autocitation ne vaut pas preuve**, l'argument repose sur la seule autorité du personnage."
+          }
+        ],
+        "blind_spots": [
+          {
+            "id": "bs_0",
+            "topic": "Aucune **critique de fond** du keynésianisme ni mention de la **stagflation**.",
+            "significance": "Un contrepoint aurait nuancé le portrait d'une pensée **« toujours d'actualité »**."
+          },
+          {
+            "id": "bs_1",
+            "topic": "L'**eugénisme** de Keynes est cité en passant, **jamais interrogé**.",
+            "significance": "L'examiner aurait compliqué la figure du penseur **soucieux de justice sociale**."
+          },
+          {
+            "id": "bs_2",
+            "topic": "Aucune **voix libérale ou monétariste** n'est convoquée en contrepoint.",
+            "significance": "Leur présence aurait transformé le portrait en **débat contradictoire**."
+          },
+          {
+            "id": "bs_3",
+            "topic": "Le rôle à **Bretton Woods** et l'héritage d'après-guerre sont **absents**.",
+            "significance": "Ils auraient permis de juger la pensée à ses **effets concrets**, non à ses seules intentions."
+          }
+        ],
+        "emphasis": [
+          "Le texte multiplie les **citations verbatim** de Keynes alors qu'**aucune voix contradictoire** n'est citée.",
+          "Plusieurs paragraphes détaillent la **réfutation du laissez-faire** tandis que l'**eugénisme** n'occupe qu'une demi-phrase.",
+          "Le **miroir avec Marx** est filé d'un bout à l'autre quand les **critiques historiques** du keynésianisme sont absentes."
+        ],
+        "logical_reasoning": [
+          {
+            "id": "lr_0",
+            "step": "Keynes critique brillamment l'orthodoxie, donc sa pensée reste **pertinente aujourd'hui**.",
+            "problem_type": "validity",
+            "diagnosis": "La **pertinence passée** d'une critique n'implique pas sa **validité présente**."
+          },
+          {
+            "id": "lr_1",
+            "step": "Keynes incarne l'**économiste-honnête homme** idéal, donc ses thèses méritent adhésion.",
+            "problem_type": "validity",
+            "diagnosis": "La **qualité du personnage** ne garantit pas la **justesse de la théorie**."
+          },
+          {
+            "id": "lr_2",
+            "step": "Les citations de Keynes démontent le laissez-faire, donc celui-ci est **réfuté**.",
+            "problem_type": "soundness",
+            "diagnosis": "Les citations **exposent la position** de Keynes, elles ne constituent pas une **preuve indépendante**."
+          },
+          {
+            "id": "lr_3",
+            "step": "Keynes cherchait à **sauver le capitalisme**, donc son projet était modéré et raisonnable.",
+            "problem_type": null,
+            "diagnosis": null
+          }
+        ],
+        "observations": [
+          {
+            "id": "obs_0",
+            "aspect": "Cadrage",
+            "summary": "L'article ouvre un **hors-série** consacré aux grandes figures de la pensée économique, format qui privilégie le **portrait** sur le débat.",
+            "seeds": {
+              "source": "context",
+              "index": 0,
+              "excerpt": "hors-série ... série 1/8",
+              "strength": 0.8,
+              "nature": "specification"
+            },
+            "proven_by": [
+              {
+                "type": "focus",
+                "index": 0
+              }
+            ]
+          },
+          {
+            "id": "obs_1",
+            "aspect": "Actualisation",
+            "summary": "Le texte relie constamment Keynes aux **débats actuels** sur l'héritage et le retour des **rentiers**.",
+            "seeds": {
+              "source": "context",
+              "index": 1,
+              "excerpt": "débats actuels ... rentiers",
+              "strength": 0.9,
+              "nature": "illustration"
+            },
+            "proven_by": [
+              {
+                "type": "bias",
+                "index": 2
+              }
+            ]
+          },
+          {
+            "id": "obs_2",
+            "aspect": "Périmètre",
+            "summary": "Le rôle central de Keynes à **Bretton Woods** en 1944 n'est **jamais évoqué**, alors qu'il incarne l'application concrète de sa pensée.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 2,
+              "excerpt": "Bretton Woods (1944), non mentionnée",
+              "strength": 0.9,
+              "nature": "contradiction"
+            },
+            "proven_by": []
+          },
+          {
+            "id": "obs_3",
+            "aspect": "Contradiction",
+            "summary": "La **stagflation** des années 1970 et les **critiques monétaristes** qu'elle a nourries sont absentes du portrait.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 3,
+              "excerpt": "stagflation ... critiques monétaristes ... absentes",
+              "strength": 0.9,
+              "nature": "contradiction"
+            },
+            "proven_by": []
+          },
+          {
+            "id": "obs_4",
+            "aspect": "Contexte",
+            "summary": "Le **keynésianisme** a dominé l'après-guerre jusqu'au **tournant néolibéral**, trajectoire que l'article ne retrace pas.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 1,
+              "excerpt": "keynésianisme ... tournant néolibéral",
+              "strength": 0.7,
+              "nature": "inference"
+            },
+            "proven_by": []
+          }
+        ],
+        "steel_man": [
+          {
+            "counterargument": "La **stagflation** des années 1970 a exposé les **limites empiriques** du modèle keynésien.",
+            "seeds": {
+              "source": "blind_spot",
+              "index": 0,
+              "excerpt": "aucune critique de fond ... stagflation",
+              "strength": 0.9,
+              "nature": null
+            },
+            "alternative_conclusion": "La pensée de Keynes apparaîtrait **datée** plutôt que « toujours d'actualité »."
+          },
+          {
+            "counterargument": "Juger une pensée à ses **seules intentions** ignore ses **effets historiques** réels.",
+            "seeds": {
+              "source": "implicit_assumption",
+              "index": 1,
+              "excerpt": "intentions plus qu'à ses effets",
+              "strength": 0.8,
+              "nature": null
+            },
+            "alternative_conclusion": "Le portrait admiratif tiendrait moins face au **bilan concret** du keynésianisme."
+          },
+          {
+            "counterargument": "Multiplier les **citations de Keynes** n'établit pas la justesse de ses thèses face à ses critiques.",
+            "seeds": {
+              "source": "logical_reasoning",
+              "index": 2,
+              "excerpt": "citations ... démontent le laissez-faire",
+              "strength": 0.7,
+              "nature": null
+            },
+            "alternative_conclusion": "L'argument reposerait sur l'**autorité du personnage** plutôt que sur une démonstration."
+          }
+        ]
+      },
+      "forme": {
+        "emotional_register": [
+          {
+            "id": "er_0",
+            "emotion": "Admiration",
+            "how": "Des **métaphores de combat** (« double uppercut », « faire exploser ») et un format portrait posent Keynes en **honnête homme** héroïque.",
+            "effect": "Le lecteur est disposé à **adhérer à ses thèses** sans en chercher la contradiction.",
+            "seeds": {
+              "source": "context",
+              "index": 0,
+              "excerpt": "hors-série ... privilégie le portrait",
+              "strength": 0.8,
+              "nature": "illustration"
+            }
+          },
+          {
+            "id": "er_1",
+            "emotion": "Indignation",
+            "how": "Le texte **branche Keynes sur le présent** — retour des rentiers, héritage, répartition « arbitraire et injuste ».",
+            "effect": "Sa pensée paraît **urgente et juste** face aux inégalités d'aujourd'hui.",
+            "seeds": {
+              "source": "context",
+              "index": 1,
+              "excerpt": "débats actuels ... rentiers",
+              "strength": 0.9,
+              "nature": "illustration"
+            }
+          }
+        ],
+        "cui_bono": [
+          {
+            "id": "cb_0",
+            "beneficiary": "La pensée économique hétérodoxe et interventionniste",
+            "explanation": "Présenter Keynes en **pourfendeur victorieux** de l'orthodoxie, sans contradicteur cité, renforce la **légitimité présente** des thèses favorables à l'action publique.",
+            "seeds": {
+              "source": "context",
+              "index": 2,
+              "excerpt": "regain d'intérêt ... inégalités et rôle de l'État",
+              "strength": 0.8,
+              "nature": "inference"
+            }
+          },
+          {
+            "id": "cb_1",
+            "beneficiary": "Les critiques des politiques de l'offre",
+            "explanation": "En rappelant que la loi de Say **anime encore** les partisans de l'offre et « aggrave le mal », le cadrage **disqualifie** cette ligne au bénéfice de ses adversaires.",
+            "seeds": {
+              "source": "context",
+              "index": 1,
+              "excerpt": "politiques de l'offre",
+              "strength": 0.7,
+              "nature": "inference"
+            }
+          }
+        ],
+        "cadrage": {
+          "title_analysis": [
+            {
+              "label": "Jeu de mots",
+              "observation": "« Libre panseur » fond libre penseur et panser : Keynes **soigne** le capitalisme plutôt qu'il ne l'**abat**."
+            },
+            {
+              "label": "Présupposé",
+              "observation": "Le titre présuppose un capitalisme **blessé**, à sauver, cadrant Keynes en **réparateur** bienveillant."
+            }
+          ]
+        }
+      }
+    },
+    "annotations": {
+      "facts_vs_opinions": {
+        "claims_and_sources": [
+          {
+            "id": "claim_0",
+            "quote": "« les deux vices marquants du monde économique où nous vivons sont que le plein-emploi n'y est pas assuré et que la répartition de la richesse et des revenus y est arbitraire et injuste »",
+            "presentation": "attributed_to_source",
+            "proves": {
+              "type": "emotional_register",
+              "label": "Indignation",
+              "strength": 0.9,
+              "nature": "illustration"
+            },
+            "explanation": "La citation est **correctement créditée** à la Théorie générale de Keynes.",
+            "external_sources": [
+              {
+                "name": "J. M. Keynes, Théorie générale de l'emploi, de l'intérêt et de la monnaie (1936)",
+                "supports": "validates",
+                "evidence_type": "academic"
+              }
+            ],
+            "confidence": 90,
+            "confidence_label": "true"
+          },
+          {
+            "id": "claim_1",
+            "quote": "Bien avant l'ère des podcasts, il donne ainsi une série d'allocutions radiophoniques intitulée « La pauvreté dans l'abondance »",
+            "presentation": "presented_as_established_fact",
+            "proves": {
+              "type": "emotional_register",
+              "label": "Admiration",
+              "strength": 0.8,
+              "nature": "illustration"
+            },
+            "explanation": "Keynes a **effectivement donné** ces causeries radiophoniques « Poverty in Plenty » à la BBC en 1934.",
+            "external_sources": [
+              {
+                "name": "Collected Writings of J. M. Keynes, vol. XIII (Royal Economic Society)",
+                "supports": "validates",
+                "evidence_type": "academic"
+              }
+            ],
+            "confidence": 85,
+            "confidence_label": "true"
+          },
+          {
+            "id": "claim_2",
+            "quote": "il démonte les « principes métaphysiques » sur lesquels repose le laissez-faire",
+            "presentation": "opinion_stated_as_fact",
+            "proves": {
+              "type": "cui_bono",
+              "label": "La pensée économique hétérodoxe et interventionniste",
+              "strength": 0.8,
+              "nature": "illustration"
+            },
+            "explanation": "Le verbe **« démonte »** présente comme **acquise** une réfutation qui reste une position théorique contestée.",
+            "external_sources": [
+              {
+                "name": "Débats sur l'héritage keynésien (écoles néoclassique et monétariste)",
+                "supports": "contradicts",
+                "evidence_type": "academic"
+              }
+            ],
+            "confidence": null,
+            "confidence_label": "unverifiable"
+          },
+          {
+            "id": "claim_3",
+            "quote": "Une croyance qui semble encore aujourd'hui animer les partisans des politiques de l'offre, focalisés sur la seule baisse des coûts de production, et en particulier du travail",
+            "presentation": "opinion_stated_as_fact",
+            "proves": {
+              "type": "cui_bono",
+              "label": "Les critiques des politiques de l'offre",
+              "strength": 0.8,
+              "nature": "illustration"
+            },
+            "explanation": "L'**assimilation** des politiques de l'offre à la loi de Say relève de l'**interprétation de l'auteur**, non d'une position revendiquée par ces partisans.",
+            "external_sources": [
+              {
+                "name": "Analyses des politiques de l'offre (OFCE, France Stratégie)",
+                "supports": "neutral",
+                "evidence_type": "academic"
+              }
+            ],
+            "confidence": null,
+            "confidence_label": "unverifiable"
+          }
+        ]
+      },
+      "biases_and_focus": {
+        "biases_and_rhetoric": [
+          {
+            "id": "bias_0",
+            "quote": "Un double uppercut dans les gencives de John Locke et d'Adam Smith et sa fameuse « main invisible »",
+            "item_type": "bias",
+            "label": "métaphore guerrière",
+            "effect": "Remarquez comment l'**image du combat** fait paraître la réfutation **acquise** et sans réplique.",
+            "proves": {
+              "type": "emotional_register",
+              "label": "Admiration",
+              "strength": 0.9,
+              "nature": "illustration"
+            }
+          },
+          {
+            "id": "bias_1",
+            "quote": "Rien de plus fallacieux, démontre Keynes.",
+            "item_type": "bias",
+            "label": "appel à l'autorité",
+            "effect": "Remarquez comment le mot **« démontre »** confie la conclusion à Keynes lui-même, **seule voix** convoquée.",
+            "proves": {
+              "type": "cui_bono",
+              "label": "La pensée économique hétérodoxe et interventionniste",
+              "strength": 0.8,
+              "nature": "illustration"
+            }
+          },
+          {
+            "id": "bias_2",
+            "quote": "Une leçon toujours d'actualité à l'heure où l'héritage – qui s'oppose pourtant frontalement à l'idéal méritocratique dominant – semble plébiscité",
+            "item_type": "fallacy",
+            "label": "glissement du passé au présent",
+            "effect": "Remarquez comment l'**actualité de la leçon** est posée d'emblée, sans que le **lien** entre l'époque de Keynes et la nôtre soit établi.",
+            "proves": {
+              "type": "observation",
+              "label": "Actualisation",
+              "strength": 0.9,
+              "nature": "illustration"
+            }
+          }
+        ],
+        "focus": {
+          "quote": "En somme, Keynes cherche avant tout à sauver le capitalisme de lui-même en apposant un certain nombre de rustines sur ses failles.",
+          "proves": {
+            "type": "observation",
+            "label": "Cadrage",
+            "strength": 0.9,
+            "nature": "illustration"
+          },
+          "analysis": "La phrase résume Keynes en **réparateur** du capitalisme, non en fossoyeur. Elle sous-entend que le système **valait d'être sauvé** et pouvait l'être. Elle tait ce qu'il advint de ces « rustines » une fois confrontées à l'histoire — qui décide qu'une théorie a **« sauvé »** un système ?"
+        }
+      }
+    },
+    "deontology": {
+      "violations": [],
+      "verdict": {
+        "overall": "excellent",
+        "editorial_note": "Rien à corriger avant publication : veiller seulement à ce que le **parti pris admiratif** reste assumé comme portrait d'opinion."
+      },
+      "summary": "Aucun manquement déontologique n'a été relevé. Le texte est un portrait d'opinion assumé, signé et clairement présenté comme un hors-série, dont le ton admiratif relève du parti pris éditorial et non d'une entorse à la déontologie."
+    },
+    "review": {
+      "dimensions": [
+        {
+          "dimension": "source_rigor",
+          "label": "Source Rigor",
+          "score": 2,
+          "rationale": "Les citations sont **correctement créditées** — la Théorie générale pour c1, les causeries « Poverty in Plenty » de 1934 pour c2 — mais l'article repose presque exclusivement sur la **voix de Keynes lui-même** : « aucune voix contradictoire n'est citée » (emphasis), ni expert, ni contradicteur libéral ou monétariste. L'appareil de sourçage se réduit à l'**autocitation** du personnage, sans indépendance ni pluralité.",
+          "lesson": "Vérifiez si une thèse s'appuie sur des **voix indépendantes** ou seulement sur celle de son héros : un portrait bien cité n'est pas une enquête contradictoire."
+        },
+        {
+          "dimension": "factual_accuracy",
+          "label": "Factual Accuracy",
+          "score": 3,
+          "rationale": "Les faits vérifiables tiennent solidement : la citation des « deux vices » (c1, confiance 90) et les allocutions radiophoniques (c2, confiance 85) sont **exacts et bien attribués**. Mais deux affirmations centrales sont des **opinions présentées comme des faits** — « il démonte les principes métaphysiques » (c3) et l'assimilation des politiques de l'offre à la loi de Say (c4), toutes deux à confiance nulle et contredites ou non revendiquées.",
+          "lesson": "Distinguez le fait daté et sourçable du **verbe interprétatif** (« démonte », « réfute ») qui transforme une position théorique en acquis."
+        },
+        {
+          "dimension": "reasoning_structure",
+          "label": "Reasoning Structure",
+          "score": 2,
+          "rationale": "La chaîne argumentative enchaîne plusieurs **glissements masqués** : la pertinence passée de la critique vaut pertinence présente (validity), la qualité de l'honnête homme vaut justesse de la théorie (validity), les citations qui « démontent le laissez-faire » valent réfutation (soundness). Ces sauts ne sont **jamais signalés**, ce qui donne à l'adhésion une apparence de nécessité logique.",
+          "lesson": "Repérez le passage du **passé au présent** : qu'une critique ait été juste en 1936 ne prouve pas qu'elle le reste aujourd'hui."
+        },
+        {
+          "dimension": "approach_transparency",
+          "label": "Approach Transparency",
+          "score": 3,
+          "rationale": "L'angle est **assumé** : hors-série signé, format portrait clairement annoncé, ton admiratif que l'audit déontologique juge légitime comme parti pris. Mais les **présupposés implicites** — juger une pensée à ses intentions plus qu'à ses effets — et les angles morts restent **tacites**, jamais reconnus au fil du texte.",
+          "lesson": "Un parti pris affiché ne dispense pas d'énoncer ses **limites** : cherchez si l'auteur admet ce qu'il choisit de ne pas traiter."
+        },
+        {
+          "dimension": "context_completeness",
+          "label": "Context & Completeness",
+          "score": 2,
+          "rationale": "Le contexte décisif manque : ni la **stagflation** des années 1970 et les critiques monétaristes qu'elle a nourries, ni le rôle de Keynes à **Bretton Woods** en 1944, pourtant l'application concrète de sa pensée (observations « Périmètre » et « Contradiction »). L'**eugénisme** n'occupe qu'une demi-phrase jamais interrogée, tandis que la réfutation du laissez-faire est longuement détaillée — une pondération qui **écarte tout contrepoint**.",
+          "lesson": "Demandez-vous quel **contre-fait le plus gênant** est absent : ici, l'échec historique du modèle aurait suffi à nuancer le « toujours d'actualité »."
+        },
+        {
+          "dimension": "treatment_fairness",
+          "label": "Treatment Fairness",
+          "score": 2,
+          "rationale": "Le traitement est **asymétrique** : la métaphore guerrière du « double uppercut dans les gencives » et le « Rien de plus fallacieux, démontre Keynes » donnent toute la parole au sujet, quand les adversaires — laissez-faire, partisans de l'offre — sont **disqualifiés sans réplique**. Le focus reconnaît lui-même que la phrase « sauver le capitalisme » tait ce qu'il advint des « rustines » face à l'histoire.",
+          "lesson": "Notez qui obtient le **dernier mot** : quand une seule partie parle et que l'autre est réfutée par procuration, le débat est mis en scène, pas ouvert."
+        },
+        {
+          "dimension": "clarity",
+          "label": "Clarity",
+          "score": 4,
+          "rationale": "Le texte est **limpide et incarné** : le jeu de mots du titre « Libre panseur » condense la thèse (soigner plutôt qu'abattre), et les images de combat rendent des débats abstraits d'économie **immédiatement lisibles** pour un public non spécialiste. Le branchement constant sur le présent — rentiers, héritage — ancre concrètement des concepts anciens.",
+          "lesson": "Une écriture vivante facilite la lecture mais peut aussi **rendre acquise** une réfutation : appréciez la clarté sans confondre vivacité et démonstration."
+        },
+        {
+          "dimension": "angle_originality",
+          "label": "Angle & Originality",
+          "score": 4,
+          "rationale": "L'angle est **distinctif** : le miroir filé avec Marx d'un bout à l'autre, la figure de l'économiste-honnête homme et surtout le cadrage de Keynes en **réparateur** (« sauver le capitalisme de lui-même en apposant des rustines ») donnent au portrait une thèse propre. L'actualisation permanente vers les débats contemporains renouvelle un sujet classique.",
+          "lesson": "Un cadrage original mérite qu'on **identifie sa thèse implicite** : ici, que le capitalisme valait d'être sauvé — présupposé jamais discuté."
+        }
+      ],
+      "verdict": {
+        "quality": "adequate",
+        "reading_recommendation": "with_reservations",
+        "for_whom": "Le lecteur curieux d'économie qui découvre Keynes et cherche une introduction vivante à sa pensée, à condition de compléter ensuite par une source contradictoire.",
+        "payoff": "Vous ressortirez avec une **compréhension claire et incarnée** de ce que Keynes reprochait à l'orthodoxie et de son projet de sauver le capitalisme, mais pas avec les éléments pour juger si ses thèses ont **tenu à l'épreuve de l'histoire**.",
+        "signature_move": "Le **portrait-plaidoyer** : laisser Keynes se défendre par ses propres citations, sans contradicteur, et transformer la réfutation en scène de combat gagnée d'avance.",
+        "main_blind_side": "L'absence totale de la **stagflation** et des critiques monétaristes révèle un format hors-série qui privilégie la célébration de la figure sur la mise à l'épreuve de la pensée.",
+        "further_resource": {
+          "title": "Keynes-Hayek : le choc qui a défini l'économie moderne",
+          "source": "Nicholas Wapshott",
+          "media_type": "book",
+          "why_explore": "Il restitue le débat contradictoire que ce portrait escamote, en donnant enfin voix aux adversaires libéraux de Keynes.",
+          "url": null
+        },
+        "summary": "Lecture recommandée avec réserves pour qui découvre Keynes : le portrait est clair, vivant et bien documenté sur les faits, mais il laisse son sujet plaider seul, sans contradicteur ni bilan historique — à lire comme une porte d'entrée admirative, pas comme un jugement équilibré."
+      }
+    },
+    "blend": {
+      "patterns": [
+        {
+          "text": "Le glissement logique qui fait passer une critique **juste en 1936** pour une critique **valide aujourd'hui** (lr_0) est exactement le geste rhétorique de l'**indignation actualisante** (er_1) — retour des rentiers, héritage — que le texte pose d'emblée comme un fait acquis (bias_2), sans jamais établir le lien entre les deux époques.",
+          "layers": [
+            "logic",
+            "rhetoric",
+            "probe"
+          ],
+          "references": [
+            "lr_0",
+            "er_1",
+            "bias_2"
+          ]
+        },
+        {
+          "text": "L'**autocitation tenue pour preuve** — les citations de Keynes valent réfutation du laissez-faire (lr_2) — se matérialise dans le verbe **« démontre »** qui confie la conclusion au seul sujet (bias_1) et dans le « démonte » qui présente comme acquise une réfutation contestée (claim_2) : trois couches convergent sur un sourçage réduit à la voix du héros.",
+          "layers": [
+            "logic",
+            "probe",
+            "review"
+          ],
+          "references": [
+            "lr_2",
+            "bias_1",
+            "claim_2"
+          ]
+        },
+        {
+          "text": "L'**héroïsation du personnage** par les métaphores de combat (er_0, bias_0) prépare le saut logique qui fait de la **qualité de l'honnête homme** une garantie de justesse théorique (lr_1) : l'affect admiratif installe l'adhésion que le raisonnement ne démontre pas.",
+          "layers": [
+            "rhetoric",
+            "probe",
+            "logic"
+          ],
+          "references": [
+            "er_0",
+            "bias_0",
+            "lr_1"
+          ]
+        },
+        {
+          "text": "L'actualité revendiquée par le registre d'**indignation** (er_1) ne tient que parce que l'**angle mort décisif** — stagflation et critiques monétaristes (bs_0) — reste absent, tout comme le contre-fait de **Bretton Woods** qui jugerait la pensée à ses effets (obs_3) : l'émotion présente occupe la place du bilan historique manquant.",
+          "layers": [
+            "rhetoric",
+            "logic",
+            "review"
+          ],
+          "references": [
+            "er_1",
+            "bs_0",
+            "obs_3"
+          ]
+        },
+        {
+          "text": "L'hypothèse implicite qu'une pensée **se juge à ses intentions** plus qu'à ses effets (ia_1) est soutenue par le **cadrage-portrait admiratif** qui privilégie la figure sur le débat (er_0) : le format lui-même rend invisible la question des résultats historiques.",
+          "layers": [
+            "logic",
+            "rhetoric"
+          ],
+          "references": [
+            "ia_1",
+            "er_0"
+          ]
+        },
+        {
+          "text": "La **disqualification des politiques de l'offre** au profit de leurs adversaires (cb_1) s'opère par une **assimilation à la loi de Say** présentée comme un fait alors qu'elle relève de l'interprétation de l'auteur (claim_3) : l'intérêt servi et l'opinion déguisée en fait pointent le même geste de cadrage.",
+          "layers": [
+            "rhetoric",
+            "probe"
+          ],
+          "references": [
+            "cb_1",
+            "claim_3"
+          ]
+        }
+      ]
+    },
+    "distill": {
+      "points": [
+        {
+          "text": "La réfutation du laissez-faire repose sur la **seule voix de Keynes** : ses citations valent preuve, et les verbes « démontre » et « démonte » présentent comme **acquis** ce qui reste contesté.",
+          "references": [
+            "lr_2",
+            "bias_1",
+            "claim_2"
+          ]
+        },
+        {
+          "text": "Le texte traite une critique **valable en 1936** comme **valide aujourd'hui** sans jamais établir le pont entre les deux époques : le lien est posé, pas démontré.",
+          "references": [
+            "lr_0",
+            "er_1",
+            "bias_2"
+          ]
+        },
+        {
+          "text": "L'**héroïsation par les métaphores de combat** installe l'adhésion, puis fait glisser la **qualité de l'homme** en garantie de justesse théorique : la pensée est jugée à ses intentions, non à ses effets.",
+          "references": [
+            "er_0",
+            "bias_0",
+            "lr_1",
+            "ia_1"
+          ]
+        },
+        {
+          "text": "L'**indignation actualisante** ne tient que parce que les **critiques monétaristes**, la stagflation et le bilan de Bretton Woods restent hors champ.",
+          "references": [
+            "er_1",
+            "bs_0",
+            "obs_3"
+          ]
+        },
+        {
+          "text": "La **disqualification des politiques de l'offre** passe par leur **assimilation à la loi de Say**, présentée comme un fait quand elle relève de l'interprétation.",
+          "references": [
+            "cb_1",
+            "claim_3"
+          ]
+        }
+      ],
+      "open_questions": [
+        "La critique de Keynes de 1936 s'applique-t-elle aux économies actuelles, et dans quelle mesure ?",
+        "Quel bilan les effets historiques du keynésianisme, de Bretton Woods à la stagflation, dressent-ils ?",
+        "L'assimilation des politiques de l'offre à la loi de Say est-elle fondée ou contestée ?"
+      ]
+    },
+    "guide": {
+      "pre_reading": [
+        "Gardez en tête qu'il s'agit d'un **portrait signé** en hors-série : attendez-vous à un angle admiratif où Keynes se défend surtout par ses propres citations, sans contradicteur.",
+        "Repérez la structure implicite de l'argument : une critique **juste en 1936** y est traitée comme valide aujourd'hui, sans que le pont entre les deux époques soit établi.",
+        "Un peu de recul historique aide ici : connaître la **stagflation**, les critiques monétaristes et Bretton Woods permet de voir ce que le portrait laisse de côté."
+      ],
+      "watch_out": {
+        "items": [
+          {
+            "id": "",
+            "text": "La réfutation de l'orthodoxie économique repose presque uniquement sur la **voix du sujet lui-même** : ses citations tiennent lieu de preuve, et des verbes interprétatifs présentent comme acquis ce qui reste débattu.",
+            "references": [
+              "lr_2",
+              "bias_1",
+              "claim_2"
+            ]
+          },
+          {
+            "id": "",
+            "text": "Le texte fait glisser une critique **pertinente en 1936** vers une validité présente sans démontrer le lien : la continuité entre les deux époques est posée, pas établie.",
+            "references": [
+              "lr_0",
+              "er_1",
+              "bias_2"
+            ]
+          },
+          {
+            "id": "",
+            "text": "Les métaphores de combat **héroïsent le personnage** et laissent croire que la qualité de l'homme garantit la justesse de sa théorie : l'adhésion s'installe par l'affect avant le raisonnement.",
+            "references": [
+              "er_0",
+              "bias_0",
+              "lr_1"
+            ]
+          },
+          {
+            "id": "",
+            "text": "Un **contexte décisif manque** : ni l'échec historique associé à la stagflation, ni les critiques monétaristes, ni le rôle de Keynes à Bretton Woods ne viennent mettre la pensée à l'épreuve de ses effets.",
+            "references": [
+              "bs_0",
+              "obs_3",
+              "er_1"
+            ]
+          },
+          {
+            "id": "",
+            "text": "La mise à l'écart des politiques de l'offre passe par une **assimilation présentée comme un fait** alors qu'elle relève de l'interprétation de l'auteur.",
+            "references": [
+              "cb_1",
+              "claim_3"
+            ]
+          }
+        ]
+      },
+      "after_reading": [
+        "Demandez-vous si la critique de 1936 **s'applique vraiment** aux économies d'aujourd'hui, et à quelles conditions.",
+        "Rappelez-vous que vous avez entendu la **défense de Keynes**, pas ses adversaires : complétez par une source contradictoire avant de trancher.",
+        "Distinguez ce que Keynes **voulait faire** de ce que ses idées ont produit à l'épreuve de l'histoire.",
+        "Retenez que la clarté et la vivacité du récit peuvent faire **passer pour acquise** une réfutation qui restait contestée."
+      ],
+      "title_note": "Le jeu de mots du titre, « Libre panseur », condense d'emblée la thèse — soigner le capitalisme plutôt que l'abattre — et oriente la lecture avant même le premier paragraphe.",
+      "perspective": {
+        "framing": "L'article choisit le **portrait admiratif** et place Keynes au centre comme réparateur venu « sauver le capitalisme de lui-même », dans un registre d'**indignation actualisante** (rentiers, héritage) et de métaphores guerrières. Il parle depuis une position clairement favorable, laissant le sujet se défendre par ses propres mots.",
+        "blind_spots": "Deux absences pèsent : l'**échec historique** associé à la stagflation et aux critiques monétaristes, et le rôle concret de Keynes à **Bretton Woods** — soit précisément ce qui jugerait la pensée à ses effets plutôt qu'à ses intentions.",
+        "balance": "Ces limites tiennent en partie au **genre** : un hors-série portrait, à l'angle assumé et signé, n'a pas vocation à l'exhaustivité ni à l'équilibre contradictoire d'une enquête. Les manques relevés sont réels, mais un format court et ouvertement admiratif fixe un attendu raisonnable — à lire comme une **porte d'entrée**, à compléter ensuite."
+      }
+    },
+    "core_elements": {
+      "elements": [
+        {
+          "statement": "Keynes fut un **radical** cherchant non à abattre le capitalisme mais à le **sauver** de ses dérives.",
+          "kind": "angle",
+          "centrality": 5,
+          "seeds": {
+            "source": "premisse",
+            "index": 1,
+            "excerpt": "sauver le capitalisme de lui-même",
+            "strength": 0.9,
+            "nature": "illustration"
+          }
+        },
+        {
+          "statement": "Keynes **réfute les fondements** du laissez-faire et de la loi de Say, piliers de l'orthodoxie.",
+          "kind": "affirmation",
+          "centrality": 4,
+          "seeds": {
+            "source": "premisse",
+            "index": 1,
+            "excerpt": "réfuté les fondements du laissez-faire et de la loi de Say",
+            "strength": 0.9,
+            "nature": "illustration"
+          }
+        },
+        {
+          "statement": "Le texte relie constamment sa pensée aux **débats actuels** sur l'héritage et les rentiers.",
+          "kind": "enjeu",
+          "centrality": 4,
+          "seeds": {
+            "source": "context",
+            "index": 1,
+            "excerpt": "débats actuels ... rentiers",
+            "strength": 0.9,
+            "nature": "illustration"
+          }
+        },
+        {
+          "statement": "Le portrait **admiratif** multiplie les citations de Keynes sans **aucune voix contradictoire**.",
+          "kind": "biais",
+          "centrality": 3,
+          "seeds": {
+            "source": "blind_spot",
+            "index": 2,
+            "excerpt": "aucune voix libérale ou monétariste ... contrepoint",
+            "strength": 0.8,
+            "nature": "illustration"
+          }
+        },
+        {
+          "statement": "**Héritier anticonformiste** et **agent multipositionné**, Keynes navigue entre université, administration, affaires et politique.",
+          "kind": "fait",
+          "centrality": 3,
+          "seeds": {
+            "source": "context",
+            "index": 0,
+            "excerpt": "agent multipositionné",
+            "strength": 0.7,
+            "nature": "specification"
+          }
+        }
+      ]
+    }
+  },
+  "presentation": {
+    "subject": "Keynes, portrait admiré : que reste-t-il hors champ ?",
+    "preheader": "Une pensée d'hier branchée sur nos débats. Ce que le portrait laisse de côté.",
+    "essentiel": "L'article ouvre un hors-série sur les grandes figures de la pensée économique par un portrait de John Maynard Keynes. Il le présente en héritier anticonformiste et « agent multipositionné », circulant entre université, administration, affaires et politique, et rappelle ses causeries radiophoniques « La pauvreté dans l'abondance ». Il détaille sa charge contre le laissez-faire, dont Keynes « démonte les principes métaphysiques », et contre la **loi de Say** (« l'offre crée sa demande »), jugée « fallacieuse », croyance que l'auteur relie aux politiques de l'offre actuelles.\n\nSa thèse : Keynes fut un radical cherchant non à abattre le capitalisme mais à le « sauver de lui-même » en corrigeant ses failles. L'article cite les « deux vices » qu'il pointe, un plein-emploi non assuré et une répartition « arbitraire et injuste », puis sa formule de l'**« euthanasie des rentiers »**. Il conclut sur une leçon « toujours d'actualité » à l'heure où l'héritage semble plébiscité.",
+    "selection_headline": "Une pensée d'hier qui parle à notre présent.",
+    "why_selected": "L'article expose une pensée économique majeure, la **réfutation du laissez-faire** et de la loi de Say, de façon vivante, en laissant Keynes parler à la première personne. Il branche cette pensée sur des questions très actuelles : le retour des rentiers, l'héritage, le rôle de l'État. Sa mécanique de conviction (portrait admiratif, citations en cascade) mérite qu'on la regarde de près.",
+    "payoff": "En le lisant de près, vous apprécierez la force de la démonstration tout en repérant ses points d'appui les plus fragiles, sans vous laisser porter par le récit. Vous en ressortez avec des **réflexes réutilisables** : distinguer une réfutation établie d'une position confiée à une seule voix, ou une continuité historique posée d'une continuité démontrée.",
+    "context": "Ce portrait ouvre un hors-série consacré aux figures qui ont façonné la pensée économique (épisode 1 sur 8), un format qui privilégie le portrait sur le débat contradictoire. Il paraît alors que l'intérêt pour Keynes repart, porté par le retour des questions sur les inégalités et le rôle de l'État. Rappel utile : le keynésianisme a dominé les politiques d'après-guerre jusqu'au **tournant néolibéral** des années 1970-1980. Mort en 1946, Keynes a aussi joué un rôle central à la conférence de Bretton Woods en 1944.",
+    "reading_posture": "L'article convainc par un cadrage admiratif posé d'emblée, une avalanche de citations de Keynes lui-même et des métaphores de combat qui donnent la réfutation pour acquise.",
+    "decryptage": [
+      {
+        "kind": "faille",
+        "quote": "Un double uppercut dans les gencives de John Locke et d'Adam Smith et sa fameuse « main invisible »",
+        "presentation": "cadrage",
+        "reading": "La métaphore pugilistique met en scène un combat déjà gagné : Locke et Smith sont « à terre » avant tout examen. L'image installe l'idée d'une victoire nette là où le débat théorique reste, lui, ouvert. Notez le geste : c'est **le vocabulaire, pas la démonstration**, qui tranche.",
+        "prompt": "Repérez comment l'image de combat rend la réfutation acquise.",
+        "lens_ref": "cadrage"
+      },
+      {
+        "kind": "faille",
+        "quote": "il démonte les « principes métaphysiques » sur lesquels repose le laissez-faire",
+        "presentation": "verbe interprétatif",
+        "reading": "Le verbe « démonte » présente comme acquise une réfutation qui reste une **position théorique discutée**. Rien d'indépendant ne l'étaye ici, hors la parole de Keynes : ses écoles rivales, néoclassique et monétariste, tiennent toujours le débat pour ouvert. Un même énoncé peut décrire une position ou proclamer une victoire ; ici il fait les deux.",
+        "prompt": "Demandez qui a établi cette réfutation présentée comme acquise.",
+        "lens_ref": "sources"
+      },
+      {
+        "kind": "faille",
+        "quote": "Rien de plus fallacieux, démontre Keynes.",
+        "presentation": "source",
+        "reading": "La conclusion est **confiée à Keynes seul** : le mot « démontre » lui attribue le dernier mot. Aucun contradicteur libéral ou monétariste n'est cité pour la loi de Say, si bien que le débat est mis en scène plutôt qu'ouvert. Une position peut être solide et n'être pourtant jamais confrontée dans le texte à sa meilleure objection.",
+        "prompt": "Cherchez qui, dans le texte, peut lui répondre.",
+        "lens_ref": "equilibre"
+      },
+      {
+        "kind": "faille",
+        "quote": "Une croyance qui semble encore aujourd'hui animer les partisans des politiques de l'offre, focalisés sur la seule baisse des coûts de production, et en particulier du travail",
+        "presentation": "interprétation",
+        "reading": "Assimiler les politiques de l'offre à la loi de Say est **une lecture de l'auteur**, pas une thèse revendiquée par leurs partisans. Le glissement rattache un courant contemporain à une idée que l'article vient de juger « fallacieuse », ce qui le disqualifie par ricochet. Vérifiez toujours si une équivalence entre deux positions est démontrée ou seulement posée.",
+        "prompt": "Distinguez le fait rapporté du lien établi par l'auteur.",
+        "lens_ref": "causalite"
+      },
+      {
+        "kind": "faille",
+        "quote": "les deux vices marquants du monde économique où nous vivons sont que le plein-emploi n'y est pas assuré et que la répartition de la richesse et des revenus y est arbitraire et injuste",
+        "presentation": "citation sourcée",
+        "reading": "Cette citation est **fidèlement créditée** à la Théorie générale : sur ce point, l'article restitue exactement la position de Keynes. Gardez toutefois en tête que « arbitraire et injuste » est un jugement de valeur de Keynes, pas un constat neutre. Distinguer ce qui est décrit de ce qui est jugé aide à ne pas prendre l'un pour l'autre.",
+        "prompt": "Séparez le constat économique du jugement de valeur.",
+        "lens_ref": "cadrage"
+      },
+      {
+        "kind": "faille",
+        "quote": "Une leçon toujours d'actualité à l'heure où l'héritage – qui s'oppose pourtant frontalement à l'idéal méritocratique dominant – semble plébiscité",
+        "presentation": "glissement temporel",
+        "reading": "L'actualité de la leçon est **posée d'emblée, pas démontrée** : le texte relie la critique de 1936 à nos débats sur l'héritage sans montrer que les contextes économiques sont comparables. Une critique juste à son époque ne devient pas automatiquement valide aujourd'hui. C'est un pont qu'il reste au lecteur à vérifier, maillon par maillon.",
+        "prompt": "Vérifiez si le lien entre 1936 et aujourd'hui est établi.",
+        "lens_ref": "sophismes"
+      }
+    ],
+    "architecture": {
+      "keystone": "Sur quoi repose vraiment ce plaidoyer : une démonstration, ou une mise en scène de la seule voix de Keynes ?",
+      "spine": [
+        "Keynes critique l'orthodoxie du laissez-faire et de la loi de Say, sur la seule foi de ses propres textes.",
+        "Le portrait en fait un « honnête homme » héroïque, dont la stature rejaillit sur la justesse de ses thèses.",
+        "Cette pensée est branchée sur nos débats (rentiers, héritage) comme si sa validité de 1936 valait aujourd'hui.",
+        "Conclusion : Keynes aurait **« sauvé le capitalisme de lui-même »** en corrigeant ses failles."
+      ]
+    },
+    "a_emporter": {
+      "key_takeaways": [
+        "Keynes voulait corriger le capitalisme, pas l'abolir : sa radicalité visait à le rendre viable.",
+        "Sa cible théorique est double : le laissez-faire et la loi de Say (« l'offre crée sa demande »).",
+        "Sa formule la plus citée, l'**« euthanasie des rentiers »**, vise les revenus tirés de la seule détention de capital.",
+        "Homme aux multiples casquettes (université, administration, affaires, politique), il fut aussi un acteur, pas seulement un théoricien."
+      ],
+      "reflexes_critiques": [
+        {
+          "lens_ref": "sources",
+          "rule": "Quand un texte tient une thèse pour « démontrée », cherchez la **preuve indépendante** de la voix qui la porte.",
+          "reusable_on": "science, politique, économie"
+        },
+        {
+          "lens_ref": "equilibre",
+          "rule": "Vérifiez qui a voix au chapitre : une conclusion confiée au seul protagoniste n'a affronté aucune objection.",
+          "reusable_on": "débats publics, procès médiatiques, controverses scientifiques"
+        },
+        {
+          "lens_ref": "sophismes",
+          "rule": "Méfiez-vous du saut « c'était vrai alors, donc c'est vrai maintenant » : le pont entre deux époques se démontre.",
+          "reusable_on": "histoire, économie, débats de société"
+        },
+        {
+          "lens_ref": "causalite",
+          "rule": "Repérez les équivalences posées entre deux positions (« X, c'est du Y ») : demandez si le lien est établi ou seulement affirmé.",
+          "reusable_on": "politique, économie, sciences sociales"
+        },
+        {
+          "lens_ref": "cadrage",
+          "rule": "Séparez le fait décrit du jugement de valeur qui l'habille (« arbitraire et injuste ») pour voir ce qui relève du constat.",
+          "reusable_on": "presse, discours politique, publicité"
+        }
+      ]
+    },
+    "verdict": {
+      "enjeux": [
+        "L'enjeu de fond dépasse la brillance du portrait : juge-t-on une pensée à ses intentions affichées ou à ses effets réels dans l'histoire ? Selon la réponse, Keynes apparaît en réparateur visionnaire ou en auteur d'un modèle qu'il faut confronter à son bilan. C'est cette **tension entre intentions et effets** qui commande la lecture.",
+        "Se pose aussi la question de l'autorité intellectuelle : dans quelle mesure la stature d'un penseur peut-elle tenir lieu de preuve pour ses thèses ? Le portrait invite à admirer l'homme ; reste à savoir si cette admiration doit emporter l'adhésion à la théorie."
+      ],
+      "objections": [
+        "La stagflation des années 1970, inflation et chômage simultanés, a exposé des limites empiriques du modèle keynésien et nourri les critiques monétaristes. Si on la prend au sérieux, la pensée de Keynes apparaîtrait **datée** sur ce point plutôt que « toujours d'actualité ».",
+        "Juger une pensée à ses seules intentions ignore ses effets historiques. Confronté à son bilan concret (de Bretton Woods au tournant néolibéral), le portrait admiratif tiendrait moins fermement que sa version « intentions »."
+      ],
+      "angles_morts": [
+        "Aucune trace de la stagflation des années 1970 ni des critiques monétaristes qu'elle a nourries.",
+        "Le rôle concret de Keynes à **Bretton Woods** en 1944 et l'héritage keynésien de l'après-guerre restent absents.",
+        "L'eugénisme de Keynes n'est évoqué qu'en passant, sans être interrogé."
+      ],
+      "nuances": [
+        "La réfutation du laissez-faire par Keynes est réelle et influente ; c'est **sa validité pour les économies d'aujourd'hui** qui reste discutée.",
+        "L'« euthanasie des rentiers » est une formule marquante, mais son statut (programme concret ou prophétie) fait débat parmi les économistes.",
+        "Le keynésianisme a bien dominé l'après-guerre ; l'ampleur exacte de sa responsabilité dans la stagflation reste, elle, contestée."
+      ],
+      "questions": [
+        "Une critique forgée en 1936 garde-t-elle sa portée face à des économies profondément différentes, et à quelles conditions ?",
+        "Faut-il juger une pensée économique à la cohérence de son projet, ou au bilan de ce qu'elle a produit une fois appliquée ?"
+      ]
+    },
+    "cui_bono": "Ce cadrage sert d'abord la pensée économique hétérodoxe et interventionniste : présenter Keynes en pourfendeur victorieux de l'orthodoxie, sans contradicteur cité, renforce la légitimité présente des thèses favorables à l'**action publique**. Il dessert en miroir les partisans des politiques de l'offre, renvoyés à une loi de Say jugée « fallacieuse ». Le lecteur gagne à se demander à qui profite une réfutation donnée pour acquise.",
+    "go_further": [
+      {
+        "title": "Théorie générale de l'emploi, de l'intérêt et de la monnaie",
+        "source": "John Maynard Keynes (1936)",
+        "why": "Le texte source d'où proviennent les citations ; le lire permet de juger sur pièces la « réfutation » du laissez-faire.",
+        "type": "livre",
+        "url": null
+      },
+      {
+        "title": "Bretton Woods et l'ordre monétaire d'après-guerre",
+        "source": "Fonds monétaire international (FMI)",
+        "why": "Éclaire le **rôle concret de Keynes en 1944**, absent du portrait, et la mise en pratique de ses idées.",
+        "type": "ressource",
+        "url": "https://imf.org"
+      },
+      {
+        "title": "The Role of Monetary Policy",
+        "source": "Milton Friedman (1968)",
+        "why": "La principale objection théorique, née de la stagflation, qui manque au portrait admiratif.",
+        "type": "article académique",
+        "url": null
+      },
+      {
+        "title": "Le Capital au XXIe siècle",
+        "source": "Thomas Piketty (2013)",
+        "why": "Prolonge le débat actuel sur l'héritage et les rentiers que l'article branche sur Keynes, avec des données.",
+        "type": "livre",
+        "url": null
+      },
+      {
+        "title": "John Maynard Keynes: A Biography",
+        "source": "Robert Skidelsky",
+        "why": "Une biographie de référence qui replace l'homme « multipositionné » et ses zones d'ombre, dont l'eugénisme.",
+        "type": "livre",
+        "url": null
+      },
+      {
+        "title": "Analyses des politiques de l'offre",
+        "source": "OFCE (Observatoire français des conjonctures économiques)",
+        "why": "Permet de vérifier si l'assimilation des politiques de l'offre à la loi de Say est fondée ou contestée.",
+        "type": "données",
+        "url": null
+      }
+    ],
+    "signoff": "On sélectionne. On éclaire. **Vous jugez.**"
+  }
+}

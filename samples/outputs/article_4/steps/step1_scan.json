@@ -1,0 +1,203 @@
+{
+  "article_type": "opinion",
+  "key_claims": [
+    {
+      "quote": "La guerre des classes me trouvera toujours du côté de la bourgeoisie cultivée",
+      "source": "Keynes, conférence citée",
+      "type": "attributed"
+    },
+    {
+      "quote": "décadence intellectuelle du capitalisme individualiste",
+      "source": "Keynes, même conférence",
+      "type": "attributed"
+    },
+    {
+      "quote": "Il n'est pas correct de déduire des principes de l'économie que l'intérêt personnel éclairé œuvre toujours à l'intérêt public. Il n'est pas vrai non plus que l'intérêt personnel soit généralement éclairé ; le plus souvent les individus qui agissent séparément pour parvenir à leurs propres fins sont trop ignorants ou trop faibles pour même les atteindre.",
+      "source": "Keynes, La fin du laissez-faire",
+      "type": "attributed"
+    },
+    {
+      "quote": "Or, je me range moi-même parmi les hérétiques.",
+      "source": "Keynes, « La pauvreté dans l'abondance »",
+      "type": "attributed"
+    },
+    {
+      "quote": "les deux vices marquants du monde économique où nous vivons sont que le plein-emploi n'y est pas assuré et que la répartition de la richesse et des revenus y est arbitraire et injuste",
+      "source": "Keynes, Théorie générale",
+      "type": "attributed"
+    },
+    {
+      "quote": "l'offre crée sa propre demande",
+      "source": "loi de Say, citée par Keynes",
+      "type": "attributed"
+    },
+    {
+      "quote": "Les idées, justes ou fausses, des philosophes de l'économie et de la politique ont plus d'importance qu'on ne le pense en général.",
+      "source": "Keynes, Théorie générale",
+      "type": "attributed"
+    }
+  ],
+  "key_quotes": [
+    "La guerre des classes me trouvera toujours du côté de la bourgeoisie cultivée",
+    "recherche d'améliorations techniques possibles du capitalisme moderne par le moyen de l'action collective",
+    "Or, je me range moi-même parmi les hérétiques.",
+    "les deux vices marquants du monde économique où nous vivons sont que le plein-emploi n'y est pas assuré et que la répartition de la richesse et des revenus y est arbitraire et injuste",
+    "Les idées, justes ou fausses, des philosophes de l'économie et de la politique ont plus d'importance qu'on ne le pense en général.",
+    "Les hommes d'action qui se croient parfaitement affranchis des influences doctrinales sont d'ordinaire les esclaves de quelque économiste passé."
+  ],
+  "key_actors": [
+    {
+      "name": "John Maynard Keynes",
+      "role": "Économiste britannique, **sujet central** de l'article."
+    },
+    {
+      "name": "Karl Marx",
+      "role": "Économiste convoqué en **contrepoint permanent** de Keynes."
+    },
+    {
+      "name": "Alfred Marshall",
+      "role": "**Maître néoclassique** de Keynes, tour à tour loué et critiqué."
+    },
+    {
+      "name": "John Neville Keynes",
+      "role": "Père de Keynes, connu pour la distinction **économie positive / normative**."
+    },
+    {
+      "name": "Virginia Woolf",
+      "role": "Écrivaine, membre du **groupe de Bloomsbury**."
+    },
+    {
+      "name": "Adam Smith",
+      "role": "Auteur de la **« main invisible »**, cible des critiques de Keynes."
+    },
+    {
+      "name": "John Locke",
+      "role": "Philosophe visé par la critique de la **« liberté naturelle »**."
+    },
+    {
+      "name": "Jean-Baptiste Say",
+      "role": "Économiste dont la **loi des débouchés** est réfutée par Keynes."
+    },
+    {
+      "name": "David Ricardo",
+      "role": "Économiste classique dont Keynes juge Marx **prisonnier**."
+    },
+    {
+      "name": "Igor Martinache",
+      "role": "**Auteur** de l'article."
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Alfred Marshall",
+      "used_for": "Ouvrir l'article sur un portrait de l'économiste idéal, présenté comme l'**autoportrait implicite** de Keynes."
+    },
+    {
+      "entity": "Les sociologues",
+      "used_for": "Légitimer la caractérisation de Keynes en **« agent multipositionné »**."
+    },
+    {
+      "entity": "Virginia Woolf",
+      "used_for": "Signaler le **prestige intellectuel** du milieu de Bloomsbury qui a formé Keynes."
+    },
+    {
+      "entity": "Karl Marx",
+      "used_for": "Servir de **référence comparative** pour mesurer la radicalité revendiquée de Keynes."
+    }
+  ],
+  "notable_omissions": [
+    "Aucune **critique de fond** du keynésianisme ni mention de ses **échecs historiques** comme la stagflation.",
+    "L'**eugénisme** de Keynes est cité en passant mais **jamais interrogé**.",
+    "Aucune **voix libérale ou monétariste** n'est convoquée en contrepoint.",
+    "Les **limites** de la formule « euthanasier les rentiers » ne sont pas discutées.",
+    "Le rôle de Keynes à **Bretton Woods** et l'héritage keynésien de l'après-guerre sont **absents**."
+  ],
+  "rhetorical_patterns": [
+    "Des **métaphores de combat** répétées (« double uppercut dans les gencives », « faire exploser », « démonter »).",
+    "Un **jeu de miroirs** avec Marx, convoqué en double inversé de Keynes tout au long du texte.",
+    "L'ouverture pose le **portrait de Marshall** en autoportrait, cadrant d'emblée Keynes en **honnête homme**.",
+    "Des **renvois constants au présent** (« toujours d'actualité », notes de bas de page) qui **actualisent** sa pensée.",
+    "Une **abondance de citations verbatim** qui laissent Keynes **parler à la première personne**."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "text": "L'article ouvre un **hors-série** consacré aux figures qui ont façonné la pensée économique (**série 1/8**)."
+      },
+      {
+        "text": "Il fait écho à des **débats actuels** sur l'héritage, le retour des **rentiers** et les politiques de l'offre."
+      },
+      {
+        "text": "Le regain d'intérêt pour Keynes accompagne le **retour des questions** sur les inégalités et le rôle de l'État."
+      }
+    ],
+    "who_is_speaking": [
+      "Article signé **Igor Martinache**, enseignant et collaborateur d'une presse économique de sensibilité **hétérodoxe et sociale**.",
+      "Le texte s'inscrit dans un **format de vulgarisation** (hors-série), qui privilégie le portrait plutôt que le débat contradictoire.",
+      "Le ton est ouvertement **admiratif** envers Keynes, présenté en **pourfendeur de l'orthodoxie**."
+    ],
+    "important_facts": [
+      {
+        "text": "Keynes est mort en **1946** ; l'article donne sa naissance (1883) mais pas cette date."
+      },
+      {
+        "text": "Le **keynésianisme** a dominé les politiques d'après-guerre jusqu'au **tournant néolibéral** des années 1970-1980."
+      },
+      {
+        "text": "Keynes a joué un rôle central à la conférence de **Bretton Woods (1944)**, non mentionnée ici."
+      },
+      {
+        "text": "La **stagflation** des années 1970 a nourri les **critiques monétaristes** du modèle keynésien, absentes de l'article."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "laissez-faire",
+        "definition": "Doctrine selon laquelle l'État doit s'abstenir d'intervenir dans l'économie."
+      },
+      {
+        "term": "loi de Say",
+        "definition": "Idée que « l'offre crée sa propre demande », donc que toute production trouve nécessairement des acheteurs."
+      },
+      {
+        "term": "demande effective",
+        "definition": "La demande anticipée par les entreprises, qui commande leur niveau de production et d'emploi."
+      },
+      {
+        "term": "marché des fonds prêtables",
+        "definition": "Théorie où le taux d'intérêt équilibrerait l'épargne offerte et l'investissement demandé."
+      },
+      {
+        "term": "préférence pour la liquidité",
+        "definition": "Le fait de vouloir garder de la monnaie disponible ; pour Keynes, le taux d'intérêt en est la rémunération."
+      },
+      {
+        "term": "néoclassiques",
+        "definition": "Courant économique dominant fondé sur les marchés et le calcul rationnel des individus."
+      },
+      {
+        "term": "économie positive / normative",
+        "definition": "Distinction entre décrire ce qui est (positive) et dire ce qui devrait être (normative)."
+      },
+      {
+        "term": "agent multipositionné",
+        "definition": "Personne occupant en même temps plusieurs positions sociales (administration, université, affaires, politique)."
+      },
+      {
+        "term": "eugénisme",
+        "definition": "Doctrine visant à « améliorer » la population humaine en orientant les naissances."
+      },
+      {
+        "term": "chômage involontaire",
+        "definition": "Situation où des personnes cherchent un emploi au salaire courant sans en trouver."
+      },
+      {
+        "term": "euthanasie des rentiers",
+        "definition": "Formule de Keynes appelant à faire disparaître les revenus tirés de la seule détention de capital."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "Contenu de l'article :"
+  }
+}

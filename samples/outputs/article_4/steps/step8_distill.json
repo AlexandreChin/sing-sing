@@ -1,0 +1,51 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "La réfutation du laissez-faire repose sur la **seule voix de Keynes** : ses citations valent preuve, et les verbes « démontre » et « démonte » présentent comme **acquis** ce qui reste contesté.",
+        "references": [
+          "lr_2",
+          "bias_1",
+          "claim_2"
+        ]
+      },
+      {
+        "text": "Le texte traite une critique **valable en 1936** comme **valide aujourd'hui** sans jamais établir le pont entre les deux époques : le lien est posé, pas démontré.",
+        "references": [
+          "lr_0",
+          "er_1",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "L'**héroïsation par les métaphores de combat** installe l'adhésion, puis fait glisser la **qualité de l'homme** en garantie de justesse théorique : la pensée est jugée à ses intentions, non à ses effets.",
+        "references": [
+          "er_0",
+          "bias_0",
+          "lr_1",
+          "ia_1"
+        ]
+      },
+      {
+        "text": "L'**indignation actualisante** ne tient que parce que les **critiques monétaristes**, la stagflation et le bilan de Bretton Woods restent hors champ.",
+        "references": [
+          "er_1",
+          "bs_0",
+          "obs_3"
+        ]
+      },
+      {
+        "text": "La **disqualification des politiques de l'offre** passe par leur **assimilation à la loi de Say**, présentée comme un fait quand elle relève de l'interprétation.",
+        "references": [
+          "cb_1",
+          "claim_3"
+        ]
+      }
+    ],
+    "open_questions": [
+      "La critique de Keynes de 1936 s'applique-t-elle aux économies actuelles, et dans quelle mesure ?",
+      "Quel bilan les effets historiques du keynésianisme, de Bretton Woods à la stagflation, dressent-ils ?",
+      "L'assimilation des politiques de l'offre à la loi de Say est-elle fondée ou contestée ?"
+    ]
+  }
+}

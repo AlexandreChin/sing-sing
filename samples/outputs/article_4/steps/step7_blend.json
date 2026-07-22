@@ -1,0 +1,80 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "Le glissement logique qui fait passer une critique **juste en 1936** pour une critique **valide aujourd'hui** (lr_0) est exactement le geste rhétorique de l'**indignation actualisante** (er_1) — retour des rentiers, héritage — que le texte pose d'emblée comme un fait acquis (bias_2), sans jamais établir le lien entre les deux époques.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "lr_0",
+          "er_1",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "L'**autocitation tenue pour preuve** — les citations de Keynes valent réfutation du laissez-faire (lr_2) — se matérialise dans le verbe **« démontre »** qui confie la conclusion au seul sujet (bias_1) et dans le « démonte » qui présente comme acquise une réfutation contestée (claim_2) : trois couches convergent sur un sourçage réduit à la voix du héros.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "lr_2",
+          "bias_1",
+          "claim_2"
+        ]
+      },
+      {
+        "text": "L'**héroïsation du personnage** par les métaphores de combat (er_0, bias_0) prépare le saut logique qui fait de la **qualité de l'honnête homme** une garantie de justesse théorique (lr_1) : l'affect admiratif installe l'adhésion que le raisonnement ne démontre pas.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "logic"
+        ],
+        "references": [
+          "er_0",
+          "bias_0",
+          "lr_1"
+        ]
+      },
+      {
+        "text": "L'actualité revendiquée par le registre d'**indignation** (er_1) ne tient que parce que l'**angle mort décisif** — stagflation et critiques monétaristes (bs_0) — reste absent, tout comme le contre-fait de **Bretton Woods** qui jugerait la pensée à ses effets (obs_3) : l'émotion présente occupe la place du bilan historique manquant.",
+        "layers": [
+          "rhetoric",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "er_1",
+          "bs_0",
+          "obs_3"
+        ]
+      },
+      {
+        "text": "L'hypothèse implicite qu'une pensée **se juge à ses intentions** plus qu'à ses effets (ia_1) est soutenue par le **cadrage-portrait admiratif** qui privilégie la figure sur le débat (er_0) : le format lui-même rend invisible la question des résultats historiques.",
+        "layers": [
+          "logic",
+          "rhetoric"
+        ],
+        "references": [
+          "ia_1",
+          "er_0"
+        ]
+      },
+      {
+        "text": "La **disqualification des politiques de l'offre** au profit de leurs adversaires (cb_1) s'opère par une **assimilation à la loi de Say** présentée comme un fait alors qu'elle relève de l'interprétation de l'auteur (claim_3) : l'intérêt servi et l'opinion déguisée en fait pointent le même geste de cadrage.",
+        "layers": [
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "cb_1",
+          "claim_3"
+        ]
+      }
+    ]
+  }
+}

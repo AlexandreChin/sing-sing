@@ -1,0 +1,68 @@
+{
+  "emotional_register": [
+    {
+      "id": "er1",
+      "emotion": "Admiration",
+      "how": "Des **métaphores de combat** (« double uppercut », « faire exploser ») et un format portrait posent Keynes en **honnête homme** héroïque.",
+      "effect": "Le lecteur est disposé à **adhérer à ses thèses** sans en chercher la contradiction.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "hors-série ... privilégie le portrait",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "er2",
+      "emotion": "Indignation",
+      "how": "Le texte **branche Keynes sur le présent** — retour des rentiers, héritage, répartition « arbitraire et injuste ».",
+      "effect": "Sa pensée paraît **urgente et juste** face aux inégalités d'aujourd'hui.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "débats actuels ... rentiers",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "cb1",
+      "beneficiary": "La pensée économique hétérodoxe et interventionniste",
+      "explanation": "Présenter Keynes en **pourfendeur victorieux** de l'orthodoxie, sans contradicteur cité, renforce la **légitimité présente** des thèses favorables à l'action publique.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "regain d'intérêt ... inégalités et rôle de l'État",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "id": "cb2",
+      "beneficiary": "Les critiques des politiques de l'offre",
+      "explanation": "En rappelant que la loi de Say **anime encore** les partisans de l'offre et « aggrave le mal », le cadrage **disqualifie** cette ligne au bénéfice de ses adversaires.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "politiques de l'offre",
+        "strength": 0.7,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Jeu de mots",
+        "observation": "« Libre panseur » fond libre penseur et panser : Keynes **soigne** le capitalisme plutôt qu'il ne l'**abat**."
+      },
+      {
+        "label": "Présupposé",
+        "observation": "Le titre présuppose un capitalisme **blessé**, à sauver, cadrant Keynes en **réparateur** bienveillant."
+      }
+    ]
+  }
+}

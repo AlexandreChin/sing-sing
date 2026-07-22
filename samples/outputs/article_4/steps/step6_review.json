@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "Les citations sont **correctement créditées** — la Théorie générale pour c1, les causeries « Poverty in Plenty » de 1934 pour c2 — mais l'article repose presque exclusivement sur la **voix de Keynes lui-même** : « aucune voix contradictoire n'est citée » (emphasis), ni expert, ni contradicteur libéral ou monétariste. L'appareil de sourçage se réduit à l'**autocitation** du personnage, sans indépendance ni pluralité.",
+        "lesson": "Vérifiez si une thèse s'appuie sur des **voix indépendantes** ou seulement sur celle de son héros : un portrait bien cité n'est pas une enquête contradictoire."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "Les faits vérifiables tiennent solidement : la citation des « deux vices » (c1, confiance 90) et les allocutions radiophoniques (c2, confiance 85) sont **exacts et bien attribués**. Mais deux affirmations centrales sont des **opinions présentées comme des faits** — « il démonte les principes métaphysiques » (c3) et l'assimilation des politiques de l'offre à la loi de Say (c4), toutes deux à confiance nulle et contredites ou non revendiquées.",
+        "lesson": "Distinguez le fait daté et sourçable du **verbe interprétatif** (« démonte », « réfute ») qui transforme une position théorique en acquis."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "La chaîne argumentative enchaîne plusieurs **glissements masqués** : la pertinence passée de la critique vaut pertinence présente (validity), la qualité de l'honnête homme vaut justesse de la théorie (validity), les citations qui « démontent le laissez-faire » valent réfutation (soundness). Ces sauts ne sont **jamais signalés**, ce qui donne à l'adhésion une apparence de nécessité logique.",
+        "lesson": "Repérez le passage du **passé au présent** : qu'une critique ait été juste en 1936 ne prouve pas qu'elle le reste aujourd'hui."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 3,
+        "rationale": "L'angle est **assumé** : hors-série signé, format portrait clairement annoncé, ton admiratif que l'audit déontologique juge légitime comme parti pris. Mais les **présupposés implicites** — juger une pensée à ses intentions plus qu'à ses effets — et les angles morts restent **tacites**, jamais reconnus au fil du texte.",
+        "lesson": "Un parti pris affiché ne dispense pas d'énoncer ses **limites** : cherchez si l'auteur admet ce qu'il choisit de ne pas traiter."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Le contexte décisif manque : ni la **stagflation** des années 1970 et les critiques monétaristes qu'elle a nourries, ni le rôle de Keynes à **Bretton Woods** en 1944, pourtant l'application concrète de sa pensée (observations « Périmètre » et « Contradiction »). L'**eugénisme** n'occupe qu'une demi-phrase jamais interrogée, tandis que la réfutation du laissez-faire est longuement détaillée — une pondération qui **écarte tout contrepoint**.",
+        "lesson": "Demandez-vous quel **contre-fait le plus gênant** est absent : ici, l'échec historique du modèle aurait suffi à nuancer le « toujours d'actualité »."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Le traitement est **asymétrique** : la métaphore guerrière du « double uppercut dans les gencives » et le « Rien de plus fallacieux, démontre Keynes » donnent toute la parole au sujet, quand les adversaires — laissez-faire, partisans de l'offre — sont **disqualifiés sans réplique**. Le focus reconnaît lui-même que la phrase « sauver le capitalisme » tait ce qu'il advint des « rustines » face à l'histoire.",
+        "lesson": "Notez qui obtient le **dernier mot** : quand une seule partie parle et que l'autre est réfutée par procuration, le débat est mis en scène, pas ouvert."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "Le texte est **limpide et incarné** : le jeu de mots du titre « Libre panseur » condense la thèse (soigner plutôt qu'abattre), et les images de combat rendent des débats abstraits d'économie **immédiatement lisibles** pour un public non spécialiste. Le branchement constant sur le présent — rentiers, héritage — ancre concrètement des concepts anciens.",
+        "lesson": "Une écriture vivante facilite la lecture mais peut aussi **rendre acquise** une réfutation : appréciez la clarté sans confondre vivacité et démonstration."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 4,
+        "rationale": "L'angle est **distinctif** : le miroir filé avec Marx d'un bout à l'autre, la figure de l'économiste-honnête homme et surtout le cadrage de Keynes en **réparateur** (« sauver le capitalisme de lui-même en apposant des rustines ») donnent au portrait une thèse propre. L'actualisation permanente vers les débats contemporains renouvelle un sujet classique.",
+        "lesson": "Un cadrage original mérite qu'on **identifie sa thèse implicite** : ici, que le capitalisme valait d'être sauvé — présupposé jamais discuté."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Le lecteur curieux d'économie qui découvre Keynes et cherche une introduction vivante à sa pensée, à condition de compléter ensuite par une source contradictoire.",
+      "payoff": "Vous ressortirez avec une **compréhension claire et incarnée** de ce que Keynes reprochait à l'orthodoxie et de son projet de sauver le capitalisme, mais pas avec les éléments pour juger si ses thèses ont **tenu à l'épreuve de l'histoire**.",
+      "signature_move": "Le **portrait-plaidoyer** : laisser Keynes se défendre par ses propres citations, sans contradicteur, et transformer la réfutation en scène de combat gagnée d'avance.",
+      "main_blind_side": "L'absence totale de la **stagflation** et des critiques monétaristes révèle un format hors-série qui privilégie la célébration de la figure sur la mise à l'épreuve de la pensée.",
+      "further_resource": {
+        "title": "Keynes-Hayek : le choc qui a défini l'économie moderne",
+        "source": "Nicholas Wapshott",
+        "media_type": "book",
+        "why_explore": "Il restitue le débat contradictoire que ce portrait escamote, en donnant enfin voix aux adversaires libéraux de Keynes.",
+        "url": null
+      },
+      "summary": "Lecture recommandée avec réserves pour qui découvre Keynes : le portrait est clair, vivant et bien documenté sur les faits, mais il laisse son sujet plaider seul, sans contradicteur ni bilan historique — à lire comme une porte d'entrée admirative, pas comme un jugement équilibré."
+    }
+  }
+}
