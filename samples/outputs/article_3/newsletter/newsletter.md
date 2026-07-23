@@ -97,7 +97,7 @@ Ce reportage avance par un **cadrage moral** posé dès l'ouverture et une séri
 
 🔗 **Causalité** : Repérez le glissement du global au local.
 
-→ C'est le cœur de la thèse. Notez le passage du **global au local** : contribuer au réchauffement planétaire n'est pas la même chose que détruire ce paysage-là, celui qu'on vient visiter. Le lien est posé comme une évidence ; il reste à établir. Cause directe, ou contribution diffuse parmi des milliers d'autres ?
+→ C'est le cœur de la thèse. Notez le passage du **global au local** : contribuer au réchauffement planétaire n'est pas la même chose que détruire ce paysage-là, celui qu'on vient visiter. Le lien est posé comme une évidence ; il reste à établir — une contribution diffuse au réchauffement global n'est pas une cause directe de la dégradation de ce site précis.
 :::
 
 ::: card
@@ -121,7 +121,7 @@ Ce reportage avance par un **cadrage moral** posé dès l'ouverture et une séri
 
 📊 **Chiffres** : Cherchez le total de référence qui manque.
 
-→ Les chiffres croissants s'empilent d'un paragraphe à l'autre et donnent une impression d'**emballement**. Il manque le dénominateur : quelle part ces flux représentent-ils du CO2 mondial ? Sans total de référence, l'accumulation suggère une ampleur qu'aucune proportion ne vient confirmer.
+→ Les chiffres croissants s'empilent d'un paragraphe à l'autre et donnent une impression d'**emballement**. Il manque le dénominateur : la part de ces flux dans le CO2 mondial n'est jamais donnée. Sans total de référence, l'accumulation suggère une ampleur qu'aucune proportion ne vient confirmer.
 :::
 
 ::: card
@@ -135,9 +135,9 @@ Ce reportage avance par un **cadrage moral** posé dès l'ouverture et une séri
 ::: card
 > « Paradoxalement, la fonte de la banquise favorise l'essor du tourisme polaire, dans une forme de tourisme de la dernière chance. »
 
-🖼️ **Cadrage** : Distinguez le fait observé de l'interprétation.
+🏷️ **Fait ou opinion** : Distinguez le fait observé de l'interprétation.
 
-→ L'expression « tourisme de la **dernière chance** » est une interprétation, présentée ici comme un constat. Elle nomme un moteur réel, la peur de la disparition, mais tait ce que voir de ses yeux change chez le voyageur. Ce regard protège-t-il, ou ne fait-il que consommer ?
+→ L'expression « tourisme de la **dernière chance** » est une interprétation, présentée ici comme un constat. Elle nomme un moteur réel, la peur de la disparition, mais laisse de côté ce que le voyage change — ou non — chez le voyageur, entre prise de conscience et simple consommation.
 :::
 
 ## Après la lecture
