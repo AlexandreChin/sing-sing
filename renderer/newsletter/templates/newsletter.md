@@ -60,14 +60,16 @@ signoff: {{ signoff | tojson }}
 {% endfor %}
 ## Après la lecture
 
-### L'architecture de l'argument
-{% for s in architecture.spine %}
-{{ loop.index }}. {{ s }}
-{%- endfor %}
-
-### À qui profite ce cadrage ?
+### Le cadrage
 
 {{ cui_bono }}
+
+### L'architecture de l'argument
+{% for p in architecture.presupposes %}
+- {{ p }}
+{%- endfor %}
+
+> {{ architecture.keystone }}
 
 ### Les enjeux de fond
 {% for e in verdict.enjeux %}
@@ -89,10 +91,6 @@ signoff: {{ signoff | tojson }}
 - {{ n }}
 {%- endfor %}
 
-### Les questions à se poser
-{% for q in verdict.questions %}
-> {{ q }}
-{% endfor %}
 ::: gofurther
 :::
 

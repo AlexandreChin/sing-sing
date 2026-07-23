@@ -49,6 +49,7 @@ def _load_carousel_backbone(analysis_path: str | Path | None) -> str | None:
             ],
             "root_issue": display.get("root_issue", ""),
             "steel_man": display.get("steel_man"),
+            "engagement_sentence": carousel.get("cta", {}).get("engagement_sentence", ""),
         }
     except (OSError, json.JSONDecodeError, KeyError, TypeError):
         return None
@@ -76,8 +77,8 @@ def _validate(data: dict) -> list[str]:
     # L'architecture de l'argument
     if not pres.architecture.keystone.strip():
         errors.append("architecture.keystone is empty")
-    if not (3 <= len(pres.architecture.spine) <= 5):
-        errors.append(f"architecture.spine must have 3–5 items, got {len(pres.architecture.spine)}")
+    if not (2 <= len(pres.architecture.presupposes) <= 4):
+        errors.append(f"architecture.presupposes must have 2–4 items, got {len(pres.architecture.presupposes)}")
     # À emporter
     if not (3 <= len(pres.a_emporter.key_takeaways) <= 4):
         errors.append(f"a_emporter.key_takeaways must have 3–4 items, got {len(pres.a_emporter.key_takeaways)}")
@@ -97,8 +98,6 @@ def _validate(data: dict) -> list[str]:
         errors.append(f"verdict.angles_morts must have 2–3 items, got {len(pres.verdict.angles_morts)}")
     if not (2 <= len(pres.verdict.nuances) <= 3):
         errors.append(f"verdict.nuances must have 2–3 items, got {len(pres.verdict.nuances)}")
-    if not (1 <= len(pres.verdict.questions) <= 2):
-        errors.append(f"verdict.questions must have 1–2 items, got {len(pres.verdict.questions)}")
     # Prolonger la réflexion
     if not (4 <= len(pres.go_further) <= 6):
         errors.append(f"go_further must have 4–6 items, got {len(pres.go_further)}")
