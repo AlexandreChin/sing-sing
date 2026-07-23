@@ -46,10 +46,11 @@ class Reflexe(BaseModel):
 
 
 class Architecture(BaseModel):
-    """L'architecture de l'argument — the reasoning spine + the keystone question
-    (mirrors the carousel's global_analysis: core_recap = spine, headline = keystone)."""
-    keystone: str          # the load-bearing question the whole thesis rests on (global_analysis.headline)
-    spine: list[str]       # 3–5 — the argument spine, A→B→C (from core_recap)
+    """L'architecture de l'argument — the thesis's unstated supports + the question
+    that tests them (mirrors the carousel slide 8: core_recap = présupposés,
+    engagement question = "La question")."""
+    keystone: str              # "La question" — the reader-question that tests the présupposés
+    presupposes: list[str]     # 2–4 — the implicit premises the thesis holds for granted
 
 
 class AEmporter(BaseModel):
@@ -65,7 +66,6 @@ class AVousDeJuger(BaseModel):
     objections: list[str]    # 1–3 — Les objections les plus solides (steel-man counters)
     angles_morts: list[str]  # 2–3 — Angles morts (topic omissions; no article-genre verdict)
     nuances: list[str]       # 2–3 — Nuances (topic-level qualifications; never the article's genre)
-    questions: list[str]     # 1–2 — open reader questions from root_issue (no author criticism)
 
 
 class NewsletterPresentation(BaseModel):

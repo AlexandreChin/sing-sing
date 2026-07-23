@@ -64,7 +64,6 @@ CARD_LIST_SECTIONS = {"Pour aller plus loin"}
 # section title → default block-quote style ("openq" keystone, "claim", "plain")
 QUOTE_STYLE = {
     "L'architecture de l'argument": "keystone",
-    "Les questions à se poser": "keystone",
     "Au fil de la lecture": "claim",
 }
 # section title → kicker icon (an ICONS key)
@@ -84,10 +83,9 @@ ICON_BY_TITLE = {
     "Les réflexes critiques": "lightbulb",
     "Les enjeux de fond": "anchor",
     "Les objections les plus solides": "shield",
-    "Angles morts": "eye",
+    "Angles morts": "eye_off",
     "Nuances": "info",
-    "Les questions à se poser": "speech_bubble",
-    "À qui profite ce cadrage ?": "widen",
+    "Le cadrage": "frame",
     "Pour aller plus loin": "widen",
     "Avant de partir": "speech_bubble",
 }
@@ -171,7 +169,9 @@ class _RichBody(HTMLRenderer):
         inner = re.sub(r"</?p>", "", text).strip()
         if style == "claim":
             return f'<div class="decrypt"><div class="claim">{inner}</div></div>\n'
-        # keystone / reader questions: a gold-chevron row, like the plain list sections
+        if style == "keystone":   # "La question" — the reader-question that tests the présupposés
+            return f'<div class="openq"><div class="oq-label">La question</div>{inner}</div>\n'
+        # other reader questions: a gold-chevron row, like the plain list sections
         return f'<div class="plain qlist"><div class="row"><span class="mk gold">›</span><span>{inner}</span></div></div>\n'
 
     def paragraph(self, text: str) -> str:
@@ -331,10 +331,10 @@ _ACT_EMOJI = {
 # sensible additions for the 4-act subsections).
 EMOJI_BY_TITLE = {
     "Le contexte": "🌍", "Comment le lire": "👓", "Les faits à garder en tête": "📌",
-    "Le lexique": "📖", "L'architecture de l'argument": "🧭",
-    "À retenir": "🛍", "Les réflexes critiques": "💡", "Les enjeux de fond": "🤔",
-    "Les objections les plus solides": "🛡️", "Angles morts": "⚠️", "Nuances": "⚖️",
-    "Les questions à se poser": "❓", "À qui profite ce cadrage ?": "🎯",
+    "Le lexique": "📖", "L'architecture de l'argument": "🏛️",
+    "À retenir": "🛍", "Les réflexes critiques": "💡", "Les enjeux de fond": "⚓",
+    "Les objections les plus solides": "🛡️", "Angles morts": "🕳️", "Nuances": "⚖️",
+    "Le cadrage": "🖼️",
     "Pour aller plus loin": "📚", "Avant de partir": "📣",
 }
 
@@ -459,9 +459,10 @@ class _EmailBody(HTMLRenderer):
     def block_quote(self, text: str) -> str:
         inner = re.sub(r"</?p[^>]*>", "", text).strip()
         style = self.forced or QUOTE_STYLE.get(self.section, "plain")
-        if style == "keystone":   # reader questions: gold-chevron row, like other sections
-            return self._content(
-                f'<div style="{self.s["row"]}"><span style="{self.s["mark_gold"]}">›</span> {inner}</div>')
+        if style == "keystone":   # "La question" — a gold-border pull with an uppercase label
+            label = (f'<div style="{self.s["mark_gold"]}font-size:13px;letter-spacing:.1em;'
+                     f'text-transform:uppercase;margin-bottom:6px;">La question</div>')
+            return self._content(f'<div style="{self.s["quote"]}">{label}{inner}</div>')
         return self._content(f'<div style="{self.s["quote"]}">{inner}</div>')
 
     def paragraph(self, text: str) -> str:

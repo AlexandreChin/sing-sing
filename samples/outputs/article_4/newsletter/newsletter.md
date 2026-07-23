@@ -140,21 +140,21 @@ L'article convainc par un cadrage admiratif posé d'emblée, une avalanche de ci
 
 ## Après la lecture
 
-### L'architecture de l'argument
-
-1. Keynes critique l'orthodoxie du laissez-faire et de la loi de Say, sur la seule foi de ses propres textes.
-2. Le portrait en fait un « honnête homme » héroïque, dont la stature rejaillit sur la justesse de ses thèses.
-3. Cette pensée est branchée sur nos débats (rentiers, héritage) comme si sa validité de 1936 valait aujourd'hui.
-4. Conclusion : Keynes aurait **« sauvé le capitalisme de lui-même »** en corrigeant ses failles.
-
-### À qui profite ce cadrage ?
+### Le cadrage
 
 Ce cadrage sert d'abord la pensée économique hétérodoxe et interventionniste : présenter Keynes en pourfendeur victorieux de l'orthodoxie, sans contradicteur cité, renforce la légitimité présente des thèses favorables à l'**action publique**. Il dessert en miroir les partisans des politiques de l'offre, renvoyés à une loi de Say jugée « fallacieuse ». Le lecteur gagne à se demander à qui profite une réfutation donnée pour acquise.
 
+### L'architecture de l'argument
+
+- Les critiques de Keynes envers l'orthodoxie seraient **toujours valides** aujourd'hui.
+- Une pensée se jugerait à ses intentions plus qu'à ses effets historiques.
+- Laisser Keynes parler par **citations** suffirait à prouver la justesse de ses thèses.
+
+> Faut-il juger une pensée à ses intentions affichées, ou à ses effets réels dans l'histoire ?
+
 ### Les enjeux de fond
 
-- L'enjeu de fond dépasse la brillance du portrait : juge-t-on une pensée à ses intentions affichées ou à ses effets réels dans l'histoire ? Selon la réponse, Keynes apparaît en réparateur visionnaire ou en auteur d'un modèle qu'il faut confronter à son bilan. C'est cette **tension entre intentions et effets** qui commande la lecture.
-- Se pose aussi la question de l'autorité intellectuelle : dans quelle mesure la stature d'un penseur peut-elle tenir lieu de preuve pour ses thèses ? Le portrait invite à admirer l'homme ; reste à savoir si cette admiration doit emporter l'adhésion à la théorie.
+- Au-delà du portrait flatteur, l'enjeu est de ne pas laisser l'admiration pour l'homme tenir lieu de **preuve** pour ses thèses. Le texte invite à admirer Keynes ; reste à savoir si l'adhésion à l'homme doit emporter l'adhésion à la théorie.
 
 ### Les objections les plus solides
 
@@ -172,12 +172,6 @@ Ce cadrage sert d'abord la pensée économique hétérodoxe et interventionniste
 - La réfutation du laissez-faire par Keynes est réelle et influente ; c'est **sa validité pour les économies d'aujourd'hui** qui reste discutée.
 - L'« euthanasie des rentiers » est une formule marquante, mais son statut (programme concret ou prophétie) fait débat parmi les économistes.
 - Le keynésianisme a bien dominé l'après-guerre ; l'ampleur exacte de sa responsabilité dans la stagflation reste, elle, contestée.
-
-### Les questions à se poser
-
-> Une critique forgée en 1936 garde-t-elle sa portée face à des économies profondément différentes, et à quelles conditions ?
-
-> Faut-il juger une pensée économique à la cohérence de son projet, ou au bilan de ce qu'elle a produit une fois appliquée ?
 
 ::: gofurther
 :::
