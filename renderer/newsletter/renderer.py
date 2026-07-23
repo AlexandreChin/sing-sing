@@ -140,7 +140,7 @@ def _ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
         "architecture": pres.architecture,
         "a_emporter": pres.a_emporter,
         "verdict": pres.verdict,
-        "cui_bono": pres.cui_bono,
+        "framing": pres.framing,
         "go_further": list(pres.go_further),
         "signoff": pres.signoff,
         "meta_line": meta_line,

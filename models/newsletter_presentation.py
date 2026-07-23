@@ -6,7 +6,7 @@ prose render of the optimized carousel deck, expanded into detailed paragraphs
 carousel's four acts:
 
   Header/hook → Pourquoi cet article → Avant de vous lancer →
-  Au fil de la lecture → Après la lecture (L'architecture de l'argument,
+  Au fil de la lecture → Après la lecture (Les présupposés,
   À emporter, À vous de juger, Prolonger la réflexion) → signoff
 """
 from __future__ import annotations
@@ -46,9 +46,9 @@ class Reflexe(BaseModel):
 
 
 class Architecture(BaseModel):
-    """L'architecture de l'argument — the thesis's unstated supports + the question
-    that tests them (mirrors the carousel slide 8: core_recap = présupposés,
-    engagement question = "La question")."""
+    """Les présupposés — the thesis's unstated supports, plus "La question" that
+    tests them (rendered at the end of "Les enjeux de fond"). Mirrors the carousel
+    slide 8 (core_recap = présupposés, engagement question = "La question")."""
     keystone: str              # "La question" — the reader-question that tests the présupposés
     presupposes: list[str]     # 2–4 — the implicit premises the thesis holds for granted
 
@@ -84,14 +84,15 @@ class NewsletterPresentation(BaseModel):
     reading_posture: str      # Comment le lire — 1 sentence on the article's rhetorical shape (primes; the toolkit lives in reflexes_critiques)
     # Au fil de la lecture
     decryptage: list[DecryptageItem]    # 5–7, article-ordered — neutral reading moments
-    # Après la lecture — L'architecture de l'argument
+    # Après la lecture — Le cadrage
+    framing: str              # how the article frames its subject: angle, emphasis, register (from guide.perspective.framing)
+    # Après la lecture — Les présupposés
     architecture: Architecture
     # Après la lecture — À emporter
     a_emporter: AEmporter
     # Après la lecture — À vous de juger
     verdict: AVousDeJuger
     # Après la lecture — Prolonger la réflexion
-    cui_bono: str             # « À qui profite ce cadrage ? » — beneficiary + why the framing serves them
     go_further: list[Resource]  # 4–6 — Pour aller plus loin
     # (Avant de partir is static CTA chrome in the template — not generated)
     # signoff

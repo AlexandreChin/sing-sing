@@ -63,7 +63,7 @@ def _validate(data: dict) -> list[str]:
     pres = NewsletterPresentation.model_validate(data)
     errors = []
     for field in ("subject", "preheader", "selection_headline", "why_selected",
-                  "payoff", "essentiel", "context", "reading_posture", "cui_bono", "signoff"):
+                  "payoff", "essentiel", "context", "reading_posture", "framing", "signoff"):
         if not getattr(pres, field).strip():
             errors.append(f"{field} is empty")
     n = len(pres.decryptage)

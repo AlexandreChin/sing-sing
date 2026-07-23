@@ -62,23 +62,11 @@ signoff: {{ signoff | tojson }}
 
 ### Le cadrage
 
-{{ cui_bono }}
+{{ framing }}
 
-### L'architecture de l'argument
+### Les présupposés
 {% for p in architecture.presupposes %}
 - {{ p }}
-{%- endfor %}
-
-> {{ architecture.keystone }}
-
-### Les enjeux de fond
-{% for e in verdict.enjeux %}
-- {{ e }}
-{%- endfor %}
-
-### Les objections les plus solides
-{% for o in verdict.objections %}
-- {{ o }}
 {%- endfor %}
 
 ### Angles morts
@@ -90,6 +78,18 @@ signoff: {{ signoff | tojson }}
 {% for n in verdict.nuances %}
 - {{ n }}
 {%- endfor %}
+
+### Les objections les plus solides
+{% for o in verdict.objections %}
+- {{ o }}
+{%- endfor %}
+
+### Les enjeux de fond
+{% for e in verdict.enjeux %}
+- {{ e }}
+{%- endfor %}
+
+> {{ architecture.keystone }}
 
 ::: gofurther
 :::

@@ -144,24 +144,13 @@ Ce reportage avance par un **cadrage moral** posé dès l'ouverture et une séri
 
 ### Le cadrage
 
-Insister sur l'autorégulation laissée aux opérateurs rend presque évident l'appel à une interdiction venue de l'extérieur : le cadrage sert les partisans d'une **sanctuarisation** des pôles. Le contraste canicule/luxe, lui, conforte l'identité engagée du média auprès de son lectorat. Voir à qui profite l'angle ne le disqualifie pas : cela aide à distinguer ce qui est mis en avant de ce qui reste dans l'ombre.
+L'article adopte un **angle écologiste assumé**, centré sur le paradoxe d'un tourisme qui détruit ce qu'il vient admirer. Il met en avant des détails logistiques frappants et un registre d'indignation morale, parlant depuis le point de vue de la préservation face à un « loisir de riches ».
 
-### L'architecture de l'argument
+### Les présupposés
 
 - Le poids climatique de ce tourisme serait assez **décisif** pour fonder le reproche.
 - Le voyage ne développerait aucune conscience écologique capable de compenser son empreinte.
 - Ce loisir serait **superflu**, à distinguer des déplacements jugés légitimes.
-
-> Faut-il juger ce tourisme sur ses émissions réelles ou sur ce qu'il symbolise ?
-
-### Les enjeux de fond
-
-- Au-delà des tonnes de CO2, l'article touche à une **inégalité** d'accès : une minorité s'offre les derniers paysages intacts au moment où ils se referment pour tous. Reste posé ce qu'une société tient pour un loisir acceptable.
-- Se pose aussi un **arbitrage** rarement explicité : entre le coût climatique de ces voyages et les revenus qu'en tirent certaines économies locales, où placer le curseur ? Le sujet oppose des légitimités difficiles à comparer.
-
-### Les objections les plus solides
-
-- Un tourisme encadré peut transformer des visiteurs en ambassadeurs de la conservation, générant soutiens politiques et financements à la protection des pôles. Si la sensibilisation protège plus qu'elle n'émet, le **bilan net** pourrait être positif, et l'argument du « non-sens » s'affaiblirait.
 
 ### Angles morts
 
@@ -174,6 +163,17 @@ Insister sur l'autorégulation laissée aux opérateurs rend presque évident l'
 - Le réchauffement et la fonte des pôles sont des faits établis ; c'est le **poids causal** du tourisme sur un paysage donné qui reste en débat.
 - La perturbation de la faune en saison de reproduction est plausible ; reste à établir son **ampleur** espèce par espèce.
 - Que l'autorégulation soit « insuffisante » est une appréciation ; le niveau de contrainte souhaitable demeure un **arbitrage ouvert**.
+
+### Les objections les plus solides
+
+- Un tourisme encadré peut transformer des visiteurs en ambassadeurs de la conservation, générant soutiens politiques et financements à la protection des pôles. Si la sensibilisation protège plus qu'elle n'émet, le **bilan net** pourrait être positif, et l'argument du « non-sens » s'affaiblirait.
+
+### Les enjeux de fond
+
+- Au-delà des tonnes de CO2, l'article touche à une **inégalité** d'accès : une minorité s'offre les derniers paysages intacts au moment où ils se referment pour tous. Reste posé ce qu'une société tient pour un loisir acceptable.
+- Se pose aussi un **arbitrage** rarement explicité : entre le coût climatique de ces voyages et les revenus qu'en tirent certaines économies locales, où placer le curseur ? Le sujet oppose des légitimités difficiles à comparer.
+
+> Faut-il juger ce tourisme sur ses émissions réelles ou sur ce qu'il symbolise ?
 
 ::: gofurther
 :::
