@@ -105,24 +105,30 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
 
     if d.global_analysis:
         ga = d.global_analysis
-        # Each core_recap item reads "Label : body" (e.g. "Le fil : …", "À tester : …");
-        # render the label as a subtitle-with-icon, like the other slides.
-        recap_icons = {"Le fil": "link", "À questionner": "help"}
+        # Slide 8 pairs the argument's unstated supports with the reader-facing
+        # question. `core_recap` carries only "Ses présupposés : body"; "La question"
+        # is the engagement question, shown here (moved up from slide 9).
+        recap_icons = {"Ses présupposés": "anchor"}
         recap_items = []
         for c in ga.core_recap:
             label, sep, body = c.partition(":")
             label, body = (label.strip(), body.strip()) if sep else ("", c.strip())
+            if label == "À questionner":
+                continue  # legacy label — superseded by "La question" (engagement) below
             recap_items.append({"label": label, "body": body,
                                 "icon": recap_icons.get(label, "hierarchy")})
+        if pres.cta.engagement_sentence:
+            recap_items.append({"label": "La question", "body": pres.cta.engagement_sentence,
+                                "icon": "speech_bubble"})
         specs.append(("08_vue_ensemble", "08_vue_ensemble",
                       {"headline": ga.headline, "recap_items": recap_items}))
 
-    # Slide 9 — À vous de juger: the wrap-up (objection + deep stake + the closing question)
-    if d.steel_man or d.root_issue or pres.cta.engagement_sentence:
+    # Slide 9 — Prise de recul: the deep stake + the strongest objection
+    # (the closing question moved to slide 8's "La question").
+    if d.steel_man or d.root_issue:
         specs.append(("09_prise_de_recul", "08_prise_de_recul", {
             "steel_man": {"argument": d.steel_man.argument, "alternative": d.steel_man.alternative} if d.steel_man else None,
             "root_issue": d.root_issue,
-            "engagement": pres.cta.engagement_sentence,
         }))
     specs.append(("10_cta", "10_cta", cover_layers(meta, pres.hook.headline)))
 

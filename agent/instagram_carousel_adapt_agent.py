@@ -41,8 +41,8 @@ def _lens_layer_errors(d) -> list[str]:
     else:
         if not ga.headline.strip():
             errors.append("display.global_analysis.headline is empty")
-        if not (2 <= len(ga.core_recap) <= 3):
-            errors.append(f"display.global_analysis.core_recap must have 2–3 items, got {len(ga.core_recap)}")
+        if not (1 <= len(ga.core_recap) <= 3):
+            errors.append(f"display.global_analysis.core_recap must have 1–3 items, got {len(ga.core_recap)}")
     if not d.root_issue.strip():
         errors.append("display.root_issue is empty")
     if not d.essentiel_summary.strip():

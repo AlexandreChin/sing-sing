@@ -24,7 +24,7 @@
   {% include '_tracker.html' %}
   <div class="stage">
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.widen | safe }}</svg>Prise de recul</span>
-    <h1 class="head">À vous de juger.</h1>
+    <h1 class="head">Avant de trancher.</h1>
     <div class="divider"></div>
     {% if root_issue %}<div class="q-item">
       <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.anchor | safe }}</svg></span><span class="q-label">L'enjeu de fond</span></div>
@@ -38,7 +38,6 @@
         <div class="r-item"><span class="rk">&#8250;</span><span>{{ steel_man.argument | md_bold }}</span></div>
       </div>
     </div>{% endif %}
-    {% if engagement %}<div class="wrap-card"><div class="wc-label"><svg viewBox="0 0 24 24">{{ ICONS.speech_bubble | safe }}</svg>La question</div><div class="wc-text">{{ engagement | md_bold }}</div></div>{% endif %}
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Avant de partir &#8250;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
