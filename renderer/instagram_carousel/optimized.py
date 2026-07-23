@@ -23,7 +23,7 @@ TPL = "article_carousel_optimized_v0"
 PHASE_OF = {
     "04_reperes": "avant",
     "05_moment": "analyse", "06_moment": "analyse", "07_moment": "analyse",
-    "08_vue_ensemble": "verdict", "09_prise_de_recul": "verdict",
+    "08_socle": "verdict", "09_prise_de_recul": "verdict",
 }
 
 # French number words for the réflexes section label on the merged repères slide.
@@ -120,7 +120,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         if pres.cta.engagement_sentence:
             recap_items.append({"label": "La question", "body": pres.cta.engagement_sentence,
                                 "icon": "speech_bubble"})
-        specs.append(("08_vue_ensemble", "08_vue_ensemble",
+        specs.append(("08_socle", "08_socle",
                       {"headline": ga.headline, "recap_items": recap_items}))
 
     # Slide 9 — Prise de recul: the deep stake + the strongest objection
