@@ -63,7 +63,7 @@ LIST_STYLE = {
 CARD_LIST_SECTIONS = {"Pour aller plus loin"}
 # section title → default block-quote style ("openq" keystone, "claim", "plain")
 QUOTE_STYLE = {
-    "L'architecture de l'argument": "keystone",
+    "Les enjeux de fond": "keystone",
     "Au fil de la lecture": "claim",
 }
 # section title → kicker icon (an ICONS key)
@@ -78,10 +78,10 @@ ICON_BY_TITLE = {
     "Comment le lire": "eye",
     "Les faits à garder en tête": "pushpin",
     "Le lexique": "info",
-    "L'architecture de l'argument": "hierarchy",
+    "Les présupposés": "anchor",
     "À retenir": "pushpin",
     "Les réflexes critiques": "lightbulb",
-    "Les enjeux de fond": "anchor",
+    "Les enjeux de fond": "target",
     "Les objections les plus solides": "shield",
     "Angles morts": "eye_off",
     "Nuances": "info",
@@ -331,8 +331,8 @@ _ACT_EMOJI = {
 # sensible additions for the 4-act subsections).
 EMOJI_BY_TITLE = {
     "Le contexte": "🌍", "Comment le lire": "👓", "Les faits à garder en tête": "📌",
-    "Le lexique": "📖", "L'architecture de l'argument": "🏛️",
-    "À retenir": "🛍", "Les réflexes critiques": "💡", "Les enjeux de fond": "⚓",
+    "Le lexique": "📖", "Les présupposés": "⚓",
+    "À retenir": "🛍", "Les réflexes critiques": "💡", "Les enjeux de fond": "🎯",
     "Les objections les plus solides": "🛡️", "Angles morts": "🕳️", "Nuances": "⚖️",
     "Le cadrage": "🖼️",
     "Pour aller plus loin": "📚", "Avant de partir": "📣",

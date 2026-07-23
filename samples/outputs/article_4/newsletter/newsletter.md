@@ -142,24 +142,13 @@ L'article convainc par un cadrage admiratif posé d'emblée, une avalanche de ci
 
 ### Le cadrage
 
-Ce cadrage sert d'abord la pensée économique hétérodoxe et interventionniste : présenter Keynes en pourfendeur victorieux de l'orthodoxie, sans contradicteur cité, renforce la légitimité présente des thèses favorables à l'**action publique**. Il dessert en miroir les partisans des politiques de l'offre, renvoyés à une loi de Say jugée « fallacieuse ». Le lecteur gagne à se demander à qui profite une réfutation donnée pour acquise.
+L'article choisit le **portrait admiratif** et place Keynes au centre comme réparateur venu « sauver le capitalisme de lui-même », dans un registre d'indignation actualisante (rentiers, héritage) et de métaphores guerrières. Il parle depuis une position clairement favorable, laissant le sujet se défendre par ses propres mots.
 
-### L'architecture de l'argument
+### Les présupposés
 
 - Les critiques de Keynes envers l'orthodoxie seraient **toujours valides** aujourd'hui.
 - Une pensée se jugerait à ses intentions plus qu'à ses effets historiques.
 - Laisser Keynes parler par **citations** suffirait à prouver la justesse de ses thèses.
-
-> Faut-il juger une pensée à ses intentions affichées, ou à ses effets réels dans l'histoire ?
-
-### Les enjeux de fond
-
-- Au-delà du portrait flatteur, l'enjeu est de ne pas laisser l'admiration pour l'homme tenir lieu de **preuve** pour ses thèses. Le texte invite à admirer Keynes ; reste à savoir si l'adhésion à l'homme doit emporter l'adhésion à la théorie.
-
-### Les objections les plus solides
-
-- La stagflation des années 1970, inflation et chômage simultanés, a exposé des limites empiriques du modèle keynésien et nourri les critiques monétaristes. Si on la prend au sérieux, la pensée de Keynes apparaîtrait **datée** sur ce point plutôt que « toujours d'actualité ».
-- Juger une pensée à ses seules intentions ignore ses effets historiques. Confronté à son bilan concret (de Bretton Woods au tournant néolibéral), le portrait admiratif tiendrait moins fermement que sa version « intentions ».
 
 ### Angles morts
 
@@ -172,6 +161,17 @@ Ce cadrage sert d'abord la pensée économique hétérodoxe et interventionniste
 - La réfutation du laissez-faire par Keynes est réelle et influente ; c'est **sa validité pour les économies d'aujourd'hui** qui reste discutée.
 - L'« euthanasie des rentiers » est une formule marquante, mais son statut (programme concret ou prophétie) fait débat parmi les économistes.
 - Le keynésianisme a bien dominé l'après-guerre ; l'ampleur exacte de sa responsabilité dans la stagflation reste, elle, contestée.
+
+### Les objections les plus solides
+
+- La stagflation des années 1970, inflation et chômage simultanés, a exposé des limites empiriques du modèle keynésien et nourri les critiques monétaristes. Si on la prend au sérieux, la pensée de Keynes apparaîtrait **datée** sur ce point plutôt que « toujours d'actualité ».
+- Juger une pensée à ses seules intentions ignore ses effets historiques. Confronté à son bilan concret (de Bretton Woods au tournant néolibéral), le portrait admiratif tiendrait moins fermement que sa version « intentions ».
+
+### Les enjeux de fond
+
+- Au-delà du portrait flatteur, l'enjeu est de ne pas laisser l'admiration pour l'homme tenir lieu de **preuve** pour ses thèses. Le texte invite à admirer Keynes ; reste à savoir si l'adhésion à l'homme doit emporter l'adhésion à la théorie.
+
+> Faut-il juger une pensée à ses intentions affichées, ou à ses effets réels dans l'histoire ?
 
 ::: gofurther
 :::
