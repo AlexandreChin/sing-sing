@@ -81,7 +81,7 @@ ICON_BY_TITLE = {
     "Les présupposés": "anchor",
     "À retenir": "pushpin",
     "Les réflexes critiques": "lightbulb",
-    "Les enjeux de fond": "target",
+    "Les enjeux de fond": "roots",
     "Les objections les plus solides": "shield",
     "Angles morts": "eye_off",
     "Nuances": "info",
@@ -332,7 +332,7 @@ _ACT_EMOJI = {
 EMOJI_BY_TITLE = {
     "Le contexte": "🌍", "Comment le lire": "👓", "Les faits à garder en tête": "📌",
     "Le lexique": "📖", "Les présupposés": "⚓",
-    "À retenir": "🛍", "Les réflexes critiques": "💡", "Les enjeux de fond": "🎯",
+    "À retenir": "🛍", "Les réflexes critiques": "💡", "Les enjeux de fond": "🌱",
     "Les objections les plus solides": "🛡️", "Angles morts": "🕳️", "Nuances": "⚖️",
     "Le cadrage": "🖼️",
     "Pour aller plus loin": "📚", "Avant de partir": "📣",

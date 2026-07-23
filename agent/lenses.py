@@ -17,6 +17,8 @@ CANONICAL_LENSES: dict[str, dict] = {
                      "icon_svg": '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>'},
     "cadrage":      {"name": "Cadrage",    "icon": "🖼️", "question": "Qu'est-ce qu'on met en avant, et hors champ ?",
                      "icon_svg": '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>'},
+    "opinion_fait": {"name": "Fait ou opinion", "icon": "🏷️", "question": "Une opinion présentée comme un fait ?",
+                     "icon_svg": '<path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>'},
     "equilibre":    {"name": "Équilibre",  "icon": "⚖️", "question": "L'autre partie a-t-elle voix au chapitre ?",
                      "icon_svg": '<path d="M12 3v18"/><path d="M4 21h16"/><path d="M5 7h14"/><path d="M5 7l-3 6h6z"/><path d="M19 7l-3 6h6z"/>'},
     "sophismes":    {"name": "Logique",  "icon": "🧩", "question": "Le raisonnement tient-il logiquement ?",

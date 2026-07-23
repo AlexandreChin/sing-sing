@@ -111,6 +111,7 @@ En plus des champs existants, produis dans `display` :
   - `chiffres` — « Ce chiffre, rapporté à quoi ? »
   - `causalite` — « Vraie cause, ou simple corrélation ? »
   - `cadrage` — « Qu'est-ce qu'on met en avant, et hors champ ? »
+  - `opinion_fait` — « Une opinion présentée comme un fait ? » (une interprétation / un jugement de valeur donné comme un constat factuel — distinct de `cadrage`)
   - `equilibre` — « L'autre partie a-t-elle voix au chapitre ? »
   - `sophismes` — « Le raisonnement tient-il logiquement ? »
   - `angles_morts` — « Qu'est-ce qui manque au tableau ? »
