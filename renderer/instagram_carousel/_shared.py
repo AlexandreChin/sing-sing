@@ -45,7 +45,7 @@ MEDIUM_LABELS = {
         "why": "Pourquoi cet article", "essentiel": "L'essentiel de l'article",
         "how_to": "Comment le lire", "how_to_short": "Comment bien le lire",
         "during": "Au fil de la lecture", "after": "Après la lecture",
-        "prog_before": "Avant de lire", "prog_during": "Pendant la lecture", "prog_after": "Après la lecture",
+        "prog_before": "Avant de lire", "prog_during": "Décryptage", "prog_after": "Prise de recul",
         "keys_label": "Clefs de lecture", "link_ref": "Lien vers l'article en commentaires ↓",
         "read_cta": "Lire l'article", "read_cta_note": "Lisez l'article, puis revenez pour notre analyse.",
         "artref": "L'article",
@@ -57,9 +57,9 @@ MEDIUM_LABELS = {
         "why": "Pourquoi cette vidéo", "essentiel": "L'essentiel de la vidéo",
         "how_to": "Comment la regarder", "how_to_short": "Comment bien la regarder",
         "during": "Au fil de la vidéo", "after": "Après le visionnage",
-        # header tracker: only the first phase names the medium; the decryptage /
-        # prise-de-recul phases stay "lecture" (they name reading OUR analysis).
-        "prog_before": "Avant de regarder", "prog_during": "Pendant la lecture", "prog_after": "Après la lecture",
+        # header tracker: only the first phase names the medium; the other two
+        # are our section names (Décryptage / Prise de recul) for every medium.
+        "prog_before": "Avant de regarder", "prog_during": "Décryptage", "prog_after": "Prise de recul",
         "keys_label": "Clefs de lecture", "link_ref": "Lien vers la vidéo en commentaires ↓",
         "read_cta": "Regarder la vidéo", "read_cta_note": "Regardez la vidéo, puis revenez pour notre analyse.",
         "artref": "La vidéo",
@@ -71,7 +71,7 @@ MEDIUM_LABELS = {
         "why": "Pourquoi cet épisode", "essentiel": "L'essentiel de l'épisode",
         "how_to": "Comment l'écouter", "how_to_short": "Comment bien l'écouter",
         "during": "Au fil de l'écoute", "after": "Après l'écoute",
-        "prog_before": "Avant d'écouter", "prog_during": "Pendant la lecture", "prog_after": "Après la lecture",
+        "prog_before": "Avant d'écouter", "prog_during": "Décryptage", "prog_after": "Prise de recul",
         "keys_label": "Clefs de lecture", "link_ref": "Lien vers l'épisode en commentaires ↓",
         "read_cta": "Écouter l'épisode", "read_cta_note": "Écoutez l'épisode, puis revenez pour notre analyse.",
         "artref": "L'épisode",
