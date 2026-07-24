@@ -60,11 +60,15 @@ All in French. Each field: 1–2 sentences.
 
 ### guide.perspective.framing — zoom in
 
-How the article treats its subject overall: the angle chosen, what it puts at the centre,
-what it foregrounds or downplays, the emotional register it adopts, whose interests it speaks from.
-Draw from cadrage, emotional_register, cui_bono (Rhetoric layer), the focus element
+How the article treats its subject overall: the angle chosen, what it puts at the centre and
+foregrounds, the emotional register it adopts, whose interests it speaks from.
+Draw PRIMARILY from `cadrage.body` (Rhetoric layer) — the explicit body-framing analysis — and
+refine it; reinforce with `emotional_register`, `cui_bono` (Rhetoric layer), the focus element
 (Probe layer), and any Blend or Distill patterns that name the article's dominant lens.
 Not a critique — a neutral description of the editorial choices made in treating the topic.
+Do NOT list what the article leaves out (that belongs in `blind_spots`) and do NOT impute a
+rhetorical effect on the reader ("frames a reproach", "steers the judgement"…): describe the
+angle, not its effect.
 
 ### guide.perspective.blind_spots — zoom out
 

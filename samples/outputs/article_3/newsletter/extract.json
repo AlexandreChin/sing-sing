@@ -409,7 +409,8 @@
               "label": "Attribution",
               "observation": "« Les riches touristes » désigne un responsable de classe avant tout argument."
             }
-          ]
+          ],
+          "body": "L'article aborde le tourisme polaire par l'angle du paradoxe écologique : un loisir qui abîme les paysages fragiles qu'il vient admirer. Il place au centre le contraste entre le luxe carboné des voyageurs et la vulnérabilité des pôles, et met en avant des détails logistiques concrets — sièges retirés pour emporter le carburant du retour, canicule française posée en contrepoint. Le corps parle depuis le point de vue de la préservation environnementale, laissant hors champ les retombées économiques locales et la part chiffrée de cette activité dans les émissions."
         }
       }
     },
@@ -990,13 +991,11 @@
       }
     ],
     "architecture": {
-      "keystone": "Sur quoi tient toute la thèse, une fois les chiffres rapportés à leur échelle ?",
-      "spine": [
-        "Point de départ : le tourisme polaire **croît vite** et émet beaucoup de CO2 par passager.",
-        "Deuxième maillon : ces émissions **réchauffent** la planète et accélèrent la fonte des pôles.",
-        "Troisième maillon : en réchauffant, les voyageurs **détruisent les paysages** qu'ils viennent admirer.",
-        "Conclusion : il faudrait donc **restreindre**, voire sanctuariser, cette activité.",
-        "Le maillon à tester : chaque impact est-il **rapporté à son échelle** et son lien au tourisme établi ?"
+      "keystone": "Faut-il juger ce tourisme sur ses émissions réelles ou sur ce qu'il symbolise ?",
+      "presupposes": [
+        "Le poids climatique de ce tourisme serait assez **décisif** pour fonder le reproche.",
+        "Le voyage ne développerait aucune conscience écologique capable de compenser son empreinte.",
+        "Ce loisir serait **superflu**, à distinguer des déplacements jugés légitimes."
       ]
     },
     "a_emporter": {
@@ -1096,6 +1095,6 @@
       }
     ],
     "signoff": "On sélectionne. On éclaire. Vous jugez.",
-    "framing": "L'article adopte un **angle écologiste assumé**, centré sur le paradoxe d'un tourisme qui détruit ce qu'il vient admirer. Il met en avant des détails logistiques frappants et un registre d'indignation morale, parlant depuis le point de vue de la préservation face à un « loisir de riches »."
+    "framing": "L'article adopte un **angle écologiste assumé**, centré sur le paradoxe d'un tourisme qui détruit ce qu'il vient admirer. Il met en avant des détails logistiques frappants et un registre d'indignation morale, et parle depuis le point de vue de la préservation face à un « loisir de riches » — laissant hors champ les retombées économiques locales et la part chiffrée du phénomène."
   }
 }

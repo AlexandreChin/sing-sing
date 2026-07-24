@@ -64,6 +64,10 @@ signoff: {{ signoff | tojson }}
 
 {{ framing }}
 
+::: note
+Tout article a un cadrage ; l'identifier fait partie d'une lecture attentive.
+:::
+
 ### Les présupposés
 {% for p in architecture.presupposes %}
 - {{ p }}

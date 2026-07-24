@@ -39,3 +39,12 @@ Pour chaque item :
 - `observation` (1 phrase analytique, ≤ 20 mots) : le constat ancré dans le texte. Ex. : "Le titre désigne un responsable sans nommer les victimes."
 
 N'en produis que si le titre contient un vrai signal de cadrage — pas de remarque générique.
+
+## cadrage — analyse rhétorique du corps
+
+`body` (2 à 4 phrases) : caractérise comment le CORPS de l'article cadre son sujet — l'angle choisi, ce qu'il met au centre, ce qu'il met en avant, son registre, et la position d'où il parle.
+
+- NEUTRE et DESCRIPTIF : décris le cadrage, sans juger la qualité / le sérieux / la ligne éditoriale, sans prêter d'intention à l'auteur, sans aucune question ni formule interrogative. Sobre, sans surjeu.
+- NE CATALOGUE PAS ce que l'article laisse de côté — les omissions relèvent des angles morts (`blind_spots`), pas du cadrage — et n'impute AUCUN effet rhétorique sur le lecteur (« installe », « oriente », « suggère »…) : décris l'ANGLE, pas son effet.
+- DISTINCT de ses voisins : ce n'est ni l'émotion (`emotional_register`) ni le bénéficiaire (`cui_bono`) — c'est l'ANGLE éditorial, la lentille par laquelle le sujet est présenté.
+- HOLISTIQUE : contrairement aux autres items de cette étape, `body` caractérise l'ensemble et n'est PAS ancré à une citation unique.

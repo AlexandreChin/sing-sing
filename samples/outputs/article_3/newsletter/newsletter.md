@@ -89,7 +89,7 @@ Ce reportage avance par un **cadrage moral** posé dès l'ouverture et une séri
 
 🖼️ **Cadrage** : Repérez le jugement moral posé avant le premier fait.
 
-→ L'article s'ouvre en plaçant côte à côte la canicule subie en France et le loisir de ceux qui « peuvent se le permettre ». Ce contraste installe un reproche moral avant le premier chiffre. Rien n'est faux ; c'est l'**ordre** qui oriente : on lit la suite avec un jugement déjà amorcé.
+→ L'article s'ouvre en plaçant côte à côte la canicule subie en France et le loisir de ceux qui « peuvent se le permettre ». Le jugement moral précède ainsi le premier chiffre. Rien n'est faux ; notez seulement l'**ordre**, et lisez les faits qui suivent en les tenant séparés de ce cadrage.
 :::
 
 ::: card
@@ -121,7 +121,7 @@ Ce reportage avance par un **cadrage moral** posé dès l'ouverture et une séri
 
 📊 **Chiffres** : Cherchez le total de référence qui manque.
 
-→ Les chiffres croissants s'empilent d'un paragraphe à l'autre et donnent une impression d'**emballement**. Il manque le dénominateur : la part de ces flux dans le CO2 mondial n'est jamais donnée. Sans total de référence, l'accumulation suggère une ampleur qu'aucune proportion ne vient confirmer.
+→ Ces chiffres de fréquentation disent une hausse réelle, mais pas son poids : la part de ces flux dans le CO2 mondial n'est jamais donnée. Sans ce **dénominateur**, impossible de situer l'ampleur — réclamez le total de référence avant de conclure.
 :::
 
 ::: card
@@ -129,7 +129,7 @@ Ce reportage avance par un **cadrage moral** posé dès l'ouverture et une séri
 
 🔎 **Sources** : Demandez si ce détail est vérifiable ou seulement frappant.
 
-→ Le détail est frappant et installe un sentiment d'absurdité. Il est attribué à un géographe mais reste difficile à vérifier de façon indépendante. Un fait marquant fonctionne comme une image ; il gagne à être **recoupé** avant d'être tenu pour acquis.
+→ Le détail est frappant et attribué à un géographe, mais il reste difficile à vérifier de façon indépendante. Un fait marquant fonctionne comme une image ; **recoupez-le** avant de le tenir pour acquis.
 :::
 
 ::: card
@@ -144,7 +144,11 @@ Ce reportage avance par un **cadrage moral** posé dès l'ouverture et une séri
 
 ### Le cadrage
 
-L'article adopte un **angle écologiste assumé**, centré sur le paradoxe d'un tourisme qui détruit ce qu'il vient admirer. Il met en avant des détails logistiques frappants et un registre d'indignation morale, parlant depuis le point de vue de la préservation face à un « loisir de riches ».
+L'article adopte un **angle écologiste assumé**, centré sur le paradoxe d'un tourisme qui détruit ce qu'il vient admirer. Il met en avant des détails logistiques frappants et un registre d'indignation morale, et parle depuis le point de vue de la préservation face à un « loisir de riches ».
+
+::: note
+Tout article a un cadrage ; l'identifier fait partie d'une lecture attentive.
+:::
 
 ### Les présupposés
 
