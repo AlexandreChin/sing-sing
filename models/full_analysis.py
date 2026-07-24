@@ -124,6 +124,9 @@ class TitleAnalysisItem(BaseModel):
 
 class Cadrage(BaseModel):
     title_analysis: list[TitleAnalysisItem] = []
+    body: str = ""    # holistic framing of the article body: angle chosen,
+                       # what it centres vs downplays, the position it speaks from
+                       # (2–4 neutral sentences; not quote-anchored)
 
 
 # ── Step 9: Guide (watch_out lives here) ─────────────────────────────────────

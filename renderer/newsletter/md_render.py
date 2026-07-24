@@ -176,6 +176,8 @@ class _RichBody(HTMLRenderer):
 
     def paragraph(self, text: str) -> str:
         stripped = text.strip()
+        if self.forced == "note":   # ::: note — small muted aside (e.g. end of "Le cadrage")
+            return f'<p class="note">{stripped}</p>\n'
         if stripped.startswith("→"):   # beat answer — gold arrow, no "Réponse" label
             return f'<div class="answer"><span class="ans-mk">›</span> {stripped[1:].strip()}</div>\n'
         if stripped.startswith("↩"):
@@ -346,6 +348,8 @@ def _email_styles(t: dict) -> dict:
         "intro": f"font-size:19px;line-height:1.62;color:{t['text']};margin:0;",
         "subtitle": f"font-size:20px;line-height:1.4;color:{t['heading']};margin:0 0 14px;",
         "clue": f"font-size:15px;color:{t['muted']};margin-top:8px;",
+        "note": f"font-size:14px;line-height:1.55;color:{t['muted']};font-style:italic;"
+                f"margin:14px 0 0;padding-top:12px;border-top:1px solid {t['border']};",
         "answer": f"font-size:17px;line-height:1.55;color:{t['text']};margin:10px 0 0;",
         "card_label": f"margin:26px 32px 4px;font-size:15px;font-weight:800;letter-spacing:0.13em;"
                       f"text-transform:uppercase;color:{t['accent_text']};",
@@ -467,6 +471,8 @@ class _EmailBody(HTMLRenderer):
 
     def paragraph(self, text: str) -> str:
         stripped = text.strip()
+        if self.forced == "note":   # ::: note — small muted aside (e.g. end of "Le cadrage")
+            return self._content(f'<div style="{self.s["note"]}">{stripped}</div>')
         if stripped.startswith("→"):   # beat answer — gold arrow, no "Réponse" label
             return self._content(
                 f'<div style="{self.s["answer"]}"><span style="{self.s["mark_gold"]}">›</span> '

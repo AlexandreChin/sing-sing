@@ -22,6 +22,8 @@ def _validate(data: dict) -> list[str]:
             errors.append(f"cui_bono[{i}].seeds.excerpt is empty")
     if not forme.cadrage.title_analysis:
         errors.append("cadrage.title_analysis is empty")
+    if not forme.cadrage.body.strip():
+        errors.append("cadrage.body is empty")
     return errors
 
 
