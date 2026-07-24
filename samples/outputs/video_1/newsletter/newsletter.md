@@ -2,9 +2,10 @@
 subject: "Le doute, un produit qui se fabrique ?"
 preheader: "Une strat\u00e9gie prouv\u00e9e sur le tabac, \u00e9tendue aux abeilles, au bisph\u00e9nol, au climat."
 hook_title: "Une strat\u00e9gie du doute prouv\u00e9e sur le tabac, \u00e9tendue **jusqu\u0027o\u00f9** ?"
-article_title: ""
-article_url: ""
-meta_line: "Enqu\u00eate \u00b7 56 min"
+category: "Sciences \u0026 Sant\u00e9"
+article_title: "La fabrique de l\u0027ignorance"
+article_url: "https://www.youtube.com/watch?v=KGqCRbqzvBI"
+meta_line: "Arte \u00b7 Enqu\u00eate \u00b7 56 min \u00b7 2020-01-04"
 signoff: "On s\u00e9lectionne. On \u00e9claire. **Vous jugez.**"
 medium: "video"
 go_further:
