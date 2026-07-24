@@ -30,8 +30,8 @@ def _layout(stem: str, fmt: str | None = None) -> dict:
     return paths
 
 
-async def run_full_analysis(text: str, no_api: bool = False, input_path: str | None = None, extra_instructions: str | None = None) -> Path:
-    analysis_input = FullAnalysisInput(body=text, extra_instructions=extra_instructions)
+async def run_full_analysis(text: str, no_api: bool = False, input_path: str | None = None, extra_instructions: str | None = None, medium: str = "article") -> Path:
+    analysis_input = FullAnalysisInput(body=text, extra_instructions=extra_instructions, medium=medium)
 
     OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
     stem = Path(input_path).stem if input_path else datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -70,7 +70,7 @@ async def cmd_analyze(args: argparse.Namespace) -> None:
         print("No article text provided (pass <article.txt> or pipe via stdin).", file=sys.stderr)
         sys.exit(1)
 
-    await run_full_analysis(text, no_api=args.no_api, input_path=input_path, extra_instructions=extra_instructions)
+    await run_full_analysis(text, no_api=args.no_api, input_path=input_path, extra_instructions=extra_instructions, medium=args.medium)
 
 
 async def cmd_simplify(args: argparse.Namespace) -> None:
@@ -231,7 +231,7 @@ async def cmd_produce(args: argparse.Namespace) -> None:
     lay = _layout(stem, args.format)
     lay["fmt_dir"].mkdir(parents=True, exist_ok=True)
     full = await analyze_for_full_analysis(
-        FullAnalysisInput(body=text),
+        FullAnalysisInput(body=text, medium=args.medium),
         no_api=args.no_api,
         steps_dir=lay["steps"],
     )
@@ -302,6 +302,8 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--no-api", action="store_true", help="use the local claude CLI instead of the API")
     p.add_argument("--instructions", help="extra analysis instructions (inline)")
     p.add_argument("--instructions-file", help="extra analysis instructions (from file)")
+    p.add_argument("--medium", choices=["article", "video", "podcast"], default="article",
+                   help="source medium — drives reader-facing vocabulary (default: article)")
     p.set_defaults(func=cmd_analyze)
 
     p = sub.add_parser("adapt", help="adapt an analysis into a carousel presentation")
@@ -322,6 +324,8 @@ def _build_parser() -> argparse.ArgumentParser:
     _add_format(p)
     p.add_argument("--no-api", action="store_true")
     p.add_argument("--render", action="store_true")
+    p.add_argument("--medium", choices=["article", "video", "podcast"], default="article",
+                   help="source medium — drives reader-facing vocabulary (default: article)")
     p.set_defaults(func=cmd_produce)
 
     p = sub.add_parser("program", help="analyze a candidate's program (hors-série)")

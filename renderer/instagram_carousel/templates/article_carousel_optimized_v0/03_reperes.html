@@ -29,7 +29,7 @@
   {% include '_brand.html' %}
   {% include '_tracker.html' %}
   <div class="stage">
-    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.eye | safe }}</svg>Clefs de lecture</span>
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.eye | safe }}</svg>{{ L.keys_label }}</span>
     <h1 class="head">{{ (reperes_headline or "Avant de vous lancer.") | md_bold }}</h1>
     <div class="divider"></div>
     <div class="q-list">
@@ -46,7 +46,7 @@
       </div>{% endif %}
     </div>
   </div>
-  <p class="tease"><span class="challenge">Saurez-vous les appliquer&nbsp;?</span><br><span class="link">Lien vers l'article en commentaires &#8595;</span></p>
+  <p class="tease"><span class="challenge">Saurez-vous les appliquer&nbsp;?</span><br><span class="link">{{ L.link_ref }}</span></p>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
 </div>

@@ -90,7 +90,10 @@ def _extract_title_chapo(body: str) -> tuple[str | None, str | None]:
         for line in lines:
             s = line.strip()
             if len(s) > 15 and not s.startswith('http') and '<' not in s:
-                title = s
+                # A headline is short; a long first "line" is body text — e.g. a
+                # single-line transcript with no title. Don't mistake it for one.
+                if len(s) <= 160:
+                    title = s
                 break
     return title, chapo
 
@@ -175,6 +178,7 @@ async def analyze_for_full_analysis(
             source=input.source,
             published_at=input.published_at,
             type=extraction.article_type,
+            medium=input.medium,
             reading_time_minutes=max(1, len(input.body.split()) // 200),
             chapo=article_chapo,
         ),

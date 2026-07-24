@@ -7,6 +7,7 @@ hook_title: {{ hook_title | tojson }}
 article_url: {{ orig_url | tojson }}
 meta_line: {{ meta_line | tojson }}
 signoff: {{ signoff | tojson }}
+medium: {{ medium | tojson }}
 {% if go_further %}go_further:
 {% for r in go_further %}  - type: {{ (r.type or "") | tojson }}
     title: {{ r.title | tojson }}
@@ -17,7 +18,7 @@ signoff: {{ signoff | tojson }}
 
 {{ essentiel }}
 
-## Pourquoi cet article
+## {{ labels.why }}
 
 *{{ selection_headline }}*
 
@@ -36,7 +37,7 @@ signoff: {{ signoff | tojson }}
 - **{{ kt.term }}** : {{ kt.definition }}
 {%- endfor %}
 {% endif %}
-### Comment le lire
+### {{ labels.how_to }}
 
 {{ reading_posture }} Voici les réflexes à garder sous la main :
 {% for r in a_emporter.reflexes_critiques %}{% set L = LENSES.get(r.lens_ref, {}) %}
@@ -48,7 +49,7 @@ signoff: {{ signoff | tojson }}
 - {{ f }}
 {%- endfor %}
 {% endif %}
-## Au fil de la lecture
+## {{ labels.during }}
 {% for d in decryptage %}
 ::: card
 > « {{ d.quote }} »
@@ -58,14 +59,14 @@ signoff: {{ signoff | tojson }}
 → {{ d.reading }}
 :::
 {% endfor %}
-## Après la lecture
+## {{ labels.after }}
 
 ### Le cadrage
 
 {{ framing }}
 
 ::: note
-Tout article a un cadrage ; l'identifier fait partie d'une lecture attentive.
+{{ labels.cadrage_note }}
 :::
 
 ### Les présupposés
@@ -101,5 +102,5 @@ Tout article a un cadrage ; l'identifier fait partie d'une lecture attentive.
 ### Avant de partir
 
 - **Abonnez-vous** à la newsletter pour recevoir chaque décryptage.
-- **Partagez** cette édition à quelqu'un qui aime lire de près.
+- **Partagez** cette édition {{ labels.share_note }}.
 - **Réagissez** et commentez sur Instagram : [@singsing.media](https://instagram.com/singsing.media).

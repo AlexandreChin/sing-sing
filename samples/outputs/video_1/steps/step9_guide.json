@@ -1,0 +1,62 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Repérez d'emblée la mécanique centrale — une note interne du tabac (« le doute est notre produit ») — et demandez-vous si elle peut vraiment servir de **clé unique** à des dossiers aussi différents.",
+      "Gardez en tête que le film raisonne par **analogie** : un cas prouvé sert de modèle à d'autres controverses qui, elles, ne sont pas démontrées une à une.",
+      "Un utile réflexe de départ : distinguer un **doute légitime**, propre à toute science, d'un doute délibérément fabriqué, car le récit joue en permanence sur cette frontière."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "text": "Une **accumulation rapide d'exemples** peut installer l'impression d'un schéma universel avant tout examen : la solidité du cas du tabac ne garantit pas celle des autres affaires alignées à côté.",
+          "references": [
+            "lr_0",
+            "pr_1",
+            "bias_0"
+          ]
+        },
+        {
+          "text": "Méfiez-vous quand l'**absence de consensus** scientifique est présentée comme la preuve d'un doute orchestré : elle peut aussi refléter une complexité réelle, et ce glissement sert le camp de la régulation.",
+          "references": [
+            "ia_1",
+            "lr_1",
+            "cb_1"
+          ]
+        },
+        {
+          "text": "L'industrie mise en cause n'est jamais réellement sollicitée : l'**absence de contradicteur** n'est pas un hasard mais le pendant d'un montage opposant experts et victimes.",
+          "references": [
+            "bs_1",
+            "er_0"
+          ]
+        },
+        {
+          "text": "Une phrase prêtant une **intention délibérée** à des acteurs non nommés mêle une opinion posée en fait à un puissant moteur d'indignation : ce qui s'interprète y est présenté comme ce qui se mesure.",
+          "references": [
+            "claim_2",
+            "er_0"
+          ]
+        },
+        {
+          "text": "Un chiffre frappant comme « 93 % des études » perd de sa force quand il vient de la **partie intéressée** et non d'un décompte indépendant : notez toujours d'où sort le comptage.",
+          "references": [
+            "claim_1",
+            "cb_1"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Demandez-vous si les cinq controverses réunies sont la **règle ou l'exception**, faute de quoi un schéma séduisant tient lieu de démonstration.",
+      "Retenez que les mécaniques d'influence montrées sur le tabac sont **réelles et documentées**, mais que leur extension aux autres dossiers reste à vérifier cas par cas.",
+      "Gardez le réflexe utile offert par le film — se demander **à qui profite l'incertitude** — sans oublier de l'appliquer aussi au cadrage du film lui-même.",
+      "Confrontez le récit à une source qui distingue explicitement **doute légitime et doute fabriqué** avant d'en tirer une conclusion."
+    ],
+    "title_note": "Le titre « la fabrique de l'ignorance » pose d'emblée la manipulation comme un fait établi, orientant la lecture avant tout examen des cas.",
+    "perspective": {
+      "framing": "Le film choisit l'angle de la gnotologie — l'étude de l'ignorance produite volontairement — et place au centre une note interne de l'industrie du tabac érigée en clé de lecture. Il procède par enquête et alterne experts et victimes, sur un registre d'alerte qui parle du point de vue de la science régulée face aux stratégies industrielles.",
+      "blind_spots": "Le récit ne trace jamais la frontière entre doute scientifique légitime et doute fabriqué, et n'évalue pas la représentativité des cinq controverses choisies. La parole de l'industrie mise en cause est absente, et les études invoquées ne sont pas nommées assez précisément pour être vérifiées.",
+      "balance": "Un documentaire prenant une position claire n'est pas tenu de donner la parole à toutes les parties, et un format resserré ne peut détailler chaque dossier. Ce que l'analyse signale — schéma unique, contradicteur absent — est réel, mais reste cohérent avec le genre engagé du film : la vigilance porte moins sur ces choix que sur la tentation d'y voir une démonstration complète."
+    }
+  }
+}

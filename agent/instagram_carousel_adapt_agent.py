@@ -3,7 +3,7 @@ import json
 import sys
 from pathlib import Path
 
-from agent._base import _call_with_retry, _j
+from agent._base import _call_with_retry, _j, medium_directive
 from agent.lenses import CANONICAL_LENSES
 from models.full_analysis import ArticleFullAnalysis
 from models.instagram_carousel_presentation import (
@@ -136,6 +136,8 @@ def adapt(
     no_api: bool = False,
 ) -> InstagramCarouselPresentation:
     user_msg = f"{_full_analysis_context(full)}\n\n---\n\n{_PROMPT}"
+    if (directive := medium_directive(full.article_metadata.medium)):
+        user_msg += f"\n\n---\n\n{directive}"
     print("Adaptation carousel…", file=sys.stderr, flush=True)
     data = _call_with_retry(
         user_msg,

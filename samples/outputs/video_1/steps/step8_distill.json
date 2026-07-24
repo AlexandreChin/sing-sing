@@ -1,0 +1,50 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "La formule « le doute est notre produit », érigée en clé de lecture, transforme une **note isolée** en **grille universelle** et nourrit l'inquiétude : plusieurs couches convergent pour rendre la manipulation évidente avant toute démonstration.",
+        "references": [
+          "focus",
+          "bias_2",
+          "obs_0",
+          "er_1"
+        ]
+      },
+      {
+        "text": "Le saut du cas prouvé du tabac vers les autres affaires n'est pas qu'un **défaut de raisonnement** : l'accumulation rapide d'exemples installe rhétoriquement l'**universalité du schéma**, et la prémisse la plus fragile épouse exactement cette mécanique.",
+        "references": [
+          "lr_0",
+          "pr_1",
+          "bias_0"
+        ]
+      },
+      {
+        "text": "Convertir l'**absence de consensus** en doute fabriqué sert directement le camp de la régulation : ce que Logic repère comme présupposé non démontré, Rhetoric le montre comme **cadrage intéressé**.",
+        "references": [
+          "ia_1",
+          "lr_1",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "L'**absence de parole industrielle** n'est pas un simple angle mort : elle est le pendant structurel du montage opposant experts et victimes, et fonde le manquement au **droit de réponse**. Le déséquilibre est construit, non subi.",
+        "references": [
+          "bs_1",
+          "er_0"
+        ]
+      },
+      {
+        "text": "L'énoncé prêtant une **intention délibérée** à des acteurs non nommés cumule l'opinion posée en fait, l'atteinte à la **présomption d'innocence** et un moteur d'indignation : une seule phrase porte le défaut factuel, le manquement éthique et l'effet émotionnel.",
+        "references": [
+          "claim_2",
+          "er_0"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Où passe exactement la frontière entre doute scientifique légitime et doute fabriqué dans ce dossier ?",
+      "Sur quelle base repose le chiffre de 93 % au-delà d'une seule revue ?",
+      "Quelle est la position réelle de l'industrie sur ces études, absente du texte ?"
+    ]
+  }
+}

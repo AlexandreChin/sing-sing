@@ -52,7 +52,7 @@
   <h1 class="cover-head">{{ (topic or headline) | md_bold }}</h1>
   {% if sub_topic %}<p class="cover-sub">{{ sub_topic | md_bold }}</p>{% endif %}
 
-  <div class="swipe">Avant de lire <span class="sw-sep">&#8250;</span> Pendant la lecture <span class="sw-sep">&#8250;</span> Après la lecture</div>
+  <div class="swipe">{{ L.prog_before }} <span class="sw-sep">&#8250;</span> {{ L.prog_during }} <span class="sw-sep">&#8250;</span> {{ L.prog_after }}</div>
   <div style="position: absolute; bottom: 56px; left: 0; right: 0; text-align: center; font-size: 22px; color: #555; letter-spacing: 0.08em; font-style: italic;"><span style="color: #d4aa00;">Sing</span>, little bird, <span style="color: #d4aa00;">sing</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>

@@ -1,0 +1,29 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "Ce n'est pas notre faute, c'est la faute des autres. C'est tous les autres mais pas nous.",
+        "explanation": "Les industriels, accusés de manipuler la science, n'apparaissent qu'en repoussoir caricatural, sans réponse réellement sollicitée."
+      },
+      {
+        "id": "",
+        "category": "presumption_of_innocence",
+        "label": "Presumption of Innocence",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Ils cherchent volontairement à faire dérailler la science.",
+        "explanation": "L'intention délibérée est prêtée à des acteurs non nommés et posée comme fait, non comme interprétation."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Signaler l'absence de droit de réponse des industries mises en cause et nuancer les procès d'intention faits à des acteurs non nommés."
+    },
+    "summary": "La déontologie n'est pas entièrement propre : le documentaire, globalement solide et adossé à des archives et décisions de justice, présente deux réserves — l'absence de réponse sollicitée des industries visées et des attributions d'intention posées comme des faits."
+  }
+}

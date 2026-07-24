@@ -1,0 +1,172 @@
+{
+  "main_claim": "Des industries **fabriquent le doute** scientifique pour retarder la régulation de leurs produits.",
+  "premisses": [
+    {
+      "statement": "Les archives internes du tabac prouvent une **stratégie délibérée** de fabrication du doute.",
+      "quality": "Repose sur des **preuves documentaires** solides — des millions de pages d'archives rendues publiques."
+    },
+    {
+      "statement": "Le même schéma se rejoue du tabac aux abeilles, au bisphénol A et au climat.",
+      "quality": "**Accumulation d'exemples parallèles** ramenés à un schéma unique — analogie dont la portée générale n'est pas démontrée."
+    },
+    {
+      "statement": "Le rôle de la science est d'établir les **liens de causalité** entre un produit et ses effets.",
+      "quality": "**Assertion admise**, posée comme allant de soi et peu discutée dans le texte."
+    },
+    {
+      "statement": "L'absence de consensus après plus de vingt ans traduit un **blocage anormal**.",
+      "quality": "**Assertion appuyée sur des témoignages**, sans comparaison avec le rythme habituel de formation des consensus."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "statement": "Les cas retenus sont **représentatifs** de la façon dont se nouent les conflits entre science et industrie.",
+      "impact": "Si ces cas sont **exceptionnels**, le schéma général présenté s'effondre."
+    },
+    {
+      "statement": "L'absence de consensus vient du **doute fabriqué** plutôt que d'une incertitude scientifique réelle.",
+      "impact": "Si le désaccord est **légitime**, l'accusation de manipulation perd son fondement."
+    },
+    {
+      "statement": "Les experts sélectionnés reflètent fidèlement l'**état de la connaissance**.",
+      "impact": "Si le choix des intervenants est **orienté**, le tableau présenté devient partiel."
+    }
+  ],
+  "blind_spots": [
+    {
+      "topic": "La frontière entre **doute légitime** et doute fabriqué n'est jamais tracée.",
+      "significance": "La distinguer aurait nuancé l'idée d'une **manipulation systématique**."
+    },
+    {
+      "topic": "L'industrie n'a **aucune parole développée** pour exposer sa position.",
+      "significance": "Un contradicteur réel aurait pu révéler des **désaccords de bonne foi**."
+    },
+    {
+      "topic": "La **représentativité** des exemples choisis n'est jamais évaluée.",
+      "significance": "Sans elle, on ignore si le schéma est la **règle ou l'exception**."
+    },
+    {
+      "topic": "Les **études invoquées** ne sont pas nommées précisément.",
+      "significance": "Le lecteur ne peut **vérifier** les affirmations centrales du récit."
+    }
+  ],
+  "emphasis": [
+    "Le film déroule cinq controverses parallèles — tabac, abeilles, bisphénol, amiante, climat — pour un **même schéma**, quand les cas de doute scientifique légitime ne sont évoqués qu'en passant.",
+    "Le montage alterne **paroles d'experts** et **visages de victimes**, tandis que l'industrie reste un contradicteur quasi muet.",
+    "La formule « le doute est notre produit » est érigée en **clé de lecture** de toutes les controverses."
+  ],
+  "logical_reasoning": [
+    {
+      "step": "À partir de la stratégie du tabac documentée, le récit infère le **même mécanisme intentionnel** derrière les affaires des abeilles, du bisphénol et du climat.",
+      "problem_type": "validity",
+      "diagnosis": "Généraliser un cas prouvé à d'autres par analogie est un **saut logique** que les archives du tabac ne couvrent pas."
+    },
+    {
+      "step": "De la persistance de l'absence de consensus, le récit conclut que le doute a été **délibérément fabriqué**.",
+      "problem_type": "validity",
+      "diagnosis": "L'absence de consensus peut aussi refléter une **complexité scientifique réelle**, non forcément une manœuvre."
+    },
+    {
+      "step": "De la corrélation entre financement industriel et résultats rassurants, le récit infère une **manipulation causale**.",
+      "problem_type": null,
+      "diagnosis": null
+    },
+    {
+      "step": "À partir de témoignages d'experts choisis, le récit présente l'état de la science comme **tranché**.",
+      "problem_type": "soundness",
+      "diagnosis": "La conclusion dépend d'une **sélection d'intervenants** tous alignés sur une même lecture."
+    }
+  ],
+  "observations": [
+    {
+      "aspect": "Cadre",
+      "summary": "Le récit s'appuie sur la **gnotologie**, discipline récente qui étudie l'ignorance produite volontairement.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "le champ récent de la gnotologie",
+        "strength": 1.0,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Contexte",
+      "summary": "Le propos s'inscrit dans un climat de **défiance envers la science** qu'il prend lui-même pour objet.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "climat de défiance envers la science",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Sourçage",
+      "summary": "La démonstration repose sur les **archives du tabac** rendues publiques après les procès américains.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "archives internes du tabac rendues publiques",
+        "strength": 1.0,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Actualité",
+      "summary": "Les exemples des néonicotinoïdes et du bisphénol A font **écho aux débats réglementaires** européens en cours.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "débats réglementaires sur les néonicotinoïdes et le bisphénol A",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Consensus",
+      "summary": "Le **consensus climatique** du GIEC est opposé à l'activité des climatosceptiques en ligne.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 4,
+        "excerpt": "consensus climatique partagé par plus de 97 % des climatologues",
+        "strength": 0.9,
+        "nature": "contradiction"
+      }
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "L'absence de consensus peut traduire une **complexité scientifique réelle** — causes multiples, effets à faible dose difficiles à isoler — et non un doute fabriqué.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 1,
+        "excerpt": "l'absence de consensus vient du doute fabriqué",
+        "strength": 0.8,
+        "nature": null
+      },
+      "alternative_conclusion": "Certaines controverses seraient des **désaccords scientifiques légitimes**, non des manipulations orchestrées."
+    },
+    {
+      "counterargument": "Le tabac et l'amiante sont les cas les plus flagrants et **non représentatifs** de l'ensemble des controverses science-industrie.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 2,
+        "excerpt": "la représentativité des exemples n'est jamais évaluée",
+        "strength": 0.7,
+        "nature": null
+      },
+      "alternative_conclusion": "Le schéma décrit serait l'**exception**, et la plupart des controverses relèveraient d'un débat scientifique ordinaire."
+    },
+    {
+      "counterargument": "Explorer des **causes alternatives** — varroa, virus, climat, habitat — est une démarche scientifique normale, pas une diversion.",
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 0,
+        "excerpt": "même mécanisme intentionnel derrière chaque affaire",
+        "strength": 0.7,
+        "nature": null
+      },
+      "alternative_conclusion": "La multiplication des pistes de recherche serait de la **bonne science**, et non la marque d'une fabrique de l'ignorance."
+    }
+  ]
+}
