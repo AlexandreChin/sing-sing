@@ -52,7 +52,10 @@ def _call_no_api(user_message: str, schema: dict, system: str | None = None) -> 
     last_err = ""
     for _ in range(MAX_RETRIES + 1):
         result = subprocess.run(
-            ["claude", "-p", prompt, "--output-format", "json"],
+            # Prompt goes on stdin, not argv: adapt-stage prompts embed the whole
+            # analysis and exceed the OS per-arg limit (MAX_ARG_STRLEN, ~128 KB).
+            ["claude", "-p", "--output-format", "json"],
+            input=prompt,
             capture_output=True,
             text=True,
             encoding="utf-8",
@@ -150,6 +153,30 @@ def _j(data: dict) -> str:
     return json.dumps(data, ensure_ascii=False, indent=2)
 
 
+# Reader-facing vocabulary per source medium: (indéfini, défini, verbe, procédé).
+# `article` is what the prompts are written for → no directive is emitted.
+_MEDIUM_VOCAB = {
+    "article": ("un article", "l'article", "lire", "la lecture"),
+    "video": ("une vidéo", "la vidéo", "regarder", "le visionnage"),
+    "podcast": ("un podcast", "l'épisode", "écouter", "l'écoute"),
+}
+
+
+def medium_directive(medium: str) -> str:
+    """Directive appended to an adapt prompt to override its hard-coded
+    'article/lire/lecture' wording when the source is not an article. Empty
+    string for 'article' (the default) so the article flow is unchanged."""
+    if medium == "article" or medium not in _MEDIUM_VOCAB:
+        return ""
+    indef, defi, verb, noun = _MEDIUM_VOCAB[medium]
+    return (
+        f"⚠️ MÉDIA SOURCE — la source analysée est {indef}, PAS un article. "
+        f"Partout où les consignes disent « l'article », « lire » ou « la lecture », "
+        f"emploie le vocabulaire du média réel : « {defi} », « {verb} », « {noun} ». "
+        f"Dans tout texte destiné au lecteur, n'écris JAMAIS « article », « lire » ni « lecture »."
+    )
+
+
 def _article_header(input: FullAnalysisInput) -> str:
     parts = []
     if input.extra_instructions:
@@ -162,7 +189,9 @@ def _article_header(input: FullAnalysisInput) -> str:
         parts.append(f"Date : {input.published_at}")
     if input.url:
         parts.append(f"URL : {input.url}")
-    parts.append(f"\nContenu de l'article :\n{input.body}")
+    label = {"video": "Contenu de la vidéo (transcription)",
+             "podcast": "Contenu de l'épisode (transcription)"}.get(input.medium, "Contenu de l'article")
+    parts.append(f"\n{label} :\n{input.body}")
     return "\n".join(parts)
 
 

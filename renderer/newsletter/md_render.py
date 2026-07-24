@@ -11,7 +11,7 @@ import mistune
 import yaml
 from mistune.renderers.html import HTMLRenderer
 
-from renderer.instagram_carousel._shared import ICONS
+from renderer.instagram_carousel._shared import ICONS, medium_labels, canonical_title
 
 _FM_RE = re.compile(r"\A---\n(.*?)\n---\n?(.*)\Z", re.DOTALL)
 _OPEN = re.compile(r"^:::\s*([A-Za-z]+)\s*$")
@@ -126,12 +126,13 @@ class _RichBody(HTMLRenderer):
 
     def heading(self, text: str, level: int, **attrs) -> str:
         title, explicit_icon = _heading_meta(text)
-        self.section = title
+        canon = canonical_title(title)   # icons/styles key on the article label
+        self.section = canon
         if level >= 2:
             self._seen_heading = True
-        icon = explicit_icon or ICON_BY_TITLE.get(title)
+        icon = explicit_icon or ICON_BY_TITLE.get(canon)
         if level <= 2:
-            if title == "Au fil de la lecture":
+            if canon == "Au fil de la lecture":
                 return ""   # rendered as the grouped beats-card title instead
             return f'<div class="kicker">{_icon_svg(icon)}{title}</div>\n'
         return f'<h3 class="subhead">{_icon_svg(icon)}{title}</h3>\n'
@@ -254,23 +255,25 @@ def _gofurther_email(items: list, s: dict, t: dict) -> str:
     return card
 
 
-def _read_cta_rich(url: str) -> str:
-    """« Lire l'article » CTA (rich) — opens the source in a new tab."""
+def _read_cta_rich(url: str, medium: str = "article") -> str:
+    """« Lire l'article » (or Regarder/Écouter) CTA (rich) — opens the source."""
     if not url:
         return ""
+    L = medium_labels(medium)
     href = _html.escape(_norm_url(url))
     return (
         '<div class="read-cta-wrap">'
-        f'<a class="read-cta" href="{href}" target="_blank" rel="noopener noreferrer">Lire l\'article ↗</a>'
-        '<div class="read-cta-note">Lisez l\'article, puis revenez pour notre analyse.</div>'
+        f'<a class="read-cta" href="{href}" target="_blank" rel="noopener noreferrer">{L["read_cta"]} ↗</a>'
+        f'<div class="read-cta-note">{L["read_cta_note"]}</div>'
         '</div>\n'
     )
 
 
-def _read_cta_email(url: str, t: dict) -> str:
-    """« Lire l'article » CTA (email, table-safe) — opens the source in a new tab."""
+def _read_cta_email(url: str, t: dict, medium: str = "article") -> str:
+    """« Lire l'article » (or Regarder/Écouter) CTA (email, table-safe)."""
     if not url:
         return ""
+    L = medium_labels(medium)
     href = _html.escape(_norm_url(url))
     return (
         '<div style="padding:34px 32px 4px;text-align:center;">'
@@ -279,14 +282,15 @@ def _read_cta_email(url: str, t: dict) -> str:
         f'<a href="{href}" target="_blank" rel="noopener noreferrer" '
         "style=\"display:inline-block;padding:15px 32px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;"
         'font-size:16px;font-weight:800;letter-spacing:0.02em;color:#1a1400;text-decoration:none;border-radius:8px;">'
-        "Lire l'article &#8599;</a></td></tr></table>"
+        f"{L['read_cta']} &#8599;</a></td></tr></table>"
         f'<div style="font-family:-apple-system,\'Segoe UI\',Roboto,Helvetica,Arial,sans-serif;'
         f'font-size:13px;color:{t["muted"]};padding-top:11px;">'
-        "Lisez l'article, puis revenez pour notre analyse.</div></div>\n"
+        f"{L['read_cta_note']}</div></div>\n"
     )
 
 
-def render_body_html(body_md: str, go_further: list | None = None, orig_url: str = "") -> str:
+def render_body_html(body_md: str, go_further: list | None = None, orig_url: str = "",
+                     medium: str = "article") -> str:
     renderer = _RichBody()
     md = mistune.create_markdown(renderer=renderer)
     segs = segment(body_md)
@@ -309,9 +313,10 @@ def render_body_html(body_md: str, go_further: list | None = None, orig_url: str
                     i += 1   # blank gap between beats
                 else:
                     break
-            head = f'<div class="kicker">{_icon_svg(ICON_BY_TITLE.get("Au fil de la lecture"))}Au fil de la lecture</div>'
+            during = medium_labels(medium)["during"]
+            head = f'<div class="kicker">{_icon_svg(ICON_BY_TITLE.get("Au fil de la lecture"))}{during}</div>'
             body = '<div class="res-sep"></div>'.join(beats)
-            out.append(_read_cta_rich(orig_url) + f'<div class="subcard beats">{head}{body}</div>\n')
+            out.append(_read_cta_rich(orig_url, medium) + f'<div class="subcard beats">{head}{body}</div>\n')
         else:
             renderer.forced = forced
             out.append(md(chunk))
@@ -346,7 +351,7 @@ def _email_styles(t: dict) -> dict:
     return {
         "p": f"font-size:17px;line-height:1.62;color:{t['text']};margin:0 0 12px;",
         "intro": f"font-size:19px;line-height:1.62;color:{t['text']};margin:0;",
-        "subtitle": f"font-size:20px;line-height:1.4;color:{t['heading']};margin:0 0 14px;",
+        "subtitle": f"font-size:20px;line-height:1.4;font-weight:600;color:{t['accent_text']};margin:0 0 14px;",
         "clue": f"font-size:15px;color:{t['muted']};margin-top:8px;",
         "note": f"font-size:14px;line-height:1.55;color:{t['muted']};font-style:italic;"
                 f"margin:14px 0 0;padding-top:12px;border-top:1px solid {t['border']};",
@@ -387,6 +392,7 @@ class _EmailBody(HTMLRenderer):
         self._seen_act = False
         self._card_open = False
         self.orig_url = ""
+        self.medium = "article"
 
     # --- card / band chrome ---
     def close_card(self) -> str:
@@ -399,14 +405,14 @@ class _EmailBody(HTMLRenderer):
         self._card_open = True
         head = ""
         if title:
-            emoji = EMOJI_BY_TITLE.get(title, "")
+            emoji = EMOJI_BY_TITLE.get(canonical_title(title), "")
             chip = f'<span style="font-size:17px;">{emoji}</span>&nbsp;&nbsp;' if emoji else ""
             head = f'<div style="{self.s["card_head"]}">{chip}{title}</div>'
         return f'<div style="{self.s["card"]}"><div style="{self.s["card_pad"]}">{head}'
 
     def _band(self, active: str) -> str:
         # a single clean act header: emoji + name over a thin gold rule (no band).
-        emoji = _ACT_EMOJI.get(active, "")
+        emoji = _ACT_EMOJI.get(canonical_title(active), "")
         chip = f'<span style="font-size:20px;">{emoji}</span>&nbsp;&nbsp;' if emoji else ""
         return f'<div style="{self.s["act"]}">{chip}{active}</div>\n'
 
@@ -422,17 +428,18 @@ class _EmailBody(HTMLRenderer):
     # --- block renderers ---
     def heading(self, text: str, level: int, **attrs) -> str:
         title, _ = _heading_meta(text)
-        self.section = title
+        canon = canonical_title(title)
+        self.section = canon
         if level <= 2:
             # « Lire l'article » CTA closes out « Avant de vous lancer », just
             # before the « Au fil de la lecture » act header.
-            cta = _read_cta_email(self.orig_url, self.t) if title == "Au fil de la lecture" else ""
+            cta = _read_cta_email(self.orig_url, self.t, self.medium) if canon == "Au fil de la lecture" else ""
             out = self.close_card() + cta + self._band(title)
             self._seen_act = True
             return out
-        if title in CARD_LIST_SECTIONS:
+        if canon in CARD_LIST_SECTIONS:
             # heading is a plain label; each item becomes its own sub-card (no nesting)
-            emoji = EMOJI_BY_TITLE.get(title, "")
+            emoji = EMOJI_BY_TITLE.get(canon, "")
             chip = f'<span style="font-size:17px;">{emoji}</span>&nbsp;&nbsp;' if emoji else ""
             return self.close_card() + f'<div style="{self.s["card_label"]}">{chip}{title}</div>\n'
         return self.close_card() + self._open_card(title)
@@ -491,11 +498,13 @@ class _EmailBody(HTMLRenderer):
         return f'<strong style="color:{self.t["accent_text"]};font-weight:700;">{text}</strong>'
 
 
-def render_email_body_html(body_md: str, theme: str, go_further: list | None = None, orig_url: str = "") -> str:
+def render_email_body_html(body_md: str, theme: str, go_further: list | None = None, orig_url: str = "",
+                           medium: str = "article") -> str:
     from renderer.newsletter.renderer import EMAIL_THEMES
     t = EMAIL_THEMES[theme]
     renderer = _EmailBody(_email_styles(t), t)
     renderer.orig_url = orig_url
+    renderer.medium = medium
     md = mistune.create_markdown(renderer=renderer)
     segs = segment(body_md)
     out = []
@@ -540,6 +549,7 @@ def _shell_ctx(fm: dict) -> dict:
         "orig_url": fm.get("article_url", ""),
         "meta_line": fm.get("meta_line", ""),
         "signoff": fm.get("signoff", ""),
+        "artref_label": medium_labels(fm.get("medium", "article"))["artref"],
     }
 
 
@@ -549,7 +559,8 @@ def render_html(md_text: str) -> str:
     fm, body_md = parse_source(md_text)
     ctx = _shell_ctx(fm)
     ctx["cat_pill"] = pill(fm.get("category"), "dark")
-    ctx["body"] = render_body_html(body_md, fm.get("go_further"), fm.get("article_url", ""))
+    ctx["body"] = render_body_html(body_md, fm.get("go_further"), fm.get("article_url", ""),
+                                   fm.get("medium", "article"))
     return _env().get_template("newsletter.html").render(logo=_LOGO_DATA_URL, **ctx)
 
 
@@ -559,6 +570,7 @@ def render_email_html(md_text: str, theme: str = "light") -> str:
     fm, body_md = parse_source(md_text)
     ctx = _shell_ctx(fm)
     ctx["cat_pill"] = pill(fm.get("category"), theme)
-    ctx["body"] = render_email_body_html(body_md, theme, fm.get("go_further"), fm.get("article_url", ""))
+    ctx["body"] = render_email_body_html(body_md, theme, fm.get("go_further"), fm.get("article_url", ""),
+                                         fm.get("medium", "article"))
     return _env().get_template("newsletter.email.html").render(
         logo=_EMAIL_LOGO, t=EMAIL_THEMES[theme], **ctx)

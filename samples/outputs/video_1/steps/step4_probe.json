@@ -1,0 +1,142 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "Dès le début des années 2000, des rapports d'expertise publique ont démontré l'effet toxique des néonicotinoïdes à très faible dose sur les abeilles.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Actualité",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Affirmation posée comme **acquise**, sans nommer les rapports ni les organismes cités.",
+        "external_sources": [
+          {
+            "name": "EFSA (Autorité européenne de sécurité des aliments)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "ANSES",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 78
+      },
+      {
+        "quote": "l'effet du bisphénol A à très faible dose est confirmé par 93 % des études publiques, mais par aucune des études financées par l'industrie.",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Le camp favorable à la régulation des produits suspectés",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "Chiffre attribué à **Frederick vom Saal**, issu de sa propre revue des études, sans décompte indépendant cité.",
+        "external_sources": [
+          {
+            "name": "Frederick vom Saal, Université du Missouri",
+            "supports": "validates",
+            "evidence_type": "academic"
+          },
+          {
+            "name": "Environmental Health Perspectives",
+            "supports": "neutral",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": 55
+      },
+      {
+        "quote": "Ils cherchent volontairement à faire dérailler la science.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Prête une **intention délibérée** à des acteurs non nommés, ce qui relève de l'interprétation et non du constat.",
+        "external_sources": [
+          {
+            "name": "Archives internes de l'industrie du tabac (UCSF)",
+            "supports": "neutral",
+            "evidence_type": "testimony"
+          }
+        ],
+        "confidence": null
+      },
+      {
+        "quote": "le réchauffement climatique est sans équivoque et l'influence de l'homme est claire",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Consensus",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Reprend la **formulation du GIEC**, présentée sans attribution comme une évidence partagée.",
+        "external_sources": [
+          {
+            "name": "GIEC (rapports d'évaluation)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 96
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "l'histoire du tabac et c'est la même histoire pour les pluies acides, pour le trou de la couche d'ozone, pour les pesticides, le changement climatique, les néonicotinoïdes, le bisphénol a la pilule contraceptive.",
+        "item_type": "bias",
+        "label": "accumulation d'exemples",
+        "effect": "Remarquez comment l'**énumération rapide** de cas fait paraître le schéma **universel** avant tout examen de chacun.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Elle a servi de modèle à presque tous les dénis scientifiques qui ont suivi.",
+        "item_type": "fallacy",
+        "label": "généralisation à partir d'un cas",
+        "effect": "Observez comment le cas **documenté du tabac** est étendu à des affaires que les archives citées **ne couvrent pas**.",
+        "proves": {
+          "type": "observation",
+          "label": "Cadre",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Dans tous ces secteurs, on voit à l'œuvre la fabrique du doute.",
+        "item_type": "bias",
+        "label": "métaphore répétée",
+        "effect": "Remarquez comment la **formule répétée** installe une grille unique qui rend la manipulation **évidente** avant démonstration.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "inquiétude",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "Le doute est notre produit car c'est le meilleur moyen de concurrencer l'ensemble des faits présents dans l'esprit du public.",
+      "proves": {
+        "type": "observation",
+        "label": "Sourçage",
+        "strength": 1.0,
+        "nature": "illustration"
+      },
+      "analysis": "La note interne de 1969 érige le **doute** en produit à fabriquer. Elle sous-entend que la stratégie vise l'**opinion**, pas la vérité scientifique. Elle tait où s'arrête le doute légitime que la science revendique elle-même — mais alors, qui trace cette frontière ?"
+    }
+  }
+}

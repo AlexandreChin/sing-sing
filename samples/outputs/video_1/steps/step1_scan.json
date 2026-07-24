@@ -1,0 +1,280 @@
+{
+  "article_type": "investigation",
+  "key_claims": [
+    {
+      "quote": "Dès le début des années 2000, des rapports d'expertise publique ont démontré l'effet toxique des néonicotinoïdes à très faible dose sur les abeilles.",
+      "type": "factual"
+    },
+    {
+      "quote": "Le doute est notre produit car c'est le meilleur moyen de concurrencer l'ensemble des faits présents dans l'esprit du public.",
+      "source": "Note interne de l'industrie du tabac, 1969",
+      "type": "attributed"
+    },
+    {
+      "quote": "l'effet du bisphénol A à très faible dose est confirmé par 93 % des études publiques, mais par aucune des études financées par l'industrie.",
+      "source": "Frederick vom Saal",
+      "type": "statistical"
+    },
+    {
+      "quote": "Les effets observés sur le système reproducteur apparaissaient à un niveau 25000 fois inférieur à la dose qu'on croyait sans effet jusque-là.",
+      "type": "statistical"
+    },
+    {
+      "quote": "Il découvrait que le tabagisme passif augmente le risque de cancer du poumon chez les non fumeurs de 20 à 30 %.",
+      "type": "statistical"
+    },
+    {
+      "quote": "Les cancers de la miante causent aujourd'hui 3000 morts chaque année.",
+      "type": "statistical"
+    },
+    {
+      "quote": "Ce produit chimique génère aujourd'hui 2,4 millions de dollars de bénéfices par heure.",
+      "type": "statistical"
+    },
+    {
+      "quote": "Le tribunal a tranché et depuis la recherche n'a cessé de confirmer ce jugement.",
+      "source": "Affaire Dewayne Johnson contre Monsanto",
+      "type": "legal"
+    },
+    {
+      "quote": "Des milliers de signatures afflues du monde entier, des scientifiques, des intellectuels, des grands penseurs et les trois/4 des lauréats du prix Nobel.",
+      "source": "Appel d'Heidelberg",
+      "type": "factual"
+    },
+    {
+      "quote": "Je crois qu'avec tout ce qui s'est passé, nous avons accumulé un retard de 20 à 30 ans.",
+      "source": "Fanny Agina",
+      "type": "testimonial"
+    },
+    {
+      "quote": "Les industriels du tabac ont essayé d'établir une norme selon laquelle tout ratio inférieur à deux ne valait pas la peine d'être prise en compte.",
+      "source": "Marcel Goldberg",
+      "type": "attributed"
+    },
+    {
+      "quote": "pour la communauté scientifique quasi unanime, le réchauffement climatique est sans équivoque et l'influence de l'homme est claire.",
+      "type": "factual"
+    }
+  ],
+  "key_quotes": [
+    "Le doute est notre produit car c'est le meilleur moyen de concurrencer l'ensemble des faits présents dans l'esprit du public. C'est aussi le moyen d'établir une controverse.",
+    "La mise en place d'un centre de recherche sur le tabac, elle vise pas uniquement à produire du savoir, mais surtout à produire du savoir qui va à l'encontre de d'autres faits établis.",
+    "Le but c'est de dire qu'on ne peut pas établir la cause. C'est de semer de l'ignorance en noyant le poisson dans une multiplication de données.",
+    "Plus les industries empêchent l'émergence d'un consensus scientifique, plus il aurait facile de lutter contre les poursuites judiciaires et contre la réglementation.",
+    "Écoutez moi, je vais vous dire pour prouver que quelque chose existe ou n'existe pas, je vous fabrique le protocole qui permettra de le faire à coup sûr.",
+    "l'effet du bisphénol A à très faible dose est confirmé par 93 % des études publiques, mais par aucune des études financées par l'industrie.",
+    "Ils l'ont élevé pour être obèses et avoir de très haut niveaux d'ostrogène. C'est ce rat là qu'ils ont choisi pour essayer de montrer que le bisphénol A n'est pas dangereux.",
+    "Toutefois, nous nous inquiétons d'assister à l'aube du 21e siècle à l'émergence d'une idéologie irrationnelle qui s'oppose au progrès scientifiques et industriels et nuit au développement économique et social.",
+    "nous avons découvert que leur motivation n'était pas l'argent, elle était idéologique.",
+    "Dès que l'on cesse de fonder les politiques sur des faits, on renonce à la démocratie.",
+    "Il y a 300 ans, les progrès scientifiques se heurtaient à l'église. Mais aujourd'hui, c'est le marché qui prend le rôle de l'église.",
+    "Il s'agit de domaines scientifiques non étudiés car il n'y a aucun impératif commercial à le faire."
+  ],
+  "key_actors": [
+    {
+      "name": "Fanny Agina",
+      "role": "Apicultrice et scientifique qui enquête sur la mortalité des abeilles, entre rucher et laboratoire"
+    },
+    {
+      "name": "Professeur Glantz",
+      "role": "Chercheur à l'université de San Francisco, destinataire des documents internes fuités du tabac"
+    },
+    {
+      "name": "Marcel Goldberg",
+      "role": "Épidémiologiste, cible d'une tentative de recrutement lors d'un colloque organisé par un fabricant de tabac"
+    },
+    {
+      "name": "Alvan Feinstein",
+      "role": "Épidémiologiste de renom, rémunéré par l'industrie du tabac pour dénigrer sa propre discipline"
+    },
+    {
+      "name": "Frederick vom Saal",
+      "role": "Chercheur à l'université du Missouri, auteur des premières expériences sur le bisphénol A à faible dose"
+    },
+    {
+      "name": "Carlos Sonnenschein et Ana Soto",
+      "role": "Biologistes ayant découvert l'effet hormonal d'un plastique dans leur laboratoire"
+    },
+    {
+      "name": "Naomi Oreskes",
+      "role": "Historienne des sciences, spécialiste de la gnotologie et des motivations des climatosceptiques"
+    },
+    {
+      "name": "David Chavalarias",
+      "role": "Chercheur à l'Institut des systèmes complexes, analyse des controverses climatiques sur Twitter"
+    },
+    {
+      "name": "Heartland Institute",
+      "role": "Think tank américain diffusant une science climatosceptique"
+    },
+    {
+      "name": "James Taylor",
+      "role": "Senior fellow du Heartland Institute défendant la position climatosceptique"
+    },
+    {
+      "name": "Fred Singer",
+      "role": "Physicien, pionnier de la conquête spatiale devenu figure du climatoscepticisme"
+    },
+    {
+      "name": "Stéphane Lewandowski",
+      "role": "Professeur de psychologie à l'université de Bristol, étudie le déni face au consensus scientifique"
+    },
+    {
+      "name": "Erwin Neher",
+      "role": "Prix Nobel de médecine, signataire de l'appel d'Heidelberg, se disant dupé après coup"
+    },
+    {
+      "name": "Steve Milloy",
+      "role": "Fondateur du site Junk Science, se présentant en spécialiste de la démystification scientifique"
+    },
+    {
+      "name": "Dewayne Johnson",
+      "role": "Jardinier municipal atteint d'un cancer, plaignant contre Monsanto au sujet du Roundup"
+    },
+    {
+      "name": "Morton Downey",
+      "role": "Animateur de télévision pro-tabac, mort d'un cancer du poumon après avoir changé de position"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Professeur Glantz (université de San Francisco)",
+      "used_for": "Légitimer le récit de la **stratégie du doute** de Big Tobacco et l'authenticité des archives fuitées"
+    },
+    {
+      "entity": "Naomi Oreskes, historienne",
+      "used_for": "Étayer la thèse que la motivation des premiers climatosceptiques était **idéologique** et non financière"
+    },
+    {
+      "entity": "Trois quarts des lauréats du prix Nobel",
+      "used_for": "Donner du **poids** aux signatures de l'appel d'Heidelberg"
+    },
+    {
+      "entity": "Erwin Neher, prix Nobel de médecine",
+      "used_for": "Montrer qu'un **scientifique éminent** a pu signer l'appel d'Heidelberg sans en connaître le commanditaire"
+    },
+    {
+      "entity": "Marcel Goldberg, épidémiologiste",
+      "used_for": "Attester la **manœuvre du seuil de risque** censée rendre l'épidémiologie aveugle au tabagisme passif"
+    },
+    {
+      "entity": "Frederick vom Saal",
+      "used_for": "Fonder l'affirmation des **effets à très faible dose** du bisphénol A"
+    },
+    {
+      "entity": "David Chavalarias, Institut des systèmes complexes",
+      "used_for": "Objectiver l'existence d'une **chambre d'écho** climatosceptique très active sur les réseaux"
+    }
+  ],
+  "notable_omissions": [
+    "Aucun **représentant de l'industrie** ne s'exprime longuement pour contredire le récit; les industriels ne servent que de repoussoir.",
+    "Les **études scientifiques citées** ne sont pas nommées précisément, ce qui empêche le lecteur de les vérifier.",
+    "Le film ne distingue pas les cas où le **doute scientifique était légitime** de ceux où il était fabriqué.",
+    "Aucune indication sur la **représentativité** des exemples choisis par rapport à l'ensemble des controverses scientifiques.",
+    "Les **contre-arguments possibles** sur la révision normale des consensus (ex. toxicologie classique) ne sont exposés que par la voix des industriels."
+  ],
+  "rhetorical_patterns": [
+    "Le récit épouse la trame d'une **enquête policière** : suspects, coupable, jeu du chat et de la souris, Sherlock Holmes.",
+    "Recours systématique à un **vocabulaire guerrier** : arène, bataille, contre-attaque, embuscade, arme parfaite.",
+    "**Répétition de formules-clés** — « fabrique de l'ignorance », « gagner du temps », « le doute est notre produit ».",
+    "**Accumulation d'exemples parallèles** (tabac, abeilles, bisphénol, climat, amiante) pour établir un même schéma récurrent.",
+    "Alternance entre **paroles d'experts** et **visages de victimes** pour ancrer le propos dans l'émotion.",
+    "Le montage **personnalise le conflit** en opposant chercheurs de bonne foi et manœuvres d'industriels."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx1",
+        "text": "Le film s'inscrit dans le champ récent de la **gnotologie**, l'étude de l'ignorance produite volontairement."
+      },
+      {
+        "id": "ctx2",
+        "text": "Il paraît dans un climat de **défiance envers la science** et de controverses publiques (climat, vaccins, pesticides)."
+      },
+      {
+        "id": "ctx3",
+        "text": "Les **archives internes du tabac** rendues publiques après les procès américains ont fourni la preuve documentaire de ces stratégies."
+      },
+      {
+        "id": "ctx4",
+        "text": "Des **débats réglementaires** sur les néonicotinoïdes et le bisphénol A se déroulent en parallèle en Europe."
+      }
+    ],
+    "who_is_speaking": [
+      "Un **documentaire télévisé** de vulgarisation scientifique, structuré autour d'entretiens d'universitaires (historiens, épidémiologistes, sociologues des sciences).",
+      "Sa ligne éditoriale se place clairement **du côté de la science établie** et dénonce les stratégies industrielles de désinformation.",
+      "Le format documentaire **choisit ses intervenants et son montage**, l'industrie n'y ayant qu'une place de contradicteur silencieux."
+    ],
+    "important_facts": [
+      {
+        "id": "fact1",
+        "text": "En France, les néonicotinoïdes ont été **interdits en 2018**, avec des dérogations temporaires accordées ensuite pour la betterave."
+      },
+      {
+        "id": "fact2",
+        "text": "L'**appel d'Heidelberg** a été rendu public en 1992, à l'ouverture du Sommet de la Terre de Rio."
+      },
+      {
+        "id": "fact3",
+        "text": "Le premier verdict **Dewayne Johnson contre Monsanto** a été rendu en 2018 par un tribunal californien."
+      },
+      {
+        "id": "fact4",
+        "text": "Les documents du tabac sont issus du **Master Settlement Agreement de 1998** et archivés à l'université de San Francisco."
+      },
+      {
+        "id": "fact5",
+        "text": "Le **consensus climatique** est établi par le GIEC et partagé par plus de 97 % des climatologues."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "Gnotologie (agnotologie)",
+        "definition": "L'étude de la manière dont l'ignorance est **produite volontairement**, et non seulement subie."
+      },
+      {
+        "term": "Néonicotinoïdes",
+        "definition": "Une famille d'**insecticides** de nouvelle génération soupçonnés de tuer les abeilles."
+      },
+      {
+        "term": "Perturbateur endocrinien",
+        "definition": "Une substance qui **dérègle le système hormonal** même à très faible dose."
+      },
+      {
+        "term": "Bisphénol A",
+        "definition": "Un composé chimique des **plastiques** qui se comporte comme une hormone."
+      },
+      {
+        "term": "Épidémiologie",
+        "definition": "L'étude **statistique** de la santé des populations exposées ou non à un facteur de risque."
+      },
+      {
+        "term": "Varroa destructor",
+        "definition": "Un **acarien parasite** de l'abeille souvent désigné comme cause alternative de sa mort."
+      },
+      {
+        "term": "Chambre d'écho",
+        "definition": "Un espace où une opinion **circule en boucle** entre personnes déjà d'accord."
+      },
+      {
+        "term": "Dissonance cognitive",
+        "definition": "L'**inconfort mental** ressenti face à deux croyances contradictoires."
+      },
+      {
+        "term": "Sound science / junk science",
+        "definition": "Un couple d'expressions **retourné** par l'industrie pour valoriser la recherche de diversion et discréditer la vraie science."
+      },
+      {
+        "term": "Fausses organisations de terrain",
+        "definition": "Des mouvements présentés comme **citoyens** mais en réalité montés par des industriels."
+      },
+      {
+        "term": "Science non faite",
+        "definition": "Les **domaines délaissés** faute d'intérêt commercial à les explorer."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "Contenu de l'article :"
+  }
+}

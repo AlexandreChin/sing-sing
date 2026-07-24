@@ -16,14 +16,14 @@
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
   <div class="sel-stage">
-    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg>Pourquoi cet article</span>
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg>{{ L.why }}</span>
     <h1 class="sel-head">{{ headline | md_bold }}</h1>
     <div class="divider"></div>
     <div class="q-list">
       {% for para in why_selected.split('\n') if para.strip() %}<p class="q-body">{{ para | md_bold }}</p>{% endfor %}
     </div>
   </div>
-  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Comment bien le lire &#8250;</span></div>
+  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">{{ L.how_to_short }} &#8250;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
 </div>

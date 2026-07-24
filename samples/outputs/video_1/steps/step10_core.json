@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Des industries **fabriquent le doute** scientifique pour retarder la régulation de leurs produits.",
+      "kind": "angle",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 0,
+        "excerpt": "stratégie délibérée de fabrication du doute",
+        "strength": 1.0,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Les **archives internes du tabac** rendues publiques documentent la stratégie du doute.",
+      "kind": "fait",
+      "centrality": 4,
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "archives internes du tabac rendues publiques",
+        "strength": 1.0,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Un **même schéma** est étendu du tabac aux abeilles, au bisphénol et au climat.",
+      "kind": "biais",
+      "centrality": 4,
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 0,
+        "excerpt": "même mécanisme intentionnel derrière chaque affaire",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "La frontière entre **doute légitime** et doute fabriqué n'est jamais tracée.",
+      "kind": "enjeu",
+      "centrality": 3,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "la frontière entre doute légitime et doute fabriqué n'est jamais tracée",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "Fonder les **décisions politiques** sur les faits est présenté comme un enjeu démocratique.",
+      "kind": "enjeu",
+      "centrality": 3,
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "les décisions politiques se fondent sur des faits",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    }
+  ]
+}

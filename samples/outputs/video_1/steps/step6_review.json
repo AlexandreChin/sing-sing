@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 3,
+        "rationale": "Le socle documentaire est **solide** quand il s'appuie sur les archives internes du tabac rendues publiques après les procès américains, mais plusieurs affirmations centrales restent **mal attribuées** : les « rapports d'expertise publique » sur les néonicotinoïdes ne sont ni nommés ni datés, et le chiffre « 93 % des études » vient de la propre revue de Frederick vom Saal, sans décompte indépendant. L'industrie, partie mise en cause, n'est jamais sollicitée comme source.",
+        "lesson": "Vérifie toujours si un chiffre frappant émane d'un **décompte indépendant** ou de la partie qui a intérêt à le mettre en avant."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "Les faits les mieux ancrés tiennent : la reprise de la formule du GIEC (« le réchauffement climatique est sans équivoque ») atteint une confiance de 96, et la note interne de 1969 est vérifiable. Mais le chiffre du bisphénol A plafonne à une confiance de 55, et l'énoncé « ils cherchent volontairement à faire dérailler la science » est classé **opinion_stated_as_fact** — une intention prêtée posée comme un constat.",
+        "lesson": "Distingue une **corrélation documentée** d'une intention affirmée : l'une se mesure, l'autre s'interprète."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "La chaîne argumentative repose sur un **saut logique** répété : le mécanisme prouvé pour le tabac est étendu par analogie aux abeilles, au bisphénol et au climat, que les archives citées ne couvrent pas (logical_reasoning, problem_type « validity »). De plus, la persistance de l'absence de consensus est convertie en preuve d'un doute fabriqué, alors qu'elle peut refléter une **complexité scientifique réelle**.",
+        "lesson": "Méfie-toi quand un cas prouvé sert de **modèle universel** à d'autres affaires jamais démontrées une à une."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "Le récit ne trace jamais la **frontière entre doute légitime et doute fabriqué** (blind_spots), alors que la science qu'il défend revendique elle-même le doute méthodique. Ses présupposés — cas représentatifs, absence de consensus imputée à la manipulation — restent **implicites** et non assumés comme des choix de cadrage.",
+        "lesson": "Cherche si un document **nomme ses propres limites** ; leur silence trahit un angle non déclaré."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Le film déroule cinq controverses ramenées à un **même schéma** (emphasis), mais évacue les cas de doute scientifique légitime et n'évalue jamais la **représentativité** des exemples choisis. Les études invoquées ne sont pas nommées précisément, si bien que le lecteur ne peut pas vérifier les affirmations centrales.",
+        "lesson": "Demande toujours si les exemples retenus sont la **règle ou l'exception** avant d'accepter un schéma général."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Les industriels n'apparaissent qu'en **repoussoir caricatural**, sans réponse réellement sollicitée (right_of_reply, sévérité « significant »). L'**accumulation d'exemples** et le focus sur la note « le doute est notre produit » installent une grille unique qui rend la manipulation évidente avant tout examen contradictoire.",
+        "lesson": "Note qui **ne parle pas** : l'absence de contradicteur réel signale un déséquilibre de traitement."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "La structure d'enquête est **limpide** et la grille de lecture — la gnotologie, discipline qui étudie l'ignorance produite volontairement — est explicitée dès le cadre. La métaphore du titre « la fabrique de l'ignorance » et des exemples concrets (tabac, abeilles, bisphénol) **ancrent l'abstrait** pour un public non spécialiste.",
+        "lesson": "Repère quand une **formule répétée** aide la compréhension mais oriente aussi la lecture."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 4,
+        "rationale": "L'angle est **original** : ériger la note de 1969 « le doute est notre produit » en clé de lecture de controverses aussi diverses offre une perspective rare au grand public. La convocation de la gnotologie et l'alternance experts / victimes donnent une **signature reconnaissable**, même si cette force est aussi ce qui aplatit la nuance.",
+        "lesson": "Apprécie une **grille de lecture forte** pour ce qu'elle éclaire, sans oublier ce qu'elle range hors champ."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Le curieux qui découvre les stratégies industrielles de fabrication du doute et veut un panorama accessible, à condition de le confronter ensuite à des sources qui distinguent doute légitime et doute orchestré.",
+      "payoff": "Le spectateur repart avec une grille — la « fabrique du doute » — et des cas documentés qui rendent visibles des mécaniques d'influence habituellement invisibles. Il gagne un réflexe : se demander à qui profite l'incertitude entretenue.",
+      "signature_move": "Ériger une note interne de l'industrie du tabac en clé de lecture universelle, puis aligner cinq controverses sur ce même schéma par montage parallèle.",
+      "main_blind_side": "L'absence de toute frontière tracée entre doute légitime et doute fabriqué révèle un choix de cadrage militant plutôt qu'une enquête pesant le pour et le contre.",
+      "further_resource": {
+        "title": "Les Marchands de doute",
+        "source": "Naomi Oreskes et Erik M. Conway",
+        "media_type": "book",
+        "why_explore": "L'enquête historique qui fonde la thèse du film et permet de mesurer, cas par cas, ce que le documentaire ramasse en un seul schéma.",
+        "url": null
+      },
+      "summary": "Documentaire à voir avec réserves : il rend accessibles des mécaniques d'influence réelles et bien sourcées sur le tabac, mais son schéma unique gomme la frontière entre doute légitime et doute fabriqué et laisse l'industrie sans réponse. À confronter avec d'autres sources avant d'en tirer des conclusions."
+    }
+  }
+}

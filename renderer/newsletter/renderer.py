@@ -17,7 +17,8 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from agent.lenses import CANONICAL_LENSES
 from models.newsletter_presentation import NewsletterDocument
 from renderer.categories import pill
-from renderer.instagram_carousel._shared import _LOGO_DATA_URL, _LOGO_PATH, _md_bold, TYPE_FR, ICONS
+from renderer.instagram_carousel._shared import (
+    _LOGO_DATA_URL, _LOGO_PATH, _md_bold, ICONS, source_type_label, duration_label, medium_labels)
 from renderer.newsletter import md_render
 
 TEMPLATES_DIR = Path(__file__).parent / "templates"
@@ -116,16 +117,19 @@ def _ctx(doc: NewsletterDocument, hook_title: str = "") -> dict:
     full, pres = doc.analysis, doc.presentation
     meta = full.article_metadata
 
-    reading = f"{meta.reading_time_minutes} min de lecture" if meta.reading_time_minutes else None
     meta_line = " · ".join(x for x in [
         meta.source,
-        TYPE_FR.get(meta.type) if meta.type else None,
-        reading,
+        source_type_label(meta),
+        duration_label(meta),
         meta.published_at,
     ] if x)
 
     return {
         "subject": pres.subject,
+        # source medium → drives reader-facing labels (in the .md front-matter
+        # so it stays hand-editable) and the label set for the section titles.
+        "medium": meta.medium,
+        "labels": medium_labels(meta.medium),
         # H1 headline: the carousel's hook when available (shared voice across
         # formats), otherwise the newsletter's own subject line.
         "hook_title": hook_title or pres.subject,

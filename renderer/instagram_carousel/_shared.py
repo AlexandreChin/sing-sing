@@ -35,6 +35,91 @@ DIMENSION_WEIGHTS = {
 }
 TYPE_FR = {"editorial": "Éditorial", "news_report": "Reportage", "opinion": "Tribune",
            "investigation": "Enquête", "interview": "Interview", "other": "Article"}
+MEDIUM_FR = {"article": "Article", "video": "Vidéo", "podcast": "Podcast"}
+
+# Single source of truth for every reader-facing label that names the medium or
+# the act of consuming it. Carousel templates + newsletter template + md_render
+# all read from here so an article/video/podcast reads natively end-to-end.
+MEDIUM_LABELS = {
+    "article": {
+        "why": "Pourquoi cet article", "essentiel": "L'essentiel de l'article",
+        "how_to": "Comment le lire", "how_to_short": "Comment bien le lire",
+        "during": "Au fil de la lecture", "after": "Après la lecture",
+        "prog_before": "Avant de lire", "prog_during": "Pendant la lecture", "prog_after": "Après la lecture",
+        "keys_label": "Clefs de lecture", "link_ref": "Lien vers l'article en commentaires ↓",
+        "read_cta": "Lire l'article", "read_cta_note": "Lisez l'article, puis revenez pour notre analyse.",
+        "artref": "L'article",
+        "cadrage_note": "Tout article a un cadrage ; l'identifier fait partie d'une lecture attentive.",
+        "share_note": "à quelqu'un qui aime lire de près",
+        "cta_comment": "votre avis, ou un article à décrypter",
+    },
+    "video": {
+        "why": "Pourquoi cette vidéo", "essentiel": "L'essentiel de la vidéo",
+        "how_to": "Comment la regarder", "how_to_short": "Comment bien la regarder",
+        "during": "Au fil de la vidéo", "after": "Après le visionnage",
+        # header tracker: only the first phase names the medium; the decryptage /
+        # prise-de-recul phases stay "lecture" (they name reading OUR analysis).
+        "prog_before": "Avant de regarder", "prog_during": "Pendant la lecture", "prog_after": "Après la lecture",
+        "keys_label": "Clefs de lecture", "link_ref": "Lien vers la vidéo en commentaires ↓",
+        "read_cta": "Regarder la vidéo", "read_cta_note": "Regardez la vidéo, puis revenez pour notre analyse.",
+        "artref": "La vidéo",
+        "cadrage_note": "Toute vidéo a un cadrage ; l'identifier fait partie d'un visionnage attentif.",
+        "share_note": "à quelqu'un qui aime regarder de près",
+        "cta_comment": "votre avis, ou une vidéo à décrypter",
+    },
+    "podcast": {
+        "why": "Pourquoi cet épisode", "essentiel": "L'essentiel de l'épisode",
+        "how_to": "Comment l'écouter", "how_to_short": "Comment bien l'écouter",
+        "during": "Au fil de l'écoute", "after": "Après l'écoute",
+        "prog_before": "Avant d'écouter", "prog_during": "Pendant la lecture", "prog_after": "Après la lecture",
+        "keys_label": "Clefs de lecture", "link_ref": "Lien vers l'épisode en commentaires ↓",
+        "read_cta": "Écouter l'épisode", "read_cta_note": "Écoutez l'épisode, puis revenez pour notre analyse.",
+        "artref": "L'épisode",
+        "cadrage_note": "Tout épisode a un cadrage ; l'identifier fait partie d'une écoute attentive.",
+        "share_note": "à quelqu'un qui aime écouter de près",
+        "cta_comment": "votre avis, ou un épisode à décrypter",
+    },
+}
+
+
+def medium_labels(medium: str) -> dict:
+    """The label set for a medium (falls back to article for unknown media)."""
+    return MEDIUM_LABELS.get(medium, MEDIUM_LABELS["article"])
+
+
+# Reverse map: any medium's heading label → the article label, so md_render's
+# icon/style maps (keyed on the article strings) resolve for every medium.
+_TITLE_TO_CANON = {
+    label: MEDIUM_LABELS["article"][slot]
+    for labels in MEDIUM_LABELS.values()
+    for slot, label in labels.items()
+}
+
+
+def canonical_title(title: str) -> str:
+    """Normalise a (possibly video/podcast) section title back to its article
+    equivalent for icon/style lookups. Display text is unaffected."""
+    return _TITLE_TO_CANON.get(title, title)
+
+
+def source_type_label(meta) -> str | None:
+    """Genre label for the source meta line. When the genre is unknown/'other'
+    and the medium isn't an article, fall back to the medium name (Vidéo/Podcast)
+    so a video is never labelled 'Article'. Article behaviour is unchanged."""
+    if meta.type and meta.type != "other":
+        return TYPE_FR.get(meta.type)
+    if getattr(meta, "medium", "article") != "article":
+        return MEDIUM_FR.get(meta.medium)
+    return TYPE_FR.get(meta.type) if meta.type else None
+
+
+def duration_label(meta) -> str | None:
+    """The source duration line. 'de lecture' only for articles; a transcript's
+    word-count minutes aren't a real viewing/listening time, so stay neutral."""
+    if not meta.reading_time_minutes:
+        return None
+    unit = "min de lecture" if getattr(meta, "medium", "article") == "article" else "min"
+    return f"{meta.reading_time_minutes} {unit}"
 
 # Section glyphs shared by the carousel templates and the newsletter renderer,
 # so the two stay visually in sync (same icon per matching section). Values are

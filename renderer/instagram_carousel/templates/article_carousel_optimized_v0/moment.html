@@ -29,7 +29,7 @@
   {% include '_brand.html' %}
   {% include '_tracker.html' %}
   <div class="stage">
-    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>Au fil de la lecture</span>
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>{{ L.during }}</span>
     <h1 class="head">{{ moment | md_bold }}</h1>
     <div class="divider"></div>
     {% if quote %}<div class="evidence"><p class="ev-quote">« {{ quote }} »</p></div>{% endif %}

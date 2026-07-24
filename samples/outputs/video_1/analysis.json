@@ -1,0 +1,992 @@
+{
+  "article_metadata": {
+    "url": null,
+    "title": "",
+    "source": null,
+    "published_at": null,
+    "type": "investigation",
+    "medium": "video",
+    "category": "Autre",
+    "reading_time_minutes": 56,
+    "chapo": null
+  },
+  "extraction": {
+    "authority_anchors": [
+      {
+        "entity": "Professeur Glantz (université de San Francisco)",
+        "used_for": "Légitimer le récit de la **stratégie du doute** de Big Tobacco et l'authenticité des archives fuitées"
+      },
+      {
+        "entity": "Naomi Oreskes, historienne",
+        "used_for": "Étayer la thèse que la motivation des premiers climatosceptiques était **idéologique** et non financière"
+      },
+      {
+        "entity": "Trois quarts des lauréats du prix Nobel",
+        "used_for": "Donner du **poids** aux signatures de l'appel d'Heidelberg"
+      },
+      {
+        "entity": "Erwin Neher, prix Nobel de médecine",
+        "used_for": "Montrer qu'un **scientifique éminent** a pu signer l'appel d'Heidelberg sans en connaître le commanditaire"
+      },
+      {
+        "entity": "Marcel Goldberg, épidémiologiste",
+        "used_for": "Attester la **manœuvre du seuil de risque** censée rendre l'épidémiologie aveugle au tabagisme passif"
+      },
+      {
+        "entity": "Frederick vom Saal",
+        "used_for": "Fonder l'affirmation des **effets à très faible dose** du bisphénol A"
+      },
+      {
+        "entity": "David Chavalarias, Institut des systèmes complexes",
+        "used_for": "Objectiver l'existence d'une **chambre d'écho** climatosceptique très active sur les réseaux"
+      }
+    ],
+    "key_quotes": [
+      "Le doute est notre produit car c'est le meilleur moyen de concurrencer l'ensemble des faits présents dans l'esprit du public. C'est aussi le moyen d'établir une controverse.",
+      "La mise en place d'un centre de recherche sur le tabac, elle vise pas uniquement à produire du savoir, mais surtout à produire du savoir qui va à l'encontre de d'autres faits établis.",
+      "Le but c'est de dire qu'on ne peut pas établir la cause. C'est de semer de l'ignorance en noyant le poisson dans une multiplication de données.",
+      "Plus les industries empêchent l'émergence d'un consensus scientifique, plus il aurait facile de lutter contre les poursuites judiciaires et contre la réglementation.",
+      "Écoutez moi, je vais vous dire pour prouver que quelque chose existe ou n'existe pas, je vous fabrique le protocole qui permettra de le faire à coup sûr.",
+      "l'effet du bisphénol A à très faible dose est confirmé par 93 % des études publiques, mais par aucune des études financées par l'industrie.",
+      "Ils l'ont élevé pour être obèses et avoir de très haut niveaux d'ostrogène. C'est ce rat là qu'ils ont choisi pour essayer de montrer que le bisphénol A n'est pas dangereux.",
+      "Toutefois, nous nous inquiétons d'assister à l'aube du 21e siècle à l'émergence d'une idéologie irrationnelle qui s'oppose au progrès scientifiques et industriels et nuit au développement économique et social.",
+      "nous avons découvert que leur motivation n'était pas l'argent, elle était idéologique.",
+      "Dès que l'on cesse de fonder les politiques sur des faits, on renonce à la démocratie.",
+      "Il y a 300 ans, les progrès scientifiques se heurtaient à l'église. Mais aujourd'hui, c'est le marché qui prend le rôle de l'église.",
+      "Il s'agit de domaines scientifiques non étudiés car il n'y a aucun impératif commercial à le faire."
+    ],
+    "notable_omissions": [
+      "Aucun **représentant de l'industrie** ne s'exprime longuement pour contredire le récit; les industriels ne servent que de repoussoir.",
+      "Les **études scientifiques citées** ne sont pas nommées précisément, ce qui empêche le lecteur de les vérifier.",
+      "Le film ne distingue pas les cas où le **doute scientifique était légitime** de ceux où il était fabriqué.",
+      "Aucune indication sur la **représentativité** des exemples choisis par rapport à l'ensemble des controverses scientifiques.",
+      "Les **contre-arguments possibles** sur la révision normale des consensus (ex. toxicologie classique) ne sont exposés que par la voix des industriels."
+    ],
+    "rhetorical_patterns": [
+      "Le récit épouse la trame d'une **enquête policière** : suspects, coupable, jeu du chat et de la souris, Sherlock Holmes.",
+      "Recours systématique à un **vocabulaire guerrier** : arène, bataille, contre-attaque, embuscade, arme parfaite.",
+      "**Répétition de formules-clés** — « fabrique de l'ignorance », « gagner du temps », « le doute est notre produit ».",
+      "**Accumulation d'exemples parallèles** (tabac, abeilles, bisphénol, climat, amiante) pour établir un même schéma récurrent.",
+      "Alternance entre **paroles d'experts** et **visages de victimes** pour ancrer le propos dans l'émotion.",
+      "Le montage **personnalise le conflit** en opposant chercheurs de bonne foi et manœuvres d'industriels."
+    ]
+  },
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx_0",
+        "text": "Le film s'inscrit dans le champ récent de la **gnotologie**, l'étude de l'ignorance produite volontairement."
+      },
+      {
+        "id": "ctx_1",
+        "text": "Il paraît dans un climat de **défiance envers la science** et de controverses publiques (climat, vaccins, pesticides)."
+      },
+      {
+        "id": "ctx_2",
+        "text": "Les **archives internes du tabac** rendues publiques après les procès américains ont fourni la preuve documentaire de ces stratégies."
+      },
+      {
+        "id": "ctx_3",
+        "text": "Des **débats réglementaires** sur les néonicotinoïdes et le bisphénol A se déroulent en parallèle en Europe."
+      }
+    ],
+    "who_is_speaking": [
+      "Un **documentaire télévisé** de vulgarisation scientifique, structuré autour d'entretiens d'universitaires (historiens, épidémiologistes, sociologues des sciences).",
+      "Sa ligne éditoriale se place clairement **du côté de la science établie** et dénonce les stratégies industrielles de désinformation.",
+      "Le format documentaire **choisit ses intervenants et son montage**, l'industrie n'y ayant qu'une place de contradicteur silencieux."
+    ],
+    "important_facts": [
+      {
+        "id": "fact_0",
+        "text": "En France, les néonicotinoïdes ont été **interdits en 2018**, avec des dérogations temporaires accordées ensuite pour la betterave."
+      },
+      {
+        "id": "fact_1",
+        "text": "L'**appel d'Heidelberg** a été rendu public en 1992, à l'ouverture du Sommet de la Terre de Rio."
+      },
+      {
+        "id": "fact_2",
+        "text": "Le premier verdict **Dewayne Johnson contre Monsanto** a été rendu en 2018 par un tribunal californien."
+      },
+      {
+        "id": "fact_3",
+        "text": "Les documents du tabac sont issus du **Master Settlement Agreement de 1998** et archivés à l'université de San Francisco."
+      },
+      {
+        "id": "fact_4",
+        "text": "Le **consensus climatique** est établi par le GIEC et partagé par plus de 97 % des climatologues."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "Gnotologie (agnotologie)",
+        "definition": "L'étude de la manière dont l'ignorance est **produite volontairement**, et non seulement subie."
+      },
+      {
+        "term": "Néonicotinoïdes",
+        "definition": "Une famille d'**insecticides** de nouvelle génération soupçonnés de tuer les abeilles."
+      },
+      {
+        "term": "Perturbateur endocrinien",
+        "definition": "Une substance qui **dérègle le système hormonal** même à très faible dose."
+      },
+      {
+        "term": "Bisphénol A",
+        "definition": "Un composé chimique des **plastiques** qui se comporte comme une hormone."
+      },
+      {
+        "term": "Épidémiologie",
+        "definition": "L'étude **statistique** de la santé des populations exposées ou non à un facteur de risque."
+      },
+      {
+        "term": "Varroa destructor",
+        "definition": "Un **acarien parasite** de l'abeille souvent désigné comme cause alternative de sa mort."
+      },
+      {
+        "term": "Chambre d'écho",
+        "definition": "Un espace où une opinion **circule en boucle** entre personnes déjà d'accord."
+      },
+      {
+        "term": "Dissonance cognitive",
+        "definition": "L'**inconfort mental** ressenti face à deux croyances contradictoires."
+      },
+      {
+        "term": "Sound science / junk science",
+        "definition": "Un couple d'expressions **retourné** par l'industrie pour valoriser la recherche de diversion et discréditer la vraie science."
+      },
+      {
+        "term": "Fausses organisations de terrain",
+        "definition": "Des mouvements présentés comme **citoyens** mais en réalité montés par des industriels."
+      },
+      {
+        "term": "Science non faite",
+        "definition": "Les **domaines délaissés** faute d'intérêt commercial à les explorer."
+      }
+    ]
+  },
+  "analysis": {
+    "fond": {
+      "main_claim": "Des industries **fabriquent le doute** scientifique pour retarder la régulation de leurs produits.",
+      "premisses": [
+        {
+          "id": "pr_0",
+          "statement": "Les archives internes du tabac prouvent une **stratégie délibérée** de fabrication du doute.",
+          "quality": "Repose sur des **preuves documentaires** solides — des millions de pages d'archives rendues publiques."
+        },
+        {
+          "id": "pr_1",
+          "statement": "Le même schéma se rejoue du tabac aux abeilles, au bisphénol A et au climat.",
+          "quality": "**Accumulation d'exemples parallèles** ramenés à un schéma unique — analogie dont la portée générale n'est pas démontrée."
+        },
+        {
+          "id": "pr_2",
+          "statement": "Le rôle de la science est d'établir les **liens de causalité** entre un produit et ses effets.",
+          "quality": "**Assertion admise**, posée comme allant de soi et peu discutée dans le texte."
+        },
+        {
+          "id": "pr_3",
+          "statement": "L'absence de consensus après plus de vingt ans traduit un **blocage anormal**.",
+          "quality": "**Assertion appuyée sur des témoignages**, sans comparaison avec le rythme habituel de formation des consensus."
+        }
+      ],
+      "implicit_assumptions": [
+        {
+          "id": "ia_0",
+          "statement": "Les cas retenus sont **représentatifs** de la façon dont se nouent les conflits entre science et industrie.",
+          "impact": "Si ces cas sont **exceptionnels**, le schéma général présenté s'effondre."
+        },
+        {
+          "id": "ia_1",
+          "statement": "L'absence de consensus vient du **doute fabriqué** plutôt que d'une incertitude scientifique réelle.",
+          "impact": "Si le désaccord est **légitime**, l'accusation de manipulation perd son fondement."
+        },
+        {
+          "id": "ia_2",
+          "statement": "Les experts sélectionnés reflètent fidèlement l'**état de la connaissance**.",
+          "impact": "Si le choix des intervenants est **orienté**, le tableau présenté devient partiel."
+        }
+      ],
+      "blind_spots": [
+        {
+          "id": "bs_0",
+          "topic": "La frontière entre **doute légitime** et doute fabriqué n'est jamais tracée.",
+          "significance": "La distinguer aurait nuancé l'idée d'une **manipulation systématique**."
+        },
+        {
+          "id": "bs_1",
+          "topic": "L'industrie n'a **aucune parole développée** pour exposer sa position.",
+          "significance": "Un contradicteur réel aurait pu révéler des **désaccords de bonne foi**."
+        },
+        {
+          "id": "bs_2",
+          "topic": "La **représentativité** des exemples choisis n'est jamais évaluée.",
+          "significance": "Sans elle, on ignore si le schéma est la **règle ou l'exception**."
+        },
+        {
+          "id": "bs_3",
+          "topic": "Les **études invoquées** ne sont pas nommées précisément.",
+          "significance": "Le lecteur ne peut **vérifier** les affirmations centrales du récit."
+        }
+      ],
+      "emphasis": [
+        "Le film déroule cinq controverses parallèles — tabac, abeilles, bisphénol, amiante, climat — pour un **même schéma**, quand les cas de doute scientifique légitime ne sont évoqués qu'en passant.",
+        "Le montage alterne **paroles d'experts** et **visages de victimes**, tandis que l'industrie reste un contradicteur quasi muet.",
+        "La formule « le doute est notre produit » est érigée en **clé de lecture** de toutes les controverses."
+      ],
+      "logical_reasoning": [
+        {
+          "id": "lr_0",
+          "step": "À partir de la stratégie du tabac documentée, le récit infère le **même mécanisme intentionnel** derrière les affaires des abeilles, du bisphénol et du climat.",
+          "problem_type": "validity",
+          "diagnosis": "Généraliser un cas prouvé à d'autres par analogie est un **saut logique** que les archives du tabac ne couvrent pas."
+        },
+        {
+          "id": "lr_1",
+          "step": "De la persistance de l'absence de consensus, le récit conclut que le doute a été **délibérément fabriqué**.",
+          "problem_type": "validity",
+          "diagnosis": "L'absence de consensus peut aussi refléter une **complexité scientifique réelle**, non forcément une manœuvre."
+        },
+        {
+          "id": "lr_2",
+          "step": "De la corrélation entre financement industriel et résultats rassurants, le récit infère une **manipulation causale**.",
+          "problem_type": null,
+          "diagnosis": null
+        },
+        {
+          "id": "lr_3",
+          "step": "À partir de témoignages d'experts choisis, le récit présente l'état de la science comme **tranché**.",
+          "problem_type": "soundness",
+          "diagnosis": "La conclusion dépend d'une **sélection d'intervenants** tous alignés sur une même lecture."
+        }
+      ],
+      "observations": [
+        {
+          "id": "obs_0",
+          "aspect": "Cadre",
+          "summary": "Le récit s'appuie sur la **gnotologie**, discipline récente qui étudie l'ignorance produite volontairement.",
+          "seeds": {
+            "source": "context",
+            "index": 0,
+            "excerpt": "le champ récent de la gnotologie",
+            "strength": 1.0,
+            "nature": "illustration"
+          },
+          "proven_by": [
+            {
+              "type": "bias",
+              "index": 1
+            }
+          ]
+        },
+        {
+          "id": "obs_1",
+          "aspect": "Contexte",
+          "summary": "Le propos s'inscrit dans un climat de **défiance envers la science** qu'il prend lui-même pour objet.",
+          "seeds": {
+            "source": "context",
+            "index": 1,
+            "excerpt": "climat de défiance envers la science",
+            "strength": 0.9,
+            "nature": "illustration"
+          },
+          "proven_by": []
+        },
+        {
+          "id": "obs_2",
+          "aspect": "Sourçage",
+          "summary": "La démonstration repose sur les **archives du tabac** rendues publiques après les procès américains.",
+          "seeds": {
+            "source": "context",
+            "index": 2,
+            "excerpt": "archives internes du tabac rendues publiques",
+            "strength": 1.0,
+            "nature": "illustration"
+          },
+          "proven_by": [
+            {
+              "type": "focus",
+              "index": 0
+            }
+          ]
+        },
+        {
+          "id": "obs_3",
+          "aspect": "Actualité",
+          "summary": "Les exemples des néonicotinoïdes et du bisphénol A font **écho aux débats réglementaires** européens en cours.",
+          "seeds": {
+            "source": "context",
+            "index": 3,
+            "excerpt": "débats réglementaires sur les néonicotinoïdes et le bisphénol A",
+            "strength": 0.9,
+            "nature": "illustration"
+          },
+          "proven_by": [
+            {
+              "type": "claim",
+              "index": 0
+            }
+          ]
+        },
+        {
+          "id": "obs_4",
+          "aspect": "Consensus",
+          "summary": "Le **consensus climatique** du GIEC est opposé à l'activité des climatosceptiques en ligne.",
+          "seeds": {
+            "source": "important_fact",
+            "index": 4,
+            "excerpt": "consensus climatique partagé par plus de 97 % des climatologues",
+            "strength": 0.9,
+            "nature": "contradiction"
+          },
+          "proven_by": [
+            {
+              "type": "claim",
+              "index": 3
+            }
+          ]
+        }
+      ],
+      "steel_man": [
+        {
+          "counterargument": "L'absence de consensus peut traduire une **complexité scientifique réelle** — causes multiples, effets à faible dose difficiles à isoler — et non un doute fabriqué.",
+          "seeds": {
+            "source": "implicit_assumption",
+            "index": 1,
+            "excerpt": "l'absence de consensus vient du doute fabriqué",
+            "strength": 0.8,
+            "nature": null
+          },
+          "alternative_conclusion": "Certaines controverses seraient des **désaccords scientifiques légitimes**, non des manipulations orchestrées."
+        },
+        {
+          "counterargument": "Le tabac et l'amiante sont les cas les plus flagrants et **non représentatifs** de l'ensemble des controverses science-industrie.",
+          "seeds": {
+            "source": "blind_spot",
+            "index": 2,
+            "excerpt": "la représentativité des exemples n'est jamais évaluée",
+            "strength": 0.7,
+            "nature": null
+          },
+          "alternative_conclusion": "Le schéma décrit serait l'**exception**, et la plupart des controverses relèveraient d'un débat scientifique ordinaire."
+        },
+        {
+          "counterargument": "Explorer des **causes alternatives** — varroa, virus, climat, habitat — est une démarche scientifique normale, pas une diversion.",
+          "seeds": {
+            "source": "logical_reasoning",
+            "index": 0,
+            "excerpt": "même mécanisme intentionnel derrière chaque affaire",
+            "strength": 0.7,
+            "nature": null
+          },
+          "alternative_conclusion": "La multiplication des pistes de recherche serait de la **bonne science**, et non la marque d'une fabrique de l'ignorance."
+        }
+      ]
+    },
+    "forme": {
+      "emotional_register": [
+        {
+          "id": "er_0",
+          "emotion": "indignation",
+          "how": "L'**accumulation de cas parallèles** et l'alternance entre paroles d'experts et visages de victimes chargent le récit.",
+          "effect": "Le lecteur est porté à voir les industriels comme les **coupables** d'une tromperie délibérée.",
+          "seeds": {
+            "source": "context",
+            "index": 2,
+            "excerpt": "archives internes du tabac rendues publiques",
+            "strength": 0.9,
+            "nature": "illustration"
+          }
+        },
+        {
+          "id": "er_1",
+          "emotion": "inquiétude",
+          "how": "La répétition de la formule « **fabrique de l'ignorance** » et l'idée d'un phénomène qui se répand dramatisent le propos.",
+          "effect": "Le lecteur est amené à redouter une **menace diffuse** sur la connaissance elle-même.",
+          "seeds": {
+            "source": "context",
+            "index": 1,
+            "excerpt": "climat de défiance envers la science",
+            "strength": 0.8,
+            "nature": "illustration"
+          }
+        }
+      ],
+      "cui_bono": [
+        {
+          "id": "cb_0",
+          "beneficiary": "Les gnotologues et scientifiques lanceurs d'alerte",
+          "explanation": "En posant la fabrique du doute comme grille unique, le cadrage érige ces chercheurs en **contre-pouvoir** et légitime une discipline récente.",
+          "seeds": {
+            "source": "context",
+            "index": 0,
+            "excerpt": "le champ récent de la gnotologie",
+            "strength": 0.9,
+            "nature": "illustration"
+          }
+        },
+        {
+          "id": "cb_1",
+          "beneficiary": "Le camp favorable à la régulation des produits suspectés",
+          "explanation": "Assimiler l'absence de consensus à un doute **fabriqué** renforce l'argument en faveur de l'**interdiction** rapide des substances en débat.",
+          "seeds": {
+            "source": "context",
+            "index": 3,
+            "excerpt": "débats réglementaires sur les néonicotinoïdes et le bisphénol A",
+            "strength": 0.8,
+            "nature": "illustration"
+          }
+        }
+      ],
+      "cadrage": {
+        "title_analysis": [
+          {
+            "label": "Métaphore",
+            "observation": "« La fabrique de l'ignorance » présente l'ignorance comme un produit fabriqué, non subi."
+          },
+          {
+            "label": "Présupposé",
+            "observation": "Le titre pose comme acquis que l'ignorance est produite volontairement et par quelqu'un."
+          },
+          {
+            "label": "Cadrage",
+            "observation": "Il annonce un coupable industriel avant tout examen des cas exposés dans le corps."
+          }
+        ],
+        "body": "Le corps de l'article adopte l'angle de l'**enquête**, déroulant cinq controverses — tabac, abeilles, bisphénol A, amiante, climat — ramenées à un **même schéma** de fabrication du doute. Il place au centre les **stratégies industrielles** documentées et la parole des chercheurs qui les décryptent. Le récit parle depuis la position de la **science établie**, avec la gnotologie pour grille de lecture. Le registre mêle reconstitution documentaire et **témoignages d'experts**."
+      }
+    }
+  },
+  "annotations": {
+    "facts_vs_opinions": {
+      "claims_and_sources": [
+        {
+          "id": "claim_0",
+          "quote": "Dès le début des années 2000, des rapports d'expertise publique ont démontré l'effet toxique des néonicotinoïdes à très faible dose sur les abeilles.",
+          "presentation": "presented_as_established_fact",
+          "proves": {
+            "type": "observation",
+            "label": "Actualité",
+            "strength": 0.9,
+            "nature": "illustration"
+          },
+          "explanation": "Affirmation posée comme **acquise**, sans nommer les rapports ni les organismes cités.",
+          "external_sources": [
+            {
+              "name": "EFSA (Autorité européenne de sécurité des aliments)",
+              "supports": "validates",
+              "evidence_type": "official_data"
+            },
+            {
+              "name": "ANSES",
+              "supports": "validates",
+              "evidence_type": "official_data"
+            }
+          ],
+          "confidence": 78,
+          "confidence_label": "likely true"
+        },
+        {
+          "id": "claim_1",
+          "quote": "l'effet du bisphénol A à très faible dose est confirmé par 93 % des études publiques, mais par aucune des études financées par l'industrie.",
+          "presentation": "attributed_to_source",
+          "proves": {
+            "type": "cui_bono",
+            "label": "Le camp favorable à la régulation des produits suspectés",
+            "strength": 0.8,
+            "nature": "illustration"
+          },
+          "explanation": "Chiffre attribué à **Frederick vom Saal**, issu de sa propre revue des études, sans décompte indépendant cité.",
+          "external_sources": [
+            {
+              "name": "Frederick vom Saal, Université du Missouri",
+              "supports": "validates",
+              "evidence_type": "academic"
+            },
+            {
+              "name": "Environmental Health Perspectives",
+              "supports": "neutral",
+              "evidence_type": "academic"
+            }
+          ],
+          "confidence": 55,
+          "confidence_label": "disputed"
+        },
+        {
+          "id": "claim_2",
+          "quote": "Ils cherchent volontairement à faire dérailler la science.",
+          "presentation": "opinion_stated_as_fact",
+          "proves": {
+            "type": "emotional_register",
+            "label": "indignation",
+            "strength": 0.9,
+            "nature": "illustration"
+          },
+          "explanation": "Prête une **intention délibérée** à des acteurs non nommés, ce qui relève de l'interprétation et non du constat.",
+          "external_sources": [
+            {
+              "name": "Archives internes de l'industrie du tabac (UCSF)",
+              "supports": "neutral",
+              "evidence_type": "testimony"
+            }
+          ],
+          "confidence": null,
+          "confidence_label": "unverifiable"
+        },
+        {
+          "id": "claim_3",
+          "quote": "le réchauffement climatique est sans équivoque et l'influence de l'homme est claire",
+          "presentation": "presented_as_established_fact",
+          "proves": {
+            "type": "observation",
+            "label": "Consensus",
+            "strength": 0.9,
+            "nature": "illustration"
+          },
+          "explanation": "Reprend la **formulation du GIEC**, présentée sans attribution comme une évidence partagée.",
+          "external_sources": [
+            {
+              "name": "GIEC (rapports d'évaluation)",
+              "supports": "validates",
+              "evidence_type": "official_data"
+            }
+          ],
+          "confidence": 96,
+          "confidence_label": "consensual"
+        }
+      ]
+    },
+    "biases_and_focus": {
+      "biases_and_rhetoric": [
+        {
+          "id": "bias_0",
+          "quote": "l'histoire du tabac et c'est la même histoire pour les pluies acides, pour le trou de la couche d'ozone, pour les pesticides, le changement climatique, les néonicotinoïdes, le bisphénol a la pilule contraceptive.",
+          "item_type": "bias",
+          "label": "accumulation d'exemples",
+          "effect": "Remarquez comment l'**énumération rapide** de cas fait paraître le schéma **universel** avant tout examen de chacun.",
+          "proves": {
+            "type": "emotional_register",
+            "label": "indignation",
+            "strength": 0.9,
+            "nature": "illustration"
+          }
+        },
+        {
+          "id": "bias_1",
+          "quote": "Elle a servi de modèle à presque tous les dénis scientifiques qui ont suivi.",
+          "item_type": "fallacy",
+          "label": "généralisation à partir d'un cas",
+          "effect": "Observez comment le cas **documenté du tabac** est étendu à des affaires que les archives citées **ne couvrent pas**.",
+          "proves": {
+            "type": "observation",
+            "label": "Cadre",
+            "strength": 0.8,
+            "nature": "illustration"
+          }
+        },
+        {
+          "id": "bias_2",
+          "quote": "Dans tous ces secteurs, on voit à l'œuvre la fabrique du doute.",
+          "item_type": "bias",
+          "label": "métaphore répétée",
+          "effect": "Remarquez comment la **formule répétée** installe une grille unique qui rend la manipulation **évidente** avant démonstration.",
+          "proves": {
+            "type": "emotional_register",
+            "label": "inquiétude",
+            "strength": 0.8,
+            "nature": "illustration"
+          }
+        }
+      ],
+      "focus": {
+        "quote": "Le doute est notre produit car c'est le meilleur moyen de concurrencer l'ensemble des faits présents dans l'esprit du public.",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 1.0,
+          "nature": "illustration"
+        },
+        "analysis": "La note interne de 1969 érige le **doute** en produit à fabriquer. Elle sous-entend que la stratégie vise l'**opinion**, pas la vérité scientifique. Elle tait où s'arrête le doute légitime que la science revendique elle-même — mais alors, qui trace cette frontière ?"
+      }
+    }
+  },
+  "deontology": {
+    "violations": [
+      {
+        "id": "",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "Ce n'est pas notre faute, c'est la faute des autres. C'est tous les autres mais pas nous.",
+        "explanation": "Les industriels, accusés de manipuler la science, n'apparaissent qu'en repoussoir caricatural, sans réponse réellement sollicitée."
+      },
+      {
+        "id": "",
+        "category": "presumption_of_innocence",
+        "label": "Presumption of Innocence",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Ils cherchent volontairement à faire dérailler la science.",
+        "explanation": "L'intention délibérée est prêtée à des acteurs non nommés et posée comme fait, non comme interprétation."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Signaler l'absence de droit de réponse des industries mises en cause et nuancer les procès d'intention faits à des acteurs non nommés."
+    },
+    "summary": "La déontologie n'est pas entièrement propre : le documentaire, globalement solide et adossé à des archives et décisions de justice, présente deux réserves — l'absence de réponse sollicitée des industries visées et des attributions d'intention posées comme des faits."
+  },
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 3,
+        "rationale": "Le socle documentaire est **solide** quand il s'appuie sur les archives internes du tabac rendues publiques après les procès américains, mais plusieurs affirmations centrales restent **mal attribuées** : les « rapports d'expertise publique » sur les néonicotinoïdes ne sont ni nommés ni datés, et le chiffre « 93 % des études » vient de la propre revue de Frederick vom Saal, sans décompte indépendant. L'industrie, partie mise en cause, n'est jamais sollicitée comme source.",
+        "lesson": "Vérifie toujours si un chiffre frappant émane d'un **décompte indépendant** ou de la partie qui a intérêt à le mettre en avant."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "Les faits les mieux ancrés tiennent : la reprise de la formule du GIEC (« le réchauffement climatique est sans équivoque ») atteint une confiance de 96, et la note interne de 1969 est vérifiable. Mais le chiffre du bisphénol A plafonne à une confiance de 55, et l'énoncé « ils cherchent volontairement à faire dérailler la science » est classé **opinion_stated_as_fact** — une intention prêtée posée comme un constat.",
+        "lesson": "Distingue une **corrélation documentée** d'une intention affirmée : l'une se mesure, l'autre s'interprète."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "La chaîne argumentative repose sur un **saut logique** répété : le mécanisme prouvé pour le tabac est étendu par analogie aux abeilles, au bisphénol et au climat, que les archives citées ne couvrent pas (logical_reasoning, problem_type « validity »). De plus, la persistance de l'absence de consensus est convertie en preuve d'un doute fabriqué, alors qu'elle peut refléter une **complexité scientifique réelle**.",
+        "lesson": "Méfie-toi quand un cas prouvé sert de **modèle universel** à d'autres affaires jamais démontrées une à une."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "Le récit ne trace jamais la **frontière entre doute légitime et doute fabriqué** (blind_spots), alors que la science qu'il défend revendique elle-même le doute méthodique. Ses présupposés — cas représentatifs, absence de consensus imputée à la manipulation — restent **implicites** et non assumés comme des choix de cadrage.",
+        "lesson": "Cherche si un document **nomme ses propres limites** ; leur silence trahit un angle non déclaré."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Le film déroule cinq controverses ramenées à un **même schéma** (emphasis), mais évacue les cas de doute scientifique légitime et n'évalue jamais la **représentativité** des exemples choisis. Les études invoquées ne sont pas nommées précisément, si bien que le lecteur ne peut pas vérifier les affirmations centrales.",
+        "lesson": "Demande toujours si les exemples retenus sont la **règle ou l'exception** avant d'accepter un schéma général."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Les industriels n'apparaissent qu'en **repoussoir caricatural**, sans réponse réellement sollicitée (right_of_reply, sévérité « significant »). L'**accumulation d'exemples** et le focus sur la note « le doute est notre produit » installent une grille unique qui rend la manipulation évidente avant tout examen contradictoire.",
+        "lesson": "Note qui **ne parle pas** : l'absence de contradicteur réel signale un déséquilibre de traitement."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "La structure d'enquête est **limpide** et la grille de lecture — la gnotologie, discipline qui étudie l'ignorance produite volontairement — est explicitée dès le cadre. La métaphore du titre « la fabrique de l'ignorance » et des exemples concrets (tabac, abeilles, bisphénol) **ancrent l'abstrait** pour un public non spécialiste.",
+        "lesson": "Repère quand une **formule répétée** aide la compréhension mais oriente aussi la lecture."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 4,
+        "rationale": "L'angle est **original** : ériger la note de 1969 « le doute est notre produit » en clé de lecture de controverses aussi diverses offre une perspective rare au grand public. La convocation de la gnotologie et l'alternance experts / victimes donnent une **signature reconnaissable**, même si cette force est aussi ce qui aplatit la nuance.",
+        "lesson": "Apprécie une **grille de lecture forte** pour ce qu'elle éclaire, sans oublier ce qu'elle range hors champ."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Le curieux qui découvre les stratégies industrielles de fabrication du doute et veut un panorama accessible, à condition de le confronter ensuite à des sources qui distinguent doute légitime et doute orchestré.",
+      "payoff": "Le spectateur repart avec une grille — la « fabrique du doute » — et des cas documentés qui rendent visibles des mécaniques d'influence habituellement invisibles. Il gagne un réflexe : se demander à qui profite l'incertitude entretenue.",
+      "signature_move": "Ériger une note interne de l'industrie du tabac en clé de lecture universelle, puis aligner cinq controverses sur ce même schéma par montage parallèle.",
+      "main_blind_side": "L'absence de toute frontière tracée entre doute légitime et doute fabriqué révèle un choix de cadrage militant plutôt qu'une enquête pesant le pour et le contre.",
+      "further_resource": {
+        "title": "Les Marchands de doute",
+        "source": "Naomi Oreskes et Erik M. Conway",
+        "media_type": "book",
+        "why_explore": "L'enquête historique qui fonde la thèse du film et permet de mesurer, cas par cas, ce que le documentaire ramasse en un seul schéma.",
+        "url": null
+      },
+      "summary": "Documentaire à voir avec réserves : il rend accessibles des mécaniques d'influence réelles et bien sourcées sur le tabac, mais son schéma unique gomme la frontière entre doute légitime et doute fabriqué et laisse l'industrie sans réponse. À confronter avec d'autres sources avant d'en tirer des conclusions."
+    }
+  },
+  "blend": {
+    "patterns": [
+      {
+        "text": "Le saut analogique qui étend le cas prouvé du tabac aux autres affaires (lr_0) n'est pas qu'un défaut de raisonnement : il est **fabriqué rhétoriquement** par l'accumulation rapide d'exemples (bias_0), qui installe l'**universalité du schéma** avant tout examen. La prémisse la plus fragile (pr_1) et le biais convergent sur la même mécanique.",
+        "layers": [
+          "logic",
+          "probe"
+        ],
+        "references": [
+          "lr_0",
+          "pr_1",
+          "bias_0"
+        ]
+      },
+      {
+        "text": "L'hypothèse qui convertit l'**absence de consensus** en doute fabriqué (ia_1, lr_1) sert directement le camp de la régulation (cb_1) : ce que Logic repère comme un présupposé non démontré, Rhetoric le montre comme un **cadrage intéressé**.",
+        "layers": [
+          "logic",
+          "rhetoric"
+        ],
+        "references": [
+          "ia_1",
+          "lr_1",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "L'**absence de parole industrielle** (bs_1) n'est pas qu'un angle mort : elle est le pendant structurel du montage opposant experts et victimes (er_0) et fonde le manquement au droit de réponse relevé en déontologie. Le déséquilibre de traitement est **construit**, non subi.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "ethics"
+        ],
+        "references": [
+          "bs_1",
+          "er_0"
+        ]
+      },
+      {
+        "text": "L'énoncé prêtant une **intention délibérée** à des acteurs non nommés (claim_2) cumule le classement « opinion posée en fait », une atteinte à la présomption d'innocence et un moteur d'**indignation** (er_0) : une seule phrase porte à la fois le défaut factuel, le manquement éthique et l'effet émotionnel.",
+        "layers": [
+          "probe",
+          "ethics",
+          "rhetoric"
+        ],
+        "references": [
+          "claim_2",
+          "er_0"
+        ]
+      },
+      {
+        "text": "La formule « le doute est notre produit » érigée en focus (focus) et la métaphore répétée (bias_2) transforment une **note isolée** en **grille de lecture universelle** (obs_0) et nourrissent l'inquiétude (er_1) : plusieurs couches convergent sur une même clé qui rend la manipulation évidente avant démonstration.",
+        "layers": [
+          "probe",
+          "rhetoric",
+          "logic"
+        ],
+        "references": [
+          "focus",
+          "bias_2",
+          "obs_0",
+          "er_1"
+        ]
+      },
+      {
+        "text": "Le chiffre « 93 % des études » (claim_1), attribué à la seule revue de vom Saal et plafonné à une **confiance basse**, sert l'argument du camp favorable à la régulation (cb_1) : la faiblesse du sourçage et le bénéficiaire du cadrage pointent le **même intérêt**.",
+        "layers": [
+          "probe",
+          "rhetoric"
+        ],
+        "references": [
+          "claim_1",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "La sélection d'intervenants tous alignés (lr_3, ia_2) est redoublée par le montage experts/victimes (er_0) : ce que Logic diagnostique comme une **conclusion dépendante du choix des sources**, Rhetoric le révèle comme un **dispositif émotionnel** de crédibilité.",
+        "layers": [
+          "logic",
+          "rhetoric"
+        ],
+        "references": [
+          "lr_3",
+          "ia_2",
+          "er_0"
+        ]
+      },
+      {
+        "text": "L'angle mort de la **frontière entre doute légitime et doute fabriqué** (bs_0) affleure au cœur même du focus, où la note interne tait où s'arrête le doute que la science revendique (focus) : l'omission repérée en Logic est **confirmée par la pièce** mise en avant par Probe.",
+        "layers": [
+          "logic",
+          "probe"
+        ],
+        "references": [
+          "bs_0",
+          "focus"
+        ]
+      }
+    ]
+  },
+  "distill": {
+    "points": [
+      {
+        "text": "La formule « le doute est notre produit », érigée en clé de lecture, transforme une **note isolée** en **grille universelle** et nourrit l'inquiétude : plusieurs couches convergent pour rendre la manipulation évidente avant toute démonstration.",
+        "references": [
+          "focus",
+          "bias_2",
+          "obs_0",
+          "er_1"
+        ]
+      },
+      {
+        "text": "Le saut du cas prouvé du tabac vers les autres affaires n'est pas qu'un **défaut de raisonnement** : l'accumulation rapide d'exemples installe rhétoriquement l'**universalité du schéma**, et la prémisse la plus fragile épouse exactement cette mécanique.",
+        "references": [
+          "lr_0",
+          "pr_1",
+          "bias_0"
+        ]
+      },
+      {
+        "text": "Convertir l'**absence de consensus** en doute fabriqué sert directement le camp de la régulation : ce que Logic repère comme présupposé non démontré, Rhetoric le montre comme **cadrage intéressé**.",
+        "references": [
+          "ia_1",
+          "lr_1",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "L'**absence de parole industrielle** n'est pas un simple angle mort : elle est le pendant structurel du montage opposant experts et victimes, et fonde le manquement au **droit de réponse**. Le déséquilibre est construit, non subi.",
+        "references": [
+          "bs_1",
+          "er_0"
+        ]
+      },
+      {
+        "text": "L'énoncé prêtant une **intention délibérée** à des acteurs non nommés cumule l'opinion posée en fait, l'atteinte à la **présomption d'innocence** et un moteur d'indignation : une seule phrase porte le défaut factuel, le manquement éthique et l'effet émotionnel.",
+        "references": [
+          "claim_2",
+          "er_0"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Où passe exactement la frontière entre doute scientifique légitime et doute fabriqué dans ce dossier ?",
+      "Sur quelle base repose le chiffre de 93 % au-delà d'une seule revue ?",
+      "Quelle est la position réelle de l'industrie sur ces études, absente du texte ?"
+    ]
+  },
+  "guide": {
+    "pre_reading": [
+      "Repérez d'emblée la mécanique centrale — une note interne du tabac (« le doute est notre produit ») — et demandez-vous si elle peut vraiment servir de **clé unique** à des dossiers aussi différents.",
+      "Gardez en tête que le film raisonne par **analogie** : un cas prouvé sert de modèle à d'autres controverses qui, elles, ne sont pas démontrées une à une.",
+      "Un utile réflexe de départ : distinguer un **doute légitime**, propre à toute science, d'un doute délibérément fabriqué, car le récit joue en permanence sur cette frontière."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "",
+          "text": "Une **accumulation rapide d'exemples** peut installer l'impression d'un schéma universel avant tout examen : la solidité du cas du tabac ne garantit pas celle des autres affaires alignées à côté.",
+          "references": [
+            "lr_0",
+            "pr_1",
+            "bias_0"
+          ]
+        },
+        {
+          "id": "",
+          "text": "Méfiez-vous quand l'**absence de consensus** scientifique est présentée comme la preuve d'un doute orchestré : elle peut aussi refléter une complexité réelle, et ce glissement sert le camp de la régulation.",
+          "references": [
+            "ia_1",
+            "lr_1",
+            "cb_1"
+          ]
+        },
+        {
+          "id": "",
+          "text": "L'industrie mise en cause n'est jamais réellement sollicitée : l'**absence de contradicteur** n'est pas un hasard mais le pendant d'un montage opposant experts et victimes.",
+          "references": [
+            "bs_1",
+            "er_0"
+          ]
+        },
+        {
+          "id": "",
+          "text": "Une phrase prêtant une **intention délibérée** à des acteurs non nommés mêle une opinion posée en fait à un puissant moteur d'indignation : ce qui s'interprète y est présenté comme ce qui se mesure.",
+          "references": [
+            "claim_2",
+            "er_0"
+          ]
+        },
+        {
+          "id": "",
+          "text": "Un chiffre frappant comme « 93 % des études » perd de sa force quand il vient de la **partie intéressée** et non d'un décompte indépendant : notez toujours d'où sort le comptage.",
+          "references": [
+            "claim_1",
+            "cb_1"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Demandez-vous si les cinq controverses réunies sont la **règle ou l'exception**, faute de quoi un schéma séduisant tient lieu de démonstration.",
+      "Retenez que les mécaniques d'influence montrées sur le tabac sont **réelles et documentées**, mais que leur extension aux autres dossiers reste à vérifier cas par cas.",
+      "Gardez le réflexe utile offert par le film — se demander **à qui profite l'incertitude** — sans oublier de l'appliquer aussi au cadrage du film lui-même.",
+      "Confrontez le récit à une source qui distingue explicitement **doute légitime et doute fabriqué** avant d'en tirer une conclusion."
+    ],
+    "title_note": "Le titre « la fabrique de l'ignorance » pose d'emblée la manipulation comme un fait établi, orientant la lecture avant tout examen des cas.",
+    "perspective": {
+      "framing": "Le film choisit l'angle de la gnotologie — l'étude de l'ignorance produite volontairement — et place au centre une note interne de l'industrie du tabac érigée en clé de lecture. Il procède par enquête et alterne experts et victimes, sur un registre d'alerte qui parle du point de vue de la science régulée face aux stratégies industrielles.",
+      "blind_spots": "Le récit ne trace jamais la frontière entre doute scientifique légitime et doute fabriqué, et n'évalue pas la représentativité des cinq controverses choisies. La parole de l'industrie mise en cause est absente, et les études invoquées ne sont pas nommées assez précisément pour être vérifiées.",
+      "balance": "Un documentaire prenant une position claire n'est pas tenu de donner la parole à toutes les parties, et un format resserré ne peut détailler chaque dossier. Ce que l'analyse signale — schéma unique, contradicteur absent — est réel, mais reste cohérent avec le genre engagé du film : la vigilance porte moins sur ces choix que sur la tentation d'y voir une démonstration complète."
+    }
+  },
+  "core_elements": {
+    "elements": [
+      {
+        "statement": "Des industries **fabriquent le doute** scientifique pour retarder la régulation de leurs produits.",
+        "kind": "angle",
+        "centrality": 5,
+        "seeds": {
+          "source": "premisse",
+          "index": 0,
+          "excerpt": "stratégie délibérée de fabrication du doute",
+          "strength": 1.0,
+          "nature": "illustration"
+        }
+      },
+      {
+        "statement": "Les **archives internes du tabac** rendues publiques documentent la stratégie du doute.",
+        "kind": "fait",
+        "centrality": 4,
+        "seeds": {
+          "source": "context",
+          "index": 2,
+          "excerpt": "archives internes du tabac rendues publiques",
+          "strength": 1.0,
+          "nature": "illustration"
+        }
+      },
+      {
+        "statement": "Un **même schéma** est étendu du tabac aux abeilles, au bisphénol et au climat.",
+        "kind": "biais",
+        "centrality": 4,
+        "seeds": {
+          "source": "logical_reasoning",
+          "index": 0,
+          "excerpt": "même mécanisme intentionnel derrière chaque affaire",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "statement": "La frontière entre **doute légitime** et doute fabriqué n'est jamais tracée.",
+        "kind": "enjeu",
+        "centrality": 3,
+        "seeds": {
+          "source": "blind_spot",
+          "index": 0,
+          "excerpt": "la frontière entre doute légitime et doute fabriqué n'est jamais tracée",
+          "strength": 0.8,
+          "nature": "specification"
+        }
+      },
+      {
+        "statement": "Fonder les **décisions politiques** sur les faits est présenté comme un enjeu démocratique.",
+        "kind": "enjeu",
+        "centrality": 3,
+        "seeds": {
+          "source": "important_fact",
+          "index": 2,
+          "excerpt": "les décisions politiques se fondent sur des faits",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      }
+    ]
+  }
+}

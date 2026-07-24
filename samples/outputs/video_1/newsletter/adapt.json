@@ -1,0 +1,179 @@
+{
+  "subject": "Le doute, un produit qui se fabrique ?",
+  "preheader": "Une stratégie prouvée sur le tabac, étendue aux abeilles, au bisphénol, au climat.",
+  "essentiel": "La vidéo, un documentaire de vulgarisation, part d'une note interne de l'industrie du tabac datée de 1969 : « le doute est notre produit ». Tirée des archives rendues publiques après les procès américains, elle décrit une stratégie visant à semer l'incertitude plutôt qu'à établir des faits. Le film étend ensuite ce mécanisme aux pluies acides, à l'ozone, aux pesticides, au bisphénol A, aux néonicotinoïdes et au climat. Il avance que l'effet du bisphénol à très faible dose serait confirmé par **93 % des études publiques** et par aucune étude financée par l'industrie, rappelle l'interdiction des néonicotinoïdes en France en 2018 et le consensus climatique du GIEC, partagé par plus de 97 % des climatologues.\n\nSa thèse : des industries fabriquent le doute scientifique pour retarder la régulation de leurs produits, selon **un même schéma** reproduit d'un dossier à l'autre. Le film conclut sur un enjeu démocratique, résumé par une formule qu'il met en avant : « dès que l'on cesse de fonder les politiques sur des faits, on renonce à la démocratie ».",
+  "selection_headline": "Bien plus qu'une affaire de tabac.",
+  "why_selected": "Une mécanique d'influence documentée sur le tabac, puis étendue aux abeilles, au bisphénol et au climat : le film déroule cinq controverses sous **une même grille**. Son sujet déborde la science et touche à la place des faits dans la décision publique, ce qui rend le débat autant démocratique que scientifique.",
+  "payoff": "En le regardant, vous saurez apprécier ce que le film prouve solidement, le cas du tabac, sans vous laisser porter par le récit là où il généralise. Vous repartez aussi avec **des réflexes réutilisables** : remonter à la source d'une pièce, vérifier qui a compté un chiffre, distinguer un doute légitime d'un doute fabriqué.",
+  "context": "Le film s'inscrit dans un champ récent, la **gnotologie**, l'étude de l'ignorance produite volontairement. Il paraît dans un climat de défiance envers la science et de controverses publiques sur le climat, les vaccins et les pesticides. Les archives internes du tabac, rendues publiques après les procès américains, ont fourni la preuve documentaire de ces stratégies. En parallèle se déroulent en Europe des débats réglementaires sur les néonicotinoïdes et le bisphénol A.",
+  "reading_posture": "Le film convainc par **l'enquête** : un cas prouvé posé d'emblée, puis une série d'exemples parallèles et des experts convergents qui installent un schéma unique.",
+  "decryptage": [
+    {
+      "kind": "faille",
+      "quote": "Le doute est notre produit car c'est le meilleur moyen de concurrencer l'ensemble des faits présents dans l'esprit du public.",
+      "presentation": "source",
+      "reading": "C'est une note interne rédigée en 1969, tirée des **archives du tabac** rendues publiques après les procès américains. La pièce est directe et vérifiable, mais elle ne documente que l'industrie du tabac. Notez ce qu'elle prouve exactement avant de l'appliquer à d'autres dossiers.",
+      "prompt": "Remontez à la source de cette pièce et à sa portée.",
+      "lens_ref": "sources"
+    },
+    {
+      "kind": "faille",
+      "quote": "l'histoire du tabac et c'est la même histoire pour les pluies acides, pour le trou de la couche d'ozone, pour les pesticides, le changement climatique, les néonicotinoïdes, le bisphénol a la pilule contraceptive.",
+      "presentation": "généralisation",
+      "reading": "L'énumération enchaîne huit dossiers sur le même ton, alors que **seul le tabac** s'appuie ici sur des archives. La solidité du premier cas ne se transmet pas automatiquement aux suivants. Chaque affaire de la liste demande sa propre démonstration.",
+      "prompt": "Vérifiez si chaque dossier de la liste est démontré.",
+      "lens_ref": "sophismes"
+    },
+    {
+      "kind": "faille",
+      "quote": "Dès le début des années 2000, des rapports d'expertise publique ont démontré l'effet toxique des néonicotinoïdes à très faible dose sur les abeilles.",
+      "presentation": "source",
+      "reading": "L'affirmation est posée comme acquise, **sans citer les rapports** ni les organismes qui les ont produits. Le fait est plausible et recoupable auprès de l'EFSA ou de l'ANSES, mais le film ne donne pas les références qui permettraient de le retrouver. Un nom d'étude ou d'agence rendrait la vérification possible.",
+      "prompt": "Cherchez quels rapports et quels organismes sont nommés.",
+      "lens_ref": "sources"
+    },
+    {
+      "kind": "faille",
+      "quote": "l'effet du bisphénol A à très faible dose est confirmé par 93 % des études publiques, mais par aucune des études financées par l'industrie.",
+      "presentation": "chiffre",
+      "reading": "Le chiffre de **93 %** est frappant, mais il provient de la revue d'un seul chercheur, Frederick vom Saal, et non d'un décompte indépendant. L'opposition public/industrie est nette et mérite d'être recoupée avec la source du comptage. Un pourcentage vaut ce que vaut la méthode qui l'a établi.",
+      "prompt": "Cherchez qui a compté ces études et sur quelle base.",
+      "lens_ref": "chiffres"
+    },
+    {
+      "kind": "faille",
+      "quote": "Plus les industries empêchent l'émergence d'un consensus scientifique, plus il aurait facile de lutter contre les poursuites judiciaires et contre la réglementation.",
+      "presentation": "causalité",
+      "reading": "La phrase pose un intérêt clair, retarder le consensus pour retarder la régulation, ce que les archives du tabac documentent. Reste que l'**absence de consensus** peut aussi tenir à une complexité scientifique réelle, sans manœuvre. Le motif et le mécanisme sont deux choses à établir séparément.",
+      "prompt": "Distinguez le lien de cause affirmé de la simple coïncidence.",
+      "lens_ref": "causalite"
+    },
+    {
+      "kind": "faille",
+      "quote": "Ils cherchent volontairement à faire dérailler la science.",
+      "presentation": "cadrage",
+      "reading": "La phrase attribue une **intention délibérée** à des acteurs qui ne sont pas nommés. Ce qui relève de l'interprétation est présenté avec la même assurance qu'un constat. On peut observer des résultats et des financements ; l'intention, elle, se déduit et se démontre.",
+      "prompt": "Distinguez l'intention prêtée du fait observable.",
+      "lens_ref": "opinion_fait"
+    },
+    {
+      "kind": "faille",
+      "quote": "le réchauffement climatique est sans équivoque et l'influence de l'homme est claire",
+      "presentation": "source",
+      "reading": "La formule reprend presque mot pour mot le vocabulaire du **GIEC**, dont les rapports sont publics et vérifiables. Ici la pièce est solide et adossée à un consensus large. C'est un exemple où le socle documentaire tient, à distinguer des affirmations moins étayées du film.",
+      "prompt": "Repérez d'où vient cette formulation et qui la porte.",
+      "lens_ref": "sources"
+    }
+  ],
+  "framing": "Le film choisit l'angle de la **gnotologie**, l'étude de l'ignorance produite volontairement, et place au centre une note interne de l'industrie du tabac érigée en clé de lecture. Il procède par enquête et alterne paroles d'experts et visages de victimes, sur un registre d'alerte. Il parle depuis la position de la science régulée face aux stratégies industrielles.",
+  "architecture": {
+    "keystone": "Faut-il juger ce récit sur le cas du tabac, solidement prouvé, ou sur les dossiers qu'il y rattache sans les démontrer un à un ?",
+    "presupposes": [
+      "Les cinq controverses réunies seraient **représentatives** de la façon dont science et industrie s'affrontent, et non des cas exceptionnels.",
+      "L'absence de consensus après vingt ans traduirait un **doute fabriqué** plutôt qu'une incertitude scientifique réelle.",
+      "Les experts retenus refléteraient fidèlement l'**état de la connaissance**, sans effet de sélection.",
+      "Le mécanisme prouvé sur le tabac se rejouerait **à l'identique** dans les autres dossiers."
+    ]
+  },
+  "a_emporter": {
+    "key_takeaways": [
+      "La formule « le doute est notre produit » vient d'une **note interne du tabac de 1969**, rendue publique après les procès américains.",
+      "En France, les néonicotinoïdes ont été **interdits en 2018**, avec des dérogations temporaires accordées ensuite pour la betterave.",
+      "Le consensus climatique du **GIEC** est partagé par plus de 97 % des climatologues.",
+      "Les documents du tabac proviennent du **Master Settlement Agreement de 1998**, archivés à l'université de San Francisco."
+    ],
+    "reflexes_critiques": [
+      {
+        "lens_ref": "sources",
+        "rule": "Devant une pièce à charge, remontez à son origine et à ce qu'elle prouve vraiment : une **note de 1969** ne documente que le tabac, pas les dossiers voisins.",
+        "reusable_on": "santé, environnement, justice, politique"
+      },
+      {
+        "lens_ref": "sophismes",
+        "rule": "Quand un cas prouvé sert de modèle à toute une liste, exigez que **chaque dossier** soit démontré pour lui-même.",
+        "reusable_on": "sciences, économie, faits divers"
+      },
+      {
+        "lens_ref": "chiffres",
+        "rule": "Devant un pourcentage frappant, cherchez **qui l'a compté** et sur quelle base avant de le retenir.",
+        "reusable_on": "santé, sondages, économie"
+      },
+      {
+        "lens_ref": "causalite",
+        "rule": "Séparez le motif d'un acteur du mécanisme réel : un intérêt à retarder le consensus ne prouve pas que le doute a été fabriqué.",
+        "reusable_on": "économie, santé publique, climat"
+      },
+      {
+        "lens_ref": "opinion_fait",
+        "rule": "Distinguez ce qui s'observe, résultats et financements, de ce qui se déduit, une **intention**, présenté avec la même assurance.",
+        "reusable_on": "politique, justice, économie"
+      }
+    ]
+  },
+  "verdict": {
+    "enjeux": [
+      "Au-delà de chaque dossier, l'enjeu de fond est la place des **faits** dans la décision publique : qui a le pouvoir de dire ce qui compte comme preuve, et à partir de quand une incertitude justifie ou non d'agir. Le film pose cette question en liant le sort des régulations à l'état du consensus scientifique.",
+      "Se pose aussi la frontière entre **doute légitime** et doute fabriqué : toute science avance par révision de ses consensus, et distinguer la controverse ordinaire de la manœuvre organisée conditionne la confiance qu'on accorde aux alertes comme aux démentis."
+    ],
+    "objections": [
+      "On pourrait objecter que l'absence de consensus traduit parfois une **complexité scientifique réelle**, causes multiples et effets à très faible dose difficiles à isoler, et non un doute organisé. Dans ce cas, certaines controverses seraient des désaccords scientifiques légitimes, pas des manipulations.",
+      "Explorer des **causes alternatives** à la mort des abeilles, varroa, virus, habitat, est une démarche scientifique normale, pas nécessairement une diversion. Multiplier les pistes de recherche relèverait alors de la bonne science, non d'une fabrique de l'ignorance.",
+      "Le tabac et l'amiante sont peut-être les cas les plus flagrants, donc les **moins représentatifs** de l'ensemble des rapports science-industrie. Le schéma décrit serait alors l'exception, et la plupart des controverses relèveraient d'un débat ordinaire."
+    ],
+    "angles_morts": [
+      "La parole de l'industrie mise en cause est **absente** : aucun représentant ne développe sa position pour être contredit sur pièces.",
+      "Les études scientifiques invoquées ne sont pas **nommées précisément**, ce qui empêche de les retrouver et de les recouper.",
+      "La **représentativité** des cinq controverses choisies n'est jamais évaluée par rapport à l'ensemble des débats science-industrie."
+    ],
+    "nuances": [
+      "Les mécaniques d'influence documentées sur le tabac sont **réelles et prouvées** ; c'est leur extension aux autres dossiers qui reste à vérifier cas par cas.",
+      "Le consensus climatique du GIEC est un **fait établi** ; le débat porte sur les moyens d'agir, pas sur la réalité du réchauffement.",
+      "L'interdiction des néonicotinoïdes en France est **effective depuis 2018**, mais les dérogations accordées ensuite pour la betterave nuancent l'idée d'une interdiction totale."
+    ]
+  },
+  "go_further": [
+    {
+      "title": "Les Marchands de doute",
+      "source": "Naomi Oreskes et Erik M. Conway",
+      "why": "L'enquête de référence sur la **stratégie du doute**, du tabac au climat, qui détaille les cas que le film survole.",
+      "type": "livre",
+      "url": ""
+    },
+    {
+      "title": "Travaux sur l'agnotologie",
+      "source": "Robert N. Proctor",
+      "why": "Le chercheur qui a forgé le terme d'agnotologie explique comment l'ignorance se produit volontairement, cadre théorique du film.",
+      "type": "livre",
+      "url": ""
+    },
+    {
+      "title": "Évaluations sur les néonicotinoïdes et les abeilles",
+      "source": "Autorité européenne de sécurité des aliments (EFSA)",
+      "why": "Les évaluations officielles sur la toxicité des néonicotinoïdes, pour recouper l'affirmation non sourcée du film.",
+      "type": "données",
+      "url": "https://efsa.europa.eu"
+    },
+    {
+      "title": "Expertises sur le bisphénol A et les néonicotinoïdes",
+      "source": "Agence nationale de sécurité sanitaire (ANSES)",
+      "why": "Les expertises françaises utiles pour situer le **chiffre de 93 %** dans un décompte indépendant.",
+      "type": "rapport",
+      "url": "https://anses.fr"
+    },
+    {
+      "title": "Rapports d'évaluation du climat",
+      "source": "Groupe d'experts intergouvernemental sur l'évolution du climat (GIEC)",
+      "why": "Les rapports qui établissent le consensus climatique cité, pour vérifier la formule reprise à l'écran.",
+      "type": "rapport",
+      "url": "https://ipcc.ch"
+    },
+    {
+      "title": "Archives internes de l'industrie du tabac",
+      "source": "Université de Californie à San Francisco",
+      "why": "Les documents rendus publics après le Master Settlement Agreement, la **source documentaire** centrale du film.",
+      "type": "archives",
+      "url": "https://ucsf.edu"
+    }
+  ],
+  "signoff": "On sélectionne. On éclaire. **Vous jugez.**"
+}

@@ -8,7 +8,7 @@
 <div class="wrap">
   <div class="cover">
     {% if cat_pill %}<div class="cat-pill" style="color:{{ cat_pill.text }};background:{{ cat_pill.bg }};">{{ cat_pill.icon | safe }} {{ cat_pill.label }}</div>{% endif %}
-    {% if orig_title %}<div class="artref-label">— L'article —</div>
+    {% if orig_title %}<div class="artref-label">— {{ artref_label }} —</div>
     {% if orig_url %}<a class="artref-title" href="{{ orig_url }}" target="_blank" rel="noopener noreferrer">{{ orig_title }} ↗</a>{% else %}<div class="artref-title">{{ orig_title }}</div>{% endif %}
     {% if meta_line %}<div class="meta">{{ meta_line }}</div>{% endif %}{% endif %}
     <div class="hook-sep"><svg width="480" height="30" viewBox="0 0 480 30" xmlns="http://www.w3.org/2000/svg"><polyline points="20,7 240,24 460,7" fill="none" stroke="#d4aa00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>

@@ -7,7 +7,7 @@ import json
 import sys
 from pathlib import Path
 
-from agent._base import _call_with_retry, _j
+from agent._base import _call_with_retry, _j, medium_directive
 from agent.lenses import LENS_IDS
 from models.full_analysis import ArticleFullAnalysis
 from models.newsletter_presentation import NewsletterPresentation
@@ -133,6 +133,8 @@ def adapt(
     if backbone is not None:
         print("Backbone carousel détecté — expansion en prose.", file=sys.stderr, flush=True)
     user_msg = f"{_context(full, backbone)}\n\n---\n\n{_PROMPT}"
+    if (directive := medium_directive(full.article_metadata.medium)):
+        user_msg += f"\n\n---\n\n{directive}"
     print("Adaptation newsletter…", file=sys.stderr, flush=True)
     data = _call_with_retry(
         user_msg,

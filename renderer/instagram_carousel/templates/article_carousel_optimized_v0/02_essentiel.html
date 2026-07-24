@@ -15,12 +15,12 @@
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
   <div class="sel-stage">
-    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>L'essentiel de l'article</span>
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>{{ L.essentiel }}</span>
     <h1 class="sel-head">En bref</h1>
     <div class="divider"></div>
     <div class="es-summary">{{ essentiel_summary | md_bold }}</div>
   </div>
-  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Pourquoi cet article &#8250;</span></div>
+  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">{{ L.why }} &#8250;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
 </div>

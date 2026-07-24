@@ -67,6 +67,7 @@ class FullAnalysisInput(BaseModel):
     url: HttpUrl | None = None
     source: str | None = None
     published_at: str | None = None
+    medium: Literal["article", "video", "podcast"] = "article"
     extra_instructions: str | None = None
 
 
@@ -76,6 +77,9 @@ class ArticleMetadata(BaseModel):
     source: str | None = None
     published_at: str | None = None
     type: Literal["editorial", "news_report", "opinion", "investigation", "interview", "other"] | None = None
+    # the source medium — drives reader-facing vocabulary (lire/regarder/écouter);
+    # `type` above is the genre within that medium.
+    medium: Literal["article", "video", "podcast"] = "article"
     category: Literal[
         "Politique", "Économie", "International", "Société", "Écologie",
         "Sciences & Santé", "Tech", "Culture", "Sport", "Autre",

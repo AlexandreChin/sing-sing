@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>* { margin: 0; padding: 0; box-sizing: border-box; }
+@page { size: A4; }
+html, body {
+  background: #0b0b0b;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+body {
+  color: #f0f0f0;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 780px; margin: 0 auto; padding: 6px 64px 6px; }
+
+/* header */
+.brand { display: flex; align-items: center; justify-content: space-between; }
+.brand .name { font-size: 24px; font-weight: 900; color: #d4aa00; letter-spacing: -0.01em; line-height: 1.05; }
+.brand img { width: 46px; height: 46px; }
+.subject { font-size: 42px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; margin-top: 30px; }
+.subject strong, .subject em { color: #d4aa00; font-style: normal; }
+.meta { margin-top: 12px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8a8a8a; }
+/* Centered "cover" that echoes the carousel hook slide: their article (quiet
+   italic) → chevron → our analysis (the hook). Body prose below stays left-
+   aligned; gold is reserved for our voice (the labels + the hook accents). */
+.cover { text-align: center; margin-top: 26px; }
+.cat-pill { display: inline-block; border-radius: 999px; padding: 7px 17px; font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 24px; }
+.artref-label { font-size: 13px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: #8a8a8a; }
+.artref-title { display: block; max-width: 640px; margin: 14px auto 0; font-size: 26px; line-height: 1.4; font-weight: 600; font-style: italic; color: #e8e8e8; }
+a.artref-title { color: #e8e8e8; text-decoration: underline; text-decoration-color: #666; }
+.cover .meta { margin-top: 14px; }
+.hook-sep { margin: 34px 0 0; }
+.hook-sep svg { display: block; margin: 0 auto; }
+.hook-label { font-size: 15px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: #d4aa00; margin-top: 20px; }
+.cover .subject { font-size: 46px; margin-top: 14px; text-wrap: balance; }
+.divider { height: 2px; background: linear-gradient(90deg, #d4aa00, transparent); margin: 34px 0; }
+
+/* body */
+.intro { font-size: 19px; line-height: 1.62; color: #e6e6e6; }
+.kicker { display: flex; align-items: center; gap: 11px; font-size: 22px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: #d4aa00; margin: 40px 0 16px; break-after: avoid; }
+.kicker svg { width: 19px; height: 19px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; }
+p { font-size: 17px; line-height: 1.6; color: #e6e6e6; margin: 10px 0; }
+p.subtitle { font-size: 20px; font-weight: 600; color: #d4aa00; margin: 0 0 14px; }
+p.note { font-size: 14px; line-height: 1.55; color: #9a9a9a; font-style: italic; margin: 14px 0 0; padding-top: 12px; border-top: 1px solid #2f2f2f; }
+h3.subhead { display: flex; align-items: center; gap: 9px; font-size: 20px; font-weight: 700; color: #f0f0f0; margin: 28px 0 10px; break-after: avoid; }
+h3.subhead svg { width: 17px; height: 17px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+strong { color: #d4aa00; font-weight: 700; }
+
+/* argument spine (numbered chain A→B→C) */
+.spine { display: flex; flex-direction: column; gap: 14px; margin: 6px 0 4px; }
+.spine .row { display: flex; gap: 16px; align-items: flex-start; font-size: 17px; line-height: 1.5; color: #e6e6e6; }
+.spine .row .n { flex: none; width: 26px; height: 26px; border-radius: 50%; background: #d4aa00; color: #0b0b0b; font-weight: 900; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+
+/* décryptage (chronological pass) — each beat / resource in its own sub-card */
+.subcard { background: #141414; border: 1px solid #242424; border-radius: 12px; padding: 22px 26px; margin: 16px 0; break-inside: avoid; }
+.subcard > :first-child { margin-top: 0; }
+.subcard > :last-child { margin-bottom: 0; }
+.subcard .kicker { margin: 0 0 18px; }
+.decrypt { border-left: 3px solid #d4aa00; padding-left: 16px; margin: 0 0 10px; }
+.decrypt .claim { font-size: 18px; font-style: italic; line-height: 1.4; color: #f0f0f0; }
+/* beat answer — gold arrow, no italic, no "Réponse" label */
+.answer { font-size: 16px; line-height: 1.55; color: #dedede; margin-top: 12px; }
+.answer .ans-mk { color: #d4aa00; font-weight: 900; margin-right: 8px; }
+.kicker.vue { margin-top: 48px; }
+
+/* à retenir box */
+.box { background: #161616; border: 1px solid #2a2a2a; border-radius: 10px; padding: 24px 28px; break-inside: avoid; }
+.box ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.box li { position: relative; padding-left: 30px; font-size: 17px; line-height: 1.5; color: #e6e6e6; }
+.box li::before { content: "\203A"; position: absolute; left: 0; color: #d4aa00; font-weight: 900; }
+
+/* décryptage sections */
+.sec { margin-top: 26px; break-inside: avoid; }
+.sec h3 { font-size: 23px; font-weight: 800; color: #f0f0f0; letter-spacing: -0.01em; margin-bottom: 8px; }
+.sec p { font-size: 17px; line-height: 1.58; color: #dedede; }
+
+/* stepping back list */
+.plain { display: flex; flex-direction: column; gap: 12px; }
+.qlist { margin-top: 14px; }
+.plain .row { display: flex; gap: 16px; font-size: 17px; line-height: 1.5; color: #dedede; }
+.plain .row .mk { flex: none; font-weight: 900; }
+.plain .row .mk.gold { color: #d4aa00; }
+.plain .row .mk.salmon { color: #e8a07a; }
+
+/* verdict */
+.verdict { background: #161616; border-radius: 12px; padding: 28px 30px; break-inside: avoid; }
+.verdict p { font-size: 18px; line-height: 1.55; color: #eaeaea; margin-top: 16px; }
+
+/* « Pour aller plus loin » — one card; each resource: type pill, title, source, why (6221e68) */
+.restype { margin-bottom: 9px; }
+.pill { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #1a1400; background: #d4aa00; padding: 4px 10px; border-radius: 4px; }
+.rtitle { font-size: 21px; font-weight: 800; color: #f0f0f0; line-height: 1.3; }
+.rtitle a { color: #f0f0f0; text-decoration: underline; text-decoration-color: #666; }
+.rsource { font-size: 13px; color: #8a8a8a; text-transform: uppercase; letter-spacing: .08em; margin-top: 5px; }
+.rwhy { font-size: 16px; color: #dedede; line-height: 1.55; margin-top: 11px; }
+.rwhy strong { color: #d4aa00; }
+.res-sep { height: 1px; background: #2a2a2a; margin: 22px 0; }
+
+/* open question (keystone quote in L'architecture, "La question" in À vous de juger) */
+.openq { margin-top: 22px; padding: 18px 24px; background: #161616; border: 1px solid #2a2a2a; border-radius: 10px; font-size: 18px; line-height: 1.5; color: #eaeaea; break-inside: avoid; }
+.openq .oq-label { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800; font-style: normal; letter-spacing: .12em; text-transform: uppercase; color: #d4aa00; margin-bottom: 10px; }
+.openq .oq-label svg { width: 14px; height: 14px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.read-cta-wrap { text-align: center; margin: 36px 0 6px; }
+.read-cta { display: inline-block; padding: 14px 30px; background: #d4aa00; color: #1a1400; text-decoration: none; font-weight: 800; font-size: 16px; letter-spacing: .02em; border-radius: 8px; }
+.read-cta-note { font-size: 13px; color: #8a8a8a; margin-top: 11px; }
+.signoff { margin-top: 44px; padding-top: 22px; border-top: 1px solid #222; font-size: 16px; color: #b0b0b0; text-align: center; }</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="cover">
+    
+    
+    <div class="hook-sep"><svg width="480" height="30" viewBox="0 0 480 30" xmlns="http://www.w3.org/2000/svg"><polyline points="20,7 240,24 460,7" fill="none" stroke="#d4aa00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="hook-label">— Notre analyse —</div>
+    <h1 class="subject">Une stratégie du doute prouvée sur le tabac, étendue <strong>jusqu&#39;où</strong> ?</h1>
+  </div>
+  <div class="divider"></div>
+  <p class="intro">La vidéo, un documentaire de vulgarisation, part d'une note interne de l'industrie du tabac datée de 1969 : « le doute est notre produit ». Tirée des archives rendues publiques après les procès américains, elle décrit une stratégie visant à semer l'incertitude plutôt qu'à établir des faits. Le film étend ensuite ce mécanisme aux pluies acides, à l'ozone, aux pesticides, au bisphénol A, aux néonicotinoïdes et au climat. Il avance que l'effet du bisphénol à très faible dose serait confirmé par <strong>93 % des études publiques</strong> et par aucune étude financée par l'industrie, rappelle l'interdiction des néonicotinoïdes en France en 2018 et le consensus climatique du GIEC, partagé par plus de 97 % des climatologues.</p>
+<p class="intro">Sa thèse : des industries fabriquent le doute scientifique pour retarder la régulation de leurs produits, selon <strong>un même schéma</strong> reproduit d'un dossier à l'autre. Le film conclut sur un enjeu démocratique, résumé par une formule qu'il met en avant : « dès que l'on cesse de fonder les politiques sur des faits, on renonce à la démocratie ».</p>
+<div class="kicker"><svg viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>Pourquoi cette vidéo</div>
+<p class="subtitle">Bien plus qu'une affaire de tabac.</p>
+<p>Une mécanique d'influence documentée sur le tabac, puis étendue aux abeilles, au bisphénol et au climat : le film déroule cinq controverses sous <strong>une même grille</strong>. Son sujet déborde la science et touche à la place des faits dans la décision publique, ce qui rend le débat autant démocratique que scientifique.</p>
+<p>En le regardant, vous saurez apprécier ce que le film prouve solidement, le cas du tabac, sans vous laisser porter par le récit là où il généralise. Vous repartez aussi avec <strong>des réflexes réutilisables</strong> : remonter à la source d'une pièce, vérifier qui a compté un chiffre, distinguer un doute légitime d'un doute fabriqué.</p>
+<div class="kicker"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>Avant de vous lancer</div>
+<h3 class="subhead"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Le contexte</h3>
+<p>Le film s'inscrit dans un champ récent, la <strong>gnotologie</strong>, l'étude de l'ignorance produite volontairement. Il paraît dans un climat de défiance envers la science et de controverses publiques sur le climat, les vaccins et les pesticides. Les archives internes du tabac, rendues publiques après les procès américains, ont fourni la preuve documentaire de ces stratégies. En parallèle se déroulent en Europe des débats réglementaires sur les néonicotinoïdes et le bisphénol A.</p>
+<h3 class="subhead"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Le lexique</h3>
+<div class="plain"><div class="row"><span class="mk gold">›</span><span><strong>Gnotologie (agnotologie)</strong> : L'étude de la manière dont l'ignorance est <strong>produite volontairement</strong>, et non seulement subie.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Néonicotinoïdes</strong> : Une famille d'<strong>insecticides</strong> de nouvelle génération soupçonnés de tuer les abeilles.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Perturbateur endocrinien</strong> : Une substance qui <strong>dérègle le système hormonal</strong> même à très faible dose.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Bisphénol A</strong> : Un composé chimique des <strong>plastiques</strong> qui se comporte comme une hormone.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Épidémiologie</strong> : L'étude <strong>statistique</strong> de la santé des populations exposées ou non à un facteur de risque.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Varroa destructor</strong> : Un <strong>acarien parasite</strong> de l'abeille souvent désigné comme cause alternative de sa mort.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Chambre d'écho</strong> : Un espace où une opinion <strong>circule en boucle</strong> entre personnes déjà d'accord.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Dissonance cognitive</strong> : L'<strong>inconfort mental</strong> ressenti face à deux croyances contradictoires.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Sound science / junk science</strong> : Un couple d'expressions <strong>retourné</strong> par l'industrie pour valoriser la recherche de diversion et discréditer la vraie science.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Fausses organisations de terrain</strong> : Des mouvements présentés comme <strong>citoyens</strong> mais en réalité montés par des industriels.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Science non faite</strong> : Les <strong>domaines délaissés</strong> faute d'intérêt commercial à les explorer.</span></div></div>
+<h3 class="subhead"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>Comment la regarder</h3>
+<p>Le film convainc par <strong>l'enquête</strong> : un cas prouvé posé d'emblée, puis une série d'exemples parallèles et des experts convergents qui installent un schéma unique. Voici les réflexes à garder sous la main :</p>
+<div class="plain"><div class="row"><span class="mk gold">›</span><span>🔎 <strong>Sources</strong> : Devant une pièce à charge, remontez à son origine et à ce qu'elle prouve vraiment : une <strong>note de 1969</strong> ne documente que le tabac, pas les dossiers voisins.</span></div><div class="row"><span class="mk gold">›</span><span>🧩 <strong>Logique</strong> : Quand un cas prouvé sert de modèle à toute une liste, exigez que <strong>chaque dossier</strong> soit démontré pour lui-même.</span></div><div class="row"><span class="mk gold">›</span><span>📊 <strong>Chiffres</strong> : Devant un pourcentage frappant, cherchez <strong>qui l'a compté</strong> et sur quelle base avant de le retenir.</span></div><div class="row"><span class="mk gold">›</span><span>🔗 <strong>Causalité</strong> : Séparez le motif d'un acteur du mécanisme réel : un intérêt à retarder le consensus ne prouve pas que le doute a été fabriqué.</span></div><div class="row"><span class="mk gold">›</span><span>🏷️ <strong>Fait ou opinion</strong> : Distinguez ce qui s'observe, résultats et financements, de ce qui se déduit, une <strong>intention</strong>, présenté avec la même assurance.</span></div></div>
+<h3 class="subhead"><svg viewBox="0 0 24 24"><path d="M9 4v6l-2 4v2h10v-2l-2-4V4"/><path d="M12 16v5"/><path d="M8 4h8"/></svg>Les faits à garder en tête</h3>
+<div class="plain"><div class="row"><span class="mk gold">›</span><span>En France, les néonicotinoïdes ont été <strong>interdits en 2018</strong>, avec des dérogations temporaires accordées ensuite pour la betterave.</span></div><div class="row"><span class="mk gold">›</span><span>L'<strong>appel d'Heidelberg</strong> a été rendu public en 1992, à l'ouverture du Sommet de la Terre de Rio.</span></div><div class="row"><span class="mk gold">›</span><span>Le premier verdict <strong>Dewayne Johnson contre Monsanto</strong> a été rendu en 2018 par un tribunal californien.</span></div><div class="row"><span class="mk gold">›</span><span>Les documents du tabac sont issus du <strong>Master Settlement Agreement de 1998</strong> et archivés à l'université de San Francisco.</span></div><div class="row"><span class="mk gold">›</span><span>Le <strong>consensus climatique</strong> est établi par le GIEC et partagé par plus de 97 % des climatologues.</span></div></div>
+<div class="subcard beats"><div class="kicker"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Au fil de la vidéo</div><div class="decrypt"><div class="claim">« Le doute est notre produit car c'est le meilleur moyen de concurrencer l'ensemble des faits présents dans l'esprit du public. »</div></div>
+<p>🔎 <strong>Sources</strong> : Remontez à la source de cette pièce et à sa portée.</p>
+<div class="answer"><span class="ans-mk">›</span> C'est une note interne rédigée en 1969, tirée des <strong>archives du tabac</strong> rendues publiques après les procès américains. La pièce est directe et vérifiable, mais elle ne documente que l'industrie du tabac. Notez ce qu'elle prouve exactement avant de l'appliquer à d'autres dossiers.</div>
+<div class="res-sep"></div><div class="decrypt"><div class="claim">« l'histoire du tabac et c'est la même histoire pour les pluies acides, pour le trou de la couche d'ozone, pour les pesticides, le changement climatique, les néonicotinoïdes, le bisphénol a la pilule contraceptive. »</div></div>
+<p>🧩 <strong>Logique</strong> : Vérifiez si chaque dossier de la liste est démontré.</p>
+<div class="answer"><span class="ans-mk">›</span> L'énumération enchaîne huit dossiers sur le même ton, alors que <strong>seul le tabac</strong> s'appuie ici sur des archives. La solidité du premier cas ne se transmet pas automatiquement aux suivants. Chaque affaire de la liste demande sa propre démonstration.</div>
+<div class="res-sep"></div><div class="decrypt"><div class="claim">« Dès le début des années 2000, des rapports d'expertise publique ont démontré l'effet toxique des néonicotinoïdes à très faible dose sur les abeilles. »</div></div>
+<p>🔎 <strong>Sources</strong> : Cherchez quels rapports et quels organismes sont nommés.</p>
+<div class="answer"><span class="ans-mk">›</span> L'affirmation est posée comme acquise, <strong>sans citer les rapports</strong> ni les organismes qui les ont produits. Le fait est plausible et recoupable auprès de l'EFSA ou de l'ANSES, mais le film ne donne pas les références qui permettraient de le retrouver. Un nom d'étude ou d'agence rendrait la vérification possible.</div>
+<div class="res-sep"></div><div class="decrypt"><div class="claim">« l'effet du bisphénol A à très faible dose est confirmé par 93 % des études publiques, mais par aucune des études financées par l'industrie. »</div></div>
+<p>📊 <strong>Chiffres</strong> : Cherchez qui a compté ces études et sur quelle base.</p>
+<div class="answer"><span class="ans-mk">›</span> Le chiffre de <strong>93 %</strong> est frappant, mais il provient de la revue d'un seul chercheur, Frederick vom Saal, et non d'un décompte indépendant. L'opposition public/industrie est nette et mérite d'être recoupée avec la source du comptage. Un pourcentage vaut ce que vaut la méthode qui l'a établi.</div>
+<div class="res-sep"></div><div class="decrypt"><div class="claim">« Plus les industries empêchent l'émergence d'un consensus scientifique, plus il aurait facile de lutter contre les poursuites judiciaires et contre la réglementation. »</div></div>
+<p>🔗 <strong>Causalité</strong> : Distinguez le lien de cause affirmé de la simple coïncidence.</p>
+<div class="answer"><span class="ans-mk">›</span> La phrase pose un intérêt clair, retarder le consensus pour retarder la régulation, ce que les archives du tabac documentent. Reste que l'<strong>absence de consensus</strong> peut aussi tenir à une complexité scientifique réelle, sans manœuvre. Le motif et le mécanisme sont deux choses à établir séparément.</div>
+<div class="res-sep"></div><div class="decrypt"><div class="claim">« Ils cherchent volontairement à faire dérailler la science. »</div></div>
+<p>🏷️ <strong>Fait ou opinion</strong> : Distinguez l'intention prêtée du fait observable.</p>
+<div class="answer"><span class="ans-mk">›</span> La phrase attribue une <strong>intention délibérée</strong> à des acteurs qui ne sont pas nommés. Ce qui relève de l'interprétation est présenté avec la même assurance qu'un constat. On peut observer des résultats et des financements ; l'intention, elle, se déduit et se démontre.</div>
+<div class="res-sep"></div><div class="decrypt"><div class="claim">« le réchauffement climatique est sans équivoque et l'influence de l'homme est claire »</div></div>
+<p>🔎 <strong>Sources</strong> : Repérez d'où vient cette formulation et qui la porte.</p>
+<div class="answer"><span class="ans-mk">›</span> La formule reprend presque mot pour mot le vocabulaire du <strong>GIEC</strong>, dont les rapports sont publics et vérifiables. Ici la pièce est solide et adossée à un consensus large. C'est un exemple où le socle documentaire tient, à distinguer des affirmations moins étayées du film.</div>
+</div>
+<div class="kicker"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="2" y="16" width="6" height="5" rx="1"/><rect x="16" y="16" width="6" height="5" rx="1"/><path d="M12 8v5M5 13h14M5 13v3M19 13v3"/></svg>Après le visionnage</div>
+<h3 class="subhead"><svg viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3"/><path d="M16 4h3a1 1 0 0 1 1 1v3"/><path d="M20 16v3a1 1 0 0 1-1 1h-3"/><path d="M8 20H5a1 1 0 0 1-1-1v-3"/></svg>Le cadrage</h3>
+<p>Le film choisit l'angle de la <strong>gnotologie</strong>, l'étude de l'ignorance produite volontairement, et place au centre une note interne de l'industrie du tabac érigée en clé de lecture. Il procède par enquête et alterne paroles d'experts et visages de victimes, sur un registre d'alerte. Il parle depuis la position de la science régulée face aux stratégies industrielles.</p>
+<p class="note">Toute vidéo a un cadrage ; l'identifier fait partie d'un visionnage attentif.</p>
+<h3 class="subhead"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>Les présupposés</h3>
+<div class="plain"><div class="row"><span class="mk gold">›</span><span>Les cinq controverses réunies seraient <strong>représentatives</strong> de la façon dont science et industrie s'affrontent, et non des cas exceptionnels.</span></div><div class="row"><span class="mk gold">›</span><span>L'absence de consensus après vingt ans traduirait un <strong>doute fabriqué</strong> plutôt qu'une incertitude scientifique réelle.</span></div><div class="row"><span class="mk gold">›</span><span>Les experts retenus refléteraient fidèlement l'<strong>état de la connaissance</strong>, sans effet de sélection.</span></div><div class="row"><span class="mk gold">›</span><span>Le mécanisme prouvé sur le tabac se rejouerait <strong>à l'identique</strong> dans les autres dossiers.</span></div></div>
+<h3 class="subhead"><svg viewBox="0 0 24 24"><path d="M9.88 9.88a3 3 0 0 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 11 7 11 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 1 12s4 7 11 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/></svg>Angles morts</h3>
+<div class="plain"><div class="row"><span class="mk gold">›</span><span>La parole de l'industrie mise en cause est <strong>absente</strong> : aucun représentant ne développe sa position pour être contredit sur pièces.</span></div><div class="row"><span class="mk gold">›</span><span>Les études scientifiques invoquées ne sont pas <strong>nommées précisément</strong>, ce qui empêche de les retrouver et de les recouper.</span></div><div class="row"><span class="mk gold">›</span><span>La <strong>représentativité</strong> des cinq controverses choisies n'est jamais évaluée par rapport à l'ensemble des débats science-industrie.</span></div></div>
+<h3 class="subhead"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Nuances</h3>
+<div class="plain"><div class="row"><span class="mk gold">›</span><span>Les mécaniques d'influence documentées sur le tabac sont <strong>réelles et prouvées</strong> ; c'est leur extension aux autres dossiers qui reste à vérifier cas par cas.</span></div><div class="row"><span class="mk gold">›</span><span>Le consensus climatique du GIEC est un <strong>fait établi</strong> ; le débat porte sur les moyens d'agir, pas sur la réalité du réchauffement.</span></div><div class="row"><span class="mk gold">›</span><span>L'interdiction des néonicotinoïdes en France est <strong>effective depuis 2018</strong>, mais les dérogations accordées ensuite pour la betterave nuancent l'idée d'une interdiction totale.</span></div></div>
+<h3 class="subhead"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Les objections les plus solides</h3>
+<div class="plain"><div class="row"><span class="mk gold">›</span><span>On pourrait objecter que l'absence de consensus traduit parfois une <strong>complexité scientifique réelle</strong>, causes multiples et effets à très faible dose difficiles à isoler, et non un doute organisé. Dans ce cas, certaines controverses seraient des désaccords scientifiques légitimes, pas des manipulations.</span></div><div class="row"><span class="mk gold">›</span><span>Explorer des <strong>causes alternatives</strong> à la mort des abeilles, varroa, virus, habitat, est une démarche scientifique normale, pas nécessairement une diversion. Multiplier les pistes de recherche relèverait alors de la bonne science, non d'une fabrique de l'ignorance.</span></div><div class="row"><span class="mk gold">›</span><span>Le tabac et l'amiante sont peut-être les cas les plus flagrants, donc les <strong>moins représentatifs</strong> de l'ensemble des rapports science-industrie. Le schéma décrit serait alors l'exception, et la plupart des controverses relèveraient d'un débat ordinaire.</span></div></div>
+<h3 class="subhead"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M12 8c-2 0-4-1.5-4-4 2 0 4 1.5 4 4z"/><path d="M12 8c2 0 4-1.5 4-4-2 0-4 1.5-4 4z"/><path d="M12 14c-2 1-3.5 3-4 5"/><path d="M12 14c2 1 3.5 3 4 5"/></svg>Les enjeux de fond</h3>
+<div class="plain"><div class="row"><span class="mk gold">›</span><span>Au-delà de chaque dossier, l'enjeu de fond est la place des <strong>faits</strong> dans la décision publique : qui a le pouvoir de dire ce qui compte comme preuve, et à partir de quand une incertitude justifie ou non d'agir. Le film pose cette question en liant le sort des régulations à l'état du consensus scientifique.</span></div><div class="row"><span class="mk gold">›</span><span>Se pose aussi la frontière entre <strong>doute légitime</strong> et doute fabriqué : toute science avance par révision de ses consensus, et distinguer la controverse ordinaire de la manœuvre organisée conditionne la confiance qu'on accorde aux alertes comme aux démentis.</span></div></div>
+<div class="openq"><div class="oq-label">La question</div>Faut-il juger ce récit sur le cas du tabac, solidement prouvé, ou sur les dossiers qu'il y rattache sans les démontrer un à un ?</div>
+<div class="subcard reslist"><h3 class="subhead"><svg viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>Pour aller plus loin</h3><div class="restype"><span class="pill">livre</span></div><div class="rtitle">Les Marchands de doute</div><div class="rsource">Naomi Oreskes et Erik M. Conway</div><div class="rwhy">L&#x27;enquête de référence sur la <strong>stratégie du doute</strong>, du tabac au climat, qui détaille les cas que le film survole.</div><div class="res-sep"></div><div class="restype"><span class="pill">livre</span></div><div class="rtitle">Travaux sur l&#x27;agnotologie</div><div class="rsource">Robert N. Proctor</div><div class="rwhy">Le chercheur qui a forgé le terme d&#x27;agnotologie explique comment l&#x27;ignorance se produit volontairement, cadre théorique du film.</div><div class="res-sep"></div><div class="restype"><span class="pill">données</span></div><div class="rtitle"><a href="https://efsa.europa.eu">Évaluations sur les néonicotinoïdes et les abeilles</a></div><div class="rsource">Autorité européenne de sécurité des aliments (EFSA)</div><div class="rwhy">Les évaluations officielles sur la toxicité des néonicotinoïdes, pour recouper l&#x27;affirmation non sourcée du film.</div><div class="res-sep"></div><div class="restype"><span class="pill">rapport</span></div><div class="rtitle"><a href="https://anses.fr">Expertises sur le bisphénol A et les néonicotinoïdes</a></div><div class="rsource">Agence nationale de sécurité sanitaire (ANSES)</div><div class="rwhy">Les expertises françaises utiles pour situer le <strong>chiffre de 93 %</strong> dans un décompte indépendant.</div><div class="res-sep"></div><div class="restype"><span class="pill">rapport</span></div><div class="rtitle"><a href="https://ipcc.ch">Rapports d&#x27;évaluation du climat</a></div><div class="rsource">Groupe d&#x27;experts intergouvernemental sur l&#x27;évolution du climat (GIEC)</div><div class="rwhy">Les rapports qui établissent le consensus climatique cité, pour vérifier la formule reprise à l&#x27;écran.</div><div class="res-sep"></div><div class="restype"><span class="pill">archives</span></div><div class="rtitle"><a href="https://ucsf.edu">Archives internes de l&#x27;industrie du tabac</a></div><div class="rsource">Université de Californie à San Francisco</div><div class="rwhy">Les documents rendus publics après le Master Settlement Agreement, la <strong>source documentaire</strong> centrale du film.</div></div>
+<h3 class="subhead"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Avant de partir</h3>
+<div class="plain"><div class="row"><span class="mk gold">›</span><span><strong>Abonnez-vous</strong> à la newsletter pour recevoir chaque décryptage.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Partagez</strong> cette édition à quelqu'un qui aime regarder de près.</span></div><div class="row"><span class="mk gold">›</span><span><strong>Réagissez</strong> et commentez sur Instagram : <a href="https://instagram.com/singsing.media">@singsing.media</a>.</span></div></div>
+
+  <div class="signoff">On sélectionne. On éclaire. <strong>Vous jugez.</strong></div>
+</div>
+</body>
+</html>

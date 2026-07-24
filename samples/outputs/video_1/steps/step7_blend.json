@@ -1,0 +1,102 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "Le saut analogique qui étend le cas prouvé du tabac aux autres affaires (lr_0) n'est pas qu'un défaut de raisonnement : il est **fabriqué rhétoriquement** par l'accumulation rapide d'exemples (bias_0), qui installe l'**universalité du schéma** avant tout examen. La prémisse la plus fragile (pr_1) et le biais convergent sur la même mécanique.",
+        "layers": [
+          "logic",
+          "probe"
+        ],
+        "references": [
+          "lr_0",
+          "pr_1",
+          "bias_0"
+        ]
+      },
+      {
+        "text": "L'hypothèse qui convertit l'**absence de consensus** en doute fabriqué (ia_1, lr_1) sert directement le camp de la régulation (cb_1) : ce que Logic repère comme un présupposé non démontré, Rhetoric le montre comme un **cadrage intéressé**.",
+        "layers": [
+          "logic",
+          "rhetoric"
+        ],
+        "references": [
+          "ia_1",
+          "lr_1",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "L'**absence de parole industrielle** (bs_1) n'est pas qu'un angle mort : elle est le pendant structurel du montage opposant experts et victimes (er_0) et fonde le manquement au droit de réponse relevé en déontologie. Le déséquilibre de traitement est **construit**, non subi.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "ethics"
+        ],
+        "references": [
+          "bs_1",
+          "er_0"
+        ]
+      },
+      {
+        "text": "L'énoncé prêtant une **intention délibérée** à des acteurs non nommés (claim_2) cumule le classement « opinion posée en fait », une atteinte à la présomption d'innocence et un moteur d'**indignation** (er_0) : une seule phrase porte à la fois le défaut factuel, le manquement éthique et l'effet émotionnel.",
+        "layers": [
+          "probe",
+          "ethics",
+          "rhetoric"
+        ],
+        "references": [
+          "claim_2",
+          "er_0"
+        ]
+      },
+      {
+        "text": "La formule « le doute est notre produit » érigée en focus (focus) et la métaphore répétée (bias_2) transforment une **note isolée** en **grille de lecture universelle** (obs_0) et nourrissent l'inquiétude (er_1) : plusieurs couches convergent sur une même clé qui rend la manipulation évidente avant démonstration.",
+        "layers": [
+          "probe",
+          "rhetoric",
+          "logic"
+        ],
+        "references": [
+          "focus",
+          "bias_2",
+          "obs_0",
+          "er_1"
+        ]
+      },
+      {
+        "text": "Le chiffre « 93 % des études » (claim_1), attribué à la seule revue de vom Saal et plafonné à une **confiance basse**, sert l'argument du camp favorable à la régulation (cb_1) : la faiblesse du sourçage et le bénéficiaire du cadrage pointent le **même intérêt**.",
+        "layers": [
+          "probe",
+          "rhetoric"
+        ],
+        "references": [
+          "claim_1",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "La sélection d'intervenants tous alignés (lr_3, ia_2) est redoublée par le montage experts/victimes (er_0) : ce que Logic diagnostique comme une **conclusion dépendante du choix des sources**, Rhetoric le révèle comme un **dispositif émotionnel** de crédibilité.",
+        "layers": [
+          "logic",
+          "rhetoric"
+        ],
+        "references": [
+          "lr_3",
+          "ia_2",
+          "er_0"
+        ]
+      },
+      {
+        "text": "L'angle mort de la **frontière entre doute légitime et doute fabriqué** (bs_0) affleure au cœur même du focus, où la note interne tait où s'arrête le doute que la science revendique (focus) : l'omission repérée en Logic est **confirmée par la pièce** mise en avant par Probe.",
+        "layers": [
+          "logic",
+          "probe"
+        ],
+        "references": [
+          "bs_0",
+          "focus"
+        ]
+      }
+    ]
+  }
+}

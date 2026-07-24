@@ -11,7 +11,7 @@ from agent.lenses import CANONICAL_LENSES
 from models.instagram_carousel_presentation import InstagramCarouselDocument
 from ._shared import (
     _env, _LOGO_DATA_URL, _LOGO_TIGHT_DATA_URL,
-    TYPE_FR, cover_layers,
+    source_type_label, cover_layers, medium_labels,
 )
 
 TPL = "article_carousel_optimized_v0"
@@ -38,7 +38,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     source_meta = " · ".join(x for x in [
         meta.source,
         meta.published_at,
-        TYPE_FR.get(meta.type) if meta.type else None,
+        source_type_label(meta),
         f"{meta.reading_time_minutes} min" if meta.reading_time_minutes else None,
     ] if x)
 
@@ -138,7 +138,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     total = len(specs)
     for i, (out_name, tpl_name, ctx) in enumerate(specs, 1):
         html = env.get_template(f"{TPL}/{tpl_name}.html").render(
-            logo=_LOGO_DATA_URL, phase=PHASE_OF.get(out_name),
+            logo=_LOGO_DATA_URL, phase=PHASE_OF.get(out_name), L=medium_labels(meta.medium),
             slide_n=i, slide_total=total, progress=round(i / total * 100), **theme, **ctx)
         path = out_dir / f"{out_name}.html"
         path.write_text(html, encoding="utf-8")

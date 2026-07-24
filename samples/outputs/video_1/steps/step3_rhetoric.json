@@ -1,0 +1,73 @@
+{
+  "emotional_register": [
+    {
+      "id": "",
+      "emotion": "indignation",
+      "how": "L'**accumulation de cas parallèles** et l'alternance entre paroles d'experts et visages de victimes chargent le récit.",
+      "effect": "Le lecteur est porté à voir les industriels comme les **coupables** d'une tromperie délibérée.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "archives internes du tabac rendues publiques",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "",
+      "emotion": "inquiétude",
+      "how": "La répétition de la formule « **fabrique de l'ignorance** » et l'idée d'un phénomène qui se répand dramatisent le propos.",
+      "effect": "Le lecteur est amené à redouter une **menace diffuse** sur la connaissance elle-même.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "climat de défiance envers la science",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "",
+      "beneficiary": "Les gnotologues et scientifiques lanceurs d'alerte",
+      "explanation": "En posant la fabrique du doute comme grille unique, le cadrage érige ces chercheurs en **contre-pouvoir** et légitime une discipline récente.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "le champ récent de la gnotologie",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "",
+      "beneficiary": "Le camp favorable à la régulation des produits suspectés",
+      "explanation": "Assimiler l'absence de consensus à un doute **fabriqué** renforce l'argument en faveur de l'**interdiction** rapide des substances en débat.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "débats réglementaires sur les néonicotinoïdes et le bisphénol A",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Métaphore",
+        "observation": "« La fabrique de l'ignorance » présente l'ignorance comme un produit fabriqué, non subi."
+      },
+      {
+        "label": "Présupposé",
+        "observation": "Le titre pose comme acquis que l'ignorance est produite volontairement et par quelqu'un."
+      },
+      {
+        "label": "Cadrage",
+        "observation": "Il annonce un coupable industriel avant tout examen des cas exposés dans le corps."
+      }
+    ],
+    "body": "Le corps de l'article adopte l'angle de l'**enquête**, déroulant cinq controverses — tabac, abeilles, bisphénol A, amiante, climat — ramenées à un **même schéma** de fabrication du doute. Il place au centre les **stratégies industrielles** documentées et la parole des chercheurs qui les décryptent. Le récit parle depuis la position de la **science établie**, avec la gnotologie pour grille de lecture. Le registre mêle reconstitution documentaire et **témoignages d'experts**."
+  }
+}
