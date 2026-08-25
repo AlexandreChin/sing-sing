@@ -38,7 +38,8 @@ def _load_carousel_backbone(analysis_path: str | Path | None) -> str | None:
             "selection_headline": display["selection_headline"],
             "why_selected": display["why_selected"],
             "reading_beats": [
-                {"moment": b["moment"], "quote": b["quote"], "note": b["note"], "answer": b.get("answer", ""), "lens_ref": b["lens_ref"]}
+                {"moment": b["moment"], "quote": b["quote"], "note": b["note"], "answer": b.get("answer", ""),
+                 "lens_ref": b["lens_ref"], "role": b.get("role", "")}
                 for b in display.get("reading_beats", [])
                 if b.get("selected", True)
             ],
@@ -74,6 +75,18 @@ def _validate(data: dict) -> list[str]:
             errors.append(f"decryptage[{i}] has an empty quote/prompt/reading")
         if d.lens_ref not in LENS_IDS:
             errors.append(f"decryptage[{i}].lens_ref must be a canonical lens id, got {d.lens_ref!r}")
+        # `role` (what the quote does for the thesis) keeps the reading from
+        # contradicting the passage it annotates — see the prompt's coherence rule.
+        if not d.role.strip():
+            errors.append(f"decryptage[{i}].role is empty")
+    # At most one moment may annotate the article's staging rather than a piece
+    # of its demonstration.
+    staging = sum(1 for d in pres.decryptage if d.role.strip() == "mise en scène")
+    if staging > 1:
+        errors.append(f"decryptage: at most 1 item may have role 'mise en scène', got {staging}")
+    # A pass that grades every quote as a flaw manufactures flaws.
+    if pres.decryptage and all(d.kind == "faille" for d in pres.decryptage):
+        errors.append("decryptage: every item is kind 'faille' — mark the solid supports as 'fait'")
     # L'architecture de l'argument
     if not pres.architecture.keystone.strip():
         errors.append("architecture.keystone is empty")

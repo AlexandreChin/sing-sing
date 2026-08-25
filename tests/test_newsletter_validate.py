@@ -9,14 +9,16 @@ def _valid_data():
         why_selected="Pourquoi.", payoff="Gain.",
         context="Contexte.",
         reading_posture="Cadrage moral et chiffres-chocs.",
+        framing="L'angle retenu par l'article.",
         decryptage=[
-            {"kind": "faille", "quote": "Q1", "presentation": "", "reading": "L1.", "prompt": "Repérez.", "lens_ref": "cadrage"},
-            {"kind": "faille", "quote": "Q2", "presentation": "", "reading": "M.", "prompt": "Cherchez la source.", "lens_ref": "sources"},
-            {"kind": "faille", "quote": "Q3", "presentation": "", "reading": "L2.", "prompt": "Quelle base ?", "lens_ref": "chiffres"},
-            {"kind": "faille", "quote": "Q4", "presentation": "", "reading": "M2.", "prompt": "Le mot est-il neutre ?", "lens_ref": "cadrage"},
-            {"kind": "faille", "quote": "Q5", "presentation": "", "reading": "L3.", "prompt": "Quelle base ?", "lens_ref": "chiffres"},
+            {"kind": "faille", "role": "mise en scène", "quote": "Q1", "presentation": "", "reading": "L1.", "prompt": "Repérez.", "lens_ref": "cadrage"},
+            {"kind": "fait", "role": "appui", "quote": "Q2", "presentation": "", "reading": "M.", "prompt": "Cherchez la source.", "lens_ref": "sources"},
+            {"kind": "faille", "role": "preuve", "quote": "Q3", "presentation": "", "reading": "L2.", "prompt": "Quelle base ?", "lens_ref": "chiffres"},
+            {"kind": "faille", "role": "pivot", "quote": "Q4", "presentation": "", "reading": "M2.", "prompt": "Le mot est-il neutre ?", "lens_ref": "cadrage"},
+            {"kind": "fait", "role": "concession", "quote": "Q5", "presentation": "", "reading": "L3.", "prompt": "Quelle base ?", "lens_ref": "chiffres"},
         ],
-        architecture={"keystone": "Sur quoi tient la thèse ?", "spine": ["A.", "B.", "C."]},
+        architecture={"keystone": "Sur quoi tient la thèse ?", "spine": ["A.", "B.", "C."],
+                      "presupposes": ["Présupposé A.", "Présupposé B."]},
         a_emporter={"key_takeaways": ["T1.", "T2.", "T3.", "T4."],
                     "reflexes_critiques": [
                         {"lens_ref": "chiffres", "rule": "Règle A.", "reusable_on": "santé"},
@@ -141,3 +143,26 @@ def test_go_further_out_of_range_fails():
     d = _valid_data()
     d["go_further"] = d["go_further"][:2]
     assert any("go_further" in e for e in _validate(d))
+
+
+def test_missing_role_fails():
+    # `role` (what the quote does for the thesis) keeps the reading from
+    # contradicting the passage it annotates
+    d = _valid_data()
+    d["decryptage"][2]["role"] = "  "
+    assert any("role is empty" in e for e in _validate(d))
+
+
+def test_two_staging_moments_fail():
+    # at most one moment may annotate the staging rather than the demonstration
+    d = _valid_data()
+    d["decryptage"][1]["role"] = "mise en scène"
+    assert any("mise en scène" in e for e in _validate(d))
+
+
+def test_all_faille_fails():
+    # grading every quote as a flaw manufactures flaws
+    d = _valid_data()
+    for item in d["decryptage"]:
+        item["kind"] = "faille"
+    assert any("'fait'" in e for e in _validate(d))
