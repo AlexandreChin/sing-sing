@@ -1,0 +1,61 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "Le texte fait des recommandations du HCC l'étalon du bilan sans jamais dire ce qu'est cette instance ni d'où vient sa légitimité. Ce **non-dit fonde l'autorité** du propos au lieu de la borner, et laisse muet **qui décide de ce que serait « être prêt »**.",
+        "references": [
+          "ia_2",
+          "bs_1",
+          "cb_0",
+          "obs_1",
+          "focus"
+        ]
+      },
+      {
+        "text": "Le vocabulaire de l'esquive — « se dérobe », « discours de façade » — s'applique à un dossier qui ne compte que **trois décisions** et **aucune réponse du gouvernement**. La **charge d'intention comble l'écart** que la preuve ne couvre pas.",
+        "references": [
+          "bias_2",
+          "claim_2",
+          "lr_1",
+          "bs_0",
+          "obs_2"
+        ]
+      },
+      {
+        "text": "Le 2,1 % arrive **sans source** et **sans point de comparaison** : le mix français déjà largement décarboné n'apparaît nulle part. Cinq paragraphes de chiffres contre une incise sur le cadre juridique salué **écartent par avance** le contre-argument des gisements les plus coûteux.",
+        "references": [
+          "claim_0",
+          "bs_3",
+          "obs_0",
+          "pr_1",
+          "ia_0",
+          "er_1"
+        ]
+      },
+      {
+        "text": "L'article **prolonge les formulations du HCC** dans ses propres phrases de synthèse, et la seule citation créditée portant le jugement central reste **sans contradicteur**. La reprise du vocabulaire tient lieu d'analyse du document.",
+        "references": [
+          "obs_3",
+          "claim_1",
+          "cb_0",
+          "obs_0"
+        ]
+      },
+      {
+        "text": "La canicule en cours ouvre le texte, installe le registre d'inquiétude et devient pièce du constat ; la clôture sur la présidentielle transforme un rapport annuel en argument de campagne. Un **fait météorologique** et un **calendrier électoral** encadrent ainsi une **évaluation de politique publique**.",
+        "references": [
+          "er_0",
+          "lr_3",
+          "bias_0",
+          "ia_3",
+          "cb_1"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quelle réduction annuelle un mix déjà décarboné peut-il atteindre à coût raisonnable ?",
+      "Sur quelles bases les recommandations du HCC deviennent-elles la référence du bilan climatique ?",
+      "Trois décisions suffisent-elles à mesurer l'orientation réelle d'une politique publique ?"
+    ]
+  }
+}

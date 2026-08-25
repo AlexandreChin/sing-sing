@@ -1,0 +1,165 @@
+{
+  "main_claim": "La France affiche des ambitions climatiques que ses moyens et ses actes contredisent.",
+  "premisses": [
+    {
+      "statement": "Le rapport annuel du HCC constitue une évaluation fiable de l'action climatique française.",
+      "quality": "Étayée par le volume et la méthode annoncés du document (420 pages, « données scientifiques rigoureuses »), mais l'article reprend ce cadrage sans le discuter."
+    },
+    {
+      "statement": "Le ralentissement de la baisse des émissions en 2025 traduit un défaut d'action publique.",
+      "quality": "Appuyée sur des séries chiffrées comparables d'une année sur l'autre (6,8 % en 2023, 3 % en 2024, 2,1 % en 2025)."
+    },
+    {
+      "statement": "L'écart entre les textes adoptés et les résultats obtenus mesure la sincérité de l'engagement climatique.",
+      "quality": "Assertion posée plutôt qu'établie : l'article l'illustre par trois exemples choisis (A69, Fonds vert, acétamipride) sans quantifier la part qu'ils représentent."
+    },
+    {
+      "statement": "Les vagues de chaleur et les records de température en cours attestent de l'urgence du diagnostic.",
+      "quality": "Reposant sur des mesures documentées (juin 2026, Copernicus Marine), mais l'événement météorologique sert de preuve à un constat de politique publique."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "statement": "Une baisse d'émissions due à un recul d'activité **compte moins** qu'une baisse due à des réformes structurelles.",
+      "impact": "Si les tonnes évitées valent indépendamment de leur cause, le **ralentissement de la décarbonation** perd une partie de sa charge critique."
+    },
+    {
+      "statement": "Le gouvernement dispose des **leviers** nécessaires pour atteindre plus de 4 % de baisse annuelle dès 2026.",
+      "impact": "Si la trajectoire dépend surtout de facteurs européens, industriels ou économiques, l'**imputation au pouvoir politique** se déplace."
+    },
+    {
+      "statement": "Les recommandations du HCC constituent l'**étalon légitime** de ce que devrait être la politique climatique.",
+      "impact": "Si d'autres arbitrages publics — coût, emploi, acceptabilité — sont également légitimes, l'écart constaté devient un **choix** plutôt qu'un manquement."
+    },
+    {
+      "statement": "Une année météorologique extrême **renseigne** sur la qualité de la préparation du pays.",
+      "impact": "Si canicule et préparation relèvent de temporalités distinctes, le **lien entre l'actualité et le rapport** n'est plus qu'un effet de calendrier."
+    }
+  ],
+  "blind_spots": [
+    {
+      "topic": "Aucune **réponse du gouvernement** ou d'un ministère n'est sollicitée.",
+      "significance": "Une contradiction chiffrée sur les financements aurait obligé le texte à **arbitrer entre deux versions** au lieu d'en exposer une."
+    },
+    {
+      "topic": "Le **statut consultatif** du HCC, dépourvu de pouvoir contraignant, n'est jamais précisé.",
+      "significance": "Le lecteur pourrait lire les 82 recommandations comme des **obligations non tenues** plutôt que comme des avis."
+    },
+    {
+      "topic": "La **contrainte budgétaire** n'apparaît que via le montant du Fonds vert, sans mise en perspective.",
+      "significance": "Situer ces 837 millions dans les finances publiques dirait si le manque de moyens relève d'un **arbitrage ou d'une capacité**."
+    },
+    {
+      "topic": "Le **niveau de départ** français — un mix électrique déjà largement décarboné — est absent.",
+      "significance": "Un pays aux émissions déjà basses réduit **plus difficilement** les siennes, ce qui pèse sur la lecture des 2,1 %."
+    }
+  ],
+  "emphasis": [
+    "Le texte consacre cinq paragraphes aux chiffres de température et d'émissions, contre une seule phrase à la **portée réelle du HCC** dans la décision publique.",
+    "La formule « La France n'est pas prête » apparaît **trois fois** — titre, corps, conclusion — alors que le **cadre juridique salué** par le HCC tient en une incise.",
+    "Les **reculs environnementaux** occupent un paragraphe entier et nommé, quand les 82 recommandations sont résumées en une **énumération de trois lignes**."
+  ],
+  "logical_reasoning": [
+    {
+      "step": "Des séries chiffrées de baisse d'émissions (6,8 % → 3 % → 2,1 %) le texte conclut à un défaut de transformation structurelle.",
+      "problem_type": null,
+      "diagnosis": null
+    },
+    {
+      "step": "Trois décisions politiques — A69, Fonds vert, acétamipride — servent à établir une contradiction générale entre discours et actes.",
+      "problem_type": "validity",
+      "diagnosis": "Trois exemples, aussi documentés soient-ils, ne suffisent pas à **caractériser l'ensemble** d'une politique publique ; la généralisation reste une extrapolation."
+    },
+    {
+      "step": "La baisse de 4,8 % annoncée par le président est écartée au motif qu'elle tient à un hiver doux et à des reculs d'activité.",
+      "problem_type": null,
+      "diagnosis": null
+    },
+    {
+      "step": "L'article fait du calendrier — canicule en cours, publication du rapport — un élément du constat d'impréparation.",
+      "problem_type": "soundness",
+      "diagnosis": "La **concomitance** d'une vague de chaleur et d'un rapport critique documente l'exposition du pays, pas le **niveau de préparation** des politiques évaluées."
+    }
+  ],
+  "observations": [
+    {
+      "aspect": "Sourçage",
+      "summary": "Le diagnostic repose presque entièrement sur un **émetteur unique**, dont l'article reprend le vocabulaire et le cadrage. Les autres sources citées viennent **confirmer** ce cadre plutôt que l'ouvrir.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "organisme consultatif indépendant créé en 2018",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "aspect": "Mandat",
+      "summary": "Le pouvoir réel de l'instance n'est **jamais qualifié** : le texte évalue un gouvernement à l'aune d'avis qui **ne l'obligent pas**.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "ne dispose d'aucun pouvoir contraignant sur le gouvernement",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Calendrier",
+      "summary": "Le texte s'ouvre sur la **canicule en cours** et referme sur la campagne présidentielle, adossant un rapport annuel à **deux échéances extérieures** à son contenu.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "pendant une troisième vague de chaleur",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Contradiction",
+      "summary": "L'argument central se joue dans un **écart** — textes denses d'un côté, moyens et dérogations de l'autre — que la citation du HCC formule à la place de l'auteur.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "une surmortalité provisoire",
+        "strength": 0.4,
+        "nature": "inference"
+      }
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "Un pays dont l'électricité est déjà largement décarbonée touche aux **gisements les plus coûteux** : un ralentissement du rythme peut signaler la difficulté croissante de l'exercice, pas un relâchement.",
+      "seeds": {
+        "source": "premisse",
+        "index": 1,
+        "excerpt": "le ralentissement traduit un défaut d'action publique",
+        "strength": 0.7,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Le chiffre de 2,1 % mesurerait alors la **pente du terrain restant**, et non le degré d'engagement du pouvoir."
+    },
+    {
+      "counterargument": "Le HCC **conseille sans décider** : l'écart entre ses 82 recommandations et l'action gouvernementale décrit un arbitrage démocratique entre objectifs concurrents, pas un manquement.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 1,
+        "excerpt": "statut consultatif, dépourvu de pouvoir contraignant",
+        "strength": 0.8,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Le rapport documenterait le **coût des choix faits**, laissant au lecteur — et à l'électeur — le soin de les juger."
+    },
+    {
+      "counterargument": "Trois décisions défavorables coexistent avec un **cadre juridique que le HCC lui-même dit plus dense** : l'échantillon retenu pourrait ne pas représenter la trajectoire d'ensemble.",
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 1,
+        "excerpt": "A69, Fonds vert, acétamipride comme preuve générale",
+        "strength": 0.7,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "On observerait un mouvement **à deux vitesses** plutôt qu'un discours de façade."
+    }
+  ]
+}

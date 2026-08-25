@@ -1,0 +1,57 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "v1",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "On ne peut pas la stocker parce que les militants de l'écologie politique, y compris par la violence parfois, on l'a connu au cours des dernières années, ont empêché la construction de ces moyens de rétention d'eau.",
+        "explanation": "L'accusation de violence est diffusée en extrait sans qu'aucun militant mis en cause soit sollicité."
+      },
+      {
+        "id": "v2",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Alors justement, vous parliez du nucléaire.",
+        "explanation": "Le bilan du parti Les Écologistes est débattu sans qu'aucun de ses porte-parole soit présent."
+      },
+      {
+        "id": "v3",
+        "category": "false_balance",
+        "label": "False Balance",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Face au défis climatiques, les verres sont-ils devenus un bouqu émissaire ?",
+        "explanation": "Les trois invités partagent le même camp : l'accusation est diffusée, jamais incarnée en plateau."
+      },
+      {
+        "id": "v4",
+        "category": "presumption_of_innocence",
+        "label": "Presumption of Innocence",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "y compris par la violence parfois",
+        "evidence_note": null,
+        "explanation": "Des faits de violence sont imputés à des militants sans procédure ni condamnation citée."
+      },
+      {
+        "id": "v5",
+        "category": "false_statistics",
+        "label": "False Statistics",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Qui a réduit le budget du fond vert 26 de 163 millions ? Qui a coupé 300 millions dans le dernier budget ?",
+        "explanation": "Montants avancés sans base de comparaison ni source, non recoupés en plateau."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Avant diffusion, identifier les auteurs des extraits accusateurs, solliciter une réponse des militants et du parti mis en cause, et sourcer les chiffres budgétaires cités en plateau."
+    },
+    "summary": "La déontologie n'est pas entièrement propre : cinq points de vigilance, sans manquement caractérisé. Ils portent sur l'absence de contradiction en plateau, l'accusation de violence non étayée et des chiffres non sourcés."
+  }
+}

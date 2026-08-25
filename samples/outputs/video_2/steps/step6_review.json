@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "Les sources existent mais sont **nommées à moitié** : le sondage est attribué (« selon un sondage Ipsos ») sans date ni marge d'erreur, et le record de juillet est annoncé sans l'organisme qui produit le relevé. Les coupes budgétaires — « Qui a coupé 300 millions dans le dernier budget ? » — sont avancées de mémoire par un seul invité, avec une confiance de 55 %, sans recoupement en plateau.",
+        "lesson": "Vérifiez si un chiffre cité en plateau vient avec sa source, sa date et son périmètre : sans ces trois éléments, il ne se vérifie pas."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 2,
+        "rationale": "Les faits climatiques tiennent, mais l'affirmation la plus lourde — les militants « ont empêché la construction de ces moyens de rétention d'eau » — est classée `opinion_stated_as_fact` avec une confiance de 35 %, et les décisions de justice administratives figurent parmi les sources qui la contredisent. Aucune correction ni recoupement n'intervient à l'antenne.",
+        "lesson": "Repérez les affirmations causales — « ont empêché », « ont aggravé » — et demandez quel chantier arrêté ou quelle décision les documente."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "La chaîne part d'un fait solide, l'été record, mais franchit sans le dire l'écart entre un phénomène climatique global et des positions politiques locales — le `logical_reasoning` relève que « le lien n'est pas établi avant d'être discuté ». Le dernier maillon, « une autre culture du pouvoir, donc de meilleures décisions », suppose ce qu'il devrait montrer.",
+        "lesson": "Cherchez le maillon où l'on passe d'une différence d'intention à une différence de résultats : c'est là que la démonstration s'interrompt souvent."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "Le dispositif est lisible — invités présentés par leurs livres et leurs mandats, chacun sur une position stratégique distincte — mais l'angle n'est jamais énoncé comme tel. Le premier `implicit_assumption`, « les positions ponctuelles des écologistes n'ont eu aucun effet matériel sur les dégâts de l'été », structure tout le débat sans être posé ni discuté.",
+        "lesson": "Demandez-vous quelle proposition devrait être vraie pour que le débat ait le sens qu'on lui donne, puis vérifiez si elle est jamais énoncée."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Les repères politiques et électoraux sont fournis, mais le premier `blind_spot` est décisif : « le fond scientifique des trois polémiques n'est jamais examiné » — aucun bilan hydrique, aucun effet mesuré du débroussaillement. Le déséquilibre est visible dans l'`emphasis` : les trois polémiques de l'été tiennent une seule séquence, le positionnement gauche / ni-gauche-ni-droite en occupe l'essentiel.",
+        "lesson": "Comparez le temps donné au positionnement politique et celui donné aux dossiers techniques : l'écart indique ce que l'émission a choisi de ne pas trancher."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Les accusations sont diffusées en extraits, jamais incarnées : le plateau réunit trois voix engagées dans l'écologie et « aucun élu du parti Les Écologistes n'est présent » alors que son bilan est discuté. Le passage relevé comme sophisme — « un cadrage politique qui vient essentiellement de la droite, de l'extrême droite » — répond à l'origine de la critique plutôt qu'à son contenu.",
+        "lesson": "Notez qui porte l'accusation en plateau : une critique rapportée sans porteur ne peut être ni défendue ni réfutée."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 3,
+        "rationale": "Le fil est facile à suivre et les pièces visuelles — météo, une de presse, tableau des scores, archive de 2007 — ancrent chaque séquence. Mais le vocabulaire est importé sans être discuté : « écologisme politique » et « faillite », repris d'une une de presse, entrent dans le débat comme des descriptions.",
+        "lesson": "Interrogez les mots venus du camp adverse : les reprendre sans les définir, c'est adopter le cadre qu'ils portent."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "L'angle a un mérite réel : réunir trois positions stratégiques distinctes sur un même diagnostic donne à entendre un désaccord interne rarement exposé. Il reste toutefois dans le registre attendu du bilan de camp, quand la piste la plus neuve — celle du `steel_man`, « le désaccord serait arbitrable par les faits » via bilans hydriques et effets du débroussaillement — n'est jamais empruntée.",
+        "lesson": "Distinguez le débat sur les intentions d'un camp du débat sur les effets de ses décisions : le second se vérifie, le premier tourne en rond."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Qui suit la stratégie des partis écologistes français — militant, permanent, journaliste politique — et cherche à entendre trois positions internes s'expliquer avant 2027.",
+      "payoff": "Vous verrez précisément où se situe la ligne de fracture entre les courants écologistes sur le rapport à la gauche et aux mouvements citoyens. En revanche, vous ressortirez sans élément pour juger les trois griefs de l'été : il faudra les chercher ailleurs.",
+      "signature_move": "Le débat entre alliés : on installe le diagnostic comme acquis, puis on consacre le temps aux désaccords de stratégie entre gens du même camp.",
+      "main_blind_side": "Aucun document technique sur l'eau ou la forêt n'est montré, là où quatre séquences reposent sur des pièces politiques — un choix de plateau qui privilégie le récit du camp sur l'arbitrage par les faits.",
+      "further_resource": {
+        "title": "Les mégabassines, enquête sur un conflit de l'eau",
+        "source": "Le Monde — série d'enquête",
+        "media_type": "article",
+        "why_explore": "Traite dossier par dossier, chiffres hydriques en main, ce que l'émission laisse au registre de la querelle politique.",
+        "url": null
+      },
+      "summary": "Lecture sous réserve, surtout utile à qui suit de près la stratégie des écologistes : le plateau donne à entendre un désaccord interne réel, mais laisse les trois accusations de l'été sans examen factuel — aucun contradicteur présent, aucune donnée sur l'eau ou la forêt."
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Repérez d'entrée que le plateau réunit trois voix du même camp : ce que vous allez entendre est un désaccord de stratégie, pas une confrontation avec les accusateurs.",
+      "Gardez en tête l'affirmation implicite qui tient tout l'échange : les prises de position écologistes n'auraient rien changé sur le terrain — proposition jamais énoncée, jamais discutée.",
+      "Notez que le mauvais score électoral est posé comme le fait à expliquer, ce qui oriente le débat vers la façon de parler plutôt que vers le contenu des mesures."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "wo_1",
+          "text": "L'accusation la plus lourde — des militants qui auraient bloqué des ouvrages de stockage d'eau — arrive par extraits, sans qu'aucun mis en cause vienne y répondre. Elle est faiblement étayée, et cette faiblesse n'est jamais relevée à l'antenne.",
+          "references": [
+            "claim_3",
+            "bs_1",
+            "er_1"
+          ]
+        },
+        {
+          "id": "wo_2",
+          "text": "L'ouverture enchaîne les images de dégâts avant tout raisonnement. Surveillez le moment où l'on glisse d'un phénomène climatique global à des positions politiques locales : l'urgence installée tient lieu de démonstration.",
+          "references": [
+            "er_0",
+            "bias_0",
+            "lr_0"
+          ]
+        },
+        {
+          "id": "wo_3",
+          "text": "Plusieurs réponses portent sur l'origine de la critique — d'où elle vient, quel réflexe elle traduit — plutôt que sur son contenu. Le grief change alors de statut sans avoir été examiné.",
+          "references": [
+            "bias_2",
+            "bias_1",
+            "lr_1"
+          ]
+        },
+        {
+          "id": "wo_4",
+          "text": "Les chiffres circulent à moitié sourcés des deux côtés : un record de température sans l'organisme qui le mesure, un sondage sans date, des coupes budgétaires citées de mémoire. Demandez systématiquement source, date et périmètre.",
+          "references": [
+            "claim_0",
+            "claim_2",
+            "pr_3"
+          ]
+        },
+        {
+          "id": "wo_5",
+          "text": "Le raisonnement se termine sur une projection : une autre culture du pouvoir produirait de meilleures décisions. Aucun cas comparable n'est présenté pour l'appuyer.",
+          "references": [
+            "lr_3",
+            "ia_3",
+            "bs_3"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Retenez où passe la ligne de fracture entre courants écologistes sur le rapport à la gauche et aux mouvements citoyens : c'est ce que l'émission documente réellement.",
+      "Ne repartez pas avec un avis sur les trois polémiques de l'été — aucun bilan hydrique, aucun effet mesuré du débroussaillement n'a été montré.",
+      "Reprenez les mots empruntés à la critique adverse et demandez-vous ce qu'ils désignent précisément avant de les employer à votre tour.",
+      "Cherchez ailleurs les documents techniques sur l'eau et la forêt : c'est le seul terrain où le désaccord peut s'arbitrer."
+    ],
+    "title_note": null,
+    "perspective": {
+      "framing": "L'émission traite le sujet comme un **bilan de camp** : le diagnostic climatique est installé d'emblée, puis le temps est consacré aux **désaccords de stratégie** entre trois invités engagés dans l'écologie politique. Le registre est celui de l'urgence en ouverture, puis de l'explication interne, avec les pièces d'appui — météo, une de presse, tableau des scores, archive — toutes prises du répertoire politique.",
+      "blind_spots": "Le fond scientifique des trois polémiques de l'été n'est jamais ouvert : ni bilan hydrique, ni effet mesuré du débroussaillement. Et les acteurs directement concernés — élus du parti mis en cause, aménageurs, irrigants — sont absents alors que leur bilan est discuté.",
+      "balance": "Un plateau de débat n'a pas vocation à instruire des dossiers techniques, et réunir trois positions internes pour les faire s'expliquer est un choix éditorial défendable, assumé comme tel. Les manques relevés sont réels, mais ils tiennent d'abord au format : l'émission éclaire une stratégie de parti, pas la matérialité des griefs — c'est cette limite qu'il faut garder en tête, plutôt qu'une faute d'honnêteté."
+    }
+  }
+}

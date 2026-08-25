@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Le rythme de baisse des émissions françaises ralentit : 6,8 % en 2023, 3 % en 2024, 2,1 % en 2025.",
+      "kind": "fait",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 1,
+        "excerpt": "Le ralentissement de la baisse des émissions en 2025 traduit un défaut d'action publique.",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "L'écart entre le cadre juridique climatique et les moyens financiers et administratifs qui l'appliquent.",
+      "kind": "enjeu",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "L'écart entre les textes adoptés et les résultats obtenus mesure la sincérité de l'engagement climatique.",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "L'adaptation aux vagues de chaleur : santé au travail, lieux frais, alerte dès mai, rénovation énergétique.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "pendant une troisième vague de chaleur",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Des décisions publiques prises en sens inverse des objectifs : A69, Fonds vert réduit, acétamipride.",
+      "kind": "fait",
+      "centrality": 4,
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 1,
+        "excerpt": "A69, Fonds vert, acétamipride comme preuve générale",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Le HCC recommande, sans pouvoir contraindre : 82 recommandations et 11 orientations adressées au gouvernement.",
+      "kind": "angle",
+      "centrality": 3,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 1,
+        "excerpt": "statut consultatif, dépourvu de pouvoir contraignant",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    }
+  ]
+}

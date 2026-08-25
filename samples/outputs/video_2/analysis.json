@@ -1,0 +1,1121 @@
+{
+  "article_metadata": {
+    "url": null,
+    "title": "Canicule à répétition, méga feu, cour",
+    "source": null,
+    "published_at": null,
+    "type": "other",
+    "medium": "video",
+    "category": "Autre",
+    "reading_time_minutes": 23,
+    "chapo": null
+  },
+  "extraction": {
+    "authority_anchors": [
+      {
+        "entity": "Sondage Ipsos",
+        "used_for": "Chiffrer à environ 4 % les intentions de vote de la candidate écologiste et étayer l'idée d'une écologie politique en difficulté"
+      },
+      {
+        "entity": "Le Figaro (une du lundi précédent)",
+        "used_for": "Introduire la thèse selon laquelle l'été « consacre la faillite de l'écologisme politique »"
+      },
+      {
+        "entity": "Une du Figaro affichée à l'écran",
+        "used_for": "Donner une existence visible et documentée au procès fait aux écologistes"
+      },
+      {
+        "entity": "Chiffres météo (24,9 °C de moyenne, juillet 2026 record, comparaison avec la canicule de 2003)",
+        "used_for": "Établir la réalité physique de l'été et justifier le thème du débat"
+      },
+      {
+        "entity": "Livres publiés par les trois invités (PUF, Rue de l'échiquier, Baudelaire)",
+        "used_for": "Légitimer chaque intervenant comme voix qualifiée sur l'écologie politique"
+      },
+      {
+        "entity": "Mandats électifs d'Antoine Waechter (candidat 1988, député européen)",
+        "used_for": "Créditer sa lecture historique de l'écologie politique"
+      },
+      {
+        "entity": "La Fabrique écologique",
+        "used_for": "Adosser les analyses de Lucile Schmid à une structure de réflexion reconnue"
+      },
+      {
+        "entity": "Archive INA de janvier 2007 sur le pacte écologique",
+        "used_for": "Montrer que les partis ont déjà promis puis oublié l'écologie"
+      },
+      {
+        "entity": "Thomas Ménager, député RN du Loiret",
+        "used_for": "Attester que même le Rassemblement national a un programme de réduction des gaz à effet de serre"
+      },
+      {
+        "entity": "L'exemple de l'Allemagne et de la centrale de Sainte-Avold",
+        "used_for": "Soutenir l'argument selon lequel l'abandon du nucléaire conduit au retour du charbon"
+      },
+      {
+        "entity": "« Selon certains analystes »",
+        "used_for": "Attribuer sans les nommer le diagnostic d'un discours écologiste culpabilisant"
+      },
+      {
+        "entity": "Agriculteurs du sud de la France cités de mémoire",
+        "used_for": "Incarner la colère contre les militants ayant empêché les retenues d'eau"
+      }
+    ],
+    "key_quotes": [
+      "C'est terrible les images qu'on voit des gens qui perdent tout et puis des réactions politiques parfois comme si on pouvait pas prévoir. Bah si en fait, on pouvait prévoir.",
+      "Face au défis climatiques, les verres sont-ils devenus un bouqu émissaire ?",
+      "moi c'est surtout le cadrage qui me plaît pas",
+      "Je comprends pas pourquoi quand on a un problème écologique, on va du côté des partis écologistes et de gauche se demander si euh quand même ils auraient vraiment fait mieux.",
+      "c'est d'abord les premières questions à se poser, c'est celle du bilan des 10 dernières années",
+      "L'été consacre, dis-il, la faillite de l'écologisme politique.",
+      "d'avoir eu dit des choses qui apparaissent exactes aujourd'hui entraîne le côté bouquisire",
+      "on a tendance à dire \"Mais regardez, c'est le prophète de malheur.\"",
+      "Ça aurait évidemment changé beaucoup de choses. Je crois qu'il y a pas à esquiver la question.",
+      "ça aurait en tout cas introduit une culture du pouvoir différente",
+      "Ce qui compte aujourd'hui, c'est de montrer pourquoi on a intérêt à agir, qu'est-ce qu'on a à y gagner.",
+      "on se retrouve avec des cancres, des mauvais élèves qui arrivent le jour de la veille de l'examen qui n'ont pas révisé",
+      "D'un côté, nous avons une certitude qui est le réchauffement climatique et de l'autre une hypothèse qui est celui de l'accident nucléaire.",
+      "le nucléaire reste la solution. C'est une énergie dense face une énergie diffuse qui n'est pas stockable, qui est aléatoire",
+      "l'écologie politique n'est pas réductible à un parti politique. L'écologie politique appartient elle appartient au monde des ONG, elle appartient à la société, elle appartient au lanceur d'alerte",
+      "on a confronté le débat à la capacité de modifier le système et que le système n'a pas été modifié",
+      "il y a une sorte de lassitude ou de en tout cas de d'inquiétude sur le fait que les mots n'entraînent pas les actes",
+      "il faut trouver les moyens d'une écologie populaire. C'est-à-dire qu'il s'adresse à tous",
+      "les élites en fait auquel appartiennent souvent les écologistes n'ont pas trouvé un langage commun pour s'adresser à tous",
+      "c'est un sujet de début de campagne au moment du rêve, au moment où on commence à dire on est très idéaliste et puis ensuite on passe à la sécurité et à l'armée",
+      "il suffira peut-être que le RN dise on fait de l'écologie, on vote pour eux parce qu'en fond on n'a pas envie de détail",
+      "Je pense que l'on doit construire une majorité culturelle, c'est-à-dire réunir une majorité de Français autour d'un consensus",
+      "L'histoire a montré qu'à chaque fois qu'on voulait changer la société alors qu'on venait de prendre le pouvoir par les urnes sans avoir une majorité consensuelle dans la population, ça finissait très mal.",
+      "la gauche comme la droite sont nés au même endroit, c'est-à-dire dans la lutte du pouvoir et du partage des richesses au moment des grandes industries du 19e siècle",
+      "J'ai pas dit que l'écologie politique était forcément de gauche. J'ai dit que un logiciel politique qui intègre de manière pertinente l'écologie sera de gauche.",
+      "parce que la gauche s'intéresse aux asymétries de pouvoir",
+      "Là on subit les incendies. Pourquoi ? Parce qu'il y a des gens qui ont sapé dans les budgets des pompiers"
+    ],
+    "notable_omissions": [
+      "Aucun contradicteur du camp critiqué n'est présent sur le plateau : les accusations contre les écologistes sont diffusées en extraits, puis commentées par trois personnes qui les rejettent.",
+      "Les auteurs des extraits accusateurs ne sont pas identifiés à l'antenne, ce qui empêche le spectateur de situer leur position.",
+      "Aucune donnée scientifique n'est apportée sur le fond des trois polémiques : effet réel du débroussaillement, bilan hydrique des mégabassines, impact énergétique de la climatisation.",
+      "Les chiffres budgétaires avancés (163 millions, 300 millions, 12 milliards, vote à 493) ne sont ni sourcés ni vérifiés en plateau.",
+      "L'affirmation que les mégabassines sont « pour la majorité jugées illégales » n'est pas étayée par une référence juridique.",
+      "Aucun élu ou porte-parole du parti Les Écologistes n'est invité, alors que le débat porte sur son bilan et son score.",
+      "Le lien de causalité entre positions écologistes et dégâts de l'été n'est jamais examiné pièce par pièce, ni pour l'établir ni pour l'écarter.",
+      "Aucune comparaison internationale n'est proposée sur les résultats électoraux des partis verts en Europe.",
+      "Le rôle des choix d'aménagement, d'urbanisme et des acteurs économiques privés reste évoqué en passant, sans données.",
+      "L'article ne dit pas quelles mesures concrètes chaque intervenant propose pour l'été suivant."
+    ],
+    "rhetorical_patterns": [
+      "Le débat s'ouvre sur une **question-cadre** — les écologistes sont-ils un bouc émissaire — qui installe le procès avant d'installer la contradiction.",
+      "La question inaugurale posée à deux invités est **contrefactuelle** (« si les écologistes avaient gagné en 1988 ») : elle demande de défendre un bilan qui n'existe pas.",
+      "Un invité **retourne explicitement le cadrage** (« c'est surtout le cadrage qui me plaît pas ») et déplace la question vers le bilan des dix dernières années.",
+      "Le plateau alterne **extraits accusateurs** et **réponses en studio** : les accusations arrivent sans interlocuteur, les réponses avec temps de parole.",
+      "Le dispositif multiplie les **pièces à conviction visuelles** : bulletin météo, une du Figaro, tableau des scores, archive de 2007.",
+      "Les chiffres arrivent par **rafales non sourcées** (163 millions, 300 millions, 12 milliards, 493 voix), difficiles à vérifier en direct.",
+      "Le vocabulaire scolaire structure une des interventions — « cancres », « mauvais élèves », « pas révisé » — et transforme l'adversaire en élève défaillant.",
+      "La figure du **« prophète de malheur »** sert à expliquer psychologiquement le rejet des écologistes plutôt qu'à le discuter politiquement.",
+      "Les trois invités **convergent** sur l'essentiel et divergent sur le positionnement gauche/ni-gauche-ni-droite : le désaccord porte sur la stratégie, pas sur le diagnostic.",
+      "Le raisonnement par **analogie** est fréquent : le Covid pour les incendies, l'Allemagne pour le nucléaire, la dictature pour la majorité électorale sans consensus.",
+      "Les invités sont présentés par **leurs livres et leurs mandats** avant de parler, ce qui installe l'autorité en amont du contenu.",
+      "Le format se clôt sur une **formule d'ouverture** (« un sujet dont on aura l'occasion de reparler ») qui laisse le désaccord non tranché."
+    ]
+  },
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx_0",
+        "text": "L'émission est enregistrée après un été 2026 marqué par des **canicules, mégafeux en Gironde et sécheresse**, présentés comme le déclencheur du débat."
+      },
+      {
+        "id": "ctx_1",
+        "text": "Elle intervient **quelques mois avant la présidentielle de 2027**, dans une séquence où les partis fixent leurs programmes."
+      },
+      {
+        "id": "ctx_2",
+        "text": "Trois polémiques de l'été servent de matière : **climatisation, débroussaillement, mégabassines**, toutes adossées à la loi d'urgence agricole votée en juillet."
+      },
+      {
+        "id": "ctx_3",
+        "text": "Le parti Les Écologistes sort de **municipales perdues** et d'un niveau d'intentions de vote présidentielles très bas."
+      }
+    ],
+    "who_is_speaking": [
+      "L'émission est **28 minutes**, magazine de débat quotidien d'Arte, diffusé en fin de journée et structuré autour d'un dossier, d'une archive et de chroniques.",
+      "Arte est une chaîne **publique franco-allemande** financée par des contributions des deux États, sans dépendance à l'audience commerciale.",
+      "Le présentateur n'exprime pas de position propre mais **relance systématiquement sur la responsabilité des écologistes**, y compris après leurs dénégations.",
+      "Les trois invités sont tous **engagés dans l'écologie politique** — un ancien candidat, un militant-auteur, une présidente de think tank — et occupent des positions différentes sur le clivage gauche/droite.",
+      "Antoine Waechter porte depuis les années 1980 la ligne **« ni droite ni gauche »** qui l'a séparé des Verts ; sa position sur le nucléaire a changé et il l'assume à l'antenne.",
+      "Aucun des invités ne représente le camp qui accuse les écologistes : **la critique est diffusée, pas incarnée** sur le plateau."
+    ],
+    "important_facts": [
+      {
+        "id": "fact_0",
+        "text": "Le mois de juillet le plus chaud jamais mesuré en France avant 2026 était **juillet 2006**, et l'été 2003 reste la référence en surmortalité liée à la chaleur (environ **15 000 décès excédentaires**)."
+      },
+      {
+        "id": "fact_1",
+        "text": "Le Fonds vert, créé en 2023 pour financer la transition écologique des collectivités, était doté d'environ **2 milliards d'euros** à son lancement avant des coupes successives."
+      },
+      {
+        "id": "fact_2",
+        "text": "Les incendies de Gironde de 2022 avaient déjà brûlé plus de **20 000 hectares** de forêt de pins maritimes, majoritairement plantés en monoculture résineuse depuis le XIXe siècle."
+      },
+      {
+        "id": "fact_3",
+        "text": "Le débroussaillement autour des habitations en zone forestière est une **obligation légale** en France (OLD), dont le taux de respect était estimé à moins de 30 % avant 2023."
+      },
+      {
+        "id": "fact_4",
+        "text": "Les mégabassines contestées dans les Deux-Sèvres ont fait l'objet de **plusieurs annulations partielles** par la justice administrative, chaque projet étant jugé séparément."
+      },
+      {
+        "id": "fact_5",
+        "text": "L'électricité représente environ **un quart de la consommation finale d'énergie** en France, le reste venant surtout des carburants et du chauffage fossile."
+      },
+      {
+        "id": "fact_6",
+        "text": "La Convention citoyenne pour le climat (2019-2020) avait formulé **149 propositions** ; une partie seulement a été reprise dans la loi Climat et Résilience de 2021."
+      },
+      {
+        "id": "fact_7",
+        "text": "Le meilleur score d'un candidat écologiste à une présidentielle française est celui de **Noël Mamère en 2002, 5,25 %**, plafond jamais dépassé depuis."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "Mégabassine",
+        "definition": "Grande réserve d'eau creusée et remplie par pompage dans les nappes en hiver, pour irriguer des cultures en été."
+      },
+      {
+        "term": "Débroussaillement",
+        "definition": "Coupe de la végétation basse et des broussailles pour priver un incendie de matière à brûler."
+      },
+      {
+        "term": "Écologie punitive",
+        "definition": "Expression employée par les critiques de l'écologie pour désigner des mesures vécues comme des interdictions ou des contraintes imposées aux particuliers."
+      },
+      {
+        "term": "Zéro artificialisation nette (ZAN)",
+        "definition": "Objectif légal de ne plus consommer de nouveaux sols naturels ou agricoles sans en renaturer autant ailleurs."
+      },
+      {
+        "term": "Loi d'urgence agricole",
+        "definition": "Loi votée en juillet visant à soutenir les agriculteurs, notamment en facilitant les projets de stockage d'eau."
+      },
+      {
+        "term": "Fonds vert",
+        "definition": "Enveloppe budgétaire de l'État destinée à financer des projets écologiques portés par les collectivités locales."
+      },
+      {
+        "term": "Bassin versant",
+        "definition": "Territoire où toutes les eaux de pluie s'écoulent vers un même cours d'eau, indépendamment des frontières administratives."
+      },
+      {
+        "term": "Convention citoyenne pour le climat",
+        "definition": "Assemblée de citoyens tirés au sort réunie de 2019 à 2020 pour proposer des mesures contre le réchauffement."
+      },
+      {
+        "term": "Rénovation thermique",
+        "definition": "Travaux d'isolation et de chauffage réduisant la consommation d'énergie d'un bâtiment."
+      },
+      {
+        "term": "Énergie dense / énergie diffuse",
+        "definition": "Une énergie dense produit beaucoup sur peu d'espace (nucléaire), une énergie diffuse dépend du vent ou du soleil sur de grandes surfaces."
+      },
+      {
+        "term": "Souveraineté alimentaire",
+        "definition": "Capacité d'un pays à nourrir sa population avec sa propre production agricole."
+      },
+      {
+        "term": "Asymétrie de pouvoir",
+        "definition": "Écart entre ceux qui décident d'un projet et ceux qui en subissent les conséquences."
+      },
+      {
+        "term": "Majorité culturelle",
+        "definition": "Accord large dans la société sur une idée, distinct d'une simple majorité de voix à une élection."
+      },
+      {
+        "term": "Question régalienne",
+        "definition": "Domaine considéré comme une mission de base de l'État, au même titre que la défense ou la justice."
+      }
+    ]
+  },
+  "analysis": {
+    "fond": {
+      "main_claim": "L'écologie politique est devenue le bouc émissaire d'un été climatique extrême.",
+      "premisses": [
+        {
+          "id": "pr_0",
+          "statement": "L'été 2026 a bien été exceptionnel : juillet le plus chaud et parmi les plus secs jamais enregistrés en France.",
+          "quality": "Appuyée sur des relevés météo chiffrés annoncés en plateau, mais sans source nommée à l'écran."
+        },
+        {
+          "id": "pr_1",
+          "statement": "Les écologistes sont accusés publiquement d'avoir aggravé la situation par leur opposition à la climatisation, au débroussaillement et aux mégabassines.",
+          "quality": "Documentée par des extraits sonores et une une de presse affichée ; les accusateurs ne sont pas identifiés à l'antenne."
+        },
+        {
+          "id": "pr_2",
+          "statement": "L'écologie politique est électoralement affaiblie : municipales perdues et environ 4 % d'intentions de vote.",
+          "quality": "Adossée à un sondage Ipsos cité une seule fois, sans marge d'erreur ni date."
+        },
+        {
+          "id": "pr_3",
+          "statement": "Les responsabilités réelles se situent d'abord du côté de ceux qui ont gouverné et coupé les budgets écologiques.",
+          "quality": "Étayée par une rafale de chiffres budgétaires avancés de mémoire par un seul invité, non vérifiés en plateau."
+        }
+      ],
+      "implicit_assumptions": [
+        {
+          "id": "ia_0",
+          "statement": "Les positions ponctuelles des écologistes n'ont eu **aucun effet matériel** sur les dégâts de l'été.",
+          "impact": "Si des décisions locales ont pesé, le partage des responsabilités cesse d'être **à sens unique**."
+        },
+        {
+          "id": "ia_1",
+          "statement": "Trois personnes engagées dans l'écologie suffisent à **représenter le désaccord** sur le sujet.",
+          "impact": "Sans porteur de l'accusation en plateau, les critiques restent **jamais argumentées, seulement rapportées**."
+        },
+        {
+          "id": "ia_2",
+          "statement": "L'impopularité électorale des écologistes s'explique par **la forme du discours**, pas par le contenu des mesures.",
+          "impact": "Si ce sont les mesures qui sont rejetées, changer de **langage ne change rien** au résultat."
+        },
+        {
+          "id": "ia_3",
+          "statement": "Un bilan écologiste au pouvoir aurait produit **une autre culture du pouvoir**, donc d'autres décisions.",
+          "impact": "Faute de cas comparable, l'argument reste une **projection sans épreuve des faits**."
+        }
+      ],
+      "blind_spots": [
+        {
+          "id": "bs_0",
+          "topic": "Le fond scientifique des trois polémiques n'est jamais examiné.",
+          "significance": "Sans bilan hydrique ni effet mesuré du débroussaillement, l'accusation ne peut être ni établie ni écartée."
+        },
+        {
+          "id": "bs_1",
+          "topic": "Aucun élu du parti Les Écologistes n'est présent, alors que son bilan est discuté.",
+          "significance": "Le principal mis en cause ne répond pas lui-même des choix qu'on lui reproche."
+        },
+        {
+          "id": "bs_2",
+          "topic": "L'aménagement du territoire et les acteurs économiques privés sont mentionnés en passant, sans données.",
+          "significance": "Ces décisions expliquent une part des dégâts que le débat attribue au champ politique."
+        },
+        {
+          "id": "bs_3",
+          "topic": "Les résultats des partis verts ailleurs en Europe ne sont pas comparés.",
+          "significance": "Un plafond électoral partagé déplacerait la cause du côté structurel plutôt que français."
+        }
+      ],
+      "emphasis": [
+        "Le débat consacre l'essentiel du temps au **positionnement gauche / ni-gauche-ni-droite**, alors que les trois polémiques de l'été sont traitées en une seule séquence.",
+        "Les **pièces visuelles** — météo, une du Figaro, tableau des scores, archive de 2007 — occupent quatre séquences, quand aucun document technique sur l'eau ou la forêt n'est montré.",
+        "Le **score de 4 %** et les défaites électorales reviennent à plusieurs reprises, tandis que le contenu des programmes n'est détaillé nulle part."
+      ],
+      "logical_reasoning": [
+        {
+          "id": "lr_0",
+          "step": "De l'été record, on passe à la question de savoir si les écologistes portent une part de responsabilité.",
+          "problem_type": "validity",
+          "diagnosis": "Le lien entre un phénomène climatique global et des positions politiques locales n'est pas établi avant d'être discuté."
+        },
+        {
+          "id": "lr_1",
+          "step": "Les critiques venant surtout de la droite et de l'extrême droite, elles sont traitées comme un cadrage plutôt que comme des arguments.",
+          "problem_type": "validity",
+          "diagnosis": "L'origine d'une accusation est utilisée pour la classer, ce qui laisse son contenu inexaminé."
+        },
+        {
+          "id": "lr_2",
+          "step": "Les coupes budgétaires des dix dernières années sont avancées pour déplacer la responsabilité vers les gouvernants.",
+          "problem_type": "soundness",
+          "diagnosis": "Les montants cités de mémoire ne sont ni sourcés ni recoupés en plateau."
+        },
+        {
+          "id": "lr_3",
+          "step": "Un pouvoir écologiste aurait introduit une autre culture du pouvoir, donc de meilleures décisions.",
+          "problem_type": "validity",
+          "diagnosis": "Le passage d'une différence de culture à une différence de résultats reste supposé."
+        }
+      ],
+      "observations": [
+        {
+          "id": "obs_0",
+          "aspect": "Déclencheur",
+          "summary": "Le débat naît des **événements physiques de l'été** — canicules, mégafeux, sécheresse — posés d'emblée comme cadre de discussion.",
+          "seeds": {
+            "source": "context",
+            "index": 0,
+            "excerpt": "canicules, mégafeux en Gironde et sécheresse",
+            "strength": 1.0,
+            "nature": "illustration"
+          },
+          "proven_by": []
+        },
+        {
+          "id": "obs_1",
+          "aspect": "Calendrier",
+          "summary": "La proximité de la présidentielle **oriente les questions** vers les scores et les stratégies plus que vers les mesures.",
+          "seeds": {
+            "source": "context",
+            "index": 1,
+            "excerpt": "quelques mois avant la présidentielle de 2027",
+            "strength": 0.8,
+            "nature": "inference"
+          },
+          "proven_by": []
+        },
+        {
+          "id": "obs_2",
+          "aspect": "Sélection",
+          "summary": "Trois polémiques servent de matière commune ; **chacune est résumée en une phrase** avant de passer au positionnement politique.",
+          "seeds": {
+            "source": "context",
+            "index": 2,
+            "excerpt": "climatisation, débroussaillement, mégabassines",
+            "strength": 0.9,
+            "nature": "specification"
+          },
+          "proven_by": []
+        },
+        {
+          "id": "obs_3",
+          "aspect": "Cadrage",
+          "summary": "Le mauvais résultat électoral est traité comme **le fait à expliquer**, ce qui installe la faiblesse des écologistes avant l'examen des accusations.",
+          "seeds": {
+            "source": "context",
+            "index": 3,
+            "excerpt": "municipales perdues",
+            "strength": 0.9,
+            "nature": "inference"
+          },
+          "proven_by": [
+            {
+              "type": "claim",
+              "index": 1
+            },
+            {
+              "type": "focus",
+              "index": 0
+            }
+          ]
+        },
+        {
+          "id": "obs_4",
+          "aspect": "Sourçage",
+          "summary": "Les chiffres météo sont cités sans référence, alors que **les repères historiques existent** — juillet 2006, surmortalité de 2003.",
+          "seeds": {
+            "source": "important_fact",
+            "index": 0,
+            "excerpt": "juillet 2006 … environ 15 000 décès excédentaires",
+            "strength": 0.7,
+            "nature": "specification"
+          },
+          "proven_by": [
+            {
+              "type": "claim",
+              "index": 0
+            }
+          ]
+        }
+      ],
+      "steel_man": [
+        {
+          "counterargument": "Les décisions contestées se prennent projet par projet : une opposition locale au débroussaillement ou à une retenue d'eau peut avoir des effets matériels, indépendamment du climat global.",
+          "seeds": {
+            "source": "implicit_assumption",
+            "index": 0,
+            "excerpt": "aucun effet matériel sur les dégâts de l'été",
+            "strength": 0.8,
+            "nature": "contradiction"
+          },
+          "alternative_conclusion": "La responsabilité serait alors partagée et vérifiable dossier par dossier, plutôt que renvoyée à un cadrage adverse."
+        },
+        {
+          "counterargument": "Le plafond électoral persiste depuis 2002 malgré des discours et des stratégies très différents, ce qui affaiblit l'explication par la forme du message.",
+          "seeds": {
+            "source": "implicit_assumption",
+            "index": 2,
+            "excerpt": "la forme du discours, pas le contenu des mesures",
+            "strength": 0.7,
+            "nature": "contradiction"
+          },
+          "alternative_conclusion": "Ce serait le contenu des mesures, et non leur formulation, que l'électorat rejetterait."
+        },
+        {
+          "counterargument": "Le fond technique des trois polémiques est mesurable : bilans hydriques, effets du débroussaillement, monoculture de résineux. Ces données trancheraient sans passer par la politique.",
+          "seeds": {
+            "source": "blind_spot",
+            "index": 0,
+            "excerpt": "le fond scientifique n'est jamais examiné",
+            "strength": 0.9,
+            "nature": "contradiction"
+          },
+          "alternative_conclusion": "Le désaccord serait alors arbitrable par les faits, et non renvoyé à une querelle de camps."
+        }
+      ]
+    },
+    "forme": {
+      "emotional_register": [
+        {
+          "id": "er_0",
+          "emotion": "Accablement",
+          "how": "L'ouverture **accumule les images de destruction** — canicules, mégafeux, cours d'eau à sec — avant qu'aucun argument ne soit posé.",
+          "effect": "Le lecteur aborde le débat avec le sentiment que **l'urgence est acquise** et que seule reste la question des responsables.",
+          "seeds": {
+            "source": "context",
+            "index": 0,
+            "excerpt": "canicules, mégafeux en Gironde et sécheresse",
+            "strength": 1.0,
+            "nature": "illustration"
+          }
+        },
+        {
+          "id": "er_1",
+          "emotion": "Injustice",
+          "how": "La formule du **« prophète de malheur »** et la question du bouc émissaire présentent les mis en cause comme **punis d'avoir eu raison**.",
+          "effect": "Le lecteur est disposé à traiter les accusations comme **un procès politique** plutôt que comme des griefs à examiner.",
+          "seeds": {
+            "source": "implicit_assumption",
+            "index": 1,
+            "excerpt": "trois personnes engagées suffisent à représenter le désaccord",
+            "strength": 0.8,
+            "nature": "inference"
+          }
+        }
+      ],
+      "cui_bono": [
+        {
+          "id": "cb_0",
+          "beneficiary": "Les défenseurs de l'écologie politique",
+          "explanation": "Le plateau réunit **trois voix engagées dans l'écologie** face à des accusations diffusées en extraits. Les critiques sont **rapportées sans porteur**, ce qui laisse la réponse sans réplique.",
+          "seeds": {
+            "source": "blind_spot",
+            "index": 1,
+            "excerpt": "aucun élu du parti Les Écologistes n'est présent",
+            "strength": 0.8,
+            "nature": "specification"
+          }
+        },
+        {
+          "id": "cb_1",
+          "beneficiary": "Les responsables des choix d'aménagement et des acteurs économiques",
+          "explanation": "Le débat se joue entre **partis et militants**. Les décisions d'urbanisme, de plantation forestière ou d'irrigation privée restent **hors du champ de la discussion**.",
+          "seeds": {
+            "source": "blind_spot",
+            "index": 2,
+            "excerpt": "l'aménagement du territoire et les acteurs économiques sont mentionnés en passant",
+            "strength": 0.9,
+            "nature": "inference"
+          }
+        }
+      ],
+      "cadrage": {
+        "title_analysis": [
+          {
+            "label": "Présupposé",
+            "observation": "La question du bouc émissaire suppose l'accusation infondée avant tout examen des griefs."
+          },
+          {
+            "label": "Vocabulaire",
+            "observation": "« Écologisme politique » et « faillite », repris d'une une de presse, importent le lexique adverse."
+          },
+          {
+            "label": "Cadrage",
+            "observation": "Le sujet devient le sort d'un camp politique, non les événements climatiques de l'été."
+          }
+        ],
+        "body": "Le corps traite l'été climatique comme un fait de départ et porte la discussion sur la place de l'écologie dans le jeu politique français. Il met au centre le positionnement des écologistes — gauche, ni-gauche-ni-droite, rapport aux mouvements citoyens — et leur situation électorale à quelques mois de la présidentielle. Le registre est celui du débat de plateau : trois invités identifiés par leurs livres et leurs mandats, des séquences documentaires intercalées, une archive. La parole vient de l'intérieur du champ écologiste, chacun parlant depuis une position stratégique distincte sur le même diagnostic."
+      }
+    }
+  },
+  "annotations": {
+    "facts_vs_opinions": {
+      "claims_and_sources": [
+        {
+          "id": "claim_0",
+          "quote": "juillet 2026 a été le mois le plus chaud et parmi les plus secs jamais enregistrés en France",
+          "presentation": "presented_as_established_fact",
+          "proves": {
+            "type": "observation",
+            "label": "Sourçage",
+            "strength": 0.9,
+            "nature": "illustration"
+          },
+          "explanation": "Le record est annoncé en plateau **sans nommer l'organisme** qui produit le relevé.",
+          "external_sources": [
+            {
+              "name": "Météo-France — bilans climatiques mensuels",
+              "supports": "neutral",
+              "evidence_type": "official_data"
+            },
+            {
+              "name": "Copernicus Climate Change Service",
+              "supports": "neutral",
+              "evidence_type": "official_data"
+            }
+          ],
+          "confidence": 70,
+          "confidence_label": "likely true"
+        },
+        {
+          "id": "claim_1",
+          "quote": "leur candidate Marine Tondelier n'est crédité que d'environ 4 % d'intention de vote pour la présidentielle de l'année prochaine selon un sondage Ipsos",
+          "presentation": "attributed_to_source",
+          "proves": {
+            "type": "observation",
+            "label": "Cadrage",
+            "strength": 0.9,
+            "nature": "illustration"
+          },
+          "explanation": "L'institut est nommé, mais **ni la date ni la marge d'erreur** ne sont données.",
+          "external_sources": [
+            {
+              "name": "Ipsos — baromètre d'intentions de vote",
+              "supports": "neutral",
+              "evidence_type": "media"
+            },
+            {
+              "name": "Commission des sondages",
+              "supports": "neutral",
+              "evidence_type": "official_data"
+            }
+          ],
+          "confidence": 75,
+          "confidence_label": "likely true"
+        },
+        {
+          "id": "claim_2",
+          "quote": "Qui a réduit le budget du fond vert 26 de 163 millions ? Qui a coupé 300 millions dans le dernier budget ?",
+          "presentation": "presented_as_established_fact",
+          "proves": {
+            "type": "cui_bono",
+            "label": "Les défenseurs de l'écologie politique",
+            "strength": 0.8,
+            "nature": "illustration"
+          },
+          "explanation": "Les montants sont avancés **de mémoire par un invité** et ne sont recoupés par personne en plateau.",
+          "external_sources": [
+            {
+              "name": "Projet de loi de finances — mission Écologie",
+              "supports": "neutral",
+              "evidence_type": "official_data"
+            },
+            {
+              "name": "Ministère de la Transition écologique — dotations du Fonds vert",
+              "supports": "neutral",
+              "evidence_type": "official_data"
+            }
+          ],
+          "confidence": 55,
+          "confidence_label": "disputed"
+        },
+        {
+          "id": "claim_3",
+          "quote": "les militants de l'écologie politique, y compris par la violence parfois, on l'a connu au cours des dernières années, ont empêché la construction de ces moyens de rétention d'eau",
+          "presentation": "opinion_stated_as_fact",
+          "proves": {
+            "type": "emotional_register",
+            "label": "Injustice",
+            "strength": 0.8,
+            "nature": "nuance"
+          },
+          "explanation": "L'affirmation prête aux militants **un effet de blocage** que ni décision de justice ni chantier arrêté ne viennent documenter ici.",
+          "external_sources": [
+            {
+              "name": "Décisions des tribunaux administratifs sur les réserves de substitution",
+              "supports": "contradicts",
+              "evidence_type": "official_data"
+            },
+            {
+              "name": "Rapport du BRGM sur les retenues de substitution",
+              "supports": "neutral",
+              "evidence_type": "academic"
+            },
+            {
+              "name": "Déclarations de la Confédération paysanne",
+              "supports": "contradicts",
+              "evidence_type": "party_statement"
+            }
+          ],
+          "confidence": 35,
+          "confidence_label": "likely false"
+        }
+      ]
+    },
+    "biases_and_focus": {
+      "biases_and_rhetoric": [
+        {
+          "id": "bias_0",
+          "quote": "Canicule à répétition, méga feu, cour d'eau à sécher.",
+          "item_type": "bias",
+          "label": "accumulation en ouverture",
+          "effect": "Remarquez comment **trois images de destruction** s'enchaînent avant qu'aucun argument ne soit énoncé.",
+          "proves": {
+            "type": "emotional_register",
+            "label": "Accablement",
+            "strength": 1.0,
+            "nature": "illustration"
+          }
+        },
+        {
+          "id": "bias_1",
+          "quote": "on a tendance à dire \"Mais regardez, c'est le prophète de malheur.\"",
+          "item_type": "bias",
+          "label": "requalification en réflexe psychologique",
+          "effect": "Remarquez comment la critique devient **un travers connu** plutôt qu'un grief à examiner.",
+          "proves": {
+            "type": "emotional_register",
+            "label": "Injustice",
+            "strength": 0.9,
+            "nature": "illustration"
+          }
+        },
+        {
+          "id": "bias_2",
+          "quote": "on est face encore une fois un cadrage politique qui vient essentiellement de la droite, de l'extrême droite",
+          "item_type": "fallacy",
+          "label": "réponse par l'origine de l'accusation",
+          "effect": "Remarquez comment **d'où vient la critique** tient lieu de réponse à ce qu'elle affirme.",
+          "proves": {
+            "type": "cui_bono",
+            "label": "Les défenseurs de l'écologie politique",
+            "strength": 0.9,
+            "nature": "illustration"
+          }
+        }
+      ],
+      "focus": {
+        "quote": "Face au défis climatiques, les verres sont-ils devenus un bouqu émissaire ?",
+        "proves": {
+          "type": "observation",
+          "label": "Cadrage",
+          "strength": 1.0,
+          "nature": "illustration"
+        },
+        "analysis": "La question fait des écologistes **le sujet du débat**, à la place des événements de l'été. Elle suppose l'accusation **déplacée avant de l'avoir examinée**. Le fond des trois griefs — climatisation, débroussaillement, mégabassines — n'entre jamais dans la question : que resterait-il de l'accusation si on la traitait dossier par dossier ?"
+      }
+    }
+  },
+  "deontology": {
+    "violations": [
+      {
+        "id": "v1",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "On ne peut pas la stocker parce que les militants de l'écologie politique, y compris par la violence parfois, on l'a connu au cours des dernières années, ont empêché la construction de ces moyens de rétention d'eau.",
+        "explanation": "L'accusation de violence est diffusée en extrait sans qu'aucun militant mis en cause soit sollicité."
+      },
+      {
+        "id": "v2",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Alors justement, vous parliez du nucléaire.",
+        "explanation": "Le bilan du parti Les Écologistes est débattu sans qu'aucun de ses porte-parole soit présent."
+      },
+      {
+        "id": "v3",
+        "category": "false_balance",
+        "label": "False Balance",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Face au défis climatiques, les verres sont-ils devenus un bouqu émissaire ?",
+        "explanation": "Les trois invités partagent le même camp : l'accusation est diffusée, jamais incarnée en plateau."
+      },
+      {
+        "id": "v4",
+        "category": "presumption_of_innocence",
+        "label": "Presumption of Innocence",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "y compris par la violence parfois",
+        "explanation": "Des faits de violence sont imputés à des militants sans procédure ni condamnation citée."
+      },
+      {
+        "id": "v5",
+        "category": "false_statistics",
+        "label": "False Statistics",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Qui a réduit le budget du fond vert 26 de 163 millions ? Qui a coupé 300 millions dans le dernier budget ?",
+        "explanation": "Montants avancés sans base de comparaison ni source, non recoupés en plateau."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Avant diffusion, identifier les auteurs des extraits accusateurs, solliciter une réponse des militants et du parti mis en cause, et sourcer les chiffres budgétaires cités en plateau."
+    },
+    "summary": "La déontologie n'est pas entièrement propre : cinq points de vigilance, sans manquement caractérisé. Ils portent sur l'absence de contradiction en plateau, l'accusation de violence non étayée et des chiffres non sourcés."
+  },
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "Les sources existent mais sont **nommées à moitié** : le sondage est attribué (« selon un sondage Ipsos ») sans date ni marge d'erreur, et le record de juillet est annoncé sans l'organisme qui produit le relevé. Les coupes budgétaires — « Qui a coupé 300 millions dans le dernier budget ? » — sont avancées de mémoire par un seul invité, avec une confiance de 55 %, sans recoupement en plateau.",
+        "lesson": "Vérifiez si un chiffre cité en plateau vient avec sa source, sa date et son périmètre : sans ces trois éléments, il ne se vérifie pas."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 2,
+        "rationale": "Les faits climatiques tiennent, mais l'affirmation la plus lourde — les militants « ont empêché la construction de ces moyens de rétention d'eau » — est classée `opinion_stated_as_fact` avec une confiance de 35 %, et les décisions de justice administratives figurent parmi les sources qui la contredisent. Aucune correction ni recoupement n'intervient à l'antenne.",
+        "lesson": "Repérez les affirmations causales — « ont empêché », « ont aggravé » — et demandez quel chantier arrêté ou quelle décision les documente."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "La chaîne part d'un fait solide, l'été record, mais franchit sans le dire l'écart entre un phénomène climatique global et des positions politiques locales — le `logical_reasoning` relève que « le lien n'est pas établi avant d'être discuté ». Le dernier maillon, « une autre culture du pouvoir, donc de meilleures décisions », suppose ce qu'il devrait montrer.",
+        "lesson": "Cherchez le maillon où l'on passe d'une différence d'intention à une différence de résultats : c'est là que la démonstration s'interrompt souvent."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "Le dispositif est lisible — invités présentés par leurs livres et leurs mandats, chacun sur une position stratégique distincte — mais l'angle n'est jamais énoncé comme tel. Le premier `implicit_assumption`, « les positions ponctuelles des écologistes n'ont eu aucun effet matériel sur les dégâts de l'été », structure tout le débat sans être posé ni discuté.",
+        "lesson": "Demandez-vous quelle proposition devrait être vraie pour que le débat ait le sens qu'on lui donne, puis vérifiez si elle est jamais énoncée."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Les repères politiques et électoraux sont fournis, mais le premier `blind_spot` est décisif : « le fond scientifique des trois polémiques n'est jamais examiné » — aucun bilan hydrique, aucun effet mesuré du débroussaillement. Le déséquilibre est visible dans l'`emphasis` : les trois polémiques de l'été tiennent une seule séquence, le positionnement gauche / ni-gauche-ni-droite en occupe l'essentiel.",
+        "lesson": "Comparez le temps donné au positionnement politique et celui donné aux dossiers techniques : l'écart indique ce que l'émission a choisi de ne pas trancher."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Les accusations sont diffusées en extraits, jamais incarnées : le plateau réunit trois voix engagées dans l'écologie et « aucun élu du parti Les Écologistes n'est présent » alors que son bilan est discuté. Le passage relevé comme sophisme — « un cadrage politique qui vient essentiellement de la droite, de l'extrême droite » — répond à l'origine de la critique plutôt qu'à son contenu.",
+        "lesson": "Notez qui porte l'accusation en plateau : une critique rapportée sans porteur ne peut être ni défendue ni réfutée."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 3,
+        "rationale": "Le fil est facile à suivre et les pièces visuelles — météo, une de presse, tableau des scores, archive de 2007 — ancrent chaque séquence. Mais le vocabulaire est importé sans être discuté : « écologisme politique » et « faillite », repris d'une une de presse, entrent dans le débat comme des descriptions.",
+        "lesson": "Interrogez les mots venus du camp adverse : les reprendre sans les définir, c'est adopter le cadre qu'ils portent."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "L'angle a un mérite réel : réunir trois positions stratégiques distinctes sur un même diagnostic donne à entendre un désaccord interne rarement exposé. Il reste toutefois dans le registre attendu du bilan de camp, quand la piste la plus neuve — celle du `steel_man`, « le désaccord serait arbitrable par les faits » via bilans hydriques et effets du débroussaillement — n'est jamais empruntée.",
+        "lesson": "Distinguez le débat sur les intentions d'un camp du débat sur les effets de ses décisions : le second se vérifie, le premier tourne en rond."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Qui suit la stratégie des partis écologistes français — militant, permanent, journaliste politique — et cherche à entendre trois positions internes s'expliquer avant 2027.",
+      "payoff": "Vous verrez précisément où se situe la ligne de fracture entre les courants écologistes sur le rapport à la gauche et aux mouvements citoyens. En revanche, vous ressortirez sans élément pour juger les trois griefs de l'été : il faudra les chercher ailleurs.",
+      "signature_move": "Le débat entre alliés : on installe le diagnostic comme acquis, puis on consacre le temps aux désaccords de stratégie entre gens du même camp.",
+      "main_blind_side": "Aucun document technique sur l'eau ou la forêt n'est montré, là où quatre séquences reposent sur des pièces politiques — un choix de plateau qui privilégie le récit du camp sur l'arbitrage par les faits.",
+      "further_resource": {
+        "title": "Les mégabassines, enquête sur un conflit de l'eau",
+        "source": "Le Monde — série d'enquête",
+        "media_type": "article",
+        "why_explore": "Traite dossier par dossier, chiffres hydriques en main, ce que l'émission laisse au registre de la querelle politique.",
+        "url": null
+      },
+      "summary": "Lecture sous réserve, surtout utile à qui suit de près la stratégie des écologistes : le plateau donne à entendre un désaccord interne réel, mais laisse les trois accusations de l'été sans examen factuel — aucun contradicteur présent, aucune donnée sur l'eau ou la forêt."
+    }
+  },
+  "blend": {
+    "patterns": [
+      {
+        "text": "L'hypothèse jamais énoncée que les positions écologistes n'ont eu **aucun effet matériel** est exactement ce que le plateau se dispense de vérifier faute d'examen scientifique des trois polémiques ; la dimension la plus faible en contexte tient à ce vide.",
+        "layers": [
+          "logic",
+          "review"
+        ],
+        "references": [
+          "ia_0",
+          "bs_0",
+          "obs_2"
+        ]
+      },
+      {
+        "text": "L'accusation la plus lourde — les militants auraient **empêché** les retenues d'eau — est diffusée en extrait, classée opinion présentée comme fait à 35 % de confiance, et personne des mis en cause n'est sollicité : la faiblesse factuelle et le défaut de contradiction **se couvrent l'une l'autre**.",
+        "layers": [
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "claim_3",
+          "bs_1",
+          "er_1"
+        ]
+      },
+      {
+        "text": "L'accumulation d'images de destruction en ouverture installe l'urgence avant tout argument, ce qui rend acceptable le saut du climat global aux positions politiques locales : **le registre émotionnel tient lieu de maillon logique**.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "logic"
+        ],
+        "references": [
+          "er_0",
+          "bias_0",
+          "lr_0"
+        ]
+      },
+      {
+        "text": "Répondre à la critique par **son origine politique** et la requalifier en réflexe psychologique produisent le même résultat : le grief change de statut sans être examiné, au bénéfice du camp seul présent en plateau.",
+        "layers": [
+          "probe",
+          "rhetoric",
+          "logic"
+        ],
+        "references": [
+          "bias_2",
+          "bias_1",
+          "cb_0",
+          "lr_1"
+        ]
+      },
+      {
+        "text": "Le score de 4 % et les municipales perdues sont posés comme **le fait à expliquer**, si bien que le débat porte sur la forme du discours ; l'hypothèse que le contenu des mesures serait en cause n'est jamais mise à l'épreuve.",
+        "layers": [
+          "logic",
+          "probe"
+        ],
+        "references": [
+          "obs_3",
+          "claim_1",
+          "ia_2"
+        ]
+      },
+      {
+        "text": "Les chiffres qui servent chaque camp sont **cités à moitié** — record de juillet sans organisme, sondage sans date, coupes budgétaires de mémoire : le même défaut de sourçage vaut pour l'accusation et pour la défense.",
+        "layers": [
+          "probe",
+          "logic",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "claim_0",
+          "claim_2",
+          "obs_4",
+          "pr_3"
+        ]
+      },
+      {
+        "text": "Quatre séquences reposent sur des **pièces politiques** — météo, une de presse, tableau des scores, archive — et aucune sur un document hydrique ou forestier : l'absence des acteurs de l'aménagement et de l'irrigation privée découle de ce choix de plateau.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "bs_2",
+          "cb_1",
+          "obs_2"
+        ]
+      },
+      {
+        "text": "Le dernier maillon — une autre culture du pouvoir, **donc** d'autres décisions — est une projection sans cas comparable, et la comparaison qui l'éprouverait, les scores des verts européens, reste hors champ.",
+        "layers": [
+          "logic",
+          "review"
+        ],
+        "references": [
+          "lr_3",
+          "ia_3",
+          "bs_3"
+        ]
+      }
+    ]
+  },
+  "distill": {
+    "points": [
+      {
+        "text": "L'accusation la plus lourde — les militants auraient **empêché** les retenues d'eau — circule en extrait, avec une confiance de 35 %, sans qu'aucun mis en cause soit sollicité : **faiblesse factuelle et défaut de contradiction se couvrent l'une l'autre**.",
+        "references": [
+          "claim_3",
+          "bs_1",
+          "er_1"
+        ]
+      },
+      {
+        "text": "L'hypothèse jamais énoncée que les positions écologistes n'ont eu **aucun effet matériel** est précisément ce que le plateau se dispense de vérifier, faute d'examen scientifique des trois polémiques. Quatre séquences reposent sur des **pièces politiques** — météo, une de presse, tableau des scores, archive — et aucune sur un document hydrique ou forestier.",
+        "references": [
+          "ia_0",
+          "bs_0",
+          "obs_2",
+          "bs_2",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "L'accumulation d'images de destruction en ouverture installe l'urgence avant tout argument, ce qui rend acceptable le saut du climat global aux positions politiques locales : **le registre émotionnel tient lieu de maillon logique**.",
+        "references": [
+          "er_0",
+          "bias_0",
+          "lr_0"
+        ]
+      },
+      {
+        "text": "Renvoyer la critique à **son origine politique** ou la requalifier en réflexe psychologique produit le même effet : le grief change de statut sans être examiné, au bénéfice du **seul camp présent** en plateau.",
+        "references": [
+          "bias_2",
+          "bias_1",
+          "cb_0",
+          "lr_1"
+        ]
+      },
+      {
+        "text": "Le score de 4 % et les municipales perdues sont posés comme **le fait à expliquer**, ce qui déplace le débat vers la forme du discours ; l'hypothèse que le **contenu des mesures** soit en cause n'est jamais mise à l'épreuve.",
+        "references": [
+          "obs_3",
+          "claim_1",
+          "ia_2"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Les positions écologistes ont-elles retardé des retenues d'eau, et dans quelle proportion mesurable ?",
+      "Que diraient les acteurs de l'aménagement et de l'irrigation privée, absents du plateau ?",
+      "Le contenu des mesures, et non leur formulation, pèse-t-il sur le score électoral ?"
+    ]
+  },
+  "guide": {
+    "pre_reading": [
+      "Repérez d'entrée que le plateau réunit trois voix du même camp : ce que vous allez entendre est un désaccord de stratégie, pas une confrontation avec les accusateurs.",
+      "Gardez en tête l'affirmation implicite qui tient tout l'échange : les prises de position écologistes n'auraient rien changé sur le terrain — proposition jamais énoncée, jamais discutée.",
+      "Notez que le mauvais score électoral est posé comme le fait à expliquer, ce qui oriente le débat vers la façon de parler plutôt que vers le contenu des mesures."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "wo_1",
+          "text": "L'accusation la plus lourde — des militants qui auraient bloqué des ouvrages de stockage d'eau — arrive par extraits, sans qu'aucun mis en cause vienne y répondre. Elle est faiblement étayée, et cette faiblesse n'est jamais relevée à l'antenne.",
+          "references": [
+            "claim_3",
+            "bs_1",
+            "er_1"
+          ]
+        },
+        {
+          "id": "wo_2",
+          "text": "L'ouverture enchaîne les images de dégâts avant tout raisonnement. Surveillez le moment où l'on glisse d'un phénomène climatique global à des positions politiques locales : l'urgence installée tient lieu de démonstration.",
+          "references": [
+            "er_0",
+            "bias_0",
+            "lr_0"
+          ]
+        },
+        {
+          "id": "wo_3",
+          "text": "Plusieurs réponses portent sur l'origine de la critique — d'où elle vient, quel réflexe elle traduit — plutôt que sur son contenu. Le grief change alors de statut sans avoir été examiné.",
+          "references": [
+            "bias_2",
+            "bias_1",
+            "lr_1"
+          ]
+        },
+        {
+          "id": "wo_4",
+          "text": "Les chiffres circulent à moitié sourcés des deux côtés : un record de température sans l'organisme qui le mesure, un sondage sans date, des coupes budgétaires citées de mémoire. Demandez systématiquement source, date et périmètre.",
+          "references": [
+            "claim_0",
+            "claim_2",
+            "pr_3"
+          ]
+        },
+        {
+          "id": "wo_5",
+          "text": "Le raisonnement se termine sur une projection : une autre culture du pouvoir produirait de meilleures décisions. Aucun cas comparable n'est présenté pour l'appuyer.",
+          "references": [
+            "lr_3",
+            "ia_3",
+            "bs_3"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Retenez où passe la ligne de fracture entre courants écologistes sur le rapport à la gauche et aux mouvements citoyens : c'est ce que l'émission documente réellement.",
+      "Ne repartez pas avec un avis sur les trois polémiques de l'été — aucun bilan hydrique, aucun effet mesuré du débroussaillement n'a été montré.",
+      "Reprenez les mots empruntés à la critique adverse et demandez-vous ce qu'ils désignent précisément avant de les employer à votre tour.",
+      "Cherchez ailleurs les documents techniques sur l'eau et la forêt : c'est le seul terrain où le désaccord peut s'arbitrer."
+    ],
+    "title_note": null,
+    "perspective": {
+      "framing": "L'émission traite le sujet comme un **bilan de camp** : le diagnostic climatique est installé d'emblée, puis le temps est consacré aux **désaccords de stratégie** entre trois invités engagés dans l'écologie politique. Le registre est celui de l'urgence en ouverture, puis de l'explication interne, avec les pièces d'appui — météo, une de presse, tableau des scores, archive — toutes prises du répertoire politique.",
+      "blind_spots": "Le fond scientifique des trois polémiques de l'été n'est jamais ouvert : ni bilan hydrique, ni effet mesuré du débroussaillement. Et les acteurs directement concernés — élus du parti mis en cause, aménageurs, irrigants — sont absents alors que leur bilan est discuté.",
+      "balance": "Un plateau de débat n'a pas vocation à instruire des dossiers techniques, et réunir trois positions internes pour les faire s'expliquer est un choix éditorial défendable, assumé comme tel. Les manques relevés sont réels, mais ils tiennent d'abord au format : l'émission éclaire une stratégie de parti, pas la matérialité des griefs — c'est cette limite qu'il faut garder en tête, plutôt qu'une faute d'honnêteté."
+    }
+  },
+  "core_elements": {
+    "elements": [
+      {
+        "statement": "Trois griefs de l'été — climatisation, débroussaillement, mégabassines — sont adressés aux écologistes.",
+        "kind": "affirmation",
+        "centrality": 5,
+        "seeds": {
+          "source": "context",
+          "index": 2,
+          "excerpt": "climatisation, débroussaillement, mégabassines",
+          "strength": 1.0,
+          "nature": "illustration"
+        }
+      },
+      {
+        "statement": "Le débat porte surtout sur le positionnement de l'écologie : gauche ou ni droite ni gauche.",
+        "kind": "enjeu",
+        "centrality": 5,
+        "seeds": {
+          "source": "premisse",
+          "index": 3,
+          "excerpt": "Les responsabilités réelles se situent d'abord du côté de ceux qui ont gouverné",
+          "strength": 0.8,
+          "nature": "inference"
+        }
+      },
+      {
+        "statement": "Les écologistes sont posés comme sujet du débat, avant tout examen des accusations.",
+        "kind": "angle",
+        "centrality": 4,
+        "seeds": {
+          "source": "logical_reasoning",
+          "index": 0,
+          "excerpt": "De l'été record, on passe à la question de savoir si les écologistes portent une part de responsabilité",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "statement": "Juillet 2026 est le mois le plus chaud et parmi les plus secs enregistrés en France.",
+        "kind": "fait",
+        "centrality": 4,
+        "seeds": {
+          "source": "context",
+          "index": 0,
+          "excerpt": "canicules, mégafeux en Gironde et sécheresse",
+          "strength": 1.0,
+          "nature": "specification"
+        }
+      },
+      {
+        "statement": "L'écologie politique est électoralement affaiblie : municipales perdues, environ 4 % d'intentions de vote.",
+        "kind": "fait",
+        "centrality": 3,
+        "seeds": {
+          "source": "context",
+          "index": 3,
+          "excerpt": "municipales perdues",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      }
+    ]
+  }
+}

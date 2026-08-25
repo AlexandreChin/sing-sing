@@ -1,0 +1,110 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "L'hypothèse jamais énoncée que les positions écologistes n'ont eu **aucun effet matériel** est exactement ce que le plateau se dispense de vérifier faute d'examen scientifique des trois polémiques ; la dimension la plus faible en contexte tient à ce vide.",
+        "layers": [
+          "logic",
+          "review"
+        ],
+        "references": [
+          "ia_0",
+          "bs_0",
+          "obs_2"
+        ]
+      },
+      {
+        "text": "L'accusation la plus lourde — les militants auraient **empêché** les retenues d'eau — est diffusée en extrait, classée opinion présentée comme fait à 35 % de confiance, et personne des mis en cause n'est sollicité : la faiblesse factuelle et le défaut de contradiction **se couvrent l'une l'autre**.",
+        "layers": [
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "claim_3",
+          "bs_1",
+          "er_1"
+        ]
+      },
+      {
+        "text": "L'accumulation d'images de destruction en ouverture installe l'urgence avant tout argument, ce qui rend acceptable le saut du climat global aux positions politiques locales : **le registre émotionnel tient lieu de maillon logique**.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "logic"
+        ],
+        "references": [
+          "er_0",
+          "bias_0",
+          "lr_0"
+        ]
+      },
+      {
+        "text": "Répondre à la critique par **son origine politique** et la requalifier en réflexe psychologique produisent le même résultat : le grief change de statut sans être examiné, au bénéfice du camp seul présent en plateau.",
+        "layers": [
+          "probe",
+          "rhetoric",
+          "logic"
+        ],
+        "references": [
+          "bias_2",
+          "bias_1",
+          "cb_0",
+          "lr_1"
+        ]
+      },
+      {
+        "text": "Le score de 4 % et les municipales perdues sont posés comme **le fait à expliquer**, si bien que le débat porte sur la forme du discours ; l'hypothèse que le contenu des mesures serait en cause n'est jamais mise à l'épreuve.",
+        "layers": [
+          "logic",
+          "probe"
+        ],
+        "references": [
+          "obs_3",
+          "claim_1",
+          "ia_2"
+        ]
+      },
+      {
+        "text": "Les chiffres qui servent chaque camp sont **cités à moitié** — record de juillet sans organisme, sondage sans date, coupes budgétaires de mémoire : le même défaut de sourçage vaut pour l'accusation et pour la défense.",
+        "layers": [
+          "probe",
+          "logic",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "claim_0",
+          "claim_2",
+          "obs_4",
+          "pr_3"
+        ]
+      },
+      {
+        "text": "Quatre séquences reposent sur des **pièces politiques** — météo, une de presse, tableau des scores, archive — et aucune sur un document hydrique ou forestier : l'absence des acteurs de l'aménagement et de l'irrigation privée découle de ce choix de plateau.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "bs_2",
+          "cb_1",
+          "obs_2"
+        ]
+      },
+      {
+        "text": "Le dernier maillon — une autre culture du pouvoir, **donc** d'autres décisions — est une projection sans cas comparable, et la comparaison qui l'éprouverait, les scores des verts européens, reste hors champ.",
+        "layers": [
+          "logic",
+          "review"
+        ],
+        "references": [
+          "lr_3",
+          "ia_3",
+          "bs_3"
+        ]
+      }
+    ]
+  }
+}

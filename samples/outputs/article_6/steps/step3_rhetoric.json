@@ -1,0 +1,73 @@
+{
+  "emotional_register": [
+    {
+      "id": "er1",
+      "emotion": "Inquiétude",
+      "how": "Le texte **superpose** l'événement en cours — troisième vague de chaleur, surmortalité — aux records de température et aux projections à +4 °C.",
+      "effect": "Le lecteur aborde les chiffres d'émissions comme les **symptômes d'un danger déjà là**, non comme un bilan administratif.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "pendant une troisième vague de chaleur",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "er2",
+      "emotion": "Défiance",
+      "how": "Le vocabulaire de l'écart — « se dérobe », « discours de façade », « ambitions limitées aux seuls mots » — **oppose la parole publique aux actes**.",
+      "effect": "Le lecteur est disposé à lire toute annonce climatique gouvernementale comme une **promesse à vérifier**.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "ne dispose d'aucun pouvoir contraignant",
+        "strength": 0.6,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "cb1",
+      "beneficiary": "Le Haut Conseil pour le climat",
+      "explanation": "Son rapport est repris **sans contradicteur** et son vocabulaire devient celui de l'article. L'instance consultative se trouve ainsi en position d'**arbitre du bilan**, une autorité que son mandat ne lui confère pas.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "organisme consultatif indépendant créé en 2018",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "id": "cb2",
+      "beneficiary": "Les candidats faisant du climat un axe de campagne",
+      "explanation": "La conclusion relie explicitement l'alerte à la **campagne présidentielle**. Un constat de retard imputé au pouvoir en place fournit un **terrain argumentatif** à ceux qui s'en démarquent.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "une surmortalité provisoire",
+        "strength": 0.5,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Attribution",
+        "observation": "La citation entre guillemets place le constat sous la responsabilité du HCC, pas du journal."
+      },
+      {
+        "label": "Ellipse",
+        "observation": "« Pas prête » désigne un défaut d'adaptation, alors que le corps traite surtout d'émissions."
+      },
+      {
+        "label": "Vocabulaire",
+        "observation": "« Alerte » et « retard » installent un registre d'urgence avant tout chiffre."
+      }
+    ],
+    "body": "Le corps traite la publication d'un rapport annuel comme un **bilan de l'action gouvernementale**, mesuré à l'aune des objectifs affichés par la France elle-même. Il met au centre l'**écart entre les textes et leurs moyens**, construit par une série chiffrée d'émissions puis par trois décisions publiques récentes. Le registre est celui du **compte rendu documenté**, adossé au vocabulaire et aux catégories du HCC. La position d'énonciation est celle d'un **relais du rapport**, dont l'auteur prolonge les formulations dans ses propres phrases de synthèse."
+  }
+}
