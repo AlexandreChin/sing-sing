@@ -99,8 +99,10 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
                 **common,
             }))
         else:
+            # The template wraps the quote in « » itself — strip any the source
+            # JSON carries so they don't render doubled.
             specs.append((f"0{5 + idx}_moment", "moment", {
-                "moment": b.moment, "quote": b.quote, **common,
+                "moment": b.moment, "quote": b.quote.strip().strip("«»").strip(), **common,
             }))
 
     if d.global_analysis:
