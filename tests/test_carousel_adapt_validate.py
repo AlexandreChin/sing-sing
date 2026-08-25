@@ -15,9 +15,9 @@ def _display(**over):
     good = dict(
         # candidate pool: ≥3 beats, canonical lens_refs; default selected=True → 3 selected
         reading_beats=[
-            ReadingBeat(moment="A", quote="+4400 %", lens_ref="chiffres", note="n", answer="r"),
-            ReadingBeat(moment="B", quote="donc la cause", lens_ref="causalite", note="n", answer="r"),
-            ReadingBeat(moment="C", quote="qui l'affirme", lens_ref="sources", note="n", answer="r"),
+            ReadingBeat(moment="A", quote="+4400 %", lens_ref="chiffres", note="n", answer="r", role="preuve"),
+            ReadingBeat(moment="B", quote="donc la cause", lens_ref="causalite", note="n", answer="r", role="appui"),
+            ReadingBeat(moment="C", quote="qui l'affirme", lens_ref="sources", note="n", answer="r", role="pivot"),
         ],
         global_analysis=GlobalAnalysis(headline="Une méthode", core_recap=["a", "b"]),
         root_issue="L'enjeu est surtout symbolique : une élite qui affiche son indifférence.",
@@ -69,6 +69,30 @@ def test_rejects_selected_beat_without_answer():
         ReadingBeat(moment="C", quote="q", lens_ref="sources", note="n", answer="r", selected=False),
     ]))
     assert any("answer is empty" in e for e in errs)
+
+
+def test_rejects_selected_beat_without_role():
+    # `role` (what the quote does for the thesis) keeps the reveal from
+    # contradicting the passage it annotates
+    errs = _lens_layer_errors(_display(reading_beats=[
+        ReadingBeat(moment="A", quote="q", lens_ref="chiffres", note="n", answer="r", role="", selected=True),
+        ReadingBeat(moment="B", quote="q", lens_ref="causalite", note="n", answer="r", role="appui", selected=True),
+        ReadingBeat(moment="C", quote="q", lens_ref="sources", note="n", answer="r", role="preuve", selected=False),
+    ]))
+    assert any("role is empty" in e for e in errs)
+
+
+def test_rejects_two_staging_beats_among_the_selected():
+    # at most one selected beat may annotate the staging rather than the demonstration
+    errs = _lens_layer_errors(_display(reading_beats=[
+        ReadingBeat(moment="A", quote="q", lens_ref="cadrage", note="n", answer="r",
+                    role="mise en scène", selected=True),
+        ReadingBeat(moment="B", quote="q", lens_ref="sources", note="n", answer="r",
+                    role="mise en scène", selected=True),
+        ReadingBeat(moment="C", quote="q", lens_ref="causalite", note="n", answer="r",
+                    role="preuve", selected=True),
+    ]))
+    assert any("mise en scène" in e for e in errs)
 
 
 def test_rejects_missing_global_analysis_and_empty_root_issue():

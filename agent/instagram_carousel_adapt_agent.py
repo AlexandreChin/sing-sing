@@ -32,9 +32,18 @@ def _lens_layer_errors(d) -> list[str]:
         # (`note`) and the reveal (`answer`).
         if b.selected and not b.answer.strip():
             errors.append(f"display.reading_beats[{i}].answer is empty (required for selected beats)")
+        # `role` (what the quote does for the thesis) keeps the reveal from
+        # contradicting the passage it annotates — see the prompt's coherence rule.
+        if b.selected and not b.role.strip():
+            errors.append(f"display.reading_beats[{i}].role is empty (required for selected beats)")
     n_selected = sum(1 for b in beats if b.selected)
     if not (2 <= n_selected <= 3):
         errors.append(f"display.reading_beats must have 2–3 selected, got {n_selected}")
+    # At most one selected beat may annotate the article's staging rather than a
+    # piece of its demonstration (prompt rule: ≥2 beats on `fond.main_claim`).
+    staging = sum(1 for b in beats if b.selected and b.role.strip() == "mise en scène")
+    if staging > 1:
+        errors.append(f"display.reading_beats: at most 1 selected beat may have role 'mise en scène', got {staging}")
     ga = d.global_analysis
     if ga is None:
         errors.append("display.global_analysis is missing")

@@ -79,6 +79,8 @@ class ReadingBeat(BaseModel):
     theme: str = ""         # editor aid — the dimension this beat covers (carbone, faune, régulation…)
     centrality: int = 0     # editor aid — importance 1–5 (0 = unset)
     kind: str = ""          # editor aid — fait | biais | enjeu | statistique | affirmation
+    role: str = ""          # editor aid — what the quote DOES for the thesis:
+                            # appui | preuve | concession | pivot | mise en scène
     rationale: str = ""     # editor aid — one line on why this beat is worth a slide
 
 
