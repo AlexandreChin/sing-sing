@@ -18,9 +18,11 @@ class DecryptageItem(BaseModel):
     """One reading moment in the chronological "Au fil de la lecture" pass, in
     article order. Neutral: no fait/faille grade badge is rendered — `kind` and
     `presentation` are kept for schema compatibility but unused by the templates."""
-    kind: Literal["fait", "faille"]   # unused by rendering — kept for compatibility
+    kind: Literal["fait", "faille"]   # unused by rendering — solid support vs weak point
     quote: str          # the article sentence examined (verbatim, « … »)
     presentation: str   # unused by rendering — kept for compatibility
+    role: str = ""      # editor aid, unused by rendering — what the quote DOES for the
+                        # thesis: appui | preuve | concession | pivot | mise en scène
     reading: str        # our neutral critical reading = the ANSWER (rendered "Réponse —"), 2–4 sentences
     prompt: str | None = None   # ≤12 words — the lens-tagged instruction ("what to spot"), rendered before the answer
     lens_ref: str | None = None   # canonical lens id (agent/lenses.py) this beat exercises — supplies the icon+name tag
