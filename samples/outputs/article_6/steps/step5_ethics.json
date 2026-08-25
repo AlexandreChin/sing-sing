@@ -1,0 +1,29 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "eth1",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "le gouvernement multiplie les textes contraires à ces objectifs en actant des reculs environnementaux notoires",
+        "explanation": "Accusation d'incohérence adressée au gouvernement sans trace de réponse sollicitée."
+      },
+      {
+        "id": "eth2",
+        "category": "misleading_title",
+        "label": "Misleading Title",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "« La France n'est pas prête » : le HCC alerte sur le retard climatique du pays",
+        "explanation": "Le titre reprend l'alerte sur l'adaptation, mais le corps l'élargit au bilan d'émissions."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Solliciter une réaction du gouvernement et resserrer le titre sur l'adaptation, périmètre réel de la citation du HCC."
+    },
+    "summary": "La déontologie n'est pas totalement propre : deux points de vigilance, sans manquement caractérisé. L'article s'appuie sur une source publique identifiée, mais ne sollicite aucune réponse de l'institution mise en cause et étire le sens de sa citation-titre."
+  }
+}

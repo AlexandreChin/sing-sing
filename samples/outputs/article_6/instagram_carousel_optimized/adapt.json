@@ -1,0 +1,353 @@
+{
+  "hook": {
+    "topic": "Climat : la France **en retard**",
+    "sub_topic": "Derrière les **points de pourcentage**, que pèse un **engagement** ?",
+    "headline": "Des textes ambitieux, des **moyens** qui suivent ?",
+    "context_line": "Un rapport annuel évalue la trajectoire climatique française pendant une troisième vague de chaleur.",
+    "sub_topic_alt": [
+      "Derrière les **points de pourcentage**, qui a **décidé** la baisse ?",
+      "Les **chiffres** sont là ; l'**étalon**, qui le pose ?",
+      "Un pays **en retard** — retard sur **quoi**, exactement ?",
+      "Baisse **ralentie** : relâchement, ou **terrain plus dur** ?",
+      "Qui décide de ce que serait **« être prêt »** ?"
+    ]
+  },
+  "interest": {
+    "why_read": "Savoir à quelle **référence** se mesure un bilan climatique.",
+    "pull_quote": "« La France n'est pas prête à faire face aux impacts du changement climatique »",
+    "next_slide_hook": "D'abord, qui parle et dans quel calendrier le texte paraît."
+  },
+  "title_bullets": [
+    "Repérez les **guillemets** : le constat est attribué, pas assumé par le journal.",
+    "Notez l'écart entre « **pas prête** » (adaptation) et le corps, centré sur les **émissions**.",
+    "Séparez le registre d'**alerte** des chiffres qui suivent."
+  ],
+  "chapo_bullets": [
+    "Observez la **canicule en cours** placée avant tout chiffre d'action publique.",
+    "Demandez-vous ce que le **calendrier** ajoute au contenu du rapport."
+  ],
+  "context_next_slide_hook": "Une source, un calendrier : deux choses à garder en tête.",
+  "watch_out_next_slide_hook": "Voyons maintenant sur quoi repose vraiment la démonstration.",
+  "forme_next_slide_hook": "Le vocabulaire posé, restent les phrases qui se donnent pour des constats.",
+  "biases_next_slide_hook": "Trois signaux résument ce que cette lecture demande d'attention.",
+  "engagement_question": "Un pays doit-il être jugé sur ses textes, ses moyens, ou ses résultats ?",
+  "go_further": [
+    {
+      "title": "Rapport annuel du Haut Conseil pour le climat",
+      "source": "Haut Conseil pour le climat",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": "https://www.hautconseilclimat.fr/publications/",
+      "duration_minutes": 120,
+      "why_explore": "Le document source montre ce que l'article resserre, notamment les avancées juridiques réduites à une incise.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Inventaire national des émissions de gaz à effet de serre",
+      "source": "Citepa",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": "https://www.citepa.org/fr/secten/",
+      "duration_minutes": 30,
+      "why_explore": "Les séries d'émissions par secteur permettent de situer une baisse annuelle dans son niveau de départ.",
+      "cta_question_index": 1
+    },
+    {
+      "title": "Le financement de la transition écologique",
+      "source": "Cour des comptes",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": "https://www.ccomptes.fr/fr/publications",
+      "duration_minutes": 45,
+      "why_explore": "Situer les montants publics climatiques dans l'ensemble des finances de l'État.",
+      "cta_question_index": 2
+    }
+  ],
+  "cta": {
+    "title": "Un constat sévère se mesure toujours à une règle",
+    "engagement_sentence": "Un engagement climatique non doté en moyens est-il déjà un renoncement ?",
+    "engagement_sentence_alt": [
+      "Une économie qui ralentit fait-elle une politique climatique qui réussit ?",
+      "Un gouvernement doit-il être crédité d'une baisse d'émissions qu'il n'a pas provoquée ?",
+      "Qu'est-ce qui distingue une baisse d'émissions tenable d'une baisse conjoncturelle ?",
+      "Faut-il juger une politique climatique sur les tonnes évitées, ou sur ce qui les a fait baisser ?",
+      "Une baisse d'émissions vaut-elle autant selon qu'elle vient d'une réforme ou d'un recul d'activité ?",
+      "Un écart aux recommandations d'un conseil consultatif est-il un manquement ou un arbitrage ?",
+      "Faut-il lire 2,1 % comme un relâchement, ou comme la difficulté croissante de l'exercice ?"
+    ],
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "L'article vous a-t-il permis de distinguer ce que le HCC constate de ce que l'auteur en conclut ?",
+        "type": "article_quality"
+      },
+      {
+        "id": "q_1",
+        "question": "Que faudrait-il savoir du point de départ français pour interpréter une baisse de 2,1 % ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_2",
+        "question": "Où placeriez-vous la limite entre manque de moyens et choix budgétaire ?",
+        "type": "topic_substance"
+      },
+      {
+        "id": "q_3",
+        "question": "Une canicule en cours change-t-elle votre lecture d'un bilan chiffré ?",
+        "type": "reader_bias"
+      }
+    ]
+  },
+  "display": {
+    "payoff": "Situer un chiffre, un mandat et un calendrier avant de juger un bilan.",
+    "framing": "L'écart entre engagements écrits et moyens engagés, vu par l'instance d'évaluation.",
+    "why_selected": "Un dossier qui dépasse le seul **bilan carbone** : adaptation aux canicules, **moyens administratifs**, décisions publiques récentes, cadre juridique en construction.\nEt parce qu'un **avis d'experts** sert ici de règle à mesurer l'action d'un gouvernement, le sujet touche aussi à la manière dont une démocratie se donne des **critères**.",
+    "selection_headline": "Un dossier qui déborde largement le compteur d'émissions",
+    "selection_headline_alt": [
+      "Des canicules aux budgets : plusieurs terrains en un",
+      "Quand des experts servent de règle à un gouvernement",
+      "Le climat, mais aussi la mécanique de l'État"
+    ],
+    "ethics": "Deux points de vigilance, sans manquement caractérisé.",
+    "pre_reading": [
+      "Tout le diagnostic vient d'un seul document.",
+      "Adaptation et émissions : deux sujets distincts."
+    ],
+    "watch_out": [
+      {
+        "label": "source unique",
+        "text": "Un seul émetteur fournit constats et vocabulaire, sans contradiction sollicitée."
+      },
+      {
+        "label": "validité",
+        "text": "Quelques décisions citées servent à caractériser une politique entière."
+      }
+    ],
+    "strengths": [
+      {
+        "label": "Exactitude factuelle",
+        "text": "Les données de température et d'émissions sont datées et recoupables."
+      },
+      {
+        "label": "Clarté",
+        "text": "Structure lisible, chiffres présents, attribution du titre visible."
+      }
+    ],
+    "distill_points": [
+      "Les recommandations d'un conseil consultatif servent d'étalon, sans que son mandat soit précisé.",
+      "Le vocabulaire de l'esquive s'applique à un dossier de trois décisions, sans réponse du gouvernement.",
+      "Le 2,1 % arrive sans source et sans le niveau de départ français déjà largement décarboné."
+    ],
+    "after_reading": [
+      "Cherchez ailleurs le mandat réel de l'instance.",
+      "Interrogez la représentativité des trois décisions citées.",
+      "Vérifiez si le texte mesure adaptation ou émissions."
+    ],
+    "key_takeaways": [
+      {
+        "text": "Baisse des émissions : 6,8 % en 2023, 3 % en 2024, 2,1 % en 2025.",
+        "selected": true
+      },
+      {
+        "text": "Le HCC adresse 82 recommandations et 11 orientations, sans pouvoir contraindre.",
+        "selected": true
+      },
+      {
+        "text": "Adaptation visée : santé au travail, lieux frais, alerte dès mai, rénovation.",
+        "selected": true
+      },
+      {
+        "text": "Juin 2026 : 20,74 °C de moyenne en Europe de l'Ouest, record régional.",
+        "selected": false
+      },
+      {
+        "text": "Fonds vert reconduit en 2026 avec 837 millions d'euros initiaux.",
+        "selected": false
+      },
+      {
+        "text": "2025 : quatrième année la plus chaude depuis 1900, +2,4 °C.",
+        "selected": false
+      }
+    ],
+    "blind_spots": [
+      "Le mix électrique français déjà largement décarboné n'est jamais posé.",
+      "Aucune réponse du gouvernement ne figure dans le texte."
+    ],
+    "balance": [
+      "Un article d'actualité écrit dans le tempo d'une publication.",
+      "Rendre compte fidèlement d'un rapport reste une tâche légitime."
+    ],
+    "lenses": [],
+    "reading_beats": [
+      {
+        "moment": "L'ouverture, avant tout chiffre",
+        "quote": "à peine le mois de juillet vient-il de commencer que la France suffoque sous une troisième vague de chaleur",
+        "lens_ref": "cadrage",
+        "note": "Repérez ce qu'un texte place **avant** ses données : l'ordre installe un **registre**.",
+        "answer": "L'article s'ouvre sur l'**événement en cours**, puis enchaîne sur un bilan d'action publique. Exposition météorologique et **niveau de préparation** relèvent pourtant de temporalités différentes.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Mise en scène du contexte immédiat",
+        "centrality": 4,
+        "kind": "biais",
+        "rationale": "L'ambiance précède les données"
+      },
+      {
+        "moment": "Le constat-titre, répété",
+        "quote": "La France n'est pas prête à faire face aux impacts du changement climatique",
+        "lens_ref": "sources",
+        "note": "Quand une formule revient trois fois, demandez **qui** la prononce et **d'où** vient son autorité.",
+        "answer": "La phrase vient d'un **conseil consultatif** créé en 2018. Il évalue et recommande, mais **n'oblige pas** le gouvernement — un statut que le texte ne précise jamais.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "disputed",
+        "selected": false,
+        "theme": "Mandat de l'instance qui évalue",
+        "centrality": 5,
+        "kind": "affirmation",
+        "rationale": "L'étalon du bilan n'est pas qualifié"
+      },
+      {
+        "moment": "La série des baisses annuelles",
+        "quote": "L'Hexagone, qui avait acté une réduction de ses émissions brutes de 3 % en 2024, s'est limité à 2,1 % en 2025.",
+        "lens_ref": "chiffres",
+        "note": "Devant un rythme qui ralentit, cherchez le **niveau de départ** dont il part.",
+        "answer": "La France part d'un **mix électrique déjà largement décarboné** : les baisses suivantes touchent des gisements plus coûteux. Le chiffre arrive par ailleurs **sans attribution** dans la phrase.",
+        "figure": "2,1 %",
+        "figure_label": "de baisse des émissions en 2025",
+        "figure_caption": "6,8 % en 2023 → 3 % en 2024 → 2,1 % en 2025",
+        "factcheck": "true",
+        "selected": false,
+        "theme": "Trajectoire d'émissions",
+        "centrality": 5,
+        "kind": "statistique",
+        "rationale": "Le chiffre central du bilan"
+      },
+      {
+        "moment": "L'origine de la baisse",
+        "quote": "la baisse des émissions est portée pour moitié par une baisse d'activité tendancielle dans l'industrie et l'élevage, et non par des transformations structurelles suffisantes",
+        "lens_ref": "causalite",
+        "note": "Demandez ce qui a produit la baisse : une **politique**, ou un **ralentissement** ?",
+        "answer": "La moitié du recul vient de la contraction de l'**industrie** et du **cheptel**. Une baisse que personne n'a décidée, et qui **repart avec l'activité** : elle ne mesure pas l'action publique.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "Baisse subie plutôt que pilotée",
+        "centrality": 4,
+        "kind": "enjeu",
+        "rationale": "La moitié du résultat n'est pas une politique"
+      },
+      {
+        "moment": "Le classement des années chaudes",
+        "quote": "L'année 2025 est la quatrième année la plus chaude enregistrée depuis 1900 (+2,4 °C), derrière 2022, 2023 et 2020 et devant 2024, avec un jour sur deux au-dessus des normales de saison (moyennes 1991-2020) contre seulement un jour sur cinq en-dessous des normales",
+        "lens_ref": "chiffres",
+        "note": "Un **rang** ne dit pas la tendance : regardez à quoi il se compare.",
+        "answer": "« Quatrième » paraît rassurant ; la répartition l'est moins : un jour sur deux au-dessus des **normales 1991-2020** — une référence déjà réchauffée. Le rang masque le **déplacement du normal**.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "Rang vs déplacement de la référence",
+        "centrality": 5,
+        "kind": "statistique",
+        "rationale": "Le rang rassure, la distribution non"
+      },
+      {
+        "moment": "Les décisions en sens inverse",
+        "quote": "C'est le cas, entre autres, du projet controversé de l'autoroute A69, dont les autorisations environnementales ont été validées par le Conseil d'État fin juin, de la baisse du Fonds vert, reconduit en 2026 avec une enveloppe initiale de 837 millions d'euros, ou encore de la réintroduction de l'acétamipride",
+        "lens_ref": "sophismes",
+        "note": "Demandez quelle **part du tout** un exemple représente avant qu'il ne le caractérise.",
+        "answer": "Trois décisions servent à établir une contradiction **d'ensemble**, alors que le même rapport salue un **cadre juridique plus dense**. Rien ne dit ce que ces cas pèsent dans la trajectoire.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Décisions publiques contraires",
+        "centrality": 4,
+        "kind": "fait",
+        "rationale": "Généralisation à partir de trois cas"
+      },
+      {
+        "moment": "L'intertitre du deuxième volet",
+        "quote": "Derrière ses engagements, Paris se dérobe",
+        "lens_ref": "opinion_fait",
+        "note": "Repérez les **verbes d'intention** : ils racontent un motif là où les faits décrivent un état.",
+        "answer": "« Se dérober » prête une **volonté d'esquive**, quand le paragraphe suivant décrit surtout des **moyens manquants**. Deux lectures très différentes d'un même constat.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Langage chargé",
+        "centrality": 4,
+        "kind": "biais",
+        "rationale": "Une intention nommée sans preuve"
+      },
+      {
+        "moment": "Le diagnostic sur la mise en œuvre",
+        "quote": "Les normes existent mais leur mise en œuvre souffre d'un manque de moyens administratifs et financiers, de dérogations nombreuses et d'une tendance récurrente à réduire la contrainte juridique dès qu'elle devient politiquement ou économiquement sensible",
+        "lens_ref": "equilibre",
+        "note": "Face à une mise en cause, cherchez la **réponse** de la partie visée.",
+        "answer": "L'appréciation vient d'un **conseil consultatif** : il recommande, le gouvernement décide. Aucune réponse ne lui est demandée — le **critère** du bilan reste celui du HCC.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "disputed",
+        "selected": true,
+        "theme": "Le critère du bilan et sa source",
+        "centrality": 5,
+        "kind": "enjeu",
+        "rationale": "L'étalon reste celui de l'instance qui juge"
+      },
+      {
+        "moment": "La clôture du texte",
+        "quote": "Un avertissement qui devrait trouver un écho dans la campagne présidentielle, alors que les candidats cherchent de plus en plus à s'emparer du sujet du réchauffement climatique dans leurs programmes.",
+        "lens_ref": "angles_morts",
+        "note": "Regardez où un texte **atterrit** : la sortie révèle souvent l'usage attendu.",
+        "answer": "Un rapport annuel se referme sur une **échéance électorale**. Le contenu technique devient matière de campagne, sans que le texte le discute.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Calendrier politique",
+        "centrality": 3,
+        "kind": "cadrage",
+        "rationale": "Le rapport converti en enjeu électoral"
+      }
+    ],
+    "global_analysis": {
+      "headline": "Ce que ce constat demande d'admettre",
+      "headline_alt": [
+        "Que faut-il admettre pour lire ce bilan ?",
+        "Le socle : des chiffres, un étalon, un calendrier",
+        "Retard mesuré — mais à partir de quoi ?"
+      ],
+      "core_recap": [
+        "Ses présupposés : l'**État** détient les leviers, une baisse **non décidée** ne vaut pas politique, et un **engagement** non doté équivaut à un renoncement."
+      ]
+    },
+    "open_question": "Sur quelles bases les recommandations d'un conseil deviennent-elles la référence d'un bilan ?",
+    "root_issue": "L'écart entre les **engagements** pris devant les électeurs — neutralité 2050, zéro artificialisation — et les **moyens** effectivement affectés : c'est cet écart qu'une élection a à trancher.",
+    "steel_man": {
+      "argument": "Un gouvernement arbitre sous **contraintes** — climat, emploi, budget. Le HCC **conseille** sans porter le coût de ces choix.",
+      "alternative": "Le rapport mesurerait alors le **coût des arbitrages**, à trancher par l'électeur."
+    },
+    "reperes_headline": "Une source, une canicule, une campagne",
+    "bilan_headline": "Des chiffres solides, une seule voix pour les lire",
+    "essentiel": [
+      "Le HCC juge la France non préparée aux impacts du changement climatique.",
+      "Baisse des émissions ralentie : 6,8 %, puis 3 %, puis 2,1 %.",
+      "82 recommandations adressées à un gouvernement accusé de reculs environnementaux."
+    ],
+    "essentiel_summary": "TIME France rapporte le bilan annuel du Haut Conseil pour le climat : baisse des émissions ralentie — **6,8 % en 2023, 3 % en 2024, 2,1 % en 2025** — et adaptation insuffisante aux vagues de chaleur. Face à des décisions jugées contraires (A69, Fonds vert, acétamipride), l'instance adresse **82 recommandations** et conclut que **la France n'est pas prête**."
+  }
+}

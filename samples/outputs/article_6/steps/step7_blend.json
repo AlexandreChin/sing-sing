@@ -1,0 +1,114 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "L'hypothèse que les recommandations du HCC forment l'étalon légitime de la politique climatique n'est jamais posée, et c'est précisément ce non-dit qui permet à l'instance consultative d'occuper la place d'arbitre du bilan. L'absence de mention de son statut fonde l'autorité du texte au lieu de la limiter.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "ia_2",
+          "bs_1",
+          "cb_0",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "Le vocabulaire de l'esquive — « se dérobe », « discours de façade » — apparaît là où le raisonnement ne dispose que de trois décisions et d'aucune réponse du gouvernement. La charge d'intention comble l'écart que la preuve ne couvre pas.",
+        "layers": [
+          "probe",
+          "logic",
+          "ethics"
+        ],
+        "references": [
+          "bias_2",
+          "claim_2",
+          "lr_1",
+          "bs_0"
+        ]
+      },
+      {
+        "text": "La canicule en cours ouvre le texte, produit son registre d'inquiétude et devient un élément du constat d'impréparation. Un fait d'exposition météorologique se trouve converti en évaluation de politique publique.",
+        "layers": [
+          "rhetoric",
+          "logic",
+          "probe"
+        ],
+        "references": [
+          "er_0",
+          "lr_3",
+          "bias_0",
+          "ia_3"
+        ]
+      },
+      {
+        "text": "Le chiffre de 2,1 % est donné sans attribution dans la même phrase que « s'est limité », alors que le niveau de départ français — un mix déjà largement décarboné — est absent. Le pourcentage arrive donc dépourvu des deux repères qui permettraient d'en discuter la lecture : sa source et son point de comparaison.",
+        "layers": [
+          "probe",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "claim_0",
+          "bs_3",
+          "obs_0"
+        ]
+      },
+      {
+        "text": "L'article prolonge les formulations du HCC dans ses propres phrases de synthèse, et la seule citation créditée qui porte le jugement central reste sans contradicteur. La reprise du vocabulaire tient lieu d'analyse du document.",
+        "layers": [
+          "logic",
+          "probe",
+          "rhetoric"
+        ],
+        "references": [
+          "obs_3",
+          "claim_1",
+          "cb_0",
+          "obs_0"
+        ]
+      },
+      {
+        "text": "Le titre situe le défaut du côté de l'adaptation quand le corps compte des émissions, et cette ellipse est aussi ce qui laisse le focus muet sur qui décide de ce que serait « être prêt ». Le glissement de périmètre dispense de nommer l'étalon.",
+        "layers": [
+          "ethics",
+          "probe",
+          "logic"
+        ],
+        "references": [
+          "focus",
+          "ia_2",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "Cinq paragraphes de chiffres contre une incise sur le cadre juridique salué : la disproportion écarte par avance le contre-argument selon lequel un pays déjà décarboné touche aux gisements les plus coûteux. Ce que l'emphase relègue est exactement ce qui affaiblirait la prémisse du relâchement.",
+        "layers": [
+          "logic",
+          "review",
+          "rhetoric"
+        ],
+        "references": [
+          "pr_1",
+          "ia_0",
+          "er_1"
+        ]
+      },
+      {
+        "text": "La clôture sur la campagne présidentielle transforme un rapport annuel en pièce de débat électoral, dans un texte qui n'a sollicité aucune réponse de la partie mise en cause. Le calendrier fournit l'enjeu que la contradiction absente aurait pu tempérer.",
+        "layers": [
+          "rhetoric",
+          "logic",
+          "ethics"
+        ],
+        "references": [
+          "cb_1",
+          "obs_2",
+          "bs_0"
+        ]
+      }
+    ]
+  }
+}

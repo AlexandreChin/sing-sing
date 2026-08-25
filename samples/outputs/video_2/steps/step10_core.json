@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Trois griefs de l'été — climatisation, débroussaillement, mégabassines — sont adressés aux écologistes.",
+      "kind": "affirmation",
+      "centrality": 5,
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "climatisation, débroussaillement, mégabassines",
+        "strength": 1.0,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Le débat porte surtout sur le positionnement de l'écologie : gauche ou ni droite ni gauche.",
+      "kind": "enjeu",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 3,
+        "excerpt": "Les responsabilités réelles se situent d'abord du côté de ceux qui ont gouverné",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "statement": "Les écologistes sont posés comme sujet du débat, avant tout examen des accusations.",
+      "kind": "angle",
+      "centrality": 4,
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 0,
+        "excerpt": "De l'été record, on passe à la question de savoir si les écologistes portent une part de responsabilité",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Juillet 2026 est le mois le plus chaud et parmi les plus secs enregistrés en France.",
+      "kind": "fait",
+      "centrality": 4,
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "canicules, mégafeux en Gironde et sécheresse",
+        "strength": 1.0,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "L'écologie politique est électoralement affaiblie : municipales perdues, environ 4 % d'intentions de vote.",
+      "kind": "fait",
+      "centrality": 3,
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "municipales perdues",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    }
+  ]
+}

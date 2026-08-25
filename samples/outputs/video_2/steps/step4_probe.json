@@ -1,0 +1,157 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "juillet 2026 a été le mois le plus chaud et parmi les plus secs jamais enregistrés en France",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Le record est annoncé en plateau **sans nommer l'organisme** qui produit le relevé.",
+        "external_sources": [
+          {
+            "name": "Météo-France — bilans climatiques mensuels",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Copernicus Climate Change Service",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 70
+      },
+      {
+        "quote": "leur candidate Marine Tondelier n'est crédité que d'environ 4 % d'intention de vote pour la présidentielle de l'année prochaine selon un sondage Ipsos",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Cadrage",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "L'institut est nommé, mais **ni la date ni la marge d'erreur** ne sont données.",
+        "external_sources": [
+          {
+            "name": "Ipsos — baromètre d'intentions de vote",
+            "supports": "neutral",
+            "evidence_type": "media"
+          },
+          {
+            "name": "Commission des sondages",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 75
+      },
+      {
+        "quote": "Qui a réduit le budget du fond vert 26 de 163 millions ? Qui a coupé 300 millions dans le dernier budget ?",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Les défenseurs de l'écologie politique",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "Les montants sont avancés **de mémoire par un invité** et ne sont recoupés par personne en plateau.",
+        "external_sources": [
+          {
+            "name": "Projet de loi de finances — mission Écologie",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Ministère de la Transition écologique — dotations du Fonds vert",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 55
+      },
+      {
+        "quote": "les militants de l'écologie politique, y compris par la violence parfois, on l'a connu au cours des dernières années, ont empêché la construction de ces moyens de rétention d'eau",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Injustice",
+          "strength": 0.8,
+          "nature": "nuance"
+        },
+        "explanation": "L'affirmation prête aux militants **un effet de blocage** que ni décision de justice ni chantier arrêté ne viennent documenter ici.",
+        "external_sources": [
+          {
+            "name": "Décisions des tribunaux administratifs sur les réserves de substitution",
+            "supports": "contradicts",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Rapport du BRGM sur les retenues de substitution",
+            "supports": "neutral",
+            "evidence_type": "academic"
+          },
+          {
+            "name": "Déclarations de la Confédération paysanne",
+            "supports": "contradicts",
+            "evidence_type": "party_statement"
+          }
+        ],
+        "confidence": 35
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "Canicule à répétition, méga feu, cour d'eau à sécher.",
+        "item_type": "bias",
+        "label": "accumulation en ouverture",
+        "effect": "Remarquez comment **trois images de destruction** s'enchaînent avant qu'aucun argument ne soit énoncé.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Accablement",
+          "strength": 1.0,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "on a tendance à dire \"Mais regardez, c'est le prophète de malheur.\"",
+        "item_type": "bias",
+        "label": "requalification en réflexe psychologique",
+        "effect": "Remarquez comment la critique devient **un travers connu** plutôt qu'un grief à examiner.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Injustice",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "on est face encore une fois un cadrage politique qui vient essentiellement de la droite, de l'extrême droite",
+        "item_type": "fallacy",
+        "label": "réponse par l'origine de l'accusation",
+        "effect": "Remarquez comment **d'où vient la critique** tient lieu de réponse à ce qu'elle affirme.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Les défenseurs de l'écologie politique",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "Face au défis climatiques, les verres sont-ils devenus un bouqu émissaire ?",
+      "proves": {
+        "type": "observation",
+        "label": "Cadrage",
+        "strength": 1.0,
+        "nature": "illustration"
+      },
+      "analysis": "La question fait des écologistes **le sujet du débat**, à la place des événements de l'été. Elle suppose l'accusation **déplacée avant de l'avoir examinée**. Le fond des trois griefs — climatisation, débroussaillement, mégabassines — n'entre jamais dans la question : que resterait-il de l'accusation si on la traitait dossier par dossier ?"
+    }
+  }
+}

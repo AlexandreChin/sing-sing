@@ -1,0 +1,65 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Repérez dès l'entrée que tout le diagnostic vient d'un seul document, un rapport annuel dont l'article relaie les constats et le vocabulaire.",
+      "Gardez en tête que l'instance qui évalue ici formule des recommandations, sans pouvoir de décision — un écart avec ses préconisations n'est pas un manquement juridique.",
+      "Distinguez au fil du texte deux sujets différents que rien ne sépare : réduire les émissions et se préparer aux effets déjà en cours."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "text": "Les recommandations d'une instance consultative servent ici d'étalon du bilan, sans que son mandat ni la source de sa légitimité soient précisés. Vous ne saurez pas qui décide de ce que serait « être prêt ».",
+          "references": [
+            "ia_2",
+            "bs_1",
+            "obs_1"
+          ]
+        },
+        {
+          "text": "Le vocabulaire employé prête au gouvernement une volonté d'esquive, alors que le dossier ne s'appuie que sur trois décisions et qu'aucune réponse de la partie mise en cause n'a été sollicitée. Une intention est ainsi nommée là où les faits décrivent surtout des moyens manquants.",
+          "references": [
+            "bias_2",
+            "lr_1",
+            "bs_0"
+          ]
+        },
+        {
+          "text": "La baisse d'émissions annoncée arrive sans attribution et sans point de comparaison : le niveau de départ français, avec un mix électrique déjà largement décarboné, n'apparaît nulle part. Sans ce repère, un pourcentage de ralentissement se lit difficilement.",
+          "references": [
+            "claim_0",
+            "bs_3",
+            "obs_0"
+          ]
+        },
+        {
+          "text": "L'article prolonge les formulations de sa source jusque dans ses phrases de synthèse, et la citation qui porte le jugement central reste sans contradicteur. La reprise du vocabulaire y remplace l'examen du document.",
+          "references": [
+            "obs_3",
+            "claim_1",
+            "cb_0"
+          ]
+        },
+        {
+          "text": "Un épisode météorologique en cours ouvre le texte et une échéance électorale le referme. Ces deux bornes installent un registre d'urgence autour de ce qui reste l'évaluation d'une politique publique.",
+          "references": [
+            "er_0",
+            "bias_0",
+            "cb_1"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Retenez les chiffres de trajectoire, mais cherchez ailleurs le mandat réel de l'instance qui les commente et la version du gouvernement.",
+      "Demandez-vous ce que l'article ajoute au rapport qu'il relaie, au-delà d'en reprendre les formulations.",
+      "Interrogez la représentativité des trois décisions citées avant d'y lire l'orientation d'ensemble d'une politique.",
+      "Vérifiez, quand un texte annonce un défaut de préparation, s'il mesure bien l'adaptation ou seulement les émissions."
+    ],
+    "title_note": "Le titre place le défaut du côté de l'adaptation, entre guillemets attribués à la source, quand le corps compte surtout des émissions.",
+    "perspective": {
+      "framing": "L'article traite le sujet par l'écart entre les engagements écrits et les moyens engagés, en plaçant au centre les constats d'un rapport annuel dont il adopte le vocabulaire. Le registre est celui de l'inquiétude, ouvert par une canicule en cours et refermé sur l'échéance présidentielle, et le point de vue est celui de l'instance d'évaluation.",
+      "blind_spots": "Le niveau de départ français — un mix électrique déjà largement décarboné, où les baisses supplémentaires touchent aux gisements les plus coûteux — n'est jamais posé, et les 837 millions du Fonds vert ne sont situés dans aucun ordre de grandeur budgétaire. Aucune réponse du gouvernement ne figure dans le texte.",
+      "balance": "Un article d'actualité écrit dans le tempo d'une publication ne peut ni instruire le mandat de l'instance ni obtenir une réaction sous quelques heures, et rendre compte fidèlement d'un rapport est une tâche légitime en soi. Ce que l'analyse signale reste réel, mais l'essentiel tient moins à des erreurs qu'à des repères que le format laisse au lecteur le soin d'aller chercher."
+    }
+  }
+}

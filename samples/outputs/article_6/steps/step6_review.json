@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "Le diagnostic repose sur un **émetteur unique** : l'observation « Sourçage » note que l'article reprend le vocabulaire et le cadrage du HCC, et les autres sources ne viennent que confirmer ce cadre. La citation longue sur les « dérogations nombreuses » est certes créditée au HCC, mais la baisse à 2,1 % est donnée **sans attribution** dans la même phrase que « s'est limité ».",
+        "lesson": "Comptez les émetteurs indépendants avant de compter les chiffres : un rapport bien cité reste une seule voix."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 4,
+        "rationale": "Les données vérifiables tiennent : les 20,74 °C de juin 2026 (confidence 92) et la série 3 % → 2,1 % (confidence 88) sont recoupables par Copernicus et le Citepa. Ce qui plafonne la note : « L'écart entre les textes et les résultats se creuse, participant à construire un discours de façade » est classé **opinion_stated_as_fact**, sans mesure de l'écart annoncé.",
+        "lesson": "Séparez les phrases qui portent un chiffre de celles qui portent une intention — la syntaxe du constat ne les distingue pas."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 3,
+        "rationale": "La chaîne est lisible et la prémisse sur le ralentissement s'appuie sur des séries comparables d'une année sur l'autre. Deux maillons faiblissent : trois décisions — A69, Fonds vert, acétamipride — servent à établir une contradiction générale (problème de `validity`), et la concomitance canicule/rapport est traitée comme un élément du constat d'impréparation (`soundness`).",
+        "lesson": "Demandez quelle part du tout un exemple représente avant d'accepter qu'il le caractérise."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "L'article annonce sa source et cite ses chiffres, mais tait ce qui conditionne sa lecture : le **statut consultatif** du HCC n'est jamais précisé, et l'hypothèse implicite que ses 82 recommandations constituent l'étalon légitime de la politique climatique n'est pas posée. Les recommandations peuvent alors se lire comme des obligations non tenues.",
+        "lesson": "Vérifiez le mandat de l'instance qui évalue : conseiller et décider n'engagent pas la même responsabilité."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Les repères qui permettraient de juger manquent : le **niveau de départ** français — un mix électrique déjà largement décarboné — est absent, et les 837 millions du Fonds vert ne sont pas situés dans les finances publiques. La disproportion se voit dans l'`emphasis` : cinq paragraphes de chiffres contre une incise sur le cadre juridique salué par le HCC.",
+        "lesson": "Cherchez le point de comparaison manquant : un pourcentage de baisse ne se lit pas sans le niveau dont il part."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Aucune **réponse du gouvernement** n'est sollicitée alors que le texte lui imputé des reculs notoires, et l'intertitre « Derrière ses engagements, Paris se dérobe » prête une intention d'esquive au paragraphe suivant qui décrit des moyens manquants. Le `focus` retenu ne dit ni qui décide de ce que serait « être prêt », ni ce que pèse l'avis de celui qui le formule.",
+        "lesson": "Repérez les verbes d'intention : « se dérober » raconte un motif là où les faits décrivent un manque."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "Le texte est structuré et chiffré, et l'attribution du titre entre guillemets rend visible qui parle. Une ellipse subsiste : « Pas prête » désigne un défaut d'**adaptation** alors que le corps traite surtout d'**émissions**, deux périmètres que rien ne distingue pour le lecteur.",
+        "lesson": "Vérifiez que le titre et le corps parlent du même objet : adaptation et atténuation ne se mesurent pas ensemble."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "L'angle de l'écart entre textes et moyens est net et l'observation « Contradiction » montre qu'il tient à une citation du HCC formulée à la place de l'auteur. La position reste celle d'un **relais du rapport**, sans le contre-argument disponible — un pays déjà largement décarboné touche aux gisements les plus coûteux.",
+        "lesson": "Demandez ce que l'article ajoute au document qu'il commente avant de le créditer d'un angle."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Qui suit les politiques climatiques françaises — administration, ONG, journaliste spécialisé — et sait déjà lire un inventaire d'émissions sans dépendre du commentaire qui l'accompagne.",
+      "payoff": "Vous ressortez avec les chiffres à jour de la trajectoire française et les points de friction identifiés par le HCC. Vous devrez chercher ailleurs le mandat réel de l'instance et la version du gouvernement.",
+      "signature_move": "Adosser son autorité à un rapport unique dont il reprend le vocabulaire, jusqu'à prolonger les formulations du HCC dans ses propres phrases de synthèse.",
+      "main_blind_side": "Le statut consultatif du HCC n'est jamais dit — silence qui révèle un article écrit dans le tempo de la publication, sans le temps de solliciter la partie mise en cause.",
+      "further_resource": {
+        "title": "Rapport annuel du Haut Conseil pour le climat",
+        "source": "Haut Conseil pour le climat",
+        "media_type": "report",
+        "why_explore": "Lire le document source montre ce que l'article resserre, notamment les avancées juridiques réduites ici à une incise.",
+        "url": "https://www.hautconseilclimat.fr/publications/"
+      },
+      "summary": "Lecture à recommander sous réserve pour qui suit ce dossier : les chiffres sont solides et l'angle clair, mais tout vient d'une seule source dont l'article adopte le vocabulaire, sans réponse du gouvernement ni rappel que ses recommandations ne l'obligent pas."
+    }
+  }
+}

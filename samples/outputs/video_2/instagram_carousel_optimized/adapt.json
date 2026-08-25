@@ -1,0 +1,330 @@
+{
+  "hook": {
+    "topic": "Écologistes, **bouc émissaire** ?",
+    "sub_topic": "Derrière l'**été record**, sur quoi juge-t-on vraiment un camp ?",
+    "headline": "Un été extrême, et déjà un **procès** en cours",
+    "context_line": "Après canicules et mégafeux, un plateau discute la place de l'écologie politique avant 2027.",
+    "sub_topic_alt": [
+      "Après les **mégafeux**, à qui la question s'adresse-t-elle ?",
+      "Trois griefs de l'été : que reste-t-il si on les **ouvre** ?",
+      "Débat sur l'**écologie** : de quoi parle-t-on au juste ?"
+    ]
+  },
+  "interest": {
+    "why_read": "Distinguer une **querelle de camps** d'un **dossier examiné**.",
+    "pull_quote": "moi c'est surtout le cadrage qui me plaît pas",
+    "next_slide_hook": "D'abord, qui parle, depuis où, et à quel moment du calendrier."
+  },
+  "title_bullets": [
+    "Repérez la question posée d'emblée : elle **désigne un accusé** avant tout examen.",
+    "Notez le vocabulaire repris d'une une de presse : « **faillite** », « écologisme »."
+  ],
+  "chapo_bullets": [
+    "Observez l'ouverture : des **images de dégâts** avant le moindre argument.",
+    "Comptez les invités du camp mis en cause : **aucun contradicteur** en plateau."
+  ],
+  "context_next_slide_hook": "Trois voix du même camp : ce que ça change à l'écoute.",
+  "watch_out_next_slide_hook": "Voyons maintenant sur quoi repose vraiment la démonstration.",
+  "forme_next_slide_hook": "Passons aux chiffres avancés : d'où viennent-ils ?",
+  "biases_next_slide_hook": "Reste à réunir les signaux les plus décisifs.",
+  "engagement_question": "Un camp politique se juge-t-il sur ses intentions ou sur les effets vérifiables de ses décisions ?",
+  "go_further": [
+    {
+      "title": "Les mégabassines, enquête sur un conflit de l'eau",
+      "source": "Le Monde",
+      "media_type": "article",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": 20,
+      "why_explore": "Traite dossier par dossier, chiffres hydriques en main, ce que l'émission laisse au registre politique.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Bilans climatiques mensuels et records de chaleur",
+      "source": "Météo-France",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": 10,
+      "why_explore": "Permet de vérifier soi-même le record de juillet, avec organisme, date et périmètre.",
+      "cta_question_index": 0
+    },
+    {
+      "title": "Feux de forêt : ce que change vraiment le débroussaillement",
+      "source": "INRAE",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": 15,
+      "why_explore": "Donne les effets mesurés sur le terrain, absents du plateau.",
+      "cta_question_index": 2
+    }
+  ],
+  "cta": {
+    "title": "Un cadrage n'est pas une réfutation",
+    "engagement_sentence": "Faut-il juger l'écologie politique sur son cadrage médiatique, ou sur les effets vérifiables de ses positions ?",
+    "engagement_sentence_alt": [
+      "Les trois griefs de l'été : querelle de camps, ou dossiers arbitrables par des données ?",
+      "Un score électoral s'explique-t-il par la façon de parler ou par le contenu des mesures ?",
+      "Répondre à l'origine d'une critique suffit-il à répondre à ce qu'elle affirme ?"
+    ],
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "Quelles données trancheraient les trois griefs de l'été, et où les chercher ?",
+        "type": "topic_substance"
+      },
+      {
+        "id": "q_1",
+        "question": "Qu'aurait apporté au plateau la présence d'un porteur de l'accusation ?",
+        "type": "article_quality"
+      },
+      {
+        "id": "q_2",
+        "question": "Qui décide de l'aménagement, des plantations et de l'irrigation, absents du débat ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_3",
+        "question": "Aviez-vous déjà un avis sur les écologistes avant les premières minutes ?",
+        "type": "reader_bias"
+      }
+    ]
+  },
+  "display": {
+    "payoff": "Séparer un **débat de stratégie** d'un **examen des faits**, sujet par sujet.",
+    "framing": "Un **bilan de camp** : le diagnostic acquis, le temps donné aux stratégies.",
+    "why_selected": "Trois griefs concrets de l'été — climatisation, débroussaillement, mégabassines — croisent un moment politique : municipales perdues, **4 % d'intentions de vote** avant 2027.\nEt parce que trois courants du même camp s'y expliquent, on entend une **fracture interne** rarement exposée.",
+    "selection_headline": "Un désaccord de famille, exposé à voix haute",
+    "selection_headline_alt": [
+      "Trois griefs, trois voix, un même camp",
+      "L'été climatique rattrape la politique",
+      "Ce que des alliés se disent en public"
+    ],
+    "ethics": "Cinq points de vigilance, aucun manquement caractérisé.",
+    "pre_reading": [
+      "Trois voix du même camp : **désaccord de stratégie**, pas confrontation.",
+      "Le mauvais score est posé comme **le fait à expliquer**."
+    ],
+    "watch_out": [
+      {
+        "label": "équité de traitement",
+        "text": "Les accusations arrivent en extraits, **sans personne** pour les porter en plateau."
+      },
+      {
+        "label": "saut logique",
+        "text": "Du **climat global** aux positions locales, le lien reste supposé."
+      }
+    ],
+    "strengths": [
+      {
+        "label": "Clarté",
+        "text": "Le fil se suit sans effort, chaque séquence **ancrée** par une pièce visuelle."
+      },
+      {
+        "label": "Angle",
+        "text": "Trois positions stratégiques distinctes s'expliquent sur un **même diagnostic**."
+      }
+    ],
+    "distill_points": [
+      "L'accusation la plus lourde circule en extrait, **faiblement étayée**, sans qu'aucun mis en cause soit sollicité.",
+      "Quatre séquences reposent sur des **pièces politiques**, aucune sur un document hydrique ou forestier.",
+      "Le score de 4 % devient **le fait à expliquer** : le débat glisse vers la forme du discours."
+    ],
+    "after_reading": [
+      "Retenir où passe la **fracture** entre courants écologistes.",
+      "Ne pas repartir avec un avis sur les **trois griefs**.",
+      "Demander source, date et **périmètre** de chaque chiffre."
+    ],
+    "key_takeaways": [
+      {
+        "text": "Juillet 2026 : mois le plus chaud jamais mesuré en France.",
+        "selected": true
+      },
+      {
+        "text": "Environ 4 % d'intentions de vote pour la candidate écologiste, selon Ipsos.",
+        "selected": true
+      },
+      {
+        "text": "Trois griefs de l'été : climatisation, débroussaillement, mégabassines.",
+        "selected": true
+      },
+      {
+        "text": "Le meilleur score écologiste reste 5,25 % en 2002.",
+        "selected": false
+      },
+      {
+        "text": "Le débroussaillement est une obligation légale, peu respectée avant 2023.",
+        "selected": false
+      },
+      {
+        "text": "Plusieurs mégabassines des Deux-Sèvres ont été partiellement annulées en justice.",
+        "selected": false
+      }
+    ],
+    "blind_spots": [
+      "Aucun bilan hydrique, aucun effet mesuré du **débroussaillement** montré.",
+      "Aménageurs, irrigants et élus mis en cause : **absents** du plateau."
+    ],
+    "balance": [
+      "Un plateau de débat n'a pas vocation à **instruire des dossiers techniques**.",
+      "Le choix de trois positions internes est **assumé** comme tel."
+    ],
+    "lenses": [],
+    "reading_beats": [
+      {
+        "moment": "Ouverture, avant tout argument",
+        "quote": "Canicule à répétition, méga feu, cour d'eau à sécher.",
+        "lens_ref": "cadrage",
+        "note": "Quand des images de dégâts ouvrent un sujet, demandez ce qu'elles **installent** avant la discussion.",
+        "answer": "Trois images de destruction s'enchaînent : l'urgence est **acquise** d'entrée, et il ne reste plus qu'à chercher **qui en répond**.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "Mise en condition de l'ouverture",
+        "centrality": 4,
+        "kind": "biais",
+        "rationale": "L'émotion précède le premier argument"
+      },
+      {
+        "moment": "La question qui lance le débat",
+        "quote": "Face au défis climatiques, les verres sont-ils devenus un bouqu émissaire ?",
+        "lens_ref": "opinion_fait",
+        "note": "Devant une question inaugurale, regardez ce qu'elle **tient déjà pour acquis**.",
+        "answer": "Elle fait des écologistes le **sujet** du débat et suppose l'accusation déplacée **avant** de l'avoir examinée. Le fond des trois griefs n'entre jamais dans la question.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Cadrage de la question inaugurale",
+        "centrality": 5,
+        "kind": "biais",
+        "rationale": "La question désigne un accusé"
+      },
+      {
+        "moment": "Le score électoral est affiché",
+        "quote": "leur candidate Marine Tondelier n'est crédité que d'environ 4 % d'intention de vote pour la présidentielle de l'année prochaine selon un sondage Ipsos",
+        "lens_ref": "chiffres",
+        "note": "Devant un pourcentage d'intentions de vote, cherchez la **date** et la **marge d'erreur**.",
+        "answer": "L'institut est nommé, mais ni la date ni la marge ne le sont. Le chiffre devient **le fait à expliquer**, ce qui oriente le débat vers la façon de parler.",
+        "figure": "4 %",
+        "figure_label": "d'intentions de vote pour la candidate écologiste",
+        "figure_caption": "sondage Ipsos, sans date ni marge d'erreur",
+        "factcheck": "likely true",
+        "selected": true,
+        "theme": "Faiblesse électorale et cadrage",
+        "centrality": 4,
+        "kind": "statistique",
+        "rationale": "Un chiffre oriente tout le débat"
+      },
+      {
+        "moment": "L'accusation sur les retenues d'eau",
+        "quote": "les militants de l'écologie politique, y compris par la violence parfois, on l'a connu au cours des dernières années, ont empêché la construction de ces moyens de rétention d'eau",
+        "lens_ref": "equilibre",
+        "note": "Devant une accusation diffusée en extrait, demandez **qui vient y répondre**.",
+        "answer": "Personne parmi les mis en cause. L'affirmation prête aux militants un **effet de blocage** que ni chantier arrêté ni décision de justice ne vient documenter à l'antenne.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "likely false",
+        "selected": true,
+        "theme": "Contradiction absente sur le grief le plus lourd",
+        "centrality": 5,
+        "kind": "affirmation",
+        "rationale": "Grief central, aucun contradicteur présent"
+      },
+      {
+        "moment": "La réponse au cadrage",
+        "quote": "on est face encore une fois un cadrage politique qui vient essentiellement de la droite, de l'extrême droite",
+        "lens_ref": "sophismes",
+        "note": "Quand une réponse porte sur **l'origine** d'une critique, vérifiez si son **contenu** est traité.",
+        "answer": "D'où vient la critique tient lieu de réponse à ce qu'elle affirme. Le grief change de statut sans avoir été **examiné dossier par dossier**.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Réponse par l'origine de la critique",
+        "centrality": 4,
+        "kind": "biais",
+        "rationale": "L'origine remplace l'examen"
+      },
+      {
+        "moment": "Les chiffres budgétaires en rafale",
+        "quote": "Qui a réduit le budget du fond vert 26 de 163 millions ? Qui a coupé 300 millions dans le dernier budget ?",
+        "lens_ref": "sources",
+        "note": "Devant une rafale de montants, cherchez **qui les publie** et sur quel périmètre.",
+        "answer": "Les montants sont avancés **de mémoire** par un invité et recoupés par personne en plateau. Le même défaut de sourçage vaut ici pour la défense comme ailleurs pour l'accusation.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "disputed",
+        "selected": false,
+        "theme": "Sourçage des chiffres budgétaires",
+        "centrality": 3,
+        "kind": "statistique",
+        "rationale": "Chiffres non sourcés côté défense"
+      },
+      {
+        "moment": "Le contrefactuel de 1988",
+        "quote": "ça aurait en tout cas introduit une culture du pouvoir différente",
+        "lens_ref": "causalite",
+        "note": "Devant un « ça aurait changé les choses », demandez quel **cas comparable** l'appuie.",
+        "answer": "Aucun n'est présenté. Le passage d'une autre **culture du pouvoir** à d'autres décisions reste une projection, et les scores des verts européens restent hors champ.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Projection contrefactuelle sur le bilan",
+        "centrality": 3,
+        "kind": "enjeu",
+        "rationale": "Une intention tenue pour un résultat"
+      },
+      {
+        "moment": "Le fond des trois griefs",
+        "quote": "c'est d'abord les premières questions à se poser, c'est celle du bilan des 10 dernières années",
+        "lens_ref": "angles_morts",
+        "note": "Quand un débat déplace la question, notez ce qui **sort du champ** au passage.",
+        "answer": "Bilan hydrique, effet mesuré du débroussaillement, monoculture de résineux : aucun document technique n'est montré, alors que ces données **arbitreraient** les trois griefs.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Fond scientifique jamais ouvert",
+        "centrality": 5,
+        "kind": "enjeu",
+        "rationale": "Les données qui trancheraient sont absentes"
+      }
+    ],
+    "global_analysis": {
+      "headline": "Sur quoi repose ce débat, au juste ?",
+      "headline_alt": [
+        "Que faut-il admettre pour que la question tienne ?",
+        "Le socle invisible d'un procès en règle",
+        "Ce que l'échange tient pour acquis"
+      ],
+      "core_recap": [
+        "Ses présupposés : les positions écologistes n'ont rien changé sur le terrain ; le rejet vient de la forme du discours ; trois voix d'un même camp suffisent au désaccord."
+      ]
+    },
+    "open_question": "Les positions écologistes ont-elles retardé des retenues d'eau, et dans quelle proportion mesurable ?",
+    "root_issue": "Sous la querelle de camps, l'enjeu est l'**arbitrage** : tant qu'aucune donnée hydrique ou forestière n'est produite, chaque partie garde son récit **intact**.",
+    "steel_man": {
+      "argument": "Les décisions se prennent projet par projet : une opposition locale peut avoir des effets matériels, indépendamment du climat global.",
+      "alternative": "La responsabilité deviendrait partagée et vérifiable dossier par dossier."
+    },
+    "reperes_headline": "Trois voix du même camp, à quelques mois de 2027",
+    "bilan_headline": "Ce que le plateau documente, et ce qu'il laisse ouvert",
+    "essentiel": [
+      "Après un été record, les écologistes sont accusés d'avoir aggravé la situation.",
+      "Trois griefs : climatisation, débroussaillement, mégabassines ; parti à environ 4 %.",
+      "Trois invités écologistes déplacent la question vers le bilan des gouvernants."
+    ],
+    "essentiel_summary": "Après un juillet 2026 **le plus chaud jamais mesuré** en France, mégafeux et sécheresse, trois griefs visent les écologistes : climatisation, débroussaillement, mégabassines. Le parti sort de municipales perdues et plafonne à **4 %**. Sur le plateau, trois voix écologistes renvoient la question au **bilan des dix dernières années** et débattent du positionnement à gauche."
+  }
+}

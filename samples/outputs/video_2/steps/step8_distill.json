@@ -1,0 +1,54 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "L'accusation la plus lourde — les militants auraient **empêché** les retenues d'eau — circule en extrait, avec une confiance de 35 %, sans qu'aucun mis en cause soit sollicité : **faiblesse factuelle et défaut de contradiction se couvrent l'une l'autre**.",
+        "references": [
+          "claim_3",
+          "bs_1",
+          "er_1"
+        ]
+      },
+      {
+        "text": "L'hypothèse jamais énoncée que les positions écologistes n'ont eu **aucun effet matériel** est précisément ce que le plateau se dispense de vérifier, faute d'examen scientifique des trois polémiques. Quatre séquences reposent sur des **pièces politiques** — météo, une de presse, tableau des scores, archive — et aucune sur un document hydrique ou forestier.",
+        "references": [
+          "ia_0",
+          "bs_0",
+          "obs_2",
+          "bs_2",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "L'accumulation d'images de destruction en ouverture installe l'urgence avant tout argument, ce qui rend acceptable le saut du climat global aux positions politiques locales : **le registre émotionnel tient lieu de maillon logique**.",
+        "references": [
+          "er_0",
+          "bias_0",
+          "lr_0"
+        ]
+      },
+      {
+        "text": "Renvoyer la critique à **son origine politique** ou la requalifier en réflexe psychologique produit le même effet : le grief change de statut sans être examiné, au bénéfice du **seul camp présent** en plateau.",
+        "references": [
+          "bias_2",
+          "bias_1",
+          "cb_0",
+          "lr_1"
+        ]
+      },
+      {
+        "text": "Le score de 4 % et les municipales perdues sont posés comme **le fait à expliquer**, ce qui déplace le débat vers la forme du discours ; l'hypothèse que le **contenu des mesures** soit en cause n'est jamais mise à l'épreuve.",
+        "references": [
+          "obs_3",
+          "claim_1",
+          "ia_2"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Les positions écologistes ont-elles retardé des retenues d'eau, et dans quelle proportion mesurable ?",
+      "Que diraient les acteurs de l'aménagement et de l'irrigation privée, absents du plateau ?",
+      "Le contenu des mesures, et non leur formulation, pèse-t-il sur le score électoral ?"
+    ]
+  }
+}

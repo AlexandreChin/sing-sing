@@ -1,0 +1,235 @@
+{
+  "article_type": "news_report",
+  "key_claims": [
+    {
+      "quote": "La France n'est pas prête à faire face aux impacts du changement climatique",
+      "source": "Haut Conseil pour le climat",
+      "type": "attributed"
+    },
+    {
+      "quote": "le document de 420 pages alerte, à partir de données scientifiques rigoureuses, sur le manque de mobilisation du pays face au réchauffement climatique",
+      "source": "L'auteur, à propos du rapport du HCC",
+      "type": "factual"
+    },
+    {
+      "quote": "Le HCC constate que le réchauffement planétaire dû aux activités humaines atteint désormais +1,4 °C au-dessus des années 1850-1900",
+      "source": "Haut Conseil pour le climat",
+      "type": "statistical"
+    },
+    {
+      "quote": "la France a connu en 2025, pour la deuxième année consécutive, un ralentissement de la baisse de ses émissions de GES, estimées au total à 359 millions de tonnes équivalent CO2 (MtCO2e)",
+      "source": "Haut Conseil pour le climat",
+      "type": "statistical"
+    },
+    {
+      "quote": "L'Hexagone, qui avait acté une réduction de ses émissions brutes de 3 % en 2024, s'est limité à 2,1 % en 2025",
+      "source": "Haut Conseil pour le climat",
+      "type": "statistical"
+    },
+    {
+      "quote": "en 2023, les émissions nationales avaient reculé de 6,8 %",
+      "source": "Haut Conseil pour le climat",
+      "type": "statistical"
+    },
+    {
+      "quote": "la France doit pourtant réduire ses émissions de plus de 4 % par an en moyenne entre 2026 et 2028",
+      "source": "Haut Conseil pour le climat",
+      "type": "statistical"
+    },
+    {
+      "quote": "Le président français Emmanuel Macron s'est néanmoins félicité, sur ses réseaux sociaux, de la réduction de 4,8 % des émissions de GES tricolores au premier trimestre 2026 sur un an",
+      "source": "Emmanuel Macron",
+      "type": "attributed"
+    },
+    {
+      "quote": "Le Citepa souligne notamment le rôle d'un hiver doux, qui a réduit les besoins de chauffage dans le résidentiel et le tertiaire",
+      "source": "Citepa",
+      "type": "attributed"
+    },
+    {
+      "quote": "la baisse des émissions est portée pour moitié par une baisse d'activité tendancielle dans l'industrie et l'élevage, et non par des transformations structurelles suffisantes",
+      "source": "Haut Conseil pour le climat",
+      "type": "attributed"
+    },
+    {
+      "quote": "ses émissions historiques territoriales contribuent à environ 10,5 % du réchauffement actuel",
+      "source": "Haut Conseil pour le climat, à propos de l'Union européenne",
+      "type": "statistical"
+    },
+    {
+      "quote": "le Vieux Continent suit de près la Chine (12,9 %) et les États-Unis (17,6 %)",
+      "source": "Haut Conseil pour le climat",
+      "type": "statistical"
+    },
+    {
+      "quote": "Depuis le début du XXe siècle, la France hexagonale et la Corse ont subi un réchauffement de 2,2 °C",
+      "source": "Haut Conseil pour le climat",
+      "type": "statistical"
+    },
+    {
+      "quote": "les projections pour 2100, qui atteignent +4 °C dans la trajectoire de référence française si les politiques mondiales actuelles se poursuivent",
+      "source": "Trajectoire de référence française",
+      "type": "statistical"
+    },
+    {
+      "quote": "Avec une température moyenne de 20,74 °C en Europe de l'Ouest, le mois de juin 2026 a été le plus chaud jamais enregistré dans cette région, avec des températures de plus de 3 °C au-dessus de la norme",
+      "type": "statistical"
+    },
+    {
+      "quote": "L'année 2025 est la quatrième année la plus chaude enregistrée depuis 1900 (+2,4 °C), derrière 2022, 2023 et 2020 et devant 2024, avec un jour sur deux au-dessus des normales de saison (moyennes 1991-2020) contre seulement un jour sur cinq en-dessous des normales",
+      "source": "Rapport du HCC",
+      "type": "statistical"
+    },
+    {
+      "quote": "Selon Copernicus Marine, la température moyenne de surface des océans a atteint environ 21 °C, un record pour un mois de juin",
+      "source": "Copernicus Marine",
+      "type": "statistical"
+    },
+    {
+      "quote": "Il formule cette année 82 recommandations, ainsi que 11 orientations destinées à transformer les politiques climatiques françaises à moyen terme",
+      "source": "Haut Conseil pour le climat",
+      "type": "factual"
+    },
+    {
+      "quote": "Les normes existent mais leur mise en œuvre souffre d'un manque de moyens administratifs et financiers, de dérogations nombreuses et d'une tendance récurrente à réduire la contrainte juridique dès qu'elle devient politiquement ou économiquement sensible",
+      "source": "Haut Conseil pour le climat",
+      "type": "attributed"
+    },
+    {
+      "quote": "le projet controversé de l'autoroute A69, dont les autorisations environnementales ont été validées par le Conseil d'État fin juin",
+      "source": "Conseil d'État",
+      "type": "legal"
+    },
+    {
+      "quote": "la baisse du Fonds vert, reconduit en 2026 avec une enveloppe initiale de 837 millions d'euros",
+      "type": "statistical"
+    },
+    {
+      "quote": "la réintroduction de l'acétamipride, votée au Sénat dans le cadre du projet de loi d'urgence agricole avant une commission mixte paritaire prévue mi-juillet",
+      "source": "Sénat",
+      "type": "legal"
+    },
+    {
+      "quote": "un pays hautement « vulnérable aux chocs géopolitiques et aux fluctuations des prix de l'énergie »",
+      "source": "Haut Conseil pour le climat",
+      "type": "attributed"
+    },
+    {
+      "quote": "L'écart entre les textes et les résultats se creuse, participant à construire un discours de façade dont les ambitions se limitent aux seuls mots",
+      "source": "L'auteur",
+      "type": "factual"
+    }
+  ],
+  "key_quotes": [
+    "« La France n'est pas prête à faire face aux impacts du changement climatique »",
+    "« Les normes existent mais leur mise en œuvre souffre d'un manque de moyens administratifs et financiers, de dérogations nombreuses et d'une tendance récurrente à réduire la contrainte juridique dès qu'elle devient politiquement ou économiquement sensible »",
+    "« L'année 2025 est la quatrième année la plus chaude enregistrée depuis 1900 (+2,4 °C), derrière 2022, 2023 et 2020 et devant 2024, avec un jour sur deux au-dessus des normales de saison (moyennes 1991-2020) contre seulement un jour sur cinq en-dessous des normales »",
+    "« vulnérable aux chocs géopolitiques et aux fluctuations des prix de l'énergie »",
+    "« un cadre juridique climatique progressivement plus dense »",
+    "L'écart entre les textes et les résultats se creuse, participant à construire un discours de façade dont les ambitions se limitent aux seuls mots.",
+    "Derrière ses engagements, Paris se dérobe",
+    "la baisse des émissions est portée pour moitié par une baisse d'activité tendancielle dans l'industrie et l'élevage, et non par des transformations structurelles suffisantes",
+    "Un bilan provisoire favorable, mais imputable en grande partie au recul des émissions des bâtiments, des transports et de l'industrie manufacturière.",
+    "Un avertissement qui devrait trouver un écho dans la campagne présidentielle, alors que les candidats cherchent de plus en plus à s'emparer du sujet du réchauffement climatique dans leurs programmes."
+  ],
+  "key_actors": [
+    {
+      "name": "Haut Conseil pour le climat (HCC)",
+      "role": "Instance auteure du rapport annuel de 420 pages ; source principale et quasi unique de l'article"
+    },
+    {
+      "name": "Emmanuel Macron",
+      "role": "Président de la République, cité pour un bilan trimestriel favorable publié sur ses réseaux sociaux"
+    },
+    {
+      "name": "Citepa",
+      "role": "Organisme d'inventaire des émissions, cité pour expliquer la baisse du premier trimestre 2026 par un hiver doux"
+    },
+    {
+      "name": "Copernicus Marine",
+      "role": "Service européen d'observation, cité pour le record de température des océans en juin"
+    },
+    {
+      "name": "Conseil d'État",
+      "role": "Juridiction ayant validé fin juin les autorisations environnementales de l'autoroute A69"
+    },
+    {
+      "name": "Sénat",
+      "role": "Chambre ayant voté la réintroduction de l'acétamipride dans le projet de loi d'urgence agricole"
+    },
+    {
+      "name": "Union européenne",
+      "role": "Cadre politique cité pour le Green Deal et la part de ses émissions historiques"
+    },
+    {
+      "name": "Valentin Gasselin",
+      "role": "Auteur de l'article"
+    },
+    {
+      "name": "Gouvernement français",
+      "role": "Acteur désigné comme multipliant les textes contraires aux objectifs climatiques"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Haut Conseil pour le climat",
+      "used_for": "Légitimer l'ensemble du diagnostic : impréparation du pays, ralentissement de la décarbonation, insuffisance des financements"
+    },
+    {
+      "entity": "Rapport de 420 pages « à partir de données scientifiques rigoureuses »",
+      "used_for": "Établir le sérieux et le caractère incontestable du constat avant même d'en détailler le contenu"
+    },
+    {
+      "entity": "Accord de Paris",
+      "used_for": "Fixer l'étalon (2 °C, 1,5 °C) à l'aune duquel le bilan français est jugé insuffisant"
+    },
+    {
+      "entity": "Citepa",
+      "used_for": "Relativiser la baisse d'émissions du premier trimestre 2026 mise en avant par le président"
+    },
+    {
+      "entity": "Copernicus Marine",
+      "used_for": "Certifier le record de température de surface des océans en juin"
+    },
+    {
+      "entity": "Conseil d'État",
+      "used_for": "Attester que les autorisations environnementales de l'A69 ont bien été validées"
+    },
+    {
+      "entity": "Green Deal",
+      "used_for": "Illustrer l'existence d'ambitions européennes fortes malgré des résultats en retrait"
+    }
+  ],
+  "notable_omissions": [
+    "Aucune réaction du gouvernement, d'un ministère ou de l'exécutif n'est sollicitée pour répondre au rapport."
+  ],
+  "rhetorical_patterns": [
+    "Le titre et le corps répètent la même citation-choc du HCC, « La France n'est pas prête », qui sert de refrain au texte."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx1",
+        "text": "Le rapport paraît **pendant une troisième vague de chaleur**, après une canicule de juin associée à une surmortalité provisoire."
+      }
+    ],
+    "who_is_speaking": [
+      "L'article est signé **Valentin Gasselin** et publié par **TIME France**, mentionné via l'incitation « Ajoutez TIME France à Google »."
+    ],
+    "important_facts": [
+      {
+        "id": "fact1",
+        "text": "Le HCC est un **organisme consultatif indépendant** créé en 2018 : il évalue et recommande, mais **ne dispose d'aucun pouvoir contraignant** sur le gouvernement."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "HCC (Haut Conseil pour le climat)",
+        "definition": "Groupe d'experts indépendants qui évalue chaque année si la politique climatique française tient ses objectifs."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "Contenu de l'article :"
+  }
+}

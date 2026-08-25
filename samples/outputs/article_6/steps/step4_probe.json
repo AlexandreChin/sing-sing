@@ -1,0 +1,147 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "L'Hexagone, qui avait acté une réduction de ses émissions brutes de 3 % en 2024, s'est limité à 2,1 % en 2025.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre provient de l'inventaire national repris par le HCC, mais l'article le donne **sans attribution** dans la même phrase que le verbe « s'est limité ».",
+        "external_sources": [
+          {
+            "name": "Citepa — inventaire national des émissions de GES",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Haut Conseil pour le climat, rapport annuel 2026",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 88
+      },
+      {
+        "quote": "« Les normes existent mais leur mise en œuvre souffre d'un manque de moyens administratifs et financiers, de dérogations nombreuses et d'une tendance récurrente à réduire la contrainte juridique dès qu'elle devient politiquement ou économiquement sensible »",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Le Haut Conseil pour le climat",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "L'appréciation est **clairement créditée** au HCC, mais aucune contradiction gouvernementale ne vient la mettre à l'épreuve.",
+        "external_sources": [
+          {
+            "name": "Haut Conseil pour le climat, rapport annuel 2026",
+            "supports": "validates",
+            "evidence_type": "party_statement"
+          },
+          {
+            "name": "Cour des comptes — rapports sur le financement de la transition",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 55
+      },
+      {
+        "quote": "L'écart entre les textes et les résultats se creuse, participant à construire un discours de façade dont les ambitions se limitent aux seuls mots.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Défiance",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "« Discours de façade » est un **jugement d'intention** posé dans la syntaxe d'un constat, sans mesure de l'écart annoncé.",
+        "external_sources": [
+          {
+            "name": "Haut Conseil pour le climat, rapport annuel 2026",
+            "supports": "neutral",
+            "evidence_type": "party_statement"
+          }
+        ],
+        "confidence": null
+      },
+      {
+        "quote": "Avec une température moyenne de 20,74 °C en Europe de l'Ouest, le mois de juin 2026 a été le plus chaud jamais enregistré dans cette région",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Inquiétude",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "Donnée **mesurée et datée**, issue des relevés européens, mais présentée sans nommer l'organisme qui l'établit.",
+        "external_sources": [
+          {
+            "name": "Copernicus Climate Change Service (C3S)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Organisation météorologique mondiale",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 92
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "à peine le mois de juillet vient-il de commencer que la France suffoque sous une troisième vague de chaleur, après une canicule de juin déjà associée à de fortes perturbations et à une surmortalité provisoire",
+        "item_type": "bias",
+        "label": "mise en scène du contexte immédiat",
+        "effect": "Remarquez comment l'événement en cours donne au rapport un caractère d'urgence avant qu'un seul chiffre d'action publique ne soit cité.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Inquiétude",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "C'est le cas, entre autres, du projet controversé de l'autoroute A69, dont les autorisations environnementales ont été validées par le Conseil d'État fin juin, de la baisse du Fonds vert, reconduit en 2026 avec une enveloppe initiale de 837 millions d'euros, ou encore de la réintroduction de l'acétamipride",
+        "item_type": "fallacy",
+        "label": "généralisation à partir de trois cas",
+        "effect": "Remarquez comment trois décisions listées suffisent à faire apparaître une politique d'ensemble comme contradictoire.",
+        "proves": {
+          "type": "observation",
+          "label": "Contradiction",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Derrière ses engagements, Paris se dérobe",
+        "item_type": "bias",
+        "label": "langage chargé en intertitre",
+        "effect": "Remarquez comment le verbe prête une intention d'esquive là où le paragraphe qui suit décrit des moyens manquants.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Défiance",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "« La France n'est pas prête à faire face aux impacts du changement climatique »",
+      "proves": {
+        "type": "observation",
+        "label": "Mandat",
+        "strength": 0.9,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase énonce un **défaut de préparation** aux impacts, c'est-à-dire d'adaptation. Elle suggère une responsabilité du pouvoir en place, puisqu'elle sert de fil au bilan gouvernemental. Elle ne dit pas **qui décide** de ce qui serait « être prêt » — ni ce que pèse l'avis de celui qui le formule."
+    }
+  }
+}

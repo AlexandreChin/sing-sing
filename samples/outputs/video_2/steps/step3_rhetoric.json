@@ -1,0 +1,73 @@
+{
+  "emotional_register": [
+    {
+      "id": "er1",
+      "emotion": "Accablement",
+      "how": "L'ouverture **accumule les images de destruction** — canicules, mégafeux, cours d'eau à sec — avant qu'aucun argument ne soit posé.",
+      "effect": "Le lecteur aborde le débat avec le sentiment que **l'urgence est acquise** et que seule reste la question des responsables.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "canicules, mégafeux en Gironde et sécheresse",
+        "strength": 1.0,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "er2",
+      "emotion": "Injustice",
+      "how": "La formule du **« prophète de malheur »** et la question du bouc émissaire présentent les mis en cause comme **punis d'avoir eu raison**.",
+      "effect": "Le lecteur est disposé à traiter les accusations comme **un procès politique** plutôt que comme des griefs à examiner.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 1,
+        "excerpt": "trois personnes engagées suffisent à représenter le désaccord",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "cb1",
+      "beneficiary": "Les défenseurs de l'écologie politique",
+      "explanation": "Le plateau réunit **trois voix engagées dans l'écologie** face à des accusations diffusées en extraits. Les critiques sont **rapportées sans porteur**, ce qui laisse la réponse sans réplique.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 1,
+        "excerpt": "aucun élu du parti Les Écologistes n'est présent",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "id": "cb2",
+      "beneficiary": "Les responsables des choix d'aménagement et des acteurs économiques",
+      "explanation": "Le débat se joue entre **partis et militants**. Les décisions d'urbanisme, de plantation forestière ou d'irrigation privée restent **hors du champ de la discussion**.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 2,
+        "excerpt": "l'aménagement du territoire et les acteurs économiques sont mentionnés en passant",
+        "strength": 0.9,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Présupposé",
+        "observation": "La question du bouc émissaire suppose l'accusation infondée avant tout examen des griefs."
+      },
+      {
+        "label": "Vocabulaire",
+        "observation": "« Écologisme politique » et « faillite », repris d'une une de presse, importent le lexique adverse."
+      },
+      {
+        "label": "Cadrage",
+        "observation": "Le sujet devient le sort d'un camp politique, non les événements climatiques de l'été."
+      }
+    ],
+    "body": "Le corps traite l'été climatique comme un fait de départ et porte la discussion sur la place de l'écologie dans le jeu politique français. Il met au centre le positionnement des écologistes — gauche, ni-gauche-ni-droite, rapport aux mouvements citoyens — et leur situation électorale à quelques mois de la présidentielle. Le registre est celui du débat de plateau : trois invités identifiés par leurs livres et leurs mandats, des séquences documentaires intercalées, une archive. La parole vient de l'intérieur du champ écologiste, chacun parlant depuis une position stratégique distincte sur le même diagnostic."
+  }
+}

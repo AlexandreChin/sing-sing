@@ -1,0 +1,345 @@
+{
+  "article_type": "other",
+  "key_claims": [
+    {
+      "quote": "juillet 2026 a été le mois le plus chaud et parmi les plus secs jamais enregistrés en France",
+      "source": "Le chroniqueur météo du plateau",
+      "type": "statistical"
+    },
+    {
+      "quote": "leur candidate Marine Tondelier n'est crédité que d'environ 4 % d'intention de vote pour la présidentielle de l'année prochaine selon un sondage Ipsos",
+      "source": "Commentaire du reportage, citant Ipsos",
+      "type": "statistical"
+    },
+    {
+      "quote": "Il y a une part de responsabilité très importante. En effet, je le redis d'une écologie politique.",
+      "source": "Intervenant critique des écologistes (extrait diffusé)",
+      "type": "attributed"
+    },
+    {
+      "quote": "On ne peut pas la stocker parce que les militants de l'écologie politique, y compris par la violence parfois, on l'a connu au cours des dernières années, ont empêché la construction de ces moyens de rétention d'eau.",
+      "source": "Intervenant critique des écologistes (extrait diffusé)",
+      "type": "attributed"
+    },
+    {
+      "quote": "Qui a réduit le budget du fond vert 26 de 163 millions ? Qui a coupé 300 millions dans le dernier budget ?",
+      "source": "Amine Messal",
+      "type": "statistical"
+    },
+    {
+      "quote": "qui a refusé par 493 les 12 milliards de la rénovation thermique des bâtiments",
+      "source": "Amine Messal",
+      "type": "statistical"
+    },
+    {
+      "quote": "Alors que l'électricité c'est simplement 20 % de l'énergie qu'on consomme.",
+      "source": "Amine Messal",
+      "type": "factual"
+    },
+    {
+      "quote": "d'arrêter qu'on fasse des mégavassines qui sont d'ailleurs pour la majorité jugés illégal",
+      "source": "Amine Messal",
+      "type": "legal"
+    },
+    {
+      "quote": "Aux dernières municipales, le parti écologiste a perdu civil conquis en 2020.",
+      "source": "Commentaire du reportage",
+      "type": "factual"
+    },
+    {
+      "quote": "les écologistes qui reconnaissent s'être opposé au débroussaillage dans un cas particulier mais ils assurent ne pas être opposé au principe",
+      "source": "Reportage de Julien",
+      "type": "attributed"
+    },
+    {
+      "quote": "nous allons fermer un réacteur nucléaire à chaque fois que nous aurons réussi à baisser la consommation d'électricité",
+      "source": "Antoine Waechter",
+      "type": "testimonial"
+    },
+    {
+      "quote": "Contrairement à ce qui peut être dit, le programme du Rassemblement national est un programme qui prévoit de réduire les gaz à effet de serre.",
+      "source": "Thomas Ménager, député RN du Loiret",
+      "type": "attributed"
+    },
+    {
+      "quote": "Au bas de son pacte écologique, 10 signatures, celle de 10 prétendants à l'Élysée.",
+      "source": "Archive de janvier 2007",
+      "type": "factual"
+    },
+    {
+      "quote": "des projets routiers en France, il y en a encore 40, une cinquantaine contre lesquels lutte des collectifs citoyens",
+      "source": "Amine Messal",
+      "type": "statistical"
+    }
+  ],
+  "key_quotes": [
+    "C'est terrible les images qu'on voit des gens qui perdent tout et puis des réactions politiques parfois comme si on pouvait pas prévoir. Bah si en fait, on pouvait prévoir.",
+    "Face au défis climatiques, les verres sont-ils devenus un bouqu émissaire ?",
+    "moi c'est surtout le cadrage qui me plaît pas",
+    "Je comprends pas pourquoi quand on a un problème écologique, on va du côté des partis écologistes et de gauche se demander si euh quand même ils auraient vraiment fait mieux.",
+    "c'est d'abord les premières questions à se poser, c'est celle du bilan des 10 dernières années",
+    "L'été consacre, dis-il, la faillite de l'écologisme politique.",
+    "d'avoir eu dit des choses qui apparaissent exactes aujourd'hui entraîne le côté bouquisire",
+    "on a tendance à dire \"Mais regardez, c'est le prophète de malheur.\"",
+    "Ça aurait évidemment changé beaucoup de choses. Je crois qu'il y a pas à esquiver la question.",
+    "ça aurait en tout cas introduit une culture du pouvoir différente",
+    "Ce qui compte aujourd'hui, c'est de montrer pourquoi on a intérêt à agir, qu'est-ce qu'on a à y gagner.",
+    "on se retrouve avec des cancres, des mauvais élèves qui arrivent le jour de la veille de l'examen qui n'ont pas révisé",
+    "D'un côté, nous avons une certitude qui est le réchauffement climatique et de l'autre une hypothèse qui est celui de l'accident nucléaire.",
+    "le nucléaire reste la solution. C'est une énergie dense face une énergie diffuse qui n'est pas stockable, qui est aléatoire",
+    "l'écologie politique n'est pas réductible à un parti politique. L'écologie politique appartient elle appartient au monde des ONG, elle appartient à la société, elle appartient au lanceur d'alerte",
+    "on a confronté le débat à la capacité de modifier le système et que le système n'a pas été modifié",
+    "il y a une sorte de lassitude ou de en tout cas de d'inquiétude sur le fait que les mots n'entraînent pas les actes",
+    "il faut trouver les moyens d'une écologie populaire. C'est-à-dire qu'il s'adresse à tous",
+    "les élites en fait auquel appartiennent souvent les écologistes n'ont pas trouvé un langage commun pour s'adresser à tous",
+    "c'est un sujet de début de campagne au moment du rêve, au moment où on commence à dire on est très idéaliste et puis ensuite on passe à la sécurité et à l'armée",
+    "il suffira peut-être que le RN dise on fait de l'écologie, on vote pour eux parce qu'en fond on n'a pas envie de détail",
+    "Je pense que l'on doit construire une majorité culturelle, c'est-à-dire réunir une majorité de Français autour d'un consensus",
+    "L'histoire a montré qu'à chaque fois qu'on voulait changer la société alors qu'on venait de prendre le pouvoir par les urnes sans avoir une majorité consensuelle dans la population, ça finissait très mal.",
+    "la gauche comme la droite sont nés au même endroit, c'est-à-dire dans la lutte du pouvoir et du partage des richesses au moment des grandes industries du 19e siècle",
+    "J'ai pas dit que l'écologie politique était forcément de gauche. J'ai dit que un logiciel politique qui intègre de manière pertinente l'écologie sera de gauche.",
+    "parce que la gauche s'intéresse aux asymétries de pouvoir",
+    "Là on subit les incendies. Pourquoi ? Parce qu'il y a des gens qui ont sapé dans les budgets des pompiers"
+  ],
+  "key_actors": [
+    {
+      "name": "Antoine Waechter",
+      "role": "Ancien candidat écologiste à la présidentielle (1988), ancien député européen (1989-1991), responsable du Mouvement écologiste indépendant, auteur de « La pensée politique de l'écologisme » ; défend un écologisme « ni droite ni gauche » et une révision de la position sur le nucléaire"
+    },
+    {
+      "name": "Amine Messal",
+      "role": "Ingénieur, militant écologiste, auteur de « Erreur sur la marchandise, critique libérale du libéralisme » ; conteste le cadrage du débat et rattache l'écologie conséquente à la gauche"
+    },
+    {
+      "name": "Lucile Schmid",
+      "role": "Présidente de La Fabrique écologique, autrice de « Urgence politique, nécessité écologique » ; défend l'idée d'une écologie question régalienne et d'une écologie populaire, sans grand parti incarnant l'écologie"
+    },
+    {
+      "name": "Le présentateur de 28 minutes",
+      "role": "Anime le débat, pose les questions et introduit les séquences ; oriente les relances vers la responsabilité des écologistes"
+    },
+    {
+      "name": "Julien et Paul",
+      "role": "Chroniqueurs du plateau ; l'un présente le bulletin météo, l'autre récapitule les polémiques de l'été"
+    },
+    {
+      "name": "Marine Tondelier",
+      "role": "Candidate écologiste à la présidentielle, citée pour sa mise au point sur la climatisation et pour son niveau d'intentions de vote"
+    },
+    {
+      "name": "Thomas Ménager",
+      "role": "Député RN du Loiret, affirme dans un extrait que la réduction des gaz à effet de serre est une priorité de son parti"
+    },
+    {
+      "name": "Nicolas Hulot",
+      "role": "Initiateur du pacte écologique de 2007, ancien ministre d'Emmanuel Macron, évoqué via une archive"
+    },
+    {
+      "name": "Emmanuel Macron",
+      "role": "Président cité comme responsable des coupes budgétaires sur l'écologie et de la convention citoyenne pour le climat"
+    },
+    {
+      "name": "Les Soulèvements de la Terre",
+      "role": "Mouvement citoyen cité comme figure de l'écologie hors partis, opposé aux mégabassines et aux grands projets"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Sondage Ipsos",
+      "used_for": "Chiffrer à environ 4 % les intentions de vote de la candidate écologiste et étayer l'idée d'une écologie politique en difficulté"
+    },
+    {
+      "entity": "Le Figaro (une du lundi précédent)",
+      "used_for": "Introduire la thèse selon laquelle l'été « consacre la faillite de l'écologisme politique »"
+    },
+    {
+      "entity": "Une du Figaro affichée à l'écran",
+      "used_for": "Donner une existence visible et documentée au procès fait aux écologistes"
+    },
+    {
+      "entity": "Chiffres météo (24,9 °C de moyenne, juillet 2026 record, comparaison avec la canicule de 2003)",
+      "used_for": "Établir la réalité physique de l'été et justifier le thème du débat"
+    },
+    {
+      "entity": "Livres publiés par les trois invités (PUF, Rue de l'échiquier, Baudelaire)",
+      "used_for": "Légitimer chaque intervenant comme voix qualifiée sur l'écologie politique"
+    },
+    {
+      "entity": "Mandats électifs d'Antoine Waechter (candidat 1988, député européen)",
+      "used_for": "Créditer sa lecture historique de l'écologie politique"
+    },
+    {
+      "entity": "La Fabrique écologique",
+      "used_for": "Adosser les analyses de Lucile Schmid à une structure de réflexion reconnue"
+    },
+    {
+      "entity": "Archive INA de janvier 2007 sur le pacte écologique",
+      "used_for": "Montrer que les partis ont déjà promis puis oublié l'écologie"
+    },
+    {
+      "entity": "Thomas Ménager, député RN du Loiret",
+      "used_for": "Attester que même le Rassemblement national a un programme de réduction des gaz à effet de serre"
+    },
+    {
+      "entity": "L'exemple de l'Allemagne et de la centrale de Sainte-Avold",
+      "used_for": "Soutenir l'argument selon lequel l'abandon du nucléaire conduit au retour du charbon"
+    },
+    {
+      "entity": "« Selon certains analystes »",
+      "used_for": "Attribuer sans les nommer le diagnostic d'un discours écologiste culpabilisant"
+    },
+    {
+      "entity": "Agriculteurs du sud de la France cités de mémoire",
+      "used_for": "Incarner la colère contre les militants ayant empêché les retenues d'eau"
+    }
+  ],
+  "notable_omissions": [
+    "Aucun contradicteur du camp critiqué n'est présent sur le plateau : les accusations contre les écologistes sont diffusées en extraits, puis commentées par trois personnes qui les rejettent.",
+    "Les auteurs des extraits accusateurs ne sont pas identifiés à l'antenne, ce qui empêche le spectateur de situer leur position.",
+    "Aucune donnée scientifique n'est apportée sur le fond des trois polémiques : effet réel du débroussaillement, bilan hydrique des mégabassines, impact énergétique de la climatisation.",
+    "Les chiffres budgétaires avancés (163 millions, 300 millions, 12 milliards, vote à 493) ne sont ni sourcés ni vérifiés en plateau.",
+    "L'affirmation que les mégabassines sont « pour la majorité jugées illégales » n'est pas étayée par une référence juridique.",
+    "Aucun élu ou porte-parole du parti Les Écologistes n'est invité, alors que le débat porte sur son bilan et son score.",
+    "Le lien de causalité entre positions écologistes et dégâts de l'été n'est jamais examiné pièce par pièce, ni pour l'établir ni pour l'écarter.",
+    "Aucune comparaison internationale n'est proposée sur les résultats électoraux des partis verts en Europe.",
+    "Le rôle des choix d'aménagement, d'urbanisme et des acteurs économiques privés reste évoqué en passant, sans données.",
+    "L'article ne dit pas quelles mesures concrètes chaque intervenant propose pour l'été suivant."
+  ],
+  "rhetorical_patterns": [
+    "Le débat s'ouvre sur une **question-cadre** — les écologistes sont-ils un bouc émissaire — qui installe le procès avant d'installer la contradiction.",
+    "La question inaugurale posée à deux invités est **contrefactuelle** (« si les écologistes avaient gagné en 1988 ») : elle demande de défendre un bilan qui n'existe pas.",
+    "Un invité **retourne explicitement le cadrage** (« c'est surtout le cadrage qui me plaît pas ») et déplace la question vers le bilan des dix dernières années.",
+    "Le plateau alterne **extraits accusateurs** et **réponses en studio** : les accusations arrivent sans interlocuteur, les réponses avec temps de parole.",
+    "Le dispositif multiplie les **pièces à conviction visuelles** : bulletin météo, une du Figaro, tableau des scores, archive de 2007.",
+    "Les chiffres arrivent par **rafales non sourcées** (163 millions, 300 millions, 12 milliards, 493 voix), difficiles à vérifier en direct.",
+    "Le vocabulaire scolaire structure une des interventions — « cancres », « mauvais élèves », « pas révisé » — et transforme l'adversaire en élève défaillant.",
+    "La figure du **« prophète de malheur »** sert à expliquer psychologiquement le rejet des écologistes plutôt qu'à le discuter politiquement.",
+    "Les trois invités **convergent** sur l'essentiel et divergent sur le positionnement gauche/ni-gauche-ni-droite : le désaccord porte sur la stratégie, pas sur le diagnostic.",
+    "Le raisonnement par **analogie** est fréquent : le Covid pour les incendies, l'Allemagne pour le nucléaire, la dictature pour la majorité électorale sans consensus.",
+    "Les invités sont présentés par **leurs livres et leurs mandats** avant de parler, ce qui installe l'autorité en amont du contenu.",
+    "Le format se clôt sur une **formule d'ouverture** (« un sujet dont on aura l'occasion de reparler ») qui laisse le désaccord non tranché."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx1",
+        "text": "L'émission est enregistrée après un été 2026 marqué par des **canicules, mégafeux en Gironde et sécheresse**, présentés comme le déclencheur du débat."
+      },
+      {
+        "id": "ctx2",
+        "text": "Elle intervient **quelques mois avant la présidentielle de 2027**, dans une séquence où les partis fixent leurs programmes."
+      },
+      {
+        "id": "ctx3",
+        "text": "Trois polémiques de l'été servent de matière : **climatisation, débroussaillement, mégabassines**, toutes adossées à la loi d'urgence agricole votée en juillet."
+      },
+      {
+        "id": "ctx4",
+        "text": "Le parti Les Écologistes sort de **municipales perdues** et d'un niveau d'intentions de vote présidentielles très bas."
+      }
+    ],
+    "who_is_speaking": [
+      "L'émission est **28 minutes**, magazine de débat quotidien d'Arte, diffusé en fin de journée et structuré autour d'un dossier, d'une archive et de chroniques.",
+      "Arte est une chaîne **publique franco-allemande** financée par des contributions des deux États, sans dépendance à l'audience commerciale.",
+      "Le présentateur n'exprime pas de position propre mais **relance systématiquement sur la responsabilité des écologistes**, y compris après leurs dénégations.",
+      "Les trois invités sont tous **engagés dans l'écologie politique** — un ancien candidat, un militant-auteur, une présidente de think tank — et occupent des positions différentes sur le clivage gauche/droite.",
+      "Antoine Waechter porte depuis les années 1980 la ligne **« ni droite ni gauche »** qui l'a séparé des Verts ; sa position sur le nucléaire a changé et il l'assume à l'antenne.",
+      "Aucun des invités ne représente le camp qui accuse les écologistes : **la critique est diffusée, pas incarnée** sur le plateau."
+    ],
+    "important_facts": [
+      {
+        "id": "if1",
+        "text": "Le mois de juillet le plus chaud jamais mesuré en France avant 2026 était **juillet 2006**, et l'été 2003 reste la référence en surmortalité liée à la chaleur (environ **15 000 décès excédentaires**)."
+      },
+      {
+        "id": "if2",
+        "text": "Le Fonds vert, créé en 2023 pour financer la transition écologique des collectivités, était doté d'environ **2 milliards d'euros** à son lancement avant des coupes successives."
+      },
+      {
+        "id": "if3",
+        "text": "Les incendies de Gironde de 2022 avaient déjà brûlé plus de **20 000 hectares** de forêt de pins maritimes, majoritairement plantés en monoculture résineuse depuis le XIXe siècle."
+      },
+      {
+        "id": "if4",
+        "text": "Le débroussaillement autour des habitations en zone forestière est une **obligation légale** en France (OLD), dont le taux de respect était estimé à moins de 30 % avant 2023."
+      },
+      {
+        "id": "if5",
+        "text": "Les mégabassines contestées dans les Deux-Sèvres ont fait l'objet de **plusieurs annulations partielles** par la justice administrative, chaque projet étant jugé séparément."
+      },
+      {
+        "id": "if6",
+        "text": "L'électricité représente environ **un quart de la consommation finale d'énergie** en France, le reste venant surtout des carburants et du chauffage fossile."
+      },
+      {
+        "id": "if7",
+        "text": "La Convention citoyenne pour le climat (2019-2020) avait formulé **149 propositions** ; une partie seulement a été reprise dans la loi Climat et Résilience de 2021."
+      },
+      {
+        "id": "if8",
+        "text": "Le meilleur score d'un candidat écologiste à une présidentielle française est celui de **Noël Mamère en 2002, 5,25 %**, plafond jamais dépassé depuis."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "Mégabassine",
+        "definition": "Grande réserve d'eau creusée et remplie par pompage dans les nappes en hiver, pour irriguer des cultures en été."
+      },
+      {
+        "term": "Débroussaillement",
+        "definition": "Coupe de la végétation basse et des broussailles pour priver un incendie de matière à brûler."
+      },
+      {
+        "term": "Écologie punitive",
+        "definition": "Expression employée par les critiques de l'écologie pour désigner des mesures vécues comme des interdictions ou des contraintes imposées aux particuliers."
+      },
+      {
+        "term": "Zéro artificialisation nette (ZAN)",
+        "definition": "Objectif légal de ne plus consommer de nouveaux sols naturels ou agricoles sans en renaturer autant ailleurs."
+      },
+      {
+        "term": "Loi d'urgence agricole",
+        "definition": "Loi votée en juillet visant à soutenir les agriculteurs, notamment en facilitant les projets de stockage d'eau."
+      },
+      {
+        "term": "Fonds vert",
+        "definition": "Enveloppe budgétaire de l'État destinée à financer des projets écologiques portés par les collectivités locales."
+      },
+      {
+        "term": "Bassin versant",
+        "definition": "Territoire où toutes les eaux de pluie s'écoulent vers un même cours d'eau, indépendamment des frontières administratives."
+      },
+      {
+        "term": "Convention citoyenne pour le climat",
+        "definition": "Assemblée de citoyens tirés au sort réunie de 2019 à 2020 pour proposer des mesures contre le réchauffement."
+      },
+      {
+        "term": "Rénovation thermique",
+        "definition": "Travaux d'isolation et de chauffage réduisant la consommation d'énergie d'un bâtiment."
+      },
+      {
+        "term": "Énergie dense / énergie diffuse",
+        "definition": "Une énergie dense produit beaucoup sur peu d'espace (nucléaire), une énergie diffuse dépend du vent ou du soleil sur de grandes surfaces."
+      },
+      {
+        "term": "Souveraineté alimentaire",
+        "definition": "Capacité d'un pays à nourrir sa population avec sa propre production agricole."
+      },
+      {
+        "term": "Asymétrie de pouvoir",
+        "definition": "Écart entre ceux qui décident d'un projet et ceux qui en subissent les conséquences."
+      },
+      {
+        "term": "Majorité culturelle",
+        "definition": "Accord large dans la société sur une idée, distinct d'une simple majorité de voix à une élection."
+      },
+      {
+        "term": "Question régalienne",
+        "definition": "Domaine considéré comme une mission de base de l'État, au même titre que la défense ou la justice."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "Contenu de la vidéo (transcription) :"
+  }
+}

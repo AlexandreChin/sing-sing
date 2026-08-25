@@ -1,0 +1,929 @@
+{
+  "article_metadata": {
+    "url": null,
+    "title": "« La France n’est pas prête » : le HCC alerte sur le retard climatique du pays",
+    "source": null,
+    "published_at": null,
+    "type": "news_report",
+    "medium": "article",
+    "category": "Autre",
+    "reading_time_minutes": 6,
+    "chapo": null
+  },
+  "extraction": {
+    "authority_anchors": [
+      {
+        "entity": "Haut Conseil pour le climat",
+        "used_for": "Légitimer l'ensemble du diagnostic : impréparation du pays, ralentissement de la décarbonation, insuffisance des financements"
+      },
+      {
+        "entity": "Rapport de 420 pages « à partir de données scientifiques rigoureuses »",
+        "used_for": "Établir le sérieux et le caractère incontestable du constat avant même d'en détailler le contenu"
+      },
+      {
+        "entity": "Accord de Paris",
+        "used_for": "Fixer l'étalon (2 °C, 1,5 °C) à l'aune duquel le bilan français est jugé insuffisant"
+      },
+      {
+        "entity": "Citepa",
+        "used_for": "Relativiser la baisse d'émissions du premier trimestre 2026 mise en avant par le président"
+      },
+      {
+        "entity": "Copernicus Marine",
+        "used_for": "Certifier le record de température de surface des océans en juin"
+      },
+      {
+        "entity": "Conseil d'État",
+        "used_for": "Attester que les autorisations environnementales de l'A69 ont bien été validées"
+      },
+      {
+        "entity": "Green Deal",
+        "used_for": "Illustrer l'existence d'ambitions européennes fortes malgré des résultats en retrait"
+      }
+    ],
+    "key_quotes": [
+      "« La France n'est pas prête à faire face aux impacts du changement climatique »",
+      "« Les normes existent mais leur mise en œuvre souffre d'un manque de moyens administratifs et financiers, de dérogations nombreuses et d'une tendance récurrente à réduire la contrainte juridique dès qu'elle devient politiquement ou économiquement sensible »",
+      "« L'année 2025 est la quatrième année la plus chaude enregistrée depuis 1900 (+2,4 °C), derrière 2022, 2023 et 2020 et devant 2024, avec un jour sur deux au-dessus des normales de saison (moyennes 1991-2020) contre seulement un jour sur cinq en-dessous des normales »",
+      "« vulnérable aux chocs géopolitiques et aux fluctuations des prix de l'énergie »",
+      "« un cadre juridique climatique progressivement plus dense »",
+      "L'écart entre les textes et les résultats se creuse, participant à construire un discours de façade dont les ambitions se limitent aux seuls mots.",
+      "Derrière ses engagements, Paris se dérobe",
+      "la baisse des émissions est portée pour moitié par une baisse d'activité tendancielle dans l'industrie et l'élevage, et non par des transformations structurelles suffisantes",
+      "Un bilan provisoire favorable, mais imputable en grande partie au recul des émissions des bâtiments, des transports et de l'industrie manufacturière.",
+      "Un avertissement qui devrait trouver un écho dans la campagne présidentielle, alors que les candidats cherchent de plus en plus à s'emparer du sujet du réchauffement climatique dans leurs programmes."
+    ],
+    "notable_omissions": [
+      "Aucune réaction du gouvernement, d'un ministère ou de l'exécutif n'est sollicitée pour répondre au rapport."
+    ],
+    "rhetorical_patterns": [
+      "Le titre et le corps répètent la même citation-choc du HCC, « La France n'est pas prête », qui sert de refrain au texte."
+    ]
+  },
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx_0",
+        "text": "Le rapport paraît **pendant une troisième vague de chaleur**, après une canicule de juin associée à une surmortalité provisoire."
+      }
+    ],
+    "who_is_speaking": [
+      "L'article est signé **Valentin Gasselin** et publié par **TIME France**, mentionné via l'incitation « Ajoutez TIME France à Google »."
+    ],
+    "important_facts": [
+      {
+        "id": "fact_0",
+        "text": "Le HCC est un **organisme consultatif indépendant** créé en 2018 : il évalue et recommande, mais **ne dispose d'aucun pouvoir contraignant** sur le gouvernement."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "HCC (Haut Conseil pour le climat)",
+        "definition": "Groupe d'experts indépendants qui évalue chaque année si la politique climatique française tient ses objectifs."
+      }
+    ]
+  },
+  "analysis": {
+    "fond": {
+      "main_claim": "La France affiche des ambitions climatiques que ses moyens et ses actes contredisent.",
+      "premisses": [
+        {
+          "id": "pr_0",
+          "statement": "Le rapport annuel du HCC constitue une évaluation fiable de l'action climatique française.",
+          "quality": "Étayée par le volume et la méthode annoncés du document (420 pages, « données scientifiques rigoureuses »), mais l'article reprend ce cadrage sans le discuter."
+        },
+        {
+          "id": "pr_1",
+          "statement": "Le ralentissement de la baisse des émissions en 2025 traduit un défaut d'action publique.",
+          "quality": "Appuyée sur des séries chiffrées comparables d'une année sur l'autre (6,8 % en 2023, 3 % en 2024, 2,1 % en 2025)."
+        },
+        {
+          "id": "pr_2",
+          "statement": "L'écart entre les textes adoptés et les résultats obtenus mesure la sincérité de l'engagement climatique.",
+          "quality": "Assertion posée plutôt qu'établie : l'article l'illustre par trois exemples choisis (A69, Fonds vert, acétamipride) sans quantifier la part qu'ils représentent."
+        },
+        {
+          "id": "pr_3",
+          "statement": "Les vagues de chaleur et les records de température en cours attestent de l'urgence du diagnostic.",
+          "quality": "Reposant sur des mesures documentées (juin 2026, Copernicus Marine), mais l'événement météorologique sert de preuve à un constat de politique publique."
+        }
+      ],
+      "implicit_assumptions": [
+        {
+          "id": "ia_0",
+          "statement": "Une baisse d'émissions due à un recul d'activité **compte moins** qu'une baisse due à des réformes structurelles.",
+          "impact": "Si les tonnes évitées valent indépendamment de leur cause, le **ralentissement de la décarbonation** perd une partie de sa charge critique."
+        },
+        {
+          "id": "ia_1",
+          "statement": "Le gouvernement dispose des **leviers** nécessaires pour atteindre plus de 4 % de baisse annuelle dès 2026.",
+          "impact": "Si la trajectoire dépend surtout de facteurs européens, industriels ou économiques, l'**imputation au pouvoir politique** se déplace."
+        },
+        {
+          "id": "ia_2",
+          "statement": "Les recommandations du HCC constituent l'**étalon légitime** de ce que devrait être la politique climatique.",
+          "impact": "Si d'autres arbitrages publics — coût, emploi, acceptabilité — sont également légitimes, l'écart constaté devient un **choix** plutôt qu'un manquement."
+        },
+        {
+          "id": "ia_3",
+          "statement": "Une année météorologique extrême **renseigne** sur la qualité de la préparation du pays.",
+          "impact": "Si canicule et préparation relèvent de temporalités distinctes, le **lien entre l'actualité et le rapport** n'est plus qu'un effet de calendrier."
+        }
+      ],
+      "blind_spots": [
+        {
+          "id": "bs_0",
+          "topic": "Aucune **réponse du gouvernement** ou d'un ministère n'est sollicitée.",
+          "significance": "Une contradiction chiffrée sur les financements aurait obligé le texte à **arbitrer entre deux versions** au lieu d'en exposer une."
+        },
+        {
+          "id": "bs_1",
+          "topic": "Le **statut consultatif** du HCC, dépourvu de pouvoir contraignant, n'est jamais précisé.",
+          "significance": "Le lecteur pourrait lire les 82 recommandations comme des **obligations non tenues** plutôt que comme des avis."
+        },
+        {
+          "id": "bs_2",
+          "topic": "La **contrainte budgétaire** n'apparaît que via le montant du Fonds vert, sans mise en perspective.",
+          "significance": "Situer ces 837 millions dans les finances publiques dirait si le manque de moyens relève d'un **arbitrage ou d'une capacité**."
+        },
+        {
+          "id": "bs_3",
+          "topic": "Le **niveau de départ** français — un mix électrique déjà largement décarboné — est absent.",
+          "significance": "Un pays aux émissions déjà basses réduit **plus difficilement** les siennes, ce qui pèse sur la lecture des 2,1 %."
+        }
+      ],
+      "emphasis": [
+        "Le texte consacre cinq paragraphes aux chiffres de température et d'émissions, contre une seule phrase à la **portée réelle du HCC** dans la décision publique.",
+        "La formule « La France n'est pas prête » apparaît **trois fois** — titre, corps, conclusion — alors que le **cadre juridique salué** par le HCC tient en une incise.",
+        "Les **reculs environnementaux** occupent un paragraphe entier et nommé, quand les 82 recommandations sont résumées en une **énumération de trois lignes**."
+      ],
+      "logical_reasoning": [
+        {
+          "id": "lr_0",
+          "step": "Des séries chiffrées de baisse d'émissions (6,8 % → 3 % → 2,1 %) le texte conclut à un défaut de transformation structurelle.",
+          "problem_type": null,
+          "diagnosis": null
+        },
+        {
+          "id": "lr_1",
+          "step": "Trois décisions politiques — A69, Fonds vert, acétamipride — servent à établir une contradiction générale entre discours et actes.",
+          "problem_type": "validity",
+          "diagnosis": "Trois exemples, aussi documentés soient-ils, ne suffisent pas à **caractériser l'ensemble** d'une politique publique ; la généralisation reste une extrapolation."
+        },
+        {
+          "id": "lr_2",
+          "step": "La baisse de 4,8 % annoncée par le président est écartée au motif qu'elle tient à un hiver doux et à des reculs d'activité.",
+          "problem_type": null,
+          "diagnosis": null
+        },
+        {
+          "id": "lr_3",
+          "step": "L'article fait du calendrier — canicule en cours, publication du rapport — un élément du constat d'impréparation.",
+          "problem_type": "soundness",
+          "diagnosis": "La **concomitance** d'une vague de chaleur et d'un rapport critique documente l'exposition du pays, pas le **niveau de préparation** des politiques évaluées."
+        }
+      ],
+      "observations": [
+        {
+          "id": "obs_0",
+          "aspect": "Sourçage",
+          "summary": "Le diagnostic repose presque entièrement sur un **émetteur unique**, dont l'article reprend le vocabulaire et le cadrage. Les autres sources citées viennent **confirmer** ce cadre plutôt que l'ouvrir.",
+          "seeds": {
+            "source": "important_fact",
+            "index": 0,
+            "excerpt": "organisme consultatif indépendant créé en 2018",
+            "strength": 0.8,
+            "nature": "inference"
+          },
+          "proven_by": [
+            {
+              "type": "claim",
+              "index": 0
+            }
+          ]
+        },
+        {
+          "id": "obs_1",
+          "aspect": "Mandat",
+          "summary": "Le pouvoir réel de l'instance n'est **jamais qualifié** : le texte évalue un gouvernement à l'aune d'avis qui **ne l'obligent pas**.",
+          "seeds": {
+            "source": "important_fact",
+            "index": 0,
+            "excerpt": "ne dispose d'aucun pouvoir contraignant sur le gouvernement",
+            "strength": 0.9,
+            "nature": "specification"
+          },
+          "proven_by": [
+            {
+              "type": "focus",
+              "index": 0
+            }
+          ]
+        },
+        {
+          "id": "obs_2",
+          "aspect": "Calendrier",
+          "summary": "Le texte s'ouvre sur la **canicule en cours** et referme sur la campagne présidentielle, adossant un rapport annuel à **deux échéances extérieures** à son contenu.",
+          "seeds": {
+            "source": "context",
+            "index": 0,
+            "excerpt": "pendant une troisième vague de chaleur",
+            "strength": 0.9,
+            "nature": "illustration"
+          },
+          "proven_by": []
+        },
+        {
+          "id": "obs_3",
+          "aspect": "Contradiction",
+          "summary": "L'argument central se joue dans un **écart** — textes denses d'un côté, moyens et dérogations de l'autre — que la citation du HCC formule à la place de l'auteur.",
+          "seeds": {
+            "source": "context",
+            "index": 0,
+            "excerpt": "une surmortalité provisoire",
+            "strength": 0.4,
+            "nature": "inference"
+          },
+          "proven_by": [
+            {
+              "type": "bias",
+              "index": 1
+            }
+          ]
+        }
+      ],
+      "steel_man": [
+        {
+          "counterargument": "Un pays dont l'électricité est déjà largement décarbonée touche aux **gisements les plus coûteux** : un ralentissement du rythme peut signaler la difficulté croissante de l'exercice, pas un relâchement.",
+          "seeds": {
+            "source": "premisse",
+            "index": 1,
+            "excerpt": "le ralentissement traduit un défaut d'action publique",
+            "strength": 0.7,
+            "nature": "contradiction"
+          },
+          "alternative_conclusion": "Le chiffre de 2,1 % mesurerait alors la **pente du terrain restant**, et non le degré d'engagement du pouvoir."
+        },
+        {
+          "counterargument": "Le HCC **conseille sans décider** : l'écart entre ses 82 recommandations et l'action gouvernementale décrit un arbitrage démocratique entre objectifs concurrents, pas un manquement.",
+          "seeds": {
+            "source": "blind_spot",
+            "index": 1,
+            "excerpt": "statut consultatif, dépourvu de pouvoir contraignant",
+            "strength": 0.8,
+            "nature": "contradiction"
+          },
+          "alternative_conclusion": "Le rapport documenterait le **coût des choix faits**, laissant au lecteur — et à l'électeur — le soin de les juger."
+        },
+        {
+          "counterargument": "Trois décisions défavorables coexistent avec un **cadre juridique que le HCC lui-même dit plus dense** : l'échantillon retenu pourrait ne pas représenter la trajectoire d'ensemble.",
+          "seeds": {
+            "source": "logical_reasoning",
+            "index": 1,
+            "excerpt": "A69, Fonds vert, acétamipride comme preuve générale",
+            "strength": 0.7,
+            "nature": "contradiction"
+          },
+          "alternative_conclusion": "On observerait un mouvement **à deux vitesses** plutôt qu'un discours de façade."
+        }
+      ]
+    },
+    "forme": {
+      "emotional_register": [
+        {
+          "id": "er_0",
+          "emotion": "Inquiétude",
+          "how": "Le texte **superpose** l'événement en cours — troisième vague de chaleur, surmortalité — aux records de température et aux projections à +4 °C.",
+          "effect": "Le lecteur aborde les chiffres d'émissions comme les **symptômes d'un danger déjà là**, non comme un bilan administratif.",
+          "seeds": {
+            "source": "context",
+            "index": 0,
+            "excerpt": "pendant une troisième vague de chaleur",
+            "strength": 0.9,
+            "nature": "illustration"
+          }
+        },
+        {
+          "id": "er_1",
+          "emotion": "Défiance",
+          "how": "Le vocabulaire de l'écart — « se dérobe », « discours de façade », « ambitions limitées aux seuls mots » — **oppose la parole publique aux actes**.",
+          "effect": "Le lecteur est disposé à lire toute annonce climatique gouvernementale comme une **promesse à vérifier**.",
+          "seeds": {
+            "source": "important_fact",
+            "index": 0,
+            "excerpt": "ne dispose d'aucun pouvoir contraignant",
+            "strength": 0.6,
+            "nature": "inference"
+          }
+        }
+      ],
+      "cui_bono": [
+        {
+          "id": "cb_0",
+          "beneficiary": "Le Haut Conseil pour le climat",
+          "explanation": "Son rapport est repris **sans contradicteur** et son vocabulaire devient celui de l'article. L'instance consultative se trouve ainsi en position d'**arbitre du bilan**, une autorité que son mandat ne lui confère pas.",
+          "seeds": {
+            "source": "important_fact",
+            "index": 0,
+            "excerpt": "organisme consultatif indépendant créé en 2018",
+            "strength": 0.9,
+            "nature": "specification"
+          }
+        },
+        {
+          "id": "cb_1",
+          "beneficiary": "Les candidats faisant du climat un axe de campagne",
+          "explanation": "La conclusion relie explicitement l'alerte à la **campagne présidentielle**. Un constat de retard imputé au pouvoir en place fournit un **terrain argumentatif** à ceux qui s'en démarquent.",
+          "seeds": {
+            "source": "context",
+            "index": 0,
+            "excerpt": "une surmortalité provisoire",
+            "strength": 0.5,
+            "nature": "inference"
+          }
+        }
+      ],
+      "cadrage": {
+        "title_analysis": [
+          {
+            "label": "Attribution",
+            "observation": "La citation entre guillemets place le constat sous la responsabilité du HCC, pas du journal."
+          },
+          {
+            "label": "Ellipse",
+            "observation": "« Pas prête » désigne un défaut d'adaptation, alors que le corps traite surtout d'émissions."
+          },
+          {
+            "label": "Vocabulaire",
+            "observation": "« Alerte » et « retard » installent un registre d'urgence avant tout chiffre."
+          }
+        ],
+        "body": "Le corps traite la publication d'un rapport annuel comme un **bilan de l'action gouvernementale**, mesuré à l'aune des objectifs affichés par la France elle-même. Il met au centre l'**écart entre les textes et leurs moyens**, construit par une série chiffrée d'émissions puis par trois décisions publiques récentes. Le registre est celui du **compte rendu documenté**, adossé au vocabulaire et aux catégories du HCC. La position d'énonciation est celle d'un **relais du rapport**, dont l'auteur prolonge les formulations dans ses propres phrases de synthèse."
+      }
+    }
+  },
+  "annotations": {
+    "facts_vs_opinions": {
+      "claims_and_sources": [
+        {
+          "id": "claim_0",
+          "quote": "L'Hexagone, qui avait acté une réduction de ses émissions brutes de 3 % en 2024, s'est limité à 2,1 % en 2025.",
+          "presentation": "presented_as_established_fact",
+          "proves": {
+            "type": "observation",
+            "label": "Sourçage",
+            "strength": 0.8,
+            "nature": "illustration"
+          },
+          "explanation": "Le chiffre provient de l'inventaire national repris par le HCC, mais l'article le donne **sans attribution** dans la même phrase que le verbe « s'est limité ».",
+          "external_sources": [
+            {
+              "name": "Citepa — inventaire national des émissions de GES",
+              "supports": "validates",
+              "evidence_type": "official_data"
+            },
+            {
+              "name": "Haut Conseil pour le climat, rapport annuel 2026",
+              "supports": "validates",
+              "evidence_type": "official_data"
+            }
+          ],
+          "confidence": 88,
+          "confidence_label": "true"
+        },
+        {
+          "id": "claim_1",
+          "quote": "« Les normes existent mais leur mise en œuvre souffre d'un manque de moyens administratifs et financiers, de dérogations nombreuses et d'une tendance récurrente à réduire la contrainte juridique dès qu'elle devient politiquement ou économiquement sensible »",
+          "presentation": "attributed_to_source",
+          "proves": {
+            "type": "cui_bono",
+            "label": "Le Haut Conseil pour le climat",
+            "strength": 0.9,
+            "nature": "illustration"
+          },
+          "explanation": "L'appréciation est **clairement créditée** au HCC, mais aucune contradiction gouvernementale ne vient la mettre à l'épreuve.",
+          "external_sources": [
+            {
+              "name": "Haut Conseil pour le climat, rapport annuel 2026",
+              "supports": "validates",
+              "evidence_type": "party_statement"
+            },
+            {
+              "name": "Cour des comptes — rapports sur le financement de la transition",
+              "supports": "neutral",
+              "evidence_type": "official_data"
+            }
+          ],
+          "confidence": 55,
+          "confidence_label": "disputed"
+        },
+        {
+          "id": "claim_2",
+          "quote": "L'écart entre les textes et les résultats se creuse, participant à construire un discours de façade dont les ambitions se limitent aux seuls mots.",
+          "presentation": "opinion_stated_as_fact",
+          "proves": {
+            "type": "emotional_register",
+            "label": "Défiance",
+            "strength": 0.9,
+            "nature": "illustration"
+          },
+          "explanation": "« Discours de façade » est un **jugement d'intention** posé dans la syntaxe d'un constat, sans mesure de l'écart annoncé.",
+          "external_sources": [
+            {
+              "name": "Haut Conseil pour le climat, rapport annuel 2026",
+              "supports": "neutral",
+              "evidence_type": "party_statement"
+            }
+          ],
+          "confidence": null,
+          "confidence_label": "unverifiable"
+        },
+        {
+          "id": "claim_3",
+          "quote": "Avec une température moyenne de 20,74 °C en Europe de l'Ouest, le mois de juin 2026 a été le plus chaud jamais enregistré dans cette région",
+          "presentation": "presented_as_established_fact",
+          "proves": {
+            "type": "emotional_register",
+            "label": "Inquiétude",
+            "strength": 0.8,
+            "nature": "illustration"
+          },
+          "explanation": "Donnée **mesurée et datée**, issue des relevés européens, mais présentée sans nommer l'organisme qui l'établit.",
+          "external_sources": [
+            {
+              "name": "Copernicus Climate Change Service (C3S)",
+              "supports": "validates",
+              "evidence_type": "official_data"
+            },
+            {
+              "name": "Organisation météorologique mondiale",
+              "supports": "validates",
+              "evidence_type": "official_data"
+            }
+          ],
+          "confidence": 92,
+          "confidence_label": "consensual"
+        }
+      ]
+    },
+    "biases_and_focus": {
+      "biases_and_rhetoric": [
+        {
+          "id": "bias_0",
+          "quote": "à peine le mois de juillet vient-il de commencer que la France suffoque sous une troisième vague de chaleur, après une canicule de juin déjà associée à de fortes perturbations et à une surmortalité provisoire",
+          "item_type": "bias",
+          "label": "mise en scène du contexte immédiat",
+          "effect": "Remarquez comment l'événement en cours donne au rapport un caractère d'urgence avant qu'un seul chiffre d'action publique ne soit cité.",
+          "proves": {
+            "type": "emotional_register",
+            "label": "Inquiétude",
+            "strength": 0.9,
+            "nature": "illustration"
+          }
+        },
+        {
+          "id": "bias_1",
+          "quote": "C'est le cas, entre autres, du projet controversé de l'autoroute A69, dont les autorisations environnementales ont été validées par le Conseil d'État fin juin, de la baisse du Fonds vert, reconduit en 2026 avec une enveloppe initiale de 837 millions d'euros, ou encore de la réintroduction de l'acétamipride",
+          "item_type": "fallacy",
+          "label": "généralisation à partir de trois cas",
+          "effect": "Remarquez comment trois décisions listées suffisent à faire apparaître une politique d'ensemble comme contradictoire.",
+          "proves": {
+            "type": "observation",
+            "label": "Contradiction",
+            "strength": 0.8,
+            "nature": "illustration"
+          }
+        },
+        {
+          "id": "bias_2",
+          "quote": "Derrière ses engagements, Paris se dérobe",
+          "item_type": "bias",
+          "label": "langage chargé en intertitre",
+          "effect": "Remarquez comment le verbe prête une intention d'esquive là où le paragraphe qui suit décrit des moyens manquants.",
+          "proves": {
+            "type": "emotional_register",
+            "label": "Défiance",
+            "strength": 0.9,
+            "nature": "illustration"
+          }
+        }
+      ],
+      "focus": {
+        "quote": "« La France n'est pas prête à faire face aux impacts du changement climatique »",
+        "proves": {
+          "type": "observation",
+          "label": "Mandat",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "analysis": "La phrase énonce un **défaut de préparation** aux impacts, c'est-à-dire d'adaptation. Elle suggère une responsabilité du pouvoir en place, puisqu'elle sert de fil au bilan gouvernemental. Elle ne dit pas **qui décide** de ce qui serait « être prêt » — ni ce que pèse l'avis de celui qui le formule."
+      }
+    }
+  },
+  "deontology": {
+    "violations": [
+      {
+        "id": "eth1",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "le gouvernement multiplie les textes contraires à ces objectifs en actant des reculs environnementaux notoires",
+        "explanation": "Accusation d'incohérence adressée au gouvernement sans trace de réponse sollicitée."
+      },
+      {
+        "id": "eth2",
+        "category": "misleading_title",
+        "label": "Misleading Title",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "« La France n'est pas prête » : le HCC alerte sur le retard climatique du pays",
+        "explanation": "Le titre reprend l'alerte sur l'adaptation, mais le corps l'élargit au bilan d'émissions."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Solliciter une réaction du gouvernement et resserrer le titre sur l'adaptation, périmètre réel de la citation du HCC."
+    },
+    "summary": "La déontologie n'est pas totalement propre : deux points de vigilance, sans manquement caractérisé. L'article s'appuie sur une source publique identifiée, mais ne sollicite aucune réponse de l'institution mise en cause et étire le sens de sa citation-titre."
+  },
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "Le diagnostic repose sur un **émetteur unique** : l'observation « Sourçage » note que l'article reprend le vocabulaire et le cadrage du HCC, et les autres sources ne viennent que confirmer ce cadre. La citation longue sur les « dérogations nombreuses » est certes créditée au HCC, mais la baisse à 2,1 % est donnée **sans attribution** dans la même phrase que « s'est limité ».",
+        "lesson": "Comptez les émetteurs indépendants avant de compter les chiffres : un rapport bien cité reste une seule voix."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 4,
+        "rationale": "Les données vérifiables tiennent : les 20,74 °C de juin 2026 (confidence 92) et la série 3 % → 2,1 % (confidence 88) sont recoupables par Copernicus et le Citepa. Ce qui plafonne la note : « L'écart entre les textes et les résultats se creuse, participant à construire un discours de façade » est classé **opinion_stated_as_fact**, sans mesure de l'écart annoncé.",
+        "lesson": "Séparez les phrases qui portent un chiffre de celles qui portent une intention — la syntaxe du constat ne les distingue pas."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 3,
+        "rationale": "La chaîne est lisible et la prémisse sur le ralentissement s'appuie sur des séries comparables d'une année sur l'autre. Deux maillons faiblissent : trois décisions — A69, Fonds vert, acétamipride — servent à établir une contradiction générale (problème de `validity`), et la concomitance canicule/rapport est traitée comme un élément du constat d'impréparation (`soundness`).",
+        "lesson": "Demandez quelle part du tout un exemple représente avant d'accepter qu'il le caractérise."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "L'article annonce sa source et cite ses chiffres, mais tait ce qui conditionne sa lecture : le **statut consultatif** du HCC n'est jamais précisé, et l'hypothèse implicite que ses 82 recommandations constituent l'étalon légitime de la politique climatique n'est pas posée. Les recommandations peuvent alors se lire comme des obligations non tenues.",
+        "lesson": "Vérifiez le mandat de l'instance qui évalue : conseiller et décider n'engagent pas la même responsabilité."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Les repères qui permettraient de juger manquent : le **niveau de départ** français — un mix électrique déjà largement décarboné — est absent, et les 837 millions du Fonds vert ne sont pas situés dans les finances publiques. La disproportion se voit dans l'`emphasis` : cinq paragraphes de chiffres contre une incise sur le cadre juridique salué par le HCC.",
+        "lesson": "Cherchez le point de comparaison manquant : un pourcentage de baisse ne se lit pas sans le niveau dont il part."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Aucune **réponse du gouvernement** n'est sollicitée alors que le texte lui imputé des reculs notoires, et l'intertitre « Derrière ses engagements, Paris se dérobe » prête une intention d'esquive au paragraphe suivant qui décrit des moyens manquants. Le `focus` retenu ne dit ni qui décide de ce que serait « être prêt », ni ce que pèse l'avis de celui qui le formule.",
+        "lesson": "Repérez les verbes d'intention : « se dérober » raconte un motif là où les faits décrivent un manque."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "Le texte est structuré et chiffré, et l'attribution du titre entre guillemets rend visible qui parle. Une ellipse subsiste : « Pas prête » désigne un défaut d'**adaptation** alors que le corps traite surtout d'**émissions**, deux périmètres que rien ne distingue pour le lecteur.",
+        "lesson": "Vérifiez que le titre et le corps parlent du même objet : adaptation et atténuation ne se mesurent pas ensemble."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "L'angle de l'écart entre textes et moyens est net et l'observation « Contradiction » montre qu'il tient à une citation du HCC formulée à la place de l'auteur. La position reste celle d'un **relais du rapport**, sans le contre-argument disponible — un pays déjà largement décarboné touche aux gisements les plus coûteux.",
+        "lesson": "Demandez ce que l'article ajoute au document qu'il commente avant de le créditer d'un angle."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Qui suit les politiques climatiques françaises — administration, ONG, journaliste spécialisé — et sait déjà lire un inventaire d'émissions sans dépendre du commentaire qui l'accompagne.",
+      "payoff": "Vous ressortez avec les chiffres à jour de la trajectoire française et les points de friction identifiés par le HCC. Vous devrez chercher ailleurs le mandat réel de l'instance et la version du gouvernement.",
+      "signature_move": "Adosser son autorité à un rapport unique dont il reprend le vocabulaire, jusqu'à prolonger les formulations du HCC dans ses propres phrases de synthèse.",
+      "main_blind_side": "Le statut consultatif du HCC n'est jamais dit — silence qui révèle un article écrit dans le tempo de la publication, sans le temps de solliciter la partie mise en cause.",
+      "further_resource": {
+        "title": "Rapport annuel du Haut Conseil pour le climat",
+        "source": "Haut Conseil pour le climat",
+        "media_type": "report",
+        "why_explore": "Lire le document source montre ce que l'article resserre, notamment les avancées juridiques réduites ici à une incise.",
+        "url": "https://www.hautconseilclimat.fr/publications/"
+      },
+      "summary": "Lecture à recommander sous réserve pour qui suit ce dossier : les chiffres sont solides et l'angle clair, mais tout vient d'une seule source dont l'article adopte le vocabulaire, sans réponse du gouvernement ni rappel que ses recommandations ne l'obligent pas."
+    }
+  },
+  "blend": {
+    "patterns": [
+      {
+        "text": "L'hypothèse que les recommandations du HCC forment l'étalon légitime de la politique climatique n'est jamais posée, et c'est précisément ce non-dit qui permet à l'instance consultative d'occuper la place d'arbitre du bilan. L'absence de mention de son statut fonde l'autorité du texte au lieu de la limiter.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "ia_2",
+          "bs_1",
+          "cb_0",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "Le vocabulaire de l'esquive — « se dérobe », « discours de façade » — apparaît là où le raisonnement ne dispose que de trois décisions et d'aucune réponse du gouvernement. La charge d'intention comble l'écart que la preuve ne couvre pas.",
+        "layers": [
+          "probe",
+          "logic",
+          "ethics"
+        ],
+        "references": [
+          "bias_2",
+          "claim_2",
+          "lr_1",
+          "bs_0"
+        ]
+      },
+      {
+        "text": "La canicule en cours ouvre le texte, produit son registre d'inquiétude et devient un élément du constat d'impréparation. Un fait d'exposition météorologique se trouve converti en évaluation de politique publique.",
+        "layers": [
+          "rhetoric",
+          "logic",
+          "probe"
+        ],
+        "references": [
+          "er_0",
+          "lr_3",
+          "bias_0",
+          "ia_3"
+        ]
+      },
+      {
+        "text": "Le chiffre de 2,1 % est donné sans attribution dans la même phrase que « s'est limité », alors que le niveau de départ français — un mix déjà largement décarboné — est absent. Le pourcentage arrive donc dépourvu des deux repères qui permettraient d'en discuter la lecture : sa source et son point de comparaison.",
+        "layers": [
+          "probe",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "claim_0",
+          "bs_3",
+          "obs_0"
+        ]
+      },
+      {
+        "text": "L'article prolonge les formulations du HCC dans ses propres phrases de synthèse, et la seule citation créditée qui porte le jugement central reste sans contradicteur. La reprise du vocabulaire tient lieu d'analyse du document.",
+        "layers": [
+          "logic",
+          "probe",
+          "rhetoric"
+        ],
+        "references": [
+          "obs_3",
+          "claim_1",
+          "cb_0",
+          "obs_0"
+        ]
+      },
+      {
+        "text": "Le titre situe le défaut du côté de l'adaptation quand le corps compte des émissions, et cette ellipse est aussi ce qui laisse le focus muet sur qui décide de ce que serait « être prêt ». Le glissement de périmètre dispense de nommer l'étalon.",
+        "layers": [
+          "ethics",
+          "probe",
+          "logic"
+        ],
+        "references": [
+          "focus",
+          "ia_2",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "Cinq paragraphes de chiffres contre une incise sur le cadre juridique salué : la disproportion écarte par avance le contre-argument selon lequel un pays déjà décarboné touche aux gisements les plus coûteux. Ce que l'emphase relègue est exactement ce qui affaiblirait la prémisse du relâchement.",
+        "layers": [
+          "logic",
+          "review",
+          "rhetoric"
+        ],
+        "references": [
+          "pr_1",
+          "ia_0",
+          "er_1"
+        ]
+      },
+      {
+        "text": "La clôture sur la campagne présidentielle transforme un rapport annuel en pièce de débat électoral, dans un texte qui n'a sollicité aucune réponse de la partie mise en cause. Le calendrier fournit l'enjeu que la contradiction absente aurait pu tempérer.",
+        "layers": [
+          "rhetoric",
+          "logic",
+          "ethics"
+        ],
+        "references": [
+          "cb_1",
+          "obs_2",
+          "bs_0"
+        ]
+      }
+    ]
+  },
+  "distill": {
+    "points": [
+      {
+        "text": "Le texte fait des recommandations du HCC l'étalon du bilan sans jamais dire ce qu'est cette instance ni d'où vient sa légitimité. Ce **non-dit fonde l'autorité** du propos au lieu de la borner, et laisse muet **qui décide de ce que serait « être prêt »**.",
+        "references": [
+          "ia_2",
+          "bs_1",
+          "cb_0",
+          "obs_1",
+          "focus"
+        ]
+      },
+      {
+        "text": "Le vocabulaire de l'esquive — « se dérobe », « discours de façade » — s'applique à un dossier qui ne compte que **trois décisions** et **aucune réponse du gouvernement**. La **charge d'intention comble l'écart** que la preuve ne couvre pas.",
+        "references": [
+          "bias_2",
+          "claim_2",
+          "lr_1",
+          "bs_0",
+          "obs_2"
+        ]
+      },
+      {
+        "text": "Le 2,1 % arrive **sans source** et **sans point de comparaison** : le mix français déjà largement décarboné n'apparaît nulle part. Cinq paragraphes de chiffres contre une incise sur le cadre juridique salué **écartent par avance** le contre-argument des gisements les plus coûteux.",
+        "references": [
+          "claim_0",
+          "bs_3",
+          "obs_0",
+          "pr_1",
+          "ia_0",
+          "er_1"
+        ]
+      },
+      {
+        "text": "L'article **prolonge les formulations du HCC** dans ses propres phrases de synthèse, et la seule citation créditée portant le jugement central reste **sans contradicteur**. La reprise du vocabulaire tient lieu d'analyse du document.",
+        "references": [
+          "obs_3",
+          "claim_1",
+          "cb_0",
+          "obs_0"
+        ]
+      },
+      {
+        "text": "La canicule en cours ouvre le texte, installe le registre d'inquiétude et devient pièce du constat ; la clôture sur la présidentielle transforme un rapport annuel en argument de campagne. Un **fait météorologique** et un **calendrier électoral** encadrent ainsi une **évaluation de politique publique**.",
+        "references": [
+          "er_0",
+          "lr_3",
+          "bias_0",
+          "ia_3",
+          "cb_1"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quelle réduction annuelle un mix déjà décarboné peut-il atteindre à coût raisonnable ?",
+      "Sur quelles bases les recommandations du HCC deviennent-elles la référence du bilan climatique ?",
+      "Trois décisions suffisent-elles à mesurer l'orientation réelle d'une politique publique ?"
+    ]
+  },
+  "guide": {
+    "pre_reading": [
+      "Repérez dès l'entrée que tout le diagnostic vient d'un seul document, un rapport annuel dont l'article relaie les constats et le vocabulaire.",
+      "Gardez en tête que l'instance qui évalue ici formule des recommandations, sans pouvoir de décision — un écart avec ses préconisations n'est pas un manquement juridique.",
+      "Distinguez au fil du texte deux sujets différents que rien ne sépare : réduire les émissions et se préparer aux effets déjà en cours."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "",
+          "text": "Les recommandations d'une instance consultative servent ici d'étalon du bilan, sans que son mandat ni la source de sa légitimité soient précisés. Vous ne saurez pas qui décide de ce que serait « être prêt ».",
+          "references": [
+            "ia_2",
+            "bs_1",
+            "obs_1"
+          ]
+        },
+        {
+          "id": "",
+          "text": "Le vocabulaire employé prête au gouvernement une volonté d'esquive, alors que le dossier ne s'appuie que sur trois décisions et qu'aucune réponse de la partie mise en cause n'a été sollicitée. Une intention est ainsi nommée là où les faits décrivent surtout des moyens manquants.",
+          "references": [
+            "bias_2",
+            "lr_1",
+            "bs_0"
+          ]
+        },
+        {
+          "id": "",
+          "text": "La baisse d'émissions annoncée arrive sans attribution et sans point de comparaison : le niveau de départ français, avec un mix électrique déjà largement décarboné, n'apparaît nulle part. Sans ce repère, un pourcentage de ralentissement se lit difficilement.",
+          "references": [
+            "claim_0",
+            "bs_3",
+            "obs_0"
+          ]
+        },
+        {
+          "id": "",
+          "text": "L'article prolonge les formulations de sa source jusque dans ses phrases de synthèse, et la citation qui porte le jugement central reste sans contradicteur. La reprise du vocabulaire y remplace l'examen du document.",
+          "references": [
+            "obs_3",
+            "claim_1",
+            "cb_0"
+          ]
+        },
+        {
+          "id": "",
+          "text": "Un épisode météorologique en cours ouvre le texte et une échéance électorale le referme. Ces deux bornes installent un registre d'urgence autour de ce qui reste l'évaluation d'une politique publique.",
+          "references": [
+            "er_0",
+            "bias_0",
+            "cb_1"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Retenez les chiffres de trajectoire, mais cherchez ailleurs le mandat réel de l'instance qui les commente et la version du gouvernement.",
+      "Demandez-vous ce que l'article ajoute au rapport qu'il relaie, au-delà d'en reprendre les formulations.",
+      "Interrogez la représentativité des trois décisions citées avant d'y lire l'orientation d'ensemble d'une politique.",
+      "Vérifiez, quand un texte annonce un défaut de préparation, s'il mesure bien l'adaptation ou seulement les émissions."
+    ],
+    "title_note": "Le titre place le défaut du côté de l'adaptation, entre guillemets attribués à la source, quand le corps compte surtout des émissions.",
+    "perspective": {
+      "framing": "L'article traite le sujet par l'écart entre les engagements écrits et les moyens engagés, en plaçant au centre les constats d'un rapport annuel dont il adopte le vocabulaire. Le registre est celui de l'inquiétude, ouvert par une canicule en cours et refermé sur l'échéance présidentielle, et le point de vue est celui de l'instance d'évaluation.",
+      "blind_spots": "Le niveau de départ français — un mix électrique déjà largement décarboné, où les baisses supplémentaires touchent aux gisements les plus coûteux — n'est jamais posé, et les 837 millions du Fonds vert ne sont situés dans aucun ordre de grandeur budgétaire. Aucune réponse du gouvernement ne figure dans le texte.",
+      "balance": "Un article d'actualité écrit dans le tempo d'une publication ne peut ni instruire le mandat de l'instance ni obtenir une réaction sous quelques heures, et rendre compte fidèlement d'un rapport est une tâche légitime en soi. Ce que l'analyse signale reste réel, mais l'essentiel tient moins à des erreurs qu'à des repères que le format laisse au lecteur le soin d'aller chercher."
+    }
+  },
+  "core_elements": {
+    "elements": [
+      {
+        "statement": "Le rythme de baisse des émissions françaises ralentit : 6,8 % en 2023, 3 % en 2024, 2,1 % en 2025.",
+        "kind": "fait",
+        "centrality": 5,
+        "seeds": {
+          "source": "premisse",
+          "index": 1,
+          "excerpt": "Le ralentissement de la baisse des émissions en 2025 traduit un défaut d'action publique.",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "statement": "L'écart entre le cadre juridique climatique et les moyens financiers et administratifs qui l'appliquent.",
+        "kind": "enjeu",
+        "centrality": 5,
+        "seeds": {
+          "source": "premisse",
+          "index": 2,
+          "excerpt": "L'écart entre les textes adoptés et les résultats obtenus mesure la sincérité de l'engagement climatique.",
+          "strength": 0.9,
+          "nature": "specification"
+        }
+      },
+      {
+        "statement": "L'adaptation aux vagues de chaleur : santé au travail, lieux frais, alerte dès mai, rénovation énergétique.",
+        "kind": "enjeu",
+        "centrality": 4,
+        "seeds": {
+          "source": "context",
+          "index": 0,
+          "excerpt": "pendant une troisième vague de chaleur",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "statement": "Des décisions publiques prises en sens inverse des objectifs : A69, Fonds vert réduit, acétamipride.",
+        "kind": "fait",
+        "centrality": 4,
+        "seeds": {
+          "source": "logical_reasoning",
+          "index": 1,
+          "excerpt": "A69, Fonds vert, acétamipride comme preuve générale",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "statement": "Le HCC recommande, sans pouvoir contraindre : 82 recommandations et 11 orientations adressées au gouvernement.",
+        "kind": "angle",
+        "centrality": 3,
+        "seeds": {
+          "source": "blind_spot",
+          "index": 1,
+          "excerpt": "statut consultatif, dépourvu de pouvoir contraignant",
+          "strength": 0.9,
+          "nature": "specification"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "main_claim": "L'écologie politique est devenue le bouc émissaire d'un été climatique extrême.",
+  "premisses": [
+    {
+      "statement": "L'été 2026 a bien été exceptionnel : juillet le plus chaud et parmi les plus secs jamais enregistrés en France.",
+      "quality": "Appuyée sur des relevés météo chiffrés annoncés en plateau, mais sans source nommée à l'écran."
+    },
+    {
+      "statement": "Les écologistes sont accusés publiquement d'avoir aggravé la situation par leur opposition à la climatisation, au débroussaillement et aux mégabassines.",
+      "quality": "Documentée par des extraits sonores et une une de presse affichée ; les accusateurs ne sont pas identifiés à l'antenne."
+    },
+    {
+      "statement": "L'écologie politique est électoralement affaiblie : municipales perdues et environ 4 % d'intentions de vote.",
+      "quality": "Adossée à un sondage Ipsos cité une seule fois, sans marge d'erreur ni date."
+    },
+    {
+      "statement": "Les responsabilités réelles se situent d'abord du côté de ceux qui ont gouverné et coupé les budgets écologiques.",
+      "quality": "Étayée par une rafale de chiffres budgétaires avancés de mémoire par un seul invité, non vérifiés en plateau."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "statement": "Les positions ponctuelles des écologistes n'ont eu **aucun effet matériel** sur les dégâts de l'été.",
+      "impact": "Si des décisions locales ont pesé, le partage des responsabilités cesse d'être **à sens unique**."
+    },
+    {
+      "statement": "Trois personnes engagées dans l'écologie suffisent à **représenter le désaccord** sur le sujet.",
+      "impact": "Sans porteur de l'accusation en plateau, les critiques restent **jamais argumentées, seulement rapportées**."
+    },
+    {
+      "statement": "L'impopularité électorale des écologistes s'explique par **la forme du discours**, pas par le contenu des mesures.",
+      "impact": "Si ce sont les mesures qui sont rejetées, changer de **langage ne change rien** au résultat."
+    },
+    {
+      "statement": "Un bilan écologiste au pouvoir aurait produit **une autre culture du pouvoir**, donc d'autres décisions.",
+      "impact": "Faute de cas comparable, l'argument reste une **projection sans épreuve des faits**."
+    }
+  ],
+  "blind_spots": [
+    {
+      "topic": "Le fond scientifique des trois polémiques n'est jamais examiné.",
+      "significance": "Sans bilan hydrique ni effet mesuré du débroussaillement, l'accusation ne peut être ni établie ni écartée."
+    },
+    {
+      "topic": "Aucun élu du parti Les Écologistes n'est présent, alors que son bilan est discuté.",
+      "significance": "Le principal mis en cause ne répond pas lui-même des choix qu'on lui reproche."
+    },
+    {
+      "topic": "L'aménagement du territoire et les acteurs économiques privés sont mentionnés en passant, sans données.",
+      "significance": "Ces décisions expliquent une part des dégâts que le débat attribue au champ politique."
+    },
+    {
+      "topic": "Les résultats des partis verts ailleurs en Europe ne sont pas comparés.",
+      "significance": "Un plafond électoral partagé déplacerait la cause du côté structurel plutôt que français."
+    }
+  ],
+  "emphasis": [
+    "Le débat consacre l'essentiel du temps au **positionnement gauche / ni-gauche-ni-droite**, alors que les trois polémiques de l'été sont traitées en une seule séquence.",
+    "Les **pièces visuelles** — météo, une du Figaro, tableau des scores, archive de 2007 — occupent quatre séquences, quand aucun document technique sur l'eau ou la forêt n'est montré.",
+    "Le **score de 4 %** et les défaites électorales reviennent à plusieurs reprises, tandis que le contenu des programmes n'est détaillé nulle part."
+  ],
+  "logical_reasoning": [
+    {
+      "step": "De l'été record, on passe à la question de savoir si les écologistes portent une part de responsabilité.",
+      "problem_type": "validity",
+      "diagnosis": "Le lien entre un phénomène climatique global et des positions politiques locales n'est pas établi avant d'être discuté."
+    },
+    {
+      "step": "Les critiques venant surtout de la droite et de l'extrême droite, elles sont traitées comme un cadrage plutôt que comme des arguments.",
+      "problem_type": "validity",
+      "diagnosis": "L'origine d'une accusation est utilisée pour la classer, ce qui laisse son contenu inexaminé."
+    },
+    {
+      "step": "Les coupes budgétaires des dix dernières années sont avancées pour déplacer la responsabilité vers les gouvernants.",
+      "problem_type": "soundness",
+      "diagnosis": "Les montants cités de mémoire ne sont ni sourcés ni recoupés en plateau."
+    },
+    {
+      "step": "Un pouvoir écologiste aurait introduit une autre culture du pouvoir, donc de meilleures décisions.",
+      "problem_type": "validity",
+      "diagnosis": "Le passage d'une différence de culture à une différence de résultats reste supposé."
+    }
+  ],
+  "observations": [
+    {
+      "aspect": "Déclencheur",
+      "summary": "Le débat naît des **événements physiques de l'été** — canicules, mégafeux, sécheresse — posés d'emblée comme cadre de discussion.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "canicules, mégafeux en Gironde et sécheresse",
+        "strength": 1.0,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Calendrier",
+      "summary": "La proximité de la présidentielle **oriente les questions** vers les scores et les stratégies plus que vers les mesures.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "quelques mois avant la présidentielle de 2027",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "aspect": "Sélection",
+      "summary": "Trois polémiques servent de matière commune ; **chacune est résumée en une phrase** avant de passer au positionnement politique.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "climatisation, débroussaillement, mégabassines",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Cadrage",
+      "summary": "Le mauvais résultat électoral est traité comme **le fait à expliquer**, ce qui installe la faiblesse des écologistes avant l'examen des accusations.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "municipales perdues",
+        "strength": 0.9,
+        "nature": "inference"
+      }
+    },
+    {
+      "aspect": "Sourçage",
+      "summary": "Les chiffres météo sont cités sans référence, alors que **les repères historiques existent** — juillet 2006, surmortalité de 2003.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "juillet 2006 … environ 15 000 décès excédentaires",
+        "strength": 0.7,
+        "nature": "specification"
+      }
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "Les décisions contestées se prennent projet par projet : une opposition locale au débroussaillement ou à une retenue d'eau peut avoir des effets matériels, indépendamment du climat global.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 0,
+        "excerpt": "aucun effet matériel sur les dégâts de l'été",
+        "strength": 0.8,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "La responsabilité serait alors partagée et vérifiable dossier par dossier, plutôt que renvoyée à un cadrage adverse."
+    },
+    {
+      "counterargument": "Le plafond électoral persiste depuis 2002 malgré des discours et des stratégies très différents, ce qui affaiblit l'explication par la forme du message.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 2,
+        "excerpt": "la forme du discours, pas le contenu des mesures",
+        "strength": 0.7,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Ce serait le contenu des mesures, et non leur formulation, que l'électorat rejetterait."
+    },
+    {
+      "counterargument": "Le fond technique des trois polémiques est mesurable : bilans hydriques, effets du débroussaillement, monoculture de résineux. Ces données trancheraient sans passer par la politique.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "le fond scientifique n'est jamais examiné",
+        "strength": 0.9,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Le désaccord serait alors arbitrable par les faits, et non renvoyé à une querelle de camps."
+    }
+  ]
+}
