@@ -1,0 +1,70 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Ce texte est une tribune analytique plus qu'un compte rendu : il défend une thèse sur l'insuffisance de la réponse publique, même si rien ne l'annonce comme telle.",
+      "Repérez l'étalon implicite qui structure tout l'argument — l'ampleur des dégâts fixerait à elle seule le niveau de réponse attendu de l'État.",
+      "Gardez en tête que les compétences en matière de prévention incendie et d'urbanisme se partagent entre État, communes et propriétaires, ce que le texte ne détaille pas."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "wo_1",
+          "text": "L'inventaire des pertes ouvre longuement l'article et installe un barème avant qu'aucune décision publique ne soit examinée. Le rapprochement de deux montants qui ne mesurent pas la même chose — un coût de sinistre et une ligne de crédit — y tient lieu de démonstration.",
+          "references": [
+            "lr_2",
+            "er_0",
+            "ia_0"
+          ]
+        },
+        {
+          "id": "wo_2",
+          "text": "L'exigence de chiffrage ne s'applique que dans un sens : les dispositifs publics sont pesés au million près, mais le coût des mesures préconisées n'apparaît jamais. Sans ce prix, le reproche d'inaction budgétaire reste impossible à évaluer.",
+          "references": [
+            "bs_0",
+            "pr_3",
+            "cb_0"
+          ]
+        },
+        {
+          "id": "wo_3",
+          "text": "Une intention est prêtée à l'exécutif — esquiver coûts et contraintes — alors qu'elle est déduite d'un silence et énoncée comme un fait établi. Aucune réponse gouvernementale n'est sollicitée, si bien que la partie visée n'a pas la parole.",
+          "references": [
+            "lr_3",
+            "ia_3",
+            "bs_1"
+          ]
+        },
+        {
+          "id": "wo_4",
+          "text": "Les positions adverses sont écartées en bloc, extrême droite et gauche renvoyées dos à dos, ce qui ne laisse qu'un seul espace de parole légitime : celui d'où le texte s'exprime. Une seule source est par ailleurs nommée et datée, tandis que les chiffres les plus lourds circulent sans indication de qui les a produits.",
+          "references": [
+            "cb_1",
+            "bias_2",
+            "obs_2"
+          ]
+        },
+        {
+          "id": "wo_5",
+          "text": "L'espace accordé aux différents dommages ne suit pas leur ampleur : les incendies, qui touchent une fraction très minoritaire de la forêt, occupent plus de place que la sécheresse agricole étendue à presque tout le territoire. Un cas local sert de fil conducteur sans que les repères permettant de le situer soient fournis.",
+          "references": [
+            "obs_1",
+            "obs_4",
+            "claim_1"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Retenez l'inventaire sectoriel chiffré comme point de départ utile, en vérifiant l'origine de chaque montant avant de le réutiliser.",
+      "Demandez-vous ce que coûterait l'alternative défendue : sans ce chiffre, l'écart entre besoins et moyens reste une impression plutôt qu'un calcul.",
+      "Cherchez ailleurs ce que le texte reconnaît puis laisse de côté — la part des politiques d'adaptation déjà engagées dans la baisse de la mortalité estivale.",
+      "Relisez le titre à la lumière du contenu : ce qui est annoncé comme un bilan de l'été se révèle une évaluation de l'action publique."
+    ],
+    "title_note": "Le titre annonce « les leçons » d'un été, ce qui suppose l'enseignement déjà établi, et le mot « brûlant » fond en une seule image la chaleur mesurée et les incendies.",
+    "perspective": {
+      "framing": "L'article prend l'été 2026 comme cas de test de l'action publique : il place au centre un inventaire sectoriel des dégâts — forêt, agriculture, eau, énergie, logement — puis rapporte chaque dispositif annoncé à ce barème, jusqu'au débat budgétaire d'octobre. Le registre est celui de l'alerte documentée, énoncée depuis la position des chercheurs et des associations d'adaptation climatique.",
+      "blind_spots": "Le coût des mesures structurelles préconisées n'est jamais chiffré, alors que la contrainte budgétaire est précisément ce qui est reproché ; les politiques d'adaptation déjà engagées ne sont pas versées au bilan, et aucun responsable public n'expose ses arbitrages.",
+      "balance": "Une tribune assume une position et n'a pas à présenter tous les camps : l'absence de contre-arguments n'est pas en soi un défaut, et un format court ne peut chiffrer chaque préconisation. Ce qui reste discutable relève du raisonnement plus que du volume — un écart de montants hétérogènes présenté comme preuve, et un genre éditorial non signalé qui laisse lire une opinion comme un constat."
+    }
+  }
+}

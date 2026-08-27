@@ -1,0 +1,116 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "L'hypothèse jamais posée — l'ampleur des dégâts fixe à elle seule la réponse attendue — est d'abord installée émotionnellement par l'inventaire ininterrompu de pertes, puis convertie en preuve par la mise en regard de deux montants hétérogènes. Le barème est construit avant que la première décision publique ne soit examinée.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "ia_0",
+          "er_0",
+          "bias_1",
+          "lr_2"
+        ]
+      },
+      {
+        "text": "Le motif prêté à l'exécutif — esquiver coûts et réglementations — est déduit d'un silence, énoncé comme un constat, et coïncide avec l'absence de toute réponse gouvernementale sollicitée. Trois couches convergent sur le même maillon : l'intention est inférée là où la partie visée n'a pas la parole.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "lr_3",
+          "claim_3",
+          "ia_3",
+          "bs_1"
+        ]
+      },
+      {
+        "text": "L'exigence de chiffrage s'applique à sens unique : les dispositifs publics sont pesés au million près, tandis que le coût des mesures préconisées reste hors du texte. Cette asymétrie profite précisément à la position qui les porte, protégée de la contrainte budgétaire qui disqualifie tout le reste.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "bs_0",
+          "pr_3",
+          "cb_0",
+          "pr_2"
+        ]
+      },
+      {
+        "text": "Renvoyer dos à dos extrême droite, gauche et gouvernement ne laisse qu'un espace de parole légitime, celui des chercheurs et des associations — d'où le texte s'exprime. Le tri des positions adverses et la position d'énonciation forment un seul mouvement.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "cb_1",
+          "bias_2",
+          "bs_3"
+        ]
+      },
+      {
+        "text": "Une seule source est nommée, datée et documentée, et c'est celle dont les préconisations servent de solution implicite ; les chiffres les plus lourds circulent sans opérateur de mesure. La rigueur du sourçage se concentre là où elle appuie la conclusion.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "obs_2",
+          "claim_2",
+          "claim_0",
+          "claim_1"
+        ]
+      },
+      {
+        "text": "Le texte reconnaît lui-même qu'une adaptation non planifiée — pompes à chaleur, climatiseurs — a rendu l'été moins meurtrier qu'en 2003, mais les politiques d'adaptation déjà engagées ne sont pas versées au bilan. L'aveu contredit le point de départ à partir duquel l'insuffisance est mesurée.",
+        "layers": [
+          "logic",
+          "review"
+        ],
+        "references": [
+          "ia_1",
+          "bs_2",
+          "pr_2"
+        ]
+      },
+      {
+        "text": "La disproportion de l'espace redouble celle des ordres de grandeur : les incendies, sur 0,5 % de la forêt, occupent plus de place que la sécheresse qui touche presque tout le territoire, et un feu unique sert de fil conducteur. Les repères qui situeraient ces chiffres restent hors du texte.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "obs_1",
+          "obs_4",
+          "er_0",
+          "claim_1"
+        ]
+      },
+      {
+        "text": "Titre non étiqueté comme opinion, formule retournée qui installe le cadrage en une phrase, lexique de l'écart répété à chaque section : le registre du procès s'impose sans jamais être annoncé comme tel. Le lecteur aborde une tribune avec la vigilance d'un compte rendu.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "obs_3",
+          "er_1",
+          "focus",
+          "claim_3"
+        ]
+      }
+    ]
+  }
+}

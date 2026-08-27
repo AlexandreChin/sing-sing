@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "L'article recense les dégâts de l'été 2026 : surmortalité, forêts brûlées, nappes, récoltes, réacteurs.",
+      "kind": "fait",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 0,
+        "excerpt": "Les dégâts de l'été 2026 dépassent les précédents épisodes de référence, chiffres à l'appui.",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Il oppose l'ampleur du choc à des réponses publiques qualifiées de minimalistes et budgétairement contraintes.",
+      "kind": "angle",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "Les mesures annoncées par l'exécutif sont sans commune mesure avec l'ampleur constatée.",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "L'eau agricole est posée en enjeu structurel : irrigation, maïs, élevage, modèle alimentaire à revoir.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 3,
+        "excerpt": "Les objections agricoles et sociales à la rupture du modèle irrigué sont absentes.",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "La prévention forestière est détaillée : débroussaillage appliqué à 30 %, PPRIF rares, urbanisme d'interface.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "Un incendie parti de Saumos, en Gironde, a détruit 37 000 hectares",
+        "strength": 0.7,
+        "nature": "inference"
+      }
+    },
+    {
+      "statement": "Les inégalités face à la chaleur apparaissent : logements bouilloires, locataires oubliés, aides à la rénovation en recul.",
+      "kind": "enjeu",
+      "centrality": 3,
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "Un débat budgétaire s'ouvre début octobre 2026 sur un cadrage de 30 à 50 milliards",
+        "strength": 0.5,
+        "nature": "inference"
+      }
+    }
+  ]
+}

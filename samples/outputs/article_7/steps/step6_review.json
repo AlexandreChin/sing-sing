@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "Une seule source est **nommée, datée et documentée** : le rapport annuel du Haut Conseil pour le climat du 10 juillet 2026 (claim c3, confiance 92). Les chiffres lourds circulent sans opérateur de mesure — les « près de 6 000 décès de plus » ne sont rattachés à aucun organisme, et les 93 700 hectares renvoient à une note de bas de page plutôt qu'à une base citée dans le texte.",
+        "lesson": "Vérifiez pour chaque chiffre clé qui l'a produit : un nombre daté mais sans producteur nommé reste invérifiable en lecture."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "Les données factuelles sont **bornées dans le temps** et cohérentes avec les bases publiques disponibles (EFFIS, bulletins canicule), ce qui soutient les confiances de 75 à 92. Le plafond vient du glissement vers l'opinion présentée en constat : « la réponse de l'exécutif […] a traité l'urgence estivale à la sauce minimaliste » attribue un motif sans confiance mesurable, et la mise en regard des 20 millions ONF avec 10-15 milliards de dégâts rapproche **deux grandeurs sans base commune**.",
+        "lesson": "Ramenez toute comparaison de montants à la même unité de mesure avant d'en tirer un écart : un coût de sinistre et une ligne de crédit ne se soustraient pas."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 3,
+        "rationale": "La chaîne est **lisible de bout en bout** : gravité chiffrée, puis passage de l'accident à la tendance, puis confrontation aux dispositifs annoncés. Deux maillons portent des sauts non signalés — l'écart 15 milliards / 20 millions sert de preuve du caractère cosmétique (problème de validité), et la prémisse « des mesures structurelles efficaces sont déjà identifiées » reste une **assertion largement non étayée**.",
+        "lesson": "Repérez le moment où un texte cesse de démontrer pour juxtaposer : un écart de chiffres n'est une preuve que si les deux termes mesurent la même chose."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "Le texte signale honnêtement le **caractère provisoire** de ses chiffres, écrits au cœur de la séquence analysée. Mais sa nature de tribune analytique n'est pas indiquée au lecteur (violation d1, identity_misrepresentation), et l'hypothèse qui porte tout l'argument — « l'ampleur des dégâts détermine à elle seule le niveau de réponse publique attendu » — n'est jamais posée comme hypothèse.",
+        "lesson": "Cherchez la mention du genre éditorial avant de lire : un texte d'opinion non étiqueté se lit comme un compte rendu et désarme la vigilance."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Le tableau sectoriel est **couvert largement** — forêt, agriculture, eau, énergie, logement — et le renvoi au débat budgétaire d'octobre ancre le constat dans un calendrier réel. Trois manques pèsent : le **coût des mesures préconisées n'est jamais chiffré** alors que la contrainte budgétaire est le motif reproché, aucun responsable public n'expose ses arbitrages, et les politiques d'adaptation déjà engagées ne sont pas versées au bilan. La disproportion se voit aussi dans l'espace : les incendies, sur 0,5 % de la forêt, occupent plus de place que la sécheresse agricole qui touche presque tout le territoire.",
+        "lesson": "Demandez le prix de la solution proposée : reprocher l'inaction budgétaire sans chiffrer l'alternative rend le reproche impossible à évaluer."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Les faits sont exposés **sans caricature des acteurs** et le texte reconnaît lui-même un effet d'adaptation via pompes à chaleur et climatiseurs. L'équilibre casse ailleurs : l'exécutif reçoit un motif d'esquive sans réponse sollicitée (violation right_of_reply), et « le débat de l'été s'est […] englué dans de fausses controverses propulsées par l'extrême droite et nourries par la gauche » **écarte les positions adverses en bloc**, ne laissant qu'un espace de parole légitime.",
+        "lesson": "Notez qui n'a pas la parole : un texte qui prête une intention sans citer la défense de la partie visée vous prive d'un terme de la comparaison."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "La progression secteur par secteur et l'ancrage sur un cas concret — le feu parti de Saumos, 37 000 hectares — rendent les ordres de grandeur **immédiatement saisissables** pour un non-spécialiste. Le titre coûte un point : « les leçons » présuppose un enseignement déjà disponible, et « brûlant » fusionne chaleur mesurée et incendies en un mot d'ambiance, tandis que le corps traite surtout de la réponse publique.",
+        "lesson": "Comparez le titre au contenu réel : un titre qui annonce un bilan et livre un procès a déjà orienté votre lecture."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 4,
+        "rationale": "L'angle ne se contente pas de recenser les dégâts : il en fait un **cas de test de l'action publique**, décliné secteur par secteur et refermé sur le calendrier budgétaire d'octobre. Le retournement de la formule « la maison brûle » en « les chefs regardent ailleurs » installe le cadrage en une phrase, mais la contre-hypothèse la plus solide — débroussaillage, PPRIF, urbanisme d'interface **relèvent des communes et des propriétaires**, pas de l'exécutif — n'est pas travaillée dans le texte.",
+        "lesson": "Testez l'angle en cherchant le niveau de décision réel : un reproche adressé à l'exécutif peut viser des compétences qui ne sont pas les siennes."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Un lecteur qui suit les politiques d'adaptation climatique — élu local, agent de collectivité, journaliste ou étudiant en politiques publiques — et cherche un inventaire chiffré de l'été 2026 mis en regard des dispositifs annoncés.",
+      "payoff": "Vous ressortez avec un tableau sectoriel chiffré des dégâts et une liste des mesures publiques annoncées, utilisable comme point de départ. Vous voyez surtout, en direct, comment un écart de chiffres tient lieu de démonstration — et ce qu'il faudrait ajouter pour le rendre concluant.",
+      "signature_move": "L'inventaire chiffré posé longuement en ouverture sert de barème auquel chaque dispositif est ensuite rapporté, jusqu'au rapprochement des 20 millions de l'ONF et des 10-15 milliards de dégâts : la tradition de la tribune d'économie critique, où la mise en regard de deux montants fait office de preuve.",
+      "main_blind_side": "Le coût des mesures structurelles préconisées n'est jamais chiffré alors que la contrainte budgétaire est précisément le motif reproché à l'exécutif — une asymétrie qui en dit long sur le format de la tribune, où l'alternative reste un horizon plutôt qu'un chiffrage à défendre.",
+      "further_resource": {
+        "title": "Rapport annuel 2026 — Adaptation au changement climatique",
+        "source": "Haut Conseil pour le climat",
+        "media_type": "report",
+        "why_explore": "La source institutionnelle centrale de l'article, avec le détail des préconisations et de leurs conditions de mise en œuvre que le texte ne reprend pas.",
+        "url": "https://www.hautconseilclimat.fr/publications/"
+      },
+      "summary": "Lecture à recommander avec réserves pour qui suit les politiques d'adaptation : l'inventaire chiffré de l'été 2026 est utile, mais l'argument central repose sur des montants qui ne mesurent pas la même chose et sur une alternative jamais chiffrée. À lire en gardant à l'esprit qu'il s'agit d'une tribune d'opinion non signalée comme telle."
+    }
+  }
+}

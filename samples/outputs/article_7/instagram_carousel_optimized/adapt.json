@@ -1,0 +1,355 @@
+{
+  "hook": {
+    "topic": "Canicule : **l'après** n'a pas suivi",
+    "sub_topic": "Derrière les **milliards de dégâts**, que mesure-t-on **vraiment** ?",
+    "headline": "un été record, des réponses au **millimètre**",
+    "context_line": "Été 2026 : surmortalité, forêts brûlées, nappes vides, récoltes perdues, réacteurs ralentis.",
+    "sub_topic_alt": [
+      "Après le **choc**, sur quoi juge-t-on l'**action publique** ?",
+      "Les dégâts **chiffrés** au million près : et l'**alternative** ?",
+      "Un été **hors norme** : que doit-il **déclencher** ?"
+    ]
+  },
+  "interest": {
+    "why_read": "Repérer quand un **écart de chiffres** tient lieu de **preuve**.",
+    "pull_quote": "La maison a beau brûler, les chefs regardent ailleurs.",
+    "next_slide_hook": "Qui parle, depuis quand, et avec quels repères en tête ?"
+  },
+  "title_bullets": [
+    "Notez que « les leçons » suppose l'enseignement **déjà établi**.",
+    "Observez « brûlant » : la chaleur mesurée et les **incendies** fondus en un mot.",
+    "Comparez le titre au contenu : un **bilan** annoncé, une **action publique** évaluée."
+  ],
+  "chapo_bullets": [
+    "Repérez l'absence d'**étiquette d'opinion** sur un texte de tribune.",
+    "Notez les chiffres donnés comme **provisoires** dès l'ouverture."
+  ],
+  "context_next_slide_hook": "Deux réflexes à garder en main avant d'entrer dans le texte.",
+  "watch_out_next_slide_hook": "Trois moments où le chiffre change de rôle dans l'argument.",
+  "forme_next_slide_hook": "Un constat, une opinion : où passe la frontière ici ?",
+  "biases_next_slide_hook": "Reste le socle : sur quoi tout l'argument repose-t-il ?",
+  "engagement_question": "Faut-il juger une politique d'adaptation sur l'ampleur des dégâts subis ou sur ce qu'elle coûterait d'y répondre ?",
+  "go_further": [
+    {
+      "title": "Rapport annuel 2026 — Adaptation au changement climatique",
+      "source": "Haut Conseil pour le climat",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": "https://www.hautconseilclimat.fr/publications/",
+      "duration_minutes": 90,
+      "why_explore": "La source institutionnelle centrale de l'article, avec le détail des préconisations et de leurs conditions de mise en œuvre.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Plan national d'adaptation au changement climatique — suivi des mesures",
+      "source": "Ministère de la Transition écologique",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": "https://www.ecologie.gouv.fr/",
+      "duration_minutes": 40,
+      "why_explore": "Permet de vérifier ce qui est déjà engagé en matière d'adaptation, absent du bilan dressé par l'article.",
+      "cta_question_index": 1
+    },
+    {
+      "title": "Sécheresse et eau agricole : quels arbitrages pour l'irrigation ?",
+      "source": "INRAE",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": "https://www.inrae.fr/",
+      "duration_minutes": 30,
+      "why_explore": "Chiffre les besoins d'eau agricole et les objections au changement de modèle, que l'article ne présente pas.",
+      "cta_question_index": 0
+    }
+  ],
+  "cta": {
+    "title": "Chiffrer le reproche, chiffrer aussi la solution",
+    "engagement_sentence": "Faut-il juger la réponse publique sur l'ampleur des dégâts, ou sur le coût de ce qu'on lui demande ?",
+    "engagement_sentence_alt": [
+      "L'absence du sujet dans les discours prouve-t-elle l'absence d'action ?",
+      "Un reproche d'inaction tient-il sans le prix de l'alternative ?",
+      "Qui doit répondre du débroussaillage : l'État, les communes ou les propriétaires ?"
+    ],
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "Que coûteraient les mesures structurelles que l'article appelle de ses vœux ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_1",
+        "question": "Quelle part de la baisse de mortalité revient aux politiques d'adaptation déjà engagées ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_2",
+        "question": "Un texte d'opinion non signalé comme tel change-t-il votre lecture des chiffres ?",
+        "type": "article_quality"
+      },
+      {
+        "id": "q_3",
+        "question": "À quel échelon se décide vraiment la prévention incendie près des habitations ?",
+        "type": "topic_substance"
+      }
+    ]
+  },
+  "display": {
+    "thesis_frame": {
+      "main_claim": "Un été climatique historique n'a produit qu'une réponse publique minimale.",
+      "out_of_scope": [
+        "l'efficacité climatique mondiale de la France",
+        "la responsabilité historique des autres pays",
+        "la contestation de la réalité du réchauffement"
+      ]
+    },
+    "payoff": "Rapporter chiffres, eau agricole et prévention forestière à leur **échelle réelle**.",
+    "framing": "L'été 2026 traité comme **cas de test** de l'action publique, secteur par secteur.",
+    "why_selected": "Près de **6 000 décès** de plus en deux semaines, 93 700 hectares brûlés, des nappes au plus bas, l'irrigation du maïs et des logements devenus **bouilloires**.\nCe que le texte ne dit pas : ce que **coûterait** l'alternative qu'il défend, ni à quel **échelon** se décide la prévention incendie.",
+    "selection_headline": "Un inventaire sectoriel, un débat budgétaire en octobre",
+    "selection_headline_alt": [
+      "De la forêt au logement, la même facture posée",
+      "Cinq secteurs touchés, une ligne de crédit en réponse",
+      "Les dégâts pesés au million, l'alternative sans prix"
+    ],
+    "ethics": "Aucun manquement majeur : **trois points de vigilance** signalés.",
+    "pre_reading": [
+      "Lisez-le comme une **tribune**, pas comme un compte rendu.",
+      "Repérez l'étalon : l'**ampleur des dégâts** fixerait la réponse attendue."
+    ],
+    "watch_out": [
+      {
+        "label": "validité",
+        "text": "Un écart entre deux montants sert de **preuve** — mesurent-ils la même chose ?"
+      },
+      {
+        "label": "langage émotionnel",
+        "text": "L'inventaire des pertes installe une **échelle de gravité** avant tout examen."
+      }
+    ],
+    "strengths": [
+      {
+        "label": "Clarté",
+        "text": "La progression secteur par secteur rend les **ordres de grandeur** saisissables."
+      },
+      {
+        "label": "Angle et originalité",
+        "text": "L'été devient un **cas de test** refermé sur le calendrier budgétaire."
+      }
+    ],
+    "distill_points": [
+      "L'étalon — l'ampleur fixe la réponse attendue — est installé avant tout examen des décisions.",
+      "Les dispositifs publics sont pesés au million près ; le coût de l'alternative reste hors du texte.",
+      "Un motif d'esquive est prêté à l'exécutif, qui n'est pas sollicité pour répondre."
+    ],
+    "after_reading": [
+      "Vérifiez l'origine de chaque montant avant de le réutiliser.",
+      "Demandez le **prix** de l'alternative défendue.",
+      "Cherchez ailleurs le bilan des **politiques déjà engagées**."
+    ],
+    "key_takeaways": [
+      {
+        "text": "Près de 6 000 décès de plus entre le 17 juin et le 2 juillet.",
+        "selected": true
+      },
+      {
+        "text": "93 700 hectares de forêt brûlés à la mi-août, dont 37 000 à Saumos.",
+        "selected": true
+      },
+      {
+        "text": "Le coût de l'été est estimé entre 10 et 15 milliards d'euros.",
+        "selected": false
+      },
+      {
+        "text": "L'obligation de débroussaillage n'est appliquée qu'à 30 %.",
+        "selected": true
+      },
+      {
+        "text": "Le Haut Conseil pour le climat réclame une « adaptation transformationnelle ».",
+        "selected": false
+      },
+      {
+        "text": "Aides à la rénovation en recul, locataires hors du projet de loi logement.",
+        "selected": false
+      }
+    ],
+    "blind_spots": [
+      "Le **coût** des mesures préconisées n'est jamais chiffré.",
+      "Les politiques d'adaptation **déjà engagées** ne sont pas versées au bilan."
+    ],
+    "balance": [
+      "Une tribune assume une position : l'absence de contre-arguments n'est pas un défaut.",
+      "Un format court ne peut **chiffrer** chaque préconisation."
+    ],
+    "lenses": [],
+    "reading_beats": [
+      {
+        "moment": "L'ouverture chiffre la surmortalité",
+        "quote": "les premiers bilans font état d’une surmortalité importante : près de 6 000 décès de plus pour la seule période du 17 juin au 2 juillet toutes causes confondues",
+        "lens_ref": "sources",
+        "lens_question": "Un décompte de décès : qui l'a produit ?",
+        "note": "Devant un décompte de décès daté, cherchez l'**organisme** qui l'établit et sa **méthode**.",
+        "answer": "Le chiffre est borné au jour près, mais aucun producteur n'est nommé — et le texte précise ailleurs que ses bilans sont **provisoires**, écrits au cœur de la séquence.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "likely true",
+        "selected": true,
+        "theme": "Surmortalité et sourçage",
+        "centrality": 4,
+        "kind": "statistique",
+        "role": "appui",
+        "rationale": "Le socle chiffré de la gravité, sans opérateur nommé"
+      },
+      {
+        "moment": "Le bilan forestier tombe",
+        "quote": "elle avait déjà perdu un peu plus de 93 700 hectares de forêt à la mi-août1, dont 65 100 depuis le 1er juillet et 37 000 pour le seul feu parti de Saumos, en Gironde",
+        "lens_ref": "chiffres",
+        "lens_question": "Une surface brûlée : rapportée à quel **total** ?",
+        "note": "Devant des hectares brûlés, cherchez la **surface totale** qui permet de situer la perte.",
+        "answer": "La forêt française couvre environ **17 millions d'hectares** : le total cité en représente **0,5 %**. Ce poste occupe pourtant plus de place que la sécheresse, qui touche presque tout le territoire.",
+        "figure": "93 700",
+        "figure_label": "hectares de forêt brûlés à la mi-août",
+        "figure_caption": "soit environ 0,5 % de la forêt française",
+        "factcheck": "likely true",
+        "selected": true,
+        "theme": "Incendies et proportions",
+        "centrality": 4,
+        "kind": "statistique",
+        "role": "preuve",
+        "rationale": "L'ordre de grandeur manquant est décisif"
+      },
+      {
+        "moment": "La réponse forestière est annoncée",
+        "quote": "l’Etat a annoncé une rallonge de 20 millions d’euros pour l’Office national des forêts (ONF), de quoi restaurer au mieux 4 000 hectares",
+        "lens_ref": "sophismes",
+        "lens_question": "Deux montants comparés : mesurent-ils la même chose ?",
+        "note": "Quand deux sommes sont mises face à face, vérifiez qu'elles mesurent bien le **même objet**.",
+        "answer": "Un coût total de sinistre (10 à 15 milliards) et une ligne de **restauration forestière** ne se soustraient pas. Le texte détaille par ailleurs des leviers — débroussaillage, PPRIF, urbanisme — qui ne relèvent pas de ce budget.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "Écart de moyens et prévention",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "preuve",
+        "rationale": "Le maillon sur lequel repose la thèse"
+      },
+      {
+        "moment": "Le motif est prêté à l'exécutif",
+        "quote": "Esquivant les enjeux structurels – dont la prise en compte est synonyme de coûts publics et de réglementations qui font des mécontents –, la réponse de l’exécutif, les yeux rivés sur le déficit budgétaire, a traité l’urgence estivale à la sauce minimaliste.",
+        "lens_ref": "opinion_fait",
+        "lens_question": "Une intention prêtée : sur quoi s'appuie-t-elle ?",
+        "note": "Quand une intention est attribuée à un acteur, cherchez la **déclaration** ou l'arbitrage qui l'établit.",
+        "answer": "Le motif est déduit d'une absence de propos, et aucun responsable n'est sollicité pour exposer ses arbitrages. Le déficit public dépassait **5 % du PIB** en 2025 — une contrainte que le texte évoque sans l'expliciter.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "unverifiable",
+        "selected": false,
+        "theme": "Opinion présentée en constat",
+        "centrality": 5,
+        "kind": "biais",
+        "role": "pivot",
+        "rationale": "Cœur de la thèse, mais motif inférié"
+      },
+      {
+        "moment": "L'eau agricole devient structurelle",
+        "quote": "seules des politiques de rupture avec le modèle agricole et alimentaire actuel permettraient de contenir l’accroissement des besoins d’eau agricole",
+        "lens_ref": "equilibre",
+        "lens_question": "Un modèle remis en cause : qui a pu répondre ?",
+        "note": "Devant une rupture de modèle présentée comme la seule voie, cherchez qui a été **entendu**.",
+        "answer": "L'analyse citée n'est pas attribuée, et les organisations agricoles majoritaires ne sont pas entendues. L'irrigation concerne environ **6 à 7 %** de la surface agricole française — ordre de grandeur absent du texte.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Eau agricole et contradicteurs",
+        "centrality": 4,
+        "kind": "enjeu",
+        "role": "appui",
+        "rationale": "Enjeu central où la contradiction manque"
+      },
+      {
+        "moment": "Le débat de l'été est trié",
+        "quote": "Le débat de l’été s’est au contraire englué dans de fausses controverses propulsées par l’extrême droite et nourries par la gauche",
+        "lens_ref": "cadrage",
+        "lens_question": "Qui est écarté du débat, et par quel tri ?",
+        "note": "Quand des camps sont renvoyés dos à dos, regardez quel **espace de parole** reste ouvert.",
+        "answer": "Le tri laisse un seul espace légitime : chercheurs, associations et Haut Conseil pour le climat — la position depuis laquelle le texte s'exprime, et la seule dont la source est **nommée et datée**.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Position d'énonciation",
+        "centrality": 3,
+        "kind": "biais",
+        "role": "mise en scène",
+        "rationale": "Éclaire d'où parle le texte"
+      },
+      {
+        "moment": "L'appui institutionnel est posé",
+        "quote": "Le Haut Conseil pour le climat a souligné la nécessité d’une « adaptation transformationnelle » pour que la société tienne face à des événements climatiques comme celui de cet été",
+        "lens_ref": "sources",
+        "lens_question": "Une autorité citée : ses préconisations sont-elles chiffrées ?",
+        "note": "Devant une préconisation d'expert, cherchez ce qu'elle **coûterait** et sous quelles conditions.",
+        "answer": "C'est la seule source dont le document et la date sont précisés. Ses préconisations ne sont pas chiffrées dans le texte — elles échappent donc à la contrainte budgétaire opposée à l'action publique.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "consensual",
+        "selected": false,
+        "theme": "Appui institutionnel",
+        "centrality": 3,
+        "kind": "fait",
+        "role": "appui",
+        "rationale": "Source solide, coût jamais posé"
+      },
+      {
+        "moment": "La clôture retourne une formule",
+        "quote": "La maison a beau brûler, les chefs regardent ailleurs.",
+        "lens_ref": "cadrage",
+        "lens_question": "Une formule frappante : que laisse-t-elle hors champ ?",
+        "note": "Face à une formule mémorable, demandez-vous ce qu'elle **dispense** de démontrer.",
+        "answer": "Elle suppose le diagnostic disponible et l'action à portée de regard. Ce qu'il **coûterait** de regarder, et qui paierait, reste hors du texte — alors que la contrainte budgétaire est le motif reproché.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Clôture et cadrage",
+        "centrality": 2,
+        "kind": "biais",
+        "role": "mise en scène",
+        "rationale": "Mise en scène du cadrage final"
+      }
+    ],
+    "global_analysis": {
+      "headline": "Sur quoi repose la mesure de l'insuffisance ?",
+      "headline_alt": [
+        "Quel étalon l'article se donne-t-il ?",
+        "Que faut-il accepter pour suivre l'argument ?",
+        "Le barème du jugement est-il posé ?"
+      ],
+      "core_recap": [
+        "Ses présupposés : l'ampleur des dégâts fixe la réponse attendue ; les mesures citées — eau, forêt, logement — auraient réduit ces dégâts ; le silence politique équivaut à l'inaction."
+      ]
+    },
+    "open_question": "Que coûteraient les mesures structurelles préconisées, jamais chiffrées dans le texte ?",
+    "root_issue": "L'enjeu de fond n'est pas le montant des dégâts mais la **répartition des leviers** : eau agricole, débroussaillage, urbanisme et rénovation se décident entre État, communes et propriétaires, si bien qu'un seul destinataire du reproche peut masquer où l'action se bloque.",
+    "steel_man": {
+      "argument": "Débroussaillage, PPRIF, urbanisme d'interface relèvent des communes et des propriétaires, pas de l'exécutif visé.",
+      "alternative": "Le blocage serait **réparti entre échelons**, ce qui déplace les remèdes."
+    },
+    "reperes_headline": "Ce qu'il faut savoir avant d'entrer dans le texte",
+    "bilan_headline": "Ce que l'été 2026 laisse sur la table",
+    "essentiel": [
+      "Un été record : surmortalité, forêts brûlées, nappes vides, récoltes et réacteurs touchés.",
+      "Coût estimé entre 10 et 15 milliards ; 20 millions annoncés pour l'ONF.",
+      "L'article conclut que la réponse publique reste minimaliste et budgétairement contrainte."
+    ],
+    "essentiel_summary": "L'article recense les dégâts de l'été 2026 : près de **6 000 décès** excédentaires en deux semaines, **93 700 hectares** brûlés, nappes et récoltes touchées, réacteurs ralentis, pour un coût estimé à **10 à 15 milliards**. Face à cela, eau agricole, prévention forestière et logements surchauffés resteraient traités à la marge, budget oblige."
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "L'article installe **émotionnellement** son étalon — l'ampleur des dégâts fixerait à elle seule la réponse attendue — par un inventaire ininterrompu de pertes, puis le convertit en preuve en **rapprochant deux montants hétérogènes**. Le barème du jugement est ainsi construit avant que la moindre décision publique ne soit examinée.",
+        "references": [
+          "ia_0",
+          "er_0",
+          "bias_1",
+          "lr_2",
+          "obs_1",
+          "obs_4",
+          "claim_1"
+        ]
+      },
+      {
+        "text": "L'exigence de chiffrage joue **à sens unique** : les dispositifs publics sont pesés au million près, le coût des mesures préconisées reste hors du texte. L'asymétrie protège de la contrainte budgétaire **la seule position** qui n'est jamais mise en balance.",
+        "references": [
+          "bs_0",
+          "pr_3",
+          "cb_0",
+          "pr_2"
+        ]
+      },
+      {
+        "text": "Le motif prêté à l'exécutif — esquiver coûts et réglementations — est **déduit d'un silence** puis énoncé comme un constat, alors qu'aucune réponse gouvernementale n'est sollicitée. L'intention est inférée là où **la partie visée n'a pas la parole**.",
+        "references": [
+          "lr_3",
+          "claim_3",
+          "ia_3",
+          "bs_1"
+        ]
+      },
+      {
+        "text": "Renvoyer dos à dos extrême droite, gauche et gouvernement ne laisse **qu'un seul espace de parole légitime** — chercheurs et associations — et c'est de là que le texte s'exprime ; c'est aussi la seule source **nommée, datée et documentée**, quand les chiffres les plus lourds circulent sans opérateur de mesure.",
+        "references": [
+          "cb_1",
+          "bias_2",
+          "bs_3",
+          "obs_2",
+          "claim_2",
+          "claim_0"
+        ]
+      },
+      {
+        "text": "Le texte admet qu'une adaptation **non planifiée** — pompes à chaleur, climatiseurs — a rendu l'été moins meurtrier qu'en 2003, mais les politiques d'adaptation déjà engagées ne sont pas versées au bilan. **L'aveu fragilise le point de départ** à partir duquel l'insuffisance est mesurée.",
+        "references": [
+          "ia_1",
+          "bs_2",
+          "pr_2"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quel serait le coût budgétaire des mesures préconisées, jamais chiffré dans le texte ?",
+      "Quelle part de la baisse de mortalité revient aux politiques publiques d'adaptation déjà engagées ?",
+      "Sur quelles méthodes reposent les montants de pertes avancés, dont l'opérateur de mesure reste absent ?"
+    ]
+  }
+}

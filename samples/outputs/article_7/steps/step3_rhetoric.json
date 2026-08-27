@@ -1,0 +1,73 @@
+{
+  "emotional_register": [
+    {
+      "id": "er1",
+      "emotion": "Alarme",
+      "how": "Une **accumulation de dégâts chiffrés et datés** — décès, hectares, cours d'eau à sec, réacteurs ralentis — s'enchaîne sans respiration avant tout examen politique.",
+      "effect": "Le lecteur aborde la partie politique avec une **échelle de gravité déjà fixée**, à laquelle toute mesure sera rapportée.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "Un incendie parti de Saumos, en Gironde, a détruit 37 000 hectares",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "er2",
+      "emotion": "Exaspération",
+      "how": "Le **contraste d'ordres de grandeur** (10 à 15 milliards de dégâts face à 20 millions pour l'ONF) et un **lexique de l'écart** répété — cosmétique, minimaliste, silence assourdissant — closent chaque section.",
+      "effect": "Le lecteur est disposé à lire les décisions publiques comme un **évitement** plutôt que comme un arbitrage discutable.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "Un débat budgétaire s'ouvre début octobre 2026 sur un cadrage de 30 à 50 milliards",
+        "strength": 0.7,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "cb1",
+      "beneficiary": "Le Haut Conseil pour le climat et les tenants de l'« adaptation transformationnelle »",
+      "explanation": "Le cadrage fait de l'**ampleur des dégâts** la mesure de la réponse attendue, ce qui place les préconisations du HCC en **position de solution évidente**. Leur coût n'étant jamais chiffré, elles échappent à la contrainte budgétaire qui disqualifie l'action publique décrite.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "Le Haut Conseil pour le climat a publié son rapport annuel le 10 juillet 2026",
+        "strength": 0.9,
+        "nature": "inference"
+      }
+    },
+    {
+      "id": "cb2",
+      "beneficiary": "La position d'expertise, à distance des partis",
+      "explanation": "Renvoyer dos à dos extrême droite, gauche et gouvernement laisse un **seul espace crédible** : celui des chercheurs, praticiens et associations. Le texte parle depuis cet espace, dont l'autorité sort renforcée du tri opéré.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 3,
+        "excerpt": "Le déficit public français dépassait 5 % du PIB en 2025",
+        "strength": 0.6,
+        "nature": "specification"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Présupposé",
+        "observation": "« Les leçons » posent qu'un enseignement existe déjà et n'attend que d'être tiré."
+      },
+      {
+        "label": "Vocabulaire",
+        "observation": "« Brûlant » superpose la chaleur mesurée et les incendies en un seul mot d'ambiance."
+      },
+      {
+        "label": "Ellipse",
+        "observation": "Le titre annonce un bilan saisonnier ; le corps traite surtout de la réponse publique."
+      }
+    ],
+    "body": "L'article prend l'été 2026 comme cas de test de l'action publique : l'inventaire chiffré des dégâts sert de mesure à laquelle les décisions annoncées sont ensuite rapportées. Le centre de gravité est l'écart entre ampleur constatée et dispositifs adoptés, décliné secteur par secteur — forêt, agriculture, logement. Le registre mêle données datées et qualifications de la réponse publique, sur un rythme d'énumération. La position d'énonciation est celle des chercheurs, du Haut Conseil pour le climat et des associations, tenue à distance des formations politiques citées."
+  }
+}
