@@ -1,0 +1,38 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "d1",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Esquivant les enjeux structurels – dont la prise en compte est synonyme de coûts publics et de réglementations qui font des mécontents –, la réponse de l’exécutif, les yeux rivés sur le déficit budgétaire, a traité l’urgence estivale à la sauce minimaliste.",
+        "explanation": "Un motif est prêté à l'exécutif sans qu'aucune réponse ou justification gouvernementale ne soit sollicitée."
+      },
+      {
+        "id": "d2",
+        "category": "false_statistics",
+        "label": "False Statistics",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "l’Etat a annoncé une rallonge de 20 millions d’euros pour l’Office national des forêts (ONF), de quoi restaurer au mieux 4 000 hectares",
+        "explanation": "Le rapprochement avec les 10-15 milliards de dégâts compare des grandeurs qui ne mesurent pas la même chose."
+      },
+      {
+        "id": "d3",
+        "category": "identity_misrepresentation",
+        "label": "Identity Misrepresentation",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Antoine de Ravignan, le 18 août 2026",
+        "explanation": "Le texte relève de la tribune analytique sans que sa nature d'opinion soit signalée au lecteur."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Solliciter une réponse de l'exécutif et signaler explicitement la nature d'opinion du texte avant publication."
+    },
+    "summary": "Aucun manquement majeur n'est relevé : les chiffres sont datés et les attributions vérifiables. Trois points de vigilance subsistent, portant sur l'absence de réponse de l'exécutif mis en cause, une comparaison de grandeurs hétérogènes et le non-étiquetage du registre d'opinion."
+  }
+}

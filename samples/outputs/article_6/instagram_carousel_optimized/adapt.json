@@ -99,11 +99,20 @@
     ]
   },
   "display": {
+    "thesis_frame": {
+      "main_claim": "L'action climatique française est insuffisante : textes denses, moyens absents, décarbonation qui ralentit.",
+      "out_of_scope": [
+        "l'effet mondial des émissions françaises",
+        "la comparaison de la France aux autres pays",
+        "le coût de l'inaction pour les ménages"
+      ]
+    },
     "payoff": "Situer un chiffre, un mandat et un calendrier avant de juger un bilan.",
     "framing": "L'écart entre engagements écrits et moyens engagés, vu par l'instance d'évaluation.",
-    "why_selected": "Un dossier qui dépasse le seul **bilan carbone** : adaptation aux canicules, **moyens administratifs**, décisions publiques récentes, cadre juridique en construction.\nEt parce qu'un **avis d'experts** sert ici de règle à mesurer l'action d'un gouvernement, le sujet touche aussi à la manière dont une démocratie se donne des **critères**.",
-    "selection_headline": "Un dossier qui déborde largement le compteur d'émissions",
+    "why_selected": "**82 recommandations**, 11 orientations : adaptation aux canicules, moyens administratifs, décisions publiques récentes.\nLe juge de cette insuffisance est un **conseil consultatif** : évaluer une politique suppose des **critères**, et, en démocratie, quelqu'un pour les fixer.",
+    "selection_headline": "420 pages, et un cadre juridique en chantier",
     "selection_headline_alt": [
+      "Un dossier qui déborde largement le compteur d'émissions",
       "Des canicules aux budgets : plusieurs terrains en un",
       "Quand des experts servent de règle à un gouvernement",
       "Le climat, mais aussi la mécanique de l'État"
@@ -231,17 +240,19 @@
         "moment": "L'origine de la baisse",
         "quote": "la baisse des émissions est portée pour moitié par une baisse d'activité tendancielle dans l'industrie et l'élevage, et non par des transformations structurelles suffisantes",
         "lens_ref": "causalite",
-        "note": "Demandez ce qui a produit la baisse : une **politique**, ou un **ralentissement** ?",
-        "answer": "La moitié du recul vient de la contraction de l'**industrie** et du **cheptel**. Une baisse que personne n'a décidée, et qui **repart avec l'activité** : elle ne mesure pas l'action publique.",
+        "note": "Isolez la part de la baisse qui relève d'une **décision**, puis comparez-la à la **cible**.",
+        "answer": "Sur les **2,1 %** de 2025, la moitié seulement vient de choix publics : à peine **un point**. Or le rapport exige **plus de 4 % par an** dès 2026 — quatre fois ce rythme.",
         "figure": "",
         "figure_label": "",
         "figure_caption": "",
         "factcheck": "",
         "selected": true,
-        "theme": "Baisse subie plutôt que pilotée",
+        "theme": "Part pilotée de la baisse vs cible",
         "centrality": 4,
         "kind": "enjeu",
-        "rationale": "La moitié du résultat n'est pas une politique"
+        "rationale": "Les trois chiffres ne sont jamais rapprochés",
+        "role": "preuve",
+        "lens_question": "Une baisse : décidée, ou simplement subie ?"
       },
       {
         "moment": "Le classement des années chaudes",
@@ -257,7 +268,9 @@
         "theme": "Rang vs déplacement de la référence",
         "centrality": 5,
         "kind": "statistique",
-        "rationale": "Le rang rassure, la distribution non"
+        "rationale": "Le rang rassure, la distribution non",
+        "role": "appui",
+        "lens_question": "Un classement : mesuré depuis quelle année ?"
       },
       {
         "moment": "Les décisions en sens inverse",
@@ -305,7 +318,9 @@
         "theme": "Le critère du bilan et sa source",
         "centrality": 5,
         "kind": "enjeu",
-        "rationale": "L'étalon reste celui de l'instance qui juge"
+        "rationale": "L'étalon reste celui de l'instance qui juge",
+        "role": "preuve",
+        "lens_question": "Qui est jugé ici — et a-t-il répondu ?"
       },
       {
         "moment": "La clôture du texte",

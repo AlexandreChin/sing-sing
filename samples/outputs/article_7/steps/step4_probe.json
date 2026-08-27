@@ -1,0 +1,154 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "id": "c1",
+        "quote": "les premiers bilans font état d’une surmortalité importante : près de 6 000 décès de plus pour la seule période du 17 juin au 2 juillet toutes causes confondues",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Alarme",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre est daté et borné, mais l'organisme qui l'établit n'est pas nommé.",
+        "external_sources": [
+          {
+            "name": "Santé publique France, bulletins de surveillance canicule",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Insee, statistiques de décès quotidiens",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 75
+      },
+      {
+        "id": "c2",
+        "quote": "elle avait déjà perdu un peu plus de 93 700 hectares de forêt à la mi-août1, dont 65 100 depuis le 1er juillet et 37 000 pour le seul feu parti de Saumos, en Gironde",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Échelle",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Trois chiffres emboîtés renvoyés à une note de bas de page, sans que l'opérateur de mesure soit cité dans le texte.",
+        "external_sources": [
+          {
+            "name": "Système européen d'information sur les feux de forêt (EFFIS)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Base de données sur les incendies de forêt en France (BDIFF)",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 80
+      },
+      {
+        "id": "c3",
+        "quote": "Le Haut Conseil pour le climat a souligné la nécessité d’une « adaptation transformationnelle » pour que la société tienne face à des événements climatiques comme celui de cet été",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Le Haut Conseil pour le climat et les tenants de l'« adaptation transformationnelle »",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Seule affirmation du texte dont la source, la date et le document sont précisés.",
+        "external_sources": [
+          {
+            "name": "Haut Conseil pour le climat, rapport annuel 2026",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 92
+      },
+      {
+        "id": "c4",
+        "quote": "Esquivant les enjeux structurels – dont la prise en compte est synonyme de coûts publics et de réglementations qui font des mécontents –, la réponse de l’exécutif, les yeux rivés sur le déficit budgétaire, a traité l’urgence estivale à la sauce minimaliste.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Exaspération",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Le motif prêté à l'exécutif — esquiver des coûts — est énoncé comme un constat, sans déclaration ni arbitrage cité à l'appui.",
+        "external_sources": [
+          {
+            "name": "Déclarations du gouvernement sur le plan sécheresse 2026",
+            "supports": "neutral",
+            "evidence_type": "party_statement"
+          },
+          {
+            "name": "Documents budgétaires du projet de loi de finances 2027",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": null
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "id": "b1",
+        "quote": "les sols et les rivières s’assèchent, impactant la végétation et la vie animale",
+        "item_type": "bias",
+        "label": "accumulation de dégâts",
+        "effect": "Remarquez comment l'enchaînement ininterrompu de pertes fixe une échelle de gravité avant que la moindre décision publique ne soit examinée.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Alarme",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "b2",
+        "quote": "l’Etat a annoncé une rallonge de 20 millions d’euros pour l’Office national des forêts (ONF), de quoi restaurer au mieux 4 000 hectares",
+        "item_type": "fallacy",
+        "label": "comparaison entre grandeurs différentes",
+        "effect": "Remarquez comment un montant de restauration forestière, rapproché d'un coût total de catastrophe estimé à 10-15 milliards, fait paraître la réponse dérisoire alors que les deux chiffres ne mesurent pas la même chose.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Exaspération",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "b3",
+        "quote": "Le débat de l’été s’est au contraire englué dans de fausses controverses propulsées par l’extrême droite et nourries par la gauche",
+        "item_type": "bias",
+        "label": "disqualification groupée des positions adverses",
+        "effect": "Remarquez comment ranger les formations politiques du même côté du tri laisse un seul espace de parole légitime, celui depuis lequel le texte s'exprime.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "La position d'expertise, à distance des partis",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "La maison a beau brûler, les chefs regardent ailleurs.",
+      "proves": {
+        "type": "observation",
+        "label": "Cadrage",
+        "strength": 0.9,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase retourne une formule célèbre pour désigner un détournement de regard volontaire. Elle sous-entend que le diagnostic est disponible et qu'il ne reste qu'à le regarder. Elle ne dit pas ce que coûterait de le regarder, ni qui paierait — de quoi dépend alors le fait de regarder ailleurs ?"
+    }
+  }
+}
