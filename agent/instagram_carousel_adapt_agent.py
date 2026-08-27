@@ -20,6 +20,13 @@ def _lens_layer_errors(d) -> list[str]:
     errors: list[str] = []
     # reading_beats is a candidate POOL; the renderer shows the `selected` ones and
     # derives the lenses from them, so we validate the pool, not an authored lens list.
+    # The thesis frame is the guard-rail every other field is checked against:
+    # without it written down, off-frame remarks read as legitimate findings.
+    tf = d.thesis_frame
+    if tf is None or not tf.main_claim.strip():
+        errors.append("display.thesis_frame.main_claim is empty (the frame every field is checked against)")
+    elif not (2 <= len(tf.out_of_scope) <= 3):
+        errors.append(f"display.thesis_frame.out_of_scope must have 2–3 items, got {len(tf.out_of_scope)}")
     beats = d.reading_beats
     if len(beats) < 3:
         errors.append(f"display.reading_beats (candidate pool) should have ≥3 items, got {len(beats)}")
@@ -34,6 +41,10 @@ def _lens_layer_errors(d) -> list[str]:
             errors.append(f"display.reading_beats[{i}].answer is empty (required for selected beats)")
         # `role` (what the quote does for the thesis) keeps the reveal from
         # contradicting the passage it annotates — see the prompt's coherence rule.
+        # slide 4 shows one réflexe per selected beat; without its own question it
+        # falls back to the canonical constant, identical across every article.
+        if b.selected and not b.lens_question.strip():
+            errors.append(f"display.reading_beats[{i}].lens_question is empty (required for selected beats)")
         if b.selected and not b.role.strip():
             errors.append(f"display.reading_beats[{i}].role is empty (required for selected beats)")
     n_selected = sum(1 for b in beats if b.selected)

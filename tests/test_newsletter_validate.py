@@ -3,6 +3,8 @@ from agent.newsletter_adapt_agent import _validate
 
 def _valid_data():
     return dict(
+        thesis_frame={"main_claim": "La thèse de l'article.",
+                       "out_of_scope": ["un débat voisin", "un autre débat"]},
         subject="Objet", preheader="Aperçu",
         essentiel="L'article avance sa thèse et conclut.",
         selection_headline="Un cas d'école.",
@@ -166,3 +168,16 @@ def test_all_faille_fails():
     for item in d["decryptage"]:
         item["kind"] = "faille"
     assert any("'fait'" in e for e in _validate(d))
+
+
+def test_missing_thesis_frame_fails():
+    # the frame is what every other field is checked against
+    d = _valid_data()
+    d["thesis_frame"] = None
+    assert any("thesis_frame.main_claim" in e for e in _validate(d))
+
+
+def test_out_of_scope_out_of_range_fails():
+    d = _valid_data()
+    d["thesis_frame"]["out_of_scope"] = ["un seul"]
+    assert any("out_of_scope" in e for e in _validate(d))

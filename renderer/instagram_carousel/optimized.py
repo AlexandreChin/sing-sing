@@ -57,7 +57,14 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     for b in selected_beats:
         canon = CANONICAL_LENSES.get(b.lens_ref)
         if canon and b.lens_ref not in {x["id"] for x in display_lenses}:
-            display_lenses.append({"id": b.lens_ref, "name": canon["name"], "question": canon["question"],
+            # The canonical question is a fallback: it is a constant, so every deck
+            # using this lens would show the same line. `lens_question` specialises
+            # it to this article without spoiling the moment.
+            # The réflexe line is rendered raw (no md_bold filter), so strip any
+            # `**…**` the model adds — it would show as literal asterisks.
+            own_q = b.lens_question.strip().replace("**", "")
+            display_lenses.append({"id": b.lens_ref, "name": canon["name"],
+                                   "question": own_q or canon["question"],
                                    "icon_svg": canon.get("icon_svg", "")})
 
     # (output_name, template_name, ctx) triples — same pattern as the short deck.

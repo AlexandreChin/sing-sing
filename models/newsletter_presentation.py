@@ -10,7 +10,7 @@ carousel's four acts:
   À emporter, À vous de juger, Prolonger la réflexion) → signoff
 """
 from __future__ import annotations
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Literal
 
 
@@ -70,9 +70,19 @@ class AVousDeJuger(BaseModel):
     nuances: list[str]       # 2–3 — Nuances (topic-level qualifications; never the article's genre)
 
 
+class ThesisFrame(BaseModel):
+    """The article's own claim, written down so every other field can be checked
+    against it. Not rendered: an editorial guard-rail. `out_of_scope` names the
+    neighbouring debates the article does not take on — an objection landing there
+    is accurate but off-topic, and moves the subject the reader is judging."""
+    main_claim: str = ""                # ≤20 words — what the article ARGUES (not its topic)
+    out_of_scope: list[str] = Field(default_factory=list)  # 2–3 adjacent debates it does not address
+
+
 class NewsletterPresentation(BaseModel):
     """Reader-facing newsletter prose — the long-form prose render of the optimized
     carousel deck (same sections, same order, expanded; no grade/verdict)."""
+    thesis_frame: ThesisFrame | None = None  # editorial guard-rail, not rendered
     subject: str            # ≤12 words — email subject line
     preheader: str          # ≤15 words — inbox preview
     # Avant de vous lancer — L'essentiel is the title-less lead paragraph (opens the newsletter)
