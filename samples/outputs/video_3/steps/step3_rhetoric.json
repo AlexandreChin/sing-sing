@@ -1,0 +1,69 @@
+{
+  "emotional_register": [
+    {
+      "id": "er1",
+      "emotion": "accablement",
+      "how": "L'ouverture **empile les chiffres du désastre** — 35 à 40 °C, deux tiers du pays en vigilance, plus de 2000 morts, 11 000 hectares brûlés — avant qu'un seul argument ne soit énoncé.",
+      "effect": "Le lecteur aborde le débat juridique en cherchant **ce qui manque** à l'action publique, non en se demandant si l'instrument proposé convient.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "troisième vague de chaleur, 72 départements en vigilance orange",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "er2",
+      "emotion": "exaspération",
+      "how": "Le récit d'alertes **répétées et ignorées depuis 1990** revient dans plusieurs prises de parole, avec des formules d'épuisement (« on ne nous écoute pas, on nous ignore »).",
+      "effect": "Le lecteur est disposé à voir dans un **changement de vocabulaire** une réponse proportionnée à des décennies sans effet.",
+      "seeds": {
+        "source": "premisse",
+        "index": 1,
+        "excerpt": "le vocabulaire employé jusqu'ici n'a pas produit d'effet politique",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "cb1",
+      "beneficiary": "La lecture pro-marché du climat",
+      "explanation": "Le cadrage déplace la discussion du mot juridique vers la **fiscalité carbone** et le découplage, terrain où les chiffres abondent et où l'invité économiste dispose du matériau le plus dense. L'objection de précarité énergétique arrive après, en une séquence, sans données disponibles avant novembre.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 3,
+        "excerpt": "le coût de l'inaction n'est jamais chiffré face aux coûts de la contrainte",
+        "strength": 0.7,
+        "nature": "inference"
+      }
+    },
+    {
+      "id": "cb2",
+      "beneficiary": "Les signataires de la tribune",
+      "explanation": "Le mot « globocide » obtient le titre, l'ouverture et la première question, donc la **visibilité recherchée** par ses auteurs. Aucun d'eux n'étant présent, le terme circule sans être soumis à contradiction directe.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "aucun signataire de la tribune n'est présent pour défendre le mot",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Néologisme",
+        "observation": "Le mot mis en avant n'existe dans aucun code juridique, mais le titre le traite comme une catégorie établie."
+      },
+      {
+        "label": "Cadrage",
+        "observation": "La forme interrogative pose le nouveau mot comme solution candidate, avant tout examen de sa portée."
+      }
+    ],
+    "body": "Le corps traite la canicule comme une **toile de fond factuelle** et place au centre la question des instruments : un mot juridique inédit, une taxe carbone, un arsenal législatif déjà voté. L'angle est celui du **débat de plateau contradictoire**, trois invités identifiés par leur institution et leur position affichée dès la présentation. Le registre est celui de la controverse chiffrée : émissions trimestrielles, intensités carbone comparées, montants d'investissement. La discussion se tient depuis la **décision publique française**, l'échelle européenne et mondiale n'intervenant qu'en objection à cette focale."
+  }
+}

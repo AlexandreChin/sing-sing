@@ -102,9 +102,9 @@
     "thesis_frame": {
       "main_claim": "L'action climatique française est insuffisante : textes denses, moyens absents, décarbonation qui ralentit.",
       "out_of_scope": [
-        "l'effet mondial des émissions françaises",
-        "la comparaison de la France aux autres pays",
-        "le coût de l'inaction pour les ménages"
+        "le coût de suivre les 82 recommandations",
+        "la faisabilité technique de la neutralité 2050",
+        "la part des ménages dans les émissions"
       ]
     },
     "payoff": "Situer un chiffre, un mandat et un calendrier avant de juger un bilan.",
