@@ -1,0 +1,356 @@
+{
+  "hook": {
+    "topic": "Nommer le crime **climatique**",
+    "sub_topic": "Derrière le **mot nouveau**, qu'est-ce qui **manque vraiment** ?",
+    "headline": "Un **néologisme** peut-il faire ce que la loi ne fait pas ?",
+    "context_line": "Troisième canicule de l'été, 72 départements en vigilance : le plateau cherche un levier.",
+    "sub_topic_alt": [
+      "Quel **levier** manque : un mot, un **prix**, une loi ?",
+      "Un mot **inédit** face à un droit **déjà écrit** ?",
+      "Et si le **vide juridique** n'était pas si vide ?",
+      "Deux **leviers** opposés : lequel discute-t-on vraiment ?"
+    ]
+  },
+  "interest": {
+    "why_read": "Suivre comment un débat **glisse** de sujet en direct.",
+    "pull_quote": "La reconnaissance du crime de globoc qui potèe la possibilité même de vivre sur terre est-elle la solution ?",
+    "next_slide_hook": "Qui parle, dans quel décor, et avec quels chiffres en main ?"
+  },
+  "title_bullets": [
+    "Repérez un mot qui n'existe dans **aucun code juridique**.",
+    "Notez la forme interrogative : elle pose déjà une **solution candidate**.",
+    "Vérifiez combien de temps le mot du titre reste **au centre**."
+  ],
+  "chapo_bullets": [
+    "Observez l'ouverture : **degrés, départements, morts** avant tout argument.",
+    "Distinguez le décor **météo** de la question **juridique** posée ensuite."
+  ],
+  "context_next_slide_hook": "Trois positions annoncées d'emblée — et un absent de taille.",
+  "watch_out_next_slide_hook": "Passons au raisonnement : quel levier chacun tient pour suffisant ?",
+  "forme_next_slide_hook": "Voyons maintenant ce qui est chiffré, et ce qui est affirmé.",
+  "biases_next_slide_hook": "Reste à réunir les fils : que tient-on à la fin ?",
+  "engagement_question": "Faut-il un mot nouveau, ou l'application des textes déjà votés ?",
+  "go_further": [
+    {
+      "title": "Rapport annuel du Haut Conseil pour le climat",
+      "source": "Haut Conseil pour le climat",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": "https://www.hautconseilclimat.fr/publications/",
+      "duration_minutes": 90,
+      "why_explore": "Il distingue **baisse conjoncturelle** et trajectoire de fond, la confusion laissée ouverte ici.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Baromètre trimestriel des émissions de gaz à effet de serre",
+      "source": "Citepa",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": "https://www.citepa.org/fr/barometre/",
+      "duration_minutes": 20,
+      "why_explore": "La source du **-4,8 %** précise elle-même le périmètre et les réserves du chiffre.",
+      "cta_question_index": 1
+    },
+    {
+      "title": "Le délit d'écocide, quatre ans après la loi Climat et résilience",
+      "source": "Vie publique",
+      "media_type": "article",
+      "category": "question_answer",
+      "url": "https://www.vie-publique.fr/",
+      "duration_minutes": 15,
+      "why_explore": "Il décrit ce que le droit français **punit déjà**, avant tout mot supplémentaire.",
+      "cta_question_index": 0
+    }
+  ],
+  "cta": {
+    "title": "Un mot de plus, ou un texte appliqué",
+    "engagement_sentence": "Faut-il juger l'action climatique sur les **mots qu'elle crée** ou sur les **textes qu'elle applique** ?",
+    "engagement_sentence_alt": [
+      "Le levier décisif : le **prix** payé, ou la **contrainte** opposable ?",
+      "Un chiffre trimestriel dit-il une **trajectoire**, ou une **météo** ?",
+      "Qui doit répondre du carbone : l'**entreprise**, l'**État**, ou le **consommateur** ?"
+    ],
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "Quel effet mesurable le délit d'écocide a-t-il produit depuis 2021 ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_1",
+        "question": "Une variation trimestrielle d'émissions vous renseigne-t-elle sur une trajectoire ?",
+        "type": "topic_substance"
+      },
+      {
+        "id": "q_2",
+        "question": "Le mot annoncé au titre est-il resté au centre du débat ?",
+        "type": "article_quality"
+      },
+      {
+        "id": "q_3",
+        "question": "Attendiez-vous du prix ou de la loi qu'il règle seul la question ?",
+        "type": "reader_bias"
+      }
+    ]
+  },
+  "display": {
+    "thesis_frame": {
+      "main_claim": "Un nouveau mot juridique pourrait enfin contraindre l'inaction climatique, là où les instruments actuels échouent.",
+      "out_of_scope": [
+        "la définition juridique précise de l'écocide",
+        "le coût budgétaire d'une loi d'urgence",
+        "l'efficacité comparée du nucléaire et de l'éolien"
+      ]
+    },
+    "payoff": "Séparer un chiffre conjoncturel, un levier discuté et un mot sans statut.",
+    "framing": "Un mot juridique inédit, ancré dans la canicule en cours, puis les instruments économiques.",
+    "why_selected": "Un crime de « globocide » réclamé par une tribune, **-4,8 %** d'émissions sur un trimestre, une taxe carbone posée en seul levier : trois objets discutés en 25 minutes.\nUne autrice du **GIEC** explique sur le plateau pourquoi elle a refusé de signer — le désaccord ne porte pas sur le diagnostic, mais sur ce qui est **actionnable**.",
+    "selection_headline": "Un mot réclamé, une taxe défendue, un trimestre commenté",
+    "selection_headline_alt": [
+      "Le globocide en titre, la taxe carbone en pratique",
+      "Une tribune sans ses signataires sur le plateau",
+      "Deux leviers, trois invités, un chiffre provisoire"
+    ],
+    "ethics": "Aucun manquement grave ; trois points de vigilance.",
+    "pre_reading": [
+      "Comptez le temps où le mot du titre reste central.",
+      "Séparez variation d'un trimestre et trajectoire de fond."
+    ],
+    "watch_out": [
+      {
+        "label": "saut logique",
+        "text": "L'urgence de la canicule sert d'appui à un **instrument précis**."
+      },
+      {
+        "label": "cause tirée d'un seul épisode",
+        "text": "Un **épisode de prix** subi tient lieu de preuve pour un impôt."
+      }
+    ],
+    "strengths": [
+      {
+        "label": "Rigueur des sources",
+        "text": "Le chiffre trimestriel est **attribué** au Citepa, réserve météo comprise."
+      },
+      {
+        "label": "Transparence des positions",
+        "text": "Chaque invité annonce sa **position** dès la présentation."
+      }
+    ],
+    "distill_points": [
+      "L'ouverture par les morts de la canicule installe l'urgence avant qu'un argument ne soit énoncé.",
+      "Le débat quitte le mot juridique pour la fiscalité carbone, terrain le mieux fourni en chiffres.",
+      "Le statut de délit de l'écocide, déjà en vigueur, n'est jamais mentionné."
+    ],
+    "after_reading": [
+      "Cherchez l'effet réel du délit d'écocide.",
+      "Notez la prémisse partagée : un seul levier.",
+      "Vérifiez si le découplage inclut les importations."
+    ],
+    "key_takeaways": [
+      {
+        "text": "Une centaine de personnalités réclame un crime de « globocide » dans une tribune.",
+        "selected": true
+      },
+      {
+        "text": "L'écocide est un délit en droit français depuis la loi de 2021.",
+        "selected": true
+      },
+      {
+        "text": "Les émissions françaises baissent de 4,8 % sur un trimestre, hiver doux compris.",
+        "selected": true
+      },
+      {
+        "text": "Depuis 1990 : émissions -34 %, PIB +60 %, périmètre non précisé.",
+        "selected": false
+      },
+      {
+        "text": "Une autrice du GIEC refuse de signer, pour un problème d'échelle.",
+        "selected": false
+      },
+      {
+        "text": "Aramco est désigné comme pollueur plus important que Total.",
+        "selected": false
+      }
+    ],
+    "blind_spots": [
+      "Le statut de délit de l'écocide, en vigueur depuis 2021, reste tu.",
+      "Le coût de l'inaction n'est jamais chiffré face aux contraintes."
+    ],
+    "balance": [
+      "Un plateau en direct ne peut ni cartographier le droit ni convoquer tous les cités.",
+      "Le désaccord entre invités est réel et chacun peut corriger l'autre."
+    ],
+    "lenses": [],
+    "reading_beats": [
+      {
+        "moment": "Ouverture, avant tout débat",
+        "quote": "Avec des piques entre 35 et 40°gr, les de tiers du pays sont placés en vigilance orange.",
+        "lens_ref": "cadrage",
+        "lens_question": "Quel décor est posé avant la première question ?",
+        "note": "Devant une ouverture qui empile les chiffres du désastre, demandez ce qu'elle **prépare** comme réponse.",
+        "answer": "Le décompte des degrés, des départements et des **morts** précède tout argument. La discussion s'ouvre ensuite sur ce qui **manque** à l'action publique, non sur ce que l'instrument proposé permettrait.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "Cadrage émotionnel",
+        "centrality": 4,
+        "kind": "biais",
+        "role": "mise en scène",
+        "rationale": "L'urgence installée avant le premier argument"
+      },
+      {
+        "moment": "La question qui lance le plateau",
+        "quote": "La reconnaissance du crime de globoc qui potèe la possibilité même de vivre sur terre est-elle la solution ?",
+        "lens_ref": "angles_morts",
+        "lens_question": "Ce qui manque au tableau existe-t-il déjà quelque part ?",
+        "note": "Quand un mot est présenté comme neuf, cherchez ce que le **droit prévoit déjà** sur le même terrain.",
+        "answer": "L'**écocide** figure dans le droit français depuis 2021, comme **délit** et non comme crime. Ce statut n'est jamais dit : le mot nouveau s'oppose donc à un vide plutôt qu'à un texte dont on mesurerait les effets.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "Terminologie juridique",
+        "centrality": 5,
+        "kind": "enjeu",
+        "role": "pivot",
+        "rationale": "Le point de comparaison manquant du débat"
+      },
+      {
+        "moment": "Le chiffre du trimestre",
+        "quote": "les émissions de gaz à effet de serre de la France ont diminué sur les trois premiers mois de l'année là. Et oui, - 4,8 % euh sur 1 an",
+        "lens_ref": "chiffres",
+        "lens_question": "Un pourcentage : mesuré sur quelle durée ?",
+        "note": "Devant une baisse annoncée, cherchez la **période couverte** avant d'y voir un résultat.",
+        "answer": "Un seul trimestre, donné comme **provisoire**, dans une décennie que la même émission qualifie de charnière. Les deux échelles ne sont jamais distinguées, et les deux camps commentent le même chiffre.",
+        "figure": "-4,8 %",
+        "figure_label": "d'émissions françaises sur un trimestre",
+        "figure_caption": "trois premiers mois, chiffre provisoire",
+        "factcheck": "likely true",
+        "selected": true,
+        "theme": "Échelles de temps",
+        "centrality": 4,
+        "kind": "statistique",
+        "role": "preuve",
+        "rationale": "Un trimestre lu comme une trajectoire"
+      },
+      {
+        "moment": "La cause avancée par la source",
+        "quote": "si notre consommation a baissé, c'est parce que nous sortons d'un hiver particulièrement doux. Ce sont les mots de cité pas.",
+        "lens_ref": "causalite",
+        "lens_question": "Une baisse : décidée, ou simplement subie ?",
+        "note": "Cherchez qui attribue la cause, et si c'est la **source elle-même** qui tempère son chiffre.",
+        "answer": "Le Citepa attribue la baisse à la **météo**. Ni le signal prix ni la réglementation ne peuvent alors la revendiquer, ce que ne dit aucun des deux camps qui s'en servent.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "true",
+        "selected": false,
+        "theme": "Attribution causale",
+        "centrality": 3,
+        "kind": "fait",
+        "role": "concession",
+        "rationale": "La citation nomme déjà sa propre cause"
+      },
+      {
+        "moment": "Le consensus invoqué",
+        "quote": "Il y a un sujet sur lesquels les économistes sont d'accord, c'est l'importance d'une fiscalité carbone.",
+        "lens_ref": "opinion_fait",
+        "lens_question": "Un accord d'experts : signé par qui, refusé par qui ?",
+        "note": "Devant un « les experts sont d'accord », demandez quel **texte**, signé par combien.",
+        "answer": "L'appui est un appel de **quarante prix Nobel** publié dans la presse : il n'engage que ses signataires. Les travaux sur les effets **distributifs** de la taxe vont dans l'autre sens et ne sont pas cités.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "disputed",
+        "selected": false,
+        "theme": "Consensus d'experts",
+        "centrality": 4,
+        "kind": "affirmation",
+        "role": "appui",
+        "rationale": "Opinion posée en constat, sans contradiction"
+      },
+      {
+        "moment": "Le découplage avancé",
+        "quote": "Depuis 1990, la France a baissé ses émissions de de gaz à effet de serre, son économie française de 34 %. Or, en parallèle, le PIB français a augmenté de 60 %.",
+        "lens_ref": "chiffres",
+        "lens_question": "Ce que le chiffre compte, et ce qu'il laisse dehors ?",
+        "note": "Devant deux courbes qui divergent, cherchez le **périmètre** de la mesure.",
+        "answer": "Les deux pourcentages sont cités de mémoire, sans dire s'il s'agit des émissions **territoriales** ou de l'empreinte, importations comprises. La suite du plateau concède que « le découplage, il est relatif ».",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "likely true",
+        "selected": false,
+        "theme": "Périmètre statistique",
+        "centrality": 4,
+        "kind": "statistique",
+        "role": "preuve",
+        "rationale": "Deux chiffres sans périmètre comparé"
+      },
+      {
+        "moment": "Le refus de signer expliqué",
+        "quote": "l'ai pasigné parce qu' y a un problème d'échelle et moi ce qui m'intéresse [...] c'est d'avoir des revendications actionnables sur lesquelles on peut agir",
+        "lens_ref": "sources",
+        "lens_question": "Qui porte la thèse discutée — et est-il là ?",
+        "note": "Demandez qui défend le mot débattu, et qui, sur le plateau, l'a **refusé**.",
+        "answer": "Aucun signataire n'est présent : le mot est commenté par trois personnes qui ne l'ont pas choisi. L'objection énoncée ici porte sur l'**échelle d'action**, pas sur le diagnostic.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Portage de la thèse",
+        "centrality": 3,
+        "kind": "enjeu",
+        "role": "pivot",
+        "rationale": "Le mot débattu sans ses auteurs"
+      },
+      {
+        "moment": "L'objection sociale, en une phrase",
+        "quote": "la baisse d'émission qui s'accompagne avec plus de précarité de nos euh de nos concitoyens les plus vulnérables, on n pas à la célébrer celle-là",
+        "lens_ref": "equilibre",
+        "lens_question": "Combien de temps chaque objection obtient-elle ?",
+        "note": "Comptez les échanges accordés à chaque objection avant de la juger **traitée**.",
+        "answer": "Plusieurs séquences vont au découplage et aux intensités carbone comparées, contre une seule phrase à la **précarité énergétique**. Le coût de l'inaction, lui, n'est jamais chiffré en face.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Répartition du temps",
+        "centrality": 3,
+        "kind": "enjeu",
+        "role": "concession",
+        "rationale": "Contre-argument mentionné, pas traité"
+      }
+    ],
+    "global_analysis": {
+      "headline": "Sur quoi repose l'idée qu'un mot suffirait ?",
+      "headline_alt": [
+        "Que faut-il tenir pour acquis pour suivre le plateau ?",
+        "Deux leviers opposés, une prémisse commune ?",
+        "Qu'est-ce que le débat ne met jamais sur la table ?"
+      ],
+      "core_recap": [
+        "Ses présupposés : nommer un crime change la politique ; un trimestre dit la trajectoire ; un seul levier suffit."
+      ]
+    },
+    "open_question": "Quel effet mesurable un délit d'écocide déjà en vigueur a-t-il produit depuis son adoption ?",
+    "root_issue": "Sous le choix du mot se joue une question de **capacité** : la contrainte manque-t-elle de vocabulaire, ou de moyens pour être opposée à ceux qu'elle visait déjà ?",
+    "steel_man": {
+      "argument": "Prix et contrainte ne sont pas concurrents : une taxe redistribuée vers les premiers déciles répond à l'objection sociale.",
+      "alternative": "Le désaccord porterait sur la conception de l'instrument, pas sur son principe."
+    },
+    "reperes_headline": "Trois positions annoncées, un mot sans porteur",
+    "bilan_headline": "Un titre juridique, une discussion fiscale",
+    "essentiel": [
+      "Une tribune réclame un crime de « globocide » pour l'habitabilité de la planète.",
+      "Le plateau oppose fiscalité carbone et contrainte juridique, chiffres du trimestre en main.",
+      "Le débat conclut sur le prix comme levier le plus efficace."
+    ],
+    "essentiel_summary": "Pendant une troisième vague de chaleur — **72 départements** en vigilance, plus de **2 000 morts** — le plateau examine la demande d'un crime de « globocide » portée par une tribune. Émissions françaises en baisse de **4,8 %** sur un trimestre, hiver doux en cause : la discussion se déplace vers la **fiscalité carbone**, présentée comme le levier le plus efficace."
+  }
+}

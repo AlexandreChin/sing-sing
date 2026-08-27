@@ -1,0 +1,115 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "L'ouverture par le bilan humain de la canicule installe l'urgence avant tout argument, et cette urgence sert ensuite de justification tacite à un instrument juridique précis. Le saut est doublement documenté : la charge émotionnelle en amont, l'inférence non valide en aval.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "logic"
+        ],
+        "references": [
+          "er_0",
+          "bias_0",
+          "lr_0",
+          "pr_0"
+        ]
+      },
+      {
+        "text": "L'hypothèse qu'un mot suffise à changer le traitement politique n'est jamais testée sur le plateau, parce que l'omission du statut de délit de l'écocide prive le débat de son point de comparaison. Le néologisme s'oppose ainsi à un vide plutôt qu'à un texte existant.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "ia_0",
+          "bs_1",
+          "obs_2",
+          "focus"
+        ]
+      },
+      {
+        "text": "Absents du plateau, les auteurs de la tribune obtiennent le titre et la première question sans avoir à défendre leur mot. La visibilité est acquise, la contradiction directe évitée — un bénéfice rhétorique qui coïncide avec le point de vigilance déontologique sur les voix manquantes.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "ethics"
+        ],
+        "references": [
+          "bs_0",
+          "cb_1",
+          "obs_4"
+        ]
+      },
+      {
+        "text": "Le chiffre trimestriel est commenté par les deux camps alors que la source elle-même l'attribue à un hiver doux. La confusion des échelles de temps permet à une donnée météorologique de circuler comme un résultat de politique publique.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "ia_2",
+          "obs_1",
+          "claim_0",
+          "claim_1"
+        ]
+      },
+      {
+        "text": "Le déplacement du mot juridique vers la fiscalité carbone donne l'avantage au terrain le mieux doté en chiffres, et les deux énoncés qui y tiennent lieu de preuve — le consensus des économistes, l'efficacité du signal prix — reposent l'un sur une opinion présentée en constat, l'autre sur un seul épisode.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "cb_0",
+          "claim_3",
+          "bias_1",
+          "lr_1"
+        ]
+      },
+      {
+        "text": "Les deux camps s'opposent sur le levier sans jamais discuter l'idée qu'il n'y en aurait qu'un. La prémisse partagée reste hors champ, ce qui laisse l'affrontement structurer toute l'émission sans qu'aucune position ne soit réellement mise à l'épreuve.",
+        "layers": [
+          "logic",
+          "review"
+        ],
+        "references": [
+          "pr_3",
+          "ia_3",
+          "bs_3"
+        ]
+      },
+      {
+        "text": "Le découplage PIB-émissions est avancé de mémoire, sans périmètre précisé, et débouche aussitôt sur une formule d'adhésion qui ferme l'alternative. La faiblesse du sourçage et la clôture rhétorique se produisent dans la même séquence.",
+        "layers": [
+          "probe",
+          "logic",
+          "rhetoric"
+        ],
+        "references": [
+          "claim_2",
+          "bias_2",
+          "lr_2",
+          "obs_3"
+        ]
+      },
+      {
+        "text": "TotalEnergies est nommé dans presque toutes les séquences sans réponse sollicitée, tandis qu'Aramco, désigné comme pollueur plus important, n'apparaît qu'une fois. Le nom concentre la responsabilité que le chiffre dilue.",
+        "layers": [
+          "logic",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "obs_4",
+          "bs_3",
+          "bias_2"
+        ]
+      }
+    ]
+  }
+}

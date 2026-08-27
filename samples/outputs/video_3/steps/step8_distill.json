@@ -1,0 +1,57 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "L'ouverture par le bilan humain de la canicule installe l'urgence avant tout argument, et cette urgence tient lieu de justification tacite à un instrument juridique précis. Le saut est doublement documenté : **charge émotionnelle en amont**, **inférence non valide en aval**.",
+        "references": [
+          "er_0",
+          "bias_0",
+          "lr_0",
+          "pr_0"
+        ]
+      },
+      {
+        "text": "Le débat déplace le mot juridique vers la fiscalité carbone, terrain le mieux doté en chiffres, et les deux énoncés qui y tiennent lieu de preuve reposent l'un sur **une opinion présentée en constat**, l'autre sur **un seul épisode**.",
+        "references": [
+          "cb_0",
+          "claim_3",
+          "bias_1",
+          "lr_1"
+        ]
+      },
+      {
+        "text": "L'hypothèse qu'un mot suffise à changer le traitement politique n'est jamais testée, car **l'omission du statut de délit de l'écocide** prive le débat de son point de comparaison. Le néologisme s'oppose à un vide plutôt qu'à un texte existant.",
+        "references": [
+          "ia_0",
+          "bs_1",
+          "obs_2",
+          "focus"
+        ]
+      },
+      {
+        "text": "Absents du plateau, les auteurs de la tribune obtiennent le titre et la première question sans avoir à défendre leur mot : **visibilité acquise, contradiction directe évitée**. TotalEnergies est nommé dans presque toutes les séquences sans réponse sollicitée, quand Aramco, désigné comme pollueur plus important, n'apparaît qu'une fois.",
+        "references": [
+          "bs_0",
+          "cb_1",
+          "obs_4",
+          "bs_3",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "Le chiffre trimestriel est commenté par les deux camps alors que la source l'attribue à un hiver doux : **la confusion des échelles de temps** fait circuler une donnée météorologique comme un résultat de politique publique.",
+        "references": [
+          "ia_2",
+          "obs_1",
+          "claim_0",
+          "claim_1"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quel effet mesurable un délit d'écocide déjà en vigueur a-t-il produit depuis son adoption ?",
+      "Quelle part des émissions françaises la fiscalité carbone peut-elle réellement infléchir ?",
+      "Le découplage PIB-émissions invoqué porte-t-il sur les émissions importées ou seulement territoriales ?"
+    ]
+  }
+}

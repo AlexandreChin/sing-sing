@@ -1,0 +1,157 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "les émissions de gaz à effet de serre de la France ont diminué sur les trois premiers mois de l'année là. Et oui, - 4,8 % euh sur 1 an",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Temporalité",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre est **daté d'un seul trimestre** et qualifié de provisoire par l'organisme qui le publie.",
+        "external_sources": [
+          {
+            "name": "Citepa, baromètre trimestriel des émissions françaises",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Ministère de la Transition écologique",
+            "supports": "neutral",
+            "evidence_type": "party_statement"
+          }
+        ],
+        "confidence": 80
+      },
+      {
+        "quote": "si notre consommation a baissé, c'est parce que nous sortons d'un hiver particulièrement doux. Ce sont les mots de cité pas.",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 0.8,
+          "nature": "nuance"
+        },
+        "explanation": "La cause avancée vient de la source elle-même et **retire au chiffre** sa valeur de résultat politique.",
+        "external_sources": [
+          {
+            "name": "Citepa",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Météo-France, bilan de l'hiver 2025-2026",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 85
+      },
+      {
+        "quote": "Depuis 1990, la France a baissé ses émissions de de gaz à effet de serre, son économie française de 34 %. Or, en parallèle, le PIB français a augmenté de 60 %.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "cui_bono",
+          "label": "La lecture pro-marché du climat",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "Les deux pourcentages sont cités de mémoire, sans que le **périmètre** — territorial ou empreinte importations comprises — soit précisé.",
+        "external_sources": [
+          {
+            "name": "Citepa, inventaire national depuis 1990",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Insee, séries de PIB en volume",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Haut Conseil pour le climat, rapports sur l'empreinte carbone",
+            "supports": "contradicts",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": 65
+      },
+      {
+        "quote": "Il y a un sujet sur lesquels les économistes sont d'accord, c'est l'importance d'une fiscalité carbone.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "cui_bono",
+          "label": "La lecture pro-marché du climat",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Un accord de la profession entière est posé comme un constat, alors que l'appel cité **n'engage que ses signataires**.",
+        "external_sources": [
+          {
+            "name": "Economists' Statement on Carbon Dividends, Wall Street Journal 2019",
+            "supports": "validates",
+            "evidence_type": "party_statement"
+          },
+          {
+            "name": "Travaux sur les limites distributives de la taxe carbone (OFCE, CAE)",
+            "supports": "contradicts",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": 45
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "Avec des piques entre 35 et 40°gr, les de tiers du pays sont placés en vigilance orange.",
+        "item_type": "bias",
+        "label": "accumulation de détails alarmants",
+        "effect": "Remarquez comment le décompte des degrés et des départements **installe l'urgence** avant qu'un seul argument juridique ne soit énoncé.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "accablement",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Ce qui veut dire que le signal prix est très efficace",
+        "item_type": "fallacy",
+        "label": "cause tirée d'un seul épisode",
+        "effect": "Remarquez comment une baisse de consommation liée à une crise pétrolière **se transforme en preuve** de l'efficacité d'un impôt qui n'a pas été appliqué.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "La lecture pro-marché du climat",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "ces entreprises-là sont aujourd'hui notre meilleure chance",
+        "item_type": "bias",
+        "label": "formule d'adhésion sans donnée",
+        "effect": "Remarquez comment l'énoncé **ferme l'alternative** en une phrase, après une liste d'investissements présentée sans contrepartie chiffrée.",
+        "proves": {
+          "type": "observation",
+          "label": "Distribution",
+          "strength": 0.7,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "ce qui m'intéresse c'est d'avoir des revendications actionnables sur lesquelles on peut agir",
+      "proves": {
+        "type": "observation",
+        "label": "Terminologie",
+        "strength": 0.9,
+        "nature": "nuance"
+      },
+      "analysis": "Une autrice du GIEC explique son refus de signer par un **problème d'échelle**, pas par un désaccord sur le diagnostic. La phrase suggère qu'un mot sans incrimination existante ne produit aucune prise. Elle ne dit pas ce que **l'écocide déjà inscrit** dans le droit français permet ou non d'obtenir aujourd'hui."
+    }
+  }
+}
