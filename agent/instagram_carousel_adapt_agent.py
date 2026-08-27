@@ -3,7 +3,7 @@ import json
 import sys
 from pathlib import Path
 
-from agent._base import _call_with_retry, _j, medium_directive
+from agent._base import _OUT_OF_SCOPE_CLICHES, _call_with_retry, _fold, _j, medium_directive
 from agent.lenses import CANONICAL_LENSES
 from models.full_analysis import ArticleFullAnalysis
 from models.instagram_carousel_presentation import (
@@ -12,7 +12,6 @@ from models.instagram_carousel_presentation import (
 )
 
 _PROMPT = (Path(__file__).parent / "prompts" / "instagram_carousel.md").read_text(encoding="utf-8")
-
 
 def _lens_layer_errors(d) -> list[str]:
     """Validate the 4-act lens layer (Task: lens-arc). Additive — leaves the
@@ -27,6 +26,13 @@ def _lens_layer_errors(d) -> list[str]:
         errors.append("display.thesis_frame.main_claim is empty (the frame every field is checked against)")
     elif not (2 <= len(tf.out_of_scope) <= 3):
         errors.append(f"display.thesis_frame.out_of_scope must have 2–3 items, got {len(tf.out_of_scope)}")
+    if tf is not None:
+        for i, item in enumerate(tf.out_of_scope):
+            if _fold(item) in _OUT_OF_SCOPE_CLICHES:
+                errors.append(
+                    f"display.thesis_frame.out_of_scope[{i}] repeats a generic example "
+                    f"({item!r}) instead of a debate THIS text leaves aside — derive it from the article"
+                )
     beats = d.reading_beats
     if len(beats) < 3:
         errors.append(f"display.reading_beats (candidate pool) should have ≥3 items, got {len(beats)}")

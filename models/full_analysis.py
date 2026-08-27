@@ -1,4 +1,5 @@
 from __future__ import annotations
+import unicodedata
 from typing import Literal
 from pydantic import BaseModel, Field, HttpUrl, computed_field, field_validator, model_validator
 
@@ -71,6 +72,19 @@ class FullAnalysisInput(BaseModel):
     extra_instructions: str | None = None
 
 
+def _fold_category(x: str) -> str:
+    no_accent = "".join(c for c in unicodedata.normalize("NFD", x)
+                        if unicodedata.category(c) != "Mn")
+    return " ".join(no_accent.lower().split())
+
+
+_CATEGORIES = (
+    "Politique", "Économie", "International", "Société", "Écologie",
+    "Sciences & Santé", "Tech", "Culture", "Sport", "Autre",
+)
+_CATEGORY_BY_FOLDED = {_fold_category(c): c for c in _CATEGORIES}
+
+
 class ArticleMetadata(BaseModel):
     url: HttpUrl | None = None
     title: str | None = None
@@ -86,6 +100,20 @@ class ArticleMetadata(BaseModel):
     ] | None = None
     reading_time_minutes: int | None = None
     chapo: str | None = None
+
+    @field_validator("category", mode="before")
+    @classmethod
+    def _accept_unaccented_category(cls, v):
+        """Map "Ecologie"/"economie"/"Societe" onto the accented literal.
+
+        Hand-edited extract.json files routinely carry the unaccented spelling,
+        which fails the Literal and blocks the render for a typography reason.
+        """
+        if not isinstance(v, str):
+            return v
+        if not v.strip():
+            return None
+        return _CATEGORY_BY_FOLDED.get(_fold_category(v), v)
 
 
 # ── Step 1: Scan ──────────────────────────────────────────────────────────────

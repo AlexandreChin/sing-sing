@@ -66,9 +66,16 @@ pose le cadre dans `display.thesis_frame` et garde-le sous les yeux :
 - `main_claim` (≤20 mots) : ce que l'article AVANCE, reformulé — sa thèse, pas son sujet (depuis `fond.main_claim`).
 - `out_of_scope` (2 à 3 items, ≤12 mots) : les débats VOISINS que l'article ne traite PAS et sur
   lesquels il n'a donc pas à répondre. C'est le garde-fou : y opposer un argument serait juste mais
-  hors sujet. Ex., pour un article sur l'insuffisance de l'effort climatique national : « l'effet
-  mondial des émissions françaises », « la comparaison avec les autres pays », « le coût de
-  l'inaction pour les ménages ».
+  hors sujet. **DÉRIVE-LES DE CE TEXTE-CI, jamais de l'exemple ci-dessous.** Pour chaque item, fais
+  la vérification suivante avant de l'écrire : **le texte y consacre-t-il une question, une réplique,
+  un paragraphe ?** Si oui, ce n'est PAS hors champ — c'est un enjeu du texte, et l'y déclarer
+  étranger ferait taire un moment central. Un item d'`out_of_scope` FAUX est plus nuisible qu'un
+  `out_of_scope` vide.
+  Exemple (sur un tout autre sujet, pour la FORME seulement — le recopier serait une erreur
+  visible) : pour un article soutenant qu'un club de football a été mal géré financièrement, on
+  pourrait écrire « la valeur sportive des joueurs achetés », « le niveau des salaires dans le
+  championnat », « la fiscalité applicable aux clubs » — trois débats réels que cet article-là
+  n'ouvre pas. Transpose la DÉMARCHE, pas les mots.
 
 ENSUITE, chaque champ produit — `hook`, `essentiel`, `why_selected`, chaque `reading_beats`,
 `global_analysis`, `cta.engagement_sentence`, `root_issue`, `steel_man`, `key_takeaways`,

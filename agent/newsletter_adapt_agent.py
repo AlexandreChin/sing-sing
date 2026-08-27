@@ -7,7 +7,7 @@ import json
 import sys
 from pathlib import Path
 
-from agent._base import _call_with_retry, _j, medium_directive
+from agent._base import _OUT_OF_SCOPE_CLICHES, _call_with_retry, _fold, _j, medium_directive
 from agent.lenses import LENS_IDS
 from models.full_analysis import ArticleFullAnalysis
 from models.newsletter_presentation import NewsletterPresentation
@@ -75,6 +75,13 @@ def _validate(data: dict) -> list[str]:
         errors.append("thesis_frame.main_claim is empty (the frame every field is checked against)")
     elif not (2 <= len(tf.out_of_scope) <= 3):
         errors.append(f"thesis_frame.out_of_scope must have 2–3 items, got {len(tf.out_of_scope)}")
+    if tf is not None:
+        for i, item in enumerate(tf.out_of_scope):
+            if _fold(item) in _OUT_OF_SCOPE_CLICHES:
+                errors.append(
+                    f"thesis_frame.out_of_scope[{i}] repeats a generic example ({item!r}) "
+                    "instead of a debate THIS text leaves aside — derive it from the article"
+                )
     n = len(pres.decryptage)
     if not (5 <= n <= 7):
         errors.append(f"decryptage must have 5–7 items, got {n}")
