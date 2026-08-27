@@ -1,6 +1,6 @@
 from agent.instagram_carousel_adapt_agent import _lens_layer_errors
 from models.instagram_carousel_presentation import (
-    CarouselDisplay, ReadingBeat, GlobalAnalysis, SteelMan,
+    CarouselDisplay, ReadingBeat, GlobalAnalysis, SteelMan, ThesisFrame,
 )
 
 _BASE = dict(
@@ -13,11 +13,16 @@ _BASE = dict(
 
 def _display(**over):
     good = dict(
+        thesis_frame=ThesisFrame(main_claim="La thèse de l'article.",
+                                 out_of_scope=["un débat voisin", "un autre débat"]),
         # candidate pool: ≥3 beats, canonical lens_refs; default selected=True → 3 selected
         reading_beats=[
-            ReadingBeat(moment="A", quote="+4400 %", lens_ref="chiffres", note="n", answer="r", role="preuve"),
-            ReadingBeat(moment="B", quote="donc la cause", lens_ref="causalite", note="n", answer="r", role="appui"),
-            ReadingBeat(moment="C", quote="qui l'affirme", lens_ref="sources", note="n", answer="r", role="pivot"),
+            ReadingBeat(moment="A", quote="+4400 %", lens_ref="chiffres", note="n", answer="r", role="preuve",
+                        lens_question="Ce pourcentage : quelle base de départ ?"),
+            ReadingBeat(moment="B", quote="donc la cause", lens_ref="causalite", note="n", answer="r", role="appui",
+                        lens_question="Une hausse : provoquée, ou constatée ?"),
+            ReadingBeat(moment="C", quote="qui l'affirme", lens_ref="sources", note="n", answer="r", role="pivot",
+                        lens_question="Qui a financé cette étude ?"),
         ],
         global_analysis=GlobalAnalysis(headline="Une méthode", core_recap=["a", "b"]),
         root_issue="L'enjeu est surtout symbolique : une élite qui affiche son indifférence.",
@@ -123,3 +128,29 @@ def test_context_includes_core_elements():
     ctx = _full_analysis_context(a)
     assert "éléments centraux" in ctx.lower()
     assert "La faune est concurrencée par les touristes" in ctx
+
+
+def test_rejects_missing_thesis_frame():
+    # the frame is what every other field is checked against
+    errs = _lens_layer_errors(_display(thesis_frame=None))
+    assert any("thesis_frame.main_claim" in e for e in errs)
+
+
+def test_rejects_out_of_scope_out_of_range():
+    errs = _lens_layer_errors(_display(
+        thesis_frame=ThesisFrame(main_claim="La thèse.", out_of_scope=["un seul"])))
+    assert any("out_of_scope" in e for e in errs)
+
+
+def test_rejects_selected_beat_without_lens_question():
+    # slide 4 shows one réflexe per selected beat; with no question of its own it
+    # falls back to the canonical constant, identical across every article
+    errs = _lens_layer_errors(_display(reading_beats=[
+        ReadingBeat(moment="A", quote="q", lens_ref="chiffres", note="n", answer="r",
+                    role="preuve", lens_question="", selected=True),
+        ReadingBeat(moment="B", quote="q", lens_ref="causalite", note="n", answer="r",
+                    role="appui", lens_question="Une baisse : décidée, ou subie ?", selected=True),
+        ReadingBeat(moment="C", quote="q", lens_ref="sources", note="n", answer="r",
+                    role="pivot", lens_question="Qui a financé l'étude ?", selected=False),
+    ]))
+    assert any("lens_question is empty" in e for e in errs)

@@ -43,6 +43,7 @@ def _load_carousel_backbone(analysis_path: str | Path | None) -> str | None:
                 for b in display.get("reading_beats", [])
                 if b.get("selected", True)
             ],
+            "thesis_frame": display.get("thesis_frame"),
             "global_analysis": display.get("global_analysis"),
             "key_takeaways": [
                 t["text"] for t in display.get("key_takeaways", [])
@@ -67,6 +68,13 @@ def _validate(data: dict) -> list[str]:
                   "payoff", "essentiel", "context", "reading_posture", "framing", "signoff"):
         if not getattr(pres, field).strip():
             errors.append(f"{field} is empty")
+    # The thesis frame is the guard-rail every other field is checked against:
+    # without it written down, off-frame remarks read as legitimate findings.
+    tf = pres.thesis_frame
+    if tf is None or not tf.main_claim.strip():
+        errors.append("thesis_frame.main_claim is empty (the frame every field is checked against)")
+    elif not (2 <= len(tf.out_of_scope) <= 3):
+        errors.append(f"thesis_frame.out_of_scope must have 2–3 items, got {len(tf.out_of_scope)}")
     n = len(pres.decryptage)
     if not (5 <= n <= 7):
         errors.append(f"decryptage must have 5–7 items, got {n}")

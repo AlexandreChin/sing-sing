@@ -66,6 +66,11 @@ class ReadingBeat(BaseModel):
     moment: str    # ≤10 words — where we are in the article (reading order)
     quote: str     # verbatim anchor from the article
     lens_ref: str  # a canonical lens id (see agent/lenses.py), e.g. "chiffres"
+    # The réflexe question shown on slide 4, written for THIS article's terrain.
+    # Slide 4 comes before the moments, so it must read without having read the
+    # article, and must not give away this beat's `answer`. Empty → the canonical
+    # lens question is used, which is identical for every article using that lens.
+    lens_question: str = ""   # ≤12 words
     note: str      # ≤20 words — the CHALLENGE: what to look for (imperative/question), no verdict
     answer: str = ""  # ≤35 words — the REVEAL: what one finds / why it matters, no verdict
     # number-forward slide (optional): filled only for a chiffres beat built around
@@ -100,8 +105,18 @@ class SteelMan(BaseModel):
     alternative: str   # ≤14 words — the conclusion that follows if it holds
 
 
+class ThesisFrame(BaseModel):
+    """The article's own claim, written down so every other field can be checked
+    against it. Not rendered: an editorial guard-rail. `out_of_scope` names the
+    neighbouring debates the article does not take on — an objection landing there
+    is accurate but off-topic, and moves the subject the reader is judging."""
+    main_claim: str = ""                # ≤20 words — what the article ARGUES (not its topic)
+    out_of_scope: list[str] = Field(default_factory=list)  # 2–3 adjacent debates it does not address
+
+
 class CarouselDisplay(BaseModel):
     """Condensed, carousel-ready display strings for the long format slides."""
+    thesis_frame: ThesisFrame | None = None  # editorial guard-rail, not rendered
     payoff: str              # ≤15 words — what the reader gets from this article
     framing: str             # ≤15 words — the article's angle in plain language
     why_selected: str        # ≤20 words — the editorial reason this article earned a decrypt
