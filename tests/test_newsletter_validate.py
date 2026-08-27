@@ -19,7 +19,7 @@ def _valid_data():
             {"kind": "faille", "role": "pivot", "quote": "Q4", "presentation": "", "reading": "M2.", "prompt": "Le mot est-il neutre ?", "lens_ref": "cadrage"},
             {"kind": "fait", "role": "concession", "quote": "Q5", "presentation": "", "reading": "L3.", "prompt": "Quelle base ?", "lens_ref": "chiffres"},
         ],
-        architecture={"keystone": "Sur quoi tient la thèse ?", "spine": ["A.", "B.", "C."],
+        architecture={"keystone": "Sur quoi tient la thèse ?",
                       "presupposes": ["Présupposé A.", "Présupposé B."]},
         a_emporter={"key_takeaways": ["T1.", "T2.", "T3.", "T4."],
                     "reflexes_critiques": [
@@ -29,9 +29,7 @@ def _valid_data():
         verdict={"enjeux": ["Enjeu 1.", "Enjeu 2."],
                  "objections": ["Objection 1."],
                  "angles_morts": ["Omission 1", "Omission 2"],
-                 "nuances": ["Nuance 1", "Nuance 2"],
-                 "questions": ["Question ouverte ?"]},
-        cui_bono="Cui bono.",
+                 "nuances": ["Nuance 1", "Nuance 2"]},
         go_further=[{"title": "R1", "source": "S1", "why": "W.", "type": "étude", "url": "https://ademe.fr"},
                     {"title": "R2", "source": "S2", "why": "W.", "type": "rapport"},
                     {"title": "R3", "source": "S3", "why": "W.", "type": "livre"},
@@ -93,10 +91,6 @@ def test_reflexe_critique_bad_lens_ref_fails():
     assert any("lens_ref" in e for e in _validate(d))
 
 
-def test_spine_out_of_range_fails():
-    d = _valid_data()
-    d["architecture"]["spine"] = ["only one"]
-    assert any("spine" in e for e in _validate(d))
 
 
 def test_key_takeaways_out_of_range_fails():
@@ -123,16 +117,8 @@ def test_enjeux_out_of_range_fails():
     assert any("enjeux" in e for e in _validate(d))
 
 
-def test_questions_out_of_range_fails():
-    d = _valid_data()
-    d["verdict"]["questions"] = ["q1", "q2", "q3"]
-    assert any("questions" in e for e in _validate(d))
 
 
-def test_empty_cui_bono_fails():
-    d = _valid_data()
-    d["cui_bono"] = "  "
-    assert any("cui_bono" in e for e in _validate(d))
 
 
 def test_reflexe_critique_needs_rule():
@@ -181,3 +167,9 @@ def test_out_of_scope_out_of_range_fails():
     d = _valid_data()
     d["thesis_frame"]["out_of_scope"] = ["un seul"]
     assert any("out_of_scope" in e for e in _validate(d))
+
+
+def test_copied_out_of_scope_example_fails():
+    d = _valid_data()
+    d["thesis_frame"]["out_of_scope"] = ["la comparaison avec les autres pays", "un débat propre au texte"]
+    assert any("repeats a generic example" in e for e in _validate(d))

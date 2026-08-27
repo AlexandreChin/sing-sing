@@ -3,10 +3,11 @@ import json
 import re
 import subprocess
 import sys
+import unicodedata
 from pathlib import Path
 
 import anthropic
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ValidationError
 
 from config import MODEL
 from models.full_analysis import (
@@ -111,13 +112,29 @@ def _call_with_retry(
     label: str = "",
     system: str | None = None,
 ) -> dict:
+    def _errors(payload: dict) -> list[str]:
+        """Run the validator, turning a schema-shape failure into repairable errors.
+
+        Most step validators start with `Model.model_validate(data)`, which raises
+        rather than returning a list. Without this, a misplaced field (a `verdict`
+        nested inside a `dimensions` entry, say) aborts the whole pipeline, while a
+        semantic mistake gets MAX_RETRIES chances to be fixed. Both are repairable.
+        """
+        try:
+            return validator(payload)
+        except ValidationError as exc:
+            return [
+                f"{'.'.join(str(x) for x in e['loc'])}: {e['msg']}"
+                for e in exc.errors()
+            ] or [f"schéma invalide : {exc}"]
+
     tag = f" [{label}]" if label else ""
     print(f"  → calling API{tag}…", file=sys.stderr, flush=True)
     data = _call(user_message, schema, no_api=no_api, system=system)
     print(f"  ✓ response received{tag}", file=sys.stderr, flush=True)
 
     for attempt in range(MAX_RETRIES):
-        errors = validator(data)
+        errors = _errors(data)
         if not errors:
             return data
 
@@ -140,11 +157,31 @@ def _call_with_retry(
         )
         data = _call(correction_msg, schema, no_api=no_api, system=system)
 
-    errors = validator(data)
+    errors = _errors(data)
     for e in errors:
         print(f"  ⚠  {e}", file=sys.stderr)
 
     return data
+
+
+# `out_of_scope` guards against off-frame analysis, so a COPIED item is worse than
+# none: it silences a real beat. These are the strings the prompt's own illustration
+# used to offer — two decks came back with the first one verbatim, and on a debate
+# that actually argued the global reach of French measures it was simply false.
+_OUT_OF_SCOPE_CLICHES = frozenset({
+    "l'effet mondial des emissions francaises",
+    "la comparaison avec les autres pays",
+    "la comparaison de la france aux autres pays",
+    "le cout de l'inaction pour les menages",
+    "la responsabilite historique des autres pays",
+})
+
+
+def _fold(text: str) -> str:
+    """Accent/case-insensitive form, for comparing free text against a blocklist."""
+    stripped = "".join(c for c in unicodedata.normalize("NFD", text)
+                       if unicodedata.category(c) != "Mn")
+    return " ".join(stripped.lower().split()).strip(" .;:!?")
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────

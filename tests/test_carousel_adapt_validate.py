@@ -154,3 +154,19 @@ def test_rejects_selected_beat_without_lens_question():
                     role="pivot", lens_question="Qui a financé l'étude ?", selected=False),
     ]))
     assert any("lens_question is empty" in e for e in errs)
+
+
+def test_rejects_copied_out_of_scope_example():
+    # a COPIED out_of_scope is worse than none: it declares a real debate of the
+    # article off-limits and silences a central beat
+    errs = _lens_layer_errors(_display(thesis_frame=ThesisFrame(
+        main_claim="La thèse.",
+        out_of_scope=["l'effet mondial des émissions françaises", "un débat propre à ce texte"])))
+    assert any("repeats a generic example" in e for e in errs)
+
+
+def test_copied_out_of_scope_is_caught_despite_accents_and_case():
+    errs = _lens_layer_errors(_display(thesis_frame=ThesisFrame(
+        main_claim="La thèse.",
+        out_of_scope=["L'Effet Mondial Des Emissions Francaises.", "autre chose"])))
+    assert any("repeats a generic example" in e for e in errs)
