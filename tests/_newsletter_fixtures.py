@@ -27,8 +27,7 @@ def sample_doc() -> NewsletterDocument:
             DecryptageItem(kind="faille", quote="Q4", presentation="", reading="Mécanisme 2.", prompt="Le mot est-il neutre ?", lens_ref="cadrage"),
             DecryptageItem(kind="faille", quote="Q5", presentation="", reading="Lecture 3.", prompt="Quelle base ?", lens_ref="chiffres"),
         ],
-        architecture={"keystone": "Sur quoi tient la thèse ?",
-                      "spine": ["Maillon 1.", "Maillon 2.", "Maillon 3."]},
+        architecture={"keystone": "Sur quoi tient la thèse ?"},
         a_emporter={"key_takeaways": ["À retenir 1.", "À retenir 2.", "À retenir 3.", "À retenir 4."],
                     "reflexes_critiques": [
                         {"lens_ref": "chiffres", "rule": "De combien à combien ?", "reusable_on": "santé, économie"},
@@ -39,7 +38,6 @@ def sample_doc() -> NewsletterDocument:
                  "angles_morts": ["Angle 1", "Angle 2"],
                  "nuances": ["Nuance 1", "Nuance 2"],
                  "questions": ["Et si on posait la question autrement ?"]},
-        cui_bono="À qui profite ce cadrage.",
         go_further=[{"title": "R1", "source": "S1", "why": "Pourquoi.", "type": "étude", "url": "https://ademe.fr"},
                     {"title": "R2", "source": "S2", "why": "Pourquoi.", "type": "rapport"},
                     {"title": "R3", "source": "S3", "why": "Pourquoi.", "type": "livre"},
