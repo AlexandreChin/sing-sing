@@ -154,6 +154,9 @@ class CarouselDisplay(BaseModel):
 
 
 class InstagramCarouselPresentation(BaseModel):
+    # The post's own copy, not slide content: the Instagram caption published
+    # alongside the deck. Hand-written during editing; not rendered on any slide.
+    caption: str = ""
     hook: Hook
     interest: Interest
     title_bullets: list[str] = Field(default_factory=list)
