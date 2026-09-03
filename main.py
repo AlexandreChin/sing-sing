@@ -17,10 +17,19 @@ OUTPUTS_DIR = Path("samples/outputs")
 DEFAULT_FORMAT = "instagram_carousel_optimized"
 
 
-def _layout(stem: str, fmt: str | None = None) -> dict:
+def _base_dir(input_path: str | None, stem: str) -> Path:
+    """Output root for an input file: its own folder when that folder is already
+    named after it, else a <stem>/ folder beside it. No input path → outputs/<stem>."""
+    if input_path is None:
+        return OUTPUTS_DIR / stem
+    parent = Path(input_path).resolve().parent
+    return parent if parent.name == stem else parent / stem
+
+
+def _layout(stem: str, fmt: str | None = None, base: Path | None = None) -> dict:
     """Per-analysis output layout:
-    outputs/<stem>/{analysis.json, steps/, <fmt>/{adapt.json, extract.json, slides/}}."""
-    base = OUTPUTS_DIR / stem
+    <base>/{analysis.json, steps/, <fmt>/{adapt.json, extract.json, slides/}}."""
+    base = base if base is not None else OUTPUTS_DIR / stem
     paths = {"base": base, "analysis": base / "analysis.json", "steps": base / "steps"}
     if fmt:
         fdir = base / fmt
@@ -33,9 +42,8 @@ def _layout(stem: str, fmt: str | None = None) -> dict:
 async def run_full_analysis(text: str, no_api: bool = False, input_path: str | None = None, extra_instructions: str | None = None, medium: str = "article") -> Path:
     analysis_input = FullAnalysisInput(body=text, extra_instructions=extra_instructions, medium=medium)
 
-    OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
     stem = Path(input_path).stem if input_path else datetime.now().strftime("%Y%m%d_%H%M%S")
-    lay = _layout(stem)
+    lay = _layout(stem, base=_base_dir(input_path, stem))
     lay["base"].mkdir(parents=True, exist_ok=True)
     steps_dir = lay["steps"]
     output_path = lay["analysis"]
@@ -228,7 +236,7 @@ async def cmd_produce(args: argparse.Namespace) -> None:
     input_path = args.article
     text = Path(input_path).read_text(encoding="utf-8").strip()
     stem = Path(input_path).stem
-    lay = _layout(stem, args.format)
+    lay = _layout(stem, args.format, base=_base_dir(input_path, stem))
     lay["fmt_dir"].mkdir(parents=True, exist_ok=True)
     full = await analyze_for_full_analysis(
         FullAnalysisInput(body=text, medium=args.medium),
@@ -273,8 +281,7 @@ async def cmd_program(args: argparse.Namespace) -> None:
 
     stem = Path(input_path).stem
     candidate = args.candidate or stem
-    OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
-    lay = _layout(stem)
+    lay = _layout(stem, base=_base_dir(input_path, stem))
     lay["base"].mkdir(parents=True, exist_ok=True)
 
     result = await analyze_program(
