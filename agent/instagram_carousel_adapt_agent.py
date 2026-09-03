@@ -1,5 +1,6 @@
 """Generate the Instagram carousel presentation layer from a completed ArticleFullAnalysis."""
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -12,6 +13,13 @@ from models.instagram_carousel_presentation import (
 )
 
 _PROMPT = (Path(__file__).parent / "prompts" / "instagram_carousel.md").read_text(encoding="utf-8")
+
+_BOLD_RE = re.compile(r"\*\*(.+?)\*\*")
+
+
+def _bold_spans(text: str) -> set[str]:
+    return {f for f in (_fold(m) for m in _BOLD_RE.findall(text)) if f}
+
 
 def _lens_layer_errors(d) -> list[str]:
     """Validate the 4-act lens layer (Task: lens-arc). Additive — leaves the
@@ -69,6 +77,22 @@ def _lens_layer_errors(d) -> list[str]:
             errors.append("display.global_analysis.headline is empty")
         if not (1 <= len(ga.core_recap) <= 3):
             errors.append(f"display.global_analysis.core_recap must have 1–3 items, got {len(ga.core_recap)}")
+        # Slide 8 stands on the beats the reader was actually shown: one presupposé
+        # per selected beat, `;`-separated, on a single slide-sized line.
+        for i, point in enumerate(ga.core_recap):
+            body = point.split(":", 1)[1] if ":" in point else point
+            n_presupposes = len([c for c in body.split(";") if c.strip()])
+            if n_presupposes != n_selected:
+                errors.append(
+                    f"display.global_analysis.core_recap[{i}] holds {n_presupposes} presupposé(s) "
+                    f"for {n_selected} selected beats — one per selected beat, in slide order, "
+                    f"so each rests on a finding the reader has seen"
+                )
+            n_words = len(body.split())
+            if n_words > 16:
+                errors.append(
+                    f"display.global_analysis.core_recap[{i}] is {n_words} words (max 16, label excluded)"
+                )
     if not d.root_issue.strip():
         errors.append("display.root_issue is empty")
     if not d.essentiel_summary.strip():
@@ -92,6 +116,10 @@ def _lens_layer_errors(d) -> list[str]:
 def _validate(data: dict) -> list[str]:
     pres = InstagramCarouselPresentation.model_validate(data)
     errors = []
+    # The caption is the post's own copy, not a slide: no hashtags, ever.
+    if "#" in pres.caption:
+        tags = " ".join(re.findall(r"#\S+", pres.caption)) or "#"
+        errors.append(f"caption contains hashtag(s) ({tags}) — the caption carries none, ever")
     if not pres.cta.title.strip():
         errors.append("cta.title is empty")
     n_cta = len(pres.cta.post_reading_questions)
@@ -111,6 +139,16 @@ def _validate(data: dict) -> list[str]:
     for field in ("payoff", "framing", "why_selected", "selection_headline", "ethics"):
         if not getattr(d, field).strip():
             errors.append(f"display.{field} is empty")
+    # Slides 2 and 3 are one swipe apart: slide 2 summarises the article, slide 3
+    # says why it is worth reading. When §1 of `why_selected` re-highlights a term
+    # already gilded on slide 2, the two slides read as the same sentence twice.
+    shared = _bold_spans(d.why_selected.split("\n")[0]) & _bold_spans(d.essentiel_summary)
+    if shared:
+        errors.append(
+            f"display.why_selected §1 repeats display.essentiel_summary's bold terms "
+            f"({', '.join(sorted(shared))}) — slide 2 says WHAT the article says, "
+            f"slide 3 says WHY it is worth reading; rewrite §1 on other material"
+        )
     if not (1 <= len(d.blind_spots) <= 2):
         errors.append(f"display.blind_spots must have 1–2 items, got {len(d.blind_spots)}")
     if not (1 <= len(d.balance) <= 2):
