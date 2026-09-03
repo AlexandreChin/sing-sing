@@ -1,0 +1,176 @@
+{
+  "main_claim": "Face aux canicules, le plateau oppose contrainte juridique et signal prix.",
+  "premisses": [
+    {
+      "statement": "Les canicules à répétition de l'été rendent l'action climatique urgente et légitime le débat.",
+      "quality": "Étayée par des données convergentes citées à l'antenne (vigilance orange, décès, hectares brûlés), mais présentées sans mise en perspective ni source précise."
+    },
+    {
+      "statement": "Le droit existant est insuffisant, ce qui justifierait un mot nouveau et une loi d'urgence.",
+      "quality": "Simple assertion : la tribune est décrite, jamais confrontée à un juriste ni au contenu réel des textes en vigueur."
+    },
+    {
+      "statement": "Renchérir le carbone réduit mécaniquement sa consommation.",
+      "quality": "Adossée à un consensus d'économistes et à un appel signé par des prix Nobel, mais illustrée par un cas isolé — la baisse des carburants pendant une crise géopolitique."
+    },
+    {
+      "statement": "La France a découplé croissance et émissions depuis 1990.",
+      "quality": "Chiffrée (- 34 % d'émissions, + 60 % de PIB) mais non sourcée à l'antenne et contestée sur le périmètre des émissions importées."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "statement": "Le débat sur **le mot** (globocide, écocide) tiendrait lieu de débat sur **le dispositif juridique** qu'il désignerait.",
+      "impact": "Si le mot ne change rien au droit applicable, la séquence d'ouverture discute une **stratégie de communication** et non une mesure."
+    },
+    {
+      "statement": "Les **émissions territoriales** mesurées par le Citepa suffiraient à évaluer l'effort climatique d'un pays.",
+      "impact": "Si l'empreinte importée compte, le **découplage français** et la comparaison avec la Chine perdent leur portée."
+    },
+    {
+      "statement": "Une **baisse d'émissions** vaudrait par elle-même, indépendamment de sa cause et de son coût social.",
+      "impact": "Si la baisse vient d'un hiver doux et d'un renoncement au chauffage, elle **ne mesure aucune politique**."
+    },
+    {
+      "statement": "Les entreprises et les États **poursuivraient le même objectif** à des horizons temporels différents.",
+      "impact": "Si leurs intérêts divergent, la **confiance dans le marché** cesse d'être une politique climatique."
+    }
+  ],
+  "blind_spots": [
+    {
+      "topic": "Aucun juriste sur le plateau alors que le sujet d'ouverture est la création d'une qualification pénale.",
+      "significance": "La faisabilité du globocide devant la Cour pénale internationale reste **une question sans réponse**, laissée à des non-spécialistes qui le disent eux-mêmes."
+    },
+    {
+      "topic": "Aucun signataire de la tribune n'est présent pour la défendre.",
+      "significance": "Le texte est discuté par **une personne qui a refusé de le signer** et deux voix sceptiques, ce qui prive sa thèse de son meilleur porte-parole."
+    },
+    {
+      "topic": "L'adaptation aux canicules — santé, logement, travail — n'arrive qu'en toute fin d'émission.",
+      "significance": "L'émission s'ouvre sur **2000 décès** et n'accorde presque aucune minute à ce qui protégerait les gens à court terme."
+    },
+    {
+      "topic": "Le financement de l'Institut de l'entreprise par des entreprises n'est pas mentionné.",
+      "significance": "Le spectateur évalue l'argument pro-marché **sans savoir d'où parle celui qui le porte**."
+    }
+  ],
+  "emphasis": [
+    "La séquence d'ouverture consacre plusieurs minutes au **mot « globocide »** — définition, effet recherché, stratégie — alors que le **dispositif juridique** qu'il désignerait n'est jamais décrit.",
+    "Le **signal prix** structure trois prises de parole successives et revient dans chaque réponse d'Erwan Tison, tandis que la **sobriété** n'est formulée qu'une fois, en fin d'échange, sans être discutée.",
+    "Les **chiffres d'émissions** (- 4,8 %, 34 %, 60 %, 92 %, 350 000 tonnes) occupent la moitié du débat ; les **2000 décès** sont cités une fois puis abandonnés."
+  ],
+  "logical_reasoning": [
+    {
+      "step": "Des canicules exceptionnelles se répètent, donc il faut un nouvel outil juridique pour les sanctionner.",
+      "problem_type": "validity",
+      "diagnosis": "Le constat physique établit l'urgence, pas le **choix de l'instrument** ; aucun maillon ne relie la qualification pénale à une baisse d'émissions."
+    },
+    {
+      "step": "La consommation de carburant a baissé pendant la crise au Moyen-Orient, donc le signal prix fonctionne.",
+      "problem_type": "soundness",
+      "diagnosis": "Un **choc de prix subi** sur un trimestre est présenté comme la preuve d'une **taxe délibérée** ; le Citepa attribue lui-même la baisse à un hiver doux."
+    },
+    {
+      "step": "Le PIB français a augmenté pendant que les émissions baissaient, donc le capitalisme réduit les émissions.",
+      "problem_type": "soundness",
+      "diagnosis": "La corrélation est mesurée sur un **périmètre territorial** qui exclut les émissions importées, et l'explication avancée — le nucléaire — relève d'une **décision publique**."
+    },
+    {
+      "step": "Les entreprises ont un horizon plus long que les gouvernements, donc il faut leur faire confiance.",
+      "problem_type": "validity",
+      "diagnosis": "L'horizon long **n'indique pas la direction** ; le même acteur cité pour ses 5 milliards en renouvelables signe un contrat gazier le jour le plus chaud de l'année."
+    }
+  ],
+  "observations": [
+    {
+      "aspect": "Cadrage",
+      "summary": "L'émission est diffusée **au cœur d'une vague de chaleur** et s'ouvre sur l'empilement des chiffres de la catastrophe. Chaque invité est présenté par **une position résumée en une phrase** que la discussion suivra ensuite sans s'en écarter.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "troisième vague de chaleur, 72 départements en vigilance orange",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Représentation",
+      "summary": "La tribune fournit le point de départ de l'émission mais **aucun de ses signataires n'est sur le plateau**. Elle est commentée par une invitée qui a refusé de la signer.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "tribune signée par plus de cent personnalités paraît dans Le Monde",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Périmètre",
+      "summary": "La motion de censure et le détricotage du pacte vert ancrent le débat dans **l'actualité parlementaire**, puis la discussion glisse vers l'efficacité économique. La question posée — que peut une loi française — reste sans réponse chiffrée, et ce qui est effectivement révisé à Bruxelles n'est jamais précisé.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "motion de censure climatique, discutée et rejetée ; Green Deal en cours de révision à la baisse",
+        "strength": 0.75,
+        "nature": "inference"
+      }
+    },
+    {
+      "aspect": "Terminologie",
+      "summary": "Le mot écocide existe déjà en droit français comme **délit** et non comme crime, et l'ajouter au Statut de Rome supposerait **un amendement voté par les États parties**. Le plateau discute du **pouvoir d'un mot** là où l'écart porte sur le degré de sanction et la procédure.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "écocide figure dans le droit français depuis 2021, mais comme délit",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Comparabilité",
+      "summary": "Les - 4,8 % d'un trimestre sont commentés comme **une bonne nouvelle en soi**, jamais rapportés à la trajectoire d'environ - 5 % par an visée jusqu'en 2030, et la taxe carbone présentée comme solution consensuelle reste **gelée depuis 2018**. Le découplage est calculé sur les **émissions territoriales** quand l'empreinte importée en pèse environ la moitié, et le rapport « cinq fois » entre Aramco et Total est avancé sans que la **base de calcul** soit dite.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "la France s'est fixé une baisse d'environ - 5 % par an jusqu'en 2030",
+        "strength": 0.9,
+        "nature": "contradiction"
+      }
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "Le signal prix a produit des baisses mesurables là où il a été appliqué durablement — plancher carbone britannique, marché européen du carbone — quand aucune qualification pénale n'a jamais fait baisser une tonne de CO2.",
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "renchérir le carbone réduit mécaniquement sa consommation",
+        "strength": 0.8,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "L'énergie consacrée à inventer un crime nouveau serait mieux employée à réactiver un instrument fiscal gelé depuis 2018."
+    },
+    {
+      "counterargument": "Si le découplage français tient encore une fois les émissions importées comptées, l'objection de la sobriété perd son fondement : la croissance n'aurait pas à être arrêtée, seulement décarbonée.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 1,
+        "excerpt": "les émissions territoriales suffiraient à évaluer l'effort d'un pays",
+        "strength": 0.75,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "Le débat ne porterait plus sur la sortie du capitalisme mais sur la vitesse à laquelle il décarbone."
+    },
+    {
+      "counterargument": "L'absence de juriste ne fragilise le plateau que si le globocide est une proposition juridique sérieuse ; s'il s'agit d'abord d'un acte de langage destiné à être entendu, alors le traiter comme une stratégie de communication est la lecture exacte.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "aucun juriste alors que le sujet est une qualification pénale",
+        "strength": 0.7,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Le mot serait à évaluer sur sa capacité à déplacer l'attention publique, pas sur sa recevabilité devant une cour."
+    }
+  ]
+}

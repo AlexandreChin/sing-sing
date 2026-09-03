@@ -1,0 +1,357 @@
+{
+  "caption": "Cinq vagues de chaleur, 93 700 hectares de forêt brûlés, des restrictions d'eau dans 74 départements : la ministre de l'Écologie chiffre l'été 2026 entre 10 et 15 milliards d'euros. 🌡️\n\n🔎 Les clefs pour comprendre en une minute ce que cet été a coûté et ce qui se joue en octobre.\n\n🔗 Lien vers l'article en commentaires ↓",
+  "hook": {
+    "topic": "Été 2026, la **facture**",
+    "sub_topic": "Derrière les **milliards de dégâts**, que faut-il **comparer** ?",
+    "headline": "Les dégâts sont chiffrés, la **réponse** aussi ?",
+    "context_line": "Cinq vagues de chaleur, un bilan estival, et un débat budgétaire qui s'ouvre en octobre.",
+    "sub_topic_alt": [
+      "Un été chiffré en **milliards** : à quoi le **rapporter** ?",
+      "Les dégâts sont comptés — et le **reste** de l'équation ?",
+      "Derrière la **facture de l'été**, quel **second montant** ?"
+    ]
+  },
+  "interest": {
+    "why_read": "Savoir **à quoi rapporter** un chiffre avant de juger.",
+    "pull_quote": "La maison a beau brûler, les chefs regardent ailleurs.",
+    "next_slide_hook": "D'abord, ce que l'article établit — et d'où il parle."
+  },
+  "title_bullets": [
+    "Notez que « les leçons » posent qu'un **enseignement existe déjà**.",
+    "Observez comment « brûlant » fait tenir chaleur et **incendies** dans un seul mot.",
+    "Comparez le titre au chapô : le **sujet réel** y change."
+  ],
+  "chapo_bullets": [
+    "Repérez le **jugement énoncé d'entrée** : le lecteur sait d'où l'on parle.",
+    "Notez que le sujet annoncé n'est pas la météo mais **l'action publique**.",
+    "Gardez l'échelle des dégâts en tête : elle **servira d'unité de mesure**."
+  ],
+  "context_next_slide_hook": "Deux réflexes à garder sous la main pendant la lecture.",
+  "watch_out_next_slide_hook": "Voyons maintenant sur quoi la démonstration s'appuie.",
+  "forme_next_slide_hook": "Quels chiffres sont attribués, et lesquels restent sans source ?",
+  "biases_next_slide_hook": "Reste à voir sur quoi tout l'argument repose.",
+  "engagement_question": "Une réponse publique se juge-t-elle sur les dégâts constatés ou sur le coût des mesures qui les éviteraient ?",
+  "go_further": [
+    {
+      "title": "Rapport annuel 2026 — Adaptation au changement climatique",
+      "source": "Haut Conseil pour le climat",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": "https://www.hautconseilclimat.fr/publications/",
+      "duration_minutes": 90,
+      "why_explore": "Lire le document qui fournit à l'article son diagnostic et son mot d'ordre.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Bulletins de surveillance de la mortalité estivale",
+      "source": "Santé publique France",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": "https://www.santepubliquefrance.fr/",
+      "duration_minutes": 20,
+      "why_explore": "Voir comment une surmortalité toutes causes est calculée, et ce qu'elle ne mesure pas.",
+      "cta_question_index": 1
+    },
+    {
+      "title": "Base de données sur les incendies de forêt en France (BDIFF)",
+      "source": "Ministère de l'Agriculture",
+      "media_type": "other",
+      "category": "question_answer",
+      "url": "https://bdiff.agriculture.gouv.fr/",
+      "duration_minutes": 15,
+      "why_explore": "Rapporter les hectares brûlés d'une saison aux surfaces forestières totales.",
+      "cta_question_index": 2
+    }
+  ],
+  "cta": {
+    "title": "Un montant connu ne suffit pas à en juger un absent",
+    "engagement_sentence": "Faut-il juger une politique d'adaptation sur l'ampleur des dégâts subis, ou sur le coût de ce qu'il faudrait engager ?",
+    "engagement_sentence_alt": [
+      "Un silence dans les déclarations de l'été vaut-il pour un arrêt de l'action publique ?",
+      "Une contrainte budgétaire annoncée est-elle un arbitrage à discuter ou un prétexte à démasquer ?",
+      "Un dégât prévisible était-il pour autant évitable dans l'été même ?"
+    ],
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "Que coûteraient les mesures structurelles réclamées, comparées aux 10 à 15 milliards de dégâts ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_1",
+        "question": "Quelle part d'une surmortalité estivale est attribuable à la chaleur, et selon quelle méthode ?",
+        "type": "topic_substance"
+      },
+      {
+        "id": "q_2",
+        "question": "Quelles mesures d'adaptation déjà déployées ont produit des effets mesurables cet été ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_3",
+        "question": "Le vocabulaire employé pour l'exécutif a-t-il pesé sur votre lecture des chiffres ?",
+        "type": "reader_bias"
+      }
+    ]
+  },
+  "display": {
+    "thesis_frame": {
+      "main_claim": "Un choc climatique prévisible reçoit de l'exécutif des réponses d'urgence sans commune mesure avec les dégâts.",
+      "out_of_scope": [
+        "La réalité physique du réchauffement climatique",
+        "La part française dans les émissions mondiales",
+        "Le coût des énergies renouvelables"
+      ]
+    },
+    "payoff": "Rapporter un chiffre choc à son **échelle** et à son **terme de comparaison**.",
+    "framing": "L'été météorologique traité comme un **test de l'action publique**.",
+    "why_selected": "Restrictions d'eau dans **74 départements**, débroussaillage appliqué à 30 %, PPRIF rares : l'article rapporte les annonces de l'État à ces ordres de grandeur, secteur par secteur.\nLe **débat budgétaire d'octobre** s'ouvre dans six semaines, avec des dizaines de milliards d'économies annoncées : chacun y arrive avec ses chiffres.",
+    "selection_headline": "Un bilan sectoriel, à six semaines des arbitrages",
+    "selection_headline_alt": [
+      "74 départements sous restriction, une réponse à chiffrer",
+      "Les dégâts secteur par secteur, l'octobre budgétaire en ligne de mire",
+      "Ce que l'été a coûté, ce que l'automne va trancher"
+    ],
+    "ethics": "Deux points de vigilance, aucun manquement grave.",
+    "pre_reading": [
+      "Le sujet réel est l'action publique, pas la météo.",
+      "Un seul rapport fournit diagnostic et remèdes."
+    ],
+    "watch_out": [
+      {
+        "label": "Conclusion qui dépasse la prémisse",
+        "text": "Un cap budgétaire global sert à trancher le sort d'une **ligne particulière**."
+      },
+      {
+        "label": "Langage chargé",
+        "text": "Les mots évaluatifs tombent tous du **même côté** du débat."
+      }
+    ],
+    "strengths": [
+      {
+        "label": "Clarté",
+        "text": "Chaque impact est ancré dans un **ordre de grandeur concret**, secteur par secteur."
+      },
+      {
+        "label": "Transparence de l'angle",
+        "text": "La position est **énoncée dès le chapô** : le lecteur sait d'où l'on parle."
+      }
+    ],
+    "distill_points": [
+      "L'intention prêtée à l'exécutif est imputée là où l'arbitrage n'est pas documenté.",
+      "L'accumulation des dégâts fournit l'unité de mesure que le chiffrage des mesures ne donne pas.",
+      "Un même rapport fournit à l'article son diagnostic et son remède, sans lecture concurrente."
+    ],
+    "after_reading": [
+      "Sans le coût des mesures, pas de jugement possible.",
+      "Distinguez ce qui est documenté de ce qui est imputé.",
+      "Cherchez ailleurs ce qui a fonctionné cet été."
+    ],
+    "key_takeaways": [
+      {
+        "text": "Cinq vagues de chaleur en 2026, juin puis juillet successivement records.",
+        "selected": true
+      },
+      {
+        "text": "93 700 hectares de forêt brûlés à la mi-août, dont 37 000 à Saumos.",
+        "selected": true
+      },
+      {
+        "text": "Restrictions de prélèvements d'eau dans 74 départements ; l'irrigation pèse 60 % de la consommation.",
+        "selected": true
+      },
+      {
+        "text": "La ministre de l'Écologie a chiffré l'été entre 10 et 15 milliards d'euros.",
+        "selected": false
+      },
+      {
+        "text": "L'obligation de débroussaillage est appliquée à environ 30 % ; les PPRIF restent rares.",
+        "selected": false
+      },
+      {
+        "text": "La forêt française est morcelée entre plus de 3 millions de propriétaires.",
+        "selected": false
+      }
+    ],
+    "blind_spots": [
+      "Le coût des mesures structurelles préconisées n'est jamais chiffré.",
+      "L'exécutif et les agriculteurs irrigants mis en cause ne sont pas sollicités."
+    ],
+    "balance": [
+      "Un texte d'opinion assumé n'a pas à présenter tous les camps.",
+      "Le chiffrage manquant tient à la comparaison proposée, pas au genre."
+    ],
+    "lenses": [],
+    "reading_beats": [
+      {
+        "moment": "Le bilan humain qui ouvre l'article",
+        "quote": "les premiers bilans font état d'une surmortalité importante : près de 6 000 décès de plus pour la seule période du 17 juin au 2 juillet toutes causes confondues",
+        "lens_ref": "chiffres",
+        "lens_question": "Un décompte de décès : mesuré comment, et par qui ?",
+        "note": "Devant un bilan humain, cherchez la **méthode de comptage** et l'**attribution de cause**.",
+        "answer": "Une surmortalité toutes causes est un **écart à une mortalité attendue**, pas un décompte de victimes de la chaleur. Les « premiers bilans » ne sont pas nommés ; l'article n'en donne ni la source ni le calcul.",
+        "figure": "6 000",
+        "figure_label": "décès de plus, du 17 juin au 2 juillet",
+        "figure_caption": "toutes causes confondues",
+        "factcheck": "likely true",
+        "selected": true,
+        "theme": "Bilan sanitaire",
+        "centrality": 4,
+        "kind": "statistique",
+        "role": "appui",
+        "rationale": "Chiffre d'ouverture, portée la moins établie"
+      },
+      {
+        "moment": "Le décompte des hectares brûlés",
+        "quote": "elle avait déjà perdu un peu plus de 93 700 hectares de forêt à la mi-août1, dont 65 100 depuis le 1er juillet et 37 000 pour le seul feu parti de Saumos, en Gironde",
+        "lens_ref": "chiffres",
+        "lens_question": "Une surface détruite : quelle part du total ?",
+        "note": "Un chiffre vérifiable n'est pas encore un chiffre **mis en perspective**.",
+        "answer": "Les surfaces renvoient à une note de bas de page et concordent avec les bases publiques. Rapportées aux **17 millions d'hectares** de forêt française, elles pèsent environ **0,5 %** — proportion que le texte ne mentionne qu'une fois.",
+        "figure": "93 700",
+        "figure_label": "hectares de forêt brûlés à la mi-août",
+        "figure_caption": "sur ~17 millions d'hectares de forêt française",
+        "factcheck": "true",
+        "selected": false,
+        "theme": "Incendies",
+        "centrality": 3,
+        "kind": "statistique",
+        "role": "preuve",
+        "rationale": "Solide mais deuxième beat chiffré"
+      },
+      {
+        "moment": "L'estimation du coût de l'été",
+        "quote": "La ministre de l'Ecologie a avancé le 12 août le chiffre de 10 à 15 milliards d'euros.",
+        "lens_ref": "sources",
+        "lens_question": "Un ordre de grandeur officiel : consolidé, ou provisoire ?",
+        "note": "Quand une autorité avance une fourchette, cherchez ce qu'elle **inclut** et à quelle **date**.",
+        "answer": "L'estimation est datée et attribuée, et le texte signale lui-même que le total reste impossible à consolider. C'est pourtant ce montant qui sert ensuite de **terme de comparaison** aux annonces publiques.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "disputed",
+        "selected": false,
+        "theme": "Coût de l'été",
+        "centrality": 4,
+        "kind": "fait",
+        "role": "pivot",
+        "rationale": "Pivot de la comparaison centrale"
+      },
+      {
+        "moment": "La sécheresse agricole, deux volets",
+        "quote": "La sécheresse agricole a, quant à elle, fait l'objet d'un traitement schizophrène.",
+        "lens_ref": "opinion_fait",
+        "lens_question": "Un mot évaluatif : constat, ou appréciation posée d'avance ?",
+        "note": "Repérez le **mot qui qualifie** une intention avant que les faits ne soient décrits.",
+        "answer": "Le mot précède la description des deux volets — aides d'urgence d'un côté, modèle irrigant inchangé de l'autre. Le texte n'interroge pas ailleurs **qui décide** de ce modèle : aucun agriculteur irrigant n'est cité.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "Modèle agricole",
+        "centrality": 4,
+        "kind": "biais",
+        "role": "appui",
+        "rationale": "Couvre l'enjeu agricole et le lexique"
+      },
+      {
+        "moment": "L'accusation centrale sur la réponse publique",
+        "quote": "Esquivant les enjeux structurels – dont la prise en compte est synonyme de coûts publics et de réglementations qui font des mécontents –, la réponse de l'exécutif, les yeux rivés sur le déficit budgétaire, a traité l'urgence estivale à la sauce minimaliste.",
+        "lens_ref": "equilibre",
+        "lens_question": "Qui est mis en cause ici — et a-t-il pu répondre ?",
+        "note": "Quand un motif est prêté à un acteur nommé, cherchez la **trace de sa réponse**.",
+        "answer": "Le motif — ménager les mécontents — est posé entre tirets comme un constat. Aucune déclaration ni arbitrage n'est cité à l'appui, et **le coût des mesures esquivées** n'apparaît nulle part dans le texte.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "unverifiable",
+        "selected": true,
+        "theme": "Réponse publique",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "pivot",
+        "rationale": "Cœur de la thèse, motif imputé"
+      },
+      {
+        "moment": "Le silence sur les propositions structurelles",
+        "quote": "Sur leurs propositions, le silence a au contraire été assourdissant.",
+        "lens_ref": "angles_morts",
+        "lens_question": "Un silence observé : sur quelle période, et où ?",
+        "note": "Un silence se mesure sur un **périmètre** : demandez lequel a été observé.",
+        "answer": "Le périmètre retenu est celui des **déclarations de l'été**. Les plans d'adaptation et les moyens engagés les années précédentes ne sont pas rappelés, alors que le texte note un été moins meurtrier qu'en 2003.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Périmètre d'observation",
+        "centrality": 4,
+        "kind": "enjeu",
+        "role": "appui",
+        "rationale": "Bon angle mort mais recoupe le beat 5"
+      },
+      {
+        "moment": "La prévention des feux, règles et application",
+        "quote": "Derrière les incendies, il y a le serpent de mer de la difficile valorisation de la forêt française, d'autant plus qu'elle est morcelée entre plus de 3 millions de propriétaires.",
+        "lens_ref": "causalite",
+        "lens_question": "Une règle mal appliquée : qui en détient le levier ?",
+        "note": "Devant un manquement local, cherchez **qui détient la compétence** en droit.",
+        "answer": "Le morcellement en 3 millions de propriétaires et le **laxisme communal** sont désignés. Les PPRIF relèvent pourtant du préfet, qui les prescrit et les approuve ; l'urbanisme quotidien seul reste communal.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Prévention des feux",
+        "centrality": 4,
+        "kind": "enjeu",
+        "role": "appui",
+        "rationale": "Attribution de responsabilité vérifiable"
+      },
+      {
+        "moment": "La clôture sur le cap budgétaire",
+        "quote": "Pour le débat budgétaire qui s'ouvrira début octobre, le Premier ministre n'est pas revenu sur le cap fixé avant l'été : pas de hausses d'impôt et 30 à 50 milliards d'économies.",
+        "lens_ref": "sophismes",
+        "lens_question": "Un cadre général : suffit-il à trancher un cas précis ?",
+        "note": "Vérifiez si un cap **global** est lu comme le sort d'une **ligne particulière**.",
+        "answer": "Un niveau global de recettes et de dépenses ne détermine pas leur répartition interne. Le texte paraît **six semaines avant l'arbitrage** : le bilan estival y devient une pièce de la négociation.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Cadre budgétaire",
+        "centrality": 3,
+        "kind": "biais",
+        "role": "mise en scène",
+        "rationale": "Beau saut logique, mais clôture stylistique"
+      }
+    ],
+    "global_analysis": {
+      "headline": "Sur quoi cette démonstration repose-t-elle ?",
+      "headline_alt": [
+        "Que faut-il admettre pour que le reproche tienne ?",
+        "Les appuis que le texte ne discute pas",
+        "Ce que la thèse tient pour acquis"
+      ],
+      "core_recap": [
+        "Ses présupposés : l'ampleur des dégâts mesure la défaillance ; l'État décide du modèle agricole ; prévisible vaut évitable"
+      ]
+    },
+    "open_question": "Combien coûteraient les mesures d'adaptation préconisées, comparées aux dégâts chiffrés de l'été ?",
+    "root_issue": "Le fond du problème est le **rythme** : une adaptation réelle mais plus lente que la courbe des impacts ne se distingue pas, sans chiffrage, d'un renoncement.",
+    "steel_man": {
+      "argument": "Débroussaillage, feuillus, rétention d'eau supposent **dix à trente ans** et une adhésion sociale que le texte n'examine pas.",
+      "alternative": "L'opposition se dissout en **question de séquence** : l'été, puis la décennie."
+    },
+    "reperes_headline": "Où l'on est, et d'où l'on parle",
+    "bilan_headline": "Ce que l'été a laissé",
+    "essentiel": [
+      "L'été 2026 a enchaîné cinq vagues de chaleur, juin puis juillet records.",
+      "93 700 hectares brûlés, 74 départements sous restriction d'eau, 10 à 15 milliards de dégâts.",
+      "L'article conclut que la réponse publique est restée sans commune mesure avec ces dégâts."
+    ],
+    "essentiel_summary": "L'été 2026 a enchaîné **cinq vagues de chaleur** : près de 6 000 décès de plus en quinze jours, **93 700 hectares** de forêt brûlés, restrictions d'eau dans 74 départements, débroussaillage appliqué à 30 %. Coût avancé par la ministre : **10 à 15 milliards**. L'article conclut que les annonces de l'État sont restées sans commune mesure."
+  }
+}

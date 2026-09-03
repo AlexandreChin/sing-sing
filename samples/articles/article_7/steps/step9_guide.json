@@ -1,0 +1,65 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Gardez en tête que le sujet réel n'est pas la météo de l'été mais **l'action publique** : les dégâts servent d'échelle à laquelle les annonces seront ensuite rapportées.",
+      "Repérez dès l'entrée que le texte adopte le **diagnostic et les remèdes d'un seul rapport**, celui du Haut Conseil pour le climat, sans lecture concurrente.",
+      "Notez au passage les **chiffres qui manquent** autant que ceux qui sont donnés : le coût des dégâts est estimé, celui des mesures préconisées ne l'est jamais."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "text": "La comparaison centrale du texte oppose un montant connu à un montant absent : les dégâts sont chiffrés en milliards, mais **le coût des mesures préconisées n'apparaît nulle part**. Sans ce second terme, l'écart mesure une intention, pas une insuffisance démontrée.",
+          "references": [
+            "bs_0",
+            "er_0",
+            "pr_2"
+          ]
+        },
+        {
+          "text": "Le motif prêté à l'exécutif — ménager les mécontents — est présenté comme un fait alors qu'il relève de l'interprétation, et **aucune réponse n'a été sollicitée** auprès des responsables nommément mis en cause. L'intention est imputée là où l'arbitrage n'est pas documenté.",
+          "references": [
+            "claim_3",
+            "er_1",
+            "bs_1"
+          ]
+        },
+        {
+          "text": "Le chiffre d'ouverture est une **surmortalité toutes causes confondues** : un écart à une mortalité attendue, pas un décompte de victimes de la chaleur. Ni la source ni la méthode ne sont précisées, alors que c'est le chiffre le plus frappant du texte.",
+          "references": [
+            "claim_0",
+            "obs_4",
+            "bs_3"
+          ]
+        },
+        {
+          "text": "Un cap budgétaire global — pas de hausses d'impôt, des dizaines de milliards d'économies — est lu comme le sort réservé aux seuls crédits d'adaptation. **Le passage du général au particulier demanderait une preuve séparée** qui n'est pas apportée.",
+          "references": [
+            "lr_3",
+            "cb_1",
+            "bias_2"
+          ]
+        },
+        {
+          "text": "Les grandeurs sont livrées en valeur absolue, sans dénominateur qui permette de les situer. **Un chiffre vérifiable n'est pas pour autant mis en perspective.**",
+          "references": [
+            "obs_3",
+            "claim_1",
+            "obs_2"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Demandez-vous ce que coûteraient les mesures réclamées : sans ce montant, **vous ne pouvez pas juger** si la réponse publique est faible ou seulement plus lente qu'espéré.",
+      "Distinguez ce que le texte documente — des dégâts datés et sectorisés — de ce qu'il **impute** : les raisons des arbitrages budgétaires.",
+      "Cherchez ailleurs ce que l'article ne fait qu'effleurer : **ce qui a fonctionné** cet été, un été moins meurtrier qu'en 2003, n'y est jamais inventorié.",
+      "Comptez les mots évaluatifs et regardez de quel côté ils tombent : **le lexique porte ici une part de la conclusion**."
+    ],
+    "title_note": "Le titre annonce un bilan saisonnier quand le chapô désigne l'exécutif comme sujet réel, et l'adjectif employé fait tenir chaleur et incendies dans un même mot déjà évaluatif.",
+    "perspective": {
+      "framing": "L'article traite l'été météorologique comme un **test de l'action publique** : huit paragraphes recensent secteur par secteur — santé, eau, forêt, agriculture, énergie, logement — des impacts chiffrés et datés, avant que la réponse gouvernementale ne soit mise en regard. Le registre est celui de l'accumulation et de l'urgence, et le point de vue, assumé dès le chapô, est celui des acteurs de l'adaptation climatique : Haut Conseil pour le climat, chercheurs, associations.",
+      "blind_spots": "Le coût des mesures structurelles préconisées n'est **jamais chiffré**, alors que c'est le terme de comparaison de tout le texte. L'adaptation déjà engagée n'apparaît qu'en incise, sans que ce qui a produit des effets mesurables soit inventorié, et l'exécutif mis en cause n'a pas été sollicité.",
+      "balance": "Un texte d'opinion assumé n'a pas à présenter tous les camps : la position est annoncée d'entrée, et le lecteur sait d'où l'on parle. **Le chiffrage manquant reste toutefois d'un autre ordre** — il ne tient pas au format court ni au genre éditorial, mais à la comparaison même que l'article propose comme démonstration."
+    }
+  }
+}

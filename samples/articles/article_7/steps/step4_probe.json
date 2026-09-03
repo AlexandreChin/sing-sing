@@ -1,0 +1,152 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "les premiers bilans font état d’une surmortalité importante : près de 6 000 décès de plus pour la seule période du 17 juin au 2 juillet toutes causes confondues",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Attribution",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre mesure un **écart à une mortalité attendue**, toutes causes confondues, et non des décès attribués à la chaleur ; les « premiers bilans » ne sont pas nommés.",
+        "external_sources": [
+          {
+            "name": "Santé publique France, bulletins de surveillance de la mortalité estivale",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Insee, statistiques de décès quotidiens",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 75
+      },
+      {
+        "quote": "elle avait déjà perdu un peu plus de 93 700 hectares de forêt à la mi-août1, dont 65 100 depuis le 1er juillet et 37 000 pour le seul feu parti de Saumos, en Gironde",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Quantification",
+          "strength": 0.85,
+          "nature": "illustration"
+        },
+        "explanation": "Les surfaces sont données en **valeur absolue** avec une note de bas de page, sans le dénominateur des 17 millions d'hectares de forêt française rappelé ailleurs.",
+        "external_sources": [
+          {
+            "name": "Système européen d'information sur les feux de forêt (EFFIS)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Base de données sur les incendies de forêt en France (BDIFF)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 85
+      },
+      {
+        "quote": "La ministre de l’Ecologie a avancé le 12 août le chiffre de 10 à 15 milliards d’euros.",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Accablement",
+          "strength": 0.8,
+          "nature": "nuance"
+        },
+        "explanation": "L'estimation est **datée et attribuée**, et le texte précise lui-même que le coût total reste impossible à consolider à ce stade.",
+        "external_sources": [
+          {
+            "name": "Ministère de la Transition écologique, déclaration du 12 août 2026",
+            "supports": "validates",
+            "evidence_type": "party_statement"
+          },
+          {
+            "name": "France Assureurs, estimations de sinistralité climatique",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 55
+      },
+      {
+        "quote": "Esquivant les enjeux structurels – dont la prise en compte est synonyme de coûts publics et de réglementations qui font des mécontents –, la réponse de l’exécutif, les yeux rivés sur le déficit budgétaire, a traité l’urgence estivale à la sauce minimaliste.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Indignation",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Le **motif prêté à l'exécutif** — éviter les mécontents — est posé entre tirets comme un constat, sans déclaration ni arbitrage cité à l'appui.",
+        "external_sources": [
+          {
+            "name": "Déclarations gouvernementales de l'été 2026",
+            "supports": "neutral",
+            "evidence_type": "party_statement"
+          },
+          {
+            "name": "Haut Conseil pour le climat, rapport annuel 2026",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": null
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "Et longue est la liste des autres coûts humains : accroissement des cas de noyade, aggravation de la pollution à l’ozone, hausse des troubles psychologiques, pathologies plus difficiles à supporter, pénibilité du travail et du quotidien.",
+        "item_type": "bias",
+        "label": "accumulation de détails",
+        "effect": "Remarquez comment l'énumération sans chiffre ni source **prolonge l'échelle des dégâts** installée par les paragraphes précédents.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Accablement",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "La sécheresse agricole a, quant à elle, fait l’objet d’un traitement schizophrène.",
+        "item_type": "bias",
+        "label": "langage chargé",
+        "effect": "Remarquez comment un mot évaluatif **qualifie l'intention publique** avant que les deux volets du traitement ne soient décrits.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Indignation",
+          "strength": 0.85,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Pour le débat budgétaire qui s’ouvrira début octobre, le Premier ministre n’est pas revenu sur le cap fixé avant l’été : pas de hausses d’impôt et 30 à 50 milliards d’économies.",
+        "item_type": "fallacy",
+        "label": "conclusion qui dépasse la prémisse",
+        "effect": "Remarquez comment un cap sur le **niveau global** des recettes et des dépenses est lu comme le sort réservé aux crédits d'adaptation.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "L'argument de la dépense publique d'adaptation dans le débat budgétaire d'octobre",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "La maison a beau brûler, les chefs regardent ailleurs.",
+      "proves": {
+        "type": "observation",
+        "label": "Temporalité",
+        "strength": 0.85,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase retourne une formule connue pour poser que **l'attention manque, pas l'information**. Elle sous-entend que les décideurs ont vu et choisi de détourner le regard. Elle ne dit pas vers quoi ils regardent — quels arbitrages occupent la place, et à quel prix ?"
+    }
+  }
+}

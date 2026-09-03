@@ -1,0 +1,65 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Repérez dès l'ouverture le sujet annoncé — une qualification pénale — puis notez à quelle minute la discussion passe aux pourcentages : c'est là que le débat change de nature.",
+      "Gardez en tête qu'un chiffre d'émissions n'a de sens qu'avec son périmètre : émissions produites sur le territoire ou empreinte incluant les importations, les deux ne racontent pas la même histoire.",
+      "Regardez la composition du plateau avant d'écouter les arguments, et demandez-vous quelle compétence manque par rapport à la question posée en ouverture."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "text": "Le bilan humain du dérèglement ouvre la discussion puis disparaît : l'adaptation — santé, logement, travail — n'occupe presque aucun temps. L'urgence installée au début sert de décor à un débat qui ne la traite pas.",
+          "references": [
+            "bs_2",
+            "er_0",
+            "bias_0"
+          ]
+        },
+        {
+          "text": "La question de droit posée au départ cède la place à une comparaison d'efficacité économique, sans que ce déplacement soit annoncé. L'argument qui dispose de séries chiffrées en sort mécaniquement avantagé.",
+          "references": [
+            "ia_0",
+            "cb_0",
+            "obs_3"
+          ]
+        },
+        {
+          "text": "Les chiffres censés montrer une baisse des émissions ne portent que sur le territoire national et laissent de côté ce qui est importé. Ce périmètre n'est jamais précisé à l'antenne, donc jamais contestable.",
+          "references": [
+            "ia_1",
+            "claim_0",
+            "lr_2"
+          ]
+        },
+        {
+          "text": "Une baisse de consommation de carburants survenue pendant une crise géopolitique est présentée comme la preuve qu'une taxe fonctionne, alors que l'organisme cité l'explique par la météo. Un prix subi et un prix décidé ne démontrent pas la même chose.",
+          "references": [
+            "pr_2",
+            "lr_1",
+            "claim_1"
+          ]
+        },
+        {
+          "text": "Le texte qui sert de point de départ est discuté sans aucun de ses auteurs, et l'entreprise nommément visée pendant tout l'échange n'est jamais sollicitée. L'appartenance institutionnelle d'un intervenant est annoncée sans que son mode de financement soit précisé.",
+          "references": [
+            "bs_1",
+            "bs_3",
+            "obs_1"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Demandez systématiquement la source et le périmètre de tout chiffre d'émissions entendu dans un débat climatique — sans eux, la comparaison ne mesure rien.",
+      "Distinguez le débat sur un mot du débat sur le dispositif juridique qu'il permettrait : ici, seul le premier a eu lieu.",
+      "Notez qui est absent d'un plateau autant que qui y parle — le casting prédit souvent l'issue mieux que les arguments.",
+      "Retenez que le temps accordé à chaque volet du sujet est un choix éditorial : l'adaptation était annoncée, elle n'a pas été traitée."
+    ],
+    "title_note": null,
+    "perspective": {
+      "framing": "L'émission traite un néologisme pénal comme une question d'opportunité économique : le mot est défini, ses effets discutés, puis les invités sont départagés sur des séries chiffrées d'émissions et de PIB. Le registre est celui de l'urgence installée à l'ouverture par un bilan de décès, puis d'un arbitrage entre instruments — fiscalité, marché, responsabilité des entreprises — porté par des voix positionnées en une phrase chacune.",
+      "blind_spots": "Le dispositif juridique visé n'est jamais décrit, alors que le délit d'écocide existe déjà en droit français depuis 2021 : ni juriste ni signataire de la tribune n'est présent pour l'exposer. L'adaptation au réchauffement — santé, logement, travail — annoncée par les chiffres d'ouverture, est reléguée en toute fin d'émission.",
+      "balance": "Un débat d'actualité en plateau vit de la confrontation d'opinions et non de l'expertise technique : réunir trois positions clairement identifiées est le format assumé, pas un manquement. Le temps disponible interdit d'ouvrir à la fois le droit pénal de l'environnement, la fiscalité carbone et l'adaptation ; ce qui reste discutable, c'est le choix d'ouvrir sur un sujet juridique sans personne pour le porter, et de laisser passer des chiffres sans source ni périmètre."
+    }
+  }
+}

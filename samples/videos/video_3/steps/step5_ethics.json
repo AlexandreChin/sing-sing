@@ -1,0 +1,47 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "eth1",
+        "category": "conflict_of_interest",
+        "label": "Conflict of Interest",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "Vous êtes directeur des études de l'Institut de l'entreprise.",
+        "explanation": "Le financement patronal du think tank n'est pas précisé, alors que l'intervenant défend les entreprises."
+      },
+      {
+        "id": "eth2",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Le 24 juin dernier, jour le plus chaud de l'histoire de France, le géant français signe un nouveau contrat gazier aux Émirats arabes unis.",
+        "explanation": "TotalEnergies, nommément visée pendant tout le débat, n'est sollicitée à aucun moment."
+      },
+      {
+        "id": "eth3",
+        "category": "sensationalism",
+        "label": "Sensationalism",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "plus de 2000 personnes décédées et 72 départements placés dès demain en vigilance orange",
+        "explanation": "Le bilan humain sert d'ouverture dramatique sans être exploité ensuite dans la discussion."
+      },
+      {
+        "id": "eth4",
+        "category": "false_statistics",
+        "label": "False Statistics",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "pour produire 1 million de richesse aujourd'hui il faut utiliser à peu près 350000 tonnes de de CO2 au niveau mondial en Chine c'est 40 en Chine c'est 491 en Russie 458 dans l'Union européenne c'est 134 en France c'est 108",
+        "explanation": "Des ratios aux unités inexpliquées et invérifiables à l'antenne sont opposés sans contradiction ni vérification."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Préciser le financement de l'Institut de l'entreprise, signaler l'absence de réponse de TotalEnergies et vérifier les ratios cités à l'antenne."
+    },
+    "summary": "La déontologie n'est pas entièrement propre : quatre points de vigilance, dont un intérêt institutionnel non explicité et des chiffres invérifiables laissés sans contradiction. Aucun manquement grave n'est constitué."
+  }
+}

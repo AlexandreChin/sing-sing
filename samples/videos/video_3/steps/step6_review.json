@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "Le seul chiffre correctement attribué est le **- 4,8 % du Citepa**, nommé et daté ; tout le reste — 34 % d'émissions, 60 % de PIB, ratio « cinq fois plus grande que celle de Total énergie » — circule **sans source à l'antenne**. Le plateau réunit trois voix mais **aucun juriste** sur un sujet d'ouverture pénal, et **aucun signataire de la tribune** qui sert pourtant de point de départ.",
+        "lesson": "Vérifiez qui est absent du plateau avant d'écouter ceux qui sont présents : un texte discuté sans son auteur est un texte sans défense."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 2,
+        "rationale": "Plusieurs assertions vérifiables sont **avancées comme des évidences** : « le marché justement aujourd'hui donne les bons signaux » est une opinion énoncée au présent de constat, et les ratios « 350000 tonnes […] en Chine c'est 491 » sont livrés avec **des unités inexpliquées**. Le rapport Aramco/Total, donné à 55 de confiance, change d'ordre de grandeur selon la base retenue, et le découplage cité est contredit par l'empreinte carbone importée mesurée par le SDES.",
+        "lesson": "Demandez la base de calcul dès qu'un chiffre compare deux acteurs : sans dénominateur commun, le rapport ne mesure rien."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "Deux enchaînements portent le débat et **sautent tous deux un maillon** : la baisse des carburants pendant la crise au Moyen-Orient, choc de prix subi, sert à valider une taxe délibérée, alors que le Citepa attribue lui-même la baisse à un hiver doux. De même, « j'ai plus confiance dans les entreprises qui ont un horizon de long terme » traite **la durée comme une direction**, sans que le sens de la trajectoire soit établi.",
+        "lesson": "Séparez toujours un prix subi d'un prix décidé : les deux font baisser la consommation, un seul est une politique."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "Chaque invité est introduit par **une position résumée en une phrase**, ce qui annonce honnêtement les camps, mais l'appartenance d'Erwan Tison — « Vous êtes directeur des études de l'Institut de l'entreprise » — est mentionnée **sans que le financement patronal soit précisé**. Le glissement du terrain juridique vers le terrain de l'efficacité économique s'opère sans être nommé, et les limites du périmètre territorial des émissions ne sont jamais signalées.",
+        "lesson": "Cherchez qui finance un institut avant de peser l'argument de son représentant : l'étiquette ne dit pas l'intérêt."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "L'émission s'ouvre sur **2000 décès** puis n'accorde presque aucune minute à l'adaptation — santé, logement, travail — reléguée en toute fin. Les séries chiffrées occupent la moitié du débat tandis que le **dispositif juridique** que désignerait le globocide n'est jamais décrit, alors que l'écocide figure déjà dans le droit français depuis 2021 comme délit.",
+        "lesson": "Comptez le temps accordé à chaque sujet : ce qui ouvre une émission n'est pas forcément ce qu'elle traite."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 3,
+        "rationale": "Les positions s'expriment sans être coupées et la relance de l'invitée — « ce qui m'intéresse c'est d'avoir des revendications actionnables » — **déplace utilement le débat** du mot vers ses effets. Mais TotalEnergies, nommément visée pendant tout le débat jusqu'au contrat gazier du 24 juin, **n'est sollicitée à aucun moment**, et les affirmations pro-marché passent sans contradiction chiffrée.",
+        "lesson": "Repérez l'entreprise citée mais jamais interrogée : sa place vide dit le format de l'émission."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 3,
+        "rationale": "La chronique lexicale rend le néologisme **immédiatement saisissable** et la conduite par questions garde le fil audible. Mais le contenu arrive **sans titre éditorial** et les notions décisives — périmètre territorial, signal prix, empreinte importée — circulent **sans définition**, laissant le spectateur suivre les chiffres sans pouvoir les situer.",
+        "lesson": "Notez les mots techniques employés sans être définis : ce sont eux qui portent le désaccord réel."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "Confronter une qualification pénale à un instrument fiscal est un **angle réel**, et le rappel du contrat gazier signé « le jour le plus chaud de l'histoire de France » apporte un fait concret. Mais la séquence d'ouverture reste **sur le mot** — définition, effet recherché — quand l'écart avec l'écocide existant porte sur le degré de sanction et la procédure, matière qui n'est jamais ouverte.",
+        "lesson": "Distinguez le débat sur un mot du débat sur ce qu'il permet de faire : les deux ne mènent pas au même endroit."
+      }
+    ],
+    "verdict": {
+      "quality": "instructive_by_contrast",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Le lecteur qui suit les politiques climatiques et veut observer comment un plateau télévisé transforme une question de droit en arbitrage d'efficacité économique.",
+      "payoff": "Vous verrez à quel moment précis un débat change de terrain — du dispositif juridique vers les séries chiffrées — et pourquoi ce déplacement favorise l'argument qui dispose de pourcentages. Vous en sortirez outillé pour repérer les chiffres avancés sans périmètre ni source dans n'importe quelle discussion climatique.",
+      "signature_move": "Le débat d'actualité où chaque invité est introduit par une position résumée en une phrase, puis départagé sur le terrain des chiffres plutôt que sur celui du sujet annoncé.",
+      "main_blind_side": "Aucun juriste ni signataire de la tribune n'est présent alors que l'émission s'ouvre sur la création d'une qualification pénale — un casting choisi pour l'équilibre des opinions plutôt que pour la compétence sur la question posée.",
+      "further_resource": {
+        "title": "Le Prix du carbone : leçons de l'expérience européenne",
+        "source": "Conseil d'analyse économique",
+        "media_type": "report",
+        "why_explore": "Le rapport détaille ce que le signal prix a produit là où il a été appliqué durablement, information absente du plateau alors qu'elle y est invoquée.",
+        "url": null
+      },
+      "summary": "Lecture à réserves : l'émission vaut moins pour ce qu'elle établit que pour ce qu'elle montre d'un glissement de terrain — la question juridique posée en ouverture cède la place à une bataille de pourcentages souvent avancés sans source ni périmètre. Utile à qui veut apprendre à repérer ce déplacement, à condition de vérifier les chiffres ailleurs."
+    }
+  }
+}

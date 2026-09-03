@@ -1,0 +1,29 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "deo1",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Esquivant les enjeux structurels – dont la prise en compte est synonyme de coûts publics et de réglementations qui font des mécontents –, la réponse de l'exécutif, les yeux rivés sur le déficit budgétaire, a traité l'urgence estivale à la sauce minimaliste.",
+        "explanation": "Un motif est prêté à l'exécutif, mis en cause nommément, sans trace de réponse sollicitée."
+      },
+      {
+        "id": "deo2",
+        "category": "false_statistics",
+        "label": "False Statistics",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "les premiers bilans font état d'une surmortalité importante : près de 6 000 décès de plus pour la seule période du 17 juin au 2 juillet toutes causes confondues",
+        "explanation": "Un écart à la mortalité attendue, toutes causes, est présenté comme coût humain de la chaleur."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Solliciter une réponse de l'exécutif et préciser la source et la portée du chiffre de surmortalité avant publication."
+    },
+    "summary": "La déontologie n'est pas entièrement propre : deux points de vigilance, l'absence de réponse sollicitée auprès de l'exécutif mis en cause et un chiffre de surmortalité toutes causes confondues présenté sans sa limite d'interprétation. Aucun manquement grave ni critique n'a été relevé."
+  }
+}
