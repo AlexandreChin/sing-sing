@@ -1,0 +1,157 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "Depuis 1990, la France a baissé ses émissions de gaz à effet de serre, son économie française de 34 %. Or, en parallèle, le PIB français a augmenté de 60 %.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Comparabilité",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Les deux chiffres sont avancés sans source à l'antenne et portent sur les **émissions territoriales**, périmètre qui exclut l'empreinte importée.",
+        "external_sources": [
+          {
+            "name": "Citepa — inventaire national Secten",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "SDES — empreinte carbone de la France",
+            "supports": "contradicts",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Insee — comptes nationaux, PIB en volume",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 75
+      },
+      {
+        "quote": "- 4,8 % euh sur 1 an entre le premier trimestre donc 2025 et celui de cette année. D'après le Citepa, l'organisme qui calcule officiellement les émissions françaises.",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Comparabilité",
+          "strength": 0.85,
+          "nature": "nuance"
+        },
+        "explanation": "Le chiffre est **attribué et daté**, mais il s'agit d'une estimation trimestrielle provisoire, jamais rapportée à la trajectoire annuelle visée.",
+        "external_sources": [
+          {
+            "name": "Citepa — baromètre mensuel des émissions",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Stratégie nationale bas-carbone (SNBC)",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 85
+      },
+      {
+        "quote": "personne ne sait que cette entreprise là pollue à une empreinte polluante cinq fois plus grande que celle de Total énergie",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Le cadrage économique du débat",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "Le rapport est donné sans **base de calcul** : selon qu'on compte la production ou les émissions du groupe, l'écart change d'ordre de grandeur.",
+        "external_sources": [
+          {
+            "name": "Carbon Majors Database (InfluenceMap)",
+            "supports": "neutral",
+            "evidence_type": "academic"
+          },
+          {
+            "name": "Rapports de durabilité TotalEnergies et Saudi Aramco",
+            "supports": "neutral",
+            "evidence_type": "party_statement"
+          }
+        ],
+        "confidence": 55
+      },
+      {
+        "quote": "le marché justement aujourd'hui donne les bons signaux",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Le cadrage économique du débat",
+          "strength": 0.85,
+          "nature": "illustration"
+        },
+        "explanation": "Un **jugement sur le marché** est énoncé au présent de constat, alors que le même intervenant réclame par ailleurs une taxe pour corriger ce signal.",
+        "external_sources": [
+          {
+            "name": "Agence internationale de l'énergie — World Energy Investment",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Institut de l'entreprise — analyses publiées",
+            "supports": "validates",
+            "evidence_type": "party_statement"
+          }
+        ],
+        "confidence": null
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "Avec des pics entre 35 et 40 °C, les deux tiers du pays sont placés en vigilance orange.",
+        "item_type": "bias",
+        "label": "accumulation de chiffres en ouverture",
+        "effect": "Remarquez comment la **succession de mesures** installe l'urgence avant qu'aucun instrument n'ait été nommé.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Accablement",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Il se trouve que les carburants, la consommation de carburant a beaucoup baissé, on sait pourquoi avec la la crise au Moyen-Orient. […] Ce qui veut dire que le signal prix est très efficace",
+        "item_type": "fallacy",
+        "label": "un cas isolé tenu pour preuve générale",
+        "effect": "Remarquez comment une **hausse de prix subie** sur un trimestre devient la démonstration d'une **taxe délibérée**.",
+        "proves": {
+          "type": "observation",
+          "label": "Comparabilité",
+          "strength": 0.85,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "j'ai plus confiance dans les entreprises qui ont un horizon de long terme plutôt que dans les les gouvernements",
+        "item_type": "fallacy",
+        "label": "la durée prise pour une direction",
+        "effect": "Remarquez comment **l'horizon long** est présenté comme suffisant, sans que le sens de la trajectoire soit établi.",
+        "proves": {
+          "type": "observation",
+          "label": "Périmètre",
+          "strength": 0.75,
+          "nature": "nuance"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "ce qui m'intéresse c'est d'avoir des revendications actionnables sur lesquelles on peut agir",
+      "proves": {
+        "type": "observation",
+        "label": "Terminologie",
+        "strength": 0.9,
+        "nature": "illustration"
+      },
+      "analysis": "L'invitée déplace le débat du **mot** vers ce qu'il permet de faire. Elle suggère qu'une qualification pénale non reconnue **n'ouvre aucune procédure**, et propose une étape intermédiaire. Reste posée la question de ce que « actionnable » recouvre : un texte voté, une plainte recevable, ou une tonne de CO2 en moins ?"
+    }
+  }
+}

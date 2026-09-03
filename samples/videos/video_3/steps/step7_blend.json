@@ -1,0 +1,115 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "L'ouverture accumule les chiffres du désastre puis abandonne le bilan humain, si bien que l'urgence installée émotionnellement sert de carburant à un débat qui ne traitera jamais l'adaptation. L'effet dramatique et le trou de contenu sont le même geste éditorial.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "bs_2",
+          "er_0",
+          "bias_0"
+        ]
+      },
+      {
+        "text": "La tribune ouvre l'émission sans qu'aucun signataire soit présent : sa thèse est commentée par une invitée qui a refusé de la signer, ce qui transforme le casting en argument. L'absence structure le résultat du débat avant qu'il commence.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "bs_1",
+          "cb_1",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "Le glissement du terrain juridique vers celui de l'efficacité chiffrée avantage mécaniquement l'instrument qui dispose de pourcentages, et l'hypothèse qui le permet — le mot vaudrait dispositif — n'est jamais formulée. Le déplacement n'est pas nommé, donc il n'est pas discuté.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "ia_0",
+          "cb_0",
+          "obs_3",
+          "focus"
+        ]
+      },
+      {
+        "text": "Les chiffres qui portent le découplage reposent sur les seules émissions territoriales, périmètre jamais signalé alors qu'une source officielle le contredit. La faiblesse de sourçage et l'hypothèse implicite se renforcent : sans périmètre annoncé, le chiffre ne peut pas être contesté à l'antenne.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "ia_1",
+          "claim_0",
+          "obs_4",
+          "lr_2"
+        ]
+      },
+      {
+        "text": "La baisse des carburants pendant une crise géopolitique — donc un prix subi — est convertie en preuve d'une taxe délibérée, alors que l'organisme cité attribue lui-même la baisse à un hiver doux. Le cas isolé tient lieu de mécanisme général parce que la prémisse économique n'est jamais mise à l'épreuve.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "pr_2",
+          "lr_1",
+          "bias_1",
+          "claim_1"
+        ]
+      },
+      {
+        "text": "L'appartenance de l'intervenant pro-marché est annoncée mais son financement patronal reste tu, et ses affirmations passent sans contradiction chiffrée. L'étiquette donnée sans l'intérêt produit une transparence apparente qui dispense d'examiner la position.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "bs_3",
+          "claim_3",
+          "cb_0"
+        ]
+      },
+      {
+        "text": "« J'ai plus confiance dans les entreprises qui ont un horizon de long terme » traite la durée comme une direction, et le contrat gazier signé le jour le plus chaud de l'année figure dans l'émission sans être opposé à cette confiance. Le fait contradictoire est présent mais jamais mis en face de l'argument.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "ia_3",
+          "lr_3",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "Les notions qui portent le désaccord réel — périmètre territorial, signal prix, empreinte importée — circulent sans définition tandis que le néologisme reçoit une chronique entière. L'effort de clarté se porte sur le mot en débat, pas sur les outils de mesure qui départagent.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "obs_3",
+          "obs_4",
+          "ia_1"
+        ]
+      }
+    ]
+  }
+}

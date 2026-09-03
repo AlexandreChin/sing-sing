@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 3,
+        "rationale": "Les chiffres lourds sont **datés et attribués** — l'estimation de 10 à 15 milliards est rapportée à la ministre de l'Écologie le 12 août, les hectares brûlés renvoient à une note de bas de page. Mais la surmortalité repose sur des « **premiers bilans** » jamais nommés, et l'expertise mobilisée reste d'un seul côté : Haut Conseil pour le climat, chercheurs et associations, sans contre-expertise ni parole des acteurs mis en cause.",
+        "lesson": "Vérifiez qui parle derrière un chiffre : une formule comme « les premiers bilans » ou « les scientifiques » désigne une autorité sans permettre de la retrouver."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "Les surfaces forestières sont vérifiables et concordantes avec les bases publiques (confiance 85), et le texte signale lui-même que le coût total reste impossible à consolider. En revanche, les 6 000 décès **toutes causes confondues** ouvrent l'article comme un coût de la chaleur alors qu'ils mesurent un écart à une mortalité attendue, et le motif prêté à l'exécutif est classé `opinion_stated_as_fact`.",
+        "lesson": "Distinguez une surmortalité d'un décompte de victimes : le premier est un écart statistique, le second une attribution de cause."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 3,
+        "rationale": "La chaîne est lisible : dégâts documentés, rattachement à une tendance de fond, puis mise en regard des annonces. Deux maillons portent le poids sans l'étayer — le `logical_reasoning` relève qu'un cap budgétaire global (« pas de hausses d'impôt et 30 à 50 milliards d'économies ») est lu comme le sort des crédits d'adaptation, et que le caractère systémique du choc est censé dicter à lui seul la nature de la réponse.",
+        "lesson": "Repérez le moment où un constat global sert à trancher un arbitrage particulier : le passage de l'un à l'autre demande une preuve séparée."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 3,
+        "rationale": "Le point de vue est assumé sans détour : le chapô énonce le jugement sur l'action publique, le lecteur sait dès l'entrée d'où l'on parle. Mais les limites, elles, restent tues — les `implicit_assumptions` montrent que prévisible y vaut évitable, et que le silence estival sur les enjeux structurels est pris pour l'état de l'action publique, sans que ces glissements soient signalés.",
+        "lesson": "Séparez l'angle affiché des présupposés tus : un texte peut annoncer clairement sa position tout en laissant ses appuis implicites hors du champ."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Le recensement sectoriel — santé, eau, forêt, agriculture, énergie, logement — est dense et daté, mais l'`emphasis` note huit paragraphes de dégâts contre deux de réponse publique, et le coût des mesures structurelles préconisées n'est rapporté à **aucun montant**. L'adaptation déjà engagée n'apparaît qu'en incise : l'été fut moins meurtrier qu'en 2003 sans que ce qui a fonctionné soit inventorié.",
+        "lesson": "Cherchez le montant manquant : comparer une dépense connue à une alternative jamais chiffrée mesure une intention, pas une insuffisance."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Le vocabulaire évaluatif est réservé à un seul camp — « cosmétiques », « schizophrène », « laxisme », « à la sauce minimaliste » — et l'audit déontologique relève qu'aucune réponse n'a été sollicitée auprès de l'exécutif mis en cause nommément. La chute « **la maison a beau brûler, les chefs regardent ailleurs** » prête une intention sans dire vers quoi ces arbitrages se portent.",
+        "lesson": "Comptez les adjectifs de part et d'autre : quand l'évaluation ne pèse que d'un côté, la conclusion est déjà écrite dans le lexique."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "La progression secteur par secteur est immédiatement lisible et chaque impact est ancré dans un ordre de grandeur concret — 93 700 hectares, dix réacteurs, trois millions d'animaux. Le titre reste toutefois elliptique : il annonce un bilan saisonnier quand le chapô désigne l'exécutif comme sujet réel, et « **brûlant** » fait tenir chaleur et incendies dans un même mot évaluatif.",
+        "lesson": "Confrontez le titre au chapô : l'écart entre les deux révèle souvent le vrai sujet du texte."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "Traiter un été météorologique comme un **test de l'action publique** donne une prise que le récit d'événements n'offre pas, et l'articulation au calendrier budgétaire d'octobre donne au bilan une portée pratique. L'angle reste cependant celui du rapport du Haut Conseil pour le climat du 10 juillet, dont le mot d'ordre organise le texte sans qu'une lecture concurrente vienne l'éprouver.",
+        "lesson": "Identifiez le document qui structure un article : quand un rapport fournit à la fois le diagnostic et le remède, l'angle en épouse les limites."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Un lecteur qui suit les politiques d'adaptation climatique — agent territorial, journaliste, militant associatif — et cherche un inventaire chiffré et daté des impacts de l'été 2026 secteur par secteur.",
+      "payoff": "Vous repartez avec une base chiffrée solide sur les dégâts sanitaires, forestiers, agricoles et énergétiques, et avec la liste des mesures structurelles portées par le Haut Conseil pour le climat. Vous devrez chercher ailleurs le coût de ces mesures et les arbitrages invoqués par l'exécutif, absents du texte.",
+      "signature_move": "L'accumulation chiffrée de huit paragraphes de dégâts avant toute question politique, qui installe une échelle à laquelle chaque montant annoncé sera ensuite rapporté.",
+      "main_blind_side": "Le coût des mesures préconisées n'est jamais chiffré, ce qui laisse la comparaison décisive du texte — 20 millions pour l'ONF face à 10-15 milliards de dégâts — opposer un montant connu à un montant absent.",
+      "further_resource": {
+        "title": "Rapport annuel 2026 — Adaptation au changement climatique",
+        "source": "Haut Conseil pour le climat",
+        "media_type": "report",
+        "why_explore": "Lire directement le document qui fournit à l'article son diagnostic et son mot d'ordre permet de voir ce que le texte en retient et ce qu'il laisse de côté.",
+        "url": "https://www.hautconseilclimat.fr/publications/"
+      },
+      "summary": "Lecture utile avec réserves pour qui suit le dossier de l'adaptation climatique : le recensement chiffré des dégâts de l'été est solide et daté, mais la comparaison avec la réponse publique repose sur un coût des mesures structurelles jamais chiffré et sur un vocabulaire évaluatif réservé à l'exécutif, qui n'a pas été sollicité."
+    }
+  }
+}

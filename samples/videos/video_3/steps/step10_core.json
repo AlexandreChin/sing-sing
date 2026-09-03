@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Le débat oppose contrainte juridique et signal prix comme voies de réduction des émissions.",
+      "kind": "angle",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "renchérir le carbone réduit mécaniquement sa consommation",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Une tribune propose le mot « globocide » pour qualifier l'atteinte à l'habitabilité de la planète.",
+      "kind": "affirmation",
+      "centrality": 5,
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "tribune signée par plus de cent personnalités paraît dans Le Monde",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "Les émissions françaises baissent de 4,8 % au trimestre, surtout grâce à un hiver doux.",
+      "kind": "fait",
+      "centrality": 4,
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "la France s'est fixé une baisse d'environ - 5 % par an jusqu'en 2030",
+        "strength": 0.85,
+        "nature": "contradiction"
+      }
+    },
+    {
+      "statement": "Le coût social de la transition : précarité énergétique et acceptabilité d'une taxe carbone.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 2,
+        "excerpt": "une baisse d'émissions vaudrait par elle-même, indépendamment de son coût social",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "statement": "La responsabilité des entreprises fossiles est discutée sans TotalEnergies ni juriste sur le plateau.",
+      "kind": "biais",
+      "centrality": 3,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "aucun juriste alors que le sujet est une qualification pénale",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    }
+  ]
+}

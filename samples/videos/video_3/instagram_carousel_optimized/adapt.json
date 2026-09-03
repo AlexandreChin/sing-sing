@@ -1,0 +1,350 @@
+{
+  "caption": "Une autrice du GIEC et un économiste lisent le même trimestre d'émissions en sens inverse : preuve que le prix du carbone fonctionne, ou qu'il pèse sur les plus modestes. 🌡️\n\n🔎 Les clefs pour suivre ce débat en une minute : ce que mesure vraiment un pourcentage d'émissions, et ce qu'un mot nouveau change au droit existant.\n\n🔗 Lien vers la vidéo en commentaires ↓",
+  "hook": {
+    "topic": "Canicules et **loi** climat",
+    "sub_topic": "Derrière les **pourcentages d'émissions**, sur quoi se joue vraiment le débat ?",
+    "headline": "Derrière les **pourcentages**, sur quoi se joue le débat ?",
+    "context_line": "Troisième vague de chaleur de l'été, 72 départements en vigilance orange, une tribune réclame une loi d'urgence.",
+    "sub_topic_alt": [
+      "Un mot nouveau, ou un **prix** : que peut vraiment le **droit** ?",
+      "Pourquoi un débat sur le **droit pénal** finit-il en **bataille de chiffres** ?",
+      "Un néologisme peut-il faire ce qu'une **taxe gelée** ne fait plus ?"
+    ]
+  },
+  "interest": {
+    "why_read": "Repérer le moment où un débat **change de terrain**.",
+    "pull_quote": "Il y a un sujet sur lequel les économistes sont d'accord, c'est l'importance d'une fiscalité carbone.",
+    "next_slide_hook": "D'abord, ce qui se passait cette semaine-là — et qui parle sur ce plateau."
+  },
+  "title_bullets": [
+    "Notez qu'aucun titre éditorial n'encadre l'émission : le **mot du jour** en tient lieu.",
+    "Repérez le néologisme placé en porte d'entrée, avant toute description du **dispositif** visé."
+  ],
+  "chapo_bullets": [
+    "Observez l'ouverture : les **chiffres du désastre** s'empilent avant qu'un instrument soit nommé.",
+    "Notez que chaque invité arrive avec une **position résumée en une phrase** affichée à l'écran."
+  ],
+  "context_next_slide_hook": "Trois voix annoncées, une question de droit posée : deux points de vigilance.",
+  "watch_out_next_slide_hook": "Voyons maintenant sur quoi la démonstration repose, moment par moment.",
+  "forme_next_slide_hook": "Reste à séparer ce qui est établi de ce qui est affirmé.",
+  "biases_next_slide_hook": "Ce que tout cela laisse au spectateur, en trois signaux.",
+  "engagement_question": "Un mot nouveau dans le droit pénal peut-il déplacer un débat qu'une taxe gelée depuis 2018 n'a pas déplacé ?",
+  "go_further": [
+    {
+      "title": "Le Prix du carbone : leçons de l'expérience européenne",
+      "source": "Conseil d'analyse économique",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": 40,
+      "why_explore": "Détaille ce que le signal prix a produit là où il a été appliqué durablement — information invoquée sur le plateau mais jamais documentée.",
+      "cta_question_index": null
+    },
+    {
+      "title": "L'empreinte carbone des Français : émissions territoriales et importées",
+      "source": "SDES — ministère de la Transition écologique",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": 25,
+      "why_explore": "Donne le périmètre absent du plateau : environ la moitié de l'empreinte française vient des importations.",
+      "cta_question_index": 1
+    },
+    {
+      "title": "Écocide : ce que le droit français prévoit déjà",
+      "source": "Vie publique",
+      "media_type": "article",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": 10,
+      "why_explore": "Décrit le délit inscrit depuis 2021 et la procédure d'un ajout au Statut de Rome, jamais exposées à l'antenne.",
+      "cta_question_index": 0
+    }
+  ],
+  "cta": {
+    "title": "Un mot ne vaut pas encore un dispositif",
+    "engagement_sentence": "Une baisse d'émissions qu'aucune décision n'a produite : est-ce un résultat politique ?",
+    "engagement_sentence_alt": [
+      "Une politique climatique se mesure-t-elle en tonnes évitées, ou en débat rendu possible ?",
+      "Qui détient réellement le levier : l'État qui légifère, ou le prix qui contraint ?",
+      "Un chiffre d'émissions sans périmètre annoncé peut-il encore servir d'argument ?"
+    ],
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "Que manquait-il sur ce plateau pour que la question posée en ouverture reçoive une réponse ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_1",
+        "question": "Un chiffre d'émissions vous suffit-il, ou demandez-vous d'abord ce qu'il inclut ?",
+        "type": "reader_bias"
+      },
+      {
+        "id": "q_2",
+        "question": "Une baisse d'émissions due à un hiver doux mesure-t-elle une politique ?",
+        "type": "topic_substance"
+      }
+    ]
+  },
+  "display": {
+    "thesis_frame": {
+      "main_claim": "Face aux canicules, le plateau oppose contrainte juridique et signal prix comme voies de réduction des émissions.",
+      "out_of_scope": [
+        "La physique du réchauffement et son attribution",
+        "Le contenu détaillé du Green Deal révisé",
+        "Les politiques climatiques hors de France"
+      ]
+    },
+    "payoff": "Situer un **chiffre d'émissions**, un **instrument juridique**, un **coût social** avant de trancher.",
+    "framing": "Une question de **droit pénal** traitée comme un arbitrage d'**efficacité économique**.",
+    "why_selected": "Une autrice du **GIEC** et un économiste lisent les mêmes chiffres en sens inverse : preuve que le prix du carbone marche, ou qu'il épuise les plus modestes.\nLe désaccord est **argumenté des deux côtés**, et il porte sur ce que chacun paiera.",
+    "selection_headline": "Le même trimestre, lu en sens inverse",
+    "selection_headline_alt": [
+      "Le globocide face au signal prix",
+      "Une tribune, une motion rejetée, - 4,8 % d'émissions",
+      "Trois voix, deux instruments, aucun juriste"
+    ],
+    "ethics": "Quatre points de vigilance, aucun manquement grave.",
+    "pre_reading": [
+      "Notez la minute où le droit cède aux **pourcentages**.",
+      "Un chiffre d'émissions n'existe pas sans son **périmètre**."
+    ],
+    "watch_out": [
+      {
+        "label": "solidité du raisonnement",
+        "text": "Une baisse de consommation **subie** sert de preuve à une mesure **décidée**."
+      },
+      {
+        "label": "équilibre du plateau",
+        "text": "Le texte d'ouverture est discuté sans aucun de ses **signataires**."
+      }
+    ],
+    "strengths": [
+      {
+        "label": "Équité de traitement",
+        "text": "Les positions s'expriment sans être coupées, et une relance déplace utilement le débat."
+      },
+      {
+        "label": "Clarté",
+        "text": "La chronique lexicale rend le néologisme immédiatement saisissable, le fil reste audible."
+      }
+    ],
+    "distill_points": [
+      "L'ouverture empile les chiffres du désastre puis abandonne le bilan humain : l'adaptation n'aura presque aucun temps.",
+      "Le débat quitte le droit pour l'efficacité chiffrée, ce qui avantage l'instrument qui dispose de pourcentages.",
+      "Le découplage repose sur les seules émissions territoriales, périmètre jamais annoncé donc jamais contestable."
+    ],
+    "after_reading": [
+      "Demandez la source ET le périmètre de tout chiffre.",
+      "Séparez le débat sur un mot de son dispositif.",
+      "Notez qui est absent d'un plateau, pas seulement qui parle."
+    ],
+    "key_takeaways": [
+      {
+        "text": "L'écocide figure dans le droit français depuis 2021, comme délit et non comme crime.",
+        "selected": true
+      },
+      {
+        "text": "La taxe carbone française est gelée depuis 2018 à 44,60 € la tonne.",
+        "selected": true
+      },
+      {
+        "text": "Les émissions importées pèsent environ la moitié de l'empreinte carbone des Français.",
+        "selected": true
+      },
+      {
+        "text": "Les émissions françaises reculent de 4,8 % sur un trimestre, selon le Citepa.",
+        "selected": false
+      },
+      {
+        "text": "Le Statut de Rome reconnaît quatre crimes ; en ajouter un suppose un amendement voté.",
+        "selected": false
+      },
+      {
+        "text": "La France visait une baisse d'environ 5 % par an jusqu'en 2030.",
+        "selected": false
+      }
+    ],
+    "blind_spots": [
+      "Le dispositif juridique visé n'est jamais décrit, seul le mot l'est.",
+      "L'adaptation — santé, logement, travail — reléguée en toute fin d'émission."
+    ],
+    "balance": [
+      "Un plateau vit d'opinions confrontées, pas d'expertise technique exhaustive.",
+      "Le temps disponible interdit d'ouvrir droit pénal, fiscalité et adaptation ensemble."
+    ],
+    "lenses": [],
+    "reading_beats": [
+      {
+        "moment": "L'ouverture, avant tout argument",
+        "quote": "Avec des pics entre 35 et 40 °C, les deux tiers du pays sont placés en vigilance orange.",
+        "lens_ref": "cadrage",
+        "lens_question": "",
+        "note": "Devant une **accumulation de mesures**, demandez lequel de ces chiffres sera repris ensuite.",
+        "answer": "L'émission s'ouvre aussi sur **2000 décès**, cités une fois puis abandonnés : l'adaptation — santé, logement, travail — n'arrive qu'en toute fin d'émission.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Cadrage d'ouverture",
+        "centrality": 3,
+        "kind": "biais",
+        "role": "mise en scène",
+        "rationale": "L'urgence installée en décor, jamais traitée ensuite"
+      },
+      {
+        "moment": "La question posée en ouverture",
+        "quote": "La reconnaissance du crime de globocide qui porte atteinte à la possibilité même de vivre sur Terre est-elle la solution ?",
+        "lens_ref": "cadrage",
+        "lens_question": "Un mot nouveau, ou un pouvoir nouveau : lequel est en jeu ?",
+        "note": "Quand un **mot nouveau** est proposé comme solution, demandez ce qu'il changerait **concrètement**.",
+        "answer": "La France punit déjà l'écocide depuis 2021, mais comme **délit** — la catégorie la plus légère. Passer au **crime**, c'est viser des peines plus lourdes, et devant la Cour pénale internationale.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "Terminologie et dispositif juridique",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "pivot",
+        "rationale": "Le sujet d'ouverture, jamais décrit comme mécanisme"
+      },
+      {
+        "moment": "Le signal prix entre en scène",
+        "quote": "Il se trouve que les carburants, la consommation de carburant a beaucoup baissé, on sait pourquoi avec la la crise au Moyen-Orient. […] Ce qui veut dire que le signal prix est très efficace",
+        "lens_ref": "causalite",
+        "lens_question": "Une baisse : décidée, ou simplement subie ?",
+        "note": "Devant une **baisse constatée**, cherchez qui — ou quoi — l'a provoquée.",
+        "answer": "Le Citepa, cité sur le même plateau pour les **- 4,8 %**, attribue lui-même cette baisse à un **hiver doux**. Le prix subi et la taxe délibérée sont mis dans la même colonne.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "true",
+        "selected": true,
+        "theme": "Efficacité du signal prix",
+        "centrality": 5,
+        "kind": "enjeu",
+        "role": "preuve",
+        "rationale": "Le maillon central de la démonstration économique"
+      },
+      {
+        "moment": "Le découplage français est chiffré",
+        "quote": "Depuis 1990, la France a baissé ses émissions de gaz à effet de serre, son économie française de 34 %. Or, en parallèle, le PIB français a augmenté de 60 %.",
+        "lens_ref": "chiffres",
+        "lens_question": "Un pourcentage d'émissions : mesuré sur quel périmètre ?",
+        "note": "Devant deux courbes qui divergent, demandez ce que chacune **inclut**.",
+        "answer": "Les deux chiffres portent sur les **émissions territoriales**. Les émissions **importées** pèsent environ la moitié de l'empreinte des Français — un périmètre absent du plateau, où le SDES le mesure.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "likely true",
+        "selected": true,
+        "theme": "Découplage et périmètre",
+        "centrality": 4,
+        "kind": "statistique",
+        "role": "appui",
+        "rationale": "Le chiffre qui porte la thèse pro-marché"
+      },
+      {
+        "moment": "Le coût social est avancé",
+        "quote": "on peut interdire tout projet de financement dans les énergies euh fossile, mais dans ces cas-là, il faut assumer un prix à la pompe à 7 8 € du litre",
+        "lens_ref": "sophismes",
+        "lens_question": "Le coût annoncé rend-il l'option impossible, ou coûteuse ?",
+        "note": "Devant un **coût immédiat** chiffré, demandez ce qu'il compare et ce qu'il omet.",
+        "answer": "La taxe carbone est **gelée depuis 2018** à 44,60 € la tonne : l'acceptabilité invoquée pour écarter l'interdiction bloque déjà l'instrument que le même intervenant réclame.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Coût social et acceptabilité",
+        "centrality": 4,
+        "kind": "enjeu",
+        "role": "appui",
+        "rationale": "L'argument d'acceptabilité, retourné par le gel"
+      },
+      {
+        "moment": "La responsabilité des entreprises",
+        "quote": "le vrai pollueur sur cette planète s'appelle pas Total, il s'appelle Aramco",
+        "lens_ref": "sources",
+        "lens_question": "Qui compare deux acteurs — et selon quelle base ?",
+        "note": "Devant un rapport entre deux entreprises, demandez ce qui est **compté** de chaque côté.",
+        "answer": "Le rapport « cinq fois » est donné sans base de calcul. Les groupes publics comme Aramco déclarent les émissions liées à **l'usage de leurs produits** ; les périmètres varient fortement.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "disputed",
+        "selected": false,
+        "theme": "Comparaison entre entreprises",
+        "centrality": 3,
+        "kind": "fait",
+        "role": "appui",
+        "rationale": "Un rapport avancé sans dénominateur commun"
+      },
+      {
+        "moment": "Le marché comme réponse",
+        "quote": "j'ai plus confiance dans les entreprises qui ont un horizon de long terme plutôt que dans les les gouvernements",
+        "lens_ref": "opinion_fait",
+        "lens_question": "Qui parle — et pour quel intérêt institutionnel ?",
+        "note": "Devant une **confiance affirmée**, cherchez d'où parle celui qui l'exprime.",
+        "answer": "L'intervenant dirige les études de l'**Institut de l'entreprise**, think tank financé par des entreprises — mention absente de l'antenne. Le contrat gazier du 24 juin figure dans l'émission sans être opposé à cette confiance.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Conflit d'intérêts et transparence",
+        "centrality": 4,
+        "kind": "biais",
+        "role": "pivot",
+        "rationale": "L'étiquette donnée, l'intérêt tu"
+      },
+      {
+        "moment": "La relance qui déplace le débat",
+        "quote": "ce qui nous intéresse c'est des choses actionnables",
+        "lens_ref": "angles_morts",
+        "lens_question": "« Actionnable » : voté, recevable, ou mesurable ?",
+        "note": "Quand une invitée demande de l'**actionnable**, cherchez ce que le mot recouvre.",
+        "answer": "Aucun juriste n'est présent pour dire ce qu'ouvrirait une qualification pénale, et l'invitée décline la question en rappelant qu'elle n'est pas juriste. La demande reste sans destinataire.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Casting et compétence",
+        "centrality": 3,
+        "kind": "biais",
+        "role": "concession",
+        "rationale": "La question posée à un plateau sans spécialiste"
+      }
+    ],
+    "global_analysis": {
+      "headline": "Sur quoi ce débat tient-il pour acquis ?",
+      "headline_alt": [
+        "Ce que le plateau admet sans le dire",
+        "Deux instruments, quels présupposés ?",
+        "Ce qu'il faut tenir pour vrai pour trancher"
+      ],
+      "core_recap": [
+        "Ses présupposés : nommer, c'est pouvoir sanctionner ; une baisse constatée vaut politique ; un total national dit l'empreinte."
+      ]
+    },
+    "open_question": "Quelle part de la baisse des carburants relève du prix, quelle part de la météo ?",
+    "root_issue": "Tant que le périmètre d'un chiffre reste non dit, un débat climatique se départage sur des séries que personne ne peut contester à l'antenne.",
+    "steel_man": {
+      "argument": "Le signal prix a fait baisser des émissions là où il a duré ; aucune qualification pénale n'a jamais évité une tonne.",
+      "alternative": "Réactiver une taxe gelée compterait plus que d'inventer un crime."
+    },
+    "reperes_headline": "Ce qu'il faut savoir avant de regarder",
+    "bilan_headline": "Ce que le plateau laisse ouvert",
+    "essentiel": [
+      "Une tribune réclame un crime de globocide et une loi d'urgence climat.",
+      "Les émissions françaises reculent de 4,8 % au trimestre, grâce à un hiver doux.",
+      "Le plateau départage contrainte juridique et signal prix sur des séries chiffrées."
+    ],
+    "essentiel_summary": "Pendant la troisième vague de chaleur, une tribune réclame un crime de **globocide** et une loi d'urgence climat, tandis que les émissions françaises reculent de **4,8 %** sur un trimestre, surtout grâce à un hiver doux. Le plateau discute deux voies : la contrainte juridique et le **signal prix**, avec leur coût social."
+  }
+}

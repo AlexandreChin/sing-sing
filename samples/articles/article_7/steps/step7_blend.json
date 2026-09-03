@@ -1,0 +1,115 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "L'accumulation chiffrée des dégâts installe une échelle d'accablement qui sert ensuite d'unité de mesure aux annonces publiques, alors que le terme de comparaison — le coût des mesures structurelles — n'est jamais chiffré. Le registre émotionnel fournit ainsi le dénominateur que l'analyse ne fournit pas.",
+        "layers": [
+          "rhetoric",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "er_0",
+          "bs_0",
+          "bias_0",
+          "pr_2"
+        ]
+      },
+      {
+        "text": "Le motif prêté à l'exécutif — éviter les mécontents — est classé opinion présentée comme fait, coïncide avec l'absence de réponse sollicitée et avec un vocabulaire évaluatif réservé à un seul camp. Trois couches convergent sur le même geste : l'intention est imputée là où l'arbitrage n'est pas documenté.",
+        "layers": [
+          "probe",
+          "ethics",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "claim_3",
+          "lr_2",
+          "er_1",
+          "bs_1"
+        ]
+      },
+      {
+        "text": "Le cap budgétaire global d'octobre est lu comme le sort réservé aux crédits d'adaptation, et cette lecture est aussi ce qui donne au bilan estival sa portée d'argument dans la négociation à venir. Le saut logique et la fonction rhétorique du texte sont le même mouvement.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "lr_3",
+          "cb_1",
+          "bias_2",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "La surmortalité toutes causes ouvre l'article comme un coût de la chaleur, sans source nommée ni méthode explicitée, et ce glissement d'attribution est retenu comme point de vigilance déontologique. Le chiffre le plus frappant du texte est aussi celui dont la portée est la moins établie.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "claim_0",
+          "obs_4",
+          "bs_3"
+        ]
+      },
+      {
+        "text": "L'expertise mobilisée vient d'un seul côté : le rapport du Haut Conseil pour le climat fournit à la fois le diagnostic et le remède, et l'accumulation des dégâts qui le précède le valide sans qu'une lecture concurrente l'éprouve. L'angle épouse les limites du document qui le structure.",
+        "layers": [
+          "rhetoric",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "cb_0",
+          "obs_0",
+          "pr_1",
+          "pr_3"
+        ]
+      },
+      {
+        "text": "Deux présupposés se relaient sans être signalés : prévisible y vaut évitable, et le silence estival vaut état de l'action publique. Leur combinaison suffit à faire de l'écart entre dégâts et annonces la mesure d'une défaillance, alors que le point de vue affiché du texte, lui, est explicite.",
+        "layers": [
+          "logic",
+          "review",
+          "rhetoric"
+        ],
+        "references": [
+          "ia_0",
+          "ia_1",
+          "obs_0"
+        ]
+      },
+      {
+        "text": "L'adaptation déjà engagée n'apparaît qu'en incise — l'été moins meurtrier qu'en 2003, attribué aux climatiseurs ensuite critiqués — et le chiffrage manquant des mesures préconisées empêche de trancher entre retard et renoncement. Ce qui a fonctionné n'est jamais inventorié.",
+        "layers": [
+          "logic",
+          "review",
+          "probe"
+        ],
+        "references": [
+          "bs_2",
+          "ia_3",
+          "obs_4"
+        ]
+      },
+      {
+        "text": "Les grandeurs sont livrées en valeur absolue sans dénominateurs, et la seule proportion présente — 0,5 % de forêt brûlée — est mentionnée une fois ; la note de bas de page atteste la source mais pas l'ordre de grandeur relatif. La vérifiabilité et la mise en perspective sont deux choses distinctes.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "obs_3",
+          "claim_1",
+          "obs_2"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "emotional_register": [
+    {
+      "emotion": "Accablement",
+      "how": "L'ouverture **empile les chiffres du désastre** — pics à 40 °C, 72 départements, 2000 décès, 11 000 hectares — avant qu'aucun argument ne soit posé.",
+      "effect": "Le spectateur aborde la discussion en **cherchant une mesure immédiate**, sans que la portée de chaque mesure n'ait été comparée.",
+      "effect_placeholder": null,
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "troisième vague de chaleur, 72 départements en vigilance orange",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "emotion": "Exaspération",
+      "how": "Les prises de parole convergent vers **le sentiment de n'être pas entendu** — « depuis 1990, ils savent », « on nous ignore », « 30, 40 ans peut-être n'a pas été entendu ».",
+      "effect": "Le mot nouveau apparaît comme **la suite logique d'un échec** plutôt que comme un dispositif dont on discuterait la mécanique.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "tribune signée par plus de cent personnalités paraît dans Le Monde",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "beneficiary": "Le cadrage économique du débat",
+      "explanation": "En glissant du droit vers **l'efficacité mesurée en pourcentages**, la discussion se joue sur un terrain où le signal prix dispose de chiffres et la qualification pénale d'aucun. Le mot « globocide » est traité comme **stratégie de communication**, ce qui dispense d'examiner le dispositif juridique.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 0,
+        "excerpt": "le débat sur le mot tiendrait lieu de débat sur le dispositif juridique",
+        "strength": 0.85,
+        "nature": "inference"
+      }
+    },
+    {
+      "beneficiary": "Les positions sceptiques sur une loi d'urgence",
+      "explanation": "La tribune ouvre l'émission mais **aucun de ses signataires n'est présent** : elle est commentée par une invitée qui a refusé de la signer et deux voix réservées. Sa thèse est donc discutée **sans porte-parole**.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 1,
+        "excerpt": "aucun signataire de la tribune n'est présent pour la défendre",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Ellipse",
+        "observation": "Le contenu arrive sans titre éditorial : le cadrage tient au « mot du jour » et aux invités."
+      },
+      {
+        "label": "Vocabulaire",
+        "observation": "Le néologisme « globocide » sert de porte d'entrée, avant toute description du dispositif visé."
+      }
+    ],
+    "body": "Le plateau réunit une experte du GIEC, un économiste de think tank et une journaliste économique, et traite la demande de loi d'urgence climat à travers **l'efficacité des instruments** — signal prix, taxe carbone, découplage, arsenal législatif existant. La séquence d'ouverture aborde le globocide par **le mot et sa portée dans le débat public**, puis la discussion se déplace vers les séries chiffrées d'émissions. Chaque invité est introduit par **une position résumée en une phrase** affichée avant sa prise de parole. Le registre est celui du débat d'actualité, conduit depuis les questions d'un présentateur et une chronique lexicale."
+  }
+}

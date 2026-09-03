@@ -1,0 +1,55 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "Le motif prêté à l'exécutif — éviter les mécontents — est classé opinion présentée comme fait, coïncide avec l'absence de réponse sollicitée et avec un vocabulaire évaluatif réservé à un seul camp. Trois couches convergent sur le même geste : l'intention est imputée là où l'arbitrage n'est pas documenté.",
+        "references": [
+          "claim_3",
+          "lr_2",
+          "er_1",
+          "bs_1"
+        ]
+      },
+      {
+        "text": "L'accumulation chiffrée des dégâts installe une échelle d'accablement qui sert d'unité de mesure aux annonces publiques, alors que le terme de comparaison — le coût des mesures structurelles — n'est jamais chiffré. Le registre émotionnel fournit le dénominateur que l'analyse ne fournit pas.",
+        "references": [
+          "er_0",
+          "bs_0",
+          "bias_0",
+          "pr_2"
+        ]
+      },
+      {
+        "text": "Le cap budgétaire global d'octobre est lu comme le sort réservé aux crédits d'adaptation, et cette lecture est aussi ce qui donne au bilan estival sa portée d'argument dans la négociation à venir. Le saut logique et la fonction rhétorique du texte sont le même mouvement.",
+        "references": [
+          "lr_3",
+          "cb_1",
+          "bias_2",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "La surmortalité toutes causes ouvre l'article comme un coût de la chaleur, sans source nommée ni méthode explicitée : le chiffre le plus frappant du texte est aussi celui dont la portée est la moins établie.",
+        "references": [
+          "claim_0",
+          "obs_4",
+          "bs_3"
+        ]
+      },
+      {
+        "text": "L'expertise mobilisée vient d'un seul côté : le rapport du Haut Conseil pour le climat fournit à la fois le diagnostic et le remède, et l'accumulation des dégâts qui le précède le valide sans qu'une lecture concurrente l'éprouve. L'angle épouse les limites du document qui le structure.",
+        "references": [
+          "cb_0",
+          "obs_0",
+          "pr_1",
+          "pr_3"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Combien coûteraient les mesures d'adaptation préconisées, comparées aux dégâts chiffrés de l'été ?",
+      "Quelle part de la surmortalité estivale est attribuable à la chaleur, et selon quelle méthode ?",
+      "Quelles mesures d'adaptation déjà déployées ont produit des effets mesurables ?"
+    ]
+  }
+}

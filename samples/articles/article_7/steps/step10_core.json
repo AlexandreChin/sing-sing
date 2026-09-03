@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "L'exécutif a répondu à l'été caniculaire par des mesures d'urgence sans commune mesure avec les dégâts.",
+      "kind": "affirmation",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "les mesures annoncées par l'État sont sans commune mesure avec les dégâts constatés",
+        "strength": 0.95,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "La sécheresse a frappé l'agriculture : fourrage, maïs, lait, volailles, avec restrictions de prélèvements dans 74 départements.",
+      "kind": "fait",
+      "centrality": 5,
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "cinq vagues de chaleur, juin puis juillet records",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Le modèle agricole irrigant, où l'irrigation pèse 60 % de la consommation d'eau, reste inchangé.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 3,
+        "excerpt": "des mesures structurelles efficaces sont connues et recommandées de longue date",
+        "strength": 0.85,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "La prévention des feux repose sur des règles peu appliquées : débroussaillage à 30 %, PPRIF rares.",
+      "kind": "fait",
+      "centrality": 4,
+      "seeds": {
+        "source": "important_fact",
+        "index": 4,
+        "excerpt": "les PPRIF relèvent du préfet, qui les prescrit et les approuve",
+        "strength": 0.75,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "Les inégalités face à la chaleur restent hors du débat : logements bouilloires, locataires oubliés, rénovation en recul.",
+      "kind": "enjeu",
+      "centrality": 3,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 1,
+        "excerpt": "aucune parole du gouvernement ni des acteurs mis en cause",
+        "strength": 0.5,
+        "nature": "inference"
+      }
+    }
+  ]
+}

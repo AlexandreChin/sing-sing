@@ -1,0 +1,73 @@
+{
+  "emotional_register": [
+    {
+      "id": "er1",
+      "emotion": "Accablement",
+      "how": "L'accumulation ininterrompue de dégâts chiffrés — **six mille décès, 93 700 hectares, trois millions d'animaux, dix réacteurs** — sur huit paragraphes avant toute question politique.",
+      "effect": "Le lecteur aborde la réponse publique avec une **échelle de dégâts déjà installée**, à laquelle chaque montant annoncé sera rapporté.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "cinq vagues de chaleur, juin puis juillet records",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "er2",
+      "emotion": "Indignation",
+      "how": "Le vocabulaire évaluatif appliqué à l'action publique — « **cosmétiques** », « schizophrène », « laxisme », « à la sauce minimaliste » — et la chute allusive sur la maison qui brûle.",
+      "effect": "Le lecteur est disposé à lire l'écart entre les dégâts et les annonces comme un **choix politique** plutôt que comme un arbitrage contraint.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 1,
+        "excerpt": "aucune parole du gouvernement n'est rapportée en réponse aux critiques",
+        "strength": 0.85,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "cb1",
+      "beneficiary": "Le Haut Conseil pour le climat et les tenants de l'« adaptation transformationnelle »",
+      "explanation": "Le cadrage fait du mot d'ordre de son rapport du 10 juillet la **seule réponse à la hauteur** du bilan estival. Aucune autre expertise ne vient discuter ce diagnostic, qui se trouve validé par l'accumulation des dégâts qui le précède.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "rapport annuel du Haut Conseil pour le climat le 10 juillet",
+        "strength": 0.85,
+        "nature": "inference"
+      }
+    },
+    {
+      "id": "cb2",
+      "beneficiary": "L'argument de la dépense publique d'adaptation dans le débat budgétaire d'octobre",
+      "explanation": "Le texte se referme sur le cap du Premier ministre — pas de hausses d'impôt, 30 à 50 milliards d'économies — six semaines avant l'arbitrage. Un bilan estival devient ainsi une **pièce dans une négociation budgétaire** à venir.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "à six semaines de l'ouverture du débat budgétaire d'octobre",
+        "strength": 0.9,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Présupposé",
+        "observation": "« Les leçons » posent qu'un enseignement existe déjà et reste à tirer par d'autres."
+      },
+      {
+        "label": "Vocabulaire",
+        "observation": "« Brûlant » fait tenir la chaleur et les incendies dans un même mot évaluatif."
+      },
+      {
+        "label": "Ellipse",
+        "observation": "Le titre annonce un bilan saisonnier ; le chapô désigne l'exécutif comme sujet réel."
+      }
+    ],
+    "body": "Le corps traite l'été 2026 comme un test de l'action publique française, non comme un événement météorologique. Il procède par recensement chiffré et daté des impacts secteur par secteur — santé, eau, forêt, agriculture, énergie, logement — avant de rapporter les annonces de l'État à ces ordres de grandeur. L'angle est celui de la politique d'adaptation : ce qui est mis au centre est l'écart entre des mesures structurelles documentées de longue date et le contenu des annonces estivales. Le texte parle depuis la position d'un observateur des politiques climatiques, adossé aux recommandations des chercheurs, du Haut Conseil pour le climat et des associations, et il énonce son jugement sur l'action publique dès le chapô."
+  }
+}

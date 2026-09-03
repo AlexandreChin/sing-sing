@@ -1,0 +1,176 @@
+{
+  "main_claim": "Un choc climatique prévisible reçoit de l'exécutif des réponses d'urgence minimalistes.",
+  "premisses": [
+    {
+      "statement": "L'été 2026 a produit des dégâts humains, agricoles, forestiers et matériels d'une ampleur inédite depuis 2022.",
+      "quality": "Solidement étayée par des séries chiffrées datées et attribuées (Météo France, interprofession volaillère, ministère), même si l'attribution des 6 000 décès à la chaleur n'est pas démontrée."
+    },
+    {
+      "statement": "Ces épisodes s'inscrivent dans une tendance documentée d'intensification des chaleurs extrêmes en Europe.",
+      "quality": "Repose sur un consensus scientifique établi, mais invoqué ici par un collectif non nommé (« les scientifiques ») sans référence précise."
+    },
+    {
+      "statement": "Les mesures annoncées par l'État sont sans commune mesure avec les dégâts constatés.",
+      "quality": "Étayée par une comparaison d'ordres de grandeur (20 millions pour l'ONF face à 10-15 milliards de dégâts), mais les seules mesures estivales sont retenues comme périmètre."
+    },
+    {
+      "statement": "Des mesures structurelles efficaces sont connues et recommandées de longue date.",
+      "quality": "Assertion appuyée sur des recommandations citées (Haut Conseil pour le climat, chercheurs) mais dont l'efficacité n'est jamais chiffrée ni discutée."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "statement": "Le fait qu'un phénomène soit **prévisible** implique qu'il était **évitable** par la politique publique.",
+      "impact": "Si une part des dégâts était inévitable à court terme quelles que soient les décisions, l'écart entre les dégâts et la réponse cesse de mesurer une défaillance."
+    },
+    {
+      "statement": "L'absence des enjeux structurels dans les **déclarations politiques** de l'été traduit leur absence dans l'**action publique**.",
+      "impact": "Si des politiques structurelles se poursuivent hors du cycle médiatique estival, le silence observé ne documente qu'un défaut de communication."
+    },
+    {
+      "statement": "La contrainte budgétaire invoquée par l'exécutif est un **prétexte** plutôt qu'une contrainte réelle.",
+      "impact": "Si les 30 à 50 milliards d'économies sont une nécessité de financement public, l'arbitrage devient un conflit d'objectifs et non un renoncement."
+    },
+    {
+      "statement": "Les mesures préconisées par les chercheurs et associations produiraient les **effets attendus** si elles étaient appliquées.",
+      "impact": "Si leur efficacité est incertaine ou lente, l'inaction reprochée perd son caractère de faute évidente."
+    }
+  ],
+  "blind_spots": [
+    {
+      "topic": "Le coût et le calendrier des mesures structurelles préconisées ne sont jamais chiffrés.",
+      "significance": "Sans ce chiffrage, l'opposition entre « réponses cosmétiques » et action résolue reste une comparaison entre un montant connu et un montant inconnu."
+    },
+    {
+      "topic": "Aucune parole du gouvernement ni des agriculteurs irrigants n'est rapportée en réponse aux critiques.",
+      "significance": "Les arbitrages invoqués par les acteurs mis en cause resteraient à examiner avant de conclure à l'esquive."
+    },
+    {
+      "topic": "L'adaptation déjà engagée — plans nationaux, moyens de sécurité civile, essor des climatiseurs — n'apparaît qu'en incise.",
+      "significance": "Le texte note que l'été fut moins meurtrier qu'en 2003 sans en tirer d'inventaire de ce qui a fonctionné."
+    },
+    {
+      "topic": "La méthodologie de la surmortalité « toutes causes confondues » n'est pas explicitée.",
+      "significance": "Le chiffre de 6 000 décès ouvre l'article comme un coût de la chaleur alors qu'il mesure un écart à une mortalité attendue."
+    }
+  ],
+  "emphasis": [
+    "Le texte consacre **huit paragraphes chiffrés** au recensement des dégâts avant d'aborder la réponse publique, qui occupe deux paragraphes de description factuelle.",
+    "Les **20 millions d'euros** accordés à l'ONF sont rapportés à leur rendement en hectares, tandis que le coût des mesures structurelles préconisées n'est rapporté à aucun montant.",
+    "Les **fausses controverses** de l'été — climatiseurs, canadairs, congé climatique — sont énumérées en un paragraphe, alors qu'aucune n'est examinée sur le fond."
+  ],
+  "logical_reasoning": [
+    {
+      "step": "Des dégâts massifs et documentés sont établis, puis rattachés à une tendance climatique de fond.",
+      "problem_type": null,
+      "diagnosis": null
+    },
+    {
+      "step": "Du caractère **systémique** du choc, le texte déduit que la réponse appropriée relève nécessairement de mesures structurelles.",
+      "problem_type": "validity",
+      "diagnosis": "Un phénomène de fond peut appeler des réponses d'adaptation immédiate en parallèle ; la nature du problème ne fixe pas à elle seule la nature de la réponse."
+    },
+    {
+      "step": "Le silence sur les enjeux structurels est interprété comme une **esquive délibérée** motivée par le coût politique.",
+      "problem_type": "soundness",
+      "diagnosis": "L'intention prêtée à l'exécutif — éviter les mécontents — est posée entre tirets, sans déclaration ni arbitrage documenté à l'appui."
+    },
+    {
+      "step": "Le maintien du cap budgétaire d'octobre est présenté comme la confirmation du renoncement climatique.",
+      "problem_type": "validity",
+      "diagnosis": "L'absence de hausse d'impôt ne détermine pas la répartition interne des dépenses, donc pas le sort des crédits d'adaptation."
+    }
+  ],
+  "observations": [
+    {
+      "aspect": "Cadrage",
+      "summary": "L'accumulation de **cinq vagues de chaleur** et de deux mois records installe l'exceptionnalité de l'été avant que la question politique ne soit posée. L'année **2022 sert de référence unique** pour en mesurer l'ampleur, hectares brûlés comme coût.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "cinq vagues de chaleur, juin puis juillet records",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Temporalité",
+      "summary": "Le texte se referme sur le **débat budgétaire d'octobre**, ce qui transforme un bilan estival en argument pour un arbitrage à venir. Le **rapport du Haut Conseil pour le climat**, publié en pleine canicule, fournit le mot d'ordre sans qu'une autre expertise vienne le discuter.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "à six semaines du débat budgétaire d'octobre",
+        "strength": 0.9,
+        "nature": "inference"
+      }
+    },
+    {
+      "aspect": "Comparaison",
+      "summary": "Le dépassement du **bilan de 2022** par l'incendie de Saumos est donné en écart d'hectares, sans la méthode ni le périmètre de la comparaison.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "Saumos (37 000 ha) a dépassé le bilan de 2022",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Quantification",
+      "summary": "Les grandeurs sont données en **valeur absolue** — 6 000 décès, 93 700 hectares, 3 millions d'animaux — sans les dénominateurs qui permettraient de les situer, hormis les 0,5 % de forêt brûlée mentionnés une fois. Les **2 °C** servent d'horizon illustré par un Paris à 50 °C, sans que leur statut de plafond conventionnel soit rappelé.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "la forêt française couvre environ 17 millions d'hectares",
+        "strength": 0.8,
+        "nature": "contradiction"
+      }
+    },
+    {
+      "aspect": "Attribution",
+      "summary": "La **surmortalité toutes causes** ouvre le bilan humain comme un coût de la chaleur, alors qu'elle mesure un écart à une mortalité attendue ; la comparaison avec **2003** reste implicite et son écart est attribué en incise aux climatiseurs, ensuite critiqués. Le **laxisme communal** est désigné pour les PPRIF, que le préfet prescrit et approuve.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 1,
+        "excerpt": "la surmortalité toutes causes ne mesure pas les décès causés par la chaleur",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "L'été a été **moins meurtrier qu'en 2003** pour une surmortalité de départ comparable en intensité de chaleur : équipement des logements, alertes sanitaires et moyens de secours ont absorbé une part du choc, ce qui documente une adaptation réelle, seulement plus lente que le rythme du réchauffement.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 2,
+        "excerpt": "l'adaptation déjà engagée n'apparaît qu'en incise",
+        "strength": 0.85,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "L'enjeu ne serait pas l'absence de politique d'adaptation mais son **retard sur la courbe** des impacts, ce qui appelle une accélération plutôt qu'un changement de nature."
+    },
+    {
+      "counterargument": "Les mesures préconisées — débroussaillage, feuillus, baisse de la consommation de viande, rétention d'eau — supposent des **délais de dix à trente ans** et une adhésion sociale que le texte n'examine pas ; leur absence des annonces de l'été peut relever du calendrier plutôt que du renoncement.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 3,
+        "excerpt": "les mesures préconisées produiraient les effets attendus",
+        "strength": 0.8,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "L'opposition entre réponses **cosmétiques** et structurelles se dissoudrait dans une question de séquence : que faire dans l'été même, et que financer sur la décennie."
+    },
+    {
+      "counterargument": "Le coût des mesures structurelles n'étant jamais chiffré, la **contrainte budgétaire** invoquée par l'exécutif reste un arbitrage possible et non un prétexte : sans les deux montants, l'écart entre 20 millions et 15 milliards ne mesure pas une volonté politique.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "le coût des mesures structurelles n'est jamais chiffré",
+        "strength": 0.9,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "Le désaccord porterait sur la **hiérarchie des dépenses publiques**, un débat d'arbitrage démocratique, et non sur une esquive du caractère systémique de la crise."
+    }
+  ]
+}
