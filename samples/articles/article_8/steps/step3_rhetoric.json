@@ -1,0 +1,73 @@
+{
+  "emotional_register": [
+    {
+      "id": "er1",
+      "emotion": "vertige intellectuel",
+      "how": "Une série d'analogies historiques (anesthésie, phonographe, électricité, écriture) empilées jusqu'à ce que le lecteur voie **le même motif partout**, chaque cas se refermant sur un bénéfice que personne n'avait su nommer.",
+      "effect": "Le lecteur se met à **douter de ses propres instruments d'évaluation** et lit les études sur l'IA comme un jugement daté plutôt que comme un résultat.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "dégradation cognitive liée aux LLM",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "id": "er2",
+      "emotion": "inquiétude de se tromper de côté",
+      "how": "Le texte concède aux critiques que leurs preuves sont solides, puis les rapproche nommément de **Harrison défendant la douleur curative**, un homme dont l'histoire a retenu l'erreur.",
+      "effect": "Le lecteur redoute d'être du mauvais côté du récit et devient réceptif à **déplacer la charge de la preuve** vers ceux qui restreignent.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "universités, employeurs et régulateurs arbitrent en direct",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "cb1",
+      "beneficiary": "Les acteurs qui déploient les outils d'IA",
+      "explanation": "Un cadrage où les coûts sont mesurables mais les bénéfices indescriptibles rend **toute preuve défavorable provisoire** et toute restriction prématurée. La conclusion — charge de la preuve sur ceux qui excluent — allège la contrainte sur le déploiement sans qu'aucun bénéfice n'ait à être démontré.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 1,
+        "excerpt": "intérêts économiques des entreprises d'IA",
+        "strength": 0.9,
+        "nature": "inference"
+      }
+    },
+    {
+      "id": "cb2",
+      "beneficiary": "Les institutions qui préfèrent l'expérimentation encadrée à l'interdiction",
+      "explanation": "En opposant un modèle formel qui recommande de **brider la précision des IA** à un critère de récupérabilité, le texte fournit aux universités et employeurs tentés d'autoriser un usage encadré **un vocabulaire de prudence** plutôt qu'un plaidoyer d'adoption.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "brider volontairement la précision des IA",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Présupposé",
+        "observation": "« Avantages illisibles » pose l'existence des bénéfices ; seule leur lecture est présentée comme manquante."
+      },
+      {
+        "label": "Vocabulaire",
+        "observation": "« Illisible » déplace le débat de l'existence des effets vers la capacité à les mesurer."
+      },
+      {
+        "label": "Ellipse",
+        "observation": "Le titre ne nomme ni l'IA ni la gouvernance, qui occupent pourtant la seconde moitié du texte."
+      }
+    ],
+    "body": "Le corps aborde l'IA par l'histoire des techniques : cinq précédents — anesthésie, applications de rencontres, phonographe, électricité, écriture — installent une structure d'évaluation avant que l'IA n'apparaisse. L'objet central n'est pas l'effet des LLM mais la **position de celui qui évalue** : ce que les instruments d'une pratique peuvent mesurer au moment où elle est réorganisée. Le registre est celui de l'essai philosophique, avec un long segment de témoignage à la première personne sur deux ans de pratique de recherche, et une note liminaire déclarant l'essai co-écrit avec Claude. La cible finale est la **décision de gouvernance** — régulateur, université, employeur — et la conclusion prend la forme d'une règle de décision, la récupérabilité, plutôt que d'un bilan des effets."
+  }
+}

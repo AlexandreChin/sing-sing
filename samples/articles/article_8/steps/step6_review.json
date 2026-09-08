@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 3,
+        "rationale": "L'essai s'appuie sur des références variées et parfois **précisément datées** — le rapport de 1864 de la Royal Medical and Chirurgical Society et ses 123 décès portent nom, date et institution. Mais `claims_and_sources` montre que les études cognitives sont citées **par leur seul résultat** : le préprint Kosmyna apparaît sans ses 54 participants ni son statut de non-relu, au même rang qu'un essai randomisé.",
+        "lesson": "Vérifiez systématiquement l'effectif et le statut de publication d'une étude citée : un résultat sans ces deux informations n'est pas encore un résultat."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "Les faits historiques tiennent (confiance 88 sur le chiffre du chloroforme), mais deux assertions centrales sont fragiles : la corrélation rencontres en ligne / mariages interraciaux tombe à **45 de confiance**, avec une série Pew qui la contredit en cadrant la hausse depuis 1967 et non sur « deux décennies ». L'assimilation des chercheurs à Harrison est classée `opinion_stated_as_fact` : elle **suppose connue « la chose la plus importante » à venir**.",
+        "lesson": "Repérez le glissement de « cohérent avec » à « a causé » : une compatibilité de modèle n'est pas une mesure d'effet."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "La chaîne est lisible et l'auteur annonce ses étapes, mais `logical_reasoning` relève deux ruptures de fond : la thèse selon laquelle les bénéfices profonds ne sont pas décrivables rend l'argument **insensible à toute preuve**, et le passage du constat d'incertitude à une règle favorable à l'expérimentation n'est pas dérivé — la même incertitude appuierait la prudence. La première prémisse repose de plus sur une série d'exemples marquée par un **biais de survivant**.",
+        "lesson": "Demandez à tout argument quel résultat pourrait le contredire : s'il n'en existe aucun, ce n'est plus un argument mais un pari."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 3,
+        "rationale": "L'essai déclare d'entrée sa co-écriture avec Claude, assume son point de vue et signale lui-même la **faiblesse probatoire de son témoignage** personnel. Mais l'audit déontologique juge la divulgation **vague** — ni les passages concernés ni la part de l'outil défendu — et `blind_spots` note que cette faiblesse reconnue est ensuite utilisée comme pièce centrale de l'argument.",
+        "lesson": "Mesurez une déclaration d'intérêt à sa précision, pas à sa présence : dire « j'ai collaboré » sans dire où ni combien n'engage à rien."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Le contexte historique est riche, mais les proportions penchent : `emphasis` relève cinq analogies sur la première moitié du texte contre **trois paragraphes pour le critère de récupérabilité** présenté comme la réponse pratique. Trois manques pèsent : aucun cas d'innovation où les critiques précoces ont eu raison, aucune mention des **intérêts économiques des entreprises d'IA**, et l'absence des coûts non cognitifs — travail, énergie, données d'entraînement.",
+        "lesson": "Comptez la place accordée à chaque partie de l'argument : le passage le plus court est souvent celui qui supporte le plus de poids."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "L'auteur crédite honnêtement ses adversaires d'une base de preuves solide, puis les **rapproche nommément de Harrison défendant la douleur curative** — une figure dont l'histoire a retenu l'erreur — sans qu'aucune réponse ne leur soit sollicitée. Le `focus` final, « la mesurabilité et l'importance ne sont pas la même chose », place leurs résultats du côté de ce qui compte moins sans dire comment distinguer un bénéfice pas encore mesurable d'un bénéfice inexistant.",
+        "lesson": "Notez quand un contradicteur est comparé à une erreur historique : l'analogie fait le travail que l'argument n'a pas fait."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "La structure est nette et les cas concrets — chloroforme, phonographe, navigation céleste — ancrent chaque étape abstraite ; le registre de l'essai reste accessible sans jargon. Le titre introduit toutefois son propre présupposé : « **avantages illisibles** » pose l'existence des bénéfices et ne présente comme manquante que leur lecture, sans nommer ni l'IA ni la gouvernance, qui occupent la seconde moitié.",
+        "lesson": "Relisez le titre après l'article : ce qu'il tient pour acquis est souvent ce que le texte devait démontrer."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 4,
+        "rationale": "Le déplacement est réel : l'objet n'est pas l'effet des LLM mais **la position de celui qui évalue**, et le critère de récupérabilité offre une prise de décision inhabituelle dans ce débat. Le `steel_man` marque la limite — un critère qui ne se lit qu'après coup, comme à Kings Point, **ne guide pas l'entrée**, et l'originalité du cadre ne compense pas son inapplicabilité.",
+        "lesson": "Distinguez un cadrage neuf d'un critère utilisable : demandez toujours comment on l'appliquerait avant de décider."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Un responsable universitaire ou un cadre RH qui doit trancher sur l'usage des LLM et cherche à examiner les raisonnements qui circulent dans ce débat plutôt qu'à y trouver une décision toute faite.",
+      "payoff": "Le lecteur repart avec une distinction utile — mesurer un coût n'est pas mesurer ce qui compte — et un exemple net de la façon dont un argument peut se rendre imperméable à toute preuve. Il verra aussi comment une série d'exemples bien choisis suffit à installer une conclusion avant qu'elle soit démontrée.",
+      "signature_move": "L'empilement de précédents historiques dont l'issue est déjà connue, jusqu'à ce que le motif paraisse universel et que la conclusion sur l'IA semble déjà acquise — technique de l'essai d'idées anglo-saxon, où la série d'analogies remplace la démonstration.",
+      "main_blind_side": "Aucune innovation dont les critiques précoces ont eu raison n'entre dans la série, une sélection qui indique que le texte cherchait moins à tester son asymétrie qu'à l'illustrer.",
+      "further_resource": {
+        "title": "Merchants of Doubt",
+        "source": "Naomi Oreskes et Erik M. Conway",
+        "media_type": "book",
+        "why_explore": "Retrace les cas où l'appel à l'incertitude et au report de la preuve a servi à retarder des décisions, ce qui met en perspective le déplacement de la charge de la preuve proposé ici.",
+        "url": null
+      },
+      "summary": "Lecture à conseiller avec réserves : l'essai propose un déplacement stimulant — évaluer la position de celui qui mesure plutôt que les effets mesurés — mais ses exemples ne retiennent que les innovations dont les bénéfices sont advenus, et sa thèse est construite de façon qu'aucune preuve ne puisse la contredire. À lire pour l'exercice de raisonnement, pas pour en tirer une règle de décision."
+    }
+  }
+}

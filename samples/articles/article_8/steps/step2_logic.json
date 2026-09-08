@@ -1,0 +1,177 @@
+{
+  "main_claim": "Les coûts d'une innovation se mesurent vite ; ses bénéfices majeurs restent indescriptibles.",
+  "premisses": [
+    {
+      "statement": "Les critiques historiques de l'anesthésie, du phonographe ou de l'électricité mesuraient correctement des coûts réels sans pouvoir nommer les bénéfices à venir.",
+      "quality": "Repose sur des cas historiques documentés, mais sélectionnés parmi les innovations dont les bénéfices sont advenus — biais de survivant."
+    },
+    {
+      "statement": "Les travaux 2024-2025 sur la dégradation cognitive liée aux LLM documentent un mécanisme réel de désuétude des capacités.",
+      "quality": "Appuyée sur plusieurs études, dont un essai randomisé et une expérience de terrain ; un préprint non relu y figure au même rang que les autres."
+    },
+    {
+      "statement": "Le témoignage de l'auteur montre qu'un usage soutenu des LLM a réorganisé sa pratique de recherche autour de l'identification des bonnes questions.",
+      "quality": "Cas isolé généralisé : un seul sujet, aucune trace vérifiable, l'auteur signale lui-même la faiblesse probatoire."
+    },
+    {
+      "statement": "Une décision de gouvernance restrictive supprime l'expérimentation par laquelle les bénéfices auraient pu devenir visibles.",
+      "quality": "Assertion plausible mais non étayée : aucun cas mesuré de restriction ayant effectivement bloqué un bénéfice."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "statement": "L'IA appartient à la même famille d'innovations que l'anesthésie, l'écriture ou l'électricité.",
+      "impact": "Sans cette parenté, la série d'analogies ne dit rien de l'IA et l'argument perd son socle."
+    },
+    {
+      "statement": "Un espace de bénéfices illisibles existe bel et bien, même quand rien ne permet de le montrer.",
+      "impact": "Si l'illisibilité peut aussi recouvrir une absence de bénéfices, la thèse devient impossible à distinguer d'un pari sans fondement."
+    },
+    {
+      "statement": "La récupérabilité d'un coût peut être évaluée à l'avance de façon fiable.",
+      "impact": "Si elle ne s'estime qu'après coup, le test proposé ne guide plus aucune décision et l'essai reste sans alternative à la restriction."
+    },
+    {
+      "statement": "Les chercheurs qui documentent les coûts occupent la même position que Harrison face à l'anesthésie.",
+      "impact": "Si leur situation diffère, l'étiquette « Harrison » cesse de disqualifier leurs résultats."
+    }
+  ],
+  "blind_spots": [
+    {
+      "topic": "Aucun cas d'innovation où les critiques précoces ont eu raison sur toute la ligne.",
+      "significance": "Un tel cas montrerait que l'asymétrie de lisibilité n'implique pas que les bénéfices finissent par arriver."
+    },
+    {
+      "topic": "Les intérêts économiques des entreprises d'IA ne sont jamais mentionnés.",
+      "significance": "Déplacer la charge de la preuve vers ceux qui restreignent profite d'abord aux acteurs qui déploient, ce que le texte ne pèse pas."
+    },
+    {
+      "topic": "Les coûts non cognitifs — travail, énergie, concentration des marchés, données d'entraînement — sont absents du bilan.",
+      "significance": "Certains de ces coûts sont difficilement récupérables, ce qui ferait basculer le test de l'auteur vers la prudence."
+    },
+    {
+      "topic": "La faiblesse du témoignage personnel est reconnue puis utilisée comme pièce centrale de l'argument.",
+      "significance": "Sans ce témoignage, aucun bénéfice concret ne vient équilibrer les études citées."
+    }
+  ],
+  "emphasis": [
+    "Cinq analogies historiques occupent la première moitié du texte, alors que le critère de récupérabilité, présenté comme la réponse pratique, tient en trois paragraphes.",
+    "Le témoignage personnel de l'auteur reçoit six paragraphes ; le coût qu'il concède — la fluidité orale en séminaire — est traité en quelques lignes.",
+    "Les applications de rencontres reçoivent un développement chiffré détaillé, tandis que le taux de mariages interraciaux d'avant les applications n'est jamais donné."
+  ],
+  "logical_reasoning": [
+    {
+      "step": "Des critiques historiques ont mesuré des coûts réels sans voir les bénéfices, donc les critiques actuels de l'IA sont dans la même position.",
+      "problem_type": "validity",
+      "diagnosis": "Le parallèle est **posé par ressemblance de structure**, pas démontré ; rien n'établit que le cas de l'IA appartient à cette famille plutôt qu'à celle des innovations dont les coûts dominent."
+    },
+    {
+      "step": "Les bénéfices profonds ne sont pas décrivables au moment de l'évaluation, donc leur absence dans les preuves ne compte pas contre eux.",
+      "problem_type": "soundness",
+      "diagnosis": "La prémisse rend l'argument **insensible à toute preuve** : aucun résultat empirique ne pourrait le contredire."
+    },
+    {
+      "step": "Le modèle d'Acemoglu fixe ses catégories de savoir, donc il ne peut pas représenter l'émergence de compétences nouvelles.",
+      "problem_type": null,
+      "diagnosis": null
+    },
+    {
+      "step": "Comme les bénéfices ne s'estiment pas, il faut basculer sur la récupérabilité et placer la charge de la preuve sur ceux qui restreignent.",
+      "problem_type": "validity",
+      "diagnosis": "Le passage d'un **constat d'incertitude** à une règle de décision favorable à l'expérimentation n'est pas dérivé : la même incertitude pourrait justifier la prudence."
+    }
+  ],
+  "observations": [
+    {
+      "aspect": "Cadrage",
+      "summary": "Le texte est publié au moment où universités et régulateurs fixent leurs règles, et sa conclusion porte directement sur leur façon de décider. L'argument se termine en **règle de gouvernance**, pas en constat.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "universités, employeurs et régulateurs arbitrent en direct",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Sourçage",
+      "summary": "Les études de dégradation cognitive sont citées par leur résultat, sans effectifs ni statut de publication. Le préprint de Kosmyna, **54 participants et non relu**, apparaît au même rang qu'un essai randomisé.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "54 participants et n'a pas été relu par des pairs",
+        "strength": 1.0,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Cible",
+      "summary": "Le document de travail d'Acemoglu fournit l'adversaire concret de l'essai. Son statut — **non encore évalué par les pairs** — n'est pas signalé alors qu'il l'est pour aucune des études critiques non plus.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 1,
+        "excerpt": "circule avant toute évaluation par les pairs",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Attribution",
+      "summary": "La hausse des mariages interraciaux sert d'exemple de bénéfice imprévisible, mais **la tendance était engagée depuis les années 1960**. Le texte ne distingue pas la part attribuable aux applications de la pente antérieure.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "environ 3 % en 1967 à près de 20 % dans les années 2010",
+        "strength": 0.9,
+        "nature": "contradiction"
+      }
+    },
+    {
+      "aspect": "Position",
+      "summary": "L'auteur écrit depuis une business school, déclare avoir composé l'essai avec Claude, et prend sa propre pratique pour matériau. Les mécanismes cognitifs invoqués — effet Google, GPS — décrivent par ailleurs **un transfert de stratégie plus qu'une perte de capacité**.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "depuis une business school britannique",
+        "strength": 0.7,
+        "nature": "specification"
+      },
+      "proven_by": []
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "La série d'analogies ne retient que les innovations dont les bénéfices sont advenus ; l'amiante, les leaded fuels ou les opioïdes présentent la même asymétrie initiale et les critiques y avaient raison. L'asymétrie de lisibilité est alors compatible avec les deux issues et ne recommande rien.",
+      "seeds": {
+        "source": "premisse",
+        "index": 0,
+        "excerpt": "biais de survivant",
+        "strength": 1.0,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "L'asymétrie décrit une difficulté d'évaluation sans indiquer de quel côté trancher ; la charge de la preuve reste où le droit la place."
+    },
+    {
+      "counterargument": "Un espace de bénéfices dont aucun élément ne peut être nommé ne se distingue pas d'un espace vide. Invoquer l'illisibilité rend la thèse invérifiable et transforme l'ignorance en argument.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 1,
+        "excerpt": "même quand rien ne permet de le montrer",
+        "strength": 0.9,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "En l'absence de tout indicateur, les preuves disponibles restent la seule base légitime de décision — donc les coûts documentés."
+    },
+    {
+      "counterargument": "La récupérabilité ne s'évalue qu'après coup : le cas de la navigation céleste n'a été jugé récupérable qu'une fois la redondance retrouvée par chance à Kings Point. Un critère qui ne se lit qu'à la sortie ne guide pas l'entrée.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 2,
+        "excerpt": "évaluée à l'avance de façon fiable",
+        "strength": 0.9,
+        "nature": "specification"
+      },
+      "alternative_conclusion": "Faute de test opérationnel, le choix entre restriction et expérimentation redevient une préférence assumée, non une conséquence de l'analyse."
+    }
+  ]
+}

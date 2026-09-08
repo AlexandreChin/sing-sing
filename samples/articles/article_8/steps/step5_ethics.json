@@ -1,0 +1,47 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "v1",
+        "category": "conflict_of_interest",
+        "label": "Conflict of Interest",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "j'ai écrit cet essai avec Claude. La rédaction était une collaboration, tout comme plusieurs idées, puisque les outils d'IA ont changé ma façon de travailler de manière directe liée à l'argument.",
+        "explanation": "La divulgation est en tête mais reste vague : ni les passages concernés, ni la part de l'outil défendu."
+      },
+      {
+        "id": "v2",
+        "category": "lying_by_omission",
+        "label": "Lying by Omission",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "les participants ayant écrit avec ChatGPT présentaient une connectivité neuronale significativement plus faible que ceux qui écrivaient sans assistance",
+        "explanation": "L'omission des 54 participants et du statut de préprint non relu gonfle la portée du résultat."
+      },
+      {
+        "id": "v3",
+        "category": "false_statistics",
+        "label": "False Statistics",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "les rencontres en ligne sont cohérentes avec l'augmentation rapide des mariages interraciaux aux États-Unis au cours des deux dernières décennies",
+        "explanation": "La hausse court depuis 1967 ; cadrer sur deux décennies attribue aux applications une courbe antérieure."
+      },
+      {
+        "id": "v4",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Ils sont aussi la version du débat IA sur Harrison sur l'anesthésie, en examinant la base de preuves la plus complète à leur disposition tout en étant incapables de voir la chose la plus importante qui va se passer ensuite.",
+        "explanation": "Des chercheurs nommés sont assimilés à une erreur historique sans qu'aucune réponse ne soit sollicitée."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Préciser l'ampleur de la collaboration avec Claude, indiquer l'effectif et le statut de préprint des études citées, et donner la période réelle de hausse des mariages interraciaux."
+    },
+    "summary": "La déontologie n'est pas entièrement propre : quatre points de vigilance, sans manquement caractérisé. Ils portent sur une divulgation d'intérêt trop vague, deux cadrages de preuves qui en surévaluent la portée et l'absence de réponse des chercheurs mis en cause."
+  }
+}

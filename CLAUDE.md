@@ -22,6 +22,12 @@ python main.py adapt   <analysis.json>   [--format <fmt>] [--no-api]
 python main.py extract <analysis.json> <presentation.json> [--format <fmt>] [--render]
 python main.py render  <extract.json> [<output_dir>] [--format <fmt>]
 
+# Find source material (free-to-read French news feeds)
+python main.py fetch                       # list latest candidates from every feed
+python main.py fetch --list-sources        # the 13 feed slugs
+python main.py fetch -s lapresse -s reporterre --limit 10
+python main.py fetch <article-url>         # scrape into samples/articles/<slug>.txt
+
 # Utilities
 python main.py simplify <analysis.json>              # reduce an existing carousel
 python main.py validate <analysis.json>              # node-graph integrity checks
@@ -59,6 +65,7 @@ models/
   newsletter_presentation.py       NewsletterPresentation / NewsletterDocument
 tools/
   scrape.py, search.py, validate.py, verify.py, graph_generator.py
+  feeds.py                         curated free FR news feeds → candidates / fetch
 ```
 
 **Data flow (`produce`):** `analyze_for_full_analysis(text)` → `ArticleFullAnalysis` JSON → `adapt()` → presentation JSON → `extract()` → trimmed render document (`extract.json`) → `render_from_json()` → PNG slides.
@@ -75,7 +82,7 @@ samples/outputs/<stem>/
 ```
 
 **Formats:** registered in `extractors/registry.py`, all fed by the same `analyze`. The carousel has its own `adapt()` copy; the newsletter has its own prose adapt.
-- `instagram_carousel_optimized` (default) — 10-slide "lens to read with" deck on the `article_carousel_optimized_v0` templates: Hook (On décrypte) → Sélection (L'intérêt) → Repères → 3 moments de lecture (Au fil de la lecture) → Architecture de l'argument → À emporter → À vous de juger → CTA. The renderer builds the slide list conditionally (numbering adapts); reading beats are a candidate pool (`selected`), and the réflexe lenses are derived from the selected beats.
+- `instagram_carousel_optimized` (default) — 10-slide "lens to read with" deck on the `article_carousel_optimized_v0` templates: Hook (On décrypte) → En bref (the 3 numbered `essentiel` claims; the prose `essentiel_summary` is the fallback) → Pourquoi cet article (lede + gold pull line) → Repères → 3 moments de lecture (Au fil de la lecture) → Architecture de l'argument → À emporter → À vous de juger → CTA. The renderer builds the slide list conditionally (numbering adapts); reading beats are a candidate pool (`selected`), and the réflexe lenses are derived from the selected beats.
 - `newsletter` — prose, not slides. Own adapt agent (`newsletter_adapt_agent`) + `NewsletterPresentation`. Renders **Markdown** + a rich `newsletter.html` (dark gold-on-black, SVG radar) + email-safe HTML in two themes (table layout, inline styles, no SVG/flexbox): `newsletter.email.html` (light, default) and `newsletter.email.dark.html`. Themes live in `EMAIL_THEMES`; only chrome is themed, the semantic gauge/bar colours are fixed.
   Manual editing: the newsletter's editable source is `newsletter.md` (YAML
   front-matter + Markdown body). Edit it, then `python main.py render
@@ -85,6 +92,20 @@ samples/outputs/<stem>/
   is edited as JSON — format matches the medium; same `render <file>` workflow.)
   Re-running `produce`/`render <extract.json>` regenerates `newsletter.md` and
   overwrites hand edits — the edit-safe loop always renders from the `.md`.
+
+**Slide 1 (hook) — the source capture:** drop a `cover.png|jpg|webp` (preferred)
+or `image.*` beside the analysis (`samples/.../<stem>/`) and it renders as the top
+image slot — full slide width less a 48px side padding, height from the image's own
+aspect ratio (a portrait capture gets a taller slot; 720px cap, `contain`). Framed
+by a hairline edge + cast shadow so it reads as a screenshot. Auto-detected by
+`cover_thumb()`: no schema field, no adapt/API rerun, just `render`. With no such
+file the slot drops out and the rest of the slide is unchanged.
+Above the slot: `⌷ SÉLECTION` (`.kicker`, identical type to `On décrypte`) then the
+metadata line — source · date · genre · length, from `meta_parts`. The source's own
+title is **not** rendered: it lives inside the capture. Below the slot, the
+`On décrypte` block carries `sub_topic` (not `topic`) as its headline.
+Pass `--source`/`--url`/`--published-at` to `analyze`/`produce` to fill the
+metadata line; nothing infers them from the article body.
 
 **Rendering interface:** every renderer module exposes `render_from_json(extract_path, out_dir, pdf=False)` and lays out its own files under `out_dir` — carousels write `html/` + `slides/`, the newsletter writes `newsletter.md`/`.html`/`.email.html`. `produce` and `render` call this uniformly. (`pdf` is a vestigial no-op kept for interface uniformity.)
 

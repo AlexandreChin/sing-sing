@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Les coûts d'une innovation se mesurent aussitôt ; ses bénéfices majeurs n'ont pas encore de mots.",
+      "kind": "affirmation",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 0,
+        "excerpt": "mesuraient correctement des coûts réels sans pouvoir nommer les bénéfices à venir",
+        "strength": 1.0,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Cinq analogies historiques — anesthésie, phonographe, électricité, écriture, applications — installent le motif avant l'IA.",
+      "kind": "biais",
+      "centrality": 4,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "Aucun cas d'innovation où les critiques précoces ont eu raison",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "Les études 2024-2025 documentent un affaiblissement cognitif chez les utilisateurs de LLM.",
+      "kind": "fait",
+      "centrality": 4,
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "54 participants et n'a pas été relu par des pairs",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "L'auteur prend deux ans de sa propre pratique de recherche comme pièce probatoire.",
+      "kind": "angle",
+      "centrality": 3,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "réorganisé sa pratique de recherche autour de l'identification des bonnes questions",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "L'essai propose la récupérabilité comme règle de gouvernance et déplace la charge de la preuve.",
+      "kind": "enjeu",
+      "centrality": 3,
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 2,
+        "excerpt": "La récupérabilité d'un coût peut être évaluée à l'avance",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    }
+  ]
+}
