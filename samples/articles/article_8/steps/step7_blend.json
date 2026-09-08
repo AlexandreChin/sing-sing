@@ -1,0 +1,119 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "L'hypothèse selon laquelle un espace de bénéfices illisibles existe même sans indice devient, une fois portée dans le registre rhétorique, un **argument que rien ne peut contredire** : la même prémisse fonde la thèse et neutralise d'avance les preuves adverses, ce que Review sanctionne comme rupture de structure.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "ia_1",
+          "lr_1",
+          "bias_2",
+          "cb_0"
+        ]
+      },
+      {
+        "text": "La série d'analogies ne retient que des innovations dont les bénéfices sont advenus, et cette sélection produit exactement l'effet de **vertige intellectuel** repéré en rhétorique : le biais d'échantillonnage n'est pas un défaut annexe, c'est le moteur émotionnel du texte.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "pr_0",
+          "bs_0",
+          "bias_0",
+          "er_0"
+        ]
+      },
+      {
+        "text": "L'omission de l'effectif et du statut de préprint des études cognitives est à la fois un défaut de sourçage, un manquement déontologique et la condition de possibilité du rapprochement avec Harrison : **affaiblir la preuve adverse par le silence** prépare sa disqualification par l'analogie.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics",
+          "rhetoric"
+        ],
+        "references": [
+          "obs_1",
+          "claim_1",
+          "claim_3",
+          "er_1"
+        ]
+      },
+      {
+        "text": "Le déplacement de la charge de la preuve vers ceux qui restreignent bénéficie d'abord aux acteurs qui déploient — et c'est précisément l'angle mort du texte, qui **ne pèse jamais les intérêts économiques** dont sa conclusion allège la contrainte.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "bs_1",
+          "cb_0",
+          "lr_3"
+        ]
+      },
+      {
+        "text": "Le critère de récupérabilité ne s'évalue qu'après coup, or la même incertitude qui l'appelle pourrait justifier la prudence : la règle de gouvernance finale **n'est pas dérivée de l'analyse** mais d'une préférence, ce que le cadrage de conclusion en règle de décision rend difficile à voir.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "ia_2",
+          "lr_3",
+          "obs_0",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "Le témoignage personnel est présenté avec sa faiblesse probatoire reconnue, puis porte seul la charge de montrer un bénéfice concret ; la divulgation vague de la co-écriture avec Claude touche **le même point de fragilité** — un cadre qui déclare sa position sans en mesurer l'effet.",
+        "layers": [
+          "logic",
+          "ethics",
+          "review",
+          "probe"
+        ],
+        "references": [
+          "pr_2",
+          "bs_3",
+          "obs_4",
+          "bias_1"
+        ]
+      },
+      {
+        "text": "La hausse des mariages interraciaux est cadrée sur « deux décennies » alors qu'elle court depuis 1967 : **le découpage temporel fait l'attribution**, et le seul chiffre précisément sourcé du texte — les 123 décès de 1864 — porte sur un coût, jamais sur un bénéfice.",
+        "layers": [
+          "probe",
+          "logic",
+          "ethics"
+        ],
+        "references": [
+          "claim_2",
+          "claim_0",
+          "obs_3"
+        ]
+      },
+      {
+        "text": "Le texte reproche à ses adversaires ce qu'il pratique : l'absence de raison contraire y tient lieu de démonstration, et l'absence de preuve d'un bénéfice y est déclarée sans valeur — **une asymétrie de traitement de la preuve** selon le camp qu'elle sert.",
+        "layers": [
+          "probe",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "bias_1",
+          "lr_1",
+          "ia_3",
+          "focus"
+        ]
+      }
+    ]
+  }
+}

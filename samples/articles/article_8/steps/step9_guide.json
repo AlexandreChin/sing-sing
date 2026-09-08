@@ -1,0 +1,70 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Repérez dès l'entrée la thèse implicite : l'auteur postule qu'il existe des bénéfices réels mais encore illisibles, et tout le texte découle de ce présupposé.",
+      "Notez que la première moitié avance par analogies historiques dont l'issue est déjà connue, un procédé qui installe une conclusion avant de la démontrer.",
+      "Gardez en tête que l'auteur est lui-même utilisateur de l'outil qu'il défend, et que le texte est co-écrit avec ce même outil."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "wo_1",
+          "text": "L'argument central est bâti de telle sorte qu'aucune donnée ne peut le contredire : si les bénéfices sont par nature non mesurables, toute étude négative devient hors sujet. Demandez-vous, en lisant, quel résultat l'auteur accepterait comme réfutation.",
+          "references": [
+            "ia_1",
+            "lr_1",
+            "bias_2"
+          ]
+        },
+        {
+          "id": "wo_2",
+          "text": "L'exigence de preuve n'est pas la même selon le camp : l'absence de preuve d'un risque vaut argument, l'absence de preuve d'un bénéfice ne vaut rien. Comparez les deux standards à mesure qu'ils apparaissent.",
+          "references": [
+            "bias_1",
+            "lr_1",
+            "ia_3"
+          ]
+        },
+        {
+          "id": "wo_3",
+          "text": "Les innovations citées ont toutes bien tourné ; aucune n'illustre un cas où les critiques précoces avaient raison. La série paraît universelle parce que les contre-exemples n'y figurent pas.",
+          "references": [
+            "pr_0",
+            "bs_0",
+            "bias_0"
+          ]
+        },
+        {
+          "id": "wo_4",
+          "text": "Les études sur les effets cognitifs sont évoquées par leur seul résultat, sans effectif ni statut de publication ; l'une d'elles n'a pas été relue par les pairs. Cette preuve adverse arrive affaiblie avant même d'être discutée, ce qui prépare son rapprochement avec une erreur médicale du XIXe siècle.",
+          "references": [
+            "obs_1",
+            "claim_1",
+            "er_1"
+          ]
+        },
+        {
+          "id": "wo_5",
+          "text": "La règle de gouvernance proposée allège la contrainte de ceux qui déploient ces outils, et le texte ne pèse jamais leurs intérêts économiques. La même incertitude invoquée pourrait tout aussi bien fonder la prudence.",
+          "references": [
+            "bs_1",
+            "cb_0",
+            "lr_3"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Demandez-vous si vous avez été convaincu par une démonstration ou par une accumulation d'exemples bien choisis.",
+      "Retenez la distinction utile que propose le texte — mesurer un coût n'est pas mesurer ce qui compte — sans la transformer en dispense de mesurer.",
+      "Vérifiez si le critère de récupérabilité vous permettrait de décider quoi que ce soit avant d'agir, ou seulement de commenter après coup.",
+      "Cherchez de vous-même les innovations dont les critiques précoces se sont révélées justes : elles complètent la série que l'article n'a pas retenue."
+    ],
+    "title_note": "Le titre tient pour acquis ce que le texte devait établir : il pose l'existence des bénéfices et ne présente comme manquante que leur lecture.",
+    "perspective": {
+      "framing": "L'article déplace le sujet : il ne traite pas des effets des IA génératives mais de la position de celui qui les évalue, en plaçant au centre l'histoire des innovations d'abord mal jugées. Le registre est celui de l'essai d'idées, cultivé et personnel, écrit du point de vue d'un utilisateur convaincu qui plaide pour l'expérimentation.",
+      "blind_spots": "Aucune innovation dont les critiques précoces ont eu raison n'entre dans la série d'exemples, et les intérêts économiques des entreprises qui déploient ces outils ne sont jamais mentionnés — alors que la règle proposée allège précisément leur contrainte. Les coûts non cognitifs (travail, énergie, données d'entraînement) restent hors champ.",
+      "balance": "C'est un essai d'opinion assumé, qui déclare son point de vue et sa co-écriture dès l'ouverture : on ne peut lui demander l'équilibre d'une enquête. Le format autorise le parti pris et l'angle resserré ; ce qui reste discutable n'est pas qu'il défende une thèse, mais que sa construction la mette hors d'atteinte de toute preuve."
+    }
+  }
+}

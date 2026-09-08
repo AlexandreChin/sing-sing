@@ -1,0 +1,58 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "L'article postule qu'un espace de bénéfices illisibles existe **même sans indice** : la même prémisse fonde la thèse et **disqualifie d'avance** toute preuve contraire, ce qui rend la démonstration impossible à contredire.",
+        "references": [
+          "ia_1",
+          "lr_1",
+          "bias_2",
+          "cb_0"
+        ]
+      },
+      {
+        "text": "Le texte reproche à ses adversaires exactement ce qu'il pratique : l'absence de raison contraire lui tient lieu de démonstration, tandis que l'absence de preuve d'un bénéfice est déclarée sans valeur. **L'exigence de preuve change selon le camp** qu'elle sert.",
+        "references": [
+          "bias_1",
+          "lr_1",
+          "ia_3",
+          "focus"
+        ]
+      },
+      {
+        "text": "La série d'analogies ne retient que des innovations dont les bénéfices sont advenus : le **biais d'échantillonnage n'est pas un défaut annexe**, c'est le moteur du vertige intellectuel que produit le texte.",
+        "references": [
+          "pr_0",
+          "bs_0",
+          "bias_0",
+          "er_0"
+        ]
+      },
+      {
+        "text": "Taire l'effectif et le statut de préprint des études cognitives **affaiblit la preuve adverse par le silence**, et rend possible son rapprochement avec Harrison — un défaut de sourçage qui prépare une disqualification par l'analogie.",
+        "references": [
+          "obs_1",
+          "claim_1",
+          "claim_3",
+          "er_1"
+        ]
+      },
+      {
+        "text": "Le critère de récupérabilité ne s'évalue qu'après coup, et la même incertitude qui l'invoque pourrait fonder la prudence : la règle finale **relève d'une préférence, non de l'analyse**, et son déplacement de la charge de la preuve profite d'abord aux acteurs qui déploient — intérêts que le texte ne pèse jamais.",
+        "references": [
+          "ia_2",
+          "lr_3",
+          "obs_0",
+          "cb_1",
+          "bs_1",
+          "cb_0"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quelle part des innovations passées comparables a produit des bénéfices durables plutôt que des coûts nets ?",
+      "Que valent réellement les études sur les effets cognitifs, une fois effectif et relecture par les pairs connus ?",
+      "Quels acteurs économiques voient leur contrainte allégée par la règle de récupérabilité proposée ?"
+    ]
+  }
+}

@@ -407,8 +407,11 @@ body {
 .trk.on { color: #d4aa00; }
 .trk svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .trk-sep { color: #3a3a3a; }
+/* Vertical rhythm: 0.75em between sibling text blocks, 0.62em between list
+   items, 0.32em label→body — resolved against this template's body size.
+   03_reperes keeps the tighter values: it has no vertical slack left. */
 .head { font-size: 60px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
-.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 29px; }
 .evidence { border-left: 4px solid #d4aa00; background: #161616; border-radius: 0 10px 10px 0; padding: 22px 28px; }
 .ev-quote { font-size: 39px; font-style: italic; line-height: 1.4; color: #f0f0f0; }
 
@@ -440,11 +443,11 @@ body {
 </div>
   <div class="stage">
     <span class="kick"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Au fil de la lecture</span>
-    <h1 class="head">La sécheresse agricole, deux volets</h1>
+    <h1 class="head">L&#39;exemple des rencontres en ligne</h1>
     <div class="divider"></div>
-    <div class="evidence"><p class="ev-quote">« La sécheresse agricole a, quant à elle, fait l&#39;objet d&#39;un traitement schizophrène. »</p></div>
-    <p class="watch"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><span class="wtxt"><span class="wl">Fait ou opinion</span> — Repérez le <strong>mot qui qualifie</strong> une intention avant que les faits ne soient décrits.</span></p>
-    <div class="reveal"><span class="arw">&#8594;</span><p class="rev">Le mot précède la description des deux volets — aides d&#39;urgence d&#39;un côté, modèle irrigant inchangé de l&#39;autre. Le texte n&#39;interroge pas ailleurs <strong>qui décide</strong> de ce modèle : aucun agriculteur irrigant n&#39;est cité.</p></div>
+    <div class="evidence"><p class="ev-quote">« les rencontres en ligne sont cohérentes avec l&#39;augmentation des mariages interraciaux »</p></div>
+    <p class="watch"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span class="wtxt"><span class="wl">Causalité</span> — Devant un bénéfice attribué à une technologie, cherchez la <strong>pente antérieure</strong>.</span></p>
+    <div class="reveal"><span class="arw">&#8594;</span><p class="rev">La hausse court depuis <strong>1967</strong> : 3 % des nouveaux mariages alors, près de 20 % dans les années 2010.</p></div>
   </div>
   <div class="slide-num">6 / 10</div>
   <div class="progress-track"><div class="progress-bar" style="width: 60%;"></div></div>

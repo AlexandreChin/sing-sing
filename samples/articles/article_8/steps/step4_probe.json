@@ -1,0 +1,152 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "culminant avec le rapport du comité de la Royal Medical and Chirurgical Society en 1864, qui recensait 123 décès liés au chloroforme",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 0.7,
+          "nature": "nuance"
+        },
+        "explanation": "Le chiffre est daté, nommé et rattaché à un rapport identifiable — le seul de l'essai à porter ce niveau de précision.",
+        "external_sources": [
+          {
+            "name": "Rapport du comité sur le chloroforme, Royal Medical and Chirurgical Society (1864)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Travaux historiques sur l'anesthésie au chloroforme (histoire de la médecine)",
+            "supports": "validates",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": 88
+      },
+      {
+        "quote": "les participants ayant écrit avec ChatGPT présentaient une connectivité neuronale significativement plus faible que ceux qui écrivaient sans assistance",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 1.0,
+          "nature": "illustration"
+        },
+        "explanation": "Le résultat est crédité à Kosmyna mais **l'effectif et le statut de préprint non relu ne sont pas donnés**, alors qu'ils pèsent sur la portée.",
+        "external_sources": [
+          {
+            "name": "Préprint Kosmyna et al., MIT Media Lab (2025)",
+            "supports": "validates",
+            "evidence_type": "academic"
+          },
+          {
+            "name": "Commentaires méthodologiques publiés sur ce préprint (effectif réduit, absence de relecture)",
+            "supports": "neutral",
+            "evidence_type": "media"
+          }
+        ],
+        "confidence": 55
+      },
+      {
+        "quote": "les rencontres en ligne sont cohérentes avec l’augmentation rapide des mariages interraciaux aux États-Unis au cours des deux dernières décennies",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Attribution",
+          "strength": 0.9,
+          "nature": "nuance"
+        },
+        "explanation": "« Cohérentes avec » désigne une compatibilité de modèle, pas une causalité mesurée ; **la hausse est engagée depuis les années 1960**, avant tout site de rencontre.",
+        "external_sources": [
+          {
+            "name": "Ortega & Hergovich, modèle d'appariement (2018)",
+            "supports": "validates",
+            "evidence_type": "academic"
+          },
+          {
+            "name": "Pew Research Center, séries sur les mariages interraciaux depuis 1967",
+            "supports": "contradicts",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 45
+      },
+      {
+        "quote": "Ils sont aussi la version du débat IA sur Harrison sur l’anesthésie, en examinant la base de preuves la plus complète à leur disposition tout en étant incapables de voir la chose la plus importante qui va se passer ensuite.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "inquiétude de se tromper de côté",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "L'assimilation des chercheurs actuels à une figure dont **l'histoire a retenu l'erreur** est posée comme un constat, alors qu'elle suppose connue « la chose la plus importante » à venir.",
+        "external_sources": [
+          {
+            "name": "Écrits de John Pollard Harrison (1849)",
+            "supports": "neutral",
+            "evidence_type": "testimony"
+          },
+          {
+            "name": "Littérature sur les effets cognitifs des LLM (2024-2025)",
+            "supports": "neutral",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": null
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "Le motif est également visible dans les cas d’infrastructure, où le déplacement est plus diffus.",
+        "item_type": "bias",
+        "label": "sélection des exemples",
+        "effect": "Remarquez que les cinq précédents retenus — anesthésie, phonographe, électricité, écriture, applications — sont tous des innovations dont les bénéfices sont advenus ; aucune technique dont les critiques précoces ont eu raison n'entre dans la série.",
+        "proves": {
+          "type": "observation",
+          "label": "Cadrage",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "il n’y a aucune raison fondée de s’attendre à ce que le même mécanisme ne soit pas à l’échelle",
+        "item_type": "fallacy",
+        "label": "absence de preuve tenue pour preuve",
+        "effect": "Remarquez comment l'absence de raison contraire tient lieu de démonstration, une forme d'argument que l'essai reproche par ailleurs à ses adversaires.",
+        "proves": {
+          "type": "observation",
+          "label": "Position",
+          "strength": 0.7,
+          "nature": "nuance"
+        }
+      },
+      {
+        "quote": "Une université qui interdit l’IA dans l’écriture des étudiants ne découvrira jamais quelles façons d’enseigner avec l’IA auraient pu préserver la pensée dure qui produit réellement l’apprentissage tout en permettant de nouvelles formes de travail intellectuel, et l’absence de cette preuve fera paraître l’interdiction sage.",
+        "item_type": "fallacy",
+        "label": "argument que rien ne peut contredire",
+        "effect": "Remarquez que si l'absence de preuve devient elle-même l'effet de la restriction, aucun résultat observable ne peut plus compter contre la thèse.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Les acteurs qui déploient les outils d'IA",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "La mesurabilité et l’importance ne sont pas la même chose.",
+      "proves": {
+        "type": "observation",
+        "label": "Cadrage",
+        "strength": 1.0,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase finale sépare **ce qu'on sait compter** de **ce qui compte**. Elle sous-entend que les preuves disponibles pèsent moins que ce qu'aucune preuve ne montre encore. Elle ne dit pas comment on distingue un bénéfice pas encore mesurable d'un bénéfice qui n'existe pas — sur quoi s'appuie alors celui qui doit décider aujourd'hui ?"
+    }
+  }
+}

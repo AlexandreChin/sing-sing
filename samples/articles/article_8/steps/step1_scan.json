@@ -1,0 +1,321 @@
+{
+  "article_type": "opinion",
+  "key_claims": [
+    {
+      "quote": "la douleur est curative – les actions de la vie en sont maintenues – sans la stimulation induite par la douleur, les opérations chirurgicales seraient plus fréquemment suivies de la dissolution.",
+      "source": "John Pollard Harrison, Medical College of Ohio, 1849",
+      "type": "attributed"
+    },
+    {
+      "quote": "culminant avec le rapport du comité de la Royal Medical and Chirurgical Society en 1864, qui recensait 123 décès liés au chloroforme",
+      "source": "Royal Medical and Chirurgical Society, 1864",
+      "type": "statistical"
+    },
+    {
+      "quote": "les rencontres en ligne sont cohérentes avec l’augmentation rapide des mariages interraciaux aux États-Unis au cours des deux dernières décennies",
+      "source": "Josué Ortega et Philipp Hergovich, 2018",
+      "type": "statistical"
+    },
+    {
+      "quote": "à partir de 2013 environ, la façon la plus courante pour les couples hétérosexuels américains de se rencontrer était en ligne, et qu’en 2017, environ 65 % des couples de même sexe se rencontraient ainsi",
+      "source": "Michael Rosenfeld et collègues",
+      "type": "statistical"
+    },
+    {
+      "quote": "Une enquête de 2024 du Trevor Project rapporte qu’environ les trois quarts des jeunes LGBTQ+ se connectent en ligne pour se connecter avec d’autres car ils ont du mal à le faire dans leur vie quotidienne",
+      "source": "Trevor Project, 2024",
+      "type": "statistical"
+    },
+    {
+      "quote": "les participants ayant écrit avec ChatGPT présentaient une connectivité neuronale significativement plus faible que ceux qui écrivaient sans assistance",
+      "source": "Nataliya Kosmyna et collègues, préprint 2025",
+      "type": "statistical"
+    },
+    {
+      "quote": "ceux ayant reçu un tuteur standard en IA obtenaient 17 % de moins résultats à l’examen final sans aide que ceux sans IA du tout",
+      "source": "Hamsa Bastani et collègues",
+      "type": "statistical"
+    },
+    {
+      "quote": "ceux qui utilisaient un assistant de codage IA obtenaient des scores nettement inférieurs aux questions de débogage et de compréhension conceptuelle",
+      "source": "Judy Hanwen Shen et Alex Tamkin",
+      "type": "statistical"
+    },
+    {
+      "quote": "La politique recommandée est de limiter délibérément la précision de l’IA, en forçant les gens à continuer à faire le travail eux-mêmes afin que le stock de connaissances publiques continue d’être reconstitué.",
+      "source": "Daron Acemoglu, Dingwen Kong, Asuman Ozdaglar",
+      "type": "attributed"
+    },
+    {
+      "quote": "Je pouvais esquisser un argument, identifier les premières objections sérieuses, tester si elles étaient fatales, et parvenir à un verdict provisoire en un après-midi plutôt qu’en quinze jours.",
+      "source": "l'auteur",
+      "type": "testimonial"
+    },
+    {
+      "quote": "Ma capacité à tenir une position complexe verbalement, sous pression, lors d’un séminaire ou d’une conversation ne s’est probablement pas améliorée et a peut-être quelque peu diminué.",
+      "source": "l'auteur",
+      "type": "testimonial"
+    },
+    {
+      "quote": "Lorsque la marine américaine a retiré la navigation céleste du programme après que le GPS l’ait rendue obsolète, il a fallu environ une décennie pour que cette vulnérabilité devienne évidente",
+      "type": "factual"
+    },
+    {
+      "quote": "Les évaluations les plus importantes de ces technologies seront faites rétrospectivement, par des personnes travaillant avec des concepts que nous n’avons pas encore.",
+      "type": "factual"
+    }
+  ],
+  "key_quotes": [
+    "j’ai écrit cet essai avec Claude. La rédaction était une collaboration, tout comme plusieurs idées, puisque les outils d’IA ont changé ma façon de travailler de manière directe liée à l’argument.",
+    "Robert Liston pouvait amputer une jambe en moins de 30 secondes, parce qu’il le devait.",
+    "Le bénéfice n’était pas une version plus confortable de ce que faisaient les chirurgiens. C’était l’apparition d’un espace de possibilités dont le contenu était inconcevable depuis la pratique chirurgicale de 1846.",
+    "Il n’existe aucune évaluation possible au moment critique qui puisse en tirer les bénéfices, car le vocabulaire qui les décrirait est lui-même l’un des éléments que l’innovation va faire concrétiser.",
+    "Les critiques documentent des choses réelles, et leurs preuves sont solides dans la même mesure que celles de Harrison sur l’anesthésie.",
+    "Ils sont aussi la version du débat IA sur Harrison sur l’anesthésie, en examinant la base de preuves la plus complète à leur disposition tout en étant incapables de voir la chose la plus importante qui va se passer ensuite.",
+    "L’expérience d’un philosophe est une base probatoire faible pour quoi que ce soit, et je me méfie de m’appuyer sur la mienne après avoir passé la moitié de cet essai à insister pour que nous soignions les preuves.",
+    "Lorsque les coûts d’exploration sont faibles, l’attachement du coût irrécupérable disparaît, et vous vous retrouvez à poser les mauvaises questions plus tôt et plus souvent, ce qui signifie que les questions que vous gardez sont meilleures.",
+    "Le fait que je puisse formuler ce bénéfice est, en un sens, une preuve contre la version la plus forte de mon propre argument, et je veux être franc à ce sujet.",
+    "Un régulateur qui doit faire preuve de diligence raisonnable trouvera toujours que les coûts documentés sont plus défendables que la possibilité de bénéfices inmesurables, car les coûts sont des preuves et les possibilités ne le sont pas.",
+    "Le modèle peut représenter un monde où ce qui doit être connu change sans cesse sans pouvoir représenter un monde où ce qui est considéré comme savoir change.",
+    "La restriction exclut l’expérimentation par laquelle les bénéfices auraient pu devenir visibles, de sorte que la base de preuves après la restriction continue de paraître unilatérale et que la décision initiale semble justifiée.",
+    "Ce que je pense que tient la route, c’est la récupérabilité. La question est de savoir si, si une décision s’avère erronée, nous pouvons la revenir en arrière.",
+    "Lorsque les coûts sont plausiblement irrécupérables, lorsque les fenêtres de développement se ferment ou que la capacité à détecter un problème disparaît en même temps que la compétence dont il dépend, l’asymétrie que j’ai décrite ne donne aucune raison de relâcher la prudence et peut renforcer l’argument en faveur de la restriction",
+    "Harrison pouvait vous dire avec précision combien coûterait l’anesthésie. Il n’aurait pas pu vous parler de la chirurgie à cœur ouvert, car les pratiques permettant d’imaginer une telle chose n’existaient pas encore. La mesurabilité et l’importance ne sont pas la même chose."
+  ],
+  "key_actors": [
+    {
+      "name": "L'auteur (professeur assistant, Alliance Manchester Business School)",
+      "role": "Signataire de l'essai ; expose son propre usage des LLM sur deux ans comme matériau d'argument"
+    },
+    {
+      "name": "John Pollard Harrison",
+      "role": "Vice-président de l'American Medical Association en 1849, figure de l'opposition médicale à l'anesthésie ; sert de figure-repère à tout l'essai"
+    },
+    {
+      "name": "Charles Meigs",
+      "role": "Titulaire de la chaire d'obstétrique au Jefferson Medical College, voyait les douleurs du travail comme salutaires"
+    },
+    {
+      "name": "Robert Liston",
+      "role": "Chirurgien pré-anesthésie, cité pour la rapidité imposée par la douleur"
+    },
+    {
+      "name": "John Philip Sousa",
+      "role": "Compositeur, annonçait en 1906 la mort du talent musical amateur à cause du phonographe"
+    },
+    {
+      "name": "Platon / Thamus",
+      "role": "Référence au Phèdre, avertissement antique sur l'écriture corrodant la mémoire"
+    },
+    {
+      "name": "Josué Ortega et Philipp Hergovich",
+      "role": "Économistes, lien entre rencontres en ligne et mariages interraciaux (2018)"
+    },
+    {
+      "name": "Michael Rosenfeld",
+      "role": "Sociologue, données longitudinales sur la rencontre en ligne des couples américains"
+    },
+    {
+      "name": "Nataliya Kosmyna",
+      "role": "Chercheuse, préprint 2025 sur la connectivité neuronale et l'écriture avec ChatGPT"
+    },
+    {
+      "name": "Hamsa Bastani",
+      "role": "Chercheur en IA, expérience de terrain sur près de 1 000 lycéens et tuteurs IA"
+    },
+    {
+      "name": "Judy Hanwen Shen et Alex Tamkin",
+      "role": "Chercheurs en IA, essai randomisé sur des ingénieurs logiciels et un assistant de codage"
+    },
+    {
+      "name": "Elena Hayoung Lee",
+      "role": "Chercheuse, distinction entre usage passif et collaboration active avec l'IA"
+    },
+    {
+      "name": "Daron Acemoglu, Dingwen Kong, Asuman Ozdaglar",
+      "role": "Auteurs du modèle formel sur la contraction du stock de connaissances collectif ; cible de la critique centrale de l'essai"
+    },
+    {
+      "name": "Eli Finkel",
+      "role": "Chercheur cité pour les effets négatifs des applications de rencontres"
+    },
+    {
+      "name": "Marine américaine / Académie de Kings Point",
+      "role": "Cas d'école du retrait puis du rétablissement de la navigation céleste en 2015"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "John Pollard Harrison, vice-président de l'American Medical Association",
+      "used_for": "Établir que l'opposition à l'anesthésie venait du sommet de l'expertise médicale, pas de la marge"
+    },
+    {
+      "entity": "Royal Medical and Chirurgical Society (rapport de 1864, 123 décès)",
+      "used_for": "Montrer que les coûts de l'anesthésie étaient documentés par des instruments sérieux"
+    },
+    {
+      "entity": "Eli Finkel",
+      "used_for": "Légitimer les effets négatifs documentés des applications de rencontres"
+    },
+    {
+      "entity": "Josué Ortega et Philipp Hergovich, économistes",
+      "used_for": "Attribuer aux rencontres en ligne une part de la hausse des mariages interraciaux"
+    },
+    {
+      "entity": "Michael Rosenfeld, sociologue, données longitudinales nationales",
+      "used_for": "Établir la bascule de 2013 et l'absence d'écart de satisfaction entre couples rencontrés en ligne et hors ligne"
+    },
+    {
+      "entity": "Trevor Project (enquête 2024)",
+      "used_for": "Documenter le rôle des espaces en ligne pour les jeunes LGBTQ+"
+    },
+    {
+      "entity": "Nataliya Kosmyna et collègues (préprint 2025)",
+      "used_for": "Appuyer la baisse de connectivité neuronale chez les rédacteurs assistés par ChatGPT"
+    },
+    {
+      "entity": "Hamsa Bastani et collègues",
+      "used_for": "Chiffrer à 17 % l'écart de résultats des lycéens ayant eu un tuteur IA standard"
+    },
+    {
+      "entity": "Judy Hanwen Shen et Alex Tamkin",
+      "used_for": "Appuyer la perte de compréhension conceptuelle chez les développeurs assistés"
+    },
+    {
+      "entity": "Elena Hayoung Lee et collègues",
+      "used_for": "Distinguer usage passif nuisible et collaboration active préservant confiance et sens"
+    },
+    {
+      "entity": "Daron Acemoglu, prix Nobel d'économie 2024",
+      "used_for": "Montrer que même la modélisation la plus prestigieuse reproduit l'angle mort décrit"
+    },
+    {
+      "entity": "Marine américaine et industrie aéronautique",
+      "used_for": "Fonder le principe de redondance institutionnelle préservée"
+    },
+    {
+      "entity": "Platon, Phèdre",
+      "used_for": "Ancrer l'ancienneté du schéma coûts lisibles / bénéfices illisibles"
+    }
+  ],
+  "notable_omissions": [
+    "Aucun contre-exemple d'innovation dont les critiques précoces ont eu raison sur toute la ligne — le motif n'est illustré que par des cas où les bénéfices ont fini par arriver.",
+    "Le critère central de « récupérabilité » n'est jamais opérationnalisé : pas de seuil, pas de méthode d'évaluation, pas de cas où il tranche contre l'expérimentation.",
+    "Aucune voix contradictoire n'est interrogée directement : les chercheurs critiques sont cités par leurs résultats, jamais par leur réponse à l'argument de l'auteur.",
+    "La note initiale indique que l'essai a été écrit avec Claude, mais rien ne précise quelles parties ni comment cela a été vérifié.",
+    "Aucune mention des intérêts économiques des entreprises d'IA, alors que l'essai plaide pour déplacer la charge de la preuve vers ceux qui restreignent.",
+    "Les coûts collectifs non cognitifs (travail, énergie, concentration des marchés, données d'entraînement) sont absents du bilan.",
+    "Le témoignage personnel n'est appuyé par aucune trace vérifiable — pas de comptage de projets, pas de mesure avant/après."
+  ],
+  "rhetorical_patterns": [
+    "Structure en série d'analogies historiques (anesthésie, phonographe, électricité, écriture, applications de rencontres) toutes taillées sur le même patron, ce qui installe le motif avant que l'IA n'entre en scène.",
+    "Concession systématique aux critiques — « leurs preuves sont solides », « ce sont des découvertes sérieuses » — avant de déplacer le terrain vers ce que les preuves ne peuvent pas voir.",
+    "Répétition d'une figure-repère unique, Harrison, qui devient l'étiquette appliquée aux chercheurs contemporains sans que le parallèle soit démontré.",
+    "Auto-réfutation exhibée : l'auteur signale lui-même la faiblesse de son témoignage et le fait que nommer un bénéfice contredit sa thèse, ce qui désarme l'objection avant qu'elle soit posée.",
+    "Vocabulaire de l'indicible (« illisible », « inconcevable », « indicible en 1906 ») qui rend l'absence de preuve compatible avec la thèse.",
+    "Basculement final vers un vocabulaire de pari et de charge de la preuve, qui transforme une question empirique en choix de règle de décision.",
+    "Note liminaire sur l'écriture avec Claude placée avant l'argument, faisant du texte lui-même une pièce du dossier.",
+    "Clausule courte et frappée en fin de section (« La mesurabilité et l'importance ne sont pas la même chose »), qui laisse la conclusion au lecteur."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx1",
+        "text": "L'essai paraît alors que **universités, employeurs et régulateurs arbitrent en direct** des règles d'usage de l'IA générative, souvent par interdiction."
+      },
+      {
+        "id": "ctx2",
+        "text": "Une série de travaux 2024-2025 sur la **dégradation cognitive liée aux LLM** circule largement et alimente ces décisions."
+      },
+      {
+        "id": "ctx3",
+        "text": "Le document de travail d'Acemoglu, Kong et Ozdaglar recommande de **brider volontairement la précision des IA**, ce qui donne à l'essai sa cible directe."
+      },
+      {
+        "id": "ctx4",
+        "text": "Aeon publie des essais longs d'auteurs universitaires ; l'auteur y écrit **depuis une business school britannique**, pas depuis un laboratoire d'IA."
+      }
+    ],
+    "who_is_speaking": [
+      "Essai signé d'un professeur assistant de l'Alliance Manchester Business School (Université de Manchester) — donc un universitaire dont **la pratique de recherche est elle-même l'objet du témoignage**.",
+      "L'auteur déclare d'emblée avoir **écrit l'essai avec Claude** et présente cette collaboration comme partie de l'argument, pas comme une note de bas de page.",
+      "Aeon est une revue d'idées en accès libre, financée par dons et fondations, qui publie des **essais argumentatifs longs** plutôt que du reportage — le format autorise la thèse assumée.",
+      "Le texte relève de la **philosophie de la technique et de la gouvernance**, pas de la recherche empirique sur l'IA : aucune donnée nouvelle n'est produite."
+    ],
+    "important_facts": [
+      {
+        "id": "if1",
+        "text": "Le préprint de Kosmyna (MIT Media Lab) porte sur **54 participants** et n'a pas été relu par des pairs — un ordre de grandeur que l'essai ne donne pas."
+      },
+      {
+        "id": "if2",
+        "text": "Un « **document de travail** » comme celui d'Acemoglu circule avant toute évaluation par les pairs et peut être révisé ou abandonné."
+      },
+      {
+        "id": "if3",
+        "text": "Le taux de mariages interraciaux aux États-Unis est passé d'environ **3 % en 1967 à près de 20 % des nouveaux mariages dans les années 2010** — hausse déjà engagée bien avant les applications."
+      },
+      {
+        "id": "if4",
+        "text": "L'anesthésie a mis **plusieurs décennies** à devenir sûre : l'antisepsie (années 1860-1880) et le suivi des constantes vitales étaient nécessaires avant la chirurgie invasive."
+      },
+      {
+        "id": "if5",
+        "text": "Les études d'écart de mémoire liées à Google (**effet Google**, Sparrow 2011) mesurent un transfert de stratégie de rappel, pas une perte de capacité mnésique brute."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "Asymétrie de lisibilité",
+        "definition": "Situation où les inconvénients d'une nouveauté se mesurent tout de suite alors que ses avantages profonds n'ont pas encore de mots pour être décrits."
+      },
+      {
+        "term": "Biais de coût irrécupérable",
+        "definition": "Tendance à persévérer dans un projet parce qu'on y a déjà consacré du temps ou de l'argent, indépendamment de ses chances de réussite."
+      },
+      {
+        "term": "Théorie de l'appariement",
+        "definition": "Branche de l'économie qui modélise la façon dont deux ensembles de personnes — ici des partenaires potentiels — se trouvent et se lient."
+      },
+      {
+        "term": "Préprint",
+        "definition": "Article scientifique rendu public avant relecture par d'autres chercheurs ; ses résultats peuvent encore changer."
+      },
+      {
+        "term": "Essai randomisé",
+        "definition": "Étude où les participants sont répartis au hasard entre plusieurs conditions, pour attribuer les écarts observés au traitement testé."
+      },
+      {
+        "term": "Navigation céleste",
+        "definition": "Méthode de positionnement en mer par observation du soleil et des étoiles, utilisable sans aucun signal électronique."
+      },
+      {
+        "term": "Récupérabilité",
+        "definition": "Capacité à revenir en arrière si une décision se révèle mauvaise, une fois les dégâts constatés."
+      },
+      {
+        "term": "Redondance préservée",
+        "definition": "Fait de maintenir volontairement une compétence ou un système de secours quelque part, même devenu inutile au quotidien."
+      },
+      {
+        "term": "Grand modèle de langage (LLM)",
+        "definition": "Programme entraîné sur d'énormes quantités de texte, capable de produire des réponses écrites plausibles."
+      },
+      {
+        "term": "Connectivité neuronale",
+        "definition": "Intensité des échanges mesurés entre régions du cerveau pendant une tâche."
+      },
+      {
+        "term": "Hippocampe",
+        "definition": "Région du cerveau centrale dans la mémoire et le repérage dans l'espace."
+      },
+      {
+        "term": "Diligence raisonnable",
+        "definition": "Obligation, pour une institution, de fonder ses décisions sur des vérifications documentées qu'elle peut produire en cas de contestation."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "Source : Aeon"
+  }
+}
