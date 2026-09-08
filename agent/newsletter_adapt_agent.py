@@ -144,7 +144,7 @@ def _context(full: ArticleFullAnalysis, backbone: str | None = None) -> str:
             "à l'angle du titre) :\n" + lines + "\n\n"
         )
     return (
-        f"ARTICLE METADATA :\n{_j(full.article_metadata.model_dump())}\n\n"
+        f"ARTICLE METADATA :\n{_j(full.article_metadata.model_dump(mode="json"))}\n\n"
         f"{core}"
         "ANALYSE COMPLÈTE :\n"
         f"{full.model_dump_json(indent=2, exclude={'review', 'deontology'})}"
