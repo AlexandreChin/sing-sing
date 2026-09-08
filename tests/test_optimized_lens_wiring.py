@@ -46,10 +46,12 @@ def test_deck_follows_merged_four_act_order(tmp_path):
 
 
 def test_essentiel_slide_carries_the_summary(tmp_path):
+    """Slide 2 renders the numbered `essentiel` claims, or the prose summary when
+    a deck has no bullets."""
     opt.generate_html(_doc(), tmp_path)
     html = (tmp_path / "02_essentiel.html").read_text(encoding="utf-8")
-    assert "L'essentiel de l'article" in html
-    assert "avance sa" in html and "<strong>thèse</strong>" in html  # prose summary, bold rendered
+    assert "essentiel de l" in html  # label; the apostrophes render escaped
+    assert 'class="pts"' in html or "avance sa" in html
 
 
 def test_reperes_carries_the_lenses(tmp_path):

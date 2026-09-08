@@ -15,6 +15,8 @@ from models.instagram_carousel_presentation import (
 _PROMPT = (Path(__file__).parent / "prompts" / "instagram_carousel.md").read_text(encoding="utf-8")
 
 _BOLD_RE = re.compile(r"\*\*(.+?)\*\*")
+# Sentence end: . ! ? followed by a space+capital or end of string (skips "3 %.", "1967 :").
+_SENTENCE_END = re.compile(r"[.!?](?=\s+[A-ZÀ-Þ])|[.!?]$")
 
 
 def _bold_spans(text: str) -> set[str]:
@@ -53,6 +55,24 @@ def _lens_layer_errors(d) -> list[str]:
         # (`note`) and the reveal (`answer`).
         if b.selected and not b.answer.strip():
             errors.append(f"display.reading_beats[{i}].answer is empty (required for selected beats)")
+        # A moment slide stacks title + quote + réflexe + answer. Caps keep the
+        # four blocks readable; the second sentence of an answer almost always
+        # restates the réflexe printed two lines above it.
+        if b.selected:
+            n_quote = len(b.quote.split())
+            if n_quote > 15:
+                errors.append(
+                    f"display.reading_beats[{i}].quote is {n_quote} words (max 15) — keep the "
+                    f"claim, drop the attribution"
+                )
+            n_answer = len(b.answer.split())
+            if n_answer > 22:
+                errors.append(f"display.reading_beats[{i}].answer is {n_answer} words (max 22)")
+            if len(_SENTENCE_END.findall(b.answer.strip())) > 1:
+                errors.append(
+                    f"display.reading_beats[{i}].answer runs to more than one sentence — "
+                    f"state the finding, not the finding plus its interpretation"
+                )
         # `role` (what the quote does for the thesis) keeps the reveal from
         # contradicting the passage it annotates — see the prompt's coherence rule.
         # slide 4 shows one réflexe per selected beat; without its own question it
@@ -99,6 +119,25 @@ def _lens_layer_errors(d) -> list[str]:
         errors.append("display.essentiel_summary is empty")
     if len(d.essentiel) != 3 or any(not p.strip() for p in d.essentiel):
         errors.append(f"display.essentiel must have exactly 3 non-empty points, got {len(d.essentiel)}")
+    # Slide 2 renders these as 01/02/03 with the bold span gilded, so a bullet
+    # without one renders flat, and a term gilded twice hierarchises nothing.
+    seen_bold: set[str] = set()
+    for i, point in enumerate(d.essentiel):
+        n_words = len(point.split())
+        if n_words > 13:
+            errors.append(f"display.essentiel[{i}] is {n_words} words (max 13)")
+        spans = _bold_spans(point)
+        if not spans:
+            errors.append(
+                f"display.essentiel[{i}] has no **bold** span — slide 2 gilds one key "
+                f"expression per bullet"
+            )
+        if spans & seen_bold:
+            errors.append(
+                f"display.essentiel[{i}] repeats a bold term already gilded in an earlier "
+                f"bullet ({', '.join(sorted(spans & seen_bold))})"
+            )
+        seen_bold |= spans
     n_takeaways = sum(1 for t in d.key_takeaways if t.selected)
     if not (2 <= n_takeaways <= 3):
         errors.append(f"display.key_takeaways must have 2–3 selected, got {n_takeaways}")
@@ -142,10 +181,31 @@ def _validate(data: dict) -> list[str]:
     # Slides 2 and 3 are one swipe apart: slide 2 summarises the article, slide 3
     # says why it is worth reading. When §1 of `why_selected` re-highlights a term
     # already gilded on slide 2, the two slides read as the same sentence twice.
-    shared = _bold_spans(d.why_selected.split("\n")[0]) & _bold_spans(d.essentiel_summary)
+    # Word caps: slide 3 is read in three seconds in a feed, and the 64px title
+    # wraps to three lines past ~7 words.
+    n_title = len(d.selection_headline.split())
+    if n_title > 7:
+        errors.append(f"display.selection_headline is {n_title} words (max 7)")
+    paras = [p.strip() for p in d.why_selected.split("\n") if p.strip()]
+    if len(paras) != 2:
+        errors.append(f"display.why_selected must be exactly 2 paragraphs, got {len(paras)}")
+    caps = (25, 20)
+    for i, (para, cap) in enumerate(zip(paras, caps), 1):
+        n = len(para.split())
+        if n > cap:
+            errors.append(f"display.why_selected §{i} is {n} words (max {cap})")
+    n_total = len(d.why_selected.split())
+    if n_total > 45:
+        errors.append(f"display.why_selected is {n_total} words in total (max 45)")
+    # Slide 2 shows the `essentiel` bullets, so §1 must not re-gild their terms
+    # (nor the prose summary's, which stands in when a deck has no bullets).
+    slide2_bold = _bold_spans(d.essentiel_summary)
+    for point in d.essentiel:
+        slide2_bold |= _bold_spans(point)
+    shared = _bold_spans(paras[0] if paras else "") & slide2_bold
     if shared:
         errors.append(
-            f"display.why_selected §1 repeats display.essentiel_summary's bold terms "
+            f"display.why_selected §1 repeats slide 2's bold terms "
             f"({', '.join(sorted(shared))}) — slide 2 says WHAT the article says, "
             f"slide 3 says WHY it is worth reading; rewrite §1 on other material"
         )
@@ -189,7 +249,7 @@ def _full_analysis_context(full: ArticleFullAnalysis) -> str:
             "à l'angle du titre) :\n" + lines + "\n\n"
         )
     return (
-        f"ARTICLE METADATA :\n{_j(full.article_metadata.model_dump())}\n\n"
+        f"ARTICLE METADATA :\n{_j(full.article_metadata.model_dump(mode="json"))}\n\n"
         f"{core}"
         f"ANALYSE COMPLÈTE :\n{full.model_dump_json(indent=2)}"
     )

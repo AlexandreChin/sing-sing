@@ -39,8 +39,9 @@ def _layout(stem: str, fmt: str | None = None, base: Path | None = None) -> dict
     return paths
 
 
-async def run_full_analysis(text: str, no_api: bool = False, input_path: str | None = None, extra_instructions: str | None = None, medium: str = "article") -> Path:
-    analysis_input = FullAnalysisInput(body=text, extra_instructions=extra_instructions, medium=medium)
+async def run_full_analysis(text: str, no_api: bool = False, input_path: str | None = None, extra_instructions: str | None = None, medium: str = "article", source: str | None = None, url: str | None = None, published_at: str | None = None) -> Path:
+    analysis_input = FullAnalysisInput(body=text, extra_instructions=extra_instructions, medium=medium,
+                                      source=source, url=url, published_at=published_at)
 
     stem = Path(input_path).stem if input_path else datetime.now().strftime("%Y%m%d_%H%M%S")
     lay = _layout(stem, base=_base_dir(input_path, stem))
@@ -78,7 +79,8 @@ async def cmd_analyze(args: argparse.Namespace) -> None:
         print("No article text provided (pass <article.txt> or pipe via stdin).", file=sys.stderr)
         sys.exit(1)
 
-    await run_full_analysis(text, no_api=args.no_api, input_path=input_path, extra_instructions=extra_instructions, medium=args.medium)
+    await run_full_analysis(text, no_api=args.no_api, input_path=input_path, extra_instructions=extra_instructions,
+                            medium=args.medium, source=args.source, url=args.url, published_at=args.published_at)
 
 
 async def cmd_simplify(args: argparse.Namespace) -> None:
@@ -239,7 +241,8 @@ async def cmd_produce(args: argparse.Namespace) -> None:
     lay = _layout(stem, args.format, base=_base_dir(input_path, stem))
     lay["fmt_dir"].mkdir(parents=True, exist_ok=True)
     full = await analyze_for_full_analysis(
-        FullAnalysisInput(body=text, medium=args.medium),
+        FullAnalysisInput(body=text, medium=args.medium, source=args.source,
+                          url=args.url, published_at=args.published_at),
         no_api=args.no_api,
         steps_dir=lay["steps"],
     )
@@ -294,7 +297,45 @@ async def cmd_program(args: argparse.Namespace) -> None:
     print(f"Step outputs → {lay['steps']}/", file=sys.stderr)
 
 
+async def cmd_fetch(args: argparse.Namespace) -> None:
+    from tools.feeds import FEEDS, fetch_article, list_candidates
+
+    if args.url:
+        import httpx
+        try:
+            path = await fetch_article(args.url, Path(args.dir))
+        except httpx.HTTPError as exc:
+            print(f"Could not fetch {args.url}: {exc}", file=sys.stderr)
+            sys.exit(1)
+        print(f"Saved to {path}", file=sys.stderr)
+        print(f"Next: python main.py produce {path} --render", file=sys.stderr)
+        return
+
+    if args.list_sources:
+        for slug, (label, url) in FEEDS.items():
+            print(f"{slug:16} {label:26} {url}")
+        return
+
+    try:
+        candidates = await list_candidates(args.source, args.limit)
+    except ValueError as exc:
+        print(exc, file=sys.stderr)
+        sys.exit(1)
+    for item in candidates:
+        print(f"[{item['source']}] {item['date']}\n  {item['title']}\n  {item['url']}")
+    sys.stdout.flush()
+    print(f"\n{len(candidates)} candidates. "
+          "Fetch one with: python main.py fetch <url>", file=sys.stderr)
+
+
 # ── Argument parser ───────────────────────────────────────────────────────────
+
+def _add_source_args(p: argparse.ArgumentParser) -> None:
+    """Source metadata — never inferred from the body, shown on the hook slide."""
+    p.add_argument("--source", help="publication name (e.g. \"Aeon\")")
+    p.add_argument("--url", help="canonical article URL")
+    p.add_argument("--published-at", help="publication date as it should read (e.g. \"7 septembre 2026\")")
+
 
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="main.py", description="Analyze news articles and render Instagram carousels.")
@@ -311,6 +352,7 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--instructions-file", help="extra analysis instructions (from file)")
     p.add_argument("--medium", choices=["article", "video", "podcast"], default="article",
                    help="source medium — drives reader-facing vocabulary (default: article)")
+    _add_source_args(p)
     p.set_defaults(func=cmd_analyze)
 
     p = sub.add_parser("adapt", help="adapt an analysis into a carousel presentation")
@@ -333,6 +375,7 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--render", action="store_true")
     p.add_argument("--medium", choices=["article", "video", "podcast"], default="article",
                    help="source medium — drives reader-facing vocabulary (default: article)")
+    _add_source_args(p)
     p.set_defaults(func=cmd_produce)
 
     p = sub.add_parser("program", help="analyze a candidate's program (hors-série)")
@@ -376,6 +419,14 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("analysis", help="analysis.json")
     p.add_argument("output", nargs="?", help="output .html (default: alongside the json)")
     p.set_defaults(func=cmd_graph)
+
+    p = sub.add_parser("fetch", help="list free-to-read French analysis feeds, or fetch an article")
+    p.add_argument("url", nargs="?", help="article URL to scrape into --dir")
+    p.add_argument("--source", "-s", action="append", help="feed slug to list (repeatable; default: all)")
+    p.add_argument("--limit", type=int, default=5, help="items per feed (default: 5)")
+    p.add_argument("--list-sources", action="store_true", help="print the known feeds and exit")
+    p.add_argument("--dir", default="samples/articles", help="where to save (default: samples/articles)")
+    p.set_defaults(func=cmd_fetch)
 
     return parser
 
