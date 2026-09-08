@@ -11,7 +11,7 @@ from agent.lenses import CANONICAL_LENSES
 from models.instagram_carousel_presentation import InstagramCarouselDocument
 from ._shared import (
     _env, _LOGO_DATA_URL, _LOGO_TIGHT_DATA_URL,
-    source_type_label, cover_layers, medium_labels,
+    source_type_label, duration_label, cover_layers, cover_thumb, medium_labels,
 )
 
 TPL = "article_carousel_optimized_v0"
@@ -35,12 +35,14 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     full, pres = doc.analysis, doc.presentation
     meta, disp = full.article_metadata, pres.display
 
-    source_meta = " · ".join(x for x in [
+    # Slide 1 shows only what the source capture cannot: the article's own title
+    # and chapô are inside the image, so the metadata line carries the rest.
+    meta_parts = [x for x in [
         meta.source,
         meta.published_at,
         source_type_label(meta),
-        f"{meta.reading_time_minutes} min" if meta.reading_time_minutes else None,
-    ] if x)
+        duration_label(meta),
+    ] if x]
 
     d = disp
     contexts = full.context.contexts[:1]
@@ -71,13 +73,16 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     # Act 2 "Avant de lire" is a single merged slide: context + the lenses shown
     # as réflexes (the standalone lens slide was folded into 03_reperes).
     specs = [
-        ("01_hook", "01_hook", {"article_title": (meta.title or "").strip(), "source_meta": source_meta,
+        ("01_hook", "01_hook", {"meta_parts": meta_parts,
                                 "topic": pres.hook.topic, "sub_topic": pres.hook.sub_topic,
                                 "kicker_logo": _LOGO_TIGHT_DATA_URL,
+                                # out_dir is <base>/<format>/html — the capture sits in <base>
+                                "thumb": cover_thumb(Path(out_dir).resolve().parent.parent),
                                 "headline": pres.hook.headline, **cover_layers(meta, pres.hook.headline)}),
-        # Slide 2 — L'essentiel: neutral prose summary of the article, right after the hook
-        # (the 3 `essentiel` bullets are kept in the model but not rendered)
-        ("02_essentiel", "02_essentiel", {"essentiel_summary": d.essentiel_summary}),
+        # Slide 2 — L'essentiel: the 3 `essentiel` claims, numbered. The prose
+        # `essentiel_summary` is the fallback for decks whose adapt produced no bullets.
+        ("02_essentiel", "02_essentiel", {"essentiel": d.essentiel,
+                                          "essentiel_summary": d.essentiel_summary}),
         ("03_selection", "02_selection", {"headline": d.selection_headline, "why_selected": d.why_selected}),
         ("04_reperes", "03_reperes", {
             "reperes_headline": d.reperes_headline,

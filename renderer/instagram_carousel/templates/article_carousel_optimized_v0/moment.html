@@ -4,22 +4,25 @@
 <meta charset="UTF-8">
 <style>
 {% include 'base.css' %}
-.head { font-size: 52px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
-.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+/* Vertical rhythm: 0.75em between sibling text blocks, 0.62em between list
+   items, 0.32em label→body — resolved against this template's body size.
+   03_reperes keeps the tighter values: it has no vertical slack left. */
+.head { font-size: 60px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
+.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 29px; }
 .evidence { border-left: 4px solid #d4aa00; background: #161616; border-radius: 0 10px 10px 0; padding: 22px 28px; }
-.ev-quote { font-size: 34px; font-style: italic; line-height: 1.4; color: #f0f0f0; }
+.ev-quote { font-size: 39px; font-style: italic; line-height: 1.4; color: #f0f0f0; }
 
 /* ── Watch-out: the challenge (lens + imperative, one line) ── */
 .watch { display: flex; gap: 16px; align-items: flex-start; }
 .watch svg { width: 40px; height: 40px; flex: none; margin-top: 4px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.watch .wtxt { font-size: 37px; font-weight: 700; line-height: 1.34; color: #f0f0f0; }
+.watch .wtxt { font-size: 43px; font-weight: 700; line-height: 1.34; color: #f0f0f0; }
 .watch .wtxt .wl { color: #d4aa00; font-weight: 900; }
 .watch .wtxt strong { color: #d4aa00; font-weight: 900; }
 
 /* ── Reveal: the answer ── */
 .reveal { display: flex; gap: 18px; align-items: flex-start; }
-.reveal .arw { flex: none; font-size: 40px; line-height: 1.15; color: #d4aa00; font-weight: 900; }
-.reveal .rev { font-size: 33px; line-height: 1.42; color: #cfcfcf; text-align: justify; hyphens: auto; }
+.reveal .arw { flex: none; font-size: 46px; line-height: 1.15; color: #d4aa00; font-weight: 900; }
+.reveal .rev { font-size: 38px; line-height: 1.42; color: #cfcfcf; text-align: justify; hyphens: auto; }
 .reveal .rev strong { color: #d4aa00; font-weight: 700; }
 </style>
 </head>

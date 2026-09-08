@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <style>
 {% include 'base.css' %}
-.rubrique-tab { display: inline-flex; align-items: center; gap: 14px; font-size: 28px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #d4aa00; }
+.rubrique-tab { display: inline-flex; align-items: center; gap: 14px; font-size: 32px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #d4aa00; }
 .rubrique-tab svg { width: 40px; height: 40px; stroke: #d4aa00; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .swipe { position: absolute; bottom: 120px; left: 90px; right: 90px; font-size: 27px; font-weight: 700; color: #aaa; letter-spacing: .04em; text-align: center; }
 .sw-sep { color: #d4aa00; font-weight: 800; }
@@ -16,20 +16,30 @@
 .giant { position: absolute; right: -220px; bottom: -200px; width: 1000px; height: 1000px; z-index: -1; }
 .giant svg { width: 100%; height: 100%; stroke: #d4aa00; stroke-opacity: .17; fill: none; stroke-width: .7; stroke-linecap: round; stroke-linejoin: round; }
 .giant svg circle { fill: none; }
-/* — Source card: the article being analysed (a distinct, bounded object).
-   A future article thumbnail drops into this card as a left-hand image column. — */
-.src-card { margin-top: 30px; max-width: 880px; border-radius: 16px; padding: 26px 32px;
-  background: linear-gradient(#141210, #141210) padding-box, linear-gradient(135deg, #3a3500 0%, #2a2a2a 55%, #1a1a1a 100%) border-box; border: 1px solid transparent; }
-.src-label { font-size: 22px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #8a8a8a; }
-.src-title { font-size: 39px; font-weight: 700; font-style: italic; line-height: 1.26; color: #e8e8e8; margin-top: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.src-meta { font-size: 22px; font-weight: 700; letter-spacing: .10em; text-transform: uppercase; color: #9a9a9a; margin-top: 16px; }
+/* The wordmark moves to the top-left so the image slot owns the slide's width. */
+.logo-img { top: 34px; right: auto; left: 48px; width: 86px; height: 86px; }
+.company-name { top: 58px; right: auto; left: 140px; font-size: 24px; text-align: left; }
+/* — The source article: its own title and chapô live inside the capture, so the
+   slide states only what the image cannot (genre, length, source, date). — */
+.sel-kick svg { width: 26px; height: 26px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.meta-line { font-size: 31px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #9a9a9a; margin-top: 12px; }
+.meta-line .dot { color: #d4aa00; margin: 0 12px; }
+/* — Image slot: full slide width less a 48px side padding (the .slide's own
+   padding is 90px, hence the negative margins), height from the image's own
+   aspect ratio — a portrait capture simply gets a taller slot. The screenshot
+   read comes from light alone: a hairline edge plus a cast shadow. — */
+.shot { position: relative; margin: 26px -42px 0; border-radius: 14px; overflow: hidden;
+  box-shadow: 0 26px 58px rgba(0,0,0,.75); }
+.shot img { display: block; width: 100%; height: auto; max-height: 720px; object-fit: contain; }
+.shot .edge { position: absolute; inset: 0; border-radius: 14px; pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.10), inset 0 1px 0 rgba(255,255,255,.16); }
 /* split between the source article (above) and Sing Sing's analysis (below) */
 .divider2 { width: 100%; max-width: 880px; height: 2px; background: linear-gradient(to right, #d4aa00 0%, transparent 78%); margin: 36px 0 22px; }
-.kicker { font-size: 25px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #d4aa00; display: inline-flex; align-items: center; gap: 14px; }
+.kicker { font-size: 29px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #d4aa00; display: inline-flex; align-items: center; gap: 14px; }
 .kicker-logo { height: 26px; width: auto; }
-.cover-sub { font-size: 37px; font-weight: 400; font-style: italic; line-height: 1.3; color: #e8e8e8; margin-top: 16px; max-width: 880px; }
-.cover-sub strong { color: #d4aa00; font-weight: 700; font-style: normal; }
-.cover-head { font-size: 74px; font-weight: 900; line-height: 1.06; letter-spacing: -0.02em; color: #f0f0f0; max-width: 880px; margin-top: 14px; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+/* The deck's promise. The source's own title is in the capture, so this slot
+   carries the sub_topic — the question the deck goes on to answer. */
+.cover-head { font-size: 85px; font-weight: 900; line-height: 1.06; letter-spacing: -0.02em; color: #f0f0f0; max-width: 880px; margin-top: 16px; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .cover-head strong { color: #d4aa00; font-weight: 900; }
 </style>
 </head>
@@ -41,16 +51,14 @@
 
   {% if rubrique %}<div class="rubrique-tab"><svg viewBox="0 0 24 24">{{ glyph | safe }}</svg>{{ rubrique }}</div>{% endif %}
 
-  {% if article_title %}<div class="src-card">
-    <div class="src-label">Sélection</div>
-    <p class="src-title">{{ article_title }}</p>
-    {% if source_meta %}<p class="src-meta">{{ source_meta }}</p>{% endif %}
-  </div>{% endif %}
+  <span class="kicker sel-kick"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg>Sélection</span>
+  {% if meta_parts %}<div class="meta-line">{% for part in meta_parts %}{% if not loop.first %}<span class="dot">&bull;</span>{% endif %}{{ part }}{% endfor %}</div>{% endif %}
+  {% if thumb %}<div class="shot"><img src="{{ thumb }}" alt=""><div class="edge"></div></div>{% endif %}
 
   <div class="divider2"></div>
   <span class="kicker">On décrypte<img class="kicker-logo" src="{{ kicker_logo }}" alt=""></span>
-  <h1 class="cover-head">{{ (topic or headline) | md_bold }}</h1>
-  {% if sub_topic %}<p class="cover-sub">{{ sub_topic | md_bold }}</p>{% endif %}
+  {# French typography: a no-break space before ? ! : — also stops "?" orphaning onto its own line. #}
+  <h1 class="cover-head">{{ (sub_topic or topic or headline).replace(' ?', ' ?').replace(' !', ' !').replace(' :', ' :') | md_bold }}</h1>
 
   <div class="swipe">{{ L.prog_before }} <span class="sw-sep">&#8250;</span> {{ L.prog_during }} <span class="sw-sep">&#8250;</span> {{ L.prog_after }}</div>
   <div style="position: absolute; bottom: 56px; left: 0; right: 0; text-align: center; font-size: 22px; color: #555; letter-spacing: 0.08em; font-style: italic;"><span style="color: #d4aa00;">Sing</span>, little bird, <span style="color: #d4aa00;">sing</span></div>
