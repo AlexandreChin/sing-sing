@@ -1,5 +1,5 @@
 from models.full_analysis import ArticleMetadata
-from renderer.instagram_carousel._shared import _env, cover_layers
+from renderer.instagram_carousel._shared import _env, cover_layers, medium_labels
 
 TPL = "article_carousel_optimized_v0/01_hook.html"
 
@@ -8,9 +8,8 @@ def test_cover_layers_output_renders_in_hook():
     meta = ArticleMetadata(title="Réforme des retraites", category="Politique")
     layers = cover_layers(meta, "Fallback headline")
     html = _env().get_template(TPL).render(
-        slide_n=1, slide_total=10, progress=10, logo="",
-        article_title="Réforme des retraites", source_meta="LE MONDE",
-        headline="Un **texte** technique", **layers,
+        slide_n=1, slide_total=10, progress=10, logo="", L=medium_labels("article"),
+        meta_parts=["Le Monde"], sub_topic="Un **texte** technique", **layers,
     )
     assert "Politique" in html
     assert '<div class="artbg">' in html

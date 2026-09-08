@@ -4,10 +4,22 @@
 <meta charset="UTF-8">
 <style>
 {% include 'base.css' %}
-.sel-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 30px; }
-.sel-head { font-size: 56px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
-.es-summary { font-size: 40px; font-weight: 400; line-height: 1.45; color: #e0e0e0; text-align: justify; hyphens: auto; }
+/* Vertical rhythm: 0.75em between sibling text blocks, 0.62em between list
+   items, 0.32em label→body — resolved against this template's body size.
+   03_reperes keeps the tighter values: it has no vertical slack left. */
+.sel-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 33px; }
+.sel-head { font-size: 64px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
+.es-summary { font-size: 46px; font-weight: 400; line-height: 1.42; color: #e0e0e0; text-wrap: pretty; }
 .es-summary strong { color: #d4aa00; font-weight: 700; }
+/* The three `essentiel` claims, numbered: three scannable lines instead of one
+   57-word block. Hairline rules separate them — no panels, so the framed look
+   stays reserved for the source capture on slide 1. */
+.pts { display: flex; flex-direction: column; }
+.pt { display: flex; gap: 30px; align-items: baseline; padding: 26px 0; border-top: 1px solid #232323; }
+.pt:first-child { border-top: none; padding-top: 6px; }
+.pt-n { flex: none; width: 76px; font-size: 40px; font-weight: 900; color: #d4aa00; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.pt-t { font-size: 44px; font-weight: 400; line-height: 1.28; color: #e8e8e8; text-wrap: pretty; }
+.pt-t strong { color: #d4aa00; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -18,7 +30,9 @@
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>{{ L.essentiel }}</span>
     <h1 class="sel-head">En bref</h1>
     <div class="divider"></div>
-    <div class="es-summary">{{ essentiel_summary | md_bold }}</div>
+    {% if essentiel %}<div class="pts">
+      {% for pt in essentiel %}<div class="pt"><span class="pt-n">{{ '%02d'|format(loop.index) }}</span><span class="pt-t">{{ pt | md_bold }}</span></div>{% endfor %}
+    </div>{% else %}<div class="es-summary">{{ essentiel_summary | md_bold }}</div>{% endif %}
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">{{ L.why }} &#8250;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>

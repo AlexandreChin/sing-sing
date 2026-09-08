@@ -207,6 +207,23 @@ def _env() -> Environment:
     return env
 
 
+# The source article's thumbnail, dropped in beside the analysis as `cover.*` or
+# `image.*`. `cover` wins, so a hand-made crop can sit next to the raw capture.
+_THUMB_STEMS = ("cover", "image")
+_THUMB_MIMES = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp"}
+
+
+def cover_thumb(base_dir: Path) -> str:
+    """Data URL for the source thumbnail found beside the analysis, else "".
+    Empty means slide 1 renders exactly as it did before the image existed."""
+    for stem in _THUMB_STEMS:
+        for ext, mime in _THUMB_MIMES.items():
+            path = Path(base_dir) / f"{stem}{ext}"
+            if path.exists():
+                return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode()
+    return ""
+
+
 def cover_layers(meta, headline: str) -> dict:
     """Hook slide-1 background context, shared by both carousel renderers.
 

@@ -4,11 +4,18 @@
 <meta charset="UTF-8">
 <style>
 {% include 'base.css' %}
-.sel-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 30px; }
-.sel-head { font-size: 56px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
-.q-list { display: flex; flex-direction: column; gap: 20px; }
-.q-body { font-size: 38px; font-weight: 400; line-height: 1.42; color: #e0e0e0; text-align: justify; hyphens: auto; }
-.q-body strong { color: #d4aa00; font-weight: 700; }
+/* Vertical rhythm: 0.75em between sibling text blocks, 0.62em between list
+   items, 0.32em label→body — resolved against this template's body size.
+   03_reperes keeps the tighter values: it has no vertical slack left. */
+.sel-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 32px; }
+.sel-head { font-size: 64px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
+/* Two paragraphs doing two jobs: the first sets the precedent, the second is
+   the payoff (why this piece matters now). Ragged-right, not justified: at this
+   size `justify` + `hyphens` breaks words mid-line. */
+.lede { font-size: 43px; font-weight: 400; line-height: 1.28; color: #e8e8e8; text-wrap: pretty; }
+.lede strong { color: #d4aa00; font-weight: 700; }
+.pull { font-size: 43px; font-weight: 400; line-height: 1.28; color: #e8e8e8; text-wrap: pretty; }
+.pull strong { color: #d4aa00; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -19,9 +26,9 @@
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg>{{ L.why }}</span>
     <h1 class="sel-head">{{ headline | md_bold }}</h1>
     <div class="divider"></div>
-    <div class="q-list">
-      {% for para in why_selected.split('\n') if para.strip() %}<p class="q-body">{{ para | md_bold }}</p>{% endfor %}
-    </div>
+    {% set paras = why_selected.split('\n') | map('trim') | select | list %}
+    <p class="lede">{{ paras[0] | md_bold }}</p>
+    {% if paras | length > 1 %}<p class="pull">{{ paras[1:] | join(' ') | md_bold }}</p>{% endif %}
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">{{ L.how_to_short }} &#8250;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
