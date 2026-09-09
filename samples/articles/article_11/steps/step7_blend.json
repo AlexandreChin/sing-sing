@@ -1,0 +1,114 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "Le présupposé que **les décisions humaines restent souveraines à chaque maillon** n'est jamais posé comme hypothèse, et c'est précisément lui qui rend le levier syndical opérant : si le tri automatique restreint l'éventail des choix, le débouché militant du diagnostic perd son point d'appui. La prémisse tacite et la stratégie qu'elle sert ne sont vérifiées ni dans Probe ni par le plateau.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "ia_1",
+          "cb_1",
+          "focus",
+          "bs_3"
+        ]
+      },
+      {
+        "text": "Les deux cadences de frappes fonctionnent sur trois registres à la fois : elles portent **l'inquiétude morale**, elles sont données comme fait établi avec une confiance de 55, et elles constituent un point de vigilance déontologique pour juxtaposition sans base commune. Le même énoncé non sourcé sert donc de moteur émotionnel et de socle factuel.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "er_0",
+          "claim_0",
+          "bias_0"
+        ]
+      },
+      {
+        "text": "L'analogie historique n'est pas qu'un maillon fragile : elle **avantage ceux qui la portent**, en déplaçant le débat de la technique vers l'archive, terrain où la compétence des intervenants fait autorité. Le glissement logique et l'intérêt argumentatif pointent dans le même sens.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "lr_1",
+          "cb_0",
+          "bias_1",
+          "obs_4"
+        ]
+      },
+      {
+        "text": "L'absence de contradicteur produit un **effet en chaîne** : les accusations visant Palantir et la hiérarchie militaire restent sans réponse sollicitée, et le contre-argument le plus solide — le tri en amont qui réduit l'éventail des choix — n'a personne pour le porter. La forme du plateau dispense la thèse de son test le plus dur.",
+        "layers": [
+          "logic",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "bs_0",
+          "ia_1",
+          "claim_3"
+        ]
+      },
+      {
+        "text": "L'affirmation répétée d'une **impopularité jamais chiffrée** transforme un présupposé en constat, et de là en diagnostic : il ne manquerait qu'une capacité d'organisation. La prémisse non mesurée porte à elle seule la conclusion stratégique.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "ia_3",
+          "bias_2",
+          "lr_3"
+        ]
+      },
+      {
+        "text": "Le vote de Google DeepMind est le **seul élément daté** du plateau et il revient trois fois, tandis que les contrats militaires courants ne reçoivent aucun chiffre : l'unique fait vérifiable devient le principal motif d'espoir, par défaut plus que par démonstration.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "obs_1",
+          "cb_1",
+          "claim_1"
+        ]
+      },
+      {
+        "text": "Le vocabulaire du **« sont connus pour »** occupe la place d'une source, et il apparaît là où l'enjeu est le plus lourd : taux d'erreur de Maven, traduction automatique des télécommunications palestiniennes. La formule de sourçage et le point de vigilance déontologique coïncident sur les mêmes énoncés.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "obs_2",
+          "claim_2",
+          "pr_0"
+        ]
+      },
+      {
+        "text": "Le titre en oxymore **tait le terrain militaire** au moment même où Gaza et l'Iran occupent presque chaque tour de parole et où les usages civils sont abandonnés après une mention : l'écart entre l'objet annoncé — la rationalité — et le corpus réellement examiné soutient l'extension implicite du militaire à l'IA en général.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "obs_1",
+          "ia_2",
+          "bs_2"
+        ]
+      }
+    ]
+  }
+}

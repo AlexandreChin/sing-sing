@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "Les accusations les plus lourdes reposent sur des **révélations de presse citées de mémoire** : le taux d'erreur de Maven Smart System est affirmé sans document, et les taux de la traduction automatique sont introduits par « sont connus pour avoir des taux d'erreur très élevés ». Le vote de Google DeepMind, chiffré à 98 %, est le seul élément **daté et vérifiable** du plateau, mais aucun scrutin publié n'est cité dans la transcription.",
+        "lesson": "Repérez les formules du type « il est connu que » : elles occupent la place d'une source sans en fournir une."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 2,
+        "rationale": "Deux cadences de frappes — une toutes les deux minutes à Gaza, une toutes les soixante-dix-sept secondes en Iran — sont **juxtaposées sans base commune**, sur des théâtres et des périodes différents, et présentées comme un fait établi (`presented_as_established_fact`, confiance 55). L'affirmation d'une « indifférence totale envers les pertes civiles » est classée `opinion_stated_as_fact` : elle porte sur des intentions, sans critère de vérification.",
+        "lesson": "Demandez la période de référence avant d'accepter une comparaison de cadences : sans base commune, deux chiffres exacts peuvent produire une conclusion fausse."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 3,
+        "rationale": "La thèse centrale — des choix humains rendus invisibles — est **soutenue par une chaîne lisible** : continuité historique, règles d'engagement, seuils de victimes. Mais trois maillons sur quatre glissent : l'imprécision technique est censée fonder l'inadéquation du critère de précision, et l'analogie avec le Vietnam ou SAGE est prise pour la preuve que « rien d'essentiel n'a changé », sans comparer échelle ni vitesse.",
+        "lesson": "Vérifiez qu'une analogie historique mesure aussi les différences d'échelle : une ressemblance de logique ne démontre pas une identité de situation."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 3,
+        "rationale": "Le format du plateau est assumé et les intervenants **reconnaissent leurs limites** — le « je n'ai pas de bonnes réponses » revient chez les trois. En revanche, les présupposés restent tacites : que les décisions humaines demeurent souveraines à chaque maillon, ou que ce qui vaut pour le militaire vaut pour l'IA en général, n'est jamais posé comme hypothèse discutable.",
+        "lesson": "Cherchez la prémisse qu'un texte n'énonce jamais : c'est souvent celle qui porte toute la conclusion."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Le contexte historique est **fourni et précis** — SAGE en 1958, Vietnam, les thèses de David Noble. Mais la répartition est déséquilibrée : Gaza et l'Iran reviennent à presque chaque tour de parole quand l'Ukraine, citée une fois, n'est pas développée, les usages civils sont abandonnés après une mention, et l'hypothèse qu'une automatisation puisse **réduire des pertes civiles** n'est jamais examinée.",
+        "lesson": "Comptez les mentions : le sujet le plus répété indique le cadre réel du propos, pas celui qu'annonce le titre."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Palantir est nommé et mis en cause, comme la hiérarchie militaire israélienne à qui l'on prête un seuil de « 100 civils », **sans qu'aucune réponse ne soit sollicitée**. Le plateau réunit trois voix partageant le même cadre critique, et l'énoncé « Cette guerre est incroyablement impopulaire. Ces cabinets sont incroyablement impopulaires » sert de prémisse répétée mais jamais chiffrée.",
+        "lesson": "Identifiez qui n'a pas été appelé à répondre : l'absence d'un contradicteur dispense la thèse de son test le plus dur."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "Les notions techniques sont **ancrées dans des exemples nommés** — détection d'anomalies, reconnaissance faciale, traduction automatique — et les analogies historiques rendent l'abstraction saisissable pour un lecteur non spécialiste. Le titre, en revanche, joue l'oxymore et **tait le terrain militaire** : ni guerre, ni Gaza, ni Palantir n'y figurent, ce qui décale l'attente.",
+        "lesson": "Comparez le titre au contenu réel : l'écart révèle ce que la publication a choisi de mettre en avant."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 4,
+        "rationale": "L'angle déplace le débat **du critère de précision vers celui de la responsabilité**, ce qui échappe à la couverture habituelle de l'IA militaire. La formule « tu ne peux pas dire que tu obéis juste aux ordres de Maven » condense cet apport ; il reste que le contre-argument le plus fort — un tri automatique en amont réduisant l'éventail des choix — n'est pas relevé par le plateau.",
+        "lesson": "Retenez l'angle qui change la question posée : il vaut souvent plus que la réponse qu'on vous propose."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Le lecteur qui suit déjà le dossier de l'IA militaire et sait remettre des chiffres dans leur contexte — chercheur, salarié du secteur tech, syndicaliste — trouvera ici un cadre d'analyse plutôt qu'un état des faits.",
+      "payoff": "Vous en ressortez avec une grille de lecture utilisable : chercher, derrière un système automatisé, les seuils et les règles décidés par des humains. Vous verrez aussi comment un plateau d'accord avec lui-même transforme une thèse plausible en constat, faute d'être obligé de la sourcer.",
+      "signature_move": "L'entre-soi méthodique du séminaire universitaire : trois voix d'un même cadre critique s'appuient sur l'archive — SAGE, le Vietnam, David Noble — et laissent l'analogie tenir lieu de preuve.",
+      "main_blind_side": "Ni les entreprises, ni les armées, ni les ingénieurs ne sont entendus, et cette absence dit la forme choisie : un panel entre pairs, où la thèse du transfert de responsabilité n'a jamais à affronter les procédures de validation du ciblage.",
+      "further_resource": {
+        "title": "Forces of Production: A Social History of Industrial Automation",
+        "source": "David F. Noble, Alfred A. Knopf",
+        "media_type": "book",
+        "why_explore": "La source de l'argument du panel, développée avec l'appareil documentaire qu'un échange oral ne peut pas fournir.",
+        "url": null
+      },
+      "summary": "Lecture avec réserves pour qui connaît déjà le sujet : la grille d'analyse — remonter des machines aux décisions humaines — est stimulante, mais les chiffres avancés ne sont pas sourçables et aucune partie mise en cause n'a été appelée à répondre. À croiser avec d'autres sources avant d'en tirer des conclusions factuelles."
+    }
+  }
+}
