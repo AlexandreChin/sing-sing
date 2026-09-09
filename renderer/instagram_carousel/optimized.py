@@ -41,7 +41,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         meta.source,
         meta.published_at,
         source_type_label(meta),
-        duration_label(meta),
+        duration_label(meta, short=True),
     ] if x]
 
     d = disp
