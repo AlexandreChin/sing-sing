@@ -1,0 +1,157 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "À Gaza, l’armée israélienne a intégré une multitude de technologies assistées par l’IA dans sa chaîne de destruction, ce qui lui a permis de frapper au plus fort de son bombardement aérien de la bande une fois toutes les deux minutes.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Inquiétude morale",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "La cadence est donnée sans période de référence ni décompte auditable, et le lien causal avec les outils automatisés est affirmé plutôt que mesuré.",
+        "external_sources": [
+          {
+            "name": "Enquêtes du magazine +972 et de Local Call sur les systèmes de ciblage israéliens",
+            "supports": "validates",
+            "evidence_type": "media"
+          },
+          {
+            "name": "Bureau de la coordination des affaires humanitaires de l'ONU (OCHA), relevés de frappes sur Gaza",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Communiqués de l'armée israélienne sur le rythme des frappes",
+            "supports": "neutral",
+            "evidence_type": "party_statement"
+          }
+        ],
+        "confidence": 55
+      },
+      {
+        "quote": "Mais, aujourd’hui même, les travailleurs de Google DeepMind au Royaume-Uni ont voté à 98 % pour former un syndicat, et ils font des demandes à leurs employeurs pour mettre fin à l’utilisation de l’IA militaire",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Le levier syndical comme stratégie",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre est précis et daté du jour même, mais aucun résultat de scrutin publié n'est cité dans la transcription.",
+        "external_sources": [
+          {
+            "name": "Communiqué du Communication Workers Union (CWU) sur le vote de syndicalisation",
+            "supports": "validates",
+            "evidence_type": "party_statement"
+          },
+          {
+            "name": "Presse économique britannique (Financial Times, The Guardian)",
+            "supports": "validates",
+            "evidence_type": "media"
+          }
+        ],
+        "confidence": 75
+      },
+      {
+        "quote": "les outils de traduction automatisés sur lesquels l’armée israélienne s’appuie pour traduire automatiquement des tonnes de données télécommunications provenant des Palestiniens vivant en Cisjordanie ou à Gaza sont connus pour avoir des taux d’erreur très élevés",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "La formule « sont connus pour » tient lieu de source : aucun taux, aucun test, aucun document n'est produit.",
+        "external_sources": [
+          {
+            "name": "Enquêtes de presse israéliennes sur la surveillance automatisée des communications palestiniennes",
+            "supports": "validates",
+            "evidence_type": "media"
+          },
+          {
+            "name": "Travaux académiques sur la performance des modèles de traduction en arabe dialectal",
+            "supports": "validates",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": 60
+      },
+      {
+        "quote": "La guerre en Iran et la guerre à Gaza se distinguent, avant tout, par une indifférence totale envers les pertes civiles",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Cadrage",
+          "strength": 0.8,
+          "nature": "nuance"
+        },
+        "explanation": "Un jugement sur des intentions — « indifférence totale » — est énoncé comme un trait distinctif établi, sans critère qui permettrait de le vérifier ou de le démentir.",
+        "external_sources": [
+          {
+            "name": "Rapports de la Commission d'enquête internationale de l'ONU sur les territoires palestiniens",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Déclarations de l'armée israélienne sur ses procédures de ciblage",
+            "supports": "contradicts",
+            "evidence_type": "party_statement"
+          }
+        ],
+        "confidence": null
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "Deux ans plus tard, on voit qu’Israël et les États-Unis frappaient une fois toutes les soixante-dix-sept secondes en Iran.",
+        "item_type": "bias",
+        "label": "chiffre-choc en cascade",
+        "effect": "Remarquez comment deux cadences mises bout à bout suffisent à faire sentir une escalade, sans qu'aucune des deux ne soit rattachée à une source ou à une durée.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Inquiétude morale",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Il est intéressant de noter que l’histoire ne change pas, et que le type de planification qui aurait été mis dans la base de cette campagne au Vietnam ne semble pas si différent de la logique derrière les deux guerres en Irak",
+        "item_type": "fallacy",
+        "label": "analogie tenue pour preuve",
+        "effect": "Remarquez comment la ressemblance des logiques de planification est présentée comme suffisante pour conclure que rien n'a changé, alors que l'échelle et la vitesse ne sont pas comparées.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "La thèse de la continuité historique, et les chercheurs qui la portent",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Cette guerre est incroyablement impopulaire. Ces cabinets sont incroyablement impopulaires. Ce qui nous manque, je pense, c’est une capacité organisationnelle pour les détruire",
+        "item_type": "fallacy",
+        "label": "prémisse posée sans mesure",
+        "effect": "Remarquez comment le diagnostic — un simple déficit d'organisation — repose entièrement sur une hostilité du public affirmée deux fois de suite mais jamais chiffrée.",
+        "proves": {
+          "type": "observation",
+          "label": "Cadrage",
+          "strength": 0.8,
+          "nature": "nuance"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "Au final, je pense qu’il faut dire que tu ne peux pas dire que tu obéis juste aux ordres de Maven, que tu ne suis pas ceux de Claude. Il faut revenir à quelques bases.",
+      "proves": {
+        "type": "observation",
+        "label": "Comparaison",
+        "strength": 0.8,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase refuse à la machine le statut d'autorité derrière laquelle s'abriter. Elle sous-entend que le vocabulaire de l'IA a fourni une nouvelle formulation à une vieille excuse. Elle tait ce qui arrive quand le tri en amont a déjà réduit l'éventail des choix soumis à celui qui valide : à qui s'adresse alors l'exigence de responsabilité ?"
+    }
+  }
+}

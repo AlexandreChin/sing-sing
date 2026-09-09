@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Le panel soutient que ce sont des décisions humaines, et non les machines, qui commandent les frappes.",
+      "kind": "affirmation",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "Les pertes civiles à Gaza et en Iran découlent de règles d'engagement décidées en haut de la hiérarchie",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "L'automatisation du ciblage accélère la cadence des frappes : une toutes les deux minutes à Gaza.",
+      "kind": "fait",
+      "centrality": 4,
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 0,
+        "excerpt": "L'accélération du rythme des frappes serait restée impossible sans automatisation du ciblage",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "La logique de rationalisation militaire précède l'IA et remonte à la planification d'après-guerre.",
+      "kind": "angle",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 1,
+        "excerpt": "La logique de rationalisation des décisions militaires précède les machines actuelles",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Critiquer ces outils sur leur précision enfermerait le débat dans les termes de leurs vendeurs.",
+      "kind": "enjeu",
+      "centrality": 3,
+      "seeds": {
+        "source": "premisse",
+        "index": 3,
+        "excerpt": "Le discours sur la performance technique déplace le débat hors du terrain politique",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "statement": "Le levier des salariés de la tech s'est affaibli depuis 2018 ; la syndicalisation revient comme recours.",
+      "kind": "enjeu",
+      "centrality": 3,
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "les salariés du bureau londonien de Google DeepMind votent la création d'un syndicat",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    }
+  ]
+}

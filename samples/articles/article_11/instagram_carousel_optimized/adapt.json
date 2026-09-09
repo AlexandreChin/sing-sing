@@ -1,0 +1,357 @@
+{
+  "caption": "Une frappe toutes les deux minutes à Gaza, un vote syndical à 98 % chez Google DeepMind : trois chercheurs réunis par Boston Review remontent des machines aux décisions humaines. 🛰️\n\n🔎 Les clefs pour lire en une minute un débat sur l'automatisation de la guerre.\n\n🔗 Lien vers l'article en commentaires ↓",
+  "hook": {
+    "topic": "Guerre **automatisée**",
+    "sub_topic": "Derrière les **algorithmes de ciblage**, qui décide vraiment ?",
+    "headline": "Qui **décide** quand la machine désigne la cible ?",
+    "context_line": "Trois chercheurs débattent de l'IA militaire pendant les bombardements sur Gaza et l'Iran.",
+    "sub_topic_alt": [
+      "L'IA militaire change-t-elle la **nature** de la décision ?",
+      "Frapper plus **vite** : nouvelle technique, ou vieille logique ?",
+      "Ciblage **automatisé** : où se loge la responsabilité ?"
+    ]
+  },
+  "interest": {
+    "why_read": "Une grille pour remonter d'un **système** aux **décisions** qui le règlent.",
+    "pull_quote": "tu ne peux pas dire que tu obéis juste aux ordres de Maven",
+    "next_slide_hook": "D'abord, qui parle — et depuis quelle position."
+  },
+  "title_bullets": [
+    "Notez l'oxymore : la raison y devient un **artefact fabriqué**.",
+    "Repérez ce que le titre tait : ni **guerre**, ni Gaza, ni Palantir.",
+    "Attendez-vous à un objet plus **large** que les outils eux-mêmes."
+  ],
+  "chapo_bullets": [
+    "Observez le mot **panel** : trois voix, aucun contradicteur annoncé.",
+    "Notez la promesse d'un propos **général** sur l'IA et les institutions.",
+    "Le format est une **transcription** orale, non un article documenté."
+  ],
+  "context_next_slide_hook": "Avec ce cadre en tête, trois réflexes à garder ouverts.",
+  "watch_out_next_slide_hook": "Voyons maintenant sur quoi repose l'argument central.",
+  "forme_next_slide_hook": "Reste à trier ce qui est établi de ce qui est avancé.",
+  "biases_next_slide_hook": "Descendons d'un cran : sur quoi tient l'ensemble ?",
+  "engagement_question": "Un opérateur qui ne voit qu'une liste de cibles déjà triée décide-t-il encore ?",
+  "go_further": [
+    {
+      "title": "Forces of Production: A Social History of Industrial Automation",
+      "source": "David F. Noble, Alfred A. Knopf",
+      "media_type": "book",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "La source de l'argument du panel, avec l'appareil documentaire qu'un échange oral ne fournit pas.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Enquêtes sur les systèmes de ciblage automatisés à Gaza",
+      "source": "+972 Magazine / Local Call",
+      "media_type": "article",
+      "category": "question_answer",
+      "url": "https://www.972mag.com/lavender-ai-israeli-army-gaza/",
+      "duration_minutes": 30,
+      "why_explore": "Le reportage documenté auquel le panel renvoie de mémoire, avec ses sources et ses chiffres.",
+      "cta_question_index": 1
+    },
+    {
+      "title": "The Human Cost of Automated Targeting",
+      "source": "Rapports de la Commission d'enquête de l'ONU sur les territoires palestiniens",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": 45,
+      "why_explore": "Les procédures de ciblage examinées par une instance qui sollicite les parties mises en cause.",
+      "cta_question_index": 3
+    }
+  ],
+  "cta": {
+    "title": "Une machine n'a jamais signé un ordre",
+    "engagement_sentence": "Faut-il juger ces systèmes sur la décision finale, ou sur le tri qui la précède ?",
+    "engagement_sentence_alt": [
+      "La responsabilité se loge-t-elle dans le geste qui valide, ou dans le paramètre qui trie ?",
+      "Une continuité de logique suffit-elle, quand la vitesse change d'un facteur cent ?",
+      "Doit-on demander des comptes à l'opérateur, ou à celui qui écrit le seuil ?"
+    ],
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "Qu'auriez-vous appris de différent si un ingénieur ou un militaire avait été présent ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_1",
+        "question": "Où trouver les chiffres de cadence de frappes, et sur quelle période sont-ils mesurés ?",
+        "type": "article_quality"
+      },
+      {
+        "id": "q_2",
+        "question": "L'automatisation change-t-elle la nature d'une décision, ou seulement sa vitesse ?",
+        "type": "topic_substance"
+      },
+      {
+        "id": "q_3",
+        "question": "Auriez-vous accepté ces chiffres aussi vite s'ils allaient contre votre intuition ?",
+        "type": "reader_bias"
+      }
+    ]
+  },
+  "display": {
+    "thesis_frame": {
+      "main_claim": "Ce ne sont pas les machines qui décident des frappes, mais des choix humains rendus invisibles.",
+      "out_of_scope": [
+        "l'efficacité militaire des armes autonomes",
+        "le droit international humanitaire applicable",
+        "les usages civils de l'IA en santé ou sciences"
+      ]
+    },
+    "payoff": "Remonter d'un système automatisé aux seuils, aux règles et aux gens qui les fixent.",
+    "framing": "L'IA militaire lue par l'histoire de l'automatisation, non par la performance technique.",
+    "why_selected": "Le jour du débat, les salariés de Google DeepMind à Londres votent à **98 %** un syndicat contre l'IA militaire.\nTrois voix — terrain israélien, histoire de l'informatique, **informatique universitaire** — testent la même thèse.",
+    "selection_headline": "Trois disciplines, un vote le jour même",
+    "selection_headline_alt": [
+      "Le jour où DeepMind s'est syndiqué",
+      "Un vote syndical, trois lectures du sujet",
+      "L'archive convoquée contre la nouveauté technique"
+    ],
+    "ethics": "Quatre points de vigilance, aucun manquement caractérisé.",
+    "pre_reading": [
+      "Trois voix, un même cadre critique : aucun contradicteur.",
+      "Repérez qui, concrètement, fixe seuils et règles."
+    ],
+    "watch_out": [
+      {
+        "label": "analogie tenue pour preuve",
+        "text": "Des précédents historiques servent d'argument sans que l'échelle soit comparée."
+      },
+      {
+        "label": "source unique",
+        "text": "Les chiffres les plus frappants sont cités de mémoire, sans document."
+      }
+    ],
+    "strengths": [
+      {
+        "label": "Clarté",
+        "text": "Les notions techniques sont ancrées dans des exemples nommés et accessibles."
+      },
+      {
+        "label": "Angle et originalité",
+        "text": "Le débat se déplace du critère de précision vers celui de la responsabilité."
+      }
+    ],
+    "distill_points": [
+      "Le présupposé que l'humain reste souverain à chaque maillon n'est jamais posé comme hypothèse.",
+      "Sans contradicteur, l'objection la plus solide — le tri en amont — n'a personne pour la porter.",
+      "Le même chiffre non sourcé porte la charge émotionnelle et sert de socle factuel."
+    ],
+    "after_reading": [
+      "Retenez la grille, pas les chiffres avancés.",
+      "Cherchez qui a fixé les seuils et règles.",
+      "Observez comment un accord entre pairs fait constat."
+    ],
+    "key_takeaways": [
+      {
+        "text": "À Gaza, une frappe toutes les deux minutes au pic du bombardement aérien.",
+        "selected": true
+      },
+      {
+        "text": "Les salariés de Google DeepMind UK votent à 98 % la syndicalisation.",
+        "selected": true
+      },
+      {
+        "text": "Le projet Maven, lancé en 2017, analyse automatiquement des images de drones.",
+        "selected": true
+      },
+      {
+        "text": "SAGE reliait radars et ordinateurs pour la défense aérienne dès 1958.",
+        "selected": false
+      },
+      {
+        "text": "Le droit humanitaire n'impose aucun plafond chiffré de victimes civiles.",
+        "selected": false
+      },
+      {
+        "text": "David Noble lisait l'automatisation comme un outil de contrôle managérial.",
+        "selected": false
+      }
+    ],
+    "blind_spots": [
+      "Aucune voix des entreprises, des armées ou des ingénieurs concernés.",
+      "L'hypothèse qu'une automatisation réduise des pertes n'est pas examinée."
+    ],
+    "balance": [
+      "Un échange oral ne peut fournir ni appareil documentaire ni droit de réponse.",
+      "Les manques tiennent au genre autant qu'aux intervenants."
+    ],
+    "lenses": [],
+    "reading_beats": [
+      {
+        "moment": "La première réponse recadre le vocabulaire",
+        "quote": "quand on parle d'IA, on devrait vraiment parler d'automatisation",
+        "lens_ref": "cadrage",
+        "lens_question": "Quel mot choisit-on, et qu'est-ce qu'il rend discutable ?",
+        "note": "Quand un intervenant remplace un mot par un autre, demandez ce que le nouveau mot rend **visible**.",
+        "answer": "Le mot **automatisation** rattache le sujet à un siècle de gestion : ce déplacement permet ensuite de convoquer l'archive comme preuve.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Cadrage terminologique",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "pivot",
+        "rationale": "Pose le geste qui structure tout l'échange"
+      },
+      {
+        "moment": "Le premier chiffre sur Gaza",
+        "quote": "son bombardement aérien de la bande une fois toutes les deux minutes",
+        "lens_ref": "chiffres",
+        "lens_question": "Une cadence : mesurée sur quelle durée ?",
+        "note": "Devant deux cadences mises bout à bout, cherchez la **période** que chacune recouvre.",
+        "answer": "Ce sont deux **pics**, sur deux théâtres et deux années différentes ; la transcription ne nomme aucun décompte publié.",
+        "figure": "1 / 2 min",
+        "figure_label": "au plus fort du bombardement de Gaza",
+        "figure_caption": "puis 77 secondes en Iran, deux ans plus tard",
+        "factcheck": "disputed",
+        "selected": true,
+        "theme": "Cadence des frappes",
+        "centrality": 4,
+        "kind": "statistique",
+        "role": "preuve",
+        "rationale": "Le chiffre qui porte la charge du propos"
+      },
+      {
+        "moment": "Les taux d'erreur des outils cités",
+        "quote": "sont connus pour avoir des taux d'erreur très élevés",
+        "lens_ref": "sources",
+        "lens_question": "Qui l'a mesuré, et où est-ce écrit ?",
+        "note": "Une formule du type « on sait que » occupe la place d'une **source** : cherchez laquelle.",
+        "answer": "Aucun taux n'est donné, alors que ces erreurs fondent l'argument suivant : critiquer ces outils sur leur **précision** serait un piège.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Sourçage des données techniques",
+        "centrality": 3,
+        "kind": "affirmation",
+        "role": "appui",
+        "rationale": "Faille de sourçage, mais déjà annoncée"
+      },
+      {
+        "moment": "L'argument de continuité historique",
+        "quote": "C'est drôle, parce que la logique ne change pas. La technologie évolue",
+        "lens_ref": "sophismes",
+        "lens_question": "Une ressemblance suffit-elle à conclure à l'identité ?",
+        "note": "Devant une analogie historique, demandez ce que la comparaison **ne mesure pas**.",
+        "answer": "Gaza deux minutes, l'Iran **77 secondes** deux ans plus tard : la comparaison ne mesure jamais cette accélération.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "Continuité historique",
+        "centrality": 5,
+        "kind": "biais",
+        "role": "preuve",
+        "rationale": "Pièce centrale, et son angle mort visible"
+      },
+      {
+        "moment": "Le jugement sur les deux guerres",
+        "quote": "se distinguent, avant tout, par une indifférence totale envers les pertes civiles",
+        "lens_ref": "opinion_fait",
+        "lens_question": "Un jugement sur des intentions : vérifiable comment ?",
+        "note": "Quand un texte qualifie une **intention**, cherchez le critère qui permettrait de le démentir.",
+        "answer": "Aucun critère n'accompagne l'énoncé, et la partie visée n'est pas sollicitée : la formule se pose comme un trait distinctif établi.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "unverifiable",
+        "selected": false,
+        "theme": "Opinion donnée comme fait",
+        "centrality": 3,
+        "kind": "affirmation",
+        "role": "appui",
+        "rationale": "Glissement net, mais périphérique à la thèse"
+      },
+      {
+        "moment": "Le refus de l'excuse machinique",
+        "quote": "tu ne peux pas dire que tu obéis juste aux ordres de Maven",
+        "lens_ref": "angles_morts",
+        "lens_question": "À qui s'adresse une exigence de responsabilité ?",
+        "note": "Quand un texte désigne un **responsable**, vérifiez qu'il a bien la main sur ce qu'on lui demande.",
+        "answer": "Maven soumet une liste déjà triée : l'exigence vise **celui qui valide**, pas celui qui règle les seuils.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "Localisation de la responsabilité",
+        "centrality": 5,
+        "kind": "enjeu",
+        "role": "pivot",
+        "rationale": "Condense la thèse et son angle mort"
+      },
+      {
+        "moment": "Le diagnostic sur l'opinion publique",
+        "quote": "Cette guerre est incroyablement impopulaire. Ces cabinets sont incroyablement impopulaires",
+        "lens_ref": "equilibre",
+        "lens_question": "Une hostilité affirmée : mesurée par qui ?",
+        "note": "Devant une prémisse répétée, demandez-vous si elle est **mesurée** ou seulement assénée.",
+        "answer": "Aucune donnée d'opinion n'est produite, et c'est cette prémisse qui porte la conclusion : il ne manquerait qu'une capacité d'organisation.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Prémisse non mesurée",
+        "centrality": 3,
+        "kind": "biais",
+        "role": "appui",
+        "rationale": "Prémisse fragile, appuie la partie stratégique"
+      },
+      {
+        "moment": "La clôture sur le recours syndical",
+        "quote": "les travailleurs de Google DeepMind au Royaume-Uni ont voté à 98 %",
+        "lens_ref": "causalite",
+        "lens_question": "Un précédent d'espoir : quel résultat a-t-il déjà obtenu ?",
+        "note": "Quand un fait récent tient lieu de solution, cherchez ce qu'il a déjà **produit** ailleurs.",
+        "answer": "C'est le seul élément daté de l'échange et il revient trois fois, quand les contrats militaires ne reçoivent aucun chiffre.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "likely true",
+        "selected": false,
+        "theme": "Levier salarial",
+        "centrality": 2,
+        "kind": "fait",
+        "role": "mise en scène",
+        "rationale": "Signal d'espoir, faiblement démonstratif"
+      }
+    ],
+    "global_analysis": {
+      "headline": "Sur quoi tient l'argument des décisions humaines ?",
+      "headline_alt": [
+        "Que faut-il admettre pour que la thèse tienne ?",
+        "Les appuis que l'échange ne discute pas",
+        "Trois choses tenues pour acquises"
+      ],
+      "core_recap": [
+        "Ses présupposés : qu'une telle cadence exige un ciblage automatisé ; qu'une différence de vitesse ne change jamais la nature ; que celui qui valide dispose encore d'un vrai choix"
+      ]
+    },
+    "open_question": "Le tri automatique en amont laisse-t-il aux opérateurs une marge de refus documentée ?",
+    "root_issue": "Si la responsabilité se déplace vers ceux qui écrivent les seuils et les paramètres, le recours proposé — la conscience des salariés qui exécutent — cesse de viser le bon endroit.",
+    "steel_man": {
+      "argument": "Un opérateur qui ne voit qu'une liste déjà triée n'exerce plus qu'un veto formel sur des choix faits ailleurs.",
+      "alternative": "La critique devrait viser les paramètres inscrits dans les systèmes, non les gestes."
+    },
+    "reperes_headline": "Qui parle, et depuis quand",
+    "bilan_headline": "Ce que l'échange laisse ouvert",
+    "essentiel": [
+      "Le panel remonte des **machines** aux décisions humaines qui les commandent",
+      "À Gaza, une frappe toutes les **deux minutes** au pic des bombardements",
+      "Critiquer ces outils sur leur **précision** enfermerait le débat"
+    ],
+    "essentiel_summary": "Boston Review réunit trois chercheurs : à Gaza, l'automatisation du ciblage a porté la cadence à une frappe toutes les **deux minutes**, et à une toutes les **77 secondes** en Iran. Mais la logique de rationalisation militaire remonte à **1958** : ce sont des règles d'engagement humaines, non les machines, qui commandent les frappes."
+  }
+}

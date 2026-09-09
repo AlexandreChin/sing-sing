@@ -1,0 +1,69 @@
+{
+  "emotional_register": [
+    {
+      "emotion": "Inquiétude morale",
+      "how": "L'accumulation de **chiffres de cadence** — une frappe toutes les deux minutes à Gaza, toutes les soixante-dix-sept secondes en Iran — adossée à des **atrocités nommées** et à des seuils de victimes décidés en amont.",
+      "effect": "Le lecteur est amené à voir la vitesse machinique non comme une prouesse technique mais comme un **coût humain** dont quelqu'un doit répondre.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "Le panel se tient le 5 mai, après deux ans de guerre à Gaza et pendant les bombardements américano-israéliens sur l'Iran.",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "emotion": "Désenchantement",
+      "how": "Le vocabulaire du **rêve et du fantasme** appliqué aux promesses techniques, puis la répétition assumée du « je n'ai pas de bonnes réponses » par les trois intervenants.",
+      "effect": "Le lecteur est préparé à traiter le discours sur l'IA comme une **croyance ancienne recyclée**, tout en restant sans issue pratique à portée de main.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "David Noble a soutenu que l'automatisation industrielle a été orientée par des choix de contrôle managérial plus que par la seule efficacité.",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "beneficiary": "La thèse de la continuité historique, et les chercheurs qui la portent",
+      "explanation": "Ramener l'IA militaire à une **longue série** — SAGE, Vietnam, secrétariat des années 70 — donne l'avantage argumentatif à ceux dont la compétence est historique plutôt que technique. Le débat se déplace vers un terrain où **l'archive vaut preuve**.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 4,
+        "excerpt": "Le Semi-Automatic Ground Environment (SAGE), déployé à partir de 1958, reliait radars et ordinateurs pour la défense aérienne.",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "beneficiary": "Le levier syndical comme stratégie",
+      "explanation": "Situer la cause des pertes dans des **décisions humaines** plutôt que dans les machines rend les salariés du secteur responsables, donc capables d'agir. Le vote de Google DeepMind, annoncé le jour même, devient le **débouché naturel** du diagnostic.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "les salariés du bureau londonien de Google DeepMind votent la création d'un syndicat",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Oxymore",
+        "observation": "Deux mots accolés dont l'un dément l'autre : la raison y devient un artefact fabriqué."
+      },
+      {
+        "label": "Ellipse",
+        "observation": "Ni guerre, ni Gaza, ni Palantir : le titre tait le terrain militaire de la conversation."
+      },
+      {
+        "label": "Cadrage",
+        "observation": "L'objet annoncé est la rationalité elle-même, pas les outils qui l'incarnent."
+      }
+    ],
+    "body": "La conversation aborde l'IA militaire par l'histoire longue de la rationalisation des décisions plutôt que par la nouveauté des systèmes. Elle place au centre les décisions humaines — règles d'engagement, seuils de victimes, choix de ciblage — et traite les technologies comme leur habillage. Le registre est celui de l'échange oral entre chercheurs, avec analogies historiques, anecdotes et retours sur des travaux publiés. Les trois intervenants parlent depuis un même cadre critique, adossé à la recherche de terrain, à l'histoire de l'informatique et à l'informatique universitaire."
+  }
+}

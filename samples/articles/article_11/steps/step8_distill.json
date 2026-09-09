@@ -1,0 +1,52 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "Le présupposé que **les décisions humaines restent souveraines à chaque maillon** n'est jamais posé comme hypothèse, et c'est lui qui rend le levier syndical opérant : si le tri automatique restreint l'éventail des choix, le débouché militant du diagnostic perd son point d'appui.",
+        "references": [
+          "ia_1",
+          "cb_1",
+          "focus",
+          "bs_3"
+        ]
+      },
+      {
+        "text": "L'absence de contradicteur produit un **effet en chaîne** : les accusations visant Palantir et la hiérarchie militaire restent sans réponse sollicitée, et le contre-argument le plus solide — le tri en amont qui réduit l'éventail des choix — n'a personne pour le porter. La forme du plateau dispense la thèse de son test le plus dur.",
+        "references": [
+          "bs_0",
+          "ia_1",
+          "claim_3"
+        ]
+      },
+      {
+        "text": "Les deux cadences de frappes portent **l'inquiétude morale**, sont données comme fait établi avec une confiance de 55, et signalent une juxtaposition sans base commune : le même énoncé non sourcé sert de moteur émotionnel et de socle factuel.",
+        "references": [
+          "er_0",
+          "claim_0",
+          "bias_0"
+        ]
+      },
+      {
+        "text": "Le vocabulaire du **« sont connus pour »** occupe la place d'une source, et il apparaît là où l'enjeu est le plus lourd : taux d'erreur de Maven, traduction automatique des télécommunications palestiniennes.",
+        "references": [
+          "obs_2",
+          "claim_2",
+          "pr_0"
+        ]
+      },
+      {
+        "text": "Le titre en oxymore **tait le terrain militaire** alors que Gaza et l'Iran occupent presque chaque tour de parole et que les usages civils sont abandonnés après une mention : l'écart entre l'objet annoncé et le corpus examiné soutient l'extension implicite du militaire à l'IA en général.",
+        "references": [
+          "obs_1",
+          "ia_2",
+          "bs_2"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quelle est l'ampleur réelle des contrats militaires courants, jamais chiffrée dans l'échange ?",
+      "L'impopularité invoquée de ces usages est-elle mesurée quelque part, et à quel niveau ?",
+      "Le tri automatique en amont laisse-t-il aux opérateurs une marge de refus documentée ?"
+    ]
+  }
+}

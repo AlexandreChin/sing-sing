@@ -1,0 +1,70 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Attendez-vous à un échange entre trois voix qui partagent le même cadre critique : la thèse n'y rencontre pas de contradicteur.",
+      "L'argument central consiste à remonter des machines vers les décisions humaines — repérez à chaque étape qui, concrètement, fixe les seuils et les règles.",
+      "Gardez en tête que la démonstration s'appuie beaucoup sur des précédents historiques d'automatisation : la question utile est de savoir ce que l'échelle et la vitesse actuelles changent."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "wo_1",
+          "text": "Les chiffres les plus frappants — cadences de frappes, taux d'erreur des systèmes — sont avancés sans document à l'appui, parfois introduits par des formules du type « on sait que ». Notez-les comme des ordres de grandeur à vérifier ailleurs, pas comme des faits établis.",
+          "references": [
+            "obs_2",
+            "claim_2",
+            "pr_0"
+          ]
+        },
+        {
+          "id": "wo_2",
+          "text": "Deux cadences de bombardement portent l'essentiel de la charge émotionnelle, alors qu'elles concernent des théâtres et des périodes différents. Demandez-vous sur quelle base commune elles sont comparées avant d'en tirer une conclusion.",
+          "references": [
+            "er_0",
+            "claim_0",
+            "bias_0"
+          ]
+        },
+        {
+          "id": "wo_3",
+          "text": "Tout le raisonnement suppose que l'humain garde un vrai pouvoir de décision à chaque maillon de la chaîne — condition jamais posée comme discutable. Si le tri automatique restreint en amont l'éventail des choix, la conclusion pratique proposée perd son point d'appui.",
+          "references": [
+            "ia_1",
+            "cb_1",
+            "bs_3"
+          ]
+        },
+        {
+          "id": "wo_4",
+          "text": "Les entreprises et les hiérarchies militaires mises en cause ne sont pas appelées à répondre, et le contre-argument le plus solide n'a personne pour le porter. La thèse traverse l'échange sans affronter son test le plus dur.",
+          "references": [
+            "bs_0",
+            "claim_3",
+            "ia_1"
+          ]
+        },
+        {
+          "id": "wo_5",
+          "text": "Le titre annonce une réflexion générale sur la rationalité technique, mais le propos porte presque entièrement sur la guerre à Gaza et en Iran, les usages civils étant abandonnés après une mention. Vérifiez ce qui, dans les conclusions, vaut au-delà du terrain militaire.",
+          "references": [
+            "obs_1",
+            "ia_2",
+            "bs_2"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Retenez la grille de lecture plutôt que les chiffres : derrière un système automatisé, chercher les seuils, les règles et les personnes qui les ont fixés.",
+      "Demandez-vous ce que vous auriez appris de différent si un ingénieur, un militaire ou une entreprise du secteur avait été présent dans l'échange.",
+      "Reprenez les affirmations quantifiées — ampleur des contrats, impopularité invoquée, taux d'erreur — et cherchez-en la source avant de les réutiliser.",
+      "Observez comment un accord entre intervenants peut suffire à faire passer une thèse plausible pour un constat."
+    ],
+    "title_note": "Le titre joue sur un oxymore et reste sur le terrain de la rationalité, sans annoncer que le corpus examiné est presque exclusivement militaire.",
+    "perspective": {
+      "framing": "L'article déplace la question de l'IA militaire du critère de précision technique vers celui de la responsabilité humaine, et met au centre la continuité historique de l'automatisation — SAGE, le Vietnam, les travaux de David Noble. Le registre est celui de l'inquiétude morale assumée, énoncée depuis une position critique et un horizon d'action collective, syndical notamment.",
+      "blind_spots": "Aucune voix du côté des entreprises, des armées ou des ingénieurs concernés n'est entendue, et les procédures de validation du ciblage restent hors champ. L'hypothèse inverse — qu'une automatisation puisse réduire certaines pertes civiles — n'est jamais examinée, pas plus que le tri automatique en amont qui restreindrait l'éventail des choix laissés aux opérateurs.",
+      "balance": "Il s'agit d'un échange oral entre chercheurs partageant un cadre critique explicite : ce format ne peut fournir ni appareil documentaire ni droit de réponse, et son intérêt tient à la grille d'analyse proposée plus qu'à l'établissement des faits. Les manques relevés sont réels, mais ils tiennent au genre autant qu'aux intervenants — à condition de ne pas prendre les chiffres cités pour des données sourcées."
+    }
+  }
+}

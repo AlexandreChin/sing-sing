@@ -1,0 +1,47 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "eth1",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "les systèmes de détection d'anomalies dans un système comme Maven Smart System fabriqué par Palantir ont un taux d'erreur très, vraiment élevé",
+        "explanation": "Palantir est nommé et mis en cause sans qu'aucune réponse de l'entreprise ne soit sollicitée ou mentionnée."
+      },
+      {
+        "id": "eth2",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "nos lois de la guerre, nos règles d'engagement sanctionneront le meurtre de 100 civils lors d'un assassinat aérien visant un commandant de haut rang du Hamas",
+        "explanation": "Accusation grave prêtée à la hiérarchie israélienne, sans document cité ni réponse de la partie visée."
+      },
+      {
+        "id": "eth3",
+        "category": "false_statistics",
+        "label": "False Statistics",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "frapper au plus fort de son bombardement aérien de la bande une fois toutes les deux minutes. Deux ans plus tard, on voit qu'Israël et les États-Unis frappaient une fois toutes les soixante-dix-sept secondes en Iran.",
+        "explanation": "Deux cadences de pics, sur des périodes et théâtres différents, sont juxtaposées comme si elles se comparaient."
+      },
+      {
+        "id": "eth4",
+        "category": "false_balance",
+        "label": "False Balance",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Boston Review a réuni un panel composé de trois écrivains de renom—Kevin T. Baker, Sophia Goodfriend et Benjamin Recht",
+        "explanation": "Les trois intervenants partagent le même cadre critique ; aucun contradicteur n'est invité, ce que le texte ne signale pas."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Avant publication, indiquer les sources des chiffres de cadence de frappes et signaler qu'aucune des entreprises ni armées mises en cause n'a été sollicitée pour réponse."
+    },
+    "summary": "La déontologie n'est pas entièrement propre : quatre points de vigilance, aucun manquement caractérisé. Ils tiennent surtout à des accusations visant Palantir et la hiérarchie militaire israélienne sans réponse sollicitée, à des cadences de frappes non sourcées et à un plateau sans contradicteur."
+  }
+}
