@@ -6,7 +6,10 @@
 {% include 'base.css' %}
 .rubrique-tab { display: inline-flex; align-items: center; gap: 14px; font-size: 32px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #d4aa00; }
 .rubrique-tab svg { width: 40px; height: 40px; stroke: #d4aa00; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.swipe { position: absolute; bottom: 120px; left: 90px; right: 90px; font-size: 27px; font-weight: 700; color: #aaa; letter-spacing: .04em; text-align: center; }
+/* In the flow, pushed down by `margin-top: auto`. Absolutely positioned, it was
+   rendered under a tall headline: a two-line metadata + a tall capture + four
+   headline lines overlapped it by 29px on the Boston Review deck. */
+.swipe { margin-top: auto; padding-top: 20px; margin-bottom: 28px; font-size: 27px; font-weight: 700; color: #aaa; letter-spacing: .04em; text-align: center; }
 .sw-sep { color: #d4aa00; font-weight: 800; }
 /* layer 1: faint per-carousel procedural art */
 .artbg { position: absolute; inset: 0; z-index: -2; }

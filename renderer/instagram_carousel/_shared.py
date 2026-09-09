@@ -113,12 +113,15 @@ def source_type_label(meta) -> str | None:
     return TYPE_FR.get(meta.type) if meta.type else None
 
 
-def duration_label(meta) -> str | None:
+def duration_label(meta, short: bool = False) -> str | None:
     """The source duration line. 'de lecture' only for articles; a transcript's
-    word-count minutes aren't a real viewing/listening time, so stay neutral."""
+    word-count minutes aren't a real viewing/listening time, so stay neutral.
+    `short` drops 'de lecture': slide 1's metadata line has one line to fit, and
+    a populated source ("Boston Review · Interview · 50 min de lecture") wraps."""
     if not meta.reading_time_minutes:
         return None
-    unit = "min de lecture" if getattr(meta, "medium", "article") == "article" else "min"
+    long_form = getattr(meta, "medium", "article") == "article" and not short
+    unit = "min de lecture" if long_form else "min"
     return f"{meta.reading_time_minutes} {unit}"
 
 # Section glyphs shared by the carousel templates and the newsletter renderer,
