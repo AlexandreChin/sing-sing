@@ -2,7 +2,7 @@
   "caption": "Un essai d'Aeon rappelle qu'en 1849, le vice-président de l'American Medical Association combattait l'anesthésie chiffres en main — et que les bénéfices de la chirurgie moderne étaient alors indicibles. 💡\n\n🔎 Les clefs pour comprendre en une minute ce que cet argument fait dire aux preuves.\n\n🔗 Lien vers l'article en commentaires ↓",
   "hook": {
     "topic": "Innovations mal **jugées**",
-    "sub_topic": "Derrière les **coûts mesurés**, que dit-on des **bénéfices** ?",
+    "sub_topic": "Derrière les **coûts mesurés** de l'IA, que dit-on des **bénéfices** ?",
     "headline": "et si les preuves les plus **solides** arrivaient trop tôt ?",
     "context_line": "Universités, employeurs et régulateurs fixent en ce moment leurs règles d'usage de l'IA générative.",
     "sub_topic_alt": [
@@ -105,7 +105,7 @@
     },
     "payoff": "Tester si un argument peut être **contredit**, et par quelle **preuve**.",
     "framing": "Non les effets de l'IA, mais la **position** de celui qui les évalue.",
-    "why_selected": "Un modèle d'Acemoglu, Nobel d'économie, conclut qu'il faut **brider l'IA** pour préserver le savoir commun ; l'essai lui oppose une expérimentation encadrée.\nL'essai s'appuie sur trois études récentes : leurs **chiffres**, leurs **causalités** et leurs **sources** se vérifient.",
+    "why_selected": "Un modèle d'Acemoglu, Nobel d'économie, conclut qu'il faut **brider l'IA** pour préserver le savoir commun ; l'essai lui oppose une expérimentation encadrée.\nL'essai s'appuie sur trois études récentes : leurs **chiffres**, leur **causalité** et leurs **sources** sont vérifiables.",
     "selection_headline": "Un modèle contre trois études",
     "selection_headline_alt": [
       "1849 contre 2025 : deux bases de preuves, un même geste",
@@ -336,7 +336,7 @@
         "Ce que le texte tient pour acquis"
       ],
       "core_recap": [
-        "Ses présupposés : un coût chiffré dit l'essentiel ; un bénéfice sans indice existe ; les critiques valent Harrison."
+        "Ses présupposés : un coût chiffré dit l'essentiel ; un bénéfice sans indice existe ; une étude fragile peut représenter tout le camp adverse"
       ]
     },
     "open_question": "Quelle part des innovations comparables a produit des bénéfices durables plutôt que des coûts nets ?",
