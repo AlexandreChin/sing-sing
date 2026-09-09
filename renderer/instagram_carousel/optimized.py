@@ -11,7 +11,8 @@ from agent.lenses import CANONICAL_LENSES
 from models.instagram_carousel_presentation import InstagramCarouselDocument
 from ._shared import (
     _env, _LOGO_DATA_URL, _LOGO_TIGHT_DATA_URL,
-    source_type_label, duration_label, cover_layers, cover_thumb, medium_labels,
+    source_type_label, duration_label, cover_layers, cover_thumb, cover_dims,
+    hook_metrics, medium_labels,
 )
 
 TPL = "article_carousel_optimized_v0"
@@ -69,6 +70,11 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
                                    "question": own_q or canon["question"],
                                    "icon_svg": canon.get("icon_svg", "")})
 
+    # The capture and the headline share slide 1's vertical budget, so the
+    # headline size is computed from the capture's aspect ratio (hook_metrics).
+    _base = Path(out_dir).resolve().parent.parent
+    hook_head = pres.hook.sub_topic or pres.hook.topic or pres.hook.headline
+
     # (output_name, template_name, ctx) triples — same pattern as the short deck.
     # Act 2 "Avant de lire" is a single merged slide: context + the lenses shown
     # as réflexes (the standalone lens slide was folded into 03_reperes).
@@ -77,7 +83,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
                                 "topic": pres.hook.topic, "sub_topic": pres.hook.sub_topic,
                                 "kicker_logo": _LOGO_TIGHT_DATA_URL,
                                 # out_dir is <base>/<format>/html — the capture sits in <base>
-                                "thumb": cover_thumb(Path(out_dir).resolve().parent.parent),
+                                "thumb": cover_thumb(_base), **hook_metrics(cover_dims(_base), hook_head),
                                 "headline": pres.hook.headline, **cover_layers(meta, pres.hook.headline)}),
         # Slide 2 — L'essentiel: the 3 `essentiel` claims, numbered. The prose
         # `essentiel_summary` is the fallback for decks whose adapt produced no bullets.

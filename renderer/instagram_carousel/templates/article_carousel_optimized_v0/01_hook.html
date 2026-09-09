@@ -19,21 +19,23 @@
 .giant { position: absolute; right: -220px; bottom: -200px; width: 1000px; height: 1000px; z-index: -1; }
 .giant svg { width: 100%; height: 100%; stroke: #d4aa00; stroke-opacity: .17; fill: none; stroke-width: .7; stroke-linecap: round; stroke-linejoin: round; }
 .giant svg circle { fill: none; }
-/* The wordmark moves to the top-left so the image slot owns the slide's width. */
-.logo-img { top: 34px; right: auto; left: 48px; width: 86px; height: 86px; }
-.company-name { top: 58px; right: auto; left: 140px; font-size: 24px; text-align: left; }
 /* — The source article: its own title and chapô live inside the capture, so the
    slide states only what the image cannot (genre, length, source, date). — */
+.kicker { align-self: flex-start; }
 .sel-kick svg { width: 26px; height: 26px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .meta-line { font-size: 31px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #9a9a9a; margin-top: 12px; }
 .meta-line .dot { color: #d4aa00; margin: 0 12px; }
-/* — Image slot: full slide width less a 48px side padding (the .slide's own
-   padding is 90px, hence the negative margins), height from the image's own
-   aspect ratio — a portrait capture simply gets a taller slot. The screenshot
-   read comes from light alone: a hairline edge plus a cast shadow. — */
-.shot { position: relative; margin: 26px -42px 0; border-radius: 14px; overflow: hidden;
-  box-shadow: 0 26px 58px rgba(0,0,0,.75); }
-.shot img { display: block; width: 100%; height: auto; max-height: 720px; object-fit: contain; }
+/* — Image slot: the capture keeps its own aspect ratio and is never cropped.
+   A wide capture fills the width (984px = slide less a 48px side padding); a
+   tall one is limited by the height left over after the text, scaling down and
+   centring rather than being clipped. `flex: 0 1 auto` + `min-height: 0` is
+   what lets it give way to the headline; `overflow: hidden` on a shrinking box
+   used to cut the image's bottom off. The screenshot read comes from light
+   alone: a hairline edge plus a cast shadow. — */
+.shot { position: relative; align-self: center; flex: 0 1 auto; min-height: 0;
+  margin-top: 26px; border-radius: 14px; box-shadow: 0 26px 58px rgba(0,0,0,.75); }
+.shot img { display: block; width: auto; height: auto; max-width: 984px; max-height: 100%;
+  border-radius: 14px; }
 .shot .edge { position: absolute; inset: 0; border-radius: 14px; pointer-events: none;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.10), inset 0 1px 0 rgba(255,255,255,.16); }
 /* split between the source article (above) and Sing Sing's analysis (below) */
@@ -56,12 +58,12 @@
 
   <span class="kicker sel-kick"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg>Sélection</span>
   {% if meta_parts %}<div class="meta-line">{% for part in meta_parts %}{% if not loop.first %}<span class="dot">&bull;</span>{% endif %}{{ part }}{% endfor %}</div>{% endif %}
-  {% if thumb %}<div class="shot"><img src="{{ thumb }}" alt=""><div class="edge"></div></div>{% endif %}
+  {% if thumb %}<div class="shot"><img src="{{ thumb }}" alt=""{% if slot_max %} style="max-height: {{ slot_max }}px"{% endif %}><div class="edge"></div></div>{% endif %}
 
   <div class="divider2"></div>
   <span class="kicker">On décrypte<img class="kicker-logo" src="{{ kicker_logo }}" alt=""></span>
   {# French typography: a no-break space before ? ! : — also stops "?" orphaning onto its own line. #}
-  <h1 class="cover-head">{{ (sub_topic or topic or headline).replace(' ?', ' ?').replace(' !', ' !').replace(' :', ' :') | md_bold }}</h1>
+  <h1 class="cover-head" style="font-size: {{ head_size | default(85) }}px">{{ (sub_topic or topic or headline).replace(' ?', ' ?').replace(' !', ' !').replace(' :', ' :') | md_bold }}</h1>
 
   <div class="swipe">{{ L.prog_before }} <span class="sw-sep">&#8250;</span> {{ L.prog_during }} <span class="sw-sep">&#8250;</span> {{ L.prog_after }}</div>
   <div style="position: absolute; bottom: 56px; left: 0; right: 0; text-align: center; font-size: 22px; color: #555; letter-spacing: 0.08em; font-style: italic;"><span style="color: #d4aa00;">Sing</span>, little bird, <span style="color: #d4aa00;">sing</span></div>
