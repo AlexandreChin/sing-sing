@@ -407,15 +407,18 @@ body {
 .trk.on { color: #d4aa00; }
 .trk svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .trk-sep { color: #3a3a3a; }
+/* Vertical rhythm: 0.75em between sibling text blocks, 0.62em between list
+   items, 0.32em label→body — resolved against this template's body size.
+   03_reperes keeps the tighter values: it has no vertical slack left. */
 .head { font-size: 60px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
-.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 29px; }
 /* same subtitle-with-icon + indented body as the other beat/verdict slides */
-.q-item { display: flex; flex-direction: column; gap: 12px; }
+.q-item { display: flex; flex-direction: column; gap: 14px; }
 .q-head { display: flex; gap: 18px; align-items: center; }
 .q-head .mk { flex: none; }
 .q-head .mk svg { width: 38px; height: 38px; display: block; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .q-label { font-size: 44px; font-weight: 900; line-height: 1.05; letter-spacing: -0.01em; color: #f0f0f0; }
-.r-list { display: flex; flex-direction: column; gap: 12px; padding-left: 56px; }
+.r-list { display: flex; flex-direction: column; gap: 24px; padding-left: 56px; }
 .r-item { display: flex; gap: 16px; align-items: flex-start; font-size: 39px; line-height: 1.4; color: #e0e0e0; }
 .r-item .rk { flex: none; color: #d4aa00; font-weight: 900; font-size: 41px; line-height: 1.1; }
 .r-item strong { color: #d4aa00; font-weight: 700; }
@@ -439,7 +442,7 @@ body {
     <div class="divider"></div>
     <div class="q-item">
       <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg></span><span class="q-label">Ses présupposés</span></div>
-      <div class="r-list"><div class="r-item"><span class="rk">&#8250;</span><span>l&#39;ampleur des dégâts mesure la défaillance ; l&#39;État décide du modèle agricole ; prévisible vaut évitable</span></div></div>
+      <div class="r-list"><div class="r-item"><span class="rk">&#8250;</span><span>l&#39;ampleur des dégâts mesure la défaillance</span></div><div class="r-item"><span class="rk">&#8250;</span><span>l&#39;État décide du modèle agricole</span></div><div class="r-item"><span class="rk">&#8250;</span><span>prévisible vaut évitable</span></div></div>
     </div><div class="q-item">
       <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span class="q-label">La question</span></div>
       <div class="r-list"><div class="r-item"><span class="rk">&#8250;</span><span>Faut-il juger une politique d&#39;adaptation sur l&#39;ampleur des dégâts subis, ou sur le coût de ce qu&#39;il faudrait engager ?</span></div></div>

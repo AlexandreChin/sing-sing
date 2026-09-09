@@ -407,8 +407,11 @@ body {
 .trk.on { color: #d4aa00; }
 .trk svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .trk-sep { color: #3a3a3a; }
+/* Vertical rhythm: 0.75em between sibling text blocks, 0.62em between list
+   items, 0.32em label→body — resolved against this template's body size.
+   03_reperes keeps the tighter values: it has no vertical slack left. */
 .head { font-size: 60px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
-.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 29px; }
 /* the figure stands in for the quote "evidence" of a normal beat */
 .num-fig { font-size: 184px; font-weight: 900; line-height: 0.9; letter-spacing: -0.04em; color: #d4aa00; }
 .num-sub { font-size: 46px; font-weight: 700; color: #f0f0f0; margin-top: 8px; line-height: 1.15; }

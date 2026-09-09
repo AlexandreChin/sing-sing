@@ -407,7 +407,10 @@ body {
 .trk.on { color: #d4aa00; }
 .trk svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .trk-sep { color: #3a3a3a; }
-.sel-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 30px; }
+/* Vertical rhythm: 0.75em between sibling text blocks, 0.62em between list
+   items, 0.32em label→body — resolved against this template's body size.
+   03_reperes keeps the tighter values: it has no vertical slack left. */
+.sel-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 33px; }
 .sel-head { font-size: 64px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
 .es-summary { font-size: 46px; font-weight: 400; line-height: 1.42; color: #e0e0e0; text-wrap: pretty; }
 .es-summary strong { color: #d4aa00; font-weight: 700; }

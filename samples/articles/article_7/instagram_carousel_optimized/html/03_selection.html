@@ -407,16 +407,18 @@ body {
 .trk.on { color: #d4aa00; }
 .trk svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .trk-sep { color: #3a3a3a; }
-.sel-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+/* Vertical rhythm: 0.75em between sibling text blocks, 0.62em between list
+   items, 0.32em label→body — resolved against this template's body size.
+   03_reperes keeps the tighter values: it has no vertical slack left. */
+.sel-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 32px; }
 .sel-head { font-size: 64px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
 /* Two paragraphs doing two jobs: the first sets the precedent, the second is
    the payoff (why this piece matters now). Ragged-right, not justified: at this
    size `justify` + `hyphens` breaks words mid-line. */
 .lede { font-size: 43px; font-weight: 400; line-height: 1.28; color: #e8e8e8; text-wrap: pretty; }
 .lede strong { color: #d4aa00; font-weight: 700; }
-.hr-short { width: 160px; height: 3px; background: #d4aa00; border-radius: 2px; }
-.pull { font-size: 41px; font-weight: 700; font-style: italic; line-height: 1.22; color: #e8d5a3; text-wrap: pretty; }
-.pull strong { color: #d4aa00; font-weight: 900; font-style: normal; }
+.pull { font-size: 43px; font-weight: 400; line-height: 1.28; color: #e8e8e8; text-wrap: pretty; }
+.pull strong { color: #d4aa00; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -430,7 +432,6 @@ body {
     <div class="divider"></div>
     
     <p class="lede">Restrictions d&#39;eau dans <strong>74 départements</strong>, débroussaillage appliqué à 30 %, PPRIF rares : l&#39;article rapporte les annonces de l&#39;État à ces ordres de grandeur, secteur par secteur.</p>
-    <div class="hr-short"></div>
     <p class="pull">Le <strong>débat budgétaire d&#39;octobre</strong> s&#39;ouvre dans six semaines, avec des dizaines de milliards d&#39;économies annoncées : chacun y arrive avec ses chiffres.</p>
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Comment bien le lire &#8250;</span></div>
