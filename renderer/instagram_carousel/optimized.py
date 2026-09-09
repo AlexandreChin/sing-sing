@@ -129,10 +129,13 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
             label, body = (label.strip(), body.strip()) if sep else ("", c.strip())
             if label == "À questionner":
                 continue  # legacy label — superseded by "La question" (engagement) below
-            recap_items.append({"label": label, "body": body,
+            # One line per presupposé: crammed onto a single line they compress into
+            # telegraphese (a "; les critiques valent Harrison" nobody can decode).
+            clauses = [c.strip() for c in body.split(";") if c.strip()]
+            recap_items.append({"label": label, "clauses": clauses,
                                 "icon": recap_icons.get(label, "hierarchy")})
         if pres.cta.engagement_sentence:
-            recap_items.append({"label": "La question", "body": pres.cta.engagement_sentence,
+            recap_items.append({"label": "La question", "clauses": [pres.cta.engagement_sentence],
                                 "icon": "speech_bubble"})
         specs.append(("08_socle", "08_socle",
                       {"headline": ga.headline, "recap_items": recap_items}))

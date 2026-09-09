@@ -108,11 +108,17 @@ def _lens_layer_errors(d) -> list[str]:
                     f"for {n_selected} selected beats — one per selected beat, in slide order, "
                     f"so each rests on a finding the reader has seen"
                 )
-            n_words = len(body.split())
-            if n_words > 16:
-                errors.append(
-                    f"display.global_analysis.core_recap[{i}] is {n_words} words (max 16, label excluded)"
-                )
+            # Each presupposé is its own line on the slide, so the budget is per
+            # clause. The old 16-word cap on the whole run is what compressed the
+            # third one into "les critiques valent Harrison" — a reference the deck
+            # never introduces, and nobody can decode.
+            for j, clause in enumerate([c.strip() for c in body.split(";") if c.strip()]):
+                n_words = len(clause.split())
+                if n_words > 10:
+                    errors.append(
+                        f"display.global_analysis.core_recap[{i}] presupposé {j + 1} is "
+                        f"{n_words} words (max 10)"
+                    )
     if not d.root_issue.strip():
         errors.append("display.root_issue is empty")
     if not d.essentiel_summary.strip():
