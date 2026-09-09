@@ -216,15 +216,77 @@ _THUMB_STEMS = ("cover", "image")
 _THUMB_MIMES = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp"}
 
 
-def cover_thumb(base_dir: Path) -> str:
-    """Data URL for the source thumbnail found beside the analysis, else "".
-    Empty means slide 1 renders exactly as it did before the image existed."""
+def _find_thumb(base_dir: Path) -> tuple[Path, str] | None:
     for stem in _THUMB_STEMS:
         for ext, mime in _THUMB_MIMES.items():
             path = Path(base_dir) / f"{stem}{ext}"
             if path.exists():
-                return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode()
-    return ""
+                return path, mime
+    return None
+
+
+# Slide 1's vertical budget, measured from the rendered template (1350px slide,
+# 80px bottom padding): what the label, metadata, divider, kicker and tracker
+# take, leaving the rest to be split between the capture and the headline.
+_HOOK_TOP = 150          # .slide padding-top
+_HOOK_FIXED = 170        # Sélection label + metadata line + the slot's margin
+_HOOK_TAIL = 197         # divider + On décrypte kicker + swipe tracker
+_HOOK_BOX = 1270 - _HOOK_TOP
+_HEAD_LADDER = (85, 78, 70, 62)   # px; 85 is the deck's headline size
+_HEAD_LINE = 1.06                 # .cover-head line-height
+_HEAD_CHAR_W = 0.66               # Inter 900 advance width, measured on rendered decks
+_SLOT_W = 984            # slide width less the 48px side padding
+_SLOT_MAX = 720
+_SLOT_MIN = 300
+
+
+def _head_lines(text: str, size: int) -> int:
+    """Rough line count for the headline at `size`, markup stripped."""
+    plain = text.replace("**", "")
+    per_line = max(1, int(_SLOT_W / (size * _HEAD_CHAR_W)))
+    return max(1, -(-len(plain) // per_line))
+
+
+def hook_metrics(dims: tuple[int, int] | None, headline: str) -> dict:
+    """How tall the capture may be, and how big the headline can be beside it.
+
+    The two share one budget: a 2.5:1 capture leaves room for the full 85px
+    headline, a 1.4:1 one does not. Without a capture the headline keeps the
+    deck's size. Returns {"slot_max": px | None, "head_size": px}.
+    """
+    if not dims:
+        return {"slot_max": None, "head_size": _HEAD_LADDER[0]}
+    width, height = dims
+    slot = min(_SLOT_MAX, round(_SLOT_W * height / width))
+    room = _HOOK_BOX - _HOOK_FIXED - _HOOK_TAIL
+    for size in _HEAD_LADDER:
+        need = _head_lines(headline, size) * round(size * _HEAD_LINE)
+        if room - slot >= need:
+            return {"slot_max": slot, "head_size": size}
+    # A tall capture and a long question cannot both be big: hold the headline at
+    # the smallest ladder step and give the capture whatever is left.
+    size = _HEAD_LADDER[-1]
+    need = _head_lines(headline, size) * round(size * _HEAD_LINE)
+    return {"slot_max": max(_SLOT_MIN, room - need), "head_size": size}
+
+
+def cover_dims(base_dir: Path) -> tuple[int, int] | None:
+    """Pixel size of the capture beside the analysis, or None when there is none."""
+    found = _find_thumb(base_dir)
+    if not found:
+        return None
+    with Image.open(found[0]) as img:
+        return img.size
+
+
+def cover_thumb(base_dir: Path) -> str:
+    """Data URL for the source thumbnail found beside the analysis, else "".
+    Empty means slide 1 renders exactly as it did before the image existed."""
+    found = _find_thumb(base_dir)
+    if not found:
+        return ""
+    path, mime = found
+    return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode()
 
 
 def cover_layers(meta, headline: str) -> dict:
