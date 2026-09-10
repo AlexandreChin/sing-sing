@@ -48,7 +48,9 @@ def test_beat_with_figure_renders_number_slide(tmp_path):
     assert "num-fig" in html                 # number layout
     assert "4 400 %" in html and "de voyageurs en 20 ans" in html
     assert "230 → 10 000" in html
-    assert "Au fil de la lecture" in html and "En chiffres" in html  # normal beat header
+    # The beat header now pairs with slide 4's numbered réflexe list.
+    assert "Réflexe 01" in html and "Chiffres" in html
+    assert "En chiffres" in html                 # the beat's own title
 
 
 def test_chiffres_beat_without_figure_uses_standard_moment(tmp_path):

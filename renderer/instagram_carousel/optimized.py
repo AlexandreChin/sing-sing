@@ -56,10 +56,15 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         import sys
         print(f"[optimized] {len(selected_beats)} beats selected; rendering the first 3.", file=sys.stderr)
     selected_beats = selected_beats[:3]
+    # Slide 4 promises N numbered réflexes; slides 5–7 answer them in the same
+    # order, under the same number and the same question. Without that pairing a
+    # reader sees three unrelated lens names.
+    lens_numbers: dict[str, int] = {}
     display_lenses = []
     for b in selected_beats:
         canon = CANONICAL_LENSES.get(b.lens_ref)
-        if canon and b.lens_ref not in {x["id"] for x in display_lenses}:
+        if canon and b.lens_ref not in lens_numbers:
+            lens_numbers[b.lens_ref] = len(display_lenses) + 1
             # The canonical question is a fallback: it is a constant, so every deck
             # using this lens would show the same line. `lens_question` specialises
             # it to this article without spoiling the moment.
@@ -67,6 +72,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
             # `**…**` the model adds — it would show as literal asterisks.
             own_q = b.lens_question.strip().replace("**", "")
             display_lenses.append({"id": b.lens_ref, "name": canon["name"],
+                                   "n": lens_numbers[b.lens_ref],
                                    "question": own_q or canon["question"],
                                    "icon_svg": canon.get("icon_svg", "")})
 
@@ -94,7 +100,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
             "reperes_headline": d.reperes_headline,
             "context": contexts[0].text if contexts else "",
             "lens_count_word": _COUNT_WORD.get(len(display_lenses), "Les"),
-            "lenses": [{"name": l["name"], "question": l["question"], "icon_svg": l["icon_svg"]} for l in display_lenses],
+            "lenses": [{"n": l["n"], "name": l["name"], "question": l["question"]} for l in display_lenses],
         }),
     ]
 
@@ -102,9 +108,13 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     for idx, b in enumerate(selected_beats):
         canon = CANONICAL_LENSES.get(b.lens_ref, {})
         common = {
-            "note": b.note,      # the challenge (lens + imperative line)
+            # The challenge line repeats slide 4's question verbatim — the reader
+            # has to recognise it, so it cannot be a second phrasing of the same
+            # idea (`note`, the imperative habit, is no longer rendered here).
+            "lens_question": b.lens_question.strip().replace("**", "") or canon.get("question", ""),
             "answer": b.answer,  # the reveal (gold-arrow payoff)
             "lens_name": canon.get("name", b.lens_ref),
+            "lens_n": lens_numbers.get(b.lens_ref, idx + 1),
             "lens_icon_svg": canon.get("icon_svg", ""),
         }
         if b.figure and not number_done:
@@ -128,7 +138,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         # Slide 8 pairs the argument's unstated supports with the reader-facing
         # question. `core_recap` carries only "Ses présupposés : body"; "La question"
         # is the engagement question, shown here (moved up from slide 9).
-        recap_icons = {"Ses présupposés": "anchor"}
+        recap_icons = {"Ce qu'il tient pour acquis": "anchor", "Ses présupposés": "anchor"}
         recap_items = []
         for c in ga.core_recap:
             label, sep, body = c.partition(":")

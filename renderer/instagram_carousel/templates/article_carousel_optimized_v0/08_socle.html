@@ -17,7 +17,8 @@
 .q-label { font-size: 44px; font-weight: 900; line-height: 1.05; letter-spacing: -0.01em; color: #f0f0f0; }
 .r-list { display: flex; flex-direction: column; gap: 24px; padding-left: 56px; }
 .r-item { display: flex; gap: 16px; align-items: flex-start; font-size: 39px; line-height: 1.4; color: #e0e0e0; }
-.r-item .rk { flex: none; color: #d4aa00; font-weight: 900; font-size: 41px; line-height: 1.1; }
+.r-item .rk { flex: none; color: #d4aa00; font-weight: 900; font-size: 39px; line-height: 1.24;
+  font-variant-numeric: tabular-nums; }
 .r-item strong { color: #d4aa00; font-weight: 700; }
 </style>
 </head>
@@ -32,7 +33,7 @@
     <div class="divider"></div>
     {% for item in recap_items %}<div class="q-item">
       {% if item.label %}<div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS[item.icon] | safe }}</svg></span><span class="q-label">{{ item.label }}</span></div>{% endif %}
-      <div class="r-list">{% for clause in item.clauses %}<div class="r-item"><span class="rk">&#8250;</span><span>{{ clause | md_bold }}</span></div>{% endfor %}</div>
+      <div class="r-list">{% for clause in item.clauses %}<div class="r-item"><span class="rk">{% if item.clauses | length > 1 %}{{ '%02d'|format(loop.index) }}{% else %}&#8250;{% endif %}</span><span>{{ clause | md_bold }}</span></div>{% endfor %}</div>
     </div>{% endfor %}
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Avant de trancher &#8250;</span></div>

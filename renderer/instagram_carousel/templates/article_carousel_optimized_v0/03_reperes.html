@@ -22,7 +22,8 @@
 .q-body strong { color: #d4aa00; font-weight: 700; }
 .r-list { display: flex; flex-direction: column; gap: 10px; padding-left: 40px; }
 .r-item { display: flex; gap: 14px; align-items: flex-start; font-size: 39px; line-height: 1.24; color: #e0e0e0; text-align: justify; hyphens: auto; }
-.r-item .rk { flex: none; color: #d4aa00; font-weight: 900; font-size: 41px; line-height: 1.1; }
+.r-item .rk { flex: none; width: 62px; color: #d4aa00; font-weight: 900; font-size: 39px;
+  line-height: 1.24; font-variant-numeric: tabular-nums; }
 .r-item strong { color: #d4aa00; font-weight: 700; }
 .tease { line-height: 1.24; padding-bottom: 0; }
 .tease .challenge { font-size: 39px; font-weight: 800; color: #d4aa00; }
@@ -47,7 +48,7 @@
       {% if lenses %}<div class="q-item">
         <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{{ ICONS.lightbulb | safe }}</svg></span><span class="q-label">{{ lens_count_word }} réflexes</span></div>
         <div class="r-list">
-          {% for l in lenses %}<div class="r-item"><span class="rk">{% if l.icon_svg %}<svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#d4aa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block">{{ l.icon_svg | safe }}</svg>{% else %}&#8250;{% endif %}</span><span><strong>{{ l.name }}</strong> — {{ l.question }}</span></div>{% endfor %}
+          {% for l in lenses %}<div class="r-item"><span class="rk">{{ '%02d'|format(l.n) }}</span><span><strong>{{ l.name }}</strong> — {{ l.question | fr }}</span></div>{% endfor %}
         </div>
       </div>{% endif %}
     </div>
