@@ -23,6 +23,29 @@ def _bold_spans(text: str) -> set[str]:
     return {f for f in (_fold(m) for m in _BOLD_RE.findall(text)) if f}
 
 
+# Words that reach the slides in our own voice and stop a reader cold. Verbatim
+# `quote`s are exempt: those are the article's words, not ours.
+_JARGON = {
+    "préprint": "« prépublication », ou mieux « pas encore relue par des pairs »",
+    "preprint": "« prépublication », ou mieux « pas encore relue par des pairs »",
+    "peer-review": "« relue par des pairs »",
+    "probatoire": "« de preuve » / « les preuves sont faibles »",
+    "dataset": "« jeu de données »",
+    "benchmark": "« test de référence »",
+    "framework": "« cadre »",
+}
+_JARGON_RE = {w: re.compile(rf"\b{w}\w*\b", re.I) for w in _JARGON}
+
+
+def _jargon_errors(label: str, text: str) -> list[str]:
+    return [
+        f"{label} uses « {m.group(0)} » — write {fix} (the reader has not read the article "
+        f"and will not look a word up)"
+        for word, fix in _JARGON.items()
+        if (m := _JARGON_RE[word].search(text or ""))
+    ]
+
+
 def _lens_layer_errors(d) -> list[str]:
     """Validate the 4-act lens layer (Task: lens-arc). Additive — leaves the
     legacy checks in _validate untouched so the short format keeps working."""
@@ -144,6 +167,21 @@ def _lens_layer_errors(d) -> list[str]:
                 f"bullet ({', '.join(sorted(spans & seen_bold))})"
             )
         seen_bold |= spans
+    # Plain French on every field we write ourselves (quotes stay verbatim).
+    errors += _jargon_errors("display.why_selected", d.why_selected)
+    errors += _jargon_errors("display.selection_headline", d.selection_headline)
+    for i, point in enumerate(d.essentiel):
+        errors += _jargon_errors(f"display.essentiel[{i}]", point)
+    for i, b in enumerate(d.reading_beats):
+        if not b.selected:
+            continue
+        for field in ("moment", "lens_question", "note", "answer"):
+            errors += _jargon_errors(f"display.reading_beats[{i}].{field}", getattr(b, field, ""))
+    if d.global_analysis:
+        for i, point in enumerate(d.global_analysis.core_recap):
+            errors += _jargon_errors(f"display.global_analysis.core_recap[{i}]", point)
+    errors += _jargon_errors("display.root_issue", d.root_issue)
+
     n_takeaways = sum(1 for t in d.key_takeaways if t.selected)
     if not (2 <= n_takeaways <= 3):
         errors.append(f"display.key_takeaways must have 2–3 selected, got {n_takeaways}")
