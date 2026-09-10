@@ -1143,7 +1143,7 @@
     ],
     "cta": {
       "title": "Un argument qu'aucune preuve n'atteint n'est plus un argument",
-      "engagement_sentence": "Faut-il juger un outil sur les effets qu'on sait mesurer, ou sur les usages qu'on n'a pas encore inventés ?",
+      "engagement_sentence": "Peut-on trancher quand un seul camp a des chiffres ?",
       "engagement_sentence_alt": [
         "Une possibilité qu'aucun indice ne signale pèse-t-elle autant qu'un coût documenté ?",
         "À qui doit-on demander de prouver : celui qui déploie, ou celui qui restreint ?",
@@ -1183,8 +1183,8 @@
       },
       "payoff": "Tester si un argument peut être **contredit**, et par quelle **preuve**.",
       "framing": "Non les effets de l'IA, mais la **position** de celui qui les évalue.",
-      "why_selected": "Un modèle d'Acemoglu, Nobel d'économie, conclut qu'il faut **brider l'IA** pour préserver le savoir commun ; l'essai lui oppose une expérimentation encadrée.\nL'essai s'appuie sur trois études récentes : leurs **chiffres**, leur **causalité** et leurs **sources** sont vérifiables.",
-      "selection_headline": "Un modèle contre trois études",
+      "why_selected": "Un prix Nobel d'économie calcule qu'il faut **brider l'IA** pour que les humains continuent d'apprendre ; l'essai répond : expérimentons plutôt.\nIl montre qu'une interdiction fabrique ensuite la **preuve qui la justifie**.",
+      "selection_headline": "Brider l'IA, ou l'expérimenter",
       "selection_headline_alt": [
         "1849 contre 2025 : deux bases de preuves, un même geste",
         "Un critère de décision tiré de l'histoire des techniques",
@@ -1262,12 +1262,12 @@
       "lenses": [],
       "reading_beats": [
         {
-          "moment": "Le précédent médical, en ouverture",
-          "quote": "le rapport du comité de la Royal Medical and Chirurgical Society recensait 123 décès",
+          "moment": "L'anesthésie : on comptait les morts, pas les opérations à venir",
+          "quote": "qui recensait 123 décès liés au chloroforme",
           "lens_ref": "chiffres",
           "lens_question": "Un décompte de victimes : comparé à quoi ?",
           "note": "Devant un chiffre de coûts daté et sourcé, demandez-vous ce qui n'a **pas** été compté.",
-          "answer": "C'est le seul chiffre de l'essai portant nom, date et institution — et il mesure un **coût**.",
+          "answer": "À rien : l'essai ne cite **aucun chiffre équivalent** du côté des bénéfices.",
           "figure": "123",
           "figure_label": "décès liés au chloroforme, rapport de 1864",
           "figure_caption": "le seul chiffre précisément sourcé du texte",
@@ -1280,12 +1280,12 @@
           "rationale": "Le socle empirique de l'analogie centrale"
         },
         {
-          "moment": "L'exemple des rencontres en ligne",
-          "quote": "les rencontres en ligne sont cohérentes avec l'augmentation des mariages interraciaux",
+          "moment": "Les applis de rencontre : le bénéfice que personne n'avait prévu",
+          "quote": "les rencontres en ligne sont cohérentes avec l'augmentation rapide des mariages interraciaux",
           "lens_ref": "causalite",
           "lens_question": "Une tendance : née de l'outil, ou déjà en cours ?",
           "note": "Devant un bénéfice attribué à une technologie, cherchez la **pente antérieure**.",
-          "answer": "La hausse court depuis **1967** : 3 % des nouveaux mariages alors, près de 20 % dans les années 2010.",
+          "answer": "Déjà en cours : la hausse court depuis **1967**, bien avant les applis.",
           "figure": "",
           "figure_label": "",
           "figure_caption": "",
@@ -1298,12 +1298,12 @@
           "rationale": "Le bénéfice illisible le plus concret de l'essai"
         },
         {
-          "moment": "Les travaux cognitifs cités",
-          "quote": "les participants ayant écrit avec ChatGPT présentaient une connectivité neuronale plus faible",
+          "moment": "Les études qui accusent l'IA d'affaiblir le cerveau",
+          "quote": "les participants ayant écrit avec ChatGPT présentaient une connectivité neuronale significativement plus faible",
           "lens_ref": "sources",
           "lens_question": "Une étude citée : combien de participants, et relue par qui ?",
           "note": "Devant un résultat scientifique cité par sa seule conclusion, cherchez l'**effectif** et le statut.",
-          "answer": "Le préprint compte **54 participants** et n'a pas été relu par des pairs.",
+          "answer": "L'étude compte **54 participants** et n'a pas encore été relue par des pairs.",
           "figure": "",
           "figure_label": "",
           "figure_caption": "",
@@ -1407,28 +1407,28 @@
         }
       ],
       "global_analysis": {
-        "headline": "Sur quoi cet argument repose-t-il sans le dire ?",
+        "headline": "Expérimenter tant qu'on peut revenir en arrière",
         "headline_alt": [
           "Que faut-il admettre pour que la thèse tienne ?",
           "Les appuis invisibles de la démonstration",
           "Ce que le texte tient pour acquis"
         ],
         "core_recap": [
-          "Ses présupposés : un coût chiffré dit l'essentiel ; un bénéfice sans indice existe ; une étude fragile peut représenter tout le camp adverse"
+          "Ce qu'il tient pour acquis : que ce qui est chiffré pèse plus que le reste ; que des bénéfices existent même sans preuve ; que 54 participants suffisent à juger toutes ces études"
         ]
       },
       "open_question": "Quelle part des innovations comparables a produit des bénéfices durables plutôt que des coûts nets ?",
-      "root_issue": "Sous le débat sur la mesure se joue une répartition du risque : qui supporte les dégâts pendant qu'on attend que les bénéfices deviennent nommables.",
+      "root_issue": "Derrière l'arbitrage entre coûts immédiats et gains potentiels, **qui paie les dégâts** ?",
       "steel_man": {
-        "argument": "L'amiante, le plomb et les opioïdes présentaient la même asymétrie initiale, et leurs critiques précoces avaient raison.",
-        "alternative": "L'asymétrie décrit une difficulté d'évaluation, sans indiquer de quel côté trancher."
+        "argument": "L'amiante, le plomb et les opioïdes ont connu le même déséquilibre au départ : leurs critiques avaient raison.",
+        "alternative": "Ce déséquilibre dit qu'on évalue mal, pas de quel côté trancher."
       },
-      "reperes_headline": "D'où parle ce texte, et à quel moment",
+      "reperes_headline": "Avant de lire : le contexte et trois réflexes",
       "bilan_headline": "Ce que le lecteur emporte",
       "essentiel": [
-        "Les coûts d'une innovation se mesurent vite ; ses bénéfices **restent indescriptibles**.",
-        "**Cinq précédents** — anesthésie, phonographe, électricité, écriture, applications — installent le motif.",
-        "L'essai propose **la récupérabilité** comme règle de décision."
+        "On mesure vite les coûts d'une innovation ; ses bénéfices, **pas encore**.",
+        "**Cinq précédents** — anesthésie, phonographe, électricité, écriture, rencontres — ont suivi ce schéma.",
+        "Sa règle : n'autoriser que ce qu'on peut **défaire**."
       ],
       "essentiel_summary": "Cinq précédents historiques — anesthésie, phonographe, électricité, écriture, applications de rencontres — servent à l'essai à établir un motif : **les coûts se mesurent aussitôt, les bénéfices majeurs n'ont pas encore de mots**. Appliqué aux études 2024-2025 sur l'affaiblissement cognitif lié aux LLM, il conclut qu'il faut décider sur la **récupérabilité** et non sur les preuves disponibles."
     }
