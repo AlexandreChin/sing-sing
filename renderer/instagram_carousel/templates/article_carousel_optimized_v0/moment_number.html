@@ -14,7 +14,7 @@
 .num-sub { font-size: 46px; font-weight: 700; color: #f0f0f0; margin-top: 8px; line-height: 1.15; }
 .num-caption { font-size: 33px; color: #9a9a9a; margin-top: 8px; letter-spacing: -0.01em; }
 .watch { display: flex; gap: 16px; align-items: flex-start; }
-.watch svg { width: 40px; height: 40px; flex: none; margin-top: 4px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.watch svg { width: 40px; height: 40px; flex: none; margin-top: 9px;  /* centres the icon on the first line: (57.6px line-height − 40px) / 2 */ stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .watch .wtxt { font-size: 43px; font-weight: 700; line-height: 1.34; color: #f0f0f0; }
 .watch .wtxt .wl { color: #d4aa00; font-weight: 900; }
 .watch .wtxt strong { color: #d4aa00; font-weight: 900; }
@@ -30,15 +30,15 @@
   {% include '_brand.html' %}
   {% include '_tracker.html' %}
   <div class="stage">
-    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>{{ L.during }}</span>
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>{% if lens_n %}Réflexe {{ '%02d'|format(lens_n) }} &middot; {% endif %}{{ lens_name or L.during }}</span>
     <h1 class="head">{{ moment | md_bold }}</h1>
     <div class="divider"></div>
     <div>
       <div class="num-fig">{{ figure }}</div>
-      <div class="num-sub">{{ figure_label }}</div>
-      {% if figure_caption %}<div class="num-caption">{{ figure_caption }}</div>{% endif %}
+      <div class="num-sub">{{ figure_label | fr }}</div>
+      {% if figure_caption %}<div class="num-caption">{{ figure_caption | fr }}</div>{% endif %}
     </div>
-    <p class="watch"><svg viewBox="0 0 24 24">{% if lens_icon_svg %}{{ lens_icon_svg | safe }}{% else %}{{ ICONS.lightbulb | safe }}{% endif %}</svg><span class="wtxt"><span class="wl">{{ lens_name }}</span> — {{ note | md_bold }}</span></p>
+    <p class="watch"><svg viewBox="0 0 24 24">{% if lens_icon_svg %}{{ lens_icon_svg | safe }}{% else %}{{ ICONS.lightbulb | safe }}{% endif %}</svg><span class="wtxt">{{ lens_question | fr }}</span></p>
     {% if answer %}<div class="reveal"><span class="arw">&#8594;</span><p class="rev">{{ answer | md_bold }}</p></div>{% endif %}
   </div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>

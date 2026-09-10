@@ -62,8 +62,8 @@
 
   <div class="divider2"></div>
   <span class="kicker">On décrypte<img class="kicker-logo" src="{{ kicker_logo }}" alt=""></span>
-  {# French typography: a no-break space before ? ! : — also stops "?" orphaning onto its own line. #}
-  <h1 class="cover-head" style="font-size: {{ head_size | default(85) }}px">{{ (sub_topic or topic or headline).replace(' ?', ' ?').replace(' !', ' !').replace(' :', ' :') | md_bold }}</h1>
+  {# French spacing is applied by the md_bold filter, for every field. #}
+  <h1 class="cover-head" style="font-size: {{ head_size | default(85) }}px">{{ (sub_topic or topic or headline) | md_bold }}</h1>
 
   <div class="swipe">{{ L.prog_before }} <span class="sw-sep">&#8250;</span> {{ L.prog_during }} <span class="sw-sep">&#8250;</span> {{ L.prog_after }}</div>
   <div style="position: absolute; bottom: 56px; left: 0; right: 0; text-align: center; font-size: 22px; color: #555; letter-spacing: 0.08em; font-style: italic;"><span style="color: #d4aa00;">Sing</span>, little bird, <span style="color: #d4aa00;">sing</span></div>

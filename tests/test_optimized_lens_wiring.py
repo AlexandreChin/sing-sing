@@ -72,3 +72,19 @@ def test_no_lentille_point_fort_or_verif_faits_slide(tmp_path):
     assert "04_lentille" not in names
     assert "07_point_fort" not in names
     assert "04_verif_faits" not in names
+
+
+def test_beats_repeat_slide_4s_numbered_reflexes(tmp_path):
+    """Slide 4 promises N numbered réflexes; each beat carries the same number,
+    the same lens name and the same question, so the reader can pair them."""
+    import re
+    opt.generate_html(_doc(), tmp_path)
+    reperes = (tmp_path / "04_reperes.html").read_text(encoding="utf-8")
+    listed = re.findall(r'<span class="rk">(\d\d)</span><span><strong>([^<]+)</strong> — ([^<]+)</span>',
+                        reperes)
+    assert listed, "slide 4 lists no numbered réflexe"
+    for i, (number, name, question) in enumerate(listed):
+        beat = (tmp_path / f"0{5 + i}_moment.html").read_text(encoding="utf-8")
+        assert f"Réflexe {number}" in beat
+        assert name in beat
+        assert question.strip() in beat          # the same wording, not a paraphrase

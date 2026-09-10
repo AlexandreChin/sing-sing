@@ -198,14 +198,27 @@ _LOGO_DATA_URL = _logo_data_url(_LOGO_PATH) if _LOGO_PATH.exists() else ""
 _LOGO_TIGHT_DATA_URL = _logo_data_url(_LOGO_PATH, crop=True) if _LOGO_PATH.exists() else ""
 
 
+# French sets a no-break space before ; : ! ? and inside « ». Applied at render
+# time so copy can be written with ordinary spaces and can never break with the
+# punctuation orphaned at the start of a line.
+_FR_TIGHT = re.compile(r"[ \u202f]+([;:!?»])")
+_FR_OPEN = re.compile(r"(«)[ \u202f]+")
+
+
+def _fr_spacing(text: str) -> str:
+    return _FR_OPEN.sub("\\1\u00a0", _FR_TIGHT.sub("\u00a0\\1", text))
+
+
 def _md_bold(text) -> Markup:
-    escaped = str(escape(text))
+    escaped = _fr_spacing(str(escape(text)))
     return Markup(re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', escaped))
 
 
 def _env() -> Environment:
     env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)), autoescape=True)
     env.filters["md_bold"] = _md_bold
+    # For fields rendered raw (no bold conversion) but still French prose.
+    env.filters["fr"] = _fr_spacing
     env.globals["ICONS"] = ICONS
     return env
 
