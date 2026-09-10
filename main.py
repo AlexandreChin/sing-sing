@@ -328,6 +328,15 @@ async def cmd_fetch(args: argparse.Namespace) -> None:
           "Fetch one with: python main.py fetch <url>", file=sys.stderr)
 
 
+async def cmd_check(args: argparse.Namespace) -> None:
+    from tools.check_deck import check, format_report
+
+    report = check(Path(args.document), Path(args.article) if args.article else None)
+    print(format_report(report))
+    if any(report.values()):
+        sys.exit(1)
+
+
 # ── Argument parser ───────────────────────────────────────────────────────────
 
 def _add_source_args(p: argparse.ArgumentParser) -> None:
@@ -427,6 +436,11 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--list-sources", action="store_true", help="print the known feeds and exit")
     p.add_argument("--dir", default="samples/articles", help="where to save (default: samples/articles)")
     p.set_defaults(func=cmd_fetch)
+
+    p = sub.add_parser("check", help="controller: structure, accuracy against the article, French typography")
+    p.add_argument("document", help="extract.json (the render document)")
+    p.add_argument("article", nargs="?", help="article .txt (default: found next to the analysis)")
+    p.set_defaults(func=cmd_check)
 
     return parser
 
