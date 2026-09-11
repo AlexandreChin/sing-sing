@@ -412,19 +412,30 @@ body {
    03_reperes keeps the tighter values: it has no vertical slack left. */
 .head { font-size: 60px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 29px; }
-/* the figure stands in for the quote "evidence" of a normal beat */
-.num-fig { font-size: 184px; font-weight: 900; line-height: 0.9; letter-spacing: -0.04em; color: #d4aa00; }
-.num-sub { font-size: 46px; font-weight: 700; color: #f0f0f0; margin-top: 8px; line-height: 1.15; }
-.num-caption { font-size: 33px; color: #9a9a9a; margin-top: 8px; letter-spacing: -0.01em; }
+.evidence { border-left: 4px solid #d4aa00; background: #161616; border-radius: 0 10px 10px 0; padding: 22px 28px; }
+.ev-quote { font-size: 39px; font-style: italic; line-height: 1.4; color: #f0f0f0; }
+
+/* ── Watch-out: the challenge (lens + imperative, one line) ── */
 .watch { display: flex; gap: 16px; align-items: flex-start; }
 .watch svg { width: 40px; height: 40px; flex: none; margin-top: 9px;  /* centres the icon on the first line: (57.6px line-height − 40px) / 2 */ stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .watch .wtxt { font-size: 43px; font-weight: 700; line-height: 1.34; color: #f0f0f0; }
 .watch .wtxt .wl { color: #d4aa00; font-weight: 900; }
 .watch .wtxt strong { color: #d4aa00; font-weight: 900; }
+
+/* ── Reveal: the answer ── */
 .reveal { display: flex; gap: 18px; align-items: flex-start; }
 .reveal .arw { flex: none; font-size: 46px; line-height: 1.15; color: #d4aa00; font-weight: 900; }
-.reveal .rev { font-size: 38px; line-height: 1.42; color: #cfcfcf; }
+.reveal .rev { font-size: 38px; line-height: 1.42; color: #cfcfcf; text-align: justify; hyphens: auto; }
 .reveal .rev strong { color: #d4aa00; font-weight: 700; }
+/* — Hero slot: what the beat turns on, when it is one short object the reader can
+   hold in mind — a count, a date, a term swap. A count keeps its label (it says
+   what the number counts); a term swap needs none, the quote below attributes it.
+   Filled rarely and never to obtain the layout: see the prompt. — */
+.num-fig { font-size: 184px; font-weight: 900; line-height: 0.9; letter-spacing: -0.04em; color: #d4aa00; }
+.num-fig.is-term { font-size: 92px; line-height: 1.02; letter-spacing: -0.03em; }
+.num-fig .arrow { color: #6a5a10; }
+.num-caption { font-size: 33px; color: #9a9a9a; margin-top: 8px; letter-spacing: -0.01em; }
+.num-sub { font-size: 46px; font-weight: 700; color: #f0f0f0; margin-top: 8px; line-height: 1.15; }
 </style>
 </head>
 <body>
@@ -446,8 +457,9 @@ body {
     <div>
       <div class="num-fig">123</div>
       <div class="num-sub">décès liés au chloroforme, rapport de 1864</div>
-      <div class="num-caption">le seul chiffre précisément sourcé du texte</div>
+      
     </div>
+    <div class="evidence"><p class="ev-quote">«&#160;qui recensait 123 décès liés au chloroforme&#160;»</p></div>
     <p class="watch"><svg viewBox="0 0 24 24"><line x1="6" y1="20" x2="6" y2="14"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="18" y1="20" x2="18" y2="10"/></svg><span class="wtxt">Un décompte de victimes : comparé à quoi ?</span></p>
     <div class="reveal"><span class="arw">&#8594;</span><p class="rev">À rien : l&#39;essai ne cite <strong>aucun chiffre équivalent</strong> du côté des bénéfices.</p></div>
   </div>
