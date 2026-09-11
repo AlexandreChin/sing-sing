@@ -9,6 +9,10 @@
    03_reperes keeps the tighter values: it has no vertical slack left. */
 .sel-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 33px; }
 .sel-head { font-size: 64px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
+/* The dispute, folded in from the old "Pourquoi cet article" slide: it sets up
+   the three claims below it. */
+.lede { font-size: 43px; font-weight: 400; line-height: 1.26; color: #e8e8e8; text-wrap: pretty; }
+.lede strong { color: #d4aa00; font-weight: 700; }
 .es-summary { font-size: 46px; font-weight: 400; line-height: 1.42; color: #e0e0e0; text-wrap: pretty; }
 .es-summary strong { color: #d4aa00; font-weight: 700; }
 /* The three `essentiel` claims, numbered: three scannable lines instead of one
@@ -30,11 +34,12 @@
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>{{ L.essentiel }}</span>
     <h1 class="sel-head">En bref</h1>
     <div class="divider"></div>
+    {% if lede %}<p class="lede">{{ lede | md_bold }}</p>{% endif %}
     {% if essentiel %}<div class="pts">
       {% for pt in essentiel %}<div class="pt"><span class="pt-n">{{ '%02d'|format(loop.index) }}</span><span class="pt-t">{{ pt | md_bold }}</span></div>{% endfor %}
     </div>{% else %}<div class="es-summary">{{ essentiel_summary | md_bold }}</div>{% endif %}
   </div>
-  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">{{ L.why }} &#8250;</span></div>
+  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">{{ L.how_to_short }} &#8250;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
 </div>
