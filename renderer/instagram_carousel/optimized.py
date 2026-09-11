@@ -122,21 +122,24 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
             "lens_n": lens_numbers.get(b.lens_ref, idx + 1),
             "lens_icon_svg": canon.get("icon_svg", ""),
         }
+        # The template wraps the quote in « » itself — strip any the source JSON
+        # carries so they don't render doubled.
+        beat = {"moment": b.moment, "quote": b.quote.strip().strip("«»").strip(), **common}
         if b.figure and not number_done:
-            # #1 — number-forward slide: only when the beat carries a figure
-            # (filled by the adapt agent for a figure-centric chiffres beat).
+            # The hero slot — at most one per deck, so the beats never all look
+            # alike. A term swap sets smaller than a count and splits on its
+            # arrow, which the renderer wraps (never raw HTML from the model).
             number_done = True
-            specs.append(("moment", "moment_number", {
-                "moment": b.moment, "figure": b.figure,
-                "figure_label": b.figure_label, "figure_caption": b.figure_caption,
-                **common,
-            }))
-        else:
-            # The template wraps the quote in « » itself — strip any the source
-            # JSON carries so they don't render doubled.
-            specs.append(("moment", "moment", {
-                "moment": b.moment, "quote": b.quote.strip().strip("«»").strip(), **common,
-            }))
+            figure = b.figure.strip()
+            before, arrow, after = figure.partition("→")
+            beat |= {
+                "figure": figure, "figure_label": b.figure_label,
+                "figure_caption": b.figure_caption,
+                "figure_is_term": any(c.isalpha() for c in figure),
+                "figure_arrow": bool(arrow),
+                "figure_before": before.strip() + " ", "figure_after": " " + after.strip(),
+            }
+        specs.append(("moment", "moment", beat))
 
     if d.global_analysis:
         ga = d.global_analysis
@@ -155,17 +158,19 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
             clauses = [c.strip() for c in body.split(";") if c.strip()]
             recap_items.append({"label": label, "clauses": clauses,
                                 "icon": recap_icons.get(label, "hierarchy")})
-        if pres.cta.engagement_sentence:
-            recap_items.append({"label": "La question", "clauses": [pres.cta.engagement_sentence],
-                                "icon": "speech_bubble"})
+        # The objection closes the socle: it puts the assumptions just listed to the
+        # test. The reader-facing question moved to the prise de recul, last.
+        if d.steel_man and d.steel_man.argument.strip():
+            recap_items.append({"label": "L'objection la plus solide",
+                                "clauses": [d.steel_man.argument], "icon": "shield"})
         specs.append(("socle", "08_socle",
                       {"headline": ga.headline, "recap_items": recap_items}))
 
     # Slide 9 — Prise de recul: the deep stake + the strongest objection
     # (the closing question moved to slide 8's "La question").
-    if d.steel_man or d.root_issue:
+    if d.root_issue or pres.cta.engagement_sentence:
         specs.append(("prise_de_recul", "08_prise_de_recul", {
-            "steel_man": {"argument": d.steel_man.argument, "alternative": d.steel_man.alternative} if d.steel_man else None,
+            "question": pres.cta.engagement_sentence,
             "root_issue": d.root_issue,
         }))
     specs.append(("cta", "10_cta", cover_layers(meta, pres.hook.headline)))

@@ -24,6 +24,15 @@
 .reveal .arw { flex: none; font-size: 46px; line-height: 1.15; color: #d4aa00; font-weight: 900; }
 .reveal .rev { font-size: 38px; line-height: 1.42; color: #cfcfcf; text-align: justify; hyphens: auto; }
 .reveal .rev strong { color: #d4aa00; font-weight: 700; }
+/* — Hero slot: what the beat turns on, when it is one short object the reader can
+   hold in mind — a count, a date, a term swap. A count keeps its label (it says
+   what the number counts); a term swap needs none, the quote below attributes it.
+   Filled rarely and never to obtain the layout: see the prompt. — */
+.num-fig { font-size: 184px; font-weight: 900; line-height: 0.9; letter-spacing: -0.04em; color: #d4aa00; }
+.num-fig.is-term { font-size: 92px; line-height: 1.02; letter-spacing: -0.03em; }
+.num-fig .arrow { color: #6a5a10; }
+.num-caption { font-size: 33px; color: #9a9a9a; margin-top: 8px; letter-spacing: -0.01em; }
+.num-sub { font-size: 46px; font-weight: 700; color: #f0f0f0; margin-top: 8px; line-height: 1.15; }
 </style>
 </head>
 <body>
@@ -35,6 +44,11 @@
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>{% if lens_n %}Réflexe {{ '%02d'|format(lens_n) }} &middot; {% endif %}{{ lens_name or L.during }}</span>
     <h1 class="head">{{ moment | md_bold }}</h1>
     <div class="divider"></div>
+    {% if figure %}<div>
+      <div class="num-fig{% if figure_is_term %} is-term{% endif %}">{% if figure_arrow %}{{ figure_before }}<span class="arrow">&#8594;</span>{{ figure_after }}{% else %}{{ figure }}{% endif %}</div>
+      {% if figure_label %}<div class="num-sub">{{ figure_label | fr }}</div>{% endif %}
+      {% if figure_caption and not quote %}<div class="num-caption">{{ figure_caption | fr }}</div>{% endif %}
+    </div>{% endif %}
     {% if quote %}<div class="evidence"><p class="ev-quote">«&#160;{{ quote }}&#160;»</p></div>{% endif %}
     <p class="watch"><svg viewBox="0 0 24 24">{% if lens_icon_svg %}{{ lens_icon_svg | safe }}{% else %}{{ ICONS.lightbulb | safe }}{% endif %}</svg><span class="wtxt">{{ lens_question | fr }}</span></p>
     {% if answer %}<div class="reveal"><span class="arw">&#8594;</span><p class="rev">{{ answer | md_bold }}</p></div>{% endif %}
