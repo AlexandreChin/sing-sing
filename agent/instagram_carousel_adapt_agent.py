@@ -71,18 +71,38 @@ def norm_for_match(text: str) -> str:
     return re.sub(r"\s+", " ", text).lower().strip()
 
 
+# An elision marker: the quote is chosen for relevance, then made to fit by
+# cutting its middle out — « xxx […] yyy » — so each retained fragment is checked
+# on its own, in order.
+_ELISION = re.compile(r"\s*(?:\[…\]|\[\.\.\.\]|…)\s*")
+
+
+def quote_is_faithful(quote: str, article_normalised: str) -> bool:
+    """Every fragment of the quote appears in the article, word for word and in
+    order. Elision is allowed; paraphrase is not."""
+    cursor = 0
+    for fragment in _ELISION.split(quote.strip().strip("«»")):
+        fragment = norm_for_match(fragment)
+        if not fragment:
+            continue
+        found = article_normalised.find(fragment, cursor)
+        if found == -1:
+            return False
+        cursor = found + len(fragment)
+    return True
+
+
 def _quote_errors(d, article_text: str) -> list[str]:
-    """Quotes are verbatim by contract. The model trims them to meet the word cap
-    — « frapper au plus fort de son bombardement aérien de la bande » loses « de
-    la bande » — so the loop has to see the article to catch it."""
+    """Quotes are verbatim by contract. The model rewords them to meet the word
+    cap — « frapper au plus fort de son bombardement aérien de la bande » loses
+    « de la bande » — so the loop has to see the article to catch it."""
     article = norm_for_match(article_text)
     return [
         f"display.reading_beats[{i}].quote is not in the article word for word — "
-        f"« {b.quote[:60]}… ». Cut a verbatim span at its EDGES (never inside the sentence), "
-        f"or choose another passage; never paraphrase to fit the cap"
+        f"« {b.quote[:60]}… ». Keep the passage and elide its middle with « […] » if it is "
+        f"too long; never reword it, and never drop the clause that carries the point"
         for i, b in enumerate(d.reading_beats)
-        if b.selected and b.quote.strip()
-        and norm_for_match(b.quote.strip().strip("«»")) not in article
+        if b.selected and b.quote.strip() and not quote_is_faithful(b.quote, article)
     ]
 
 
@@ -166,11 +186,15 @@ def _lens_layer_errors(d) -> list[str]:
         # four blocks readable; the second sentence of an answer almost always
         # restates the réflexe printed two lines above it.
         if b.selected:
+            # 24 words ≈ the three lines the quote block holds. Over that, the
+            # model elides the middle rather than picking a shorter, weaker
+            # passage: a 15-word cap disqualified 16 of the analysis's own 20
+            # key quotes and left fragments that carried no claim.
             n_quote = len(b.quote.split())
-            if n_quote > 15:
+            if n_quote > 24:
                 errors.append(
-                    f"display.reading_beats[{i}].quote is {n_quote} words (max 15) — keep the "
-                    f"claim, drop the attribution"
+                    f"display.reading_beats[{i}].quote is {n_quote} words (max 24) — elide its "
+                    f"middle with « […] », keeping the clauses that carry the point"
                 )
             # 28, not 22: glossing an unfamiliar tool and naming the mechanism
             # cost words, and a short line the reader cannot use is worse than a
@@ -189,6 +213,13 @@ def _lens_layer_errors(d) -> list[str]:
         # falls back to the canonical constant, identical across every article.
         if b.selected and not b.lens_question.strip():
             errors.append(f"display.reading_beats[{i}].lens_question is empty (required for selected beats)")
+        # Printed twice — slide 4's list and the beat header — so it has to stay
+        # one line in both. The cap was documented and never enforced.
+        if b.selected and len(b.lens_question.split()) > 12:
+            errors.append(
+                f"display.reading_beats[{i}].lens_question is {len(b.lens_question.split())} "
+                f"words (max 12)"
+            )
         if b.selected and not b.role.strip():
             errors.append(f"display.reading_beats[{i}].role is empty (required for selected beats)")
     n_selected = sum(1 for b in beats if b.selected)

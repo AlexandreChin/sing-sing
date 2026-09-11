@@ -35,10 +35,10 @@
         <div class="r-item"><span class="rk">&#8250;</span><span>{{ root_issue | md_bold }}</span></div>
       </div>
     </div>{% endif %}
-    {% if steel_man %}<div class="q-item">
-      <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.shield | safe }}</svg></span><span class="q-label">L'objection la plus solide</span></div>
+    {% if question %}<div class="q-item">
+      <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.speech_bubble | safe }}</svg></span><span class="q-label">La question</span></div>
       <div class="r-list">
-        <div class="r-item"><span class="rk">&#8250;</span><span>{{ steel_man.argument | md_bold }}</span></div>
+        <div class="r-item"><span class="rk">&#8250;</span><span>{{ question | md_bold }}</span></div>
       </div>
     </div>{% endif %}
   </div>

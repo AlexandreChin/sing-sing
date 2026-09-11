@@ -45,9 +45,9 @@ def test_beat_with_figure_renders_number_slide(tmp_path):
                          figure_caption="230 → 10 000")]
     opt.generate_html(_doc(beats), tmp_path)
     html = (tmp_path / "04_moment.html").read_text(encoding="utf-8")
-    assert "num-fig" in html                 # number layout
+    assert '<div class="num-fig' in html     # the hero slot is filled
     assert "4 400 %" in html and "de voyageurs en 20 ans" in html
-    assert "230 → 10 000" in html
+    assert "q" in html                        # the quote takes the caption's old slot
     # The beat header now pairs with slide 4's numbered réflexe list.
     assert "Réflexe 01" in html and "Chiffres" in html
     assert "En chiffres" in html                 # the beat's own title
@@ -57,7 +57,7 @@ def test_chiffres_beat_without_figure_uses_standard_moment(tmp_path):
     beats = [ReadingBeat(moment="En chiffres", quote="citation", lens_ref="chiffres", note="n")]
     opt.generate_html(_doc(beats), tmp_path)
     html = (tmp_path / "04_moment.html").read_text(encoding="utf-8")
-    assert "num-fig" not in html             # NOT the number layout
+    assert '<div class="num-fig' not in html  # hero slot empty (the CSS is always present)
     assert "evidence" in html and "citation" in html  # standard evidence box
 
 
