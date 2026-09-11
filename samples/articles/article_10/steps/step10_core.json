@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "L'article défend que l'inflation actuelle vient des services — loyer, santé, éducation — et non des salaires.",
+      "kind": "affirmation",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 1,
+        "excerpt": "Les services — loyer, santé, éducation, transports — pèsent l'essentiel du coût de la vie",
+        "strength": 1.0,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "L'inflation y est décrite comme un rapport de forces entre revendications de revenus rivales.",
+      "kind": "angle",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "L'inflation est un mécanisme de redistribution entre revendications de revenus rivales",
+        "strength": 1.0,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "L'enjeu politique : lutter contre l'inflation par le chômage, ou par la restructuration des secteurs.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 3,
+        "excerpt": "Les politiques anti-inflationnistes classiques passent par la hausse du chômage",
+        "strength": 1.0,
+        "nature": "inference"
+      }
+    },
+    {
+      "statement": "Un long détour par 1950-1980 sert à montrer que les modèles hérités décrivent un monde disparu.",
+      "kind": "angle",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 0,
+        "excerpt": "conçus pour une économie manufacturière nationale et syndiquée qui n'existe plus",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Le texte réclame une planification sectorielle sans en chiffrer le financement ni l'administration.",
+      "kind": "biais",
+      "centrality": 3,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 3,
+        "excerpt": "Le financement et l'administration concrets de la planification sectorielle réclamée",
+        "strength": 1.0,
+        "nature": "illustration"
+      }
+    }
+  ]
+}

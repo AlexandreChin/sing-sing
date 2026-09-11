@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 4,
+        "rationale": "Les chiffres avancés sont traçables et recoupables : les pondérations de l'IPC (« plus de trente pour cent de l'IPC ») renvoient au Bureau of Labor Statistics, la croissance du premier quartile au Wage Growth Tracker de la Fed d'Atlanta, et le propos sur un chômage à 3-3,5 % est **attribué** à son auteur. Le plafond vient de la dissymétrie : les sources officielles servent la thèse, tandis que le camp adverse n'est représenté que par deux citations brèves, Summers et McCracken.",
+        "lesson": "Vérifiez si les sources les mieux documentées servent toutes le même côté de l'argument."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 4,
+        "rationale": "Les assertions vérifiables tiennent avec des niveaux de confiance élevés (85 à 90), et l'auteur ne se trompe ni sur les pondérations ni sur les séries salariales. Mais une phrase centrale — « L'inflation est le mécanisme de redistribution des revenus réels lorsque les revendications monétaires dépassent la capacité » — est classée `opinion_stated_as_fact`, sans confiance attribuable, et le poste logement repose sur un loyer imputé estimé présenté comme un prix.",
+        "lesson": "Distinguez les chiffres mesurés des grandeurs estimées avant d'accepter le poids qu'on leur donne."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 3,
+        "rationale": "La chaîne est lisible et explicite : économie manufacturière disparue, donc modèles obsolètes, donc inflation sectorielle. Trois des quatre étapes de `logical_reasoning` portent cependant un problème de validité ou de solidité, dont le passage central — « l'indépendance passée entre deux séries ne garantit pas l'absence d'effet d'une variation future » — qui est exactement le pas dont dépend la recommandation de politique.",
+        "lesson": "Repérez le moment où une corrélation observée dans le passé sert de garantie sur l'avenir."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 4,
+        "rationale": "Le point de vue est assumé dès le titre et la conclusion normative sur la planification sectorielle : le lecteur sait qu'il lit une analyse engagée, non un compte rendu. Ce qui reste tu, ce sont les conditions du raisonnement — notamment l'hypothèse que « la mondialisation continuera de maintenir les prix manufacturiers bas », jamais formulée alors que toute la thèse sectorielle repose dessus.",
+        "lesson": "Cherchez l'hypothèse qui doit rester vraie pour que l'argument tienne, puis demandez si l'auteur l'a nommée."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Le contexte historique est abondant — un tiers du texte sur les années 1950-1970 — mais la période post-2008 qui motive l'argument tient en deux paragraphes, et l'épisode le plus proche de l'outil recommandé, les contrôles de prix de Nixon en 1971-1974, n'est jamais mentionné. L'audit déontologique retient cette omission comme une réserve : l'instrument central n'est pas confronté à son précédent.",
+        "lesson": "Demandez si la solution proposée a déjà été tentée, et pourquoi l'auteur n'en parle pas."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Le vocabulaire pèse d'un seul côté : « jusqu'à ce que les travailleurs soient suffisamment faibles » requalifie un mécanisme monétaire en acte délibéré contre un groupe. La thèse adverse n'apparaît que sous forme d'une phrase de Summers immédiatement suivie d'une réfutation, et le `focus` va plus loin en faisant de la crainte de l'inflation salariale un obstacle au débat plutôt qu'une position discutable.",
+        "lesson": "Vérifiez si la position adverse est exposée dans sa propre logique avant d'être écartée."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "Le titre pose d'emblée l'opposition dont dépend tout le texte — spécifique contre général — et le corps ancre l'abstrait dans des montants du quotidien : 20 000 $ de prime d'assurance, 26 900 $ d'année d'université. La densité conceptuelle reste élevée : courbe de Phillips, équivalent loyer des propriétaires, inflation de conflit sont mobilisés sans être tous explicités.",
+        "lesson": "Notez les termes techniques employés sans définition : ils marquent le lecteur que l'auteur vise vraiment."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 4,
+        "rationale": "Lire l'inflation par la **composition sectorielle des prix** plutôt que par la masse monétaire déplace réellement le débat, et l'observation sur la chute syndicale de 35 % à moins de 7 % donne à la thèse du modèle obsolète un appui concret. L'originalité se paie d'une exposition : publié en janvier 2021, le texte formule des prédictions que la vague inflationniste de 2021-2022 permet de tester, ce que sa rédaction n'anticipe pas.",
+        "lesson": "Datez un texte prospectif avant de le lire, puis confrontez ses prédictions à ce qui a suivi."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Un lecteur qui suit les débats de politique monétaire et connaît déjà l'argument standard sur l'arbitrage chômage-inflation, assez pour reconstituer lui-même la position adverse que le texte n'expose pas.",
+      "payoff": "Vous repartez avec une grille de lecture précise — décomposer l'inflation poste par poste plutôt que la lire sur un indice agrégé — et avec un cas d'entraînement rare : un texte prospectif de janvier 2021 dont les prédictions se confrontent à ce qui a réellement suivi.",
+      "signature_move": "Une démonstration qui traite l'objection comme déjà réglée : la thèse adverse est citée en une phrase, réfutée à la suivante, et le texte poursuit sur des pages comme si le débat avait eu lieu.",
+      "main_blind_side": "Les contrôles de prix de 1971-1974 sont absents alors qu'ils sont le précédent direct de l'outil recommandé — signe d'un texte écrit pour convaincre un camp plutôt que pour arbitrer entre deux.",
+      "further_resource": {
+        "title": "Inflation is Conflict",
+        "source": "NBER Working Paper, Guido Lorenzoni & Iván Werning",
+        "media_type": "academic_paper",
+        "why_explore": "Le même mécanisme de conflit distributif y est formalisé et testé, avec les conditions sous lesquelles il tient — celles que l'article laisse implicites.",
+        "url": "https://www.nber.org/papers/w31099"
+      },
+      "summary": "Lecture recommandée avec réserves pour qui connaît déjà le débat : la décomposition sectorielle des prix est solide et utile, mais la thèse adverse est écartée en une phrase et le précédent des contrôles de prix de 1971-1974 reste hors champ. À lire en gardant la position opposée en tête."
+    }
+  }
+}

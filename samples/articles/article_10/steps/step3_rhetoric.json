@@ -1,0 +1,69 @@
+{
+  "emotional_register": [
+    {
+      "emotion": "indignation sociale",
+      "how": "Le vocabulaire du **rapport de forces** revient en boucle — « tension sociale », « revendications rivales », « travailleurs suffisamment faibles » — et culmine dans l'idée que la lutte anti-inflation passe par la mise au chômage volontaire des salariés.",
+      "effect": "Le lecteur est prêt à voir dans la politique monétaire un **choix distributif** plutôt qu'un arbitrage technique neutre.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 1,
+        "excerpt": "Le taux de syndicalisation dans le privé américain est passé d'environ 35 % dans les années 1950 à moins de 7 %",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "emotion": "inquiétude budgétaire",
+      "how": "L'**accumulation chiffrée** des postes qui pèsent sur un ménage — 20 000 $ de prime d'assurance, 26 900 $ d'année d'université, plus de trente pour cent d'IPC pour le seul loyer — empile des montants tirés du quotidien plutôt que des taux abstraits.",
+      "effect": "Le lecteur en vient à juger l'**indice agrégé** hors sujet et à chercher la cause de son coût de la vie dans quelques secteurs identifiés.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 4,
+        "excerpt": "« équivalent loyer des propriétaires » est une estimation, pas un prix observé",
+        "strength": 0.7,
+        "nature": "specification"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "beneficiary": "Les partisans d'une relance budgétaire de grande ampleur au sein de la nouvelle majorité démocrate",
+      "explanation": "En situant l'inflation dans la **structure sectorielle** des services plutôt que dans les salaires ou la demande, le cadrage retire au camp adverse son principal argument contre la dépense publique. L'article paraît au moment précis où le volume de la relance se négocie.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "janvier 2021, quelques jours après l'investiture de Joe Biden",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "beneficiary": "La doctrine assouplie de la Réserve fédérale",
+      "explanation": "Le cadrage fournit une **justification structurelle** au ciblage d'inflation moyenne adopté en août 2020 : si les hausses de prix viennent des services et non du marché du travail, tolérer un dépassement des 2 % cesse d'être une prise de risque.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "La Réserve fédérale a modifié sa doctrine en août 2020 en adoptant un ciblage d'inflation moyenne",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Opposition",
+        "observation": "Le titre pose spécifique contre général, la distinction dont dépend toute la démonstration."
+      },
+      {
+        "label": "Pluriel",
+        "observation": "« Les nombreuses causes » annonce d'emblée qu'un mécanisme unique est écarté."
+      },
+      {
+        "label": "Présupposé",
+        "observation": "Le singulier « l'inflation » est traité comme un mot à redéfinir, non comme une mesure établie."
+      }
+    ],
+    "body": "Le corps aborde l'inflation par la **composition sectorielle des prix** plutôt que par la masse monétaire ou le niveau d'emploi : loyer, santé, éducation et transports sont détaillés poste par poste, l'indice agrégé servant de repoussoir. L'angle est celui d'une **économie politique de la distribution** — les prix y sont lus comme l'expression de revendications de revenus entre employeurs, salariés et détenteurs d'actifs. Un long développement historique sur les années 1950-1970 sert de point de comparaison structurelle avec l'économie de services actuelle. La position est **normative et assumée** : celle d'une analyse longue signée, qui conclut sur la planification sectorielle comme instrument."
+  }
+}
