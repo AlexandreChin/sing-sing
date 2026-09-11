@@ -407,8 +407,9 @@ body {
 .trk.on { color: #d4aa00; }
 .trk svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .trk-sep { color: #3a3a3a; }
-.rubrique-tab { display: inline-flex; align-items: center; gap: 14px; font-size: 32px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #d4aa00; }
-.rubrique-tab svg { width: 40px; height: 40px; stroke: #d4aa00; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.rubrique-tab { position: absolute; top: 44px; left: 90px; display: inline-flex;
+  align-items: center; gap: 16px; font-size: 38px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #d4aa00; }
+.rubrique-tab svg { width: 46px; height: 46px; stroke: #d4aa00; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 /* In the flow, pushed down by `margin-top: auto`. Absolutely positioned, it was
    rendered under a tall headline: a two-line metadata + a tall capture + four
    headline lines overlapped it by 29px on the Boston Review deck. */
@@ -426,7 +427,7 @@ body {
    slide states only what the image cannot (genre, length, source, date). — */
 .kicker { align-self: flex-start; }
 .sel-kick svg { width: 26px; height: 26px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.meta-line { font-size: 31px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #9a9a9a; margin-top: 12px; }
+.meta-line { font-size: 26px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #9a9a9a; margin-top: 12px; }
 .meta-line .dot { color: #d4aa00; margin: 0 12px; }
 /* — Image slot: the capture keeps its own aspect ratio and is never cropped.
    A wide capture fills the width (984px = slide less a 48px side padding); a
@@ -471,8 +472,8 @@ body {
 
   <div class="swipe">Avant de lire <span class="sw-sep">&#8250;</span> Décryptage <span class="sw-sep">&#8250;</span> Prise de recul</div>
   <div style="position: absolute; bottom: 56px; left: 0; right: 0; text-align: center; font-size: 22px; color: #555; letter-spacing: 0.08em; font-style: italic;"><span style="color: #d4aa00;">Sing</span>, little bird, <span style="color: #d4aa00;">sing</span></div>
-  <div class="slide-num">1 / 10</div>
-  <div class="progress-track"><div class="progress-bar" style="width: 10%;"></div></div>
+  <div class="slide-num">1 / 9</div>
+  <div class="progress-track"><div class="progress-bar" style="width: 11%;"></div></div>
 </div>
 </body>
 </html>
