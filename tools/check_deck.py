@@ -9,7 +9,12 @@ Everything here is deterministic — no API call. Three families of check:
   our own prose must exist in the article. This is what catches a quote quietly
   reworded during an edit pass, or a number nobody can source;
 * **typography** — French spacing before `; : ! ?`, which decides whether a
-  colon can orphan at the start of a rendered line.
+  colon can orphan at the start of a rendered line;
+* **vocabulary (advisory)** — words a late slide uses that the deck never showed.
+  Advisory because new nouns can be legitimate (an objection may name asbestos
+  and opioids); a high count means the slide was written from the analysis
+  rather than from the carousel, which is how « ces systèmes » and « la logique
+  de planification » reach a reader who can attach them to nothing.
 
 Usage: `python main.py check <extract.json> [article.txt]`. The article is found
 next to the analysis when not given.
@@ -17,10 +22,9 @@ next to the analysis when not given.
 
 import json
 import re
-import unicodedata
 from pathlib import Path
 
-from agent.instagram_carousel_adapt_agent import _validate
+from agent.instagram_carousel_adapt_agent import _validate, norm_for_match
 from models.instagram_carousel_presentation import InstagramCarouselDocument
 
 # Punctuation that French sets off with a no-break space.
@@ -31,16 +35,17 @@ _STOPWORDS = {
     "en", "que", "qui", "quoi", "ce", "cet", "cette", "ses", "son", "sa", "leur",
     "leurs", "il", "elle", "on", "pour", "par", "sur", "sans", "dans", "plus",
     "pas", "ne", "est", "sont", "a", "ont", "se", "s", "l", "d", "n", "y",
+    # Very common verbs, adverbs and fillers: their arrival on a late slide says
+    # nothing, where a new noun ("système", "liste", "paramètres") says a lot.
+    "dit", "dire", "faut", "peut", "fait", "faire", "être", "avoir", "vers", "ceux",
+    "celle", "celui", "chose", "quelque", "quelques", "déjà", "encore", "aussi",
+    "assez", "très", "bien", "alors", "donc", "mais", "comme", "quand", "avant",
+    "après", "entre", "chaque", "autre", "autres", "même", "hui", "aujourd",
 }
 
 
-def _norm(text: str) -> str:
-    """Lowercase, unify apostrophes/quotes/spaces — for substring matching."""
-    text = unicodedata.normalize("NFC", text)
-    for a, b in (("’", "'"), ("‘", "'"), ("“", '"'), ("”", '"'), (" ", " "),
-                 (" ", " "), ("—", "-"), ("–", "-")):
-        text = text.replace(a, b)
-    return re.sub(r"\s+", " ", text).lower().strip()
+# One definition, shared with the adapt loop that now runs the same quote check.
+_norm = norm_for_match
 
 
 def _numbers(text: str) -> set[str]:
@@ -84,11 +89,63 @@ def _our_prose(doc: InstagramCarouselDocument) -> list[tuple[str, str]]:
     return [(label, text) for label, text in fields if text]
 
 
+def _slide_order(doc: InstagramCarouselDocument) -> list[tuple[str, str]]:
+    """Displayed text in reading order, so a later slide can be checked against
+    everything the reader has already seen."""
+    d, pres = doc.presentation.display, doc.presentation
+    paras = [p.strip() for p in d.why_selected.split("\n") if p.strip()]
+    seq: list[tuple[str, str]] = [("01 hook", pres.hook.sub_topic)]
+    seq += [("02 essentiel", paras[0] if paras else "")]
+    seq += [("02 essentiel", p) for p in d.essentiel]
+    context = ""
+    if doc.analysis.context and doc.analysis.context.contexts:
+        context = doc.analysis.context.contexts[0].text
+    seq += [("03 reperes", d.reperes_headline), ("03 reperes", context)]
+    for b in d.reading_beats:
+        if b.selected:
+            seq += [("beat", b.moment), ("beat", b.quote), ("beat", b.lens_question),
+                    ("beat", b.answer), ("beat", b.figure_label or ""), ("beat", b.figure_caption or "")]
+    if d.global_analysis:
+        seq.append(("socle headline", d.global_analysis.headline))
+        seq += [("socle présupposé", c.strip())
+                for point in d.global_analysis.core_recap
+                for c in (point.split(":", 1)[-1]).split(";") if c.strip()]
+    seq.append(("socle question", pres.cta.engagement_sentence))
+    seq.append(("recul enjeu", d.root_issue))
+    if d.steel_man:
+        seq += [("recul objection", d.steel_man.argument), ("recul objection", d.steel_man.alternative)]
+    return [(label, text) for label, text in seq if text]
+
+
+# The last slides are written from the analysis, so they arrive in its
+# vocabulary — « la logique de planification », « ces systèmes », « son total » —
+# naming things the deck never showed. Flag a field that introduces several
+# content words the reader has not met.
+_LATE_SLIDES = ("socle", "recul")
+_NEW_WORD_LIMIT = 3
+
+
+def _late_vocabulary(doc: InstagramCarouselDocument) -> list[str]:
+    problems, seen = [], set()
+    for label, text in _slide_order(doc):
+        stems = _words(text)
+        if label.startswith(_LATE_SLIDES):
+            fresh = stems - seen
+            if len(fresh) >= _NEW_WORD_LIMIT:
+                problems.append(
+                    f"{label} introduces {len(fresh)} words the deck has not used "
+                    f"({', '.join(sorted(fresh))}…) — « {text[:60]}… »"
+                )
+        seen |= stems
+    return problems
+
+
 def check(extract_path: Path, article_path: Path | None = None) -> dict[str, list[str]]:
     """Run every check. Returns {family: [problems]} — empty lists mean clean."""
     extract_path = Path(extract_path)
     doc = InstagramCarouselDocument.model_validate(json.loads(extract_path.read_text(encoding="utf-8")))
-    report: dict[str, list[str]] = {"structure": [], "accuracy": [], "consistency": [], "typography": []}
+    report: dict[str, list[str]] = {"structure": [], "accuracy": [], "consistency": [],
+                                    "typography": [], "vocabulary (advisory)": []}
 
     # `_validate` describes what adapt must produce; the extract is a trimmed
     # version of it (the extractor keeps one go_further, three dimensions), so
@@ -153,6 +210,11 @@ def check(extract_path: Path, article_path: Path | None = None) -> dict[str, lis
             f"display.selection_headline says {', '.join(sorted(stray))}… — absent from "
             f"why_selected, so the title names something the slide does not"
         )
+    # Advisory, not an error: a late slide may legitimately bring new nouns (the
+    # steel man names asbestos, lead, opioids). What the count signals is a field
+    # written from the analysis rather than from the deck — a human decides.
+    report["vocabulary (advisory)"] = _late_vocabulary(doc)
+
     # Slide 4 lists one numbered réflexe per selected beat, and each beat repeats
     # that question; the renderer derives both from the same list, so a mismatch
     # means the document was edited in a way the renderer cannot reconcile.

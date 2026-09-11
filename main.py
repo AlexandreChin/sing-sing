@@ -102,8 +102,13 @@ async def cmd_adapt(args: argparse.Namespace) -> None:
     data = json.loads(json_path.read_text(encoding="utf-8"))
     full = ArticleFullAnalysis.model_validate(data)
     kwargs = {"no_api": args.no_api}
-    if "analysis_path" in inspect.signature(adapt_fn).parameters:
+    adapt_params = inspect.signature(adapt_fn).parameters
+    if "analysis_path" in adapt_params:
         kwargs["analysis_path"] = json_path
+    if "article_text" in adapt_params:
+        article = json_path.parent / f"{json_path.parent.name}.txt"
+        if article.exists():
+            kwargs["article_text"] = article.read_text(encoding="utf-8")
     presentation = adapt_fn(full, **kwargs)
     out_path = json_path.with_stem(json_path.stem + f"_{args.format}_adapt")
     out_path.write_text(presentation.model_dump_json(indent=2), encoding="utf-8")
@@ -252,8 +257,11 @@ async def cmd_produce(args: argparse.Namespace) -> None:
     # 2. Adapt
     adapt_fn = importlib.import_module(agent_mod).adapt
     kwargs = {"no_api": args.no_api}
-    if "analysis_path" in inspect.signature(adapt_fn).parameters:
+    adapt_params = inspect.signature(adapt_fn).parameters
+    if "analysis_path" in adapt_params:
         kwargs["analysis_path"] = lay["analysis"]
+    if "article_text" in adapt_params:
+        kwargs["article_text"] = text      # lets the loop verify quotes verbatim
     presentation = adapt_fn(full, **kwargs)
     lay["adapt"].write_text(presentation.model_dump_json(indent=2), encoding="utf-8")
     print(f"Presentation written to {lay['adapt']}", file=sys.stderr)
@@ -333,7 +341,8 @@ async def cmd_check(args: argparse.Namespace) -> None:
 
     report = check(Path(args.document), Path(args.article) if args.article else None)
     print(format_report(report))
-    if any(report.values()):
+    # Advisory families are printed but do not fail the run.
+    if any(problems for family, problems in report.items() if "advisory" not in family):
         sys.exit(1)
 
 

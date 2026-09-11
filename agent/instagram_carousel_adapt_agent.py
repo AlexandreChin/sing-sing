@@ -1,6 +1,7 @@
 """Generate the Instagram carousel presentation layer from a completed ArticleFullAnalysis."""
 import json
 import re
+import unicodedata
 import sys
 from pathlib import Path
 
@@ -46,6 +47,89 @@ def _jargon_errors(label: str, text: str) -> list[str]:
     ]
 
 
+# Content-word stems, for comparing two lines of copy. Five letters is enough to
+# match inflections (« frappe » / « frappes ») without collapsing distinct words.
+_STEM_STOP = {"le", "la", "les", "un", "une", "des", "du", "de", "et", "ou", "au", "aux", "en",
+              "que", "qui", "ce", "ces", "cet", "cette", "ses", "son", "sa", "leur", "leurs",
+              "pour", "par", "sur", "sans", "dans", "plus", "pas", "ne", "est", "sont", "ont",
+              "se", "qu", "il", "elle", "on", "aussi", "tout", "tous", "toute", "toutes"}
+
+
+def _stems(text: str) -> set[str]:
+    return {w[:5] for w in re.findall(r"[a-zà-öø-ÿ]+", text.lower())
+            if w not in _STEM_STOP and len(w) > 2}
+
+
+def norm_for_match(text: str) -> str:
+    """Lowercase and unify apostrophes, quotes, dashes and spaces, so a quote can
+    be matched against the article without tripping on typography. Shared with
+    `tools/check_deck.py`, which runs the same check after the fact."""
+    text = unicodedata.normalize("NFC", text)
+    for a, b in (("\u2019", "'"), ("\u2018", "'"), ("\u201c", '"'), ("\u201d", '"'),
+                 ("\u00a0", " "), ("\u202f", " "), ("\u2014", "-"), ("\u2013", "-")):
+        text = text.replace(a, b)
+    return re.sub(r"\s+", " ", text).lower().strip()
+
+
+def _quote_errors(d, article_text: str) -> list[str]:
+    """Quotes are verbatim by contract. The model trims them to meet the word cap
+    — « frapper au plus fort de son bombardement aérien de la bande » loses « de
+    la bande » — so the loop has to see the article to catch it."""
+    article = norm_for_match(article_text)
+    return [
+        f"display.reading_beats[{i}].quote is not in the article word for word — "
+        f"« {b.quote[:60]}… ». Cut a verbatim span at its EDGES (never inside the sentence), "
+        f"or choose another passage; never paraphrase to fit the cap"
+        for i, b in enumerate(d.reading_beats)
+        if b.selected and b.quote.strip()
+        and norm_for_match(b.quote.strip().strip("«»")) not in article
+    ]
+
+
+# Openings that ossified across decks: a prompt example becomes the template, and
+# a feed of carousels starts sounding machine-made. Add one whenever a new tic
+# appears — the point is that the next one gets caught here, not in review.
+_TIRED_OPENINGS = {
+    "faut-il juger": "the prompt's old formula — ask what this article actually puts at stake",
+    "derrière les": "two decks in a row opened this way",
+    "et si ": "essayist filler",
+}
+
+
+def _tired_opening_errors(label: str, text: str) -> list[str]:
+    stripped = re.sub(r"[*\s]+", " ", text or "").strip().lower()
+    return [
+        f"{label} opens on « {opening} » — {why}; vary the construction from one deck to the next"
+        for opening, why in _TIRED_OPENINGS.items()
+        if stripped.startswith(opening)
+    ]
+
+
+def _gilded_errors(pres, d) -> list[str]:
+    """Every slide carries at least one gilded phrase. The prompt asks for bold in
+    each sentence, but nothing checked it, so a generation can arrive with whole
+    slides in flat white — slides 7 and 8 did. Checked per slide, not per field:
+    which sentence carries the gold is an editorial choice, having none is not."""
+    paras = [x for x in d.why_selected.split("\n") if x.strip()]
+    ga = d.global_analysis
+    slides = {
+        "slide 1 (hook)": [pres.hook.sub_topic],
+        "slide 2 (en bref)": paras[:1] + list(d.essentiel),
+        "slide socle": ([ga.headline] + list(ga.core_recap) if ga else []) + [pres.cta.engagement_sentence],
+        "slide prise de recul": [d.root_issue] + ([d.steel_man.argument, d.steel_man.alternative]
+                                                  if d.steel_man else []),
+    }
+    for i, b in enumerate(d.reading_beats):
+        if b.selected:
+            slides[f"beat {i}"] = [b.answer]
+    return [
+        f"{slide} has no **gilded** phrase — every slide carries one, the gold is what the eye "
+        f"lands on"
+        for slide, texts in slides.items()
+        if texts and not any(_BOLD_RE.search(t or "") for t in texts)
+    ]
+
+
 def _lens_layer_errors(d) -> list[str]:
     """Validate the 4-act lens layer (Task: lens-arc). Additive — leaves the
     legacy checks in _validate untouched so the short format keeps working."""
@@ -88,9 +172,12 @@ def _lens_layer_errors(d) -> list[str]:
                     f"display.reading_beats[{i}].quote is {n_quote} words (max 15) — keep the "
                     f"claim, drop the attribution"
                 )
+            # 28, not 22: glossing an unfamiliar tool and naming the mechanism
+            # cost words, and a short line the reader cannot use is worse than a
+            # long one. A ceiling, not a target.
             n_answer = len(b.answer.split())
-            if n_answer > 22:
-                errors.append(f"display.reading_beats[{i}].answer is {n_answer} words (max 22)")
+            if n_answer > 28:
+                errors.append(f"display.reading_beats[{i}].answer is {n_answer} words (max 28)")
             if len(_SENTENCE_END.findall(b.answer.strip())) > 1:
                 errors.append(
                     f"display.reading_beats[{i}].answer runs to more than one sentence — "
@@ -196,7 +283,7 @@ def _lens_layer_errors(d) -> list[str]:
     return errors
 
 
-def _validate(data: dict) -> list[str]:
+def _validate(data: dict, article_text: str | None = None) -> list[str]:
     pres = InstagramCarouselPresentation.model_validate(data)
     errors = []
     # The caption is the post's own copy, not a slide: no hashtags, ever.
@@ -241,18 +328,17 @@ def _validate(data: dict) -> list[str]:
     n_total = len(d.why_selected.split())
     if n_total > 45:
         errors.append(f"display.why_selected is {n_total} words in total (max 45)")
-    # Slide 2 shows the `essentiel` bullets, so §1 must not re-gild their terms
-    # (nor the prose summary's, which stands in when a deck has no bullets).
-    slide2_bold = _bold_spans(d.essentiel_summary)
-    for point in d.essentiel:
-        slide2_bold |= _bold_spans(point)
-    shared = _bold_spans(paras[0] if paras else "") & slide2_bold
-    if shared:
-        errors.append(
-            f"display.why_selected §1 repeats slide 2's bold terms "
-            f"({', '.join(sorted(shared))}) — slide 2 says WHAT the article says, "
-            f"slide 3 says WHY it is worth reading; rewrite §1 on other material"
-        )
+    # §1 and the `essentiel` claims now share slide 2, so they must cohere rather
+    # than stay apart: the old non-overlap rule enforced the opposite. What is
+    # forbidden now is a claim that merely repeats a figure from the lede.
+    lede_stems = _stems(paras[0] if paras else "")
+    for i, point in enumerate(d.essentiel):
+        stems = _stems(point)
+        if stems and len(stems & lede_stems) / len(stems) >= 0.6:
+            errors.append(
+                f"display.essentiel[{i}] restates the lede printed two lines above it "
+                f"(« {point[:50]}… ») — the claims develop §1, they do not repeat it"
+            )
     if not (1 <= len(d.blind_spots) <= 2):
         errors.append(f"display.blind_spots must have 1–2 items, got {len(d.blind_spots)}")
     if not (1 <= len(d.balance) <= 2):
@@ -277,7 +363,13 @@ def _validate(data: dict) -> list[str]:
             errors.append(f"display.strengths[{i}].label is empty")
         if not item.text.strip():
             errors.append(f"display.strengths[{i}].text is empty")
+    errors += _gilded_errors(pres, d)
+    errors += _tired_opening_errors("hook.sub_topic", pres.hook.sub_topic)
+    errors += _tired_opening_errors("cta.engagement_sentence", pres.cta.engagement_sentence)
+    errors += _tired_opening_errors("display.selection_headline", d.selection_headline)
     errors.extend(_lens_layer_errors(d))
+    if article_text:
+        errors.extend(_quote_errors(d, article_text))
     return errors
 
 
@@ -302,6 +394,7 @@ def _full_analysis_context(full: ArticleFullAnalysis) -> str:
 def adapt(
     full: ArticleFullAnalysis,
     no_api: bool = False,
+    article_text: str | None = None,
 ) -> InstagramCarouselPresentation:
     user_msg = f"{_full_analysis_context(full)}\n\n---\n\n{_PROMPT}"
     if (directive := medium_directive(full.article_metadata.medium)):
@@ -310,7 +403,7 @@ def adapt(
     data = _call_with_retry(
         user_msg,
         InstagramCarouselPresentation.model_json_schema(),
-        validator=_validate,
+        validator=lambda data: _validate(data, article_text),
         no_api=no_api,
     )
     pres = InstagramCarouselPresentation.model_validate(data)
