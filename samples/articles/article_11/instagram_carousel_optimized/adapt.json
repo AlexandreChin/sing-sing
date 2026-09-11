@@ -1,8 +1,8 @@
 {
-  "caption": "Une frappe toutes les deux minutes au plus fort des bombardements sur Gaza : trois chercheurs réunis par Boston Review remontent des logiciels de ciblage aux ordres qui les commandent. 🎯\n\n🔎 Les clefs pour comprendre en une minute ce que ce débat déplace.\n\n🔗 Lien vers l'article en commentaires ↓",
+  "caption": "« Quand on parle d'IA, on devrait vraiment parler d'automatisation. » Trois chercheurs réunis par Boston Review remontent des logiciels de ciblage employés à Gaza vers les ordres et les seuils qui les règlent. 🎯\n\n🔎 Trois réflexes pour lire ce débat : ce que change le mot « IA », d'où vient un seuil de victimes, ce qu'un opérateur peut encore refuser.\n\n💬 Que faudrait-il voir pour dire qu'un opérateur décide encore vraiment ?\n\n🔗 Lien vers l'article en commentaires ↓",
   "hook": {
     "topic": "Guerre et **automatisation**",
-    "sub_topic": "Un logiciel désigne la cible : qui **décide** encore ?",
+    "sub_topic": "L'IA désigne les cibles militaires : qui **décide** encore ?",
     "headline": "Le logiciel trie, l'humain valide : qui **décide** ?",
     "context_line": "Trois chercheurs discutent des outils automatisés de ciblage employés à Gaza et en Iran.",
     "sub_topic_alt": [
@@ -184,13 +184,13 @@
     "lenses": [],
     "reading_beats": [
       {
-        "moment": "Renommer l'objet : dire automatisation plutôt qu'IA",
-        "quote": "quand on parle d'IA, on devrait vraiment parler d'automatisation",
+        "moment": "Le mot qui décide qui est responsable",
+        "quote": "quand on parle d'IA, on devrait vraiment parler d'automatisation […] de la façon dont les armées automatisent la guerre et le soldat",
         "lens_ref": "cadrage",
         "lens_question": "Changer le mot, est-ce changer la chose ?",
         "note": "Quand un texte impose son vocabulaire, demandez ce que le nouveau mot rend **visible** — et invisible.",
         "answer": "**Il déplace le débat** : « automatisation » ramène à des choix de gestion, donc à des responsables, là où « IA » suggère une entité autonome.",
-        "figure": "",
+        "figure": "IA → automatisation",
         "figure_label": "",
         "figure_caption": "",
         "factcheck": "",
@@ -202,15 +202,15 @@
         "rationale": "Pose le geste central de toute la démonstration"
       },
       {
-        "moment": "La cadence des frappes comme preuve d'accélération",
-        "quote": "une fois toutes les deux minutes",
-        "lens_ref": "chiffres",
-        "lens_question": "Une cadence : mesurée sur quelle durée ?",
+        "moment": "Le seuil de victimes vient de la hiérarchie, pas de la machine",
+        "quote": "nos règles d'engagement sanctionneront le meurtre de 100 civils lors d'un assassinat aérien",
+        "lens_ref": "sources",
+        "lens_question": "Une règle interne citée : vue par qui ?",
         "note": "Devant une cadence spectaculaire, cherchez la **période** exacte qu'elle couvre.",
-        "answer": "**Sur un pic, non daté** : l'article y ajoute une frappe toutes les 77 secondes en Iran, autre théâtre, sans base commune.",
-        "figure": "2 min",
-        "figure_label": "entre deux frappes au plus fort des bombardements sur Gaza",
-        "figure_caption": "puis 77 secondes en Iran, deux ans plus tard",
+        "answer": "**Par personne de nommé** : ni document ni date, alors que le droit de la guerre n'autorise aucun plafond chiffré.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
         "factcheck": "disputed",
         "selected": true,
         "theme": "Ampleur chiffrée",
@@ -239,11 +239,11 @@
       },
       {
         "moment": "Le refus de l'excuse : la machine n'est pas un supérieur",
-        "quote": "tu ne peux pas dire que tu obéis juste aux ordres de Maven",
+        "quote": "tu ne peux pas dire que tu obéis juste aux ordres de Maven, que tu ne suis pas ceux de Claude",
         "lens_ref": "angles_morts",
-        "lens_question": "Si la liste arrive déjà triée, que reste-t-il à choisir ?",
+        "lens_question": "Une liste de cibles déjà triée : que reste-t-il à choisir ?",
         "note": "Quand un texte exige une responsabilité, cherchez à qui, **concrètement**, elle s'adresse.",
-        "answer": "**Un veto, pas un choix** : Maven soumet une liste de cibles déjà triée, et la marge de refus de l'opérateur reste inexaminée.",
+        "answer": "**Un veto, pas un choix** : Maven, le logiciel de ciblage du Pentagone, soumet une liste déjà triée ; la marge de refus reste inexaminée.",
         "figure": "",
         "figure_label": "",
         "figure_caption": "",
@@ -336,13 +336,13 @@
         "Automatiser n'est pas déléguer la responsabilité"
       ],
       "core_recap": [
-        "Ce qu'il tient pour acquis : que nommer autrement un outil suffit à désigner un responsable ; que deux cadences prises sur des guerres différentes se comparent ; que l'opérateur peut **refuser** ce que le logiciel présente"
+        "Ce qu'il tient pour acquis : que nommer autrement un outil suffit à désigner un responsable ; que le seuil de 100 civils est la règle réelle ; que l'opérateur peut **refuser** ce que le logiciel présente"
       ]
     },
     "open_question": "L'ampleur réelle des contrats militaires n'est jamais chiffrée dans l'échange.",
     "root_issue": "Si un logiciel choisit ce qu'un humain aura à valider, la responsabilité se déplace vers ceux qui l'ont réglé — des **ingénieurs et des acheteurs** que personne n'a entendus ici.",
     "steel_man": {
-      "argument": "Les armées documentent des **procédures de vérification humaine** que ce plateau, sans contradicteur, n'a jamais eu à examiner.",
+      "argument": "Les armées documentent des **procédures de vérification humaine** que ces trois chercheurs n'examinent jamais.",
       "alternative": "L'effacement de la responsabilité tiendrait au discours plus qu'aux chaînes de décision."
     },
     "reperes_headline": "Avant de lire : le contexte et trois réflexes",
@@ -350,7 +350,7 @@
     "essentiel": [
       "Les **décisions humaines**, pas les machines, commandent les frappes",
       "Des seuils de **victimes civiles** fixés en haut de la hiérarchie",
-      "Critiquer ces outils sur leur **précision** serait un piège"
+      "Discuter leur **précision**, c'est laisser de côté le choix des cibles"
     ],
     "essentiel_summary": "Boston Review réunit trois chercheurs autour des outils automatisés de ciblage employés à Gaza et en Iran : une frappe toutes les **deux minutes** au plus fort des bombardements, des seuils de victimes fixés en amont. Le panel soutient que ces cadences tiennent à des **décisions humaines** et que juger ces systèmes sur leur **précision** enfermerait le débat."
   }
