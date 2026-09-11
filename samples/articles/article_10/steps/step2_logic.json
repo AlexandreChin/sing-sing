@@ -1,0 +1,176 @@
+{
+  "main_claim": "L'inflation d'aujourd'hui est **sectorielle et structurelle**, pas générale ni salariale.",
+  "premisses": [
+    {
+      "statement": "Les modèles monétariste et de la courbe de Phillips ont été conçus pour une économie manufacturière nationale et syndiquée qui n'existe plus.",
+      "quality": "Étayée par des données de syndicalisation et de structure du PIB, mais la rupture est affirmée plutôt que démontrée par une comparaison chiffrée systématique."
+    },
+    {
+      "statement": "Les services — loyer, santé, éducation, transports — pèsent l'essentiel du coût de la vie et leurs prix montent plus vite que les salaires depuis 1975.",
+      "quality": "Appuyée sur des pondérations d'IPC et des séries de prix vérifiables ; c'est la partie la mieux documentée du texte."
+    },
+    {
+      "statement": "L'inflation est un mécanisme de **redistribution** entre revendications de revenus rivales, non un phénomène monétaire.",
+      "quality": "Assertion théorique non étayée : présentée comme une définition, sans référence ni test empirique."
+    },
+    {
+      "statement": "Les politiques anti-inflationnistes classiques passent par la hausse du chômage, donc coûtent d'abord aux travailleurs.",
+      "quality": "Cohérente avec l'expérience Volcker, mais généralisée à partir d'un seul épisode historique américain."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "statement": "Une hausse des salaires du bas du marché ne se transmettrait pas aux prix des secteurs de services déjà chers.",
+      "impact": "Si la transmission existe, la relance du plein emploi alimente précisément les prix que l'auteur veut contenir."
+    },
+    {
+      "statement": "L'État dispose de la capacité administrative et politique de restructurer santé, éducation et logement par secteur.",
+      "impact": "Sans cette capacité, la politique alternative proposée reste un programme sans instrument."
+    },
+    {
+      "statement": "La mondialisation continuera de maintenir les prix manufacturiers bas.",
+      "impact": "Si les chaînes d'approvisionnement se fragmentent, l'inflation redevient générale et l'argument sectoriel perd son socle."
+    },
+    {
+      "statement": "Le cas américain suffit à établir une thèse générale sur l'inflation.",
+      "impact": "Si les structures de prix diffèrent fortement ailleurs, la conclusion ne vaut que pour un pays."
+    }
+  ],
+  "blind_spots": [
+    {
+      "topic": "Les échecs historiques des contrôles de prix, notamment l'épisode Nixon 1971-1974.",
+      "significance": "L'outil central recommandé n'est jamais confronté à son précédent le plus proche."
+    },
+    {
+      "topic": "L'argument des économistes inquiets de la relance n'est exposé que pour être écarté en une phrase.",
+      "significance": "Présenter leur logique aurait obligé à répondre au scénario d'une demande globale excédentaire."
+    },
+    {
+      "topic": "Aucune voix de travailleur ou de syndicat contemporain, alors que le texte parle en leur nom.",
+      "significance": "Les priorités réelles des salariés pourraient ne pas coïncider avec la hiérarchie de prix retenue."
+    },
+    {
+      "topic": "Le financement et l'administration concrets de la planification sectorielle réclamée.",
+      "significance": "Le coût budgétaire chiffré aurait déplacé le débat du principe vers la faisabilité."
+    }
+  ],
+  "emphasis": [
+    "Le texte consacre un tiers de sa longueur aux années 1950-1970 alors que la période post-2008, qui motive l'argument, tient en deux paragraphes.",
+    "Les prix des services sont détaillés poste par poste avec chiffres, tandis que l'hypothèse d'une inflation par la demande n'est évoquée qu'une fois, entre guillemets.",
+    "Les objections sont représentées par deux citations brèves — Summers, McCracken — contre plusieurs pages de développement de la thèse adverse."
+  ],
+  "logical_reasoning": [
+    {
+      "step": "Les modèles des années 1960 décrivaient une économie manufacturière nationale ; cette économie a disparu ; donc ces modèles ne s'appliquent plus.",
+      "problem_type": null,
+      "diagnosis": null
+    },
+    {
+      "step": "Les prix des services ont monté indépendamment des salaires depuis 1975 ; donc une hausse des salaires ne les fera pas monter davantage.",
+      "problem_type": "validity",
+      "diagnosis": "L'indépendance passée entre deux séries ne garantit pas l'absence d'effet d'une variation future de l'une sur l'autre."
+    },
+    {
+      "step": "La stagflation des années 1970 avait des causes structurelles ; donc la contraction monétaire n'est pas ce qui l'a résolue.",
+      "problem_type": "soundness",
+      "diagnosis": "La prémisse sur la cause réelle de la désinflation est affirmée sans démonstration, contre une littérature empirique abondante citée seulement pour être écartée."
+    },
+    {
+      "step": "Les salaires les plus dynamiques sont ceux du premier quartile, très en dessous des secteurs coûteux ; donc leur hausse ne pèsera pas sur le coût de la vie.",
+      "problem_type": "validity",
+      "diagnosis": "Le raisonnement compare des niveaux de salaire, pas des parts dans les coûts d'exploitation des secteurs concernés."
+    }
+  ],
+  "observations": [
+    {
+      "aspect": "Temporalité",
+      "summary": "Le texte est écrit **avant** la vague inflationniste de 2021-2022, qui a porté l'IPC américain à près de 9 %. Ses prédictions sont **testables a posteriori**, ce que sa formulation n'anticipe pas.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "L'inflation américaine est effectivement montée jusqu'à environ 9 % à l'été 2022",
+        "strength": 1.0,
+        "nature": "contradiction"
+      }
+    },
+    {
+      "aspect": "Cadrage",
+      "summary": "L'article paraît quelques jours après l'investiture de Biden, au moment où une **majorité démocrate étroite** débat de la taille de la relance, et où la Fed vient d'assouplir sa doctrine d'août 2020 — deux appuis **traités comme acquis**.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "janvier 2021, quelques jours après l'investiture de Joe Biden",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Contradicteurs",
+      "summary": "Le camp opposé est réduit à **deux citations brèves**, alors que le débat de l'époque opposait des économistes du même bord politique sur la taille de la relance. Le risque inflationniste des plans pandémiques est traité comme **déjà tranché** par le changement de structure.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "certains (comme Summers) mettant en garde contre la taille de la relance",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Mesure",
+      "summary": "Le raisonnement repose sur les **pondérations de l'IPC américain**, où le logement pèse plus de trente pour cent et inclut un loyer **estimé**, non observé — alors que l'indice français pondère autrement des services largement socialisés.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 4,
+        "excerpt": "« équivalent loyer des propriétaires » est une estimation, pas un prix observé",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Précédent",
+      "summary": "L'effondrement syndical — de 35 % à moins de 7 % — soutient la thèse du modèle obsolète mais **affaiblit** l'analogie avec les politiques de revenus des années 1960 ; et les contrôles de prix de 1971-1974, l'épisode le plus proche de ce qui est recommandé, ne sont **pas évoqués**.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 3,
+        "excerpt": "contrôles de prix américains de 1971-1974 sous Nixon ont été abandonnés",
+        "strength": 1.0,
+        "nature": "contradiction"
+      }
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "L'inflation de 2021-2022 a touché **simultanément** l'énergie, l'alimentation, les biens manufacturés et les services, avec une accélération salariale marquée dans les secteurs à bas salaires — exactement le profil général que l'auteur jugeait révolu. Le resserrement monétaire de 2022-2023 a ensuite fait refluer les prix sans crise de l'emploi majeure.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 2,
+        "excerpt": "La mondialisation continuera de maintenir les prix manufacturiers bas",
+        "strength": 1.0,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "La distinction entre inflation générale et sectorielle serait moins un fait de structure qu'un effet de la période 1990-2020, et la demande agrégée resterait un levier opérant."
+    },
+    {
+      "counterargument": "L'indépendance observée entre prix des services et salaires tient précisément à la faiblesse du travail depuis 1980 ; rétablir le plein emploi rétablit le canal salaire-prix dans des secteurs où la main-d'œuvre est le principal coût d'exploitation — santé et éducation en premier lieu.",
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 1,
+        "excerpt": "L'indépendance passée entre deux séries ne garantit pas l'absence d'effet d'une variation future",
+        "strength": 0.9,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "La hausse des salaires du bas alimenterait bien les prix les plus lourds du budget des ménages, et l'arbitrage emploi-prix subsisterait."
+    },
+    {
+      "counterargument": "Les contrôles de prix et la planification sectorielle ont été essayés aux États-Unis entre 1971 et 1974 et abandonnés après pénuries et distorsions ; sans réponse à ce précédent, la politique alternative proposée reste un programme dont l'instrument principal a déjà échoué.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "Les échecs historiques des contrôles de prix, notamment l'épisode Nixon 1971-1974",
+        "strength": 1.0,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Le diagnostic sectoriel pourrait être juste sans que la solution proposée le soit, laissant l'outil monétaire faute de substitut praticable."
+    }
+  ]
+}

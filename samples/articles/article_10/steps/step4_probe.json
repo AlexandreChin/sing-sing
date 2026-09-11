@@ -1,0 +1,152 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "Le loyer (ou « équivalent des propriétaires ») à lui seul représente plus de trente pour cent de l'IPC, les services publics et les transports représentent 9 %, les soins médicaux 9 % supplémentaires, la nourriture loin de chez soi 6 % et l'éducation 3 %.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Mesure",
+          "strength": 1.0,
+          "nature": "illustration"
+        },
+        "explanation": "Les pondérations citées correspondent à celles publiées par le Bureau of Labor Statistics, mais le poste logement repose sur un **loyer imputé estimé** par enquête, pas sur des prix observés.",
+        "external_sources": [
+          {
+            "name": "Bureau of Labor Statistics — CPI Relative Importance of Components",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "BLS Handbook of Methods, chapitre Owners' Equivalent Rent",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 90
+      },
+      {
+        "quote": "On peut avoir un chômage de 3 à 3,5 % pendant quelques années, et en réalité, on observe des mouvements modestes des salaires et des mouvements presque invisibles de l'inflation.",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "cui_bono",
+          "label": "La doctrine assouplie de la Réserve fédérale",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Le propos est crédité au président de la Fed et recoupe les séries de chômage et d'IPC de 2018-2019, où un taux sous 4 % a coexisté avec une inflation proche de 2 %.",
+        "external_sources": [
+          {
+            "name": "Transcriptions et conférences de presse du FOMC, 2019-2020",
+            "supports": "validates",
+            "evidence_type": "party_statement"
+          },
+          {
+            "name": "Séries BLS du taux de chômage et de l'IPC, 2018-2019",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 88
+      },
+      {
+        "quote": "L'inflation est le mécanisme de redistribution des revenus réels lorsque les revendications monétaires dépassent la capacité.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation sociale",
+          "strength": 1.0,
+          "nature": "illustration"
+        },
+        "explanation": "Formulée comme une définition, cette phrase énonce une **position théorique** — le conflit distributif comme cause — sans référence ni test empirique, là où d'autres écoles y voient un déséquilibre monétaire.",
+        "external_sources": [
+          {
+            "name": "Littérature sur l'inflation de conflit (Lorenzoni & Werning, NBER)",
+            "supports": "neutral",
+            "evidence_type": "academic"
+          },
+          {
+            "name": "Manuels de macroéconomie monétaire standard",
+            "supports": "contradicts",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": null
+      },
+      {
+        "quote": "Entre 2015 et 2020, la croissance des salaires dans le premier quartile — ceux qui gagnaient environ 600 $ par semaine, ou 15 $ de l'heure pour une semaine de 40 heures, en 2019 — a dépassé les trois quarts restants du marché du travail.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Contradicteurs",
+          "strength": 0.7,
+          "nature": "nuance"
+        },
+        "explanation": "Le constat correspond au **Wage Growth Tracker** de la Fed d'Atlanta, qui montre bien une croissance salariale plus rapide au premier quartile sur cette période.",
+        "external_sources": [
+          {
+            "name": "Atlanta Fed Wage Growth Tracker, séries par quartile",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "BLS Usual Weekly Earnings of Wage and Salary Workers",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 85
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "La solution habituelle consiste à augmenter le taux de chômage jusqu'à ce que les travailleurs soient suffisamment faibles pour modérer les revendications salariales.",
+        "item_type": "bias",
+        "label": "langage chargé",
+        "effect": "Remarquez comment « jusqu'à ce que les travailleurs soient suffisamment faibles » transforme un mécanisme de politique monétaire en acte délibéré contre un groupe.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation sociale",
+          "strength": 1.0,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Ces hausses de prix sont structurelles et, si elles s'accélèrent, ne devraient pas être confrontées à une contraction fiscal-monétaire.",
+        "item_type": "fallacy",
+        "label": "conclusion tirée d'une corrélation passée",
+        "effect": "Remarquez comment l'absence observée de lien entre salaires et prix des services devient ici une garantie sur ce qui se passerait demain, une fois les salaires en hausse.",
+        "proves": {
+          "type": "observation",
+          "label": "Temporalité",
+          "strength": 0.9,
+          "nature": "contradiction"
+        }
+      },
+      {
+        "quote": "Une étape cruciale a été l'abandon de l'idée que le problème était de nature structurelle plutôt que motivé par une politique macroéconomique.",
+        "item_type": "bias",
+        "label": "objection citée pour être écartée",
+        "effect": "Remarquez que la thèse adverse n'apparaît que sous forme d'une phrase de Summers, immédiatement suivie de « La véritable cause de l'inflation était structurelle », sans que son raisonnement soit déplié.",
+        "proves": {
+          "type": "observation",
+          "label": "Contradicteurs",
+          "strength": 1.0,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "Mais tant que nous nous préoccuperons de l'inflation généralisée causée par la hausse des salaires, de telles questions resteront hors de question.",
+      "proves": {
+        "type": "observation",
+        "label": "Cadrage",
+        "strength": 0.9,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase fait de la crainte de l'inflation salariale un **obstacle au débat** lui-même, et non une position discutable. Elle sous-entend que la vraie question — qui contrôle santé, éducation, logement — n'attend que le retrait de cette crainte. Elle tait ce qui arriverait si la crainte se vérifiait : que faire alors des questions posées entre-temps ?"
+    }
+  }
+}

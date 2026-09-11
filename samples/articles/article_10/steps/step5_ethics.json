@@ -1,0 +1,39 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "deo1",
+        "category": "lying_by_omission",
+        "label": "Lying by Omission",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "Ces hausses de prix sont structurelles et, si elles s'accélèrent, ne devraient pas être confrontées à une contraction fiscal-monétaire.",
+        "explanation": "L'absence de tout contre-argument chiffré laisse une **recommandation de politique** reposer sur une seule lecture.",
+        "verdict": "CONFIRMED"
+      },
+      {
+        "id": "deo2",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Une étape cruciale a été l'abandon de l'idée que le problème était de nature structurelle plutôt que motivé par une politique macroéconomique.",
+        "explanation": "Summers est cité en une phrase puis contredit, sans que son raisonnement soit exposé."
+      },
+      {
+        "id": "deo3",
+        "category": "lying_by_omission",
+        "label": "Lying by Omission",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Les alternatives au rationnement du pétrole et de l'essence qui a suivi étaient, au mieux, la nationalisation de l'industrie, du moins l'administration des contrôles par quelqu'un sympathisant avec leur succès",
+        "explanation": "L'échec des contrôles de prix de 1971-1974 est tu, alors qu'il pèse sur la recommandation."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Exposer la thèse adverse sur l'inflation dans sa propre logique et mentionner les précédents d'échec des contrôles de prix."
+    },
+    "summary": "La déontologie n'est pas en cause sur les points durs : pas de fabrication, pas d'atteinte aux personnes, sources et chiffres identifiables. Trois réserves subsistent, toutes liées au traitement expéditif des positions adverses et aux précédents historiques défavorables laissés hors champ."
+  }
+}

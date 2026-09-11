@@ -1,0 +1,357 @@
+{
+  "caption": "« L'inflation est le mécanisme de redistribution des revenus réels […]. » Un essai de Phenomenal World relit la hausse des prix américaine poste par poste : le logement pèse à lui seul plus de 30 % de l'indice. 📈\n\n🔎 Trois réflexes pour lire ce texte : une définition ou déjà une thèse, un pourcentage mesuré ou estimé, et ce qui arrive si la mondialisation cesse de tenir les prix bas.\n\n💬 Que faudrait-il observer pour admettre que les salaires poussent aussi les prix ?\n\n🔗 Lien vers l'article en commentaires ↓",
+  "hook": {
+    "topic": "Inflation : les **services** d'abord",
+    "sub_topic": "Les prix montent : **qui** en paie la facture ?",
+    "headline": "Hausse des prix : **qui** en supporte le coût ?",
+    "context_line": "Janvier 2021 : Washington débat de la taille de la relance et du risque inflationniste.",
+    "sub_topic_alt": [
+      "Une hausse des prix : venue des **salaires**, vraiment ?",
+      "Faire baisser les prix : au prix de **quels emplois** ?",
+      "Un indice unique pour des prix qui ne **bougent pas ensemble** ?"
+    ]
+  },
+  "interest": {
+    "why_read": "Décomposer l'inflation **poste par poste** plutôt que la lire d'un bloc.",
+    "pull_quote": "La hausse des prix est un indice de tension sociale.",
+    "next_slide_hook": "D'abord, d'où parle ce texte et à quel moment."
+  },
+  "title_bullets": [
+    "Repérez l'opposition posée d'emblée : **spécifique** contre **générale**.",
+    "Notez que le mot « inflation » est traité comme un terme à **redéfinir**.",
+    "Demandez-vous qui gagne à ce que la distinction soit **admise** d'avance."
+  ],
+  "chapo_bullets": [
+    "Observez que la position est **assumée** dès les premières lignes.",
+    "Repérez le vocabulaire du **rapport de forces** installé très tôt.",
+    "Notez l'absence de chiffres hors **États-Unis** dans l'ouverture."
+  ],
+  "context_next_slide_hook": "Deux réflexes à garder en main avant d'entrer dans le texte.",
+  "watch_out_next_slide_hook": "Trois moments où l'argument se joue vraiment.",
+  "forme_next_slide_hook": "Les chiffres tiennent-ils, et lesquels ?",
+  "biases_next_slide_hook": "Ce que toute la démonstration doit tenir pour acquis.",
+  "engagement_question": "Faire baisser les prix par le chômage, ou par la réorganisation de secteurs entiers : à qui revient ce choix ?",
+  "go_further": [
+    {
+      "title": "Inflation is Conflict",
+      "source": "NBER Working Paper, Guido Lorenzoni & Iván Werning",
+      "media_type": "academic_paper",
+      "category": "deep_dive",
+      "url": "https://www.nber.org/papers/w31099",
+      "duration_minutes": 45,
+      "why_explore": "Le même mécanisme de conflit distributif, formalisé avec les conditions sous lesquelles il tient.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Les contrôles de prix de Nixon, 1971-1974",
+      "source": "Federal Reserve History",
+      "media_type": "article",
+      "category": "question_answer",
+      "url": "https://www.federalreservehistory.org/essays/great-inflation",
+      "duration_minutes": 20,
+      "why_explore": "Le précédent direct de l'outil recommandé, avec ce qu'il a produit et pourquoi il a été abandonné.",
+      "cta_question_index": 0
+    },
+    {
+      "title": "Comment l'IPC est construit : pondérations et loyer imputé",
+      "source": "Bureau of Labor Statistics — Handbook of Methods",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": "https://www.bls.gov/opub/hom/cpi/",
+      "duration_minutes": 30,
+      "why_explore": "Ce que l'indice mesure réellement, poste par poste, y compris le loyer estimé des propriétaires.",
+      "cta_question_index": 1
+    }
+  ],
+  "cta": {
+    "title": "Nommer la cause, c'est déjà désigner qui paie",
+    "engagement_sentence": "Que faudrait-il observer pour admettre que les salaires poussent aussi les prix ?",
+    "engagement_sentence_alt": [
+      "Chômage plus élevé, ou secteurs réorganisés : lequel coûte le moins, et à qui ?",
+      "Qui supporte le coût pendant qu'on attend de savoir laquelle des deux lectures est bonne ?",
+      "Que manquerait-il à ce texte pour que sa recommandation soit applicable ?"
+    ],
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "Les contrôles de prix déjà tentés ailleurs ont-ils tenu leurs promesses, et à quel coût ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_1",
+        "question": "Que mesure vraiment l'indice des prix quand un tiers de son poids est un loyer estimé ?",
+        "type": "topic_substance"
+      },
+      {
+        "id": "q_2",
+        "question": "Auriez-vous lu ce texte de la même façon si vous ne connaissiez pas l'inflation de 2022 ?",
+        "type": "reader_bias"
+      },
+      {
+        "id": "q_3",
+        "question": "La position adverse vous a-t-elle été exposée assez pour que vous puissiez la défendre ?",
+        "type": "article_quality"
+      }
+    ]
+  },
+  "display": {
+    "thesis_frame": {
+      "main_claim": "L'inflation vient de quelques secteurs de services, pas des salaires ni de la monnaie.",
+      "out_of_scope": [
+        "Le niveau souhaitable du salaire minimum",
+        "L'inflation hors des États-Unis",
+        "Le financement de la dette publique fédérale"
+      ]
+    },
+    "payoff": "Lire une hausse des prix **secteur par secteur**, et voir qui **supporte** chaque remède.",
+    "framing": "L'inflation lue comme une **composition de prix**, pas comme un agrégat monétaire.",
+    "why_selected": "Loyer, santé, éducation, transports : ces postes pèsent l'essentiel d'un budget américain, et leurs prix montent depuis 1975 sans que les **salaires** suivent.\nLe texte oppose deux remèdes — relever le **chômage** ou réorganiser ces secteurs — et dit lequel coûte à qui.",
+    "selection_headline": "Deux remèdes aux prix, deux **factures**",
+    "selection_headline_alt": [
+      "Quatre postes de dépense, une thèse",
+      "Le chômage comme outil anti-inflation",
+      "Les services pèsent, les salaires suivent mal"
+    ],
+    "ethics": "Pas de fabrication ; la thèse adverse est **expédiée** en une phrase.",
+    "pre_reading": [
+      "Texte de janvier 2021 : ses **prédictions** sont testables aujourd'hui.",
+      "C'est une **prise de position**, pas un compte rendu."
+    ],
+    "watch_out": [
+      {
+        "label": "corrélation érigée en garantie",
+        "text": "Un lien **absent hier** entre deux séries sert de promesse sur **demain**."
+      },
+      {
+        "label": "objection citée pour être écartée",
+        "text": "La thèse opposée tient en **une phrase**, la réfutation dans la **suivante**."
+      }
+    ],
+    "strengths": [
+      {
+        "label": "Rigueur des sources",
+        "text": "Pondérations et séries salariales **traçables** auprès des statistiques officielles américaines."
+      },
+      {
+        "label": "Transparence de l'angle",
+        "text": "La position **normative** est annoncée dès le titre, pas dissimulée."
+      }
+    ],
+    "distill_points": [
+      "Le pas le plus fragile du raisonnement est celui qui porte la **recommandation politique**.",
+      "L'hypothèse jamais écrite — des prix manufacturés durablement bas — a été **démentie** en 2021-2022.",
+      "Les chiffres les mieux sourcés appuient tous le même côté ; le **socle théorique**, aucun."
+    ],
+    "after_reading": [
+      "Retenir l'outil : décomposer les prix **poste par poste**.",
+      "Confronter ses prédictions à l'**inflation de 2021-2022**.",
+      "Chercher le précédent absent : les **contrôles de prix** américains."
+    ],
+    "key_takeaways": [
+      {
+        "text": "Le logement pèse plus de **30 %** de l'indice des prix américain.",
+        "selected": true
+      },
+      {
+        "text": "Entre 2015 et 2020, les **bas salaires** ont progressé plus vite que les autres.",
+        "selected": true
+      },
+      {
+        "text": "La syndicalisation privée américaine est passée de **35 %** à moins de **7 %**.",
+        "selected": true
+      },
+      {
+        "text": "Le poste logement repose sur un **loyer estimé**, pas sur des prix observés.",
+        "selected": false
+      },
+      {
+        "text": "Une année d'université publique était facturée près de **27 000 $**.",
+        "selected": false
+      },
+      {
+        "text": "L'inflation américaine a atteint **9 %** dix-huit mois après ce texte.",
+        "selected": false
+      }
+    ],
+    "blind_spots": [
+      "Les contrôles de prix américains de **1971-1974** ne sont jamais évoqués.",
+      "La période **post-2008**, qui motive l'argument, tient en deux paragraphes."
+    ],
+    "balance": [
+      "C'est un **essai d'opinion** : il annonce sa position dès le titre.",
+      "Les réserves portent sur le **cœur** de l'argument, pas sur ses marges."
+    ],
+    "lenses": [],
+    "reading_beats": [
+      {
+        "moment": "L'inflation redéfinie : un partage, pas une quantité de monnaie",
+        "quote": "L'inflation est le mécanisme de redistribution des revenus réels lorsque les revendications monétaires dépassent la capacité.",
+        "lens_ref": "opinion_fait",
+        "lens_question": "Une définition, ou déjà une thèse ?",
+        "note": "Devant une phrase donnée comme une **définition**, cherchez ce qu'elle décide à la place du lecteur.",
+        "answer": "**Déjà une thèse** : c'est la seule affirmation centrale du texte sans chiffre ni référence, là où d'autres écoles y voient un déséquilibre monétaire.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "unverifiable",
+        "selected": true,
+        "theme": "Nature de l'inflation",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "pivot",
+        "rationale": "Le socle théorique de toute la démonstration"
+      },
+      {
+        "moment": "Le panier américain, poste par poste",
+        "quote": "Le loyer (ou « équivalent des propriétaires ») à lui seul représente plus de trente pour cent de l'IPC […] les soins médicaux 9 % supplémentaires […] et l'éducation 3 %.",
+        "lens_ref": "chiffres",
+        "lens_question": "Un pourcentage : mesuré, ou estimé ?",
+        "note": "Devant une part qui écrase les autres, demandez comment le prix sous-jacent est **relevé**.",
+        "answer": "**Estimé** pour le poste le plus lourd : le loyer des propriétaires est ce qu'ils **paieraient** s'ils louaient, une réponse d'enquête, pas un prix payé.",
+        "figure": "30 %",
+        "figure_label": "du panier américain pour le seul logement",
+        "figure_caption": "",
+        "factcheck": "true",
+        "selected": true,
+        "theme": "Mesure des prix",
+        "centrality": 5,
+        "kind": "statistique",
+        "role": "preuve",
+        "rationale": "L'appui chiffré central, avec une grandeur estimée"
+      },
+      {
+        "moment": "Les modèles hérités décrivent une économie disparue",
+        "quote": "Ce modèle est l'artefact d'un monde où une part bien plus importante des chaînes d'approvisionnement manufacturières se trouvait dans un seul pays […].",
+        "lens_ref": "angles_morts",
+        "lens_question": "Et si ce monde disparu **revenait** ?",
+        "note": "Quand un argument repose sur une rupture historique, demandez ce qui la rendrait **réversible**.",
+        "answer": "Le texte n'écrit jamais la condition dont il dépend — des chaînes mondiales qui maintiennent les prix des biens bas ; l'année suivante, elles se sont **grippées**.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "Obsolescence des modèles",
+        "centrality": 4,
+        "kind": "affirmation",
+        "role": "appui",
+        "rationale": "L'hypothèse tue qui porte toute la distinction"
+      },
+      {
+        "moment": "Baisser les prix en affaiblissant les salariés",
+        "quote": "La solution habituelle consiste à augmenter le taux de chômage jusqu'à ce que les travailleurs soient suffisamment faibles pour modérer les revendications salariales.",
+        "lens_ref": "cadrage",
+        "lens_question": "Un mécanisme, ou une intention prêtée ?",
+        "note": "Repérez le moment où un **instrument** de politique est décrit comme un acte dirigé contre quelqu'un.",
+        "answer": "La formule requalifie un outil monétaire en décision prise **contre un groupe** — et dispense d'établir la thèse du conflit distributif que le texte n'a pas démontrée.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Registre du rapport de forces",
+        "centrality": 4,
+        "kind": "biais",
+        "role": "mise en scène",
+        "rationale": "Le vocabulaire qui remplace la démonstration"
+      },
+      {
+        "moment": "Des salaires bas qui montent vite, sans effet sur les prix",
+        "quote": "Entre 2015 et 2020, la croissance des salaires dans le premier quartile — ceux qui gagnaient environ 600 $ par semaine […] — a dépassé les trois quarts restants du marché du travail.",
+        "lens_ref": "causalite",
+        "lens_question": "Une hausse sans effet hier : une garantie pour demain ?",
+        "note": "Quand deux séries n'ont pas bougé ensemble, demandez si l'une a vraiment été **mise à l'épreuve**.",
+        "answer": "**Non** : la comparaison porte sur des niveaux de salaire, jamais sur la part que la main-d'œuvre représente dans les coûts de la santé ou de l'éducation.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "true",
+        "selected": false,
+        "theme": "Salaires et prix",
+        "centrality": 4,
+        "kind": "statistique",
+        "role": "preuve",
+        "rationale": "Le pas logique qui porte la recommandation"
+      },
+      {
+        "moment": "La thèse adverse résumée en une phrase, puis quittée",
+        "quote": "Une étape cruciale a été l'abandon de l'idée que le problème était de nature structurelle plutôt que motivé par une politique macroéconomique.",
+        "lens_ref": "equilibre",
+        "lens_question": "L'autre camp parle-t-il avec ses propres mots ?",
+        "note": "Comptez les lignes accordées à l'objection, puis celles accordées à sa réfutation.",
+        "answer": "Une phrase de Larry Summers, économiste démocrate, suivie aussitôt de « la véritable cause était structurelle » : le raisonnement adverse n'est jamais **déplié**.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Traitement des contradicteurs",
+        "centrality": 3,
+        "kind": "biais",
+        "role": "concession",
+        "rationale": "L'objection citée pour être écartée"
+      },
+      {
+        "moment": "Le plein emploi posé comme intangible",
+        "quote": "Le plein emploi ne devrait pas être sacrifié dans une tentative de baisser les prix.",
+        "lens_ref": "opinion_fait",
+        "lens_question": "Un arbitrage, ou une priorité déjà fixée ?",
+        "note": "Repérez la phrase qui pose une **priorité** sans la présenter comme un choix discutable.",
+        "answer": "La priorité est **posée d'emblée** : l'article ne dit pas ce qu'il faudrait faire si les prix montaient malgré tout une fois le plein emploi atteint.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Enjeu politique",
+        "centrality": 3,
+        "kind": "enjeu",
+        "role": "pivot",
+        "rationale": "La valeur qui commande la recommandation"
+      },
+      {
+        "moment": "Une question finale qui déplace le débat",
+        "quote": "Mais tant que nous nous préoccuperons de l'inflation généralisée causée par la hausse des salaires, de telles questions resteront hors de question.",
+        "lens_ref": "cadrage",
+        "lens_question": "Une crainte discutable, ou un obstacle à écarter ?",
+        "note": "Notez quand une objection est traitée comme un **empêchement** plutôt que comme une position.",
+        "answer": "La crainte de l'inflation salariale devient un **verrou** à lever, et le texte ne dit pas ce qu'il adviendrait des questions posées si elle se vérifiait.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Focus éditorial",
+        "centrality": 3,
+        "kind": "biais",
+        "role": "mise en scène",
+        "rationale": "La clôture qui ferme le débat qu'elle ouvre"
+      }
+    ],
+    "global_analysis": {
+      "headline": "L'inflation se joue dans quelques **secteurs**, pas dans les salaires",
+      "headline_alt": [
+        "Faire baisser les prix sans passer par le **chômage**",
+        "Le coût de la vie se décide **secteur par secteur**",
+        "Les modèles d'hier décrivent une économie qui n'est plus"
+      ],
+      "core_recap": [
+        "Ce qu'il tient pour acquis : qu'une **définition** suffit à établir la cause des prix ; que ce que les gens déclarent paierait vaut un prix ; que les prix des biens importés resteront bas"
+      ]
+    },
+    "open_question": "Quelle part d'une hausse des prix relève du partage des revenus, et quelle part des coûts ?",
+    "root_issue": "Décider qui, de la banque centrale ou du législateur, tient les leviers du **coût de la vie** revient à décider quels ménages absorbent l'ajustement — et ce choix n'est jamais soumis au vote.",
+    "steel_man": {
+      "argument": "Rétablir le **plein emploi** relance le canal salaires-prix là où la main-d'œuvre est le premier coût : santé, éducation.",
+      "alternative": "Les salaires du bas pousseraient précisément les postes les plus lourds du budget."
+    },
+    "reperes_headline": "Avant de lire : le contexte et deux réflexes",
+    "bilan_headline": "Ce que ce texte permet de voir",
+    "essentiel": [
+      "Le **logement** pèse plus de 30 % de l'indice des prix américain",
+      "Depuis 1975, le remède classique passe par plus de **chômage**",
+      "L'auteur conclut : **réorganiser** ces secteurs plutôt que créer du chômage"
+    ],
+    "essentiel_summary": "L'article décompose l'indice des prix américain : **plus de 30 %** pour le logement, 9 % pour la santé, 9 % pour les transports, 3 % pour l'éducation. Ces prix montent depuis 1975 sans suivre les salaires. Il en conclut que l'inflation est **sectorielle** et que la combattre par le **chômage** vise la mauvaise cause."
+  }
+}

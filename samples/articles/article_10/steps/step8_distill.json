@@ -1,0 +1,53 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "Le pas logique le plus fragile — une corrélation passée entre salaires et prix des services érigée en garantie sur l'avenir — est aussi celui qui porte la **recommandation de politique**. La faiblesse argumentative se loge exactement là où l'enjeu est maximal.",
+        "references": [
+          "lr_1",
+          "ia_0",
+          "bias_1"
+        ]
+      },
+      {
+        "text": "L'hypothèse jamais formulée que les prix manufacturiers resteront bas sert de socle à la distinction sectoriel/général, et c'est elle que la vague de 2021-2022 a **invalidée** : une omission qui déplace la thèse du registre structurel au registre conjoncturel.",
+        "references": [
+          "ia_2",
+          "obs_0",
+          "bias_1"
+        ]
+      },
+      {
+        "text": "Le vocabulaire du rapport de forces ne décore pas l'argument, il le **remplace** : requalifier la désinflation en mise au chômage délibérée dispense d'établir empiriquement la thèse de l'inflation comme conflit distributif, restée une définition sans test.",
+        "references": [
+          "er_0",
+          "claim_2",
+          "pr_2",
+          "bias_0"
+        ]
+      },
+      {
+        "text": "Le traitement expéditif de Summers apparaît comme angle mort, comme biais et comme réserve déontologique : trois lectures indépendantes convergent sur la même **économie de l'objection**, citée pour être réfutée plutôt que dépliée.",
+        "references": [
+          "bs_1",
+          "bias_2",
+          "obs_2"
+        ]
+      },
+      {
+        "text": "Les chiffres les mieux sourcés — pondérations BLS, Wage Growth Tracker, propos de la Fed — servent tous le même côté, tandis que l'assertion centrale sur la nature de l'inflation est la seule sans confiance attribuable : la **rigueur documentaire est asymétrique**.",
+        "references": [
+          "claim_0",
+          "claim_1",
+          "claim_2",
+          "pr_2"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quelle part de l'inflation relève effectivement d'un conflit distributif plutôt que de coûts ?",
+      "Les contrôles de prix de 1971-1974 ont-ils tenu leurs effets, et à quel coût ?",
+      "Le loyer imputé, non observé, pèse combien dans la hausse mesurée de l'indice ?"
+    ]
+  }
+}

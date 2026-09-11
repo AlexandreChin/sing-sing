@@ -1,0 +1,113 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "L'hypothèse jamais formulée que les prix manufacturiers resteront bas sert de socle à la distinction sectoriel/général, et c'est précisément elle que la vague de 2021-2022 a **invalidée** — une omission qui déplace la thèse du registre structurel au registre conjoncturel.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "ia_2",
+          "obs_0",
+          "bias_1"
+        ]
+      },
+      {
+        "text": "Le pas logique le plus fragile — une corrélation passée entre salaires et prix des services érigée en garantie sur l'avenir — est aussi celui qui porte la **recommandation de politique**, et le seul que Probe identifie comme sophisme : la faiblesse argumentative se loge exactement là où l'enjeu est maximal.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "lr_1",
+          "ia_0",
+          "bias_1"
+        ]
+      },
+      {
+        "text": "Le traitement expéditif de Summers apparaît comme angle mort dans Logic, comme biais dans Probe et comme réserve déontologique dans Ethics : trois lectures indépendantes convergent sur la même **économie de l'objection**, citée pour être réfutée plutôt que dépliée.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "bs_1",
+          "bias_2",
+          "obs_2"
+        ]
+      },
+      {
+        "text": "Le vocabulaire du rapport de forces ne décore pas l'argument, il le **remplace** : requalifier la désinflation en mise au chômage délibérée dispense d'établir empiriquement la thèse de l'inflation comme conflit distributif, restée une définition sans test.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "logic"
+        ],
+        "references": [
+          "er_0",
+          "claim_2",
+          "pr_2",
+          "bias_0"
+        ]
+      },
+      {
+        "text": "L'absence des contrôles de prix de 1971-1974 est le point où angle mort, réserve déontologique et contre-argument le plus fort se superposent : l'**instrument recommandé** est le seul élément du texte à n'être confronté à aucun précédent.",
+        "layers": [
+          "logic",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "bs_0",
+          "obs_4",
+          "pr_3"
+        ]
+      },
+      {
+        "text": "La date de publication explique la structure : à quelques jours de l'investiture et six mois après le virage doctrinal de la Fed, le cadrage sectoriel **désarme** l'argument inflationniste contre la relance au moment exact où son volume se négocie.",
+        "layers": [
+          "rhetoric",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "cb_0",
+          "cb_1",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "Les chiffres les mieux sourcés — pondérations BLS, Wage Growth Tracker, propos de la Fed — servent tous le même côté, tandis que l'assertion centrale sur la nature de l'inflation est la seule sans confiance attribuable : la **rigueur documentaire est asymétrique**, plus forte sur les appuis que sur le socle.",
+        "layers": [
+          "probe",
+          "review",
+          "logic"
+        ],
+        "references": [
+          "claim_0",
+          "claim_1",
+          "claim_2",
+          "pr_2"
+        ]
+      },
+      {
+        "text": "L'accumulation de montants du quotidien rend l'indice agrégé intuitivement hors sujet, alors que le poste le plus lourd de cet empilement repose sur un **loyer imputé estimé** — l'effet de concret masque une grandeur qui n'est pas observée.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "logic"
+        ],
+        "references": [
+          "er_1",
+          "claim_0",
+          "obs_3"
+        ]
+      }
+    ]
+  }
+}

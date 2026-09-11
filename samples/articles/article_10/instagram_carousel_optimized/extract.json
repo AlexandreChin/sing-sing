@@ -1,0 +1,1383 @@
+{
+  "analysis": {
+    "article_metadata": {
+      "url": "https://phenomenalworld.org/analysis/many-inflations/",
+      "title": "Inflation, Spécifique et Générale",
+      "source": "Phenomenal World",
+      "published_at": "22 janvier 2021",
+      "type": "opinion",
+      "medium": "article",
+      "category": "Économie",
+      "reading_time_minutes": 15,
+      "chapo": null
+    },
+    "extraction": {
+      "authority_anchors": [
+        {
+          "entity": "Jerome Powell, président de la Réserve fédérale",
+          "used_for": "Légitimer l'idée qu'un chômage très bas n'entraîne plus de hausse notable des salaires ni de l'inflation"
+        },
+        {
+          "entity": "BlackRock",
+          "used_for": "Montrer que les investisseurs eux-mêmes anticipent un regain de pouvoir de négociation salariale et s'en inquiètent"
+        },
+        {
+          "entity": "OCDE / Paul McCracken (rapport 1977)",
+          "used_for": "Incarner l'interprétation orthodoxe de la stagflation comme suite d'erreurs de politique évitables"
+        },
+        {
+          "entity": "Larry Summers",
+          "used_for": "Représenter la thèse selon laquelle l'inflation des années 1970 relevait de la macroéconomie et non du structurel"
+        },
+        {
+          "entity": "National Center for Education Statistics",
+          "used_for": "Chiffrer les frais de scolarité moyens dans le public américain"
+        },
+        {
+          "entity": "Jonathan Rieder (ethnographie de Brooklyn)",
+          "used_for": "Appuyer l'idée que des alternatives à la stagflation étaient perçues comme évidentes par le public populaire"
+        },
+        {
+          "entity": "Arthur Goldberg et le CEA sous Kennedy-Johnson",
+          "used_for": "Attester qu'un accord formel salaires-emploi a bien existé dans la politique américaine"
+        }
+      ],
+      "key_quotes": [
+        "L'inflation est le mécanisme de redistribution des revenus réels lorsque les revendications monétaires dépassent la capacité.",
+        "La solution habituelle consiste à augmenter le taux de chômage jusqu'à ce que les travailleurs soient suffisamment faibles pour modérer les revendications salariales. Mais lorsque l'augmentation de l'emploi est une priorité absolue, cette solution disparaît.",
+        "La hausse des prix est un indice de tension sociale : qu'il s'agisse entre consommateurs pour une quantité donnée de biens ou services, entre la classe ouvrière et les employeurs sur le revenu de la production, ou entre nations sur les termes de l'échange.",
+        "Ce modèle est l'artefact d'un monde où une part bien plus importante des chaînes d'approvisionnement manufacturières se trouvait dans un seul pays et où les services représentaient une part bien plus faible du PIB.",
+        "Pour la majorité des personnes, pour qui les salaires sont un revenu plutôt qu'un coût de production, il est crucial de concevoir des politiques alternatives anti-inflationnistes.",
+        "Ces prix en hausse sont de nature structurelle, et s'ils sont poussés davantage par la hausse des salaires, la retenue fiscal-monétaire ne fera rien pour les faire baisser.",
+        "Le plein emploi ne devrait pas être sacrifié dans une tentative de baisser les prix.",
+        "Mais tant que nous nous préoccuperons de l'inflation généralisée causée par la hausse des salaires, de telles questions resteront hors de question.",
+        "On peut avoir un chômage de 3 à 3,5 % pendant quelques années, et en réalité, on observe des mouvements modestes des salaires et des mouvements presque invisibles de l'inflation.",
+        "C'est l'échec de Lyndon Johnson à évoluer vers une économie contrôlée qui a déclenché la spirale salaires-prix"
+      ],
+      "notable_omissions": [
+        "Aucune source ni référence n'est donnée pour la thèse centrale — que les hausses de prix des services sont **structurelles** et insensibles à la politique monétaire.",
+        "Les arguments des économistes qui redoutent une inflation liée à la relance budgétaire ne sont pas exposés dans leur propre logique, seulement mentionnés pour être écartés.",
+        "L'article ne dit pas **comment** seraient financés ou administrés les contrôles de prix et la restructuration sectorielle qu'il appelle de ses vœux.",
+        "Les expériences historiques de contrôle des prix qui ont échoué (pénuries, marchés parallèles) ne sont pas discutées.",
+        "Aucun chiffre sur l'inflation hors États-Unis : le raisonnement reste entièrement américain alors que la thèse porte sur la mondialisation.",
+        "Les données citées s'arrêtent souvent à 2019-2020 et certaines séries (frais de scolarité) datent de 2015-2016, sans mention de l'écart temporel.",
+        "Aucune voix syndicale ou de travailleur contemporain n'est sollicitée, alors que l'article parle en leur nom."
+      ],
+      "rhetorical_patterns": [
+        "**Renversement de la question** : l'article commence par saper le vocabulaire lui-même (« quels prix ? quelles valeurs ? ») avant de proposer sa propre définition de l'inflation.",
+        "**Distinction spécifique/général** : le titre pose l'opposition qui structure tout le texte — un indice agrégé (IPC) contre des prix sectoriels que l'auteur juge seuls pertinents.",
+        "**Détour historique long** : un tiers du texte est consacré aux années 1950-1970, utilisé pour montrer que les modèles actuels décrivent un monde disparu.",
+        "**Citation d'adversaires en position de faiblesse** : Summers et McCracken sont cités brièvement, sans développement, puis contredits par le paragraphe suivant.",
+        "**Appui sur des voix inattendues** : BlackRock et un électeur de Nixon servent d'arguments — l'adversaire supposé ou l'homme ordinaire confirme la thèse.",
+        "**Accumulation chiffrée** : parts de l'IPC, primes d'assurance, frais de scolarité, quartiles salariaux s'empilent pour rendre la conclusion sectorielle presque arithmétique.",
+        "**Question finale ouverte** : le texte se clôt sur « est-ce ainsi que nous voulons gérer nos institutions sociales ? », déplaçant le débat de la technique vers le politique.",
+        "Vocabulaire de conflit récurrent : « tension sociale », « revendications rivales », « pouvoir de négociation » — l'inflation est constamment décrite comme un rapport de forces."
+      ]
+    },
+    "context": {
+      "contexts": [
+        {
+          "id": "ctx_0",
+          "text": "L'article paraît en janvier 2021, quelques jours après l'investiture de Joe Biden et alors que les démocrates contrôlent l'exécutif et le Congrès de justesse."
+        },
+        {
+          "id": "ctx_1",
+          "text": "La Réserve fédérale a modifié sa doctrine en août 2020 en adoptant un ciblage d'inflation moyenne, acceptant un dépassement temporaire des 2 %."
+        },
+        {
+          "id": "ctx_2",
+          "text": "Les plans de relance pandémiques massifs relançaient à ce moment le débat américain sur le risque inflationniste, avant que l'inflation n'accélère effectivement en 2021-2022."
+        },
+        {
+          "id": "ctx_3",
+          "text": "Le débat oppose alors des économistes proches du pouvoir démocrate, certains (comme Summers) mettant en garde contre la taille de la relance."
+        }
+      ],
+      "who_is_speaking": [
+        "Phenomenal World est la publication du Jain Family Institute, un institut de recherche américain en économie appliquée et politiques sociales.",
+        "Sa ligne éditoriale est hétérodoxe : elle publie des analyses macroéconomiques critiques du consensus monétariste et favorables à l'intervention publique.",
+        "Le format est l'analyse longue signée, à destination d'un lectorat de chercheurs et de responsables de politiques publiques, non un reportage.",
+        "Le texte assume une position normative explicite : la planification sectorielle y est présentée comme « une nécessité urgente »."
+      ],
+      "important_facts": [
+        {
+          "id": "fact_0",
+          "text": "L'inflation américaine est effectivement montée jusqu'à environ 9 % à l'été 2022, dix-huit mois après cet article — un test grandeur nature de la thèse défendue ici."
+        },
+        {
+          "id": "fact_1",
+          "text": "Le taux de syndicalisation dans le privé américain est passé d'environ 35 % dans les années 1950 à moins de 7 % aujourd'hui."
+        },
+        {
+          "id": "fact_2",
+          "text": "L'IPC américain et l'indice français des prix ne pondèrent pas de la même façon : le logement pèse beaucoup moins dans l'indice français, où la santé et l'éducation sont largement socialisées."
+        },
+        {
+          "id": "fact_3",
+          "text": "Les contrôles de prix américains de 1971-1974 sous Nixon ont été abandonnés après avoir provoqué pénuries et distorsions, épisode souvent invoqué contre ce type de politique."
+        },
+        {
+          "id": "fact_4",
+          "text": "Le poste « équivalent loyer des propriétaires » est une estimation, pas un prix observé : il mesure ce que des propriétaires paieraient s'ils louaient leur logement."
+        }
+      ],
+      "key_terms": [
+        {
+          "term": "IPC",
+          "definition": "Indice des prix à la consommation : le prix moyen d'un panier de biens et services types, suivi dans le temps."
+        },
+        {
+          "term": "NAIRU",
+          "definition": "Le niveau de chômage en dessous duquel, selon cette théorie, l'inflation se met à accélérer."
+        },
+        {
+          "term": "Courbe de Phillips",
+          "definition": "L'idée qu'un chômage faible s'accompagne d'une inflation forte, et inversement."
+        },
+        {
+          "term": "Monétarisme",
+          "definition": "Courant économique pour lequel l'inflation vient d'abord d'une quantité de monnaie en circulation trop élevée."
+        },
+        {
+          "term": "M2",
+          "definition": "Une mesure de la masse monétaire : liquidités, comptes courants et comptes d'épargne disponibles dans une économie."
+        },
+        {
+          "term": "Spirale salaires-prix",
+          "definition": "Mécanisme où les salaires montent, les entreprises augmentent leurs prix, et les salaires suivent à nouveau."
+        },
+        {
+          "term": "Stagflation",
+          "definition": "Situation rare où les prix montent alors que l'économie stagne et que le chômage reste élevé."
+        },
+        {
+          "term": "Maladie de Baumol (« baumolianisme »)",
+          "definition": "Dans les services où la productivité progresse peu (santé, éducation), les coûts augmentent mécaniquement plus vite qu'ailleurs."
+        },
+        {
+          "term": "Politique de revenus",
+          "definition": "Encadrement négocié des salaires et des prix par l'État, en échange de garanties sociales."
+        },
+        {
+          "term": "Équivalent loyer des propriétaires",
+          "definition": "Le loyer théorique qu'un propriétaire paierait pour son propre logement, utilisé pour calculer l'IPC."
+        },
+        {
+          "term": "Termes de l'échange",
+          "definition": "Le rapport entre les prix de ce qu'un pays vend et les prix de ce qu'il achète à l'étranger."
+        },
+        {
+          "term": "MOOC",
+          "definition": "Cours en ligne ouvert à un très grand nombre d'inscrits, sans enseignant en présence."
+        }
+      ]
+    },
+    "analysis": {
+      "fond": {
+        "main_claim": "L'inflation d'aujourd'hui est **sectorielle et structurelle**, pas générale ni salariale.",
+        "premisses": [
+          {
+            "id": "pr_0",
+            "statement": "Les modèles monétariste et de la courbe de Phillips ont été conçus pour une économie manufacturière nationale et syndiquée qui n'existe plus.",
+            "quality": "Étayée par des données de syndicalisation et de structure du PIB, mais la rupture est affirmée plutôt que démontrée par une comparaison chiffrée systématique."
+          },
+          {
+            "id": "pr_1",
+            "statement": "Les services — loyer, santé, éducation, transports — pèsent l'essentiel du coût de la vie et leurs prix montent plus vite que les salaires depuis 1975.",
+            "quality": "Appuyée sur des pondérations d'IPC et des séries de prix vérifiables ; c'est la partie la mieux documentée du texte."
+          },
+          {
+            "id": "pr_2",
+            "statement": "L'inflation est un mécanisme de **redistribution** entre revendications de revenus rivales, non un phénomène monétaire.",
+            "quality": "Assertion théorique non étayée : présentée comme une définition, sans référence ni test empirique."
+          },
+          {
+            "id": "pr_3",
+            "statement": "Les politiques anti-inflationnistes classiques passent par la hausse du chômage, donc coûtent d'abord aux travailleurs.",
+            "quality": "Cohérente avec l'expérience Volcker, mais généralisée à partir d'un seul épisode historique américain."
+          }
+        ],
+        "implicit_assumptions": [
+          {
+            "id": "ia_0",
+            "statement": "Une hausse des salaires du bas du marché ne se transmettrait pas aux prix des secteurs de services déjà chers.",
+            "impact": "Si la transmission existe, la relance du plein emploi alimente précisément les prix que l'auteur veut contenir."
+          },
+          {
+            "id": "ia_1",
+            "statement": "L'État dispose de la capacité administrative et politique de restructurer santé, éducation et logement par secteur.",
+            "impact": "Sans cette capacité, la politique alternative proposée reste un programme sans instrument."
+          },
+          {
+            "id": "ia_2",
+            "statement": "La mondialisation continuera de maintenir les prix manufacturiers bas.",
+            "impact": "Si les chaînes d'approvisionnement se fragmentent, l'inflation redevient générale et l'argument sectoriel perd son socle."
+          },
+          {
+            "id": "ia_3",
+            "statement": "Le cas américain suffit à établir une thèse générale sur l'inflation.",
+            "impact": "Si les structures de prix diffèrent fortement ailleurs, la conclusion ne vaut que pour un pays."
+          }
+        ],
+        "blind_spots": [
+          {
+            "id": "bs_0",
+            "topic": "Les échecs historiques des contrôles de prix, notamment l'épisode Nixon 1971-1974.",
+            "significance": "L'outil central recommandé n'est jamais confronté à son précédent le plus proche."
+          },
+          {
+            "id": "bs_1",
+            "topic": "L'argument des économistes inquiets de la relance n'est exposé que pour être écarté en une phrase.",
+            "significance": "Présenter leur logique aurait obligé à répondre au scénario d'une demande globale excédentaire."
+          },
+          {
+            "id": "bs_2",
+            "topic": "Aucune voix de travailleur ou de syndicat contemporain, alors que le texte parle en leur nom.",
+            "significance": "Les priorités réelles des salariés pourraient ne pas coïncider avec la hiérarchie de prix retenue."
+          },
+          {
+            "id": "bs_3",
+            "topic": "Le financement et l'administration concrets de la planification sectorielle réclamée.",
+            "significance": "Le coût budgétaire chiffré aurait déplacé le débat du principe vers la faisabilité."
+          }
+        ],
+        "emphasis": [
+          "Le texte consacre un tiers de sa longueur aux années 1950-1970 alors que la période post-2008, qui motive l'argument, tient en deux paragraphes.",
+          "Les prix des services sont détaillés poste par poste avec chiffres, tandis que l'hypothèse d'une inflation par la demande n'est évoquée qu'une fois, entre guillemets.",
+          "Les objections sont représentées par deux citations brèves — Summers, McCracken — contre plusieurs pages de développement de la thèse adverse."
+        ],
+        "logical_reasoning": [
+          {
+            "id": "lr_0",
+            "step": "Les modèles des années 1960 décrivaient une économie manufacturière nationale ; cette économie a disparu ; donc ces modèles ne s'appliquent plus.",
+            "problem_type": null,
+            "diagnosis": null
+          },
+          {
+            "id": "lr_1",
+            "step": "Les prix des services ont monté indépendamment des salaires depuis 1975 ; donc une hausse des salaires ne les fera pas monter davantage.",
+            "problem_type": "validity",
+            "diagnosis": "L'indépendance passée entre deux séries ne garantit pas l'absence d'effet d'une variation future de l'une sur l'autre."
+          },
+          {
+            "id": "lr_2",
+            "step": "La stagflation des années 1970 avait des causes structurelles ; donc la contraction monétaire n'est pas ce qui l'a résolue.",
+            "problem_type": "soundness",
+            "diagnosis": "La prémisse sur la cause réelle de la désinflation est affirmée sans démonstration, contre une littérature empirique abondante citée seulement pour être écartée."
+          },
+          {
+            "id": "lr_3",
+            "step": "Les salaires les plus dynamiques sont ceux du premier quartile, très en dessous des secteurs coûteux ; donc leur hausse ne pèsera pas sur le coût de la vie.",
+            "problem_type": "validity",
+            "diagnosis": "Le raisonnement compare des niveaux de salaire, pas des parts dans les coûts d'exploitation des secteurs concernés."
+          }
+        ],
+        "observations": [
+          {
+            "id": "obs_0",
+            "aspect": "Temporalité",
+            "summary": "Le texte est écrit **avant** la vague inflationniste de 2021-2022, qui a porté l'IPC américain à près de 9 %. Ses prédictions sont **testables a posteriori**, ce que sa formulation n'anticipe pas.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 0,
+              "excerpt": "L'inflation américaine est effectivement montée jusqu'à environ 9 % à l'été 2022",
+              "strength": 1.0,
+              "nature": "contradiction"
+            },
+            "proven_by": [
+              {
+                "type": "bias",
+                "index": 1
+              }
+            ]
+          },
+          {
+            "id": "obs_1",
+            "aspect": "Cadrage",
+            "summary": "L'article paraît quelques jours après l'investiture de Biden, au moment où une **majorité démocrate étroite** débat de la taille de la relance, et où la Fed vient d'assouplir sa doctrine d'août 2020 — deux appuis **traités comme acquis**.",
+            "seeds": {
+              "source": "context",
+              "index": 0,
+              "excerpt": "janvier 2021, quelques jours après l'investiture de Joe Biden",
+              "strength": 0.9,
+              "nature": "specification"
+            },
+            "proven_by": [
+              {
+                "type": "focus",
+                "index": 0
+              }
+            ]
+          },
+          {
+            "id": "obs_2",
+            "aspect": "Contradicteurs",
+            "summary": "Le camp opposé est réduit à **deux citations brèves**, alors que le débat de l'époque opposait des économistes du même bord politique sur la taille de la relance. Le risque inflationniste des plans pandémiques est traité comme **déjà tranché** par le changement de structure.",
+            "seeds": {
+              "source": "context",
+              "index": 3,
+              "excerpt": "certains (comme Summers) mettant en garde contre la taille de la relance",
+              "strength": 0.9,
+              "nature": "specification"
+            },
+            "proven_by": [
+              {
+                "type": "claim",
+                "index": 3
+              },
+              {
+                "type": "bias",
+                "index": 2
+              }
+            ]
+          },
+          {
+            "id": "obs_3",
+            "aspect": "Mesure",
+            "summary": "Le raisonnement repose sur les **pondérations de l'IPC américain**, où le logement pèse plus de trente pour cent et inclut un loyer **estimé**, non observé — alors que l'indice français pondère autrement des services largement socialisés.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 4,
+              "excerpt": "« équivalent loyer des propriétaires » est une estimation, pas un prix observé",
+              "strength": 0.9,
+              "nature": "specification"
+            },
+            "proven_by": [
+              {
+                "type": "claim",
+                "index": 0
+              }
+            ]
+          },
+          {
+            "id": "obs_4",
+            "aspect": "Précédent",
+            "summary": "L'effondrement syndical — de 35 % à moins de 7 % — soutient la thèse du modèle obsolète mais **affaiblit** l'analogie avec les politiques de revenus des années 1960 ; et les contrôles de prix de 1971-1974, l'épisode le plus proche de ce qui est recommandé, ne sont **pas évoqués**.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 3,
+              "excerpt": "contrôles de prix américains de 1971-1974 sous Nixon ont été abandonnés",
+              "strength": 1.0,
+              "nature": "contradiction"
+            },
+            "proven_by": []
+          }
+        ],
+        "steel_man": [
+          {
+            "counterargument": "L'inflation de 2021-2022 a touché **simultanément** l'énergie, l'alimentation, les biens manufacturés et les services, avec une accélération salariale marquée dans les secteurs à bas salaires — exactement le profil général que l'auteur jugeait révolu. Le resserrement monétaire de 2022-2023 a ensuite fait refluer les prix sans crise de l'emploi majeure.",
+            "seeds": {
+              "source": "implicit_assumption",
+              "index": 2,
+              "excerpt": "La mondialisation continuera de maintenir les prix manufacturiers bas",
+              "strength": 1.0,
+              "nature": "contradiction"
+            },
+            "alternative_conclusion": "La distinction entre inflation générale et sectorielle serait moins un fait de structure qu'un effet de la période 1990-2020, et la demande agrégée resterait un levier opérant."
+          },
+          {
+            "counterargument": "L'indépendance observée entre prix des services et salaires tient précisément à la faiblesse du travail depuis 1980 ; rétablir le plein emploi rétablit le canal salaire-prix dans des secteurs où la main-d'œuvre est le principal coût d'exploitation — santé et éducation en premier lieu.",
+            "seeds": {
+              "source": "logical_reasoning",
+              "index": 1,
+              "excerpt": "L'indépendance passée entre deux séries ne garantit pas l'absence d'effet d'une variation future",
+              "strength": 0.9,
+              "nature": "inference"
+            },
+            "alternative_conclusion": "La hausse des salaires du bas alimenterait bien les prix les plus lourds du budget des ménages, et l'arbitrage emploi-prix subsisterait."
+          },
+          {
+            "counterargument": "Les contrôles de prix et la planification sectorielle ont été essayés aux États-Unis entre 1971 et 1974 et abandonnés après pénuries et distorsions ; sans réponse à ce précédent, la politique alternative proposée reste un programme dont l'instrument principal a déjà échoué.",
+            "seeds": {
+              "source": "blind_spot",
+              "index": 0,
+              "excerpt": "Les échecs historiques des contrôles de prix, notamment l'épisode Nixon 1971-1974",
+              "strength": 1.0,
+              "nature": "contradiction"
+            },
+            "alternative_conclusion": "Le diagnostic sectoriel pourrait être juste sans que la solution proposée le soit, laissant l'outil monétaire faute de substitut praticable."
+          }
+        ]
+      },
+      "forme": {
+        "emotional_register": [
+          {
+            "id": "er_0",
+            "emotion": "indignation sociale",
+            "how": "Le vocabulaire du **rapport de forces** revient en boucle — « tension sociale », « revendications rivales », « travailleurs suffisamment faibles » — et culmine dans l'idée que la lutte anti-inflation passe par la mise au chômage volontaire des salariés.",
+            "effect": "Le lecteur est prêt à voir dans la politique monétaire un **choix distributif** plutôt qu'un arbitrage technique neutre.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 1,
+              "excerpt": "Le taux de syndicalisation dans le privé américain est passé d'environ 35 % dans les années 1950 à moins de 7 %",
+              "strength": 0.8,
+              "nature": "illustration"
+            }
+          },
+          {
+            "id": "er_1",
+            "emotion": "inquiétude budgétaire",
+            "how": "L'**accumulation chiffrée** des postes qui pèsent sur un ménage — 20 000 $ de prime d'assurance, 26 900 $ d'année d'université, plus de trente pour cent d'IPC pour le seul loyer — empile des montants tirés du quotidien plutôt que des taux abstraits.",
+            "effect": "Le lecteur en vient à juger l'**indice agrégé** hors sujet et à chercher la cause de son coût de la vie dans quelques secteurs identifiés.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 4,
+              "excerpt": "« équivalent loyer des propriétaires » est une estimation, pas un prix observé",
+              "strength": 0.7,
+              "nature": "specification"
+            }
+          }
+        ],
+        "cui_bono": [
+          {
+            "id": "cb_0",
+            "beneficiary": "Les partisans d'une relance budgétaire de grande ampleur au sein de la nouvelle majorité démocrate",
+            "explanation": "En situant l'inflation dans la **structure sectorielle** des services plutôt que dans les salaires ou la demande, le cadrage retire au camp adverse son principal argument contre la dépense publique. L'article paraît au moment précis où le volume de la relance se négocie.",
+            "seeds": {
+              "source": "context",
+              "index": 0,
+              "excerpt": "janvier 2021, quelques jours après l'investiture de Joe Biden",
+              "strength": 0.9,
+              "nature": "specification"
+            }
+          },
+          {
+            "id": "cb_1",
+            "beneficiary": "La doctrine assouplie de la Réserve fédérale",
+            "explanation": "Le cadrage fournit une **justification structurelle** au ciblage d'inflation moyenne adopté en août 2020 : si les hausses de prix viennent des services et non du marché du travail, tolérer un dépassement des 2 % cesse d'être une prise de risque.",
+            "seeds": {
+              "source": "context",
+              "index": 1,
+              "excerpt": "La Réserve fédérale a modifié sa doctrine en août 2020 en adoptant un ciblage d'inflation moyenne",
+              "strength": 0.8,
+              "nature": "inference"
+            }
+          }
+        ],
+        "cadrage": {
+          "title_analysis": [
+            {
+              "label": "Opposition",
+              "observation": "Le titre pose spécifique contre général, la distinction dont dépend toute la démonstration."
+            },
+            {
+              "label": "Pluriel",
+              "observation": "« Les nombreuses causes » annonce d'emblée qu'un mécanisme unique est écarté."
+            },
+            {
+              "label": "Présupposé",
+              "observation": "Le singulier « l'inflation » est traité comme un mot à redéfinir, non comme une mesure établie."
+            }
+          ],
+          "body": "Le corps aborde l'inflation par la **composition sectorielle des prix** plutôt que par la masse monétaire ou le niveau d'emploi : loyer, santé, éducation et transports sont détaillés poste par poste, l'indice agrégé servant de repoussoir. L'angle est celui d'une **économie politique de la distribution** — les prix y sont lus comme l'expression de revendications de revenus entre employeurs, salariés et détenteurs d'actifs. Un long développement historique sur les années 1950-1970 sert de point de comparaison structurelle avec l'économie de services actuelle. La position est **normative et assumée** : celle d'une analyse longue signée, qui conclut sur la planification sectorielle comme instrument."
+        }
+      }
+    },
+    "annotations": {
+      "facts_vs_opinions": {
+        "claims_and_sources": [
+          {
+            "id": "claim_0",
+            "quote": "Le loyer (ou « équivalent des propriétaires ») à lui seul représente plus de trente pour cent de l'IPC, les services publics et les transports représentent 9 %, les soins médicaux 9 % supplémentaires, la nourriture loin de chez soi 6 % et l'éducation 3 %.",
+            "presentation": "presented_as_established_fact",
+            "proves": {
+              "type": "observation",
+              "label": "Mesure",
+              "strength": 1.0,
+              "nature": "illustration"
+            },
+            "explanation": "Les pondérations citées correspondent à celles publiées par le Bureau of Labor Statistics, mais le poste logement repose sur un **loyer imputé estimé** par enquête, pas sur des prix observés.",
+            "external_sources": [
+              {
+                "name": "Bureau of Labor Statistics — CPI Relative Importance of Components",
+                "supports": "validates",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "BLS Handbook of Methods, chapitre Owners' Equivalent Rent",
+                "supports": "neutral",
+                "evidence_type": "official_data"
+              }
+            ],
+            "confidence": 90,
+            "confidence_label": "true"
+          },
+          {
+            "id": "claim_1",
+            "quote": "On peut avoir un chômage de 3 à 3,5 % pendant quelques années, et en réalité, on observe des mouvements modestes des salaires et des mouvements presque invisibles de l'inflation.",
+            "presentation": "attributed_to_source",
+            "proves": {
+              "type": "cui_bono",
+              "label": "La doctrine assouplie de la Réserve fédérale",
+              "strength": 0.9,
+              "nature": "illustration"
+            },
+            "explanation": "Le propos est crédité au président de la Fed et recoupe les séries de chômage et d'IPC de 2018-2019, où un taux sous 4 % a coexisté avec une inflation proche de 2 %.",
+            "external_sources": [
+              {
+                "name": "Transcriptions et conférences de presse du FOMC, 2019-2020",
+                "supports": "validates",
+                "evidence_type": "party_statement"
+              },
+              {
+                "name": "Séries BLS du taux de chômage et de l'IPC, 2018-2019",
+                "supports": "validates",
+                "evidence_type": "official_data"
+              }
+            ],
+            "confidence": 88,
+            "confidence_label": "true"
+          },
+          {
+            "id": "claim_2",
+            "quote": "L'inflation est le mécanisme de redistribution des revenus réels lorsque les revendications monétaires dépassent la capacité.",
+            "presentation": "opinion_stated_as_fact",
+            "proves": {
+              "type": "emotional_register",
+              "label": "indignation sociale",
+              "strength": 1.0,
+              "nature": "illustration"
+            },
+            "explanation": "Formulée comme une définition, cette phrase énonce une **position théorique** — le conflit distributif comme cause — sans référence ni test empirique, là où d'autres écoles y voient un déséquilibre monétaire.",
+            "external_sources": [
+              {
+                "name": "Littérature sur l'inflation de conflit (Lorenzoni & Werning, NBER)",
+                "supports": "neutral",
+                "evidence_type": "academic"
+              },
+              {
+                "name": "Manuels de macroéconomie monétaire standard",
+                "supports": "contradicts",
+                "evidence_type": "academic"
+              }
+            ],
+            "confidence": null,
+            "confidence_label": "unverifiable"
+          },
+          {
+            "id": "claim_3",
+            "quote": "Entre 2015 et 2020, la croissance des salaires dans le premier quartile — ceux qui gagnaient environ 600 $ par semaine, ou 15 $ de l'heure pour une semaine de 40 heures, en 2019 — a dépassé les trois quarts restants du marché du travail.",
+            "presentation": "presented_as_established_fact",
+            "proves": {
+              "type": "observation",
+              "label": "Contradicteurs",
+              "strength": 0.7,
+              "nature": "nuance"
+            },
+            "explanation": "Le constat correspond au **Wage Growth Tracker** de la Fed d'Atlanta, qui montre bien une croissance salariale plus rapide au premier quartile sur cette période.",
+            "external_sources": [
+              {
+                "name": "Atlanta Fed Wage Growth Tracker, séries par quartile",
+                "supports": "validates",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "BLS Usual Weekly Earnings of Wage and Salary Workers",
+                "supports": "validates",
+                "evidence_type": "official_data"
+              }
+            ],
+            "confidence": 85,
+            "confidence_label": "true"
+          }
+        ]
+      },
+      "biases_and_focus": {
+        "biases_and_rhetoric": [
+          {
+            "id": "bias_0",
+            "quote": "La solution habituelle consiste à augmenter le taux de chômage jusqu'à ce que les travailleurs soient suffisamment faibles pour modérer les revendications salariales.",
+            "item_type": "bias",
+            "label": "langage chargé",
+            "effect": "Remarquez comment « jusqu'à ce que les travailleurs soient suffisamment faibles » transforme un mécanisme de politique monétaire en acte délibéré contre un groupe.",
+            "proves": {
+              "type": "emotional_register",
+              "label": "indignation sociale",
+              "strength": 1.0,
+              "nature": "illustration"
+            }
+          },
+          {
+            "id": "bias_1",
+            "quote": "Ces hausses de prix sont structurelles et, si elles s'accélèrent, ne devraient pas être confrontées à une contraction fiscal-monétaire.",
+            "item_type": "fallacy",
+            "label": "conclusion tirée d'une corrélation passée",
+            "effect": "Remarquez comment l'absence observée de lien entre salaires et prix des services devient ici une garantie sur ce qui se passerait demain, une fois les salaires en hausse.",
+            "proves": {
+              "type": "observation",
+              "label": "Temporalité",
+              "strength": 0.9,
+              "nature": "contradiction"
+            }
+          },
+          {
+            "id": "bias_2",
+            "quote": "Une étape cruciale a été l'abandon de l'idée que le problème était de nature structurelle plutôt que motivé par une politique macroéconomique.",
+            "item_type": "bias",
+            "label": "objection citée pour être écartée",
+            "effect": "Remarquez que la thèse adverse n'apparaît que sous forme d'une phrase de Summers, immédiatement suivie de « La véritable cause de l'inflation était structurelle », sans que son raisonnement soit déplié.",
+            "proves": {
+              "type": "observation",
+              "label": "Contradicteurs",
+              "strength": 1.0,
+              "nature": "illustration"
+            }
+          }
+        ],
+        "focus": {
+          "quote": "Mais tant que nous nous préoccuperons de l'inflation généralisée causée par la hausse des salaires, de telles questions resteront hors de question.",
+          "proves": {
+            "type": "observation",
+            "label": "Cadrage",
+            "strength": 0.9,
+            "nature": "illustration"
+          },
+          "analysis": "La phrase fait de la crainte de l'inflation salariale un **obstacle au débat** lui-même, et non une position discutable. Elle sous-entend que la vraie question — qui contrôle santé, éducation, logement — n'attend que le retrait de cette crainte. Elle tait ce qui arriverait si la crainte se vérifiait : que faire alors des questions posées entre-temps ?"
+        }
+      }
+    },
+    "deontology": {
+      "violations": [
+        {
+          "id": "deo1",
+          "category": "lying_by_omission",
+          "label": "Lying by Omission",
+          "severity": "significant",
+          "status": "caution",
+          "evidence": "Ces hausses de prix sont structurelles et, si elles s'accélèrent, ne devraient pas être confrontées à une contraction fiscal-monétaire.",
+          "explanation": "L'absence de tout contre-argument chiffré laisse une **recommandation de politique** reposer sur une seule lecture."
+        },
+        {
+          "id": "deo2",
+          "category": "right_of_reply",
+          "label": "Right of Reply",
+          "severity": "minor",
+          "status": "caution",
+          "evidence": "Une étape cruciale a été l'abandon de l'idée que le problème était de nature structurelle plutôt que motivé par une politique macroéconomique.",
+          "explanation": "Summers est cité en une phrase puis contredit, sans que son raisonnement soit exposé."
+        },
+        {
+          "id": "deo3",
+          "category": "lying_by_omission",
+          "label": "Lying by Omission",
+          "severity": "minor",
+          "status": "caution",
+          "evidence": "Les alternatives au rationnement du pétrole et de l'essence qui a suivi étaient, au mieux, la nationalisation de l'industrie, du moins l'administration des contrôles par quelqu'un sympathisant avec leur succès",
+          "explanation": "L'échec des contrôles de prix de 1971-1974 est tu, alors qu'il pèse sur la recommandation."
+        }
+      ],
+      "verdict": {
+        "overall": "passable",
+        "editorial_note": "Exposer la thèse adverse sur l'inflation dans sa propre logique et mentionner les précédents d'échec des contrôles de prix."
+      },
+      "summary": "La déontologie n'est pas en cause sur les points durs : pas de fabrication, pas d'atteinte aux personnes, sources et chiffres identifiables. Trois réserves subsistent, toutes liées au traitement expéditif des positions adverses et aux précédents historiques défavorables laissés hors champ."
+    },
+    "review": {
+      "dimensions": [
+        {
+          "dimension": "source_rigor",
+          "label": "Source Rigor",
+          "score": 4,
+          "rationale": "Les chiffres avancés sont traçables et recoupables : les pondérations de l'IPC (« plus de trente pour cent de l'IPC ») renvoient au Bureau of Labor Statistics, la croissance du premier quartile au Wage Growth Tracker de la Fed d'Atlanta, et le propos sur un chômage à 3-3,5 % est **attribué** à son auteur. Le plafond vient de la dissymétrie : les sources officielles servent la thèse, tandis que le camp adverse n'est représenté que par deux citations brèves, Summers et McCracken.",
+          "lesson": "Vérifiez si les sources les mieux documentées servent toutes le même côté de l'argument."
+        },
+        {
+          "dimension": "factual_accuracy",
+          "label": "Factual Accuracy",
+          "score": 4,
+          "rationale": "Les assertions vérifiables tiennent avec des niveaux de confiance élevés (85 à 90), et l'auteur ne se trompe ni sur les pondérations ni sur les séries salariales. Mais une phrase centrale — « L'inflation est le mécanisme de redistribution des revenus réels lorsque les revendications monétaires dépassent la capacité » — est classée `opinion_stated_as_fact`, sans confiance attribuable, et le poste logement repose sur un loyer imputé estimé présenté comme un prix.",
+          "lesson": "Distinguez les chiffres mesurés des grandeurs estimées avant d'accepter le poids qu'on leur donne."
+        },
+        {
+          "dimension": "reasoning_structure",
+          "label": "Reasoning Structure",
+          "score": 3,
+          "rationale": "La chaîne est lisible et explicite : économie manufacturière disparue, donc modèles obsolètes, donc inflation sectorielle. Trois des quatre étapes de `logical_reasoning` portent cependant un problème de validité ou de solidité, dont le passage central — « l'indépendance passée entre deux séries ne garantit pas l'absence d'effet d'une variation future » — qui est exactement le pas dont dépend la recommandation de politique.",
+          "lesson": "Repérez le moment où une corrélation observée dans le passé sert de garantie sur l'avenir."
+        },
+        {
+          "dimension": "approach_transparency",
+          "label": "Approach Transparency",
+          "score": 4,
+          "rationale": "Le point de vue est assumé dès le titre et la conclusion normative sur la planification sectorielle : le lecteur sait qu'il lit une analyse engagée, non un compte rendu. Ce qui reste tu, ce sont les conditions du raisonnement — notamment l'hypothèse que « la mondialisation continuera de maintenir les prix manufacturiers bas », jamais formulée alors que toute la thèse sectorielle repose dessus.",
+          "lesson": "Cherchez l'hypothèse qui doit rester vraie pour que l'argument tienne, puis demandez si l'auteur l'a nommée."
+        },
+        {
+          "dimension": "context_completeness",
+          "label": "Context & Completeness",
+          "score": 2,
+          "rationale": "Le contexte historique est abondant — un tiers du texte sur les années 1950-1970 — mais la période post-2008 qui motive l'argument tient en deux paragraphes, et l'épisode le plus proche de l'outil recommandé, les contrôles de prix de Nixon en 1971-1974, n'est jamais mentionné. L'audit déontologique retient cette omission comme une réserve : l'instrument central n'est pas confronté à son précédent.",
+          "lesson": "Demandez si la solution proposée a déjà été tentée, et pourquoi l'auteur n'en parle pas."
+        },
+        {
+          "dimension": "treatment_fairness",
+          "label": "Treatment Fairness",
+          "score": 2,
+          "rationale": "Le vocabulaire pèse d'un seul côté : « jusqu'à ce que les travailleurs soient suffisamment faibles » requalifie un mécanisme monétaire en acte délibéré contre un groupe. La thèse adverse n'apparaît que sous forme d'une phrase de Summers immédiatement suivie d'une réfutation, et le `focus` va plus loin en faisant de la crainte de l'inflation salariale un obstacle au débat plutôt qu'une position discutable.",
+          "lesson": "Vérifiez si la position adverse est exposée dans sa propre logique avant d'être écartée."
+        },
+        {
+          "dimension": "clarity",
+          "label": "Clarity",
+          "score": 4,
+          "rationale": "Le titre pose d'emblée l'opposition dont dépend tout le texte — spécifique contre général — et le corps ancre l'abstrait dans des montants du quotidien : 20 000 $ de prime d'assurance, 26 900 $ d'année d'université. La densité conceptuelle reste élevée : courbe de Phillips, équivalent loyer des propriétaires, inflation de conflit sont mobilisés sans être tous explicités.",
+          "lesson": "Notez les termes techniques employés sans définition : ils marquent le lecteur que l'auteur vise vraiment."
+        },
+        {
+          "dimension": "angle_originality",
+          "label": "Angle & Originality",
+          "score": 4,
+          "rationale": "Lire l'inflation par la **composition sectorielle des prix** plutôt que par la masse monétaire déplace réellement le débat, et l'observation sur la chute syndicale de 35 % à moins de 7 % donne à la thèse du modèle obsolète un appui concret. L'originalité se paie d'une exposition : publié en janvier 2021, le texte formule des prédictions que la vague inflationniste de 2021-2022 permet de tester, ce que sa rédaction n'anticipe pas.",
+          "lesson": "Datez un texte prospectif avant de le lire, puis confrontez ses prédictions à ce qui a suivi."
+        }
+      ],
+      "verdict": {
+        "quality": "adequate",
+        "reading_recommendation": "with_reservations",
+        "for_whom": "Un lecteur qui suit les débats de politique monétaire et connaît déjà l'argument standard sur l'arbitrage chômage-inflation, assez pour reconstituer lui-même la position adverse que le texte n'expose pas.",
+        "payoff": "Vous repartez avec une grille de lecture précise — décomposer l'inflation poste par poste plutôt que la lire sur un indice agrégé — et avec un cas d'entraînement rare : un texte prospectif de janvier 2021 dont les prédictions se confrontent à ce qui a réellement suivi.",
+        "signature_move": "Une démonstration qui traite l'objection comme déjà réglée : la thèse adverse est citée en une phrase, réfutée à la suivante, et le texte poursuit sur des pages comme si le débat avait eu lieu.",
+        "main_blind_side": "Les contrôles de prix de 1971-1974 sont absents alors qu'ils sont le précédent direct de l'outil recommandé — signe d'un texte écrit pour convaincre un camp plutôt que pour arbitrer entre deux.",
+        "further_resource": {
+          "title": "Inflation is Conflict",
+          "source": "NBER Working Paper, Guido Lorenzoni & Iván Werning",
+          "media_type": "academic_paper",
+          "why_explore": "Le même mécanisme de conflit distributif y est formalisé et testé, avec les conditions sous lesquelles il tient — celles que l'article laisse implicites.",
+          "url": "https://www.nber.org/papers/w31099"
+        },
+        "summary": "Lecture recommandée avec réserves pour qui connaît déjà le débat : la décomposition sectorielle des prix est solide et utile, mais la thèse adverse est écartée en une phrase et le précédent des contrôles de prix de 1971-1974 reste hors champ. À lire en gardant la position opposée en tête."
+      }
+    },
+    "blend": {
+      "patterns": [
+        {
+          "text": "L'hypothèse jamais formulée que les prix manufacturiers resteront bas sert de socle à la distinction sectoriel/général, et c'est précisément elle que la vague de 2021-2022 a **invalidée** — une omission qui déplace la thèse du registre structurel au registre conjoncturel.",
+          "layers": [
+            "logic",
+            "probe",
+            "review"
+          ],
+          "references": [
+            "ia_2",
+            "obs_0",
+            "bias_1"
+          ]
+        },
+        {
+          "text": "Le pas logique le plus fragile — une corrélation passée entre salaires et prix des services érigée en garantie sur l'avenir — est aussi celui qui porte la **recommandation de politique**, et le seul que Probe identifie comme sophisme : la faiblesse argumentative se loge exactement là où l'enjeu est maximal.",
+          "layers": [
+            "logic",
+            "probe",
+            "review"
+          ],
+          "references": [
+            "lr_1",
+            "ia_0",
+            "bias_1"
+          ]
+        },
+        {
+          "text": "Le traitement expéditif de Summers apparaît comme angle mort dans Logic, comme biais dans Probe et comme réserve déontologique dans Ethics : trois lectures indépendantes convergent sur la même **économie de l'objection**, citée pour être réfutée plutôt que dépliée.",
+          "layers": [
+            "logic",
+            "probe",
+            "ethics",
+            "review"
+          ],
+          "references": [
+            "bs_1",
+            "bias_2",
+            "obs_2"
+          ]
+        },
+        {
+          "text": "Le vocabulaire du rapport de forces ne décore pas l'argument, il le **remplace** : requalifier la désinflation en mise au chômage délibérée dispense d'établir empiriquement la thèse de l'inflation comme conflit distributif, restée une définition sans test.",
+          "layers": [
+            "rhetoric",
+            "probe",
+            "logic"
+          ],
+          "references": [
+            "er_0",
+            "claim_2",
+            "pr_2",
+            "bias_0"
+          ]
+        },
+        {
+          "text": "L'absence des contrôles de prix de 1971-1974 est le point où angle mort, réserve déontologique et contre-argument le plus fort se superposent : l'**instrument recommandé** est le seul élément du texte à n'être confronté à aucun précédent.",
+          "layers": [
+            "logic",
+            "ethics",
+            "review"
+          ],
+          "references": [
+            "bs_0",
+            "obs_4",
+            "pr_3"
+          ]
+        },
+        {
+          "text": "La date de publication explique la structure : à quelques jours de l'investiture et six mois après le virage doctrinal de la Fed, le cadrage sectoriel **désarme** l'argument inflationniste contre la relance au moment exact où son volume se négocie.",
+          "layers": [
+            "rhetoric",
+            "logic",
+            "review"
+          ],
+          "references": [
+            "cb_0",
+            "cb_1",
+            "obs_1"
+          ]
+        },
+        {
+          "text": "Les chiffres les mieux sourcés — pondérations BLS, Wage Growth Tracker, propos de la Fed — servent tous le même côté, tandis que l'assertion centrale sur la nature de l'inflation est la seule sans confiance attribuable : la **rigueur documentaire est asymétrique**, plus forte sur les appuis que sur le socle.",
+          "layers": [
+            "probe",
+            "review",
+            "logic"
+          ],
+          "references": [
+            "claim_0",
+            "claim_1",
+            "claim_2",
+            "pr_2"
+          ]
+        },
+        {
+          "text": "L'accumulation de montants du quotidien rend l'indice agrégé intuitivement hors sujet, alors que le poste le plus lourd de cet empilement repose sur un **loyer imputé estimé** — l'effet de concret masque une grandeur qui n'est pas observée.",
+          "layers": [
+            "rhetoric",
+            "probe",
+            "logic"
+          ],
+          "references": [
+            "er_1",
+            "claim_0",
+            "obs_3"
+          ]
+        }
+      ]
+    },
+    "distill": {
+      "points": [
+        {
+          "text": "Le pas logique le plus fragile — une corrélation passée entre salaires et prix des services érigée en garantie sur l'avenir — est aussi celui qui porte la **recommandation de politique**. La faiblesse argumentative se loge exactement là où l'enjeu est maximal.",
+          "references": [
+            "lr_1",
+            "ia_0",
+            "bias_1"
+          ]
+        },
+        {
+          "text": "L'hypothèse jamais formulée que les prix manufacturiers resteront bas sert de socle à la distinction sectoriel/général, et c'est elle que la vague de 2021-2022 a **invalidée** : une omission qui déplace la thèse du registre structurel au registre conjoncturel.",
+          "references": [
+            "ia_2",
+            "obs_0",
+            "bias_1"
+          ]
+        },
+        {
+          "text": "Le vocabulaire du rapport de forces ne décore pas l'argument, il le **remplace** : requalifier la désinflation en mise au chômage délibérée dispense d'établir empiriquement la thèse de l'inflation comme conflit distributif, restée une définition sans test.",
+          "references": [
+            "er_0",
+            "claim_2",
+            "pr_2",
+            "bias_0"
+          ]
+        },
+        {
+          "text": "Le traitement expéditif de Summers apparaît comme angle mort, comme biais et comme réserve déontologique : trois lectures indépendantes convergent sur la même **économie de l'objection**, citée pour être réfutée plutôt que dépliée.",
+          "references": [
+            "bs_1",
+            "bias_2",
+            "obs_2"
+          ]
+        },
+        {
+          "text": "Les chiffres les mieux sourcés — pondérations BLS, Wage Growth Tracker, propos de la Fed — servent tous le même côté, tandis que l'assertion centrale sur la nature de l'inflation est la seule sans confiance attribuable : la **rigueur documentaire est asymétrique**.",
+          "references": [
+            "claim_0",
+            "claim_1",
+            "claim_2",
+            "pr_2"
+          ]
+        }
+      ],
+      "open_questions": [
+        "Quelle part de l'inflation relève effectivement d'un conflit distributif plutôt que de coûts ?",
+        "Les contrôles de prix de 1971-1974 ont-ils tenu leurs effets, et à quel coût ?",
+        "Le loyer imputé, non observé, pèse combien dans la hausse mesurée de l'indice ?"
+      ]
+    },
+    "guide": {
+      "pre_reading": [
+        "Ce texte est une prise de position, pas un compte rendu : il défend une lecture de l'inflation poste par poste contre la lecture par la masse monétaire, et tout son raisonnement tient à cette distinction.",
+        "Gardez en tête la date : publié en janvier 2021, il formule des prédictions que la vague inflationniste de 2021-2022 permet aujourd'hui de confronter aux faits.",
+        "Connaître l'argument classique sur l'arbitrage entre chômage et inflation vous sera utile, car le texte l'écarte sans vraiment l'exposer."
+      ],
+      "watch_out": {
+        "items": [
+          {
+            "id": "",
+            "text": "Toute la démonstration repose sur une hypothèse que l'auteur ne formule jamais : que les prix des biens manufacturés resteront durablement bas. Cherchez-la en filigrane, et demandez-vous ce qu'il reste de la thèse si elle tombe.",
+            "references": [
+              "ia_2",
+              "obs_0",
+              "bias_1"
+            ]
+          },
+          {
+            "id": "",
+            "text": "Le moment où l'article passe de l'observation à la recommandation s'appuie sur un constat du passé — deux séries qui n'ont pas bougé ensemble — transformé en garantie sur l'avenir. C'est le maillon le plus fragile, et c'est celui qui porte la conclusion politique.",
+            "references": [
+              "lr_1",
+              "ia_0",
+              "bias_1"
+            ]
+          },
+          {
+            "id": "",
+            "text": "La position adverse est citée en une phrase puis réfutée dans la suivante, alors que le reste du texte se déploie sur plusieurs pages. Vous lirez l'objection sous la forme que l'auteur lui donne, pas sous celle que ses défenseurs revendiquent.",
+            "references": [
+              "bs_1",
+              "bias_2",
+              "obs_2"
+            ]
+          },
+          {
+            "id": "",
+            "text": "Le vocabulaire du rapport de forces fait beaucoup de travail à la place de la démonstration : décrire une politique monétaire comme une mise au chômage volontaire donne pour acquis ce que le texte devait établir.",
+            "references": [
+              "er_0",
+              "pr_2",
+              "bias_0"
+            ]
+          },
+          {
+            "id": "",
+            "text": "Les montants concrets — primes d'assurance, frais de scolarité, loyers — rendent la démonstration très tangible, mais le poste le plus lourd de l'indice repose sur un loyer imputé, une grandeur estimée et non observée.",
+            "references": [
+              "er_1",
+              "claim_0",
+              "obs_3"
+            ]
+          }
+        ]
+      },
+      "after_reading": [
+        "Retenez l'outil plutôt que la conclusion : décomposer l'inflation secteur par secteur reste utile même si vous n'adhérez pas à la politique recommandée.",
+        "Reprenez les prédictions du texte et confrontez-les à ce qui s'est produit en 2021-2022 : c'est un exercice rare que sa date rend possible.",
+        "Demandez-vous où sont passés les contrôles de prix des années 1971-1974, seul précédent direct de l'instrument que l'article recommande.",
+        "Notez que les sources les mieux documentées appuient toutes le même côté, tandis que l'affirmation centrale sur la nature de l'inflation n'est adossée à aucune mesure."
+      ],
+      "title_note": "Le titre pose d'emblée l'opposition entre inflation spécifique et inflation générale comme une évidence, alors que c'est précisément la distinction que le texte doit démontrer.",
+      "perspective": {
+        "framing": "L'article lit l'inflation comme un phénomène de composition — quels postes montent, et pourquoi — plutôt que comme un agrégat monétaire, et place au centre la structure sectorielle de l'économie américaine après la disparition de son socle industriel. Le registre est celui du rapport de forces entre salariés et détenteurs de capital, et le texte parle depuis les intérêts des travailleurs, avec une conclusion normative assumée en faveur d'une planification sectorielle.",
+        "blind_spots": "Les contrôles de prix mis en œuvre aux États-Unis entre 1971 et 1974 — précédent direct de l'instrument recommandé — ne sont jamais évoqués, pas même pour être écartés. La période post-2008, qui motive pourtant l'argument, tient en deux paragraphes là où les décennies 1950-1970 en occupent un tiers du texte.",
+        "balance": "C'est un essai d'opinion qui annonce sa position dès le titre : il n'a pas à exposer toutes les thèses en présence, et un format court impose d'élaguer. Les réserves signalées ici portent moins sur ce qui manque que sur l'endroit où manque : l'hypothèse tue et le précédent absent touchent précisément le cœur de l'argument, pas ses marges."
+      }
+    },
+    "core_elements": {
+      "elements": [
+        {
+          "statement": "L'article défend que l'inflation actuelle vient des services — loyer, santé, éducation — et non des salaires.",
+          "kind": "affirmation",
+          "centrality": 5,
+          "seeds": {
+            "source": "premisse",
+            "index": 1,
+            "excerpt": "Les services — loyer, santé, éducation, transports — pèsent l'essentiel du coût de la vie",
+            "strength": 1.0,
+            "nature": "illustration"
+          }
+        },
+        {
+          "statement": "L'inflation y est décrite comme un rapport de forces entre revendications de revenus rivales.",
+          "kind": "angle",
+          "centrality": 5,
+          "seeds": {
+            "source": "premisse",
+            "index": 2,
+            "excerpt": "L'inflation est un mécanisme de redistribution entre revendications de revenus rivales",
+            "strength": 1.0,
+            "nature": "illustration"
+          }
+        },
+        {
+          "statement": "L'enjeu politique : lutter contre l'inflation par le chômage, ou par la restructuration des secteurs.",
+          "kind": "enjeu",
+          "centrality": 4,
+          "seeds": {
+            "source": "premisse",
+            "index": 3,
+            "excerpt": "Les politiques anti-inflationnistes classiques passent par la hausse du chômage",
+            "strength": 1.0,
+            "nature": "inference"
+          }
+        },
+        {
+          "statement": "Un long détour par 1950-1980 sert à montrer que les modèles hérités décrivent un monde disparu.",
+          "kind": "angle",
+          "centrality": 4,
+          "seeds": {
+            "source": "premisse",
+            "index": 0,
+            "excerpt": "conçus pour une économie manufacturière nationale et syndiquée qui n'existe plus",
+            "strength": 0.9,
+            "nature": "illustration"
+          }
+        },
+        {
+          "statement": "Le texte réclame une planification sectorielle sans en chiffrer le financement ni l'administration.",
+          "kind": "biais",
+          "centrality": 3,
+          "seeds": {
+            "source": "blind_spot",
+            "index": 3,
+            "excerpt": "Le financement et l'administration concrets de la planification sectorielle réclamée",
+            "strength": 1.0,
+            "nature": "illustration"
+          }
+        }
+      ]
+    }
+  },
+  "presentation": {
+    "caption": "« L'inflation est le mécanisme de redistribution des revenus réels […]. » Un essai de Phenomenal World relit la hausse des prix américaine poste par poste : le logement pèse à lui seul plus de 30 % de l'indice. 📈\n\n🔎 Trois réflexes pour lire ce texte : une définition ou déjà une thèse, un pourcentage mesuré ou estimé, et ce qui arrive si la mondialisation cesse de tenir les prix bas.\n\n💬 Que faudrait-il observer pour admettre que les salaires poussent aussi les prix ?\n\n🔗 Lien vers l'article en commentaires ↓",
+    "hook": {
+      "topic": "Inflation : les **services** d'abord",
+      "sub_topic": "Les prix montent : **qui** en paie la facture ?",
+      "headline": "Hausse des prix : **qui** en supporte le coût ?",
+      "context_line": "Janvier 2021 : Washington débat de la taille de la relance et du risque inflationniste.",
+      "sub_topic_alt": [
+        "Une hausse des prix : venue des **salaires**, vraiment ?",
+        "Faire baisser les prix : au prix de **quels emplois** ?",
+        "Un indice unique pour des prix qui ne **bougent pas ensemble** ?"
+      ]
+    },
+    "interest": {
+      "why_read": "Décomposer l'inflation **poste par poste** plutôt que la lire d'un bloc.",
+      "pull_quote": "La hausse des prix est un indice de tension sociale.",
+      "next_slide_hook": "D'abord, d'où parle ce texte et à quel moment."
+    },
+    "title_bullets": [
+      "Repérez l'opposition posée d'emblée : **spécifique** contre **générale**.",
+      "Notez que le mot « inflation » est traité comme un terme à **redéfinir**.",
+      "Demandez-vous qui gagne à ce que la distinction soit **admise** d'avance."
+    ],
+    "chapo_bullets": [
+      "Observez que la position est **assumée** dès les premières lignes.",
+      "Repérez le vocabulaire du **rapport de forces** installé très tôt.",
+      "Notez l'absence de chiffres hors **États-Unis** dans l'ouverture."
+    ],
+    "context_next_slide_hook": "Deux réflexes à garder en main avant d'entrer dans le texte.",
+    "watch_out_next_slide_hook": "Trois moments où l'argument se joue vraiment.",
+    "forme_next_slide_hook": "Les chiffres tiennent-ils, et lesquels ?",
+    "biases_next_slide_hook": "Ce que toute la démonstration doit tenir pour acquis.",
+    "engagement_question": "Faire baisser les prix par le chômage, ou par la réorganisation de secteurs entiers : à qui revient ce choix ?",
+    "go_further": [
+      {
+        "title": "Inflation is Conflict",
+        "source": "NBER Working Paper, Guido Lorenzoni & Iván Werning",
+        "media_type": "academic_paper",
+        "category": "deep_dive",
+        "url": "https://www.nber.org/papers/w31099",
+        "duration_minutes": 45,
+        "why_explore": "Le même mécanisme de conflit distributif, formalisé avec les conditions sous lesquelles il tient.",
+        "cta_question_index": null
+      }
+    ],
+    "cta": {
+      "title": "Nommer la cause, c'est déjà désigner qui paie",
+      "engagement_sentence": "Que faudrait-il observer pour admettre que les salaires poussent aussi les prix ?",
+      "engagement_sentence_alt": [
+        "Chômage plus élevé, ou secteurs réorganisés : lequel coûte le moins, et à qui ?",
+        "Qui supporte le coût pendant qu'on attend de savoir laquelle des deux lectures est bonne ?",
+        "Que manquerait-il à ce texte pour que sa recommandation soit applicable ?"
+      ],
+      "post_reading_questions": [
+        {
+          "id": "q_0",
+          "question": "Les contrôles de prix déjà tentés ailleurs ont-ils tenu leurs promesses, et à quel coût ?",
+          "type": "blind_spot"
+        },
+        {
+          "id": "q_1",
+          "question": "Que mesure vraiment l'indice des prix quand un tiers de son poids est un loyer estimé ?",
+          "type": "topic_substance"
+        },
+        {
+          "id": "q_2",
+          "question": "Auriez-vous lu ce texte de la même façon si vous ne connaissiez pas l'inflation de 2022 ?",
+          "type": "reader_bias"
+        },
+        {
+          "id": "q_3",
+          "question": "La position adverse vous a-t-elle été exposée assez pour que vous puissiez la défendre ?",
+          "type": "article_quality"
+        }
+      ]
+    },
+    "display": {
+      "thesis_frame": {
+        "main_claim": "L'inflation vient de quelques secteurs de services, pas des salaires ni de la monnaie.",
+        "out_of_scope": [
+          "Le niveau souhaitable du salaire minimum",
+          "L'inflation hors des États-Unis",
+          "Le financement de la dette publique fédérale"
+        ]
+      },
+      "payoff": "Lire une hausse des prix **secteur par secteur**, et voir qui **supporte** chaque remède.",
+      "framing": "L'inflation lue comme une **composition de prix**, pas comme un agrégat monétaire.",
+      "why_selected": "Loyer, santé, éducation, transports : ces postes pèsent l'essentiel d'un budget américain, et leurs prix montent depuis 1975 sans que les **salaires** suivent.\nLe texte oppose deux remèdes — relever le **chômage** ou réorganiser ces secteurs — et dit lequel coûte à qui.",
+      "selection_headline": "Deux remèdes aux prix, deux **factures**",
+      "selection_headline_alt": [
+        "Quatre postes de dépense, une thèse",
+        "Le chômage comme outil anti-inflation",
+        "Les services pèsent, les salaires suivent mal"
+      ],
+      "ethics": "Pas de fabrication ; la thèse adverse est **expédiée** en une phrase.",
+      "pre_reading": [
+        "Texte de janvier 2021 : ses **prédictions** sont testables aujourd'hui.",
+        "C'est une **prise de position**, pas un compte rendu."
+      ],
+      "watch_out": [
+        {
+          "label": "corrélation érigée en garantie",
+          "text": "Un lien **absent hier** entre deux séries sert de promesse sur **demain**."
+        },
+        {
+          "label": "objection citée pour être écartée",
+          "text": "La thèse opposée tient en **une phrase**, la réfutation dans la **suivante**."
+        }
+      ],
+      "strengths": [
+        {
+          "label": "Rigueur des sources",
+          "text": "Pondérations et séries salariales **traçables** auprès des statistiques officielles américaines."
+        },
+        {
+          "label": "Transparence de l'angle",
+          "text": "La position **normative** est annoncée dès le titre, pas dissimulée."
+        }
+      ],
+      "distill_points": [
+        "Le pas le plus fragile du raisonnement est celui qui porte la **recommandation politique**.",
+        "L'hypothèse jamais écrite — des prix manufacturés durablement bas — a été **démentie** en 2021-2022.",
+        "Les chiffres les mieux sourcés appuient tous le même côté ; le **socle théorique**, aucun."
+      ],
+      "after_reading": [
+        "Retenir l'outil : décomposer les prix **poste par poste**.",
+        "Confronter ses prédictions à l'**inflation de 2021-2022**.",
+        "Chercher le précédent absent : les **contrôles de prix** américains."
+      ],
+      "key_takeaways": [
+        {
+          "text": "Le logement pèse plus de **30 %** de l'indice des prix américain.",
+          "selected": true
+        },
+        {
+          "text": "Entre 2015 et 2020, les **bas salaires** ont progressé plus vite que les autres.",
+          "selected": true
+        },
+        {
+          "text": "La syndicalisation privée américaine est passée de **35 %** à moins de **7 %**.",
+          "selected": true
+        },
+        {
+          "text": "Le poste logement repose sur un **loyer estimé**, pas sur des prix observés.",
+          "selected": false
+        },
+        {
+          "text": "Une année d'université publique était facturée près de **27 000 $**.",
+          "selected": false
+        },
+        {
+          "text": "L'inflation américaine a atteint **9 %** dix-huit mois après ce texte.",
+          "selected": false
+        }
+      ],
+      "blind_spots": [
+        "Les contrôles de prix américains de **1971-1974** ne sont jamais évoqués.",
+        "La période **post-2008**, qui motive l'argument, tient en deux paragraphes."
+      ],
+      "balance": [
+        "C'est un **essai d'opinion** : il annonce sa position dès le titre.",
+        "Les réserves portent sur le **cœur** de l'argument, pas sur ses marges."
+      ],
+      "lenses": [],
+      "reading_beats": [
+        {
+          "moment": "L'inflation redéfinie : un partage, pas une quantité de monnaie",
+          "quote": "L'inflation est le mécanisme de redistribution des revenus réels lorsque les revendications monétaires dépassent la capacité.",
+          "lens_ref": "opinion_fait",
+          "lens_question": "Une définition, ou déjà une thèse ?",
+          "note": "Devant une phrase donnée comme une **définition**, cherchez ce qu'elle décide à la place du lecteur.",
+          "answer": "**Déjà une thèse** : c'est la seule affirmation centrale du texte sans chiffre ni référence, là où d'autres écoles y voient un déséquilibre monétaire.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "factcheck": "unverifiable",
+          "selected": true,
+          "theme": "Nature de l'inflation",
+          "centrality": 5,
+          "kind": "affirmation",
+          "role": "pivot",
+          "rationale": "Le socle théorique de toute la démonstration"
+        },
+        {
+          "moment": "Le panier américain, poste par poste",
+          "quote": "Le loyer (ou « équivalent des propriétaires ») à lui seul représente plus de trente pour cent de l'IPC […] les soins médicaux 9 % supplémentaires […] et l'éducation 3 %.",
+          "lens_ref": "chiffres",
+          "lens_question": "Un pourcentage : mesuré, ou estimé ?",
+          "note": "Devant une part qui écrase les autres, demandez comment le prix sous-jacent est **relevé**.",
+          "answer": "**Estimé** pour le poste le plus lourd : le loyer des propriétaires est ce qu'ils **paieraient** s'ils louaient, une réponse d'enquête, pas un prix payé.",
+          "figure": "30 %",
+          "figure_label": "du panier américain pour le seul logement",
+          "figure_caption": "",
+          "factcheck": "true",
+          "selected": true,
+          "theme": "Mesure des prix",
+          "centrality": 5,
+          "kind": "statistique",
+          "role": "preuve",
+          "rationale": "L'appui chiffré central, avec une grandeur estimée"
+        },
+        {
+          "moment": "Les modèles hérités décrivent une économie disparue",
+          "quote": "Ce modèle est l'artefact d'un monde où une part bien plus importante des chaînes d'approvisionnement manufacturières se trouvait dans un seul pays […].",
+          "lens_ref": "angles_morts",
+          "lens_question": "Et si la mondialisation cessait de tenir les prix bas ?",
+          "note": "Quand un argument repose sur une rupture historique, demandez ce qui la rendrait **réversible**.",
+          "answer": "Le texte n'écrit jamais la condition dont il dépend — des chaînes mondiales qui maintiennent les prix des biens bas ; l'année suivante, elles se sont **grippées**.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "factcheck": "",
+          "selected": true,
+          "theme": "Obsolescence des modèles",
+          "centrality": 4,
+          "kind": "affirmation",
+          "role": "appui",
+          "rationale": "L'hypothèse tue qui porte toute la distinction"
+        },
+        {
+          "moment": "Baisser les prix en affaiblissant les salariés",
+          "quote": "La solution habituelle consiste à augmenter le taux de chômage jusqu'à ce que les travailleurs soient suffisamment faibles pour modérer les revendications salariales.",
+          "lens_ref": "cadrage",
+          "lens_question": "Un mécanisme, ou une intention prêtée ?",
+          "note": "Repérez le moment où un **instrument** de politique est décrit comme un acte dirigé contre quelqu'un.",
+          "answer": "La formule requalifie un outil monétaire en décision prise **contre un groupe** — et dispense d'établir la thèse du conflit distributif que le texte n'a pas démontrée.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "factcheck": "",
+          "selected": false,
+          "theme": "Registre du rapport de forces",
+          "centrality": 4,
+          "kind": "biais",
+          "role": "mise en scène",
+          "rationale": "Le vocabulaire qui remplace la démonstration"
+        },
+        {
+          "moment": "Des salaires bas qui montent vite, sans effet sur les prix",
+          "quote": "Entre 2015 et 2020, la croissance des salaires dans le premier quartile — ceux qui gagnaient environ 600 $ par semaine […] — a dépassé les trois quarts restants du marché du travail.",
+          "lens_ref": "causalite",
+          "lens_question": "Une hausse sans effet hier : une garantie pour demain ?",
+          "note": "Quand deux séries n'ont pas bougé ensemble, demandez si l'une a vraiment été **mise à l'épreuve**.",
+          "answer": "**Non** : la comparaison porte sur des niveaux de salaire, jamais sur la part que la main-d'œuvre représente dans les coûts de la santé ou de l'éducation.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "factcheck": "true",
+          "selected": false,
+          "theme": "Salaires et prix",
+          "centrality": 4,
+          "kind": "statistique",
+          "role": "preuve",
+          "rationale": "Le pas logique qui porte la recommandation"
+        },
+        {
+          "moment": "La thèse adverse résumée en une phrase, puis quittée",
+          "quote": "Une étape cruciale a été l'abandon de l'idée que le problème était de nature structurelle plutôt que motivé par une politique macroéconomique.",
+          "lens_ref": "equilibre",
+          "lens_question": "L'autre camp parle-t-il avec ses propres mots ?",
+          "note": "Comptez les lignes accordées à l'objection, puis celles accordées à sa réfutation.",
+          "answer": "Une phrase de Larry Summers, économiste démocrate, suivie aussitôt de « la véritable cause était structurelle » : le raisonnement adverse n'est jamais **déplié**.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "factcheck": "",
+          "selected": false,
+          "theme": "Traitement des contradicteurs",
+          "centrality": 3,
+          "kind": "biais",
+          "role": "concession",
+          "rationale": "L'objection citée pour être écartée"
+        },
+        {
+          "moment": "Le plein emploi posé comme intangible",
+          "quote": "Le plein emploi ne devrait pas être sacrifié dans une tentative de baisser les prix.",
+          "lens_ref": "opinion_fait",
+          "lens_question": "Un arbitrage, ou une priorité déjà fixée ?",
+          "note": "Repérez la phrase qui pose une **priorité** sans la présenter comme un choix discutable.",
+          "answer": "La priorité est **posée d'emblée** : l'article ne dit pas ce qu'il faudrait faire si les prix montaient malgré tout une fois le plein emploi atteint.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "factcheck": "",
+          "selected": false,
+          "theme": "Enjeu politique",
+          "centrality": 3,
+          "kind": "enjeu",
+          "role": "pivot",
+          "rationale": "La valeur qui commande la recommandation"
+        },
+        {
+          "moment": "Une question finale qui déplace le débat",
+          "quote": "Mais tant que nous nous préoccuperons de l'inflation généralisée causée par la hausse des salaires, de telles questions resteront hors de question.",
+          "lens_ref": "cadrage",
+          "lens_question": "Une crainte discutable, ou un obstacle à écarter ?",
+          "note": "Notez quand une objection est traitée comme un **empêchement** plutôt que comme une position.",
+          "answer": "La crainte de l'inflation salariale devient un **verrou** à lever, et le texte ne dit pas ce qu'il adviendrait des questions posées si elle se vérifiait.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "factcheck": "",
+          "selected": false,
+          "theme": "Focus éditorial",
+          "centrality": 3,
+          "kind": "biais",
+          "role": "mise en scène",
+          "rationale": "La clôture qui ferme le débat qu'elle ouvre"
+        }
+      ],
+      "global_analysis": {
+        "headline": "L'inflation se joue dans quelques **secteurs**, pas dans les salaires",
+        "headline_alt": [
+          "Faire baisser les prix sans passer par le **chômage**",
+          "Le coût de la vie se décide **secteur par secteur**",
+          "Les modèles d'hier décrivent une économie qui n'est plus"
+        ],
+        "core_recap": [
+          "Ce qu'il tient pour acquis : que l'inflation est un **conflit de revenus**, pas de monnaie ; que les gros postes du budget sont ceux où **agir** ; que les prix des biens importés resteront bas"
+        ]
+      },
+      "open_question": "Quelle part d'une hausse des prix relève du partage des revenus, et quelle part des coûts ?",
+      "root_issue": "Chaque levier fait payer quelqu'un : la banque centrale baisse les prix par le **chômage**, le législateur par la dépense et la règle. Choisir qui tient le levier, c'est choisir quels ménages absorbent l'ajustement — et ce choix n'est jamais soumis au vote.",
+      "steel_man": {
+        "argument": "Rétablir le **plein emploi** relance le canal salaires-prix là où la main-d'œuvre est le premier coût : santé, éducation.",
+        "alternative": "Les salaires du bas pousseraient précisément les postes les plus lourds du budget."
+      },
+      "reperes_headline": "Avant de lire : le contexte et deux réflexes",
+      "bilan_headline": "Ce que ce texte permet de voir",
+      "essentiel": [
+        "Le **logement** pèse plus de 30 % de l'indice des prix américain",
+        "Depuis 1975, le remède classique passe par plus de **chômage**",
+        "L'auteur conclut : pour freiner ces prix, réformer ces **secteurs**, pas l'emploi"
+      ],
+      "essentiel_summary": "L'article décompose l'indice des prix américain : **plus de 30 %** pour le logement, 9 % pour la santé, 9 % pour les transports, 3 % pour l'éducation. Ces prix montent depuis 1975 sans suivre les salaires. Il en conclut que l'inflation est **sectorielle** et que la combattre par le **chômage** vise la mauvaise cause."
+    }
+  }
+}

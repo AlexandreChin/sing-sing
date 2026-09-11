@@ -1,0 +1,298 @@
+{
+  "article_type": "opinion",
+  "key_claims": [
+    {
+      "quote": "Bien que nous comprenions les variations des prix individuelles dans chaque industrie en termes d'offre, de demande et de pouvoir de marché, nos outils conceptuels pour comprendre l'inflation restent faibles.",
+      "type": "factual"
+    },
+    {
+      "quote": "la Réserve fédérale a annoncé en août 2020 qu'elle maintiendrait les taux d'intérêt proches de zéro jusqu'à ce que le taux annuel d'augmentation de l'IPC soit « modérément supérieur à deux pour cent pendant un certain temps »",
+      "type": "factual"
+    },
+    {
+      "quote": "L'inflation est le mécanisme de redistribution des revenus réels lorsque les revendications monétaires dépassent la capacité.",
+      "type": "factual"
+    },
+    {
+      "quote": "La solution habituelle consiste à augmenter le taux de chômage jusqu'à ce que les travailleurs soient suffisamment faibles pour modérer les revendications salariales.",
+      "type": "factual"
+    },
+    {
+      "quote": "Le loyer (ou « équivalent des propriétaires ») à lui seul représente plus de trente pour cent de l'IPC, les services publics et les transports représentent 9 %, les soins médicaux 9 % supplémentaires, la nourriture loin de chez soi 6 % et l'éducation 3 %.",
+      "type": "statistical"
+    },
+    {
+      "quote": "Dans le secteur des services, les prix des médicaments et de l'éducation ont augmenté plus rapidement que les salaires horaires moyens dans l'ensemble du secteur non agricole à chaque reprise depuis 1975.",
+      "type": "statistical"
+    },
+    {
+      "quote": "en 2019, les primes moyennes d'assurance santé pour les polices collectives basées sur l'employeur avec couverture familiale s'élevaient à environ 20 000 $ par an",
+      "type": "statistical"
+    },
+    {
+      "quote": "Ces prix de service représentent une augmentation de dix fois depuis 1975, lorsque le salaire horaire moyen augmentait de moins de la moitié.",
+      "type": "statistical"
+    },
+    {
+      "quote": "Entre 2015 et 2020, la croissance des salaires dans le premier quartile — ceux qui gagnaient environ 600 $ par semaine, ou 15 $ de l'heure pour une semaine de 40 heures, en 2019 — a dépassé les trois quarts restants du marché du travail.",
+      "type": "statistical"
+    },
+    {
+      "quote": "C'est l'échec de Lyndon Johnson à évoluer vers une économie contrôlée qui a déclenché la spirale salaires-prix",
+      "type": "factual"
+    },
+    {
+      "quote": "Les premières tentatives de contenir l'inflation [durant les années soixante-dix] étaient trop timides pour être efficaces, et le succès n'a été obtenu qu'avec une politique très déterminée.",
+      "source": "Larry Summers",
+      "type": "attributed"
+    },
+    {
+      "quote": "les causes immédiates des graves problèmes",
+      "source": "étude de l'OCDE sur la stagflation, rédigée par Paul McCracken",
+      "type": "attributed"
+    },
+    {
+      "quote": "On peut avoir un chômage de 3 à 3,5 % pendant quelques années, et en réalité, on observe des mouvements modestes des salaires et des mouvements presque invisibles de l'inflation.",
+      "source": "Jerome Powell, président de la Réserve fédérale",
+      "type": "attributed"
+    },
+    {
+      "quote": "Les travailleuses domestiques pourraient obtenir un plus grand pouvoir de négociation sur les salaires... Surtout dans les régions où le balancier politique penche en faveur de la lutte contre les inégalités.",
+      "source": "prévisionnistes de BlackRock",
+      "type": "attributed"
+    },
+    {
+      "quote": "Je choisirais la propriété publique des compagnies pétrolières, si je ne pensais pas que les politiciens nationaux étaient une bande de voleurs.",
+      "source": "un habitant de Brooklyn, cité par le sociologue Jonathan Rieder",
+      "type": "testimonial"
+    },
+    {
+      "quote": "le prix au comptant de la tôle en tôle spiralée plus que doublé depuis les plus bas d'août",
+      "type": "statistical"
+    },
+    {
+      "quote": "la politique anti-inflation doit sortir des mains de la politique générale de l'emploi pour passer à des programmes spécifiques pour les secteurs problématiques",
+      "type": "factual"
+    }
+  ],
+  "key_quotes": [
+    "L'inflation est le mécanisme de redistribution des revenus réels lorsque les revendications monétaires dépassent la capacité.",
+    "La solution habituelle consiste à augmenter le taux de chômage jusqu'à ce que les travailleurs soient suffisamment faibles pour modérer les revendications salariales. Mais lorsque l'augmentation de l'emploi est une priorité absolue, cette solution disparaît.",
+    "La hausse des prix est un indice de tension sociale : qu'il s'agisse entre consommateurs pour une quantité donnée de biens ou services, entre la classe ouvrière et les employeurs sur le revenu de la production, ou entre nations sur les termes de l'échange.",
+    "Ce modèle est l'artefact d'un monde où une part bien plus importante des chaînes d'approvisionnement manufacturières se trouvait dans un seul pays et où les services représentaient une part bien plus faible du PIB.",
+    "Pour la majorité des personnes, pour qui les salaires sont un revenu plutôt qu'un coût de production, il est crucial de concevoir des politiques alternatives anti-inflationnistes.",
+    "Ces prix en hausse sont de nature structurelle, et s'ils sont poussés davantage par la hausse des salaires, la retenue fiscal-monétaire ne fera rien pour les faire baisser.",
+    "Le plein emploi ne devrait pas être sacrifié dans une tentative de baisser les prix.",
+    "Mais tant que nous nous préoccuperons de l'inflation généralisée causée par la hausse des salaires, de telles questions resteront hors de question.",
+    "On peut avoir un chômage de 3 à 3,5 % pendant quelques années, et en réalité, on observe des mouvements modestes des salaires et des mouvements presque invisibles de l'inflation.",
+    "C'est l'échec de Lyndon Johnson à évoluer vers une économie contrôlée qui a déclenché la spirale salaires-prix"
+  ],
+  "key_actors": [
+    {
+      "name": "Réserve fédérale (Fed)",
+      "role": "Banque centrale américaine ; a annoncé en août 2020 une tolérance à une inflation supérieure à 2 %"
+    },
+    {
+      "name": "Jerome Powell",
+      "role": "Président de la Réserve fédérale, cité sur le découplage entre chômage bas et inflation"
+    },
+    {
+      "name": "BlackRock",
+      "role": "Plus grand gestionnaire d'actifs au monde ; ses prévisionnistes s'inquiètent du pouvoir de négociation salariale"
+    },
+    {
+      "name": "Larry Summers",
+      "role": "Économiste cité comme représentant de l'interprétation macroéconomique de la stagflation"
+    },
+    {
+      "name": "Paul McCracken",
+      "role": "Ancien président du CEA de Nixon, auteur de l'étude OCDE de 1977 sur la stagflation"
+    },
+    {
+      "name": "Lyndon Johnson",
+      "role": "Président américain dont l'auteur situe l'échec à instaurer une économie contrôlée à l'origine de la spirale salaires-prix"
+    },
+    {
+      "name": "Richard Nixon",
+      "role": "Président sous lequel s'accélère la hausse des prix avec le choc pétrolier OPEP de 1973"
+    },
+    {
+      "name": "Arthur Goldberg",
+      "role": "Secrétaire au Travail, ancien conseiller du CIO ; négocie une politique salariale nationale avec l'AFL-CIO"
+    },
+    {
+      "name": "George Shultz et William Simon",
+      "role": "Secrétaires au Trésor présentés comme peu favorables au succès des contrôles de prix"
+    },
+    {
+      "name": "Fred Harris et Ted Kennedy",
+      "role": "Sénateurs ayant proposé une option publique pour réduire les profits pétroliers"
+    },
+    {
+      "name": "Jonathan Rieder",
+      "role": "Sociologue, auteur d'une ethnographie du Brooklyn ouvrier des années 1970"
+    },
+    {
+      "name": "Milton Friedman",
+      "role": "Économiste conservateur dont les idées ont été adoptées par des libéraux américains"
+    },
+    {
+      "name": "Amazon, FedEx, UPS",
+      "role": "Entreprises de logistique ayant augmenté leurs marges dans une économie de livraison à domicile"
+    },
+    {
+      "name": "AFL-CIO",
+      "role": "Confédération syndicale ayant accepté une politique salariale nationale sous Kennedy-Johnson"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Jerome Powell, président de la Réserve fédérale",
+      "used_for": "Légitimer l'idée qu'un chômage très bas n'entraîne plus de hausse notable des salaires ni de l'inflation"
+    },
+    {
+      "entity": "BlackRock",
+      "used_for": "Montrer que les investisseurs eux-mêmes anticipent un regain de pouvoir de négociation salariale et s'en inquiètent"
+    },
+    {
+      "entity": "OCDE / Paul McCracken (rapport 1977)",
+      "used_for": "Incarner l'interprétation orthodoxe de la stagflation comme suite d'erreurs de politique évitables"
+    },
+    {
+      "entity": "Larry Summers",
+      "used_for": "Représenter la thèse selon laquelle l'inflation des années 1970 relevait de la macroéconomie et non du structurel"
+    },
+    {
+      "entity": "National Center for Education Statistics",
+      "used_for": "Chiffrer les frais de scolarité moyens dans le public américain"
+    },
+    {
+      "entity": "Jonathan Rieder (ethnographie de Brooklyn)",
+      "used_for": "Appuyer l'idée que des alternatives à la stagflation étaient perçues comme évidentes par le public populaire"
+    },
+    {
+      "entity": "Arthur Goldberg et le CEA sous Kennedy-Johnson",
+      "used_for": "Attester qu'un accord formel salaires-emploi a bien existé dans la politique américaine"
+    }
+  ],
+  "notable_omissions": [
+    "Aucune source ni référence n'est donnée pour la thèse centrale — que les hausses de prix des services sont **structurelles** et insensibles à la politique monétaire.",
+    "Les arguments des économistes qui redoutent une inflation liée à la relance budgétaire ne sont pas exposés dans leur propre logique, seulement mentionnés pour être écartés.",
+    "L'article ne dit pas **comment** seraient financés ou administrés les contrôles de prix et la restructuration sectorielle qu'il appelle de ses vœux.",
+    "Les expériences historiques de contrôle des prix qui ont échoué (pénuries, marchés parallèles) ne sont pas discutées.",
+    "Aucun chiffre sur l'inflation hors États-Unis : le raisonnement reste entièrement américain alors que la thèse porte sur la mondialisation.",
+    "Les données citées s'arrêtent souvent à 2019-2020 et certaines séries (frais de scolarité) datent de 2015-2016, sans mention de l'écart temporel.",
+    "Aucune voix syndicale ou de travailleur contemporain n'est sollicitée, alors que l'article parle en leur nom."
+  ],
+  "rhetorical_patterns": [
+    "**Renversement de la question** : l'article commence par saper le vocabulaire lui-même (« quels prix ? quelles valeurs ? ») avant de proposer sa propre définition de l'inflation.",
+    "**Distinction spécifique/général** : le titre pose l'opposition qui structure tout le texte — un indice agrégé (IPC) contre des prix sectoriels que l'auteur juge seuls pertinents.",
+    "**Détour historique long** : un tiers du texte est consacré aux années 1950-1970, utilisé pour montrer que les modèles actuels décrivent un monde disparu.",
+    "**Citation d'adversaires en position de faiblesse** : Summers et McCracken sont cités brièvement, sans développement, puis contredits par le paragraphe suivant.",
+    "**Appui sur des voix inattendues** : BlackRock et un électeur de Nixon servent d'arguments — l'adversaire supposé ou l'homme ordinaire confirme la thèse.",
+    "**Accumulation chiffrée** : parts de l'IPC, primes d'assurance, frais de scolarité, quartiles salariaux s'empilent pour rendre la conclusion sectorielle presque arithmétique.",
+    "**Question finale ouverte** : le texte se clôt sur « est-ce ainsi que nous voulons gérer nos institutions sociales ? », déplaçant le débat de la technique vers le politique.",
+    "Vocabulaire de conflit récurrent : « tension sociale », « revendications rivales », « pouvoir de négociation » — l'inflation est constamment décrite comme un rapport de forces."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx1",
+        "text": "L'article paraît en janvier 2021, quelques jours après l'investiture de Joe Biden et alors que les démocrates contrôlent l'exécutif et le Congrès de justesse."
+      },
+      {
+        "id": "ctx2",
+        "text": "La Réserve fédérale a modifié sa doctrine en août 2020 en adoptant un ciblage d'inflation moyenne, acceptant un dépassement temporaire des 2 %."
+      },
+      {
+        "id": "ctx3",
+        "text": "Les plans de relance pandémiques massifs relançaient à ce moment le débat américain sur le risque inflationniste, avant que l'inflation n'accélère effectivement en 2021-2022."
+      },
+      {
+        "id": "ctx4",
+        "text": "Le débat oppose alors des économistes proches du pouvoir démocrate, certains (comme Summers) mettant en garde contre la taille de la relance."
+      }
+    ],
+    "who_is_speaking": [
+      "Phenomenal World est la publication du Jain Family Institute, un institut de recherche américain en économie appliquée et politiques sociales.",
+      "Sa ligne éditoriale est hétérodoxe : elle publie des analyses macroéconomiques critiques du consensus monétariste et favorables à l'intervention publique.",
+      "Le format est l'analyse longue signée, à destination d'un lectorat de chercheurs et de responsables de politiques publiques, non un reportage.",
+      "Le texte assume une position normative explicite : la planification sectorielle y est présentée comme « une nécessité urgente »."
+    ],
+    "important_facts": [
+      {
+        "id": "fact1",
+        "text": "L'inflation américaine est effectivement montée jusqu'à environ 9 % à l'été 2022, dix-huit mois après cet article — un test grandeur nature de la thèse défendue ici."
+      },
+      {
+        "id": "fact2",
+        "text": "Le taux de syndicalisation dans le privé américain est passé d'environ 35 % dans les années 1950 à moins de 7 % aujourd'hui."
+      },
+      {
+        "id": "fact3",
+        "text": "L'IPC américain et l'indice français des prix ne pondèrent pas de la même façon : le logement pèse beaucoup moins dans l'indice français, où la santé et l'éducation sont largement socialisées."
+      },
+      {
+        "id": "fact4",
+        "text": "Les contrôles de prix américains de 1971-1974 sous Nixon ont été abandonnés après avoir provoqué pénuries et distorsions, épisode souvent invoqué contre ce type de politique."
+      },
+      {
+        "id": "fact5",
+        "text": "Le poste « équivalent loyer des propriétaires » est une estimation, pas un prix observé : il mesure ce que des propriétaires paieraient s'ils louaient leur logement."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "IPC",
+        "definition": "Indice des prix à la consommation : le prix moyen d'un panier de biens et services types, suivi dans le temps."
+      },
+      {
+        "term": "NAIRU",
+        "definition": "Le niveau de chômage en dessous duquel, selon cette théorie, l'inflation se met à accélérer."
+      },
+      {
+        "term": "Courbe de Phillips",
+        "definition": "L'idée qu'un chômage faible s'accompagne d'une inflation forte, et inversement."
+      },
+      {
+        "term": "Monétarisme",
+        "definition": "Courant économique pour lequel l'inflation vient d'abord d'une quantité de monnaie en circulation trop élevée."
+      },
+      {
+        "term": "M2",
+        "definition": "Une mesure de la masse monétaire : liquidités, comptes courants et comptes d'épargne disponibles dans une économie."
+      },
+      {
+        "term": "Spirale salaires-prix",
+        "definition": "Mécanisme où les salaires montent, les entreprises augmentent leurs prix, et les salaires suivent à nouveau."
+      },
+      {
+        "term": "Stagflation",
+        "definition": "Situation rare où les prix montent alors que l'économie stagne et que le chômage reste élevé."
+      },
+      {
+        "term": "Maladie de Baumol (« baumolianisme »)",
+        "definition": "Dans les services où la productivité progresse peu (santé, éducation), les coûts augmentent mécaniquement plus vite qu'ailleurs."
+      },
+      {
+        "term": "Politique de revenus",
+        "definition": "Encadrement négocié des salaires et des prix par l'État, en échange de garanties sociales."
+      },
+      {
+        "term": "Équivalent loyer des propriétaires",
+        "definition": "Le loyer théorique qu'un propriétaire paierait pour son propre logement, utilisé pour calculer l'IPC."
+      },
+      {
+        "term": "Termes de l'échange",
+        "definition": "Le rapport entre les prix de ce qu'un pays vend et les prix de ce qu'il achète à l'étranger."
+      },
+      {
+        "term": "MOOC",
+        "definition": "Cours en ligne ouvert à un très grand nombre d'inscrits, sans enseignant en présence."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "Source : Phenomenal World"
+  }
+}

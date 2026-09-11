@@ -1,0 +1,65 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Ce texte est une prise de position, pas un compte rendu : il défend une lecture de l'inflation poste par poste contre la lecture par la masse monétaire, et tout son raisonnement tient à cette distinction.",
+      "Gardez en tête la date : publié en janvier 2021, il formule des prédictions que la vague inflationniste de 2021-2022 permet aujourd'hui de confronter aux faits.",
+      "Connaître l'argument classique sur l'arbitrage entre chômage et inflation vous sera utile, car le texte l'écarte sans vraiment l'exposer."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "text": "Toute la démonstration repose sur une hypothèse que l'auteur ne formule jamais : que les prix des biens manufacturés resteront durablement bas. Cherchez-la en filigrane, et demandez-vous ce qu'il reste de la thèse si elle tombe.",
+          "references": [
+            "ia_2",
+            "obs_0",
+            "bias_1"
+          ]
+        },
+        {
+          "text": "Le moment où l'article passe de l'observation à la recommandation s'appuie sur un constat du passé — deux séries qui n'ont pas bougé ensemble — transformé en garantie sur l'avenir. C'est le maillon le plus fragile, et c'est celui qui porte la conclusion politique.",
+          "references": [
+            "lr_1",
+            "ia_0",
+            "bias_1"
+          ]
+        },
+        {
+          "text": "La position adverse est citée en une phrase puis réfutée dans la suivante, alors que le reste du texte se déploie sur plusieurs pages. Vous lirez l'objection sous la forme que l'auteur lui donne, pas sous celle que ses défenseurs revendiquent.",
+          "references": [
+            "bs_1",
+            "bias_2",
+            "obs_2"
+          ]
+        },
+        {
+          "text": "Le vocabulaire du rapport de forces fait beaucoup de travail à la place de la démonstration : décrire une politique monétaire comme une mise au chômage volontaire donne pour acquis ce que le texte devait établir.",
+          "references": [
+            "er_0",
+            "pr_2",
+            "bias_0"
+          ]
+        },
+        {
+          "text": "Les montants concrets — primes d'assurance, frais de scolarité, loyers — rendent la démonstration très tangible, mais le poste le plus lourd de l'indice repose sur un loyer imputé, une grandeur estimée et non observée.",
+          "references": [
+            "er_1",
+            "claim_0",
+            "obs_3"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Retenez l'outil plutôt que la conclusion : décomposer l'inflation secteur par secteur reste utile même si vous n'adhérez pas à la politique recommandée.",
+      "Reprenez les prédictions du texte et confrontez-les à ce qui s'est produit en 2021-2022 : c'est un exercice rare que sa date rend possible.",
+      "Demandez-vous où sont passés les contrôles de prix des années 1971-1974, seul précédent direct de l'instrument que l'article recommande.",
+      "Notez que les sources les mieux documentées appuient toutes le même côté, tandis que l'affirmation centrale sur la nature de l'inflation n'est adossée à aucune mesure."
+    ],
+    "title_note": "Le titre pose d'emblée l'opposition entre inflation spécifique et inflation générale comme une évidence, alors que c'est précisément la distinction que le texte doit démontrer.",
+    "perspective": {
+      "framing": "L'article lit l'inflation comme un phénomène de composition — quels postes montent, et pourquoi — plutôt que comme un agrégat monétaire, et place au centre la structure sectorielle de l'économie américaine après la disparition de son socle industriel. Le registre est celui du rapport de forces entre salariés et détenteurs de capital, et le texte parle depuis les intérêts des travailleurs, avec une conclusion normative assumée en faveur d'une planification sectorielle.",
+      "blind_spots": "Les contrôles de prix mis en œuvre aux États-Unis entre 1971 et 1974 — précédent direct de l'instrument recommandé — ne sont jamais évoqués, pas même pour être écartés. La période post-2008, qui motive pourtant l'argument, tient en deux paragraphes là où les décennies 1950-1970 en occupent un tiers du texte.",
+      "balance": "C'est un essai d'opinion qui annonce sa position dès le titre : il n'a pas à exposer toutes les thèses en présence, et un format court impose d'élaguer. Les réserves signalées ici portent moins sur ce qui manque que sur l'endroit où manque : l'hypothèse tue et le précédent absent touchent précisément le cœur de l'argument, pas ses marges."
+    }
+  }
+}
