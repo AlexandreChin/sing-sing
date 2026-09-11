@@ -17,14 +17,14 @@ from ._shared import (
 
 TPL = "article_carousel_optimized_v0"
 
-# Which act each output slide belongs to — drives the 3-pip tracker highlight.
-# Keys stay avant/analyse/verdict (shared _tracker.html + short format); only
-# the tracker's visible labels changed to the 4-act names.
-# (01_hook, 02_essentiel, 03_selection, 10_cta sit outside the tracked journey.)
+# Which act each slide belongs to — drives the 3-pip tracker highlight. Keyed on
+# the slide's base name, not its number: the number is assigned from the spec's
+# position, so merging or dropping a slide renumbers the deck on its own.
+# (hook, essentiel and cta sit outside the tracked journey.)
 PHASE_OF = {
-    "04_reperes": "avant",
-    "05_moment": "analyse", "06_moment": "analyse", "07_moment": "analyse",
-    "08_socle": "verdict", "09_prise_de_recul": "verdict",
+    "reperes": "avant",
+    "moment": "analyse",
+    "socle": "verdict", "prise_de_recul": "verdict",
 }
 
 # French number words for the réflexes section label on the merged repères slide.
@@ -85,7 +85,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     # Act 2 "Avant de lire" is a single merged slide: context + the lenses shown
     # as réflexes (the standalone lens slide was folded into 03_reperes).
     specs = [
-        ("01_hook", "01_hook", {"meta_parts": meta_parts,
+        ("hook", "01_hook", {"meta_parts": meta_parts,
                                 "topic": pres.hook.topic, "sub_topic": pres.hook.sub_topic,
                                 "kicker_logo": _LOGO_TIGHT_DATA_URL,
                                 # out_dir is <base>/<format>/html — the capture sits in <base>
@@ -93,10 +93,15 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
                                 "headline": pres.hook.headline, **cover_layers(meta, pres.hook.headline)}),
         # Slide 2 — L'essentiel: the 3 `essentiel` claims, numbered. The prose
         # `essentiel_summary` is the fallback for decks whose adapt produced no bullets.
-        ("02_essentiel", "02_essentiel", {"essentiel": d.essentiel,
-                                          "essentiel_summary": d.essentiel_summary}),
-        ("03_selection", "02_selection", {"headline": d.selection_headline, "why_selected": d.why_selected}),
-        ("04_reperes", "03_reperes", {
+        # Slide 2 — L'essentiel: the dispute (why_selected §1) as a lede, then the
+        # 3 `essentiel` claims. The standalone "Pourquoi cet article" slide was
+        # folded in here; §2 and `selection_headline` stay in the model for the
+        # newsletter but are no longer shown.
+        ("essentiel", "02_essentiel", {"essentiel": d.essentiel,
+                                       "essentiel_summary": d.essentiel_summary,
+                                       "lede": next((p.strip() for p in d.why_selected.split("\n")
+                                                     if p.strip()), "")}),
+        ("reperes", "03_reperes", {
             "reperes_headline": d.reperes_headline,
             "context": contexts[0].text if contexts else "",
             "lens_count_word": _COUNT_WORD.get(len(display_lenses), "Les"),
@@ -121,7 +126,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
             # #1 — number-forward slide: only when the beat carries a figure
             # (filled by the adapt agent for a figure-centric chiffres beat).
             number_done = True
-            specs.append((f"0{5 + idx}_moment", "moment_number", {
+            specs.append(("moment", "moment_number", {
                 "moment": b.moment, "figure": b.figure,
                 "figure_label": b.figure_label, "figure_caption": b.figure_caption,
                 **common,
@@ -129,7 +134,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         else:
             # The template wraps the quote in « » itself — strip any the source
             # JSON carries so they don't render doubled.
-            specs.append((f"0{5 + idx}_moment", "moment", {
+            specs.append(("moment", "moment", {
                 "moment": b.moment, "quote": b.quote.strip().strip("«»").strip(), **common,
             }))
 
@@ -153,25 +158,26 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         if pres.cta.engagement_sentence:
             recap_items.append({"label": "La question", "clauses": [pres.cta.engagement_sentence],
                                 "icon": "speech_bubble"})
-        specs.append(("08_socle", "08_socle",
+        specs.append(("socle", "08_socle",
                       {"headline": ga.headline, "recap_items": recap_items}))
 
     # Slide 9 — Prise de recul: the deep stake + the strongest objection
     # (the closing question moved to slide 8's "La question").
     if d.steel_man or d.root_issue:
-        specs.append(("09_prise_de_recul", "08_prise_de_recul", {
+        specs.append(("prise_de_recul", "08_prise_de_recul", {
             "steel_man": {"argument": d.steel_man.argument, "alternative": d.steel_man.alternative} if d.steel_man else None,
             "root_issue": d.root_issue,
         }))
-    specs.append(("10_cta", "10_cta", cover_layers(meta, pres.hook.headline)))
+    specs.append(("cta", "10_cta", cover_layers(meta, pres.hook.headline)))
 
     env = _env()
     theme = {}  # backgrounds stay black; category identity lives only in the hook pill/glyph
     paths = []
     total = len(specs)
-    for i, (out_name, tpl_name, ctx) in enumerate(specs, 1):
+    for i, (base, tpl_name, ctx) in enumerate(specs, 1):
+        out_name = f"{i:02d}_{base}"
         html = env.get_template(f"{TPL}/{tpl_name}.html").render(
-            logo=_LOGO_DATA_URL, phase=PHASE_OF.get(out_name), L=medium_labels(meta.medium),
+            logo=_LOGO_DATA_URL, phase=PHASE_OF.get(base), L=medium_labels(meta.medium),
             slide_n=i, slide_total=total, progress=round(i / total * 100), **theme, **ctx)
         path = out_dir / f"{out_name}.html"
         path.write_text(html, encoding="utf-8")

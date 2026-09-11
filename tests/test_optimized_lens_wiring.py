@@ -33,14 +33,17 @@ def _doc():
 
 
 def test_deck_follows_merged_four_act_order(tmp_path):
-    # L'essentiel sits right after the hook; À emporter is removed. 2 reading beats
-    # → 2 moment slides; repères merges the lenses (no standalone lens slide).
+    # L'essentiel sits right after the hook and carries the dispute as its lede
+    # (the standalone "Pourquoi cet article" slide was folded into it). 2 reading
+    # beats → 2 moment slides; repères merges the lenses. Numbers come from the
+    # spec's position, so the deck renumbers itself when a slide is added or
+    # dropped.
     paths = opt.generate_html(_doc(), tmp_path)
     names = [p.stem for p in paths]
     assert names == [
-        "01_hook", "02_essentiel", "03_selection", "04_reperes",
-        "05_moment", "06_moment",
-        "08_vue_ensemble", "09_prise_de_recul", "10_cta",
+        "01_hook", "02_essentiel", "03_reperes",
+        "04_moment", "05_moment",
+        "06_socle", "07_prise_de_recul", "08_cta",
     ]
     assert "08_a_emporter" not in names   # À emporter removed
 
@@ -56,13 +59,13 @@ def test_essentiel_slide_carries_the_summary(tmp_path):
 
 def test_reperes_carries_the_lenses(tmp_path):
     opt.generate_html(_doc(), tmp_path)
-    html = (tmp_path / "04_reperes.html").read_text(encoding="utf-8")
+    html = (tmp_path / "03_reperes.html").read_text(encoding="utf-8")
     assert "Chiffres" in html and "Causalité" in html
 
 
 def test_moment_slide_carries_lens_name(tmp_path):
     opt.generate_html(_doc(), tmp_path)
-    html = (tmp_path / "05_moment.html").read_text(encoding="utf-8")
+    html = (tmp_path / "04_moment.html").read_text(encoding="utf-8")
     assert "Chiffres" in html and "+4400 %" in html
 
 
@@ -79,12 +82,12 @@ def test_beats_repeat_slide_4s_numbered_reflexes(tmp_path):
     the same lens name and the same question, so the reader can pair them."""
     import re
     opt.generate_html(_doc(), tmp_path)
-    reperes = (tmp_path / "04_reperes.html").read_text(encoding="utf-8")
+    reperes = (tmp_path / "03_reperes.html").read_text(encoding="utf-8")
     listed = re.findall(r'<span class="rk">(\d\d)</span><span><strong>([^<]+)</strong> — ([^<]+)</span>',
                         reperes)
     assert listed, "slide 4 lists no numbered réflexe"
     for i, (number, name, question) in enumerate(listed):
-        beat = (tmp_path / f"0{5 + i}_moment.html").read_text(encoding="utf-8")
+        beat = (tmp_path / f"0{4 + i}_moment.html").read_text(encoding="utf-8")
         assert f"Réflexe {number}" in beat
         assert name in beat
         assert question.strip() in beat          # the same wording, not a paraphrase

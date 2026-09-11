@@ -44,7 +44,7 @@ def test_beat_with_figure_renders_number_slide(tmp_path):
                          figure="4 400 %", figure_label="de voyageurs en 20 ans",
                          figure_caption="230 → 10 000")]
     opt.generate_html(_doc(beats), tmp_path)
-    html = (tmp_path / "05_moment.html").read_text(encoding="utf-8")
+    html = (tmp_path / "04_moment.html").read_text(encoding="utf-8")
     assert "num-fig" in html                 # number layout
     assert "4 400 %" in html and "de voyageurs en 20 ans" in html
     assert "230 → 10 000" in html
@@ -56,7 +56,7 @@ def test_beat_with_figure_renders_number_slide(tmp_path):
 def test_chiffres_beat_without_figure_uses_standard_moment(tmp_path):
     beats = [ReadingBeat(moment="En chiffres", quote="citation", lens_ref="chiffres", note="n")]
     opt.generate_html(_doc(beats), tmp_path)
-    html = (tmp_path / "05_moment.html").read_text(encoding="utf-8")
+    html = (tmp_path / "04_moment.html").read_text(encoding="utf-8")
     assert "num-fig" not in html             # NOT the number layout
     assert "evidence" in html and "citation" in html  # standard evidence box
 
