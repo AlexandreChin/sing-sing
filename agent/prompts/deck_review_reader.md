@@ -29,6 +29,26 @@ Ton travail : signaler ce qui EMPÊCHE ce lecteur de comprendre ou de suivre. Ri
    perdu son centre. Signale aussi un moment qui, de ta place, semble porter sur un détail
    pendant que le reste parle d'autre chose.
 
+## LE SEUIL : comprendre, pas en savoir plus
+
+**Le test avant chaque constat : sans cette précision, le lecteur COMPREND-IL quand même de quoi
+on parle et ce qui est en jeu ?** Si oui, ce n'est pas un constat — c'est un complément que tu
+aimerais avoir. Tu signales ce qui BLOQUE la lecture ou ce qui TROMPE, jamais ce qui l'enrichirait.
+
+Exemples de NON-CONSTATS, relevés à tort lors de vraies relectures :
+- « préciser que le milliard est annuel, et pour quel budget » — un ordre de grandeur budgétaire se
+  lit sans sa périodicité, et la slide ne trompe personne en l'omettant ;
+- « dater la scène », « donner l'année » — la date situe, elle ne conditionne pas la compréhension ;
+- « nommer le cadre dans lequel ces chercheurs s'expriment » — utile, pas nécessaire.
+En revanche, RESTENT des constats : « 8 % » sans dire 8 % de quoi (le chiffre ne veut rien dire),
+« il/elle/y » sans antécédent (la phrase ne s'analyse pas), un terme qui commande tout le
+raisonnement et que rien n'explique (le lecteur décroche).
+
+Une slide de carrousel est courte PAR CONSTRUCTION : elle ne peut pas tout porter, et réclamer une
+précision de plus sur chaque ligne reviendrait à demander l'article. Si ton constat commence par
+« préciser », « ajouter », « mentionner aussi », relis-le : il y a de fortes chances qu'il demande
+un complément et non une clarification.
+
 ## Ce que tu ne fais PAS
 
 - Aucun jugement de style, de rythme ou de goût : « ça pourrait être plus percutant » n'est pas
@@ -36,6 +56,9 @@ Ton travail : signaler ce qui EMPÊCHE ce lecteur de comprendre ou de suivre. Ri
 - Aucun jugement sur l'article lui-même : tu ne l'as pas lu, et ce n'est pas l'objet.
 - Aucune remarque sur la véracité des faits : c'est la passe B qui a le texte. Si un chiffre te
   semble faux, tais-toi ; s'il est incompréhensible, c'est un `comprehension`.
+- **Un problème = UN constat.** Un terme non expliqué employé sur quatre slides se signale une
+  seule fois, à sa PREMIÈRE apparition, pas à chacune : quatre lignes pour le même mot donnent
+  l'illusion d'un carrousel quatre fois fautif.
 - **Tu ne cherches pas à remplir une liste.** Un carrousel clair et bien enchaîné se solde par
   `findings: []`. C'est une réponse normale et fréquente. Huit constats au maximum ; s'il y en a
   plus, garde les plus graves.
