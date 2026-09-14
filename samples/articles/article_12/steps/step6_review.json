@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 3,
+        "rationale": "L'article **attribue soigneusement** une partie de ses données — la DREES pour les 8 % au-dessus de 3 000 euros, le COR pour le niveau de vie, cinq économistes cités — ce qui soutient la démonstration. Mais les deux chiffrages les plus décisifs restent **sans source** : les « près de 6 milliards d'euros » et le « à peine le milliard », de même que « le régime de base représente les deux tiers de la retraite des plus modestes ». S'ajoute la citation de Mickaël Zemmour sur un blog **hébergé par le journal lui-même**, signalée en incise sans être explicitée.",
+        "lesson": "Repérez lesquels des chiffres sont attribués et lesquels ne le sont pas : ce sont souvent les plus décisifs qui voyagent sans source."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "Les données mobilisées sont **vérifiables et cohérentes** avec les publications publiques (DREES, COR), avec des niveaux de confiance élevés sur la répartition des pensions. Le plafond vient d'un **glissement de périmètre** : « Les retraités propriétaires ont désormais un niveau de vie inférieur d'un point de pourcentage par rapport aux actifs » compare une population qui n'est pas celle que la mesure viserait, et « il ne tient plus » énonce un jugement là où le lecteur attend une donnée.",
+        "lesson": "Vérifiez à chaque statistique de quelle population elle parle exactement, et si c'est bien celle dont il est question."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 3,
+        "rationale": "La chaîne est **lisible de bout en bout** : rendement faible, poids du régime de base chez les modestes, principe contributif, niveau de vie relatif. Deux maillons tiennent sur des appuis fragiles — « pour obtenir un rendement significatif, il faudra s'attaquer aussi aux moins nantis » suppose un **objectif d'économies fixé d'avance**, et la rupture du contrat contributif est affirmée alors que le texte cite lui-même des précédents de règles déplacées.",
+        "lesson": "Demandez quel objectif est posé comme non négociable dans une démonstration : c'est souvent là que se loge le saut logique."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 3,
+        "rationale": "Le titre **annonce sa position** — « fausse bonne idée » — et l'article ne dissimule pas qu'il conduit une réfutation ; le lecteur sait d'où on lui parle. Ce qui reste implicite pèse davantage : qu'un milliard serait **trop peu pour être mis en œuvre**, et que la moyenne des 17 millions de retraités dirait quelque chose des 8 % visés. Ces deux appuis portent la démonstration sans être posés comme tels.",
+        "lesson": "Cherchez le critère que le texte applique sans l'énoncer — ici, le seuil à partir duquel une économie devient « significative »."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "L'arc historique est **richement documenté** — indexation depuis 1993, empilement des réformes, graphique du COR. Mais l'**ampleur de l'effort budgétaire pour 2027 n'est jamais chiffrée**, si bien que le « à peine un milliard » est qualifié sans échelle de comparaison, et les exceptions déjà présentes dans le système contributif (minimum vieillesse, CSG différenciée) ne sont pas mises en regard de la rupture invoquée. La disproportion est nette : trois sections sur le procès fait aux retraités, **deux phrases** pour l'alternative proposée.",
+        "lesson": "Cherchez le dénominateur manquant quand un montant est jugé dérisoire : sans ordre de grandeur, l'adjectif fait le travail du chiffre."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Le texte **reconnaît la logique adverse** en la résumant, mais aucun de ses tenants n'est nommé ni sollicité : les « essayistes libéraux » sont caractérisés collectivement. Le traitement penche aussi par construction — l'alignement de Barnier, Bayrou et Lecornu suivi de « Des mesures qui ne leur ont guère porté chance » installe la **répétition avant l'examen**, et l'alternative finale échappe au crible appliqué à la mesure critiquée.",
+        "lesson": "Vérifiez si la solution proposée en clôture subit le même examen que celle qui vient d'être écartée."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "L'exposition est **nette et progressive** : chaque objection est isolée, chiffrée, puis traitée, et le graphique du COR ancre la comparaison retraités/actifs. Le vocabulaire technique — sous-indexation, système contributif, abattement de 10 % — est explicité au fil du texte. Le titre en revanche emploie « les plus riches » **sans le seuil chiffré** qui apparaît plus loin dans le corps.",
+        "lesson": "Comparez le vocabulaire du titre et celui du corps : l'écart indique ce que le titre cherche à faire avant la lecture."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 4,
+        "rationale": "L'angle est **inhabituel et productif** : au lieu de discuter l'équité de la mesure, l'article la prend par son **rendement budgétaire**, et montre que cibler les pensions élevées rapporte peu parce que l'argent vient du nombre de retraités. Le décès de Balladur sert de charnière pour élargir au **temps long de trente ans d'indexation**, ce qui replace la piste du jour dans un empilement. Ce qui limite l'apport : la démonstration reste dans le registre attendu d'un journal attaché à la répartition.",
+        "lesson": "Notez quand un article déplace la question de l'équité vers l'arithmétique : le déplacement est souvent plus instructif que la conclusion."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Un lecteur qui suit les arbitrages budgétaires — syndicaliste, conseiller en protection sociale, journaliste économique — et qui veut comprendre pourquoi un seuil élevé rapporte peu.",
+      "payoff": "Vous en ressortez avec un **réflexe arithmétique** utile : sur les retraites, le rendement d'une désindexation tient au nombre de pensions touchées, pas à leur montant. Vous saurez aussi repérer, dans les débats à venir, les statistiques qui changent de population entre la donnée et la conclusion.",
+      "signature_move": "L'article **déplace le débat de l'équité vers l'arithmétique budgétaire**, en opposant à chaque objection morale un chiffrage de rendement.",
+      "main_blind_side": "L'ordre de grandeur des économies recherchées pour 2027 n'apparaît jamais, ce qui laisse l'adjectif « dérisoire » faire le travail que la comparaison chiffrée aurait fait.",
+      "further_resource": {
+        "title": "Rapport annuel du Conseil d'orientation des retraites",
+        "source": "Conseil d'orientation des retraites",
+        "media_type": "report",
+        "why_explore": "Il donne les séries complètes sur le niveau de vie et le rendement des mesures d'indexation, avec les périmètres statistiques explicités.",
+        "url": "https://www.cor-retraites.fr"
+      },
+      "summary": "Lecture utile avec réserves pour qui suit le dossier des retraites : la démonstration arithmétique sur le faible rendement d'un seuil élevé est solide et bien documentée, mais l'échelle des économies recherchées manque et aucun défenseur de la mesure n'est sollicité."
+    }
+  }
+}

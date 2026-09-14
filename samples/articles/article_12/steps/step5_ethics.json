@@ -1,0 +1,41 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "eth1",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "le projet du gouvernement vient réactiver le procès grandissant fait aux pensionnés par un certain nombre d'essayistes libéraux, qui les accusent d'être protégés au détriment d'actifs qui seraient écrasés par des cotisations trop lourdes",
+        "explanation": "Les tenants de la mesure et les essayistes visés sont caractérisés collectivement, sans qu'aucun soit nommé ni sollicité.",
+        "verdict": "CONFIRMED"
+      },
+      {
+        "id": "eth2",
+        "category": "conflict_of_interest",
+        "label": "Conflict of Interest",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "rappelle l'économiste Mickaël Zemmour sur son blog, hébergé par Alternatives Economiques",
+        "explanation": "Le lien éditorial est mentionné en incise, sans signaler que la source est hébergée par le journal lui-même.",
+        "verdict": "CONFIRMED"
+      },
+      {
+        "id": "eth3",
+        "category": "false_statistics",
+        "label": "False Statistics",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Les retraités propriétaires ont désormais un niveau de vie inférieur d'un point de pourcentage par rapport aux actifs.",
+        "explanation": "La comparaison change de population — retraités propriétaires — alors que la mesure discutée ne vise que les pensions élevées.",
+        "verdict": "CONFIRMED"
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Nommer au moins un défenseur de la mesure et préciser le périmètre statistique des retraités propriétaires avant publication."
+    },
+    "summary": "Aucun manquement grave n'est relevé : l'article reste sourcé et vérifiable. Trois points de vigilance subsistent — absence de contradicteur sollicité, proximité éditoriale d'une source citée, et un écart de périmètre statistique."
+  }
+}

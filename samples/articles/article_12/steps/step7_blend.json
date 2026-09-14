@@ -1,0 +1,121 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "L'absence de chiffrage de l'effort budgétaire recherché n'est pas une simple lacune de contexte : c'est la condition qui permet à « à peine le milliard » de fonctionner comme disqualification et au saut logique vers les « moins nantis » de paraître nécessaire. Le dénominateur manquant fait le travail argumentatif.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "bs_1",
+          "ia_0",
+          "lr_0",
+          "bias_1",
+          "claim_1",
+          "obs_4"
+        ]
+      },
+      {
+        "text": "Le même glissement de population traverse quatre couches : la statistique du COR porte sur les retraités propriétaires, la conclusion porte sur les 8 % visés. Repéré comme faille de validité, exploité comme cadrage protecteur, relevé comme manquement déontologique, il abaisse à lui seul la note d'exactitude factuelle.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "lr_2",
+          "ia_1",
+          "cb_0",
+          "bias_2",
+          "claim_3",
+          "pr_3"
+        ]
+      },
+      {
+        "text": "Les deux chiffrages les plus décisifs de la démonstration — les 6 milliards et le milliard — sont précisément ceux qui circulent sans source, alors que les données secondaires sont toutes attribuées. La rigueur apparente du reste du texte sert de caution aux endroits où elle manque.",
+        "layers": [
+          "probe",
+          "review",
+          "ethics"
+        ],
+        "references": [
+          "claim_0",
+          "claim_2",
+          "obs_4",
+          "bs_1"
+        ]
+      },
+      {
+        "text": "L'article invoque une rupture du contrat contributif tout en citant lui-même les précédents qui l'ont déjà déplacé, et laisse hors champ les correctifs redistributifs existants. La prémisse est posée en philosophie pour échapper à l'examen de ses exceptions.",
+        "layers": [
+          "logic",
+          "review"
+        ],
+        "references": [
+          "pr_2",
+          "ia_2",
+          "bs_3",
+          "lr_3"
+        ]
+      },
+      {
+        "text": "L'alignement de Barnier, Bayrou et Lecornu installe une lecture par récidive avant tout examen du contenu, et cette mise en scène remplace le contradicteur absent : aucun défenseur n'étant nommé, le précédent tient lieu de réfutation.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "ethics",
+          "logic"
+        ],
+        "references": [
+          "er_0",
+          "bias_0",
+          "obs_1",
+          "bs_0"
+        ]
+      },
+      {
+        "text": "L'alternative finale — taxer le patrimoine — bénéficie de l'asymétrie d'examen que subit la mesure critiquée : deux phrases contre trois sections, aucun rendement, aucun obstacle. Le déplacement du flux vers le stock passe comme une évidence parce qu'il arrive après la clôture du débat.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "bs_2",
+          "ia_3",
+          "cb_1",
+          "focus"
+        ]
+      },
+      {
+        "text": "Le texte fond les 8 % visés dans les 17 millions de retraités, ce qui neutralise simultanément deux dimensions : la capacité contributive de la cible et le poids électoral qui explique le choix d'un seuil haut. Le même cadrage numérique protège la cible et occulte le motif politique.",
+        "layers": [
+          "logic",
+          "rhetoric"
+        ],
+        "references": [
+          "obs_3",
+          "cb_0",
+          "ia_1"
+        ]
+      },
+      {
+        "text": "La source la plus mobilisée pour le cœur arithmétique est hébergée par le journal lui-même, signalée en incise ; la proximité éditoriale coïncide avec le point où l'article a le plus besoin d'autorité extérieure.",
+        "layers": [
+          "ethics",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "pr_0",
+          "claim_0",
+          "obs_4"
+        ]
+      }
+    ]
+  }
+}
