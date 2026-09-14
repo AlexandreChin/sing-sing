@@ -230,6 +230,33 @@ def _lens_layer_errors(d) -> list[str]:
     staging = sum(1 for b in beats if b.selected and b.role.strip() == "mise en scène")
     if staging > 1:
         errors.append(f"display.reading_beats: at most 1 selected beat may have role 'mise en scène', got {staging}")
+    # The argumentative spine. A pool can hold eight candidates, cover every lens
+    # and still stop at the demonstration — the article's own conclusion (what it
+    # recommends) then never reaches a slide. Only enforced on decks that carry
+    # `thesis_step` at all, so decks produced before the field keep validating.
+    if any(b.thesis_step for b in beats):
+        for i, b in enumerate(beats):
+            if b.selected and not b.thesis_step:
+                errors.append(f"display.reading_beats[{i}].thesis_step is empty (required for selected beats)")
+        steps = {b.thesis_step for b in beats if b.thesis_step}
+        missing = [s for s in ("premisse", "preuve", "conclusion") if s not in steps]
+        if missing:
+            errors.append(
+                f"display.reading_beats (candidate pool) covers no {'/'.join(missing)} beat — "
+                f"the pool must offer one candidate per step of the article's argument, "
+                f"the conclusion included (its last section is where it states what it advocates)"
+            )
+        if "conclusion" in steps and not any(b.selected and b.thesis_step == "conclusion" for b in beats):
+            errors.append(
+                "display.reading_beats: the pool has a 'conclusion' candidate but none is selected — "
+                "three beats that stop at the demonstration leave out what the article advocates"
+            )
+        roles = {b.role.strip() for b in beats if b.selected and b.role.strip()}
+        if len(roles) < 2:
+            errors.append(
+                f"display.reading_beats: the selected beats cover {len(roles)} distinct role(s) "
+                f"(min 2) — three quotes doing the same thing give the reader the same move three times"
+            )
     ga = d.global_analysis
     if ga is None:
         errors.append("display.global_analysis is missing")
