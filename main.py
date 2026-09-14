@@ -346,8 +346,17 @@ async def cmd_fetch(args: argparse.Namespace) -> None:
 async def cmd_check(args: argparse.Namespace) -> None:
     from tools.check_deck import check, format_report
 
-    report = check(Path(args.document), Path(args.article) if args.article else None)
+    article = Path(args.article) if args.article else None
+    report = check(Path(args.document), article)
     print(format_report(report))
+    if args.reader:
+        # The model-driven pass: opt-in, so the deterministic controller stays
+        # free and instant in an edit loop. Its findings never fail the run —
+        # a judge is advice, the rules we wrote down are the gate.
+        from tools.deck_review import review, format_report as format_review
+        model_report = await asyncio.to_thread(
+            review, Path(args.document), article, args.no_api)
+        print(format_review(model_report))
     # Advisory families are printed but do not fail the run.
     if any(problems for family, problems in report.items() if "advisory" not in family):
         sys.exit(1)
@@ -456,6 +465,10 @@ def _build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("check", help="controller: structure, accuracy against the article, French typography")
     p.add_argument("document", help="extract.json (the render document)")
     p.add_argument("article", nargs="?", help="article .txt (default: found next to the analysis)")
+    p.add_argument("--reader", action="store_true",
+                   help="also run the model-driven review (reader + fidelity passes)")
+    p.add_argument("--no-api", action="store_true",
+                   help="--reader: use the local claude CLI instead of the API")
     p.set_defaults(func=cmd_check)
 
     return parser

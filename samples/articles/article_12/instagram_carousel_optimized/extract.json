@@ -1125,7 +1125,7 @@
       },
       "payoff": "Savoir d'où vient l'argent d'une mesure sur les pensions, et de qui on parle.",
       "framing": "L'article juge la mesure sur son **rendement budgétaire**, pas sur son équité.",
-      "why_selected": "Ne viser que les retraites au-dessus de **3 000 euros** rapporterait à peine **1 milliard**, contre près de **6** en désindexant tout.\nEt l'effort porterait d'abord sur des retraités modestes, pas sur les plus aisés.",
+      "why_selected": "Ne viser que les retraites au-dessus de **3 000 euros** rapporterait à peine **1 milliard**, contre près de **6** en freinant toutes les retraites.\nEt l'effort porterait d'abord sur des retraités modestes, pas sur les plus aisés.",
       "selection_headline": "À peine 1 milliard, contre 6",
       "selection_headline_alt": [
         "Une mesure ciblée qui manque sa cible",
@@ -1433,9 +1433,9 @@
       "reperes_headline": "Avant de lire : le contexte et trois réflexes",
       "bilan_headline": "Ce que le carrousel a montré",
       "essentiel": [
-        "Le rendement vient du **nombre** de retraités, pas du montant des retraites.",
-        "Le régime de base fait **deux tiers** de la retraite des plus modestes.",
-        "Les retraités aisés vivent surtout de leur complémentaire et de leur **patrimoine**."
+        "L'économie dépend du **nombre** de retraités touchés, pas des montants.",
+        "Ce sont les **petites retraites** qui y perdraient le plus.",
+        "Les retraités aisés vivent surtout de leur **patrimoine**."
       ],
       "essentiel_summary": "Alternatives Économiques examine la piste du budget 2027 : sous-indexer les retraites en « excluant les petites retraites ». Ne viser que les **8 %** au-dessus de 3 000 euros rapporterait à peine **1 milliard**, contre près de **6** en désindexant tout : le rendement vient du nombre de retraités, pas du montant des retraites. Et comme le régime de base fait **deux tiers** de la retraite des modestes, l'outil manque sa cible — les plus aisés vivent de leur complémentaire et de leur **patrimoine**."
     }

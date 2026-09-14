@@ -105,6 +105,21 @@ terme technique n'est admis que s'il est glosé dans la phrase (règle 1 ci-dess
 1–2 mots/expressions les plus importants (le terme clé, pas toute la phrase). Ces mots
 s'afficheront en doré. Ex. : « Remettre chaque **chiffre choc** dans son **contexte**. »
 
+**LE VOCABULAIRE DU SUJET N'EST PAS CELUI DU LECTEUR (impératif — surtout slides 1 à 3)** :
+le lecteur du fil n'a PAS lu l'article et ne connaît pas le domaine. Avant d'écrire un terme,
+pose la question : **quelqu'un qui ignore tout de ce sujet comprend-il ce mot ?** Si non, deux
+issues, dans cet ordre : (a) l'écrire en mots ordinaires — « une sous-indexation appliquée aux
+régimes de base touche les catégories modestes » devient « ce sont les petites retraites qui y
+perdraient le plus », qui dit la même chose sans rien supposer connu ; (b) le laisser à un BEAT,
+où la citation et l'`answer` ont la place de l'expliquer. Les slides 1 à 3 (accroche, En bref,
+Repères) n'ont PAS cette place : elles se lisent en trois secondes et décident si le lecteur
+continue. Un terme technique y agit comme un mot de passe — qui ne l'a pas passe son chemin.
+Le piège n'est pas le jargon savant, facile à repérer : c'est le vocabulaire ADMINISTRATIF ou
+SECTORIEL que l'article emploie comme une évidence (« régime de base », « assiette »,
+« revalorisation », « reste à charge », « droits compensateurs »). Il paraît clair parce que tu
+viens de lire le texte ; il ne l'est pas pour qui arrive du fil. Reformuler n'est PAS simplifier
+le fond : les chiffres, les acteurs et l'enjeu restent — seuls les mots changent.
+
 **CADRE DE LA THÈSE (impératif — s'applique à TOUS les champs)** : avant d'écrire quoi que ce soit,
 pose le cadre dans `display.thesis_frame` et garde-le sous les yeux :
 - `main_claim` (≤20 mots) : ce que l'article AVANCE, reformulé — sa thèse, pas son sujet (depuis `fond.main_claim`).
