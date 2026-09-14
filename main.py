@@ -153,7 +153,10 @@ async def cmd_render(args: argparse.Namespace) -> None:
 async def cmd_html(args: argparse.Namespace) -> None:
     # Step 1 of the render split: write standalone HTML slide files (no screenshots).
     json_path = Path(args.document)
-    out_dir = Path(args.output_dir) if args.output_dir else json_path.parent / json_path.stem
+    # Same layout as `render`, which writes <deck>/html and <deck>/slides: this
+    # wrote to <deck>/<json stem>/ instead, leaving the deck's own html/ stale
+    # while quietly creating an extract/ folder beside it.
+    out_dir = Path(args.output_dir) if args.output_dir else json_path.parent / "html"
     _, _, renderer_mod = FORMATS[args.format]
     generate_html_from_json = importlib.import_module(renderer_mod).generate_html_from_json
     print(f"Writing HTML slides to {out_dir}/", file=sys.stderr)
@@ -162,15 +165,19 @@ async def cmd_html(args: argparse.Namespace) -> None:
 
 async def cmd_shoot(args: argparse.Namespace) -> None:
     # Step 2 of the render split: screenshot HTML to PNG.
-    # A directory → every slide (shoot_dir); a single HTML file → full-page (shoot_page).
-    from renderer.shoot import shoot_dir, shoot_page
+    # A directory → every slide (shoot_dir); a single file → one slide, or a
+    # newsletter page full-page.
+    from renderer.shoot import is_slide, shoot_dir, shoot_page, shoot_slide
     path = Path(args.path)
     if path.is_dir():
         print(f"Screenshotting HTML in {path}/", file=sys.stderr)
         await asyncio.to_thread(shoot_dir, path)
     else:
         print(f"Screenshotting {path.name}", file=sys.stderr)
-        await asyncio.to_thread(shoot_page, path, args.output)
+        # A carousel slide keeps its 1080×1350 frame; a newsletter page has no
+        # fixed height and is captured full-page.
+        shot = shoot_slide if is_slide(path) else shoot_page
+        await asyncio.to_thread(shot, path, args.output)
 
 
 async def cmd_validate(args: argparse.Namespace) -> None:

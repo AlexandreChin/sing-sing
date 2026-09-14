@@ -24,7 +24,7 @@ import json
 import re
 from pathlib import Path
 
-from agent.instagram_carousel_adapt_agent import _validate, norm_for_match, quote_is_faithful
+from agent.instagram_carousel_adapt_agent import _stems, _validate, norm_for_match, quote_is_faithful
 from models.instagram_carousel_presentation import InstagramCarouselDocument
 
 # Punctuation that French sets off with a no-break space.
@@ -140,6 +140,65 @@ def _late_vocabulary(doc: InstagramCarouselDocument) -> list[str]:
     return problems
 
 
+# A presupposé is what the article takes for granted WITHOUT ever arguing it.
+# When one lines up with a sentence of the article, the text most likely says it
+# outright — and the slide is then summarising the demonstration instead of
+# naming the step below it. Advisory: a sound assumption can legitimately borrow
+# the article's vocabulary, so a human decides.
+_SENTENCE_SPLIT = re.compile(r"[.!?\n]+")
+_STATED_OVERLAP = 3
+
+
+def _stated_presupposes(doc: InstagramCarouselDocument, article_raw: str | None) -> list[str]:
+    if not article_raw:
+        return []
+    sentences = [_stems(x) for x in _SENTENCE_SPLIT.split(article_raw)]
+    problems = []
+    for label, clause in _slide_order(doc):
+        if label != "socle présupposé":
+            continue
+        stems = _stems(clause)
+        if len(stems) < _STATED_OVERLAP:
+            continue
+        for sentence in sentences:
+            shared = stems & sentence
+            if len(shared) >= _STATED_OVERLAP:
+                problems.append(
+                    f"{label} lines up with a sentence of the article "
+                    f"({', '.join(sorted(shared))}) — if the text argues this, it is not "
+                    f"something it takes for granted; look one step below it — « {clause[:50]}… »"
+                )
+                break
+    return problems
+
+
+# The other half of the presupposé test: it must name what its beat's finding
+# RESTS on, not say the finding again. Advisory like the one above — a presupposé
+# legitimately names the condition its beat exposes, so the overlap alone cannot
+# decide; what it flags is a slide 8 that repeats slides 5–7 instead of going
+# below them.
+def _restated_presupposes(doc: InstagramCarouselDocument) -> list[str]:
+    d = doc.presentation.display
+    if not d.global_analysis:
+        return []
+    sel = [b for b in d.reading_beats if b.selected]
+    clauses = [c.strip() for point in d.global_analysis.core_recap
+               for c in (point.split(":", 1)[-1]).split(";") if c.strip()]
+    problems = []
+    for j, clause in enumerate(clauses):
+        if j >= len(sel):
+            break
+        stems = _stems(clause)
+        # Under four content words a presupposé shares its whole vocabulary with
+        # its beat by construction, and the ratio says nothing.
+        if len(stems) >= 4 and len(stems & _stems(sel[j].answer)) / len(stems) >= 0.6:
+            problems.append(
+                f"socle présupposé {j + 1} reuses most of beat {j + 1}'s answer — check it names "
+                f"what the finding rests on, not the finding again — « {clause[:50]}… »"
+            )
+    return problems
+
+
 def check(extract_path: Path, article_path: Path | None = None) -> dict[str, list[str]]:
     """Run every check. Returns {family: [problems]} — empty lists mean clean."""
     extract_path = Path(extract_path)
@@ -165,12 +224,14 @@ def check(extract_path: Path, article_path: Path | None = None) -> dict[str, lis
         candidate = base / f"{base.name}.txt"
         article_path = candidate if candidate.exists() else None
 
+    article_raw = None
     if article_path is None:
         report["accuracy"].append(
             "article text not found — pass it as the second argument to check quotes and figures"
         )
     else:
-        article = _norm(Path(article_path).read_text(encoding="utf-8"))
+        article_raw = Path(article_path).read_text(encoding="utf-8")
+        article = _norm(article_raw)
         article_numbers = _numbers(article)
         for i, b in enumerate(doc.presentation.display.reading_beats):
             if b.selected and b.quote.strip():
@@ -216,6 +277,8 @@ def check(extract_path: Path, article_path: Path | None = None) -> dict[str, lis
     # steel man names asbestos, lead, opioids). What the count signals is a field
     # written from the analysis rather than from the deck — a human decides.
     report["vocabulary (advisory)"] = _late_vocabulary(doc)
+    report["vocabulary (advisory)"] += _stated_presupposes(doc, article_raw)
+    report["vocabulary (advisory)"] += _restated_presupposes(doc)
 
     # Slide 4 lists one numbered réflexe per selected beat, and each beat repeats
     # that question; the renderer derives both from the same list, so a mismatch
