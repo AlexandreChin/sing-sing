@@ -1,0 +1,422 @@
+{
+  "caption": "Sous-indexer les seules retraites au-dessus de 3 000 euros rapporterait à peine un milliard, contre près de six en désindexant tout : le rendement vient du nombre de retraités, pas du montant des retraites. 💶\n\n🔎 Et comme le régime de base fait deux tiers de la retraite des plus modestes, l'outil pèse d'abord sur ceux qu'il prétend épargner.\n\n🔗 Lien vers l'article en commentaires ↓",
+  "hook": {
+    "topic": "Sous-indexer les **hautes retraites**",
+    "sub_topic": "Sous-indexer les **hautes retraites** : combien, et pour qui ?",
+    "headline": "Sous-indexer les hautes retraites rapporte peu et touche les modestes",
+    "context_line": "Budget 2027 : le gouvernement veut sous-indexer les retraites au-dessus de 3 000 euros.",
+    "sub_topic_alt": [
+      "Viser les **retraites élevées** : pour quel gain ?",
+      "Une mesure **ciblée** qui manque sa cible ?",
+      "Qui est un retraité **riche**, et que rapporte-t-il ?"
+    ]
+  },
+  "interest": {
+    "why_read": "Comprendre d'où vient l'argent d'une **mesure sur les retraites**.",
+    "pull_quote": "Bref, pour obtenir un rendement significatif, il faudra s'attaquer aussi aux moins nantis.",
+    "next_slide_hook": "Trois gouvernements, la même cible, aucune mesure adoptée."
+  },
+  "title_bullets": [
+    "Repérez que « les plus riches » est employé **sans seuil chiffré**.",
+    "Notez que le titre **annonce sa conclusion** avant toute démonstration.",
+    "Cherchez à quel montant d'économies ce « pari » est censé répondre."
+  ],
+  "chapo_bullets": [
+    "Observez l'enchaînement de seuils — **2 000, 3 000, 4 000** — posé sans trancher.",
+    "Remarquez que les **17 millions de retraités** arrivent d'emblée comme un bloc.",
+    "Notez le mot « **cible** » : la mesure est cadrée avant d'être décrite."
+  ],
+  "context_next_slide_hook": "Deux chiffrages portent toute la démonstration. D'où viennent-ils ?",
+  "watch_out_next_slide_hook": "Le rendement dépend du nombre de pensions, pas de leur montant.",
+  "forme_next_slide_hook": "Les chiffres les plus décisifs sont aussi les moins sourcés.",
+  "biases_next_slide_hook": "Reste à savoir ce que l'article tient pour acquis.",
+  "engagement_question": "Un milliard d'économies, est-ce peu ou beaucoup quand on ignore le total recherché ?",
+  "go_further": [
+    {
+      "title": "Rapport annuel du Conseil d'orientation des retraites",
+      "source": "Conseil d'orientation des retraites",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": "https://www.cor-retraites.fr",
+      "duration_minutes": 90,
+      "why_explore": "Il donne les séries complètes sur le niveau de vie des retraités, avec les périmètres statistiques explicités.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Les retraités et les retraites",
+      "source": "DREES",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": "https://drees.solidarites-sante.gouv.fr",
+      "duration_minutes": 60,
+      "why_explore": "L'édition annuelle détaille la distribution des pensions, du premier au dernier décile.",
+      "cta_question_index": 1
+    },
+    {
+      "title": "Économies des âges de la vie",
+      "source": "Hippolyte d'Albis, Odile Jacob, 2026",
+      "media_type": "book",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": 300,
+      "why_explore": "Il examine les transferts entre générations, dans les deux sens, chiffres à l'appui.",
+      "cta_question_index": null
+    }
+  ],
+  "cta": {
+    "title": "Une mesure ciblée qui manque sa cible",
+    "engagement_sentence": "Dans quelle proportion l'effort doit-il porter sur ce que l'on gagne, et sur ce que l'on possède ?",
+    "engagement_sentence_alt": [
+      "Quelle part de l'effort selon ce que l'on gagne, quelle part selon ce que l'on possède ?",
+      "Entre ce que l'on gagne et ce que l'on possède, où placer le curseur de l'effort ?",
+      "L'effort doit-il tenir compte de ce que l'on possède autant que de ce que l'on gagne ?"
+    ],
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "Quel effort budgétaire total était visé pour 2027, et quelle part ce milliard représente-t-il ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_1",
+        "question": "Que perçoivent réellement les retraités au-dessus de 3 000 euros, hors moyenne générale ?",
+        "type": "topic_substance"
+      },
+      {
+        "id": "q_2",
+        "question": "Quel rendement une taxation du patrimoine dégagerait-elle, et sous quels obstacles ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_3",
+        "question": "Votre position sur les retraites change-t-elle selon que vous êtes actif ou retraité ?",
+        "type": "reader_bias"
+      }
+    ]
+  },
+  "display": {
+    "thesis_frame": {
+      "main_claim": "Sous-indexer les seules pensions élevées rapporte peu et fragilise la logique contributive du système.",
+      "out_of_scope": [
+        "Le niveau souhaitable des pensions en général",
+        "L'âge légal de départ à la retraite",
+        "Le financement des retraites par les cotisations patronales"
+      ]
+    },
+    "payoff": "Savoir d'où vient l'argent d'une mesure sur les pensions, et de qui on parle.",
+    "framing": "L'article juge la mesure sur son **rendement budgétaire**, pas sur son équité.",
+    "why_selected": "Ne viser que les retraites au-dessus de **3 000 euros** rapporterait à peine **1 milliard**, contre près de **6** en désindexant tout.\nEt l'effort porterait d'abord sur des retraités modestes, pas sur les plus aisés.",
+    "selection_headline": "À peine 1 milliard, contre 6",
+    "selection_headline_alt": [
+      "Une mesure ciblée qui manque sa cible",
+      "Le rendement vient du nombre de retraités",
+      "Ce que change un seuil de retraite"
+    ],
+    "ethics": "Sourcé et vérifiable, avec trois points de vigilance mineurs.",
+    "pre_reading": [
+      "Le texte annonce sa position dès son titre.",
+      "Tout repose sur des **ordres de grandeur**."
+    ],
+    "watch_out": [
+      {
+        "label": "objectif posé comme intangible",
+        "text": "Une conclusion tient si le montant d'économies visé est **fixé d'avance**."
+      },
+      {
+        "label": "glissement de population",
+        "text": "Une statistique change de **population** entre la donnée et la conclusion."
+      }
+    ],
+    "strengths": [
+      {
+        "label": "Clarté",
+        "text": "Chaque objection est isolée, chiffrée, puis traitée ; le vocabulaire technique est explicité."
+      },
+      {
+        "label": "Angle et originalité",
+        "text": "Il prend la mesure par son arithmétique plutôt que par le débat moral attendu."
+      }
+    ],
+    "distill_points": [
+      "Le glissement de population traverse quatre couches : la statistique porte sur les propriétaires, la conclusion sur les 8 % visés.",
+      "Sans l'ampleur de l'effort budgétaire recherché, « à peine un milliard » fonctionne comme disqualification sans échelle.",
+      "Les deux chiffrages décisifs — six milliards et un milliard — sont précisément ceux qui circulent sans source."
+    ],
+    "after_reading": [
+      "Le rendement dépend du **nombre** de pensions touchées.",
+      "La moyenne d'un ensemble ne décrit pas une minorité.",
+      "Cherchez ailleurs le total des économies recherchées."
+    ],
+    "key_takeaways": [
+      {
+        "text": "8 % des retraités dépassent 3 000 euros brut ; 1 % dépassent 5 000.",
+        "selected": true
+      },
+      {
+        "text": "Désindexer toutes les pensions de base rapporterait près de 6 milliards en 2027.",
+        "selected": true
+      },
+      {
+        "text": "Le régime de base pèse les deux tiers de la retraite des plus modestes.",
+        "selected": true
+      },
+      {
+        "text": "Le coût d'un hébergement en Ehpad a augmenté de 4 % en 2024.",
+        "selected": false
+      },
+      {
+        "text": "Les cotisations de complémentaire santé individuelle ont grimpé de 7,3 % en 2024.",
+        "selected": false
+      },
+      {
+        "text": "Les retraités propriétaires sont passés sous les actifs d'un point de niveau de vie.",
+        "selected": false
+      }
+    ],
+    "blind_spots": [
+      "L'ampleur des économies recherchées pour 2027 n'est jamais chiffrée.",
+      "Aucun **partisan** de la mesure n'est nommé ni interrogé."
+    ],
+    "balance": [
+      "Un article d'analyse qui annonce sa position n'est pas tenu à l'équilibre d'un reportage.",
+      "L'absence de contradicteur relève ici d'un **choix éditorial assumé**, pas d'un manquement caché."
+    ],
+    "lenses": [],
+    "reading_beats": [
+      {
+        "moment": "Ce qui rapporte, c'est le nombre de retraités",
+        "quote": "Si désindexer […] peut “rapporter” beaucoup, c'est […] parce qu'il y a beaucoup de retraités, pas parce que les pensions sont très hautes",
+        "lens_ref": "chiffres",
+        "lens_question": "Une mesure ciblée : combien rapporte-t-elle vraiment ?",
+        "note": "Devant une mesure ciblée, cherchez ce qui fait le montant : le **nombre**, ou les sommes.",
+        "answer": "Le nombre : ne viser que les **8 %** au-dessus de 3 000 euros ramène le rendement de six milliards à **un seul**.",
+        "figure": "1 Md€",
+        "figure_label": "en ne visant que les retraites au-dessus de 3 000 euros",
+        "figure_caption": "contre près de 6 milliards en désindexant toutes les retraites de base",
+        "factcheck": "likely true",
+        "selected": true,
+        "theme": "Rendement budgétaire",
+        "centrality": 5,
+        "kind": "statistique",
+        "role": "preuve",
+        "rationale": "Mickaël Zemmour — explique le faible rendement au lieu de le constater",
+        "thesis_step": "preuve"
+      },
+      {
+        "moment": "L'outil pèse d'abord sur les retraites modestes",
+        "quote": "une sous-indexation appliquée aux régimes de base touche […] davantage les catégories de niveau de vie modeste que […] une hausse des cotisations",
+        "lens_ref": "angles_morts",
+        "lens_question": "Un effort annoncé : qui le paie vraiment ?",
+        "note": "Quand une mesure promet d'« exclure les petites retraites », vérifiez sur qui elle **pèse**.",
+        "answer": "Le régime de base fait **deux tiers** de la retraite des modestes ; les aisés vivent surtout de leur complémentaire et de leur patrimoine.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "Incidence sociale",
+        "centrality": 5,
+        "kind": "enjeu",
+        "role": "preuve",
+        "rationale": "Patrick Aubert (IPP) — contre-intuitif et sourcé",
+        "thesis_step": "preuve"
+      },
+      {
+        "moment": "Taxer le patrimoine plutôt que la retraite",
+        "quote": "Si l'on veut vraiment taxer les retraités riches, autant taxer le patrimoine des plus aisés",
+        "lens_ref": "cadrage",
+        "lens_question": "Une solution avancée : examinée, ou seulement citée ?",
+        "note": "Comparez la place donnée à la mesure critiquée et à celle qu'on **propose**.",
+        "answer": "Taxer le **patrimoine** élargirait l'assiette sans viser un âge — mais l'article y consacre deux phrases, sans rendement chiffré.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "Changement d'assiette",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "pivot",
+        "rationale": "Pierre Madec — le point d'arrivée de l'article",
+        "thesis_step": "conclusion"
+      },
+      {
+        "moment": "Le chiffrage d'ouverture : six milliards si l'on désindexe tout",
+        "quote": "désindexer l'ensemble des pensions de base […] engendrerait une économie immédiate et massive de près de 6 milliards d'euros, rien que sur l'année 2027.",
+        "lens_ref": "sources",
+        "lens_question": "Un chiffrage budgétaire : qui l'a produit ?",
+        "note": "Devant un montant d'économies, cherchez l'**institution** qui l'a calculé.",
+        "answer": "**Personne n'est nommé** : ce chiffre et celui du milliard circulent sans source, alors que les données secondaires du texte sont toutes attribuées.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "likely true",
+        "selected": false,
+        "theme": "Rendement budgétaire",
+        "centrality": 5,
+        "kind": "statistique",
+        "role": "preuve",
+        "rationale": "Le chiffre fondateur, et il n'est pas sourcé",
+        "thesis_step": "premisse"
+      },
+      {
+        "moment": "Cibler les hautes pensions divise le rendement par six",
+        "quote": "cibler les seuls retraités qui perçoivent plus de 3 000 euros brut par mois […] serait une opération beaucoup moins rentable, atteignant à peine le milliard",
+        "lens_ref": "chiffres",
+        "lens_question": "Une économie jugée faible : comparée à quoi ?",
+        "note": "Quand un montant est dit dérisoire, cherchez le **dénominateur** absent.",
+        "answer": "**À rien** : le texte ne dit jamais combien l'État cherche à économiser pour 2027 — des dizaines de milliards — donc l'adjectif fait le travail du chiffre.",
+        "figure": "1 Md€",
+        "figure_label": "rendement d'une sous-indexation au-dessus de 3 000 euros",
+        "figure_caption": "",
+        "factcheck": "likely true",
+        "selected": false,
+        "theme": "Ordre de grandeur",
+        "centrality": 5,
+        "kind": "statistique",
+        "role": "preuve",
+        "rationale": "Le cœur arithmétique, sans échelle de comparaison",
+        "thesis_step": "preuve"
+      },
+      {
+        "moment": "Du faible rendement, le texte tire qu'il faudra viser plus bas",
+        "quote": "Bref, pour obtenir un rendement significatif, il faudra s'attaquer aussi aux moins nantis.",
+        "lens_ref": "sophismes",
+        "lens_question": "Une conclusion nécessaire : sous quelle condition ?",
+        "note": "Repérez l'objectif qu'une démonstration pose comme **non négociable**.",
+        "answer": "Elle ne tient que si le montant à économiser est **décidé d'avance** : un gouvernement peut retenir une mesure au rendement plus modeste.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Saut logique",
+        "centrality": 4,
+        "kind": "biais",
+        "role": "pivot",
+        "rationale": "Saut logique net, mais proche du beat chiffres",
+        "thesis_step": "preuve"
+      },
+      {
+        "moment": "Le principe contributif érigé en contrat qu'on ne modifie pas",
+        "quote": "Cela supposerait de rompre ce contrat social et de modifier en cours de route des règles du jeu fixées au départ.",
+        "lens_ref": "angles_morts",
+        "lens_question": "Une règle dite intangible : jamais déplacée ?",
+        "note": "Quand un principe est présenté comme **originel**, cherchez ses exceptions.",
+        "answer": "Le système comporte déjà des correctifs — **minimum vieillesse**, CSG à taux différents — que le texte ne met pas en regard de la rupture qu'il annonce.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Logique contributive",
+        "centrality": 5,
+        "kind": "enjeu",
+        "role": "appui",
+        "rationale": "Pièce centrale de la thèse, exceptions hors champ",
+        "thesis_step": "preuve"
+      },
+      {
+        "moment": "Le procès en privilège déclaré caduc avant la donnée",
+        "quote": "Quant à l'argument massue qui consistait à reprocher aux retraités de vivre plus confortablement que les actifs, il ne tient plus.",
+        "lens_ref": "opinion_fait",
+        "lens_question": "Un débat déclaré clos : par qui, sur quoi ?",
+        "note": "Méfiez-vous d'un débat déclaré **tranché** avant que la donnée n'arrive.",
+        "answer": "La donnée qui suit porte sur les retraités **propriétaires**, un point d'écart, quand la mesure discutée ne viserait que les 8 % au-dessus de 3 000 euros.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "unverifiable",
+        "selected": false,
+        "theme": "Jugement en constat",
+        "centrality": 4,
+        "kind": "affirmation",
+        "role": "pivot",
+        "rationale": "Opinion en constat, mais recoupe le glissement",
+        "thesis_step": "preuve"
+      },
+      {
+        "moment": "La comparaison de niveau de vie change de population",
+        "quote": "Les retraités propriétaires ont désormais un niveau de vie inférieur d'un point de pourcentage par rapport aux actifs.",
+        "lens_ref": "chiffres",
+        "lens_question": "Une moyenne : elle décrit qui, exactement ?",
+        "note": "À chaque statistique, vérifiez de quelle **population** elle parle.",
+        "answer": "Des retraités **propriétaires**, tous niveaux de pension confondus ; la mesure, elle, ne viserait que les 8 % au-dessus de 3 000 euros.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Périmètre statistique",
+        "centrality": 4,
+        "kind": "statistique",
+        "role": "preuve",
+        "rationale": "Glissement net, mais troisième beat chiffré",
+        "thesis_step": "preuve"
+      },
+      {
+        "moment": "Trois gouvernements alignés avant tout examen du contenu",
+        "quote": "François Bayrou, avait quant à lui voulu supprimer l'abattement de 10 % […]. Des mesures qui ne leur ont guère porté chance.",
+        "lens_ref": "equilibre",
+        "lens_question": "Une mesure critiquée : ses partisans ont-ils parlé ?",
+        "note": "Regardez si l'échec d'une mesure remplace l'**examen** de son contenu.",
+        "answer": "**Aucun défenseur n'est nommé** ni sollicité — ni le gouvernement, ni les « essayistes libéraux » cités collectivement ; le précédent politique tient lieu de réponse.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Absence de contradicteur",
+        "centrality": 4,
+        "kind": "biais",
+        "role": "mise en scène",
+        "rationale": "Manquement déontologique visible, lentille distincte",
+        "thesis_step": "premisse"
+      },
+      {
+        "moment": "L'alternative fiscale glissée en deux phrases finales",
+        "quote": "Si l'on veut vraiment taxer les retraités riches, autant taxer le patrimoine des plus aisés",
+        "lens_ref": "cadrage",
+        "lens_question": "Une solution proposée : examinée comme l'autre ?",
+        "note": "Comparez l'examen d'une solution écartée et de celle **proposée**.",
+        "answer": "Deux phrases contre trois sections : ni rendement chiffré, ni calendrier, ni obstacle — alors que l'impôt sur la fortune a été recentré sur l'immobilier en 2018.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Asymétrie d'examen",
+        "centrality": 3,
+        "kind": "affirmation",
+        "role": "concession",
+        "rationale": "Clôture révélatrice, mais périphérique à la thèse",
+        "thesis_step": "conclusion"
+      }
+    ],
+    "global_analysis": {
+      "headline": "Une mesure ciblée qui manque sa cible",
+      "headline_alt": [
+        "Mieux vaut taxer le patrimoine que les retraites",
+        "Le rendement vient du nombre, pas des montants",
+        "Sous-indexer les hautes retraites : peu de gain, mauvaise cible"
+      ],
+      "core_recap": [
+        "Ce qu'il tient pour acquis : qu'une mesure vaut d'abord par ce qu'elle **rapporte** ; que l'effort doit épargner les retraites **modestes** ; qu'un **patrimoine** se taxe plus facilement qu'une retraite"
+      ]
+    },
+    "open_question": "Quel effort budgétaire total était visé, et quelle part ce milliard représente-t-il ?",
+    "root_issue": "Le montant dit ce qu'une mesure **rapporte**, jamais qui la paie : les deux ne se lisent pas au même endroit.",
+    "steel_man": {
+      "argument": "Une sous-indexation s'applique tout de suite, sans nouvelle loi fiscale : taxer le patrimoine demanderait des années de débat.",
+      "alternative": "La mesure s'évaluerait sur ce qu'elle permet d'obtenir **maintenant**, pas sur son rendement idéal."
+    },
+    "reperes_headline": "Avant de lire : le contexte et trois réflexes",
+    "bilan_headline": "Ce que le carrousel a montré",
+    "essentiel": [
+      "Le rendement vient du **nombre** de retraités, pas du montant des retraites.",
+      "Le régime de base fait **deux tiers** de la retraite des plus modestes.",
+      "Les retraités aisés vivent surtout de leur complémentaire et de leur **patrimoine**."
+    ],
+    "essentiel_summary": "Alternatives Économiques examine la piste du budget 2027 : sous-indexer les retraites en « excluant les petites retraites ». Ne viser que les **8 %** au-dessus de 3 000 euros rapporterait à peine **1 milliard**, contre près de **6** en désindexant tout : le rendement vient du nombre de retraités, pas du montant des retraites. Et comme le régime de base fait **deux tiers** de la retraite des modestes, l'outil manque sa cible — les plus aisés vivent de leur complémentaire et de leur **patrimoine**."
+  }
+}

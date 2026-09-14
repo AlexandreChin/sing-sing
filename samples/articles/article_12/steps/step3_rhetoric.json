@@ -1,0 +1,69 @@
+{
+  "emotional_register": [
+    {
+      "emotion": "Indignation retenue",
+      "how": "L'alignement de trois gouvernements visant la même cible en deux ans, suivi de la formule « Des mesures qui ne leur ont guère porté chance », transforme une piste budgétaire en **acharnement répété**.",
+      "effect": "Le lecteur aborde la mesure de Lecornu comme une **récidive** plutôt que comme une proposition à examiner.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "Barnier, Bayrou, Lecornu",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "emotion": "Inquiétude",
+      "how": "L'accumulation de hausses subies — Ehpad, complémentaire santé, épargne entamée — dessine des retraités **grignotés de toutes parts**.",
+      "effect": "Toute ponction supplémentaire apparaît comme un **coup de trop** avant même d'être chiffrée.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "la pension brute moyenne tourne autour de 1 500 euros",
+        "strength": 0.7,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "beneficiary": "Les retraités aux pensions élevées, cible de la mesure",
+      "explanation": "Le cadrage fond les 8 % visés dans l'ensemble des **17 millions de retraités**, dont les chiffres moyens montrent le décrochage. La situation propre à la fraction concernée n'apparaît jamais séparément.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "plus de 17 millions de retraités",
+        "strength": 0.8,
+        "nature": "contradiction"
+      }
+    },
+    {
+      "beneficiary": "Les partisans d'une taxation du patrimoine et des héritages",
+      "explanation": "L'article ferme la porte budgétaire une à une, puis laisse le patrimoine comme **seule issue restante**. Placée en clôture et non développée, cette option échappe à l'examen critique appliqué aux autres.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 2,
+        "excerpt": "l'alternative finale occupe deux phrases et des points de suspension",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Présupposé",
+        "observation": "« Fausse bonne idée » pose la conclusion dans le titre ; le corps déroule ensuite la démonstration."
+      },
+      {
+        "label": "Vocabulaire",
+        "observation": "« Les plus riches » reprend le terme du débat public sans le seuil chiffré qui le définirait."
+      },
+      {
+        "label": "Cadrage",
+        "observation": "Le titre annonce une réfutation, pas une mise en balance des arguments en présence."
+      }
+    ],
+    "body": "Le corps traite la mesure sous l'angle de son **rendement budgétaire** et de sa **cohérence avec le système contributif**, plutôt que sous celui de l'équité entre niveaux de pension. Il place au centre la population retraitée prise dans son ensemble, décrite par des séries longues — niveau de vie relatif, indexation depuis 1993, empilement de réformes. Le registre est celui de l'expertise économique : cinq économistes cités, des chiffrages d'institutions publiques, un graphique du COR. La position d'énonciation est celle d'un journal spécialisé attaché au système par répartition, qui examine une piste gouvernementale depuis l'histoire de ses précédents."
+  }
+}

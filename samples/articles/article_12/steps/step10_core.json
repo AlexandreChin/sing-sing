@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Sous-indexer les seules pensions supérieures à 3 000 euros rapporterait à peine un milliard, contre six pour toutes.",
+      "kind": "fait",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 0,
+        "excerpt": "Le rendement budgétaire de la désindexation vient du nombre de retraités, pas du niveau des pensions.",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Cibler une catégorie de pensions romprait la logique contributive du système, où la retraite reflète la carrière cotisée.",
+      "kind": "enjeu",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "Le système de retraite français est contributif : la pension reflète la carrière cotisée.",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "Le procès en privilège fait aux retraités est réexaminé : niveau de vie, dépenses de grand âge, solidarité intergénérationnelle.",
+      "kind": "angle",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 3,
+        "excerpt": "Les retraités ne sont plus avantagés par rapport aux actifs en niveau de vie.",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Trois gouvernements successifs ont visé les retraités en deux ans, sans qu'aucune mesure n'aboutisse.",
+      "kind": "fait",
+      "centrality": 3,
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "Barnier, Bayrou, Lecornu",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "L'article oriente vers une autre voie fiscale : taxer le patrimoine plutôt que le flux des pensions.",
+      "kind": "affirmation",
+      "centrality": 3,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 2,
+        "excerpt": "L'alternative finale — taxer le patrimoine et les héritages — occupe deux phrases et des points de suspension.",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    }
+  ]
+}

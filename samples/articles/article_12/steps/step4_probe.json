@@ -1,0 +1,153 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "Avec une inflation autour de 2 %, désindexer l'ensemble des pensions de base de l'évolution des prix engendrerait une économie immédiate et massive de près de 6 milliards d'euros, rien que sur l'année 2027.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Proportion",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffrage est avancé **sans institution ni document nommé**, alors que les estimations voisines du texte sont toutes attribuées.",
+        "external_sources": [
+          {
+            "name": "Conseil d'orientation des retraites (COR), rapport annuel",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Rapport économique, social et financier annexé au projet de loi de finances",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 70
+      },
+      {
+        "quote": "cibler les seuls retraités qui perçoivent plus de 3 000 euros brut par mois (8 % des retraités selon le service statistique des ministères de la Santé et des Solidarités, 1 % des retraités touchant plus de 5 000 euros) serait une opération beaucoup moins rentable, atteignant à peine le milliard d'euros",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Les retraités aux pensions élevées, cible de la mesure",
+          "strength": 0.8,
+          "nature": "nuance"
+        },
+        "explanation": "La répartition des pensions est créditée à la **DREES**, mais le rendement d'« à peine le milliard » reste sans source et sans échelle de comparaison.",
+        "external_sources": [
+          {
+            "name": "DREES, Les retraités et les retraites",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Institut des politiques publiques, notes budgétaires",
+            "supports": "neutral",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": 80
+      },
+      {
+        "quote": "le régime de base représente les deux tiers de la retraite des plus modestes",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Cadrage",
+          "strength": 0.7,
+          "nature": "illustration"
+        },
+        "explanation": "La proportion est donnée comme une évidence (« de facto »), sans **chiffrage ni institution** citée, juste après un passage entièrement sourcé.",
+        "external_sources": [
+          {
+            "name": "DREES, panorama des retraités",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Agirc-Arrco, statistiques de pensions",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 75
+      },
+      {
+        "quote": "Quant à l'argument massue qui consistait à reprocher aux retraités de vivre plus confortablement que les actifs, il ne tient plus.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Inquiétude",
+          "strength": 0.7,
+          "nature": "illustration"
+        },
+        "explanation": "« Il ne tient plus » énonce un **verdict de l'auteure** sur un débat, avant que la donnée mobilisée — un point d'écart chez les seuls propriétaires — ne soit précisée.",
+        "external_sources": [
+          {
+            "name": "COR, rapport 2023 sur le niveau de vie des retraités",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Insee, niveaux de vie et loyers imputés",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": null
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "Son successeur, François Bayrou, avait quant à lui voulu supprimer l'abattement de 10 % dont bénéficient les retraités pour le calcul de l'impôt sur le revenu. Des mesures qui ne leur ont guère porté chance.",
+        "item_type": "bias",
+        "label": "accumulation de précédents",
+        "effect": "Remarquez comment l'alignement de trois tentatives et de leurs échecs installe la mesure comme une répétition, avant que son contenu n'ait été décrit.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Indignation retenue",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Bref, pour obtenir un rendement significatif, il faudra s'attaquer aussi aux moins nantis.",
+        "item_type": "fallacy",
+        "label": "objectif posé comme intangible",
+        "effect": "Remarquez que la conclusion ne vaut que si le montant d'économies visé est fixé d'avance : un rendement plus faible reste possible.",
+        "proves": {
+          "type": "observation",
+          "label": "Proportion",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Les retraités propriétaires ont désormais un niveau de vie inférieur d'un point de pourcentage par rapport aux actifs.",
+        "item_type": "fallacy",
+        "label": "glissement de population",
+        "effect": "Remarquez que la statistique porte sur l'ensemble des retraités propriétaires, tandis que la mesure discutée ne viserait que les 8 % au-dessus de 3 000 euros.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Les retraités aux pensions élevées, cible de la mesure",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "Si l'on veut vraiment taxer les retraités riches, autant taxer le patrimoine des plus aisés",
+      "item_type": null,
+      "proves": {
+        "type": "observation",
+        "label": "Cadrage",
+        "strength": 0.8,
+        "nature": "nuance"
+      },
+      "analysis": "La phrase déplace la question du **flux de pension** vers le **stock de patrimoine**. Elle suppose que l'objectif recherché — faire contribuer les retraités aisés — reste le même, seul l'instrument changeant. Elle n'indique ni le rendement attendu, ni le calendrier, ni les obstacles que la mesure écartée s'était vu opposer : que resterait-il de la comparaison si cette voie était examinée aussi longuement que l'autre ?"
+    }
+  }
+}

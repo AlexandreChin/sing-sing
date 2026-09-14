@@ -1,0 +1,66 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Gardez en tête que l'article ne discute pas l'équité de la mesure mais son **rendement budgétaire** : toute sa démonstration repose sur des ordres de grandeur.",
+      "Notez dès le départ que le texte annonce sa position dans son titre — lisez-le comme une **réfutation argumentée**, pas comme un état des lieux.",
+      "Ayez en tête une question simple : quel montant d'économies le gouvernement cherche-t-il au total ? Le texte n'y répond pas, et ce chiffre commande l'appréciation de tous les autres."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "text": "Les deux chiffrages qui portent toute la démonstration — le total attendu d'une désindexation générale et le produit de la mesure ciblée — circulent sans source, alors que les données secondaires sont soigneusement attribuées. La rigueur visible du reste du texte sert de caution aux endroits où elle manque.",
+          "references": [
+            "claim_0",
+            "claim_2",
+            "obs_4",
+            "bs_1"
+          ]
+        },
+        {
+          "text": "Un montant est qualifié de dérisoire sans qu'on vous donne l'échelle à laquelle le comparer. Sans ce dénominateur, c'est l'adjectif qui fait le travail que le chiffre devrait faire.",
+          "references": [
+            "bs_1",
+            "lr_0",
+            "bias_1"
+          ]
+        },
+        {
+          "text": "Une statistique sur le niveau de vie des retraités **change de population** en cours de route : elle décrit un ensemble large, la conclusion porte sur la minorité visée par la mesure. Vérifiez à chaque chiffre de qui exactement on parle.",
+          "references": [
+            "lr_2",
+            "ia_1",
+            "claim_3"
+          ]
+        },
+        {
+          "text": "La solution proposée en fin d'article n'est pas soumise au même examen que celle qui vient d'être écartée : ni rendement chiffré, ni obstacle envisagé, en deux phrases contre plusieurs sections.",
+          "references": [
+            "bs_2",
+            "ia_3",
+            "cb_1"
+          ]
+        },
+        {
+          "text": "Aucun défenseur de la mesure n'est nommé ni sollicité ; l'échec politique de précédentes tentatives est mis en avant avant tout examen du contenu, et tient lieu de contradiction.",
+          "references": [
+            "er_0",
+            "bias_0",
+            "obs_1"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Retenez le réflexe arithmétique central : sur les retraites, le rendement d'une désindexation dépend du **nombre de pensions touchées**, pas de leur montant.",
+      "Demandez-vous ce que vous savez réellement, après lecture, du revenu des retraités effectivement visés — la moyenne d'un ensemble large ne le dit pas.",
+      "Cherchez ailleurs l'ordre de grandeur des économies recherchées : sans lui, vous ne pouvez pas juger si un milliard est peu ou beaucoup.",
+      "Appliquez à l'alternative proposée en clôture les mêmes questions que l'article applique à la mesure qu'il écarte : combien, et à quelles conditions ?"
+    ],
+    "title_note": "Le titre annonce clairement sa position et parle des « plus riches » sans le seuil chiffré qui n'apparaît que dans le corps du texte.",
+    "perspective": {
+      "framing": "L'article aborde la mesure par son **rendement budgétaire** plutôt que par son équité, et met au centre l'arithmétique des pensions : combien de retraités, pour quel montant. Le registre est celui de la démonstration méthodique, objection par objection, depuis une position attachée au système par répartition et à son principe contributif.",
+      "blind_spots": "L'ampleur de l'effort budgétaire recherché pour 2027 n'est jamais chiffrée, ce qui prive le lecteur de toute échelle de comparaison. Les partisans de la mesure ne sont ni nommés ni interrogés, et les correctifs redistributifs déjà présents dans le système contributif restent hors champ.",
+      "balance": "Ces limites sont à lire selon le genre : un article d'analyse qui annonce sa position dans son titre n'est pas tenu à l'équilibre d'un reportage, et un format court ne peut pas tout chiffrer. Ce que l'analyse signale reste réel — notamment les chiffres décisifs sans source et le glissement de population — mais l'absence de contradicteur relève ici d'un choix éditorial assumé plutôt que d'un manquement dissimulé."
+    }
+  }
+}

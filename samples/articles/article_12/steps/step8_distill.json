@@ -1,0 +1,61 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "Le même glissement de population traverse quatre couches : la statistique du COR porte sur les retraités propriétaires, la conclusion porte sur les 8 % visés. Repéré comme faille de validité, exploité comme cadrage protecteur, relevé comme manquement déontologique, il abaisse à lui seul la note d'exactitude factuelle.",
+        "references": [
+          "lr_2",
+          "ia_1",
+          "cb_0",
+          "bias_2",
+          "claim_3",
+          "pr_3"
+        ]
+      },
+      {
+        "text": "L'absence de chiffrage de l'effort budgétaire recherché n'est pas une lacune de contexte : c'est la condition qui permet à « à peine le milliard » de fonctionner comme disqualification et au saut vers les « moins nantis » de paraître nécessaire. Le dénominateur manquant fait le travail argumentatif.",
+        "references": [
+          "bs_1",
+          "ia_0",
+          "lr_0",
+          "bias_1",
+          "claim_1",
+          "obs_4"
+        ]
+      },
+      {
+        "text": "Les deux chiffrages les plus décisifs — les 6 milliards et le milliard — sont précisément ceux qui circulent sans source, et la source la plus mobilisée pour le cœur arithmétique est hébergée par le journal lui-même. La rigueur apparente du reste du texte sert de caution là où elle manque.",
+        "references": [
+          "claim_0",
+          "claim_2",
+          "obs_4",
+          "bs_1",
+          "pr_0"
+        ]
+      },
+      {
+        "text": "L'alternative finale — taxer le patrimoine — bénéficie de l'asymétrie d'examen que subit la mesure critiquée : deux phrases contre trois sections, aucun rendement, aucun obstacle. Le déplacement du flux vers le stock passe comme une évidence parce qu'il arrive après la clôture du débat.",
+        "references": [
+          "bs_2",
+          "ia_3",
+          "cb_1",
+          "focus"
+        ]
+      },
+      {
+        "text": "L'alignement de Barnier, Bayrou et Lecornu installe une lecture par récidive avant tout examen du contenu, et cette mise en scène remplace le contradicteur absent : aucun défenseur n'étant nommé, le précédent tient lieu de réfutation.",
+        "references": [
+          "er_0",
+          "bias_0",
+          "obs_1",
+          "bs_0"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quel effort budgétaire total était visé, et quelle part ce milliard représente-t-il ?",
+      "Quel rendement réel une taxation du patrimoine dégagerait-elle, et sous quels obstacles juridiques ?",
+      "Que perçoivent effectivement les 8 % de retraités visés, hors moyenne des propriétaires ?"
+    ]
+  }
+}
