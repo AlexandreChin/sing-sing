@@ -65,7 +65,7 @@
   ],
   "cta": {
     "title": "Une mesure ciblée qui manque sa cible",
-    "engagement_sentence": "Dans quelle proportion l'effort doit-il porter sur ce que l'on gagne, et sur ce que l'on possède ?",
+    "engagement_sentence": "Quelle part de l'effort doit porter sur ce que l'on gagne, et quelle part sur ce que l'on possède ?",
     "engagement_sentence_alt": [
       "Quelle part de l'effort selon ce que l'on gagne, quelle part selon ce que l'on possède ?",
       "Entre ce que l'on gagne et ce que l'on possède, où placer le curseur de l'effort ?",
@@ -208,7 +208,7 @@
         "lens_ref": "angles_morts",
         "lens_question": "Un effort annoncé : qui le paie vraiment ?",
         "note": "Quand une mesure promet d'« exclure les petites retraites », vérifiez sur qui elle **pèse**.",
-        "answer": "Le régime de base fait **deux tiers** de la retraite des modestes ; les aisés vivent surtout de leur complémentaire et de leur patrimoine.",
+        "answer": "Le régime de base fait **deux tiers** de la retraite des modestes ; les retraités aisés vivent surtout de leur complémentaire et de leur patrimoine.",
         "figure": "",
         "figure_label": "",
         "figure_caption": "",
@@ -415,7 +415,7 @@
     "essentiel": [
       "L'économie dépend du **nombre** de retraités touchés, pas des montants.",
       "Ce sont les **petites retraites** qui y perdraient le plus.",
-      "Les retraités aisés vivent surtout de leur **patrimoine**."
+      "Les retraités aisés ont d'autres revenus : **complémentaire**, patrimoine."
     ],
     "essentiel_summary": "Alternatives Économiques examine la piste du budget 2027 : sous-indexer les retraites en « excluant les petites retraites ». Ne viser que les **8 %** au-dessus de 3 000 euros rapporterait à peine **1 milliard**, contre près de **6** en désindexant tout : le rendement vient du nombre de retraités, pas du montant des retraites. Et comme le régime de base fait **deux tiers** de la retraite des modestes, l'outil manque sa cible — les plus aisés vivent de leur complémentaire et de leur **patrimoine**."
   }
