@@ -1,0 +1,105 @@
+{
+  "deck": "samples/articles/article_12/instagram_carousel_optimized/extract.json",
+  "generated_at": "2026-09-14T18:00:51",
+  "reader": [
+    {
+      "kind": "comprehension",
+      "field": "01 hook",
+      "our_text": "Sous-indexer les **hautes retraites** : combien, et pour qui ?",
+      "evidence_kind": "reader",
+      "evidence": "Le terme qui commande tout le carrousel n'est expliqué nulle part : le lecteur ne sait pas que sous-indexer veut dire faire monter les pensions moins vite que les prix.",
+      "severity": "advisory",
+      "suggestion": "Ajouter une glose courte : « faire monter les pensions moins vite que les prix »"
+    },
+    {
+      "kind": "comprehension",
+      "field": "03 reperes réflexe",
+      "our_text": "Le nombre : ne viser que les **8 %** au-dessus de 3 000 euros ramène le rendement…",
+      "evidence_kind": "reader",
+      "evidence": "8 % de quoi n'est pas dit : 8 % des retraités, des pensions versées, de la masse des pensions ?",
+      "severity": "advisory",
+      "suggestion": "« les 8 % de retraités qui touchent plus de 3 000 euros »"
+    },
+    {
+      "kind": "comprehension",
+      "field": "beat",
+      "our_text": "une sous-indexation appliquée aux régimes de base touche […] davantage les catégories…",
+      "evidence_kind": "reader",
+      "evidence": "La distinction régime de base / complémentaire porte tout l'argument des deux derniers moments et n'est posée nulle part avant.",
+      "severity": "advisory",
+      "suggestion": "Dire en une incise ce que recouvre la retraite « de base » face à la complémentaire"
+    },
+    {
+      "kind": "comprehension",
+      "field": "socle présupposé",
+      "our_text": "que taxer le **patrimoine** rapporterait plus",
+      "evidence_kind": "reader",
+      "evidence": "Le mot « assiette », employé juste avant pour justifier la piste patrimoine, reste opaque pour qui n'a pas de culture fiscale.",
+      "severity": "advisory",
+      "suggestion": "Remplacer « élargirait l'assiette » par « toucherait plus de monde »"
+    }
+  ],
+  "fidelity": [
+    {
+      "kind": "fidelity",
+      "field": "display.why_selected",
+      "our_text": "Et l'effort porterait d'abord sur des retraités modestes, pas sur les plus aisés.",
+      "evidence_kind": "article_passage",
+      "evidence": "une sous-indexation appliquée aux régimes de base touche en fait davantage les catégories de niveau de vie modeste que, par exemple, une hausse des cotisations",
+      "severity": "blocking",
+      "suggestion": "L'article compare à une hausse de cotisations, pas « plutôt que les aisés »."
+    },
+    {
+      "kind": "fidelity",
+      "field": "display.essentiel[2]",
+      "our_text": "Les retraités aisés vivent surtout de leur **patrimoine**.",
+      "evidence_kind": "article_passage",
+      "evidence": "Les retraités plus aisés comptent davantage sur la partie complémentaire (Agirc-Arrco), un élément essentiel de leur retraite, qui vient s'ajouter à d'autres ressources, à commencer par leur patrimoine",
+      "severity": "blocking",
+      "suggestion": "Écrire : « comptent surtout sur leur complémentaire, plus leur patrimoine »."
+    },
+    {
+      "kind": "presupposition",
+      "field": "socle présupposé 3 (« que taxer le patrimoine rapporterait plus »)",
+      "our_text": "que taxer le **patrimoine** rapporterait plus",
+      "evidence_kind": "article_passage",
+      "evidence": "c'est le plus sûr moyen d'élargir l'assiette des contribuables concernés et de rapporter plus d'argent",
+      "severity": "advisory",
+      "suggestion": "Le point est énoncé et motivé en clôture : ce n'est pas un non-dit."
+    },
+    {
+      "kind": "presupposition",
+      "field": "socle présupposé 2 (« que l'effort doit épargner les retraites modestes »)",
+      "our_text": "que l'effort doit épargner les retraites **modestes**",
+      "evidence_kind": "article_passage",
+      "evidence": "Mais encore une fois, où mettre le curseur pour éviter de pénaliser les plus modestes ?",
+      "severity": "advisory",
+      "suggestion": "L'article pose ce critère explicitement ; chercher un présupposé réellement inexaminé."
+    },
+    {
+      "kind": "centrality",
+      "field": "beat 2 / beat vivier [5]",
+      "our_text": "Taxer le patrimoine plutôt que la retraite",
+      "evidence_kind": "article_passage",
+      "evidence": "Bref, pour obtenir un rendement significatif, il faudra s'attaquer aussi aux moins nantis.",
+      "severity": "advisory",
+      "suggestion": "Le vivier [5] porte le pivot du raisonnement, plus central que l'alternative finale."
+    }
+  ],
+  "report": {
+    "reader (model)": [
+      "[comprehension] 01 hook — « Sous-indexer les **hautes retraites** : combien, et pour qui ? » → Ajouter une glose courte : « faire monter les pensions moins vite que les prix »  (Le terme qui commande tout le carrousel n'est expliqué nulle part : le lecteur ne sait pas)",
+      "[comprehension] 03 reperes réflexe — « Le nombre : ne viser que les **8 %** au-dessus de 3 000 euros ramène le rendement… » → « les 8 % de retraités qui touchent plus de 3 000 euros »  (8 % de quoi n'est pas dit : 8 % des retraités, des pensions versées, de la masse des pensi)",
+      "[comprehension] beat — « une sous-indexation appliquée aux régimes de base touche […] davantage les catégories… » → Dire en une incise ce que recouvre la retraite « de base » face à la complémentaire  (La distinction régime de base / complémentaire porte tout l'argument des deux derniers mom)",
+      "[comprehension] socle présupposé — « que taxer le **patrimoine** rapporterait plus » → Remplacer « élargirait l'assiette » par « toucherait plus de monde »  (Le mot « assiette », employé juste avant pour justifier la piste patrimoine, reste opaque )"
+    ],
+    "fidelity (model)": [
+      "[fidelity] display.why_selected — « Et l'effort porterait d'abord sur des retraités modestes, pas sur les plus aisés. » → L'article compare à une hausse de cotisations, pas « plutôt que les aisés ».  (article : « une sous-indexation appliquée aux régimes de base touche en fait davantage les c… »)",
+      "[fidelity] display.essentiel[2] — « Les retraités aisés vivent surtout de leur **patrimoine**. » → Écrire : « comptent surtout sur leur complémentaire, plus leur patrimoine ».  (article : « Les retraités plus aisés comptent davantage sur la partie complémentaire (Agirc-… »)",
+      "[presupposition] socle présupposé 3 (« que taxer le patrimoine rapporterait plus ») — « que taxer le **patrimoine** rapporterait plus » → Le point est énoncé et motivé en clôture : ce n'est pas un non-dit.  (article : « c'est le plus sûr moyen d'élargir l'assiette des contribuables concernés et de r… »)",
+      "[presupposition] socle présupposé 2 (« que l'effort doit épargner les retraites modestes ») — « que l'effort doit épargner les retraites **modestes** » → L'article pose ce critère explicitement ; chercher un présupposé réellement inexaminé.  (article : « Mais encore une fois, où mettre le curseur pour éviter de pénaliser les plus mod… »)",
+      "[centrality] beat 2 / beat vivier [5] — « Taxer le patrimoine plutôt que la retraite » → Le vivier [5] porte le pivot du raisonnement, plus central que l'alternative finale.  (article : « Bref, pour obtenir un rendement significatif, il faudra s'attaquer aussi aux moi… »)"
+    ],
+    "dropped (model)": []
+  }
+}

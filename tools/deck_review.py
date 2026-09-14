@@ -25,6 +25,8 @@ is dropped or demoted before anyone reads it.
 """
 
 import json
+import sys
+from datetime import datetime
 from pathlib import Path
 
 from agent._base import _call_with_retry, _j
@@ -159,7 +161,12 @@ def _format(finding: dict) -> str:
 
 def review(extract_path: Path, article_path: Path | None = None,
            no_api: bool = False) -> dict[str, list[str]]:
-    """Run both passes. Returns {family: [lines]}, same shape as `check_deck.check`."""
+    """Run both passes. Returns {family: [lines]}, same shape as `check_deck.check`.
+
+    The findings are also written to `review.json` beside the deck: a model call
+    costs minutes, and its result has to survive the terminal scroll — it is what
+    you work from while editing, and what you compare the next run against.
+    """
     extract_path = Path(extract_path)
     doc = InstagramCarouselDocument.model_validate(
         json.loads(extract_path.read_text(encoding="utf-8")))
@@ -179,6 +186,7 @@ def review(extract_path: Path, article_path: Path | None = None,
     if article_path is None:
         report["fidelity (model)"].append(
             "article text not found — pass it as the second argument to run the fidelity pass")
+        _save(extract_path, doc, reader, {}, report)
         return report
 
     article = Path(article_path).read_text(encoding="utf-8")
@@ -198,7 +206,23 @@ def review(extract_path: Path, article_path: Path | None = None,
             report["fidelity (model)"].append(_format(f))
         else:
             report["dropped (model)"].append(f"{_format(f)}  ✗ {note}")
+    _save(extract_path, doc, reader, fidelity, report)
     return report
+
+
+def _save(extract_path: Path, doc, reader: dict, fidelity: dict,
+          report: dict[str, list[str]]) -> Path:
+    """Both passes' raw findings, plus the rendered lines, next to the deck."""
+    out = extract_path.parent / "review.json"
+    out.write_text(json.dumps({
+        "deck": str(extract_path),
+        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "reader": reader.get("findings", []),
+        "fidelity": fidelity.get("findings", []),
+        "report": report,
+    }, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"  ✓ {out}", file=sys.stderr)
+    return out
 
 
 def format_report(report: dict[str, list[str]]) -> str:
