@@ -31,6 +31,36 @@ def shoot_page(html_file, png=None, width=720, scale=2) -> Path:
     return png
 
 
+def _shoot_slide(browser, html_file: Path, png: Path) -> Path:
+    """One fixed-size slide, in an already-open browser."""
+    page = browser.new_page(viewport={"width": SLIDE_W, "height": SLIDE_H})
+    page.set_content(html_file.read_text(encoding="utf-8"), wait_until="networkidle")
+    page.screenshot(path=str(png), clip={"x": 0, "y": 0, "width": SLIDE_W, "height": SLIDE_H})
+    page.close()
+    print(f"  ✓ {png.name}")
+    return png
+
+
+def shoot_slide(html_file, png=None) -> Path:
+    """Screenshot ONE carousel slide, at slide size — for re-shooting a single
+    slide after a copy edit, without regenerating the whole deck. `shoot_page`
+    would capture it full-page at a device scale factor, giving a 2160×2700 PNG
+    that does not belong in `slides/`."""
+    html_file = Path(html_file)
+    png = Path(png) if png else html_file.with_suffix(".png")
+    png.parent.mkdir(parents=True, exist_ok=True)
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        out = _shoot_slide(browser, html_file, png)
+        browser.close()
+    return out
+
+
+def is_slide(html_file) -> bool:
+    """A carousel slide (fixed 1080×1350 frame), as opposed to a newsletter page."""
+    return 'class="slide"' in Path(html_file).read_text(encoding="utf-8")
+
+
 def shoot_dir(html_dir, out_dir=None) -> list[Path]:
     """Screenshot every *.html in `html_dir` to a .png (sorted by name).
 
@@ -43,12 +73,6 @@ def shoot_dir(html_dir, out_dir=None) -> list[Path]:
     with sync_playwright() as p:
         browser = p.chromium.launch()
         for f in files:
-            page = browser.new_page(viewport={"width": SLIDE_W, "height": SLIDE_H})
-            page.set_content(f.read_text(encoding="utf-8"), wait_until="networkidle")
-            png = out_dir / (f.stem + ".png")
-            page.screenshot(path=str(png), clip={"x": 0, "y": 0, "width": SLIDE_W, "height": SLIDE_H})
-            page.close()
-            out.append(png)
-            print(f"  ✓ {png.name}")
+            out.append(_shoot_slide(browser, f, out_dir / (f.stem + ".png")))
         browser.close()
     return out
