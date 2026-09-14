@@ -5,12 +5,13 @@ and screenshots via `renderer.shoot`. Shared helpers come from `._shared`.
 Registered as the `instagram_carousel_optimized` format.
 """
 import json
+import sys
 from pathlib import Path
 
 from agent.lenses import CANONICAL_LENSES
 from models.instagram_carousel_presentation import InstagramCarouselDocument
 from ._shared import (
-    _env, _LOGO_DATA_URL, _LOGO_TIGHT_DATA_URL,
+    _env, _LOGO_DATA_URL, _LOGO_TIGHT_DATA_URL, inner_quotes,
     source_type_label, duration_label, cover_layers, cover_thumb, cover_dims,
     hook_metrics, medium_labels,
 )
@@ -53,7 +54,6 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     # the canonical vocabulary — so picking a beat updates the lenses too.
     selected_beats = [b for b in d.reading_beats if b.selected]
     if len(selected_beats) > 3:
-        import sys
         print(f"[optimized] {len(selected_beats)} beats selected; rendering the first 3.", file=sys.stderr)
     selected_beats = selected_beats[:3]
     # Slide 4 promises N numbered réflexes; slides 5–7 answer them in the same
@@ -123,8 +123,9 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
             "lens_icon_svg": canon.get("icon_svg", ""),
         }
         # The template wraps the quote in « » itself — strip any the source JSON
-        # carries so they don't render doubled.
-        beat = {"moment": b.moment, "quote": b.quote.strip().strip("«»").strip(), **common}
+        # carries so they don't render doubled, and turn an inner pair into “ ”.
+        beat = {"moment": b.moment,
+                "quote": inner_quotes(b.quote.strip().strip("«»").strip()), **common}
         if b.figure and not number_done:
             # The hero slot — at most one per deck, so the beats never all look
             # alike. A term swap sets smaller than a count and splits on its
@@ -191,9 +192,25 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     return paths
 
 
+def _warn_invalid(doc: InstagramCarouselDocument) -> None:
+    """Print the adapt-time structural errors before rendering — never fail.
+
+    `render` is run on hand-edited extracts, where the caps the adapt loop
+    enforces (a quote over 24 words overflows its block) otherwise go unnoticed
+    until someone looks at the slide. You still get the render: mid-edit, seeing
+    the result is the point.
+    """
+    from agent.instagram_carousel_adapt_agent import _validate
+    problems = [e for e in _validate(doc.presentation) if "go_further" not in e]
+    for e in problems:
+        print(f"  ⚠  {e}", file=sys.stderr)
+
+
 def generate_html_from_json(json_path: Path, out_dir: Path) -> list[Path]:
     data = json.loads(Path(json_path).read_text(encoding="utf-8"))
-    return generate_html(InstagramCarouselDocument.model_validate(data), out_dir)
+    doc = InstagramCarouselDocument.model_validate(data)
+    _warn_invalid(doc)
+    return generate_html(doc, out_dir)
 
 
 def render_from_json(json_path: Path, out_dir: Path, pdf: bool = False) -> list[Path]:

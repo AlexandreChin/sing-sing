@@ -144,20 +144,21 @@ def check(extract_path: Path, article_path: Path | None = None) -> dict[str, lis
     """Run every check. Returns {family: [problems]} — empty lists mean clean."""
     extract_path = Path(extract_path)
     doc = InstagramCarouselDocument.model_validate(json.loads(extract_path.read_text(encoding="utf-8")))
-    report: dict[str, list[str]] = {"structure": [], "accuracy": [], "consistency": [],
+    report: dict[str, list[str]] = {"structure (extract)": [], "structure (adapt)": [],
+                                    "accuracy": [], "consistency": [],
                                     "typography": [], "vocabulary (advisory)": []}
 
-    # `_validate` describes what adapt must produce; the extract is a trimmed
-    # version of it (the extractor keeps one go_further, three dimensions), so
-    # validate the adapt document when it is there.
+    # Both files are checked, and each problem is labelled with the file to open.
+    # The extract is what renders and what gets hand-edited; the adapt is what
+    # a rerun would regenerate from. Reporting only the adapt (as this did) sends
+    # you hunting through the extract for an error that is not in it.
+    report["structure (extract)"] = [e for e in _validate(doc.presentation) if "go_further" not in e]
     adapt_path = extract_path.parent / "adapt.json"
     if adapt_path.exists():
         from models.instagram_carousel_presentation import InstagramCarouselPresentation
         adapted = InstagramCarouselPresentation.model_validate(
             json.loads(adapt_path.read_text(encoding="utf-8")))
-        report["structure"] = list(_validate(adapted))
-    else:
-        report["structure"] = [e for e in _validate(doc.presentation) if "go_further" not in e]
+        report["structure (adapt)"] = list(_validate(adapted))
 
     if article_path is None:
         base = extract_path.parent.parent

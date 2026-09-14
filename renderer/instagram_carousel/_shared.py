@@ -203,10 +203,24 @@ _LOGO_TIGHT_DATA_URL = _logo_data_url(_LOGO_PATH, crop=True) if _LOGO_PATH.exist
 # punctuation orphaned at the start of a line.
 _FR_TIGHT = re.compile(r"[ \u202f]+([;:!?»])")
 _FR_OPEN = re.compile(r"(«)[ \u202f]+")
+# Digit groups: « 3 000 euros » wraps after the 3 and leaves a lone digit at the
+# end of a line. The space inside a number is never a line-break opportunity, so
+# it is bound here rather than typed as a literal U+202F in the JSON — invisible
+# to the next editor, and lost the moment the field is rewritten.
+_FR_DIGITS = re.compile(r"(?<=\d) (?=\d{3}(?!\d))")
 
 
 def _fr_spacing(text: str) -> str:
+    text = _FR_DIGITS.sub("\u202f", text)
     return _FR_OPEN.sub("\\1\u00a0", _FR_TIGHT.sub("\u00a0\\1", text))
+
+
+# The quote templates wrap the passage in « » themselves. A quote that carries
+# its own guillemets then shows three opening marks on one slide, so the inner
+# pair becomes a curly one — the JSON stays verbatim to the article.
+def inner_quotes(quote: str) -> str:
+    """« rapporter » inside an already-quoted passage → “rapporter”."""
+    return re.sub(r"«\s*(.+?)\s*»", "\u201c\\1\u201d", quote)
 
 
 def _md_bold(text) -> Markup:

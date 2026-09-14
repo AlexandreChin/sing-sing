@@ -58,7 +58,7 @@
   {% if rubrique %}<div class="rubrique-tab"><svg viewBox="0 0 24 24">{{ glyph | safe }}</svg>{{ rubrique }}</div>{% endif %}
 
   <span class="kicker sel-kick"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg>Sélection</span>
-  {% if meta_parts %}<div class="meta-line">{% for part in meta_parts %}{% if not loop.first %}<span class="dot">&bull;</span>{% endif %}{{ part }}{% endfor %}</div>{% endif %}
+  {% if meta_parts %}<div class="meta-line">{% for part in meta_parts %}{% if not loop.first %}<span class="dot">&bull;</span>{% endif %}{{ part | fr }}{% endfor %}</div>{% endif %}
   {% if thumb %}<div class="shot"><img src="{{ thumb }}" alt=""{% if slot_max %} style="max-height: {{ slot_max }}px"{% endif %}><div class="edge"></div></div>{% endif %}
 
   <div class="divider2"></div>
