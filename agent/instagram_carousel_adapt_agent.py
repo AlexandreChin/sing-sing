@@ -257,6 +257,21 @@ def _lens_layer_errors(d) -> list[str]:
                 f"display.reading_beats: the selected beats cover {len(roles)} distinct role(s) "
                 f"(min 2) — three quotes doing the same thing give the reader the same move three times"
             )
+    # Slide 3 stacks the three lens questions one under the other, where two
+    # that open the same way read as one line printed twice. Only visible
+    # once rendered, so it is caught here instead.
+    openings: dict[str, int] = {}
+    for i, b in enumerate(beats):
+        if not (b.selected and b.lens_question.strip()):
+            continue
+        key = " ".join(_fold(b.lens_question).split()[:3])
+        if key in openings:
+            errors.append(
+                f"display.reading_beats[{i}].lens_question opens like beats[{openings[key]}]'s "
+                f"(« {key}… ») — the three are stacked on slide 3, so each needs its own opening"
+            )
+        else:
+            openings[key] = i
     ga = d.global_analysis
     if ga is None:
         errors.append("display.global_analysis is missing")
