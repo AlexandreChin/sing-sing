@@ -9,7 +9,7 @@
       "medium": "article",
       "category": "Société",
       "reading_time_minutes": 7,
-      "chapo": "A partir de quel seuil un retraité peut-il être considéré comme riche ? 2 000 euros ? 3 000 ? 4 000 ? La question revient régulièrement sur le tapis, surtout en période automnale, saison épineuse de bouclage de budget. Sans surprise, depuis la fin de l’été, les plus de 17 millions de retraités français, notamment les plus fortunés d’entre eux, forment une nouvelle fois une cible de choix pour tenter de trouver des économies."
+      "chapo": "A partir de quel seuil un retraité peut-il être considéré comme riche ? 2 000 euros ? 3 000 ? 4 000 ? La question revient régulièrement sur le tapis, surtout en période automnale, saison épineuse de bouclage de budget. Sans surprise, depuis la fin de l’été, les plus de 17 millions de retraités français, notamment les plus fortunés d’entre eux, forment une nouvelle fois une cible de choix pour tenter de trouver des économies."
     },
     "extraction": {
       "authority_anchors": [
@@ -23,7 +23,7 @@
         },
         {
           "entity": "Service statistique des ministères de la Santé et des Solidarités (Drees)",
-          "used_for": "8 % des retraités dépassent 3 000 euros brut par mois, 1 % dépassent 5 000 euros"
+          "used_for": "8 % des retraités dépassent 3 000 euros brut par mois, 1 % dépassent 5 000 euros"
         },
         {
           "entity": "Hippolyte d'Albis (Économies des âges de la vie, Odile Jacob, 2026)",
@@ -163,7 +163,7 @@
           {
             "id": "pr_0",
             "statement": "Le rendement budgétaire de la désindexation vient du **nombre de retraités**, pas du niveau des pensions.",
-            "quality": "Étayée par un chiffrage explicite (6 milliards pour tous, à peine 1 milliard au-dessus de 3 000 euros) et par l'économiste Mickaël Zemmour."
+            "quality": "Étayée par un chiffrage explicite (6 milliards pour tous, à peine 1 milliard au-dessus de 3 000 euros) et par l'économiste Mickaël Zemmour."
           },
           {
             "id": "pr_1",
@@ -189,7 +189,7 @@
           },
           {
             "id": "ia_1",
-            "statement": "La **moyenne** du niveau de vie des retraités dit quelque chose de la situation des retraités visés, ceux qui dépassent 3 000 euros.",
+            "statement": "La **moyenne** du niveau de vie des retraités dit quelque chose de la situation des retraités visés, ceux qui dépassent 3 000 euros.",
             "impact": "Si les deux populations divergent, les chiffres du COR ne disent rien de la capacité contributive de la cible."
           },
           {
@@ -365,7 +365,7 @@
             "alternative_conclusion": "Le ciblage prolongerait une redistribution déjà à l'œuvre, et le débat porterait sur son ampleur plutôt que sur son principe."
           },
           {
-            "counterargument": "Les chiffres du COR décrivent l'ensemble des retraités, quand la mesure ne viserait que les 8 % au-dessus de 3 000 euros ; le décrochage moyen ne dit rien de la capacité contributive de cette fraction.",
+            "counterargument": "Les chiffres du COR décrivent l'ensemble des retraités, quand la mesure ne viserait que les 8 % au-dessus de 3 000 euros ; le décrochage moyen ne dit rien de la capacité contributive de cette fraction.",
             "seeds": {
               "source": "logical_reasoning",
               "index": 2,
@@ -482,7 +482,7 @@
           },
           {
             "id": "claim_1",
-            "quote": "cibler les seuls retraités qui perçoivent plus de 3 000 euros brut par mois (8 % des retraités selon le service statistique des ministères de la Santé et des Solidarités, 1 % des retraités touchant plus de 5 000 euros) serait une opération beaucoup moins rentable, atteignant à peine le milliard d'euros",
+            "quote": "cibler les seuls retraités qui perçoivent plus de 3 000 euros brut par mois (8 % des retraités selon le service statistique des ministères de la Santé et des Solidarités, 1 % des retraités touchant plus de 5 000 euros) serait une opération beaucoup moins rentable, atteignant à peine le milliard d'euros",
             "presentation": "attributed_to_source",
             "proves": {
               "type": "cui_bono",
@@ -593,7 +593,7 @@
             "quote": "Les retraités propriétaires ont désormais un niveau de vie inférieur d'un point de pourcentage par rapport aux actifs.",
             "item_type": "fallacy",
             "label": "glissement de population",
-            "effect": "Remarquez que la statistique porte sur l'ensemble des retraités propriétaires, tandis que la mesure discutée ne viserait que les 8 % au-dessus de 3 000 euros.",
+            "effect": "Remarquez que la statistique porte sur l'ensemble des retraités propriétaires, tandis que la mesure discutée ne viserait que les 8 % au-dessus de 3 000 euros.",
             "proves": {
               "type": "cui_bono",
               "label": "Les retraités aux pensions élevées, cible de la mesure",
@@ -656,7 +656,7 @@
           "dimension": "source_rigor",
           "label": "Source Rigor",
           "score": 3,
-          "rationale": "L'article **attribue soigneusement** une partie de ses données — la DREES pour les 8 % au-dessus de 3 000 euros, le COR pour le niveau de vie, cinq économistes cités — ce qui soutient la démonstration. Mais les deux chiffrages les plus décisifs restent **sans source** : les « près de 6 milliards d'euros » et le « à peine le milliard », de même que « le régime de base représente les deux tiers de la retraite des plus modestes ». S'ajoute la citation de Mickaël Zemmour sur un blog **hébergé par le journal lui-même**, signalée en incise sans être explicitée.",
+          "rationale": "L'article **attribue soigneusement** une partie de ses données — la DREES pour les 8 % au-dessus de 3 000 euros, le COR pour le niveau de vie, cinq économistes cités — ce qui soutient la démonstration. Mais les deux chiffrages les plus décisifs restent **sans source** : les « près de 6 milliards d'euros » et le « à peine le milliard », de même que « le régime de base représente les deux tiers de la retraite des plus modestes ». S'ajoute la citation de Mickaël Zemmour sur un blog **hébergé par le journal lui-même**, signalée en incise sans être explicitée.",
           "lesson": "Repérez lesquels des chiffres sont attribués et lesquels ne le sont pas : ce sont souvent les plus décisifs qui voyagent sans source."
         },
         {
@@ -976,7 +976,7 @@
     "core_elements": {
       "elements": [
         {
-          "statement": "Sous-indexer les seules pensions supérieures à 3 000 euros rapporterait à peine un milliard, contre six pour toutes.",
+          "statement": "Sous-indexer les seules pensions supérieures à 3 000 euros rapporterait à peine un milliard, contre six pour toutes.",
           "kind": "fait",
           "centrality": 5,
           "seeds": {
@@ -1039,12 +1039,12 @@
     }
   },
   "presentation": {
-    "caption": "Sous-indexer les seules retraites au-dessus de 3 000 euros rapporterait à peine un milliard, contre près de six en désindexant tout : le rendement vient du nombre de retraités, pas du montant des retraites. 💶\n\n🔎 Et comme le régime de base fait deux tiers de la retraite des plus modestes, l'outil pèse d'abord sur ceux qu'il prétend épargner.\n\n🔗 Lien vers l'article en commentaires ↓",
+    "caption": "Sous-indexer les seules retraites au-dessus de 3 000 euros rapporterait à peine un milliard, contre près de six en désindexant tout : le rendement vient du nombre de retraités, pas du montant des retraites. 💶\n\n🔎 Et comme le régime de base fait deux tiers de la retraite des plus modestes, l'outil pèse d'abord sur ceux qu'il prétend épargner.\n\n🔗 Lien vers l'article en commentaires ↓",
     "hook": {
       "topic": "Sous-indexer les **hautes retraites**",
       "sub_topic": "Sous-indexer les **hautes retraites** : combien, et pour qui ?",
       "headline": "Sous-indexer les hautes retraites rapporte peu et touche les modestes",
-      "context_line": "Budget 2027 : le gouvernement veut sous-indexer les retraites au-dessus de 3 000 euros.",
+      "context_line": "Budget 2027 : le gouvernement veut sous-indexer les retraites au-dessus de 3 000 euros.",
       "sub_topic_alt": [
         "Viser les **retraites élevées** : pour quel gain ?",
         "Une mesure **ciblée** qui manque sa cible ?",
@@ -1062,7 +1062,7 @@
       "Cherchez à quel montant d'économies ce « pari » est censé répondre."
     ],
     "chapo_bullets": [
-      "Observez l'enchaînement de seuils — **2 000, 3 000, 4 000** — posé sans trancher.",
+      "Observez l'enchaînement de seuils — **2 000, 3 000, 4 000** — posé sans trancher.",
       "Remarquez que les **17 millions de retraités** arrivent d'emblée comme un bloc.",
       "Notez le mot « **cible** » : la mesure est cadrée avant d'être décrite."
     ],
@@ -1099,7 +1099,7 @@
         },
         {
           "id": "q_1",
-          "question": "Que perçoivent réellement les retraités au-dessus de 3 000 euros, hors moyenne générale ?",
+          "question": "Que perçoivent réellement les retraités au-dessus de 3 000 euros, hors moyenne générale ?",
           "type": "topic_substance"
         },
         {
@@ -1125,7 +1125,7 @@
       },
       "payoff": "Savoir d'où vient l'argent d'une mesure sur les pensions, et de qui on parle.",
       "framing": "L'article juge la mesure sur son **rendement budgétaire**, pas sur son équité.",
-      "why_selected": "Ne viser que les retraites au-dessus de **3 000 euros** rapporterait à peine **1 milliard**, contre près de **6** en désindexant tout.\nEt l'effort porterait d'abord sur des retraités modestes, pas sur les plus aisés.",
+      "why_selected": "Ne viser que les retraites au-dessus de **3 000 euros** rapporterait à peine **1 milliard**, contre près de **6** en désindexant tout.\nEt l'effort porterait d'abord sur des retraités modestes, pas sur les plus aisés.",
       "selection_headline": "À peine 1 milliard, contre 6",
       "selection_headline_alt": [
         "Une mesure ciblée qui manque sa cible",
@@ -1169,7 +1169,7 @@
       ],
       "key_takeaways": [
         {
-          "text": "8 % des retraités dépassent 3 000 euros brut ; 1 % dépassent 5 000.",
+          "text": "8 % des retraités dépassent 3 000 euros brut ; 1 % dépassent 5 000.",
           "selected": true
         },
         {
@@ -1209,9 +1209,9 @@
           "lens_ref": "chiffres",
           "lens_question": "Une mesure ciblée : combien rapporte-t-elle vraiment ?",
           "note": "Devant une mesure ciblée, cherchez ce qui fait le montant : le **nombre**, ou les sommes.",
-          "answer": "Le nombre : ne viser que les **8 %** au-dessus de 3 000 euros ramène le rendement de six milliards à **un seul**.",
+          "answer": "Le nombre : ne viser que les **8 %** au-dessus de 3 000 euros ramène le rendement de six milliards à **un seul**.",
           "figure": "1 Md€",
-          "figure_label": "en ne visant que les retraites au-dessus de 3 000 euros",
+          "figure_label": "en ne visant que les retraites au-dessus de 3 000 euros",
           "figure_caption": "contre près de 6 milliards en désindexant toutes les retraites de base",
           "factcheck": "likely true",
           "selected": true,
@@ -1281,13 +1281,13 @@
         },
         {
           "moment": "Cibler les hautes pensions divise le rendement par six",
-          "quote": "cibler les seuls retraités qui perçoivent plus de 3 000 euros brut par mois […] serait une opération beaucoup moins rentable, atteignant à peine le milliard",
+          "quote": "cibler les seuls retraités qui perçoivent plus de 3 000 euros brut par mois […] serait une opération beaucoup moins rentable, atteignant à peine le milliard",
           "lens_ref": "chiffres",
           "lens_question": "Une économie jugée faible : comparée à quoi ?",
           "note": "Quand un montant est dit dérisoire, cherchez le **dénominateur** absent.",
           "answer": "**À rien** : le texte ne dit jamais combien l'État cherche à économiser pour 2027 — des dizaines de milliards — donc l'adjectif fait le travail du chiffre.",
           "figure": "1 Md€",
-          "figure_label": "rendement d'une sous-indexation au-dessus de 3 000 euros",
+          "figure_label": "rendement d'une sous-indexation au-dessus de 3 000 euros",
           "figure_caption": "",
           "factcheck": "likely true",
           "selected": false,
@@ -1342,7 +1342,7 @@
           "lens_ref": "opinion_fait",
           "lens_question": "Un débat déclaré clos : par qui, sur quoi ?",
           "note": "Méfiez-vous d'un débat déclaré **tranché** avant que la donnée n'arrive.",
-          "answer": "La donnée qui suit porte sur les retraités **propriétaires**, un point d'écart, quand la mesure discutée ne viserait que les 8 % au-dessus de 3 000 euros.",
+          "answer": "La donnée qui suit porte sur les retraités **propriétaires**, un point d'écart, quand la mesure discutée ne viserait que les 8 % au-dessus de 3 000 euros.",
           "figure": "",
           "figure_label": "",
           "figure_caption": "",
@@ -1361,7 +1361,7 @@
           "lens_ref": "chiffres",
           "lens_question": "Une moyenne : elle décrit qui, exactement ?",
           "note": "À chaque statistique, vérifiez de quelle **population** elle parle.",
-          "answer": "Des retraités **propriétaires**, tous niveaux de pension confondus ; la mesure, elle, ne viserait que les 8 % au-dessus de 3 000 euros.",
+          "answer": "Des retraités **propriétaires**, tous niveaux de pension confondus ; la mesure, elle, ne viserait que les 8 % au-dessus de 3 000 euros.",
           "figure": "",
           "figure_label": "",
           "figure_caption": "",
@@ -1437,7 +1437,7 @@
         "Le régime de base fait **deux tiers** de la retraite des plus modestes.",
         "Les retraités aisés vivent surtout de leur complémentaire et de leur **patrimoine**."
       ],
-      "essentiel_summary": "Alternatives Économiques examine la piste du budget 2027 : sous-indexer les retraites en « excluant les petites retraites ». Ne viser que les **8 %** au-dessus de 3 000 euros rapporterait à peine **1 milliard**, contre près de **6** en désindexant tout : le rendement vient du nombre de retraités, pas du montant des retraites. Et comme le régime de base fait **deux tiers** de la retraite des modestes, l'outil manque sa cible — les plus aisés vivent de leur complémentaire et de leur **patrimoine**."
+      "essentiel_summary": "Alternatives Économiques examine la piste du budget 2027 : sous-indexer les retraites en « excluant les petites retraites ». Ne viser que les **8 %** au-dessus de 3 000 euros rapporterait à peine **1 milliard**, contre près de **6** en désindexant tout : le rendement vient du nombre de retraités, pas du montant des retraites. Et comme le régime de base fait **deux tiers** de la retraite des modestes, l'outil manque sa cible — les plus aisés vivent de leur complémentaire et de leur **patrimoine**."
     }
   }
 }
