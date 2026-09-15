@@ -230,26 +230,30 @@ def _lens_layer_errors(d) -> list[str]:
     staging = sum(1 for b in beats if b.selected and b.role.strip() == "mise en scène")
     if staging > 1:
         errors.append(f"display.reading_beats: at most 1 selected beat may have role 'mise en scène', got {staging}")
-    # The argumentative spine. A pool can hold eight candidates, cover every lens
-    # and still stop at the demonstration — the article's own conclusion (what it
-    # recommends) then never reaches a slide. Only enforced on decks that carry
-    # `thesis_step` at all, so decks produced before the field keep validating.
-    if any(b.thesis_step for b in beats):
+    # The spine. Slide 2 states it in three bullets — premise 1, premise 2,
+    # conclusion — and the three selected beats illustrate them one for one, in
+    # the same order. Derived separately on each slide the two drift apart, and
+    # the deck reads as parts that never build on each other. Only enforced on
+    # decks carrying `spine_ref` at all, so older decks keep validating.
+    if any(b.spine_ref for b in beats):
         for i, b in enumerate(beats):
-            if b.selected and not b.thesis_step:
-                errors.append(f"display.reading_beats[{i}].thesis_step is empty (required for selected beats)")
-        steps = {b.thesis_step for b in beats if b.thesis_step}
-        missing = [s for s in ("premisse", "preuve", "conclusion") if s not in steps]
-        if missing:
+            if b.selected and not b.spine_ref:
+                errors.append(
+                    f"display.reading_beats[{i}].spine_ref is 0 (required for selected beats) — "
+                    f"name the `essentiel` bullet it illustrates: 1/2 the premises, 3 the conclusion"
+                )
+        refs = [b.spine_ref for b in beats if b.selected and b.spine_ref]
+        for n, what in ((1, "first premise"), (2, "second premise"), (3, "conclusion")):
+            if refs.count(n) != 1:
+                errors.append(
+                    f"display.reading_beats: {refs.count(n)} selected beat(s) carry spine_ref={n} "
+                    f"(the {what} — bullet {n} of slide 2), expected exactly 1. One moment per "
+                    f"bullet, in order, so the three walk the argument instead of crowding one step"
+                )
+        if not any(b.spine_ref == 3 for b in beats):
             errors.append(
-                f"display.reading_beats (candidate pool) covers no {'/'.join(missing)} beat — "
-                f"the pool must offer one candidate per step of the article's argument, "
-                f"the conclusion included (its last section is where it states what it advocates)"
-            )
-        if "conclusion" in steps and not any(b.selected and b.thesis_step == "conclusion" for b in beats):
-            errors.append(
-                "display.reading_beats: the pool has a 'conclusion' candidate but none is selected — "
-                "three beats that stop at the demonstration leave out what the article advocates"
+                "display.reading_beats (candidate pool) offers no spine_ref=3 candidate — the pool "
+                "must reach what the article advocates (its last section), not stop at the demonstration"
             )
         roles = {b.role.strip() for b in beats if b.selected and b.role.strip()}
         if len(roles) < 2:

@@ -120,7 +120,7 @@ def _beats_digest(doc: InstagramCarouselDocument) -> str:
     out = []
     for i, b in enumerate(d.reading_beats):
         mark = "RETENU " if b.selected else "vivier "
-        out.append(f"{mark}[{i}] ({b.thesis_step or '?'}/{b.role or '?'}) {b.moment} "
+        out.append(f"{mark}[{i}] (socle {b.spine_ref or '?'}/{b.role or '?'}) {b.moment} "
                    f"— « {b.quote[:90]} » → {b.answer[:120]}")
     return "\n".join(out)
 
