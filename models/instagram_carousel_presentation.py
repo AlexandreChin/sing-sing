@@ -86,11 +86,13 @@ class ReadingBeat(BaseModel):
     kind: str = ""          # editor aid — fait | biais | enjeu | statistique | affirmation
     role: str = ""          # editor aid — what the quote DOES for the thesis:
                             # appui | preuve | concession | pivot | mise en scène
-    # which step of the article's own argument the quote serves. The pool must
-    # cover all three (see the adapt prompt): without it, a pool can hold eight
-    # candidates and still miss the conclusion the article builds towards.
-    # "" = legacy deck produced before the field existed — checks stay off.
-    thesis_step: Literal["premisse", "preuve", "conclusion", ""] = ""
+    # Which element of the article's spine the quote illustrates, and so which
+    # `essentiel` bullet it pays: 1 = first premise, 2 = second premise,
+    # 3 = conclusion. Slide 2 states the three, slides 4-6 illustrate them one
+    # for one in the same order; derived separately on each slide they drift
+    # apart and the deck stops building.
+    # 0 = legacy deck produced before the field existed — checks stay off.
+    spine_ref: Literal[0, 1, 2, 3] = 0
     rationale: str = ""     # editor aid — one line on why this beat is worth a slide
 
 
