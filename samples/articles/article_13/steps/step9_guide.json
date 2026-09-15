@@ -1,0 +1,70 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Repérez dès l'ouverture la grille annoncée — tragédie puis farce — et demandez-vous si les faits qui suivent la **testent** ou l'**illustrent**.",
+      "Gardez en tête les réponses institutionnelles françaises au choc de 1973 : stocks obligatoires, plan Messmer, programme nucléaire.",
+      "Comptez les paragraphes consacrés à 1973 et ceux consacrés à 2026 : le déséquilibre indique où le texte est documenté et où il conclut."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "wo_0",
+          "text": "Le rapprochement entre les deux crises repose sur des ressemblances de décor — une guerre, des discours officiels — et non sur une comparaison des mécanismes de prix. Vérifiez à chaque étape si ce qui se ressemble fonctionne aussi de la même façon.",
+          "references": [
+            "pr_0",
+            "lr_0",
+            "bias_0"
+          ]
+        },
+        {
+          "id": "wo_1",
+          "text": "L'écart entre la parole publique rassurante et les notes internes inquiètes est présenté comme la preuve d'une impréparation. Une autre lecture existe — gérer la panique — et n'est jamais envisagée.",
+          "references": [
+            "pr_3",
+            "ia_0",
+            "er_1"
+          ]
+        },
+        {
+          "id": "wo_2",
+          "text": "Le dirigeant pétrolier qui annonce la pénurie hérite du crédit accordé à son prédécesseur de 1973, validé par les archives. Sa position de vendeur, qui lui donne intérêt à cette annonce, n'est signalée nulle part.",
+          "references": [
+            "ia_2",
+            "bs_2",
+            "cb_0"
+          ]
+        },
+        {
+          "id": "wo_3",
+          "text": "Les chiffres sont précis pour les années 1947-1973 et absents pour 2026 : ni cotation nommée pour le prix du baril, ni volume pour les stocks stratégiques. Vous ne pourrez trancher le désaccord entre les deux paroles officielles qu'avec des données vieilles de cinquante ans.",
+          "references": [
+            "claim_1",
+            "bs_1",
+            "obs_3"
+          ]
+        },
+        {
+          "id": "wo_4",
+          "text": "Le titre fond les deux époques en une seule crise avant toute comparaison, et son jeu de mots annonce un dénouement là où la série ne fait que commencer. La question que l'article prétend poser est déjà tranchée par sa formulation.",
+          "references": [
+            "obs_5",
+            "bias_1",
+            "lr_0"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Demandez-vous ce que vous avez appris de 2026 au-delà de deux paragraphes, et ce que vous avez appris de 1973.",
+      "Retenez la valeur propre des archives internes de Total — une matière rare — sans la transférer automatiquement au parallèle qu'elles servent.",
+      "Interrogez le « nous » de la phrase-pivot : il vous range dans une impréparation collective qui reste à démontrer.",
+      "Cherchez de votre côté ce que sont devenus les stocks stratégiques et la part du pétrole dans l'énergie française depuis 1973."
+    ],
+    "title_note": null,
+    "perspective": {
+      "framing": "L'article lit la crise énergétique de 2026 à travers celle de 1973, en plaçant au centre l'écart entre la parole publique rassurante et l'inquiétude privée consignée dans les archives internes de Total. Le registre est celui du récit au présent, avec des mesures concrètes et datées, et le point de vue est celui d'un observateur qui annonce d'emblée sa grille de lecture — la répétition de l'histoire en farce.",
+      "blind_spots": "Le plan Messmer et le programme nucléaire, réponses les plus directes au choc de 1973, ne sont cités nulle part. Les écarts structurels entre les deux époques non plus : part du pétrole passée de deux tiers à environ un tiers, marchés à terme, production américaine.",
+      "balance": "C'est le premier épisode d'une série : poser un cadre et reporter la démonstration aux textes suivants est un choix de format, pas une faute d'analyse. Un texte qui assume sa thèse n'a pas à présenter toutes les positions — mais le déséquilibre documentaire entre les deux époques, lui, se lit dès ce premier volet et conditionne ce qu'on peut en tirer sur 2026."
+    }
+  }
+}

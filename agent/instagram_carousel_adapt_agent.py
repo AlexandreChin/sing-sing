@@ -125,6 +125,34 @@ def _tired_opening_errors(label: str, text: str) -> list[str]:
     ]
 
 
+# Question shapes that ossified across decks. `_TIRED_OPENINGS` only matches the
+# START of a line; these tics sit anywhere in the sentence, so they need their own
+# check. Banning a shape in prose is not enough — the first family was banned in
+# the prompt and the model simply moved to the second. Add a pattern whenever a
+# new one appears: the point is that the NEXT tic is caught here, not three decks
+# later in review.
+_TIRED_QUESTIONS = {
+    r"faut-il juger\b": "« faut-il juger X sur A ou sur B ? » — six decks used it",
+    r"\bque\s+faudrait-il\b": "« que faudrait-il constater/observer/voir pour… » — three decks in a row",
+    r"\bne\s+(?:tient|tiennent)\s+plus\b": "« …pour dire que X ne tient plus » closes the same formula",
+}
+_TIRED_QUESTIONS_RE = {p: re.compile(p, re.I) for p in _TIRED_QUESTIONS}
+
+
+def _tired_question_errors(label: str, text: str) -> list[str]:
+    """The closing question must LEAVE the subject (see the adapt prompt): a shape
+    that fits any article is the symptom of one that stayed inside this one."""
+    stripped = re.sub(r"[*\s]+", " ", text or "").strip()
+    return [
+        f"{label} reuses a burnt-out question shape — {why}. The closing question ELARGIT : "
+        f"it starts from the most far-reaching présupposé and leaves the subject, so it still "
+        f"makes sense with the article hidden. Ask what THIS case makes one wonder about "
+        f"everything else, and let the form follow from that"
+        for pat, why in _TIRED_QUESTIONS.items()
+        if _TIRED_QUESTIONS_RE[pat].search(stripped)
+    ]
+
+
 def _gilded_errors(pres, d) -> list[str]:
     """Every slide carries at least one gilded phrase. The prompt asks for bold in
     each sentence, but nothing checked it, so a generation can arrive with whole
@@ -443,6 +471,7 @@ def _validate(data: dict, article_text: str | None = None) -> list[str]:
     errors += _gilded_errors(pres, d)
     errors += _tired_opening_errors("hook.sub_topic", pres.hook.sub_topic)
     errors += _tired_opening_errors("cta.engagement_sentence", pres.cta.engagement_sentence)
+    errors += _tired_question_errors("cta.engagement_sentence", pres.cta.engagement_sentence)
     errors += _tired_opening_errors("display.selection_headline", d.selection_headline)
     errors.extend(_lens_layer_errors(d))
     if article_text:

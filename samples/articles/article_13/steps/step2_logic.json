@@ -1,0 +1,176 @@
+{
+  "main_claim": "La crise pétrolière de 2026 rejoue 1973, surtout par notre impréparation répétée.",
+  "premisses": [
+    {
+      "statement": "La séquence de 2026 — guerre au Moyen-Orient, pétrolier alarmiste, gouvernement rassurant — reproduit celle de l'automne 1973.",
+      "quality": "Repose sur une **analogie de surface** : les éléments appariés sont réels et datés, mais le texte les rapproche par ressemblance narrative sans mesurer ce qui diffère entre les deux économies."
+    },
+    {
+      "statement": "La prospérité française dépend d'un pétrole dont le pays ne maîtrise ni les flux ni les prix.",
+      "quality": "**Solidement étayé** pour 1973 par les chiffres de consommation (de 7 à 112 millions de tonnes) et la parole de Pompidou ; simplement **asserté** pour 2026, sans donnée actuelle."
+    },
+    {
+      "statement": "Les archives internes de Total montrent que les pétroliers voyaient venir ce que le pouvoir minimisait publiquement.",
+      "quality": "Appuyé sur des **documents de première main** (comptes rendus de conseils d'administration), mais leur provenance et leur volume ne sont pas décrits."
+    },
+    {
+      "statement": "L'écart entre discours public rassurant et inquiétude privée est le signe d'une impréparation.",
+      "quality": "**Assertion non étayée** : l'écart est documenté, sa lecture comme impréparation plutôt que comme gestion de l'opinion ne l'est pas."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "statement": "Un gouvernement qui rassure en public est un gouvernement qui **n'a pas anticipé**.",
+      "impact": "Si rassurer est un **acte de politique publique** — éviter la ruée sur les stations-service — l'écart entre discours et archives cesse d'être une preuve d'aveuglement."
+    },
+    {
+      "statement": "Les **similitudes de scénario** entre 1973 et 2026 pèsent plus lourd que les différences de structure énergétique.",
+      "impact": "Si le nucléaire, les stocks obligatoires et le schiste américain changent la nature du risque, le parallèle devient **un effet de récit** plutôt qu'un outil d'analyse."
+    },
+    {
+      "statement": "L'alerte d'un dirigeant pétrolier vaut **diagnostic neutre** sur l'état du marché.",
+      "impact": "Si sa position lui donne intérêt à la tension sur les prix, la parole qui contredit le gouvernement perd son **statut de contre-expertise**."
+    },
+    {
+      "statement": "Ne pas avoir évité le choc signifie **ne pas en avoir tiré les leçons**.",
+      "impact": "Si des leçons ont bien été tirées — nucléaire, stocks de 90 jours — l'impréparation décrite porte sur les **effets de prix**, pas sur la dépendance elle-même."
+    }
+  ],
+  "blind_spots": [
+    {
+      "topic": "Les **différences structurelles** entre 1973 et 2026 : mix énergétique, nucléaire, marchés à terme, production américaine.",
+      "significance": "Le parallèle est l'ossature du texte ; poser ces écarts aurait obligé à dire **jusqu'où** la rime tient."
+    },
+    {
+      "topic": "Le contenu réel des **stocks stratégiques**, jamais chiffré alors qu'il porte l'argument du gouvernement.",
+      "significance": "Sans volume ni durée, le lecteur ne peut pas **arbitrer** entre la porte-parole et le PDG de TotalEnergies."
+    },
+    {
+      "topic": "L'**intérêt propre** de TotalEnergies à annoncer une pénurie.",
+      "significance": "La parole de Pouyanné sert de contrepoint crédible au discours officiel ; sa position dans le marché n'est pas interrogée."
+    },
+    {
+      "topic": "Le **plan Messmer de 1974** et le programme nucléaire, cités nulle part comme réponse au choc.",
+      "significance": "C'est le contre-exemple le plus direct à l'idée qu'aucune leçon n'a jamais été tirée."
+    }
+  ],
+  "emphasis": [
+    "Le texte consacre une **dizaine de paragraphes datés** à l'automne 1973 — négociations de Vienne, embargo, mesures Messmer — contre **deux paragraphes** à la crise de 2026 qui justifie pourtant la série.",
+    "Les **mesures concrètes et visuelles** de 1973 (90 km/h, télévision coupée à 23 heures, dimanches sans voiture) occupent plus de place que **les chiffres du marché** de 2026, réduits au seul cours du Brent.",
+    "L'**écart entre parole publique et archives privées** est rejoué quatre fois — Élysée, Total, Messmer, Pompidou — alors que les raisons possibles de cet écart ne sont examinées **aucune fois**."
+  ],
+  "logical_reasoning": [
+    {
+      "step": "De la ressemblance entre les configurations de 1973 et de 2026, le texte conclut que les deux crises **riment**.",
+      "problem_type": "validity",
+      "diagnosis": "Les éléments appariés relèvent du **décor** — une guerre, deux discours opposés — et non des **mécanismes** de formation des prix ou d'approvisionnement, qui ont changé entre les deux dates."
+    },
+    {
+      "step": "Du décalage entre le discours officiel rassurant et les archives internes inquiètes, le texte infère l'**impréparation collective**.",
+      "problem_type": "soundness",
+      "diagnosis": "Le décalage est établi ; l'**impréparation** en est une lecture parmi d'autres, la gestion délibérée de la panique n'étant pas envisagée."
+    },
+    {
+      "step": "De la surprise apparente à chaque crise, le texte infère qu'**aucune leçon** n'a été tirée de la précédente.",
+      "problem_type": "soundness",
+      "diagnosis": "La prémisse est **fragilisée** par le programme nucléaire et les stocks obligatoires, réponses directes à 1973 que le texte ne mentionne pas."
+    },
+    {
+      "step": "Du fait que la France importe son pétrole, le texte déduit que sa **prospérité** reste suspendue à un prix qu'elle ne fixe pas.",
+      "problem_type": null,
+      "diagnosis": null
+    }
+  ],
+  "observations": [
+    {
+      "aspect": "Cadrage",
+      "summary": "La grille de lecture — tragédie puis farce — est **posée avant tout fait**, et le récit lui fournit ensuite ses illustrations. Le format en épisodes reporte la démonstration aux textes suivants.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "ce premier texte pose le parallèle et renvoie la démonstration aux suivants",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Sourçage",
+      "summary": "Les **archives internes de Total** portent la nouveauté du texte, mais leur provenance et leur étendue restent indéterminées. Elles servent à documenter 1973, pas à éclairer 2026.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "adossée à des archives présentées comme inédites",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Comparabilité",
+      "summary": "Le parallèle porte sur la **scène politique** — guerre, discours, inquiétude — et laisse de côté le mécanisme des prix, passé de la négociation directe aux **marchés à terme**.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 3,
+        "excerpt": "le prix du brut se forme sur des marchés financiers (contrats à terme sur le Brent et le WTI)",
+        "strength": 0.8,
+        "nature": "contradiction"
+      }
+    },
+    {
+      "aspect": "Exposition",
+      "summary": "La dépendance française est décrite avec les proportions de 1973, quand le pétrole pesait **deux tiers** de l'énergie finale ; sa part actuelle, de l'ordre d'un tiers, n'apparaît pas. Le levier d'un embargo a lui aussi changé avec le schiste américain.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "le pétrole ne pèse plus qu'environ un tiers de sa consommation d'énergie finale",
+        "strength": 0.9,
+        "nature": "contradiction"
+      }
+    },
+    {
+      "aspect": "Précédents",
+      "summary": "Les réponses institutionnelles au choc de 1973 — **90 jours de stocks** obligatoires, plan Messmer et programme nucléaire — sont absentes, alors que le texte pose l'absence de leçons apprises.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 5,
+        "excerpt": "le plan Messmer de mars 1974, qui a lancé le programme nucléaire massif",
+        "strength": 0.9,
+        "nature": "contradiction"
+      }
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "Les institutions ont précisément **tiré les leçons** de 1973 : 90 jours de stocks obligatoires, un parc nucléaire qui a sorti l'électricité du fioul, une part du pétrole divisée par deux dans l'énergie finale. La sérénité gouvernementale de 2026 s'appuierait alors sur un **dispositif construit après 1973**, pas sur un oubli.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 3,
+        "excerpt": "Ne pas avoir évité le choc signifie ne pas en avoir tiré les leçons",
+        "strength": 0.9,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "La répétition tiendrait moins à l'impréparation qu'à une **exposition résiduelle aux prix** que cinquante ans de politique énergétique n'ont pas supprimée."
+    },
+    {
+      "counterargument": "Rassurer publiquement pendant qu'on s'inquiète en interne est le **comportement attendu** d'un exécutif face à un risque de ruée sur les carburants : l'écart documenté par les archives mesurerait la prudence de la communication, non la cécité de la décision.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 0,
+        "excerpt": "Un gouvernement qui rassure en public est un gouvernement qui n'a pas anticipé",
+        "strength": 0.85,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Le miroir 1973-2026 documenterait une **constante de communication de crise** plutôt qu'une faillite de l'anticipation."
+    },
+    {
+      "counterargument": "Les mécanismes du marché ont changé de nature : le prix ne se négocie plus entre majors et États mais se forme sur des **marchés à terme**, et les États-Unis sont devenus premier producteur. Un embargo arabe de type 1973 n'aurait plus le même levier.",
+      "seeds": {
+        "source": "premisse",
+        "index": 0,
+        "excerpt": "reproduit celle de l'automne 1973",
+        "strength": 0.85,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "La crise de 2026 relèverait d'une **volatilité financière et logistique** — un détroit fermé, des marchés qui s'emballent — plus que d'une reprise de l'arme du pétrole."
+    }
+  ]
+}
