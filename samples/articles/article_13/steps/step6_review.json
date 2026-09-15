@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 3,
+        "rationale": "Les **archives internes de Total** — comptes rendus de conseils d'administration — constituent une source de première main rare, et la série chiffrée « de 1947 à 1973, elle est passée de 7 à 112 millions de tonnes par an » est vérifiable dans les statistiques publiques. Mais le fonds d'archives n'est décrit ni en provenance ni en volume, le cours du Brent de 2026 avance sans cotation nommée, et la position commerciale de TotalEnergies au moment où son PDG annonce la pénurie n'est signalée nulle part.",
+        "lesson": "Demandez toujours ce qu'un document inédit contient exactement et d'où il vient : « archives internes » sans provenance ni volume reste une promesse, pas une source."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "Le socle historique tient : la consommation multipliée par seize est créditée à 88 de confiance, les mesures de l'automne 1973 sont datées. Le déséquilibre porte sur 2026 — « Le Brent [...] franchit les 100 dollars puis approche les 120 » reste à 70 sans cotation, « Il n'y a pas de pénurie de carburants » à 55 sans stocks chiffrés — et « En réalité, le chef de l'État est très inquiet » pose un **état intérieur comme un constat**, appuyé sur une interview donnée deux ans plus tôt.",
+        "lesson": "Vérifiez si la précision des chiffres suit l'époque traitée : un texte peut être documenté sur le passé et simplement asserté sur le présent qui le motive."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "La chaîne est lisible mais ses trois maillons portants sont fragiles : la rime 1973-2026 apparie du **décor** — une guerre, deux discours opposés — et non les mécanismes de prix ; l'écart discours/archives est converti en impréparation sans que la gestion de la panique soit envisagée ; l'absence de leçons est posée alors que les stocks obligatoires et le programme nucléaire y répondent directement. La prémisse « la prospérité française dépend d'un pétrole qu'elle ne maîtrise pas » est étayée pour 1973, assertée pour 2026.",
+        "lesson": "Séparez ce qui se ressemble de ce qui fonctionne pareil : deux crises peuvent partager une scène politique et ne rien partager de leurs mécanismes."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "Le texte annonce sa grille — tragédie puis farce — et assume son point de départ, mais cette grille est **posée avant tout fait** et le récit lui fournit ensuite ses illustrations. Les hypothèses qui la portent restent tacites : qu'un gouvernement rassurant est un gouvernement qui n'a pas anticipé, que l'alerte d'un dirigeant pétrolier vaut diagnostic neutre. Le format en épisodes reporte la démonstration aux textes suivants sans le dire comme une limite.",
+        "lesson": "Repérez la grille de lecture annoncée en ouverture, puis vérifiez si les faits la testent ou l'illustrent."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "La reconstitution de 1973 est riche et datée, mais la proportion est inverse au sujet annoncé : une **dizaine de paragraphes** pour l'automne 1973 contre **deux** pour la crise de 2026. Manquent les écarts structurels — part du pétrole passée de deux tiers à environ un tiers, marchés à terme, production américaine — et le **plan Messmer de 1974**, contre-exemple le plus direct à la thèse d'impréparation ; les stocks stratégiques invoqués ne sont jamais chiffrés.",
+        "lesson": "Comptez les paragraphes consacrés à chaque époque d'une comparaison : le déséquilibre indique où le texte est documenté et où il conclut."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 3,
+        "rationale": "Les deux discours de 2026 sont rapportés l'un et l'autre, mais le montage les traite inégalement : Pouyanné hérite du statut de lucidité du PDG de 1973 que les archives ont validé, tandis que la parole officielle n'est adossée à aucun chiffre. La phrase-pivot — « la farce ne réside pas tant dans la répétition des événements que dans celle de notre impréparation » — range le lecteur dans un « nous » fautif, et le reproche d'impréparation vise l'exécutif sans réponse sollicitée.",
+        "lesson": "Regardez qui, dans un face-à-face de déclarations, bénéficie du contexte qui le crédite — la mise en scène tranche souvent avant les faits."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "Le présent de narration, les dates et les mesures concrètes — 90 km/h, télévision coupée à 23 heures, dimanches sans voiture — rendent 1973 immédiatement lisible sans prérequis. Le titre « La crise touche au brut » joue sur brut/but et annonce un dénouement là où la série commence, et « la crise » au singulier fond les deux époques avant toute comparaison.",
+        "lesson": "Décomposez le titre avant le corps : un singulier ou un jeu de mots peut avoir tranché la question que l'article prétend poser."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 4,
+        "rationale": "L'accès aux **comptes rendus de conseils d'administration de Total** apporte une matière que la couverture courante n'a pas, et l'idée de lire une crise par l'écart entre parole publique et inquiétude privée est un angle de travail réel. La valeur reste concentrée sur 1973 : l'originalité documentaire n'éclaire pas 2026, et le parallèle qui justifie la série n'est pas encore mis à l'épreuve.",
+        "lesson": "Distinguez l'originalité de l'accès de celle de la démonstration : un document inédit peut être neuf sans prouver la thèse qu'il sert."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Un lecteur qui suit les questions énergétiques et connaît déjà les réponses institutionnelles à 1973 — stocks obligatoires, plan Messmer — et pourra donc lire le récit d'archives sans prendre le parallèle pour acquis.",
+      "payoff": "Une reconstitution précise et datée de l'automne 1973, appuyée sur des documents internes de Total, qui montre comment se creuse l'écart entre une parole publique rassurante et une inquiétude privée. Le lecteur y gagne une chronologie solide du premier choc, moins un outil pour juger 2026.",
+      "signature_move": "La rime historique posée en ouverture par la formule de Marx, puis nourrie d'un récit d'archives au présent qui lui fournit ses illustrations avant qu'aucun mécanisme n'ait été comparé.",
+      "main_blind_side": "Le plan Messmer et le programme nucléaire, réponses les plus directes au choc de 1973, ne sont cités nulle part — une absence qui protège la thèse de l'impréparation répétée sur laquelle repose toute la série.",
+      "further_resource": {
+        "title": "Les Trente Glorieuses, ou la révolution invisible de 1946 à 1975",
+        "source": "Jean Fourastié, Fayard",
+        "media_type": "book",
+        "why_explore": "Il replace la dépendance pétrolière française dans la structure économique qui l'a produite, ce qui permet de mesurer ce qui a changé depuis.",
+        "url": null
+      },
+      "summary": "Lecture sous réserve, pour qui connaît déjà le dossier énergétique : la reconstitution de 1973 sur archives internes est solide et détaillée, mais la crise de 2026 tient en deux paragraphes et le parallèle qui justifie la série reste à démontrer."
+    }
+  }
+}

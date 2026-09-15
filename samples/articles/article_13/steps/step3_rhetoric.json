@@ -1,0 +1,69 @@
+{
+  "emotional_register": [
+    {
+      "emotion": "Inquiétude familière",
+      "how": "Le récit accumule des **mesures concrètes et datées** de 1973 — 90 km/h, télévision coupée à 23 heures, dimanches sans voiture, files d'attente — qui rendent la privation **visible** plutôt qu'abstraite.",
+      "effect": "Le lecteur aborde la crise de 2026 en **anticipant les mêmes restrictions**, avant même que leur probabilité actuelle soit discutée.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "une crise énergétique liée à une guerre israélo-américano-iranienne déclenchée début mars 2026",
+        "strength": 0.85,
+        "nature": "illustration"
+      }
+    },
+    {
+      "emotion": "Exaspération résignée",
+      "how": "Le **« nous » collectif** — « notre impréparation », « nous redécouvrons » — associe le lecteur à un constat de répétition posé dès l'ouverture par la formule de Marx.",
+      "effect": "Le lecteur est disposé à lire la sérénité officielle comme un **aveuglement déjà vu**, plutôt que comme une position à examiner.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "le gouvernement et le patron de TotalEnergies tiennent au même moment des discours opposés",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "beneficiary": "La parole des dirigeants pétroliers",
+      "explanation": "Le montage place Pouyanné en **écho du PDG de Total de 1973**, dont les archives ont eu raison contre le discours officiel. L'alerte du pétrolier hérite ainsi d'un **statut de lucidité** que sa position dans le marché n'a pas eu à justifier.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 2,
+        "excerpt": "L'intérêt propre de TotalEnergies à annoncer une pénurie",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "beneficiary": "La série elle-même",
+      "explanation": "Poser dès l'épisode 1 que l'histoire **rime** donne à chaque texte suivant une grille prête à l'emploi et une raison d'être lu. La démonstration du parallèle est **renvoyée aux épisodes à venir**.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "ce premier texte pose le parallèle et renvoie la démonstration aux suivants",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Jeu de mots",
+        "observation": "« La crise touche au brut » joue sur brut/but et annonce un dénouement plutôt qu'un début de série."
+      },
+      {
+        "label": "Présupposé",
+        "observation": "« La crise » au singulier fond 2026 et 1973 en un même épisode avant toute comparaison."
+      },
+      {
+        "label": "Cadrage",
+        "observation": "Le sous-titre annonce des « archives inédites », situant la valeur du texte dans le document."
+      }
+    ],
+    "body": "Le corps aborde la crise de 2026 par le récit détaillé de l'automne 1973, reconstitué au présent de narration à partir de dates, de négociations et de mesures gouvernementales. Le centre de gravité est la **scène politique et diplomatique** — Vienne, l'embargo, l'Élysée, les conseils d'administration de Total — plutôt que les mécanismes économiques du marché pétrolier. Le fil directeur est l'**écart entre parole publique rassurante et inquiétude privée documentée**, rejoué à chaque étape des deux époques. Le texte parle depuis la position du **récit d'archives**, avec un « nous » français qui inclut le lecteur dans le constat de dépendance."
+  }
+}

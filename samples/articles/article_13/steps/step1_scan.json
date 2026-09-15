@@ -1,0 +1,284 @@
+{
+  "article_type": "other",
+  "key_claims": [
+    {
+      "quote": "Le Brent, qui évoluait autour de 70 dollars avant la crise, franchit les 100 dollars puis approche les 120.",
+      "source": "Les Jours",
+      "type": "statistical"
+    },
+    {
+      "quote": "Il n'y a pas de pénurie de carburants",
+      "source": "Maud Bregeon, porte-parole du gouvernement",
+      "type": "attributed"
+    },
+    {
+      "quote": "dans une ère de pénurie énergétique",
+      "source": "Patrick Pouyanné, PDG de TotalEnergies",
+      "type": "attributed"
+    },
+    {
+      "quote": "Les 16 et 17 octobre 1973, l'Arabie saoudite, le Koweït, l'Iran, l'Irak, Abou Dhabi et le Qatar annoncent unilatéralement une hausse de 70 % du prix du pétrole.",
+      "source": "Les Jours",
+      "type": "factual"
+    },
+    {
+      "quote": "Le baril d'Arabian Light voit sa valeur doubler et franchit désormais le seuil des 11 dollars (soit environ 82 dollars d'aujourd'hui).",
+      "source": "Les Jours",
+      "type": "statistical"
+    },
+    {
+      "quote": "de 1947 à 1973, elle est passée de 7 à 112 millions de tonnes par an, soit une multiplication par seize",
+      "source": "Les Jours",
+      "type": "statistical"
+    },
+    {
+      "quote": "Notre politique, l'état de nos stocks, le rythme actuel de nos importations font que nous sommes à l'abri d'une crise grave dans les prochains mois",
+      "source": "Georges Pompidou, 20 décembre 1973",
+      "type": "attributed"
+    },
+    {
+      "quote": "le niveau de nos stocks est tel qu'aucune restriction importante ne s'impose",
+      "source": "Pierre Messmer, 30 novembre 1973",
+      "type": "attributed"
+    },
+    {
+      "quote": "La France n'a pas à éprouver d'inquiétude particulière",
+      "source": "communiqué de l'Élysée, 1973",
+      "type": "attributed"
+    },
+    {
+      "quote": "ce goulet d'étranglement par lequel transite près d'un cinquième du pétrole consommé dans le monde",
+      "source": "Les Jours",
+      "type": "statistical"
+    },
+    {
+      "quote": "L'Agence internationale de l'énergie (AIE) évoque alors la plus grave perturbation de l'histoire du marché pétrolier mondial.",
+      "source": "AIE via Les Jours",
+      "type": "attributed"
+    },
+    {
+      "quote": "il évoque « le caractère chaotique de la situation des prix »",
+      "source": "René Granier de Lilliac, PDG de Total (archives de conseils d'administration)",
+      "type": "testimonial"
+    }
+  ],
+  "key_quotes": [
+    "L'histoire se répète toujours deux fois : la première fois comme tragédie, la seconde fois comme farce.",
+    "Mais la farce ne réside pas tant dans la répétition des événements que dans celle de notre impréparation.",
+    "notre prospérité repose sur un pétrole dont nous ne maîtrisons ni les flux, ni les prix",
+    "Car si l'histoire ne se répète jamais exactement, elle a parfois la fâcheuse habitude de rimer.",
+    "Il n'y a pas de pénurie de carburants",
+    "dans une ère de pénurie énergétique",
+    "La France n'a pas à éprouver d'inquiétude particulière",
+    "Depuis que la pénurie de pétrole pèse comme une menace sur l'Europe, les Français ne cessent de s'interroger pour savoir si un jour ou l'autre ils ne vont pas être obligés de baisser leur chauffage ou de laisser leur voiture au garage comme les Hollandais l'ont fait hier.",
+    "le niveau de nos stocks est tel qu'aucune restriction importante ne s'impose",
+    "personne ne sait combien de temps durera la crise",
+    "Notre politique, l'état de nos stocks, le rythme actuel de nos importations font que nous sommes à l'abri d'une crise grave dans les prochains mois",
+    "probablement, à l'heure actuelle, dans un pays comme la France, la denrée la plus essentielle",
+    "Mépriser le pétrole, c'est élégant mais c'est mortel.",
+    "Après la fermeture des robinets, l'augmentation des prix. Il va falloir considérer le pétrole comme un produit de luxe.",
+    "le caractère chaotique de la situation des prix",
+    "une réduction des approvisionnements",
+    "Ce phénomène est souvent présenté comme l'expression naturelle de la modernité."
+  ],
+  "key_actors": [
+    {
+      "name": "Nicolas Cori",
+      "role": "Journaliste, auteur de l'article pour Les Jours"
+    },
+    {
+      "name": "Maud Bregeon",
+      "role": "Porte-parole du gouvernement français, assure qu'il n'y a pas de pénurie de carburants en 2026"
+    },
+    {
+      "name": "Patrick Pouyanné",
+      "role": "PDG de TotalEnergies, décrit un marché « disloqué » et un risque de pénurie énergétique"
+    },
+    {
+      "name": "Zaki Yamani",
+      "role": "Ministre saoudien du Pétrole en 1973, chef de la délégation de l'Opep à Vienne"
+    },
+    {
+      "name": "George Piercy",
+      "role": "Dirigeant d'Exxon, négociateur des compagnies occidentales à Vienne en octobre 1973"
+    },
+    {
+      "name": "René Granier de Lilliac",
+      "role": "PDG de Total en 1973, alerte son conseil d'administration sur les prix et l'approvisionnement"
+    },
+    {
+      "name": "Georges Pompidou",
+      "role": "Président de la République en 1973, tient un discours public rassurant"
+    },
+    {
+      "name": "Pierre Messmer",
+      "role": "Premier ministre, annonce les mesures d'économie d'énergie le 30 novembre 1973"
+    },
+    {
+      "name": "Richard Nixon",
+      "role": "Président américain, débloque une aide militaire à Israël déclenchant l'embargo"
+    },
+    {
+      "name": "Opep / Opaep",
+      "role": "Organisations des pays exportateurs de pétrole, fixent unilatéralement les prix et décident des réductions de production"
+    },
+    {
+      "name": "Agence internationale de l'énergie (AIE)",
+      "role": "Qualifie la perturbation de 2026 de plus grave de l'histoire du marché pétrolier"
+    },
+    {
+      "name": "Patrice Duhamel",
+      "role": "Présentateur télé en 1973, résume l'ampleur du second choc de décembre"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Karl Marx",
+      "used_for": "Poser le cadre de lecture de l'article : la répétition de l'histoire comme tragédie puis farce"
+    },
+    {
+      "entity": "Agence internationale de l'énergie (AIE)",
+      "used_for": "Qualifier la crise de 2026 de plus grave perturbation de l'histoire du marché pétrolier mondial"
+    },
+    {
+      "entity": "Patrick Pouyanné (TotalEnergies)",
+      "used_for": "Accréditer le risque de pénurie énergétique en France face au discours gouvernemental"
+    },
+    {
+      "entity": "Archives des conseils d'administration de Total",
+      "used_for": "Attester que les pétroliers de 1973 anticipaient ce que le pouvoir politique minimisait"
+    },
+    {
+      "entity": "René Granier de Lilliac (PDG de Total)",
+      "used_for": "Documenter le diagnostic alarmiste interne de l'hiver 1973"
+    },
+    {
+      "entity": "France Inter (journal du 5 novembre 1973)",
+      "used_for": "Attester de la montée de l'inquiétude dans l'opinion publique"
+    },
+    {
+      "entity": "Le Monde (1973)",
+      "used_for": "Illustrer le ton rassurant de la presse française au début de la crise"
+    },
+    {
+      "entity": "Georges Pompidou",
+      "used_for": "Illustrer à la fois le discours public rassurant et la conscience privée de la dépendance au pétrole"
+    }
+  ],
+  "notable_omissions": [
+    "Aucune source iranienne, israélienne ou américaine n'est sollicitée sur les causes et le déroulé du conflit de 2026.",
+    "La nature, la taille et la durée réelle des stocks stratégiques français ne sont pas chiffrées, alors que c'est l'argument central du gouvernement.",
+    "Les différences structurelles entre 1973 et 2026 (nucléaire, part du pétrole dans le mix, efficacité énergétique, marchés à terme) ne sont pas examinées, alors que l'article repose sur la comparaison.",
+    "Aucun économiste de l'énergie ni historien n'est cité pour discuter la pertinence du parallèle.",
+    "Le conflit d'intérêts possible d'un PDG pétrolier annonçant une pénurie n'est pas interrogé.",
+    "L'évolution du prix du Brent après le pic de mars 2026 n'est pas donnée, alors que la crise est décrite comme « traversée ».",
+    "Les archives présentées comme inédites ne sont pas décrites précisément (provenance, conditions d'accès, volume)."
+  ],
+  "rhetorical_patterns": [
+    "Le montage en miroir : chaque élément de 2026 (guerre, pétrolier inquiet, gouvernement rassurant) trouve son équivalent en 1973, posé dans le même ordre.",
+    "L'ouverture par une citation littéraire de Marx installe une grille de lecture — la farce, l'impréparation — avant tout élément factuel.",
+    "Le récit au présent de narration pour les événements de 1973, qui efface la distance de cinquante ans et renforce l'effet de simultanéité.",
+    "L'adresse directe au lecteur (« vous connaissez », « Ne partez pas tout de suite ») typique d'un épisode introductif de série, qui vend la suite.",
+    "L'opposition systématique entre parole publique rassurante et inquiétude privée documentée, répétée sur les deux époques.",
+    "L'accumulation de mesures concrètes et datées (90 km/h, télévision à 23 heures, dimanches sans voiture) qui rend la crise sensible plutôt qu'abstraite.",
+    "La chute suspensive annonçant l'épisode suivant (« un tel scénario n'était pourtant pas écrit d'avance ») qui relance le récit.",
+    "Le « nous » collectif (« notre impréparation », « nous redécouvrons ») qui associe le lecteur au constat."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx1",
+        "text": "L'article ouvre une série d'été des Jours consacrée aux chocs pétroliers de 1973 et 1979, adossée à des archives présentées comme inédites."
+      },
+      {
+        "id": "ctx2",
+        "text": "Il paraît après une crise énergétique liée à une guerre israélo-américano-iranienne déclenchée début mars 2026 et à la fermeture du détroit d'Ormuz."
+      },
+      {
+        "id": "ctx3",
+        "text": "En France, le gouvernement et le patron de TotalEnergies tiennent au même moment des discours opposés sur le risque de pénurie."
+      },
+      {
+        "id": "ctx4",
+        "text": "Le format en épisodes conditionne l'écriture : ce premier texte pose le parallèle et renvoie la démonstration aux suivants."
+      }
+    ],
+    "who_is_speaking": [
+      "Les Jours est un site d'information français fondé en 2016 par d'anciens journalistes de Libération, financé principalement par les abonnements et sans publicité.",
+      "Sa marque de fabrique est le traitement en « obsessions » : des séries au long cours qui suivent un sujet épisode après épisode, ici « Chocs pétroliers ».",
+      "L'article est signé Nicolas Cori, journaliste économique passé par Libération, habitué des sujets finance, énergie et grandes entreprises.",
+      "La mention d'un éditeur (Lucile Sourdès-Cadiou) et d'archives inédites situe le texte du côté du récit documenté plutôt que du commentaire d'actualité."
+    ],
+    "important_facts": [
+      {
+        "id": "fact1",
+        "text": "La France importe la quasi-totalité du pétrole qu'elle consomme, mais le pétrole ne pèse plus qu'environ un tiers de sa consommation d'énergie finale, contre les deux tiers au début des années 1970."
+      },
+      {
+        "id": "fact2",
+        "text": "Les pays membres de l'AIE sont tenus de détenir l'équivalent de 90 jours d'importations nettes en stocks stratégiques, mobilisables sur décision coordonnée."
+      },
+      {
+        "id": "fact3",
+        "text": "L'électricité française est aujourd'hui produite majoritairement par le nucléaire, alors qu'en 1973 les centrales thermiques au fioul y tenaient une place importante — d'où les mesures d'extinction de 1973."
+      },
+      {
+        "id": "fact4",
+        "text": "Depuis les années 1980, le prix du brut se forme sur des marchés financiers (contrats à terme sur le Brent et le WTI) et non plus par négociation directe entre États producteurs et compagnies."
+      },
+      {
+        "id": "fact5",
+        "text": "Les États-Unis sont devenus le premier producteur mondial de pétrole grâce au schiste, ce qui réduit le levier d'un embargo arabe comparable à celui de 1973."
+      },
+      {
+        "id": "fact6",
+        "text": "Le choc de 1973 a été suivi en France par le plan Messmer de mars 1974, qui a lancé le programme nucléaire massif encore structurant aujourd'hui."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "Brent",
+        "definition": "Le pétrole de référence de la mer du Nord, dont le prix sert d'étalon aux marchés européens et mondiaux."
+      },
+      {
+        "term": "Détroit d'Ormuz",
+        "definition": "Le passage maritime étroit entre l'Iran et Oman par lequel transite une grande partie du pétrole du golfe Persique."
+      },
+      {
+        "term": "Opep",
+        "definition": "L'Organisation des pays exportateurs de pétrole, créée en 1960, qui coordonne la production et la politique pétrolière de ses membres."
+      },
+      {
+        "term": "Opaep",
+        "definition": "L'Organisation des pays arabes exportateurs de pétrole, distincte de l'Opep, qui a décidé l'embargo et les baisses de production de 1973."
+      },
+      {
+        "term": "Majors",
+        "definition": "Les grandes compagnies pétrolières occidentales qui contrôlaient l'extraction, le raffinage et les prix avant les nationalisations des années 1970."
+      },
+      {
+        "term": "Embargo",
+        "definition": "L'interdiction décidée par un État d'exporter un produit vers un pays donné, ici le pétrole arabe vers les soutiens d'Israël."
+      },
+      {
+        "term": "Stocks stratégiques",
+        "definition": "Les réserves de carburant qu'un pays est tenu de conserver pour tenir plusieurs semaines en cas de rupture d'approvisionnement."
+      },
+      {
+        "term": "Arabian Light",
+        "definition": "Le brut saoudien qui servait de prix de référence mondial dans les années 1970, avant le Brent."
+      },
+      {
+        "term": "Choc pétrolier",
+        "definition": "Une hausse brutale et durable du prix du pétrole qui déséquilibre l'économie des pays importateurs."
+      },
+      {
+        "term": "Arme du pétrole",
+        "definition": "L'usage de la production et des prix pétroliers comme moyen de pression diplomatique plutôt que comme simple enjeu commercial."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "Source : Les Jours"
+  }
+}

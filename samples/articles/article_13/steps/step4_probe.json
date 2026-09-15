@@ -1,0 +1,152 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "Le Brent, qui évoluait autour de 70 dollars avant la crise, franchit les 100 dollars puis approche les 120.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Comparabilité",
+          "strength": 0.7,
+          "nature": "nuance"
+        },
+        "explanation": "Le chiffre est **précis et daté**, mais aucune source de cotation n'est nommée alors qu'il porte à lui seul la crise de 2026.",
+        "external_sources": [
+          {
+            "name": "ICE Futures Europe (cotations Brent)",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Agence internationale de l'énergie, rapports mensuels sur le marché pétrolier",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 70
+      },
+      {
+        "quote": "Il n’y a pas de pénurie de carburants",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "cui_bono",
+          "label": "La parole des dirigeants pétroliers",
+          "strength": 0.8,
+          "nature": "contradiction"
+        },
+        "explanation": "Affirmation **créditée à la porte-parole du gouvernement**, mais le volume des stocks censés la soutenir n'est jamais chiffré.",
+        "external_sources": [
+          {
+            "name": "Porte-parole du gouvernement français",
+            "supports": "validates",
+            "evidence_type": "party_statement"
+          },
+          {
+            "name": "Comité professionnel des stocks stratégiques pétroliers (CPSSP)",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 55
+      },
+      {
+        "quote": "de 1947 à 1973, elle est passée de 7 à 112 millions de tonnes par an, soit une multiplication par seize",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Exposition",
+          "strength": 0.85,
+          "nature": "illustration"
+        },
+        "explanation": "Série **chiffrée et vérifiable** dans les statistiques énergétiques historiques ; aucune donnée équivalente n'est donnée pour 2026.",
+        "external_sources": [
+          {
+            "name": "Insee, séries longues de consommation d'énergie",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Comité professionnel du pétrole, bilans annuels",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 88
+      },
+      {
+        "quote": "En réalité, le chef de l’État est très inquiet.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Exaspération résignée",
+          "strength": 0.85,
+          "nature": "illustration"
+        },
+        "explanation": "Un **état intérieur** est posé comme un constat, appuyé sur une interview donnée deux ans plus tôt.",
+        "external_sources": [
+          {
+            "name": "Archives de l'Élysée, notes et comptes rendus de la présidence Pompidou",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Entretien télévisé de Georges Pompidou, 20 décembre 1973",
+            "supports": "contradicts",
+            "evidence_type": "media"
+          }
+        ],
+        "confidence": null
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "Une guerre au Moyen-Orient. Le conflit israélo-palestinien en toile de fond. Des compagnies pétrolières qui s’inquiètent. Un gouvernement qui se montre rassurant.",
+        "item_type": "bias",
+        "label": "accumulation par phrases nominales",
+        "effect": "Remarquez comment quatre éléments juxtaposés sans verbe installent la ressemblance **avant** qu'un seul mécanisme économique ait été comparé.",
+        "proves": {
+          "type": "observation",
+          "label": "Comparabilité",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Difficile de ne pas y voir un écho de ce qui s’est joué il y a plus de cinquante ans.",
+        "item_type": "fallacy",
+        "label": "ressemblance de décor tenue pour identité de cause",
+        "effect": "Remarquez comment la double négation transforme une **lecture possible** en évidence que le lecteur aurait tort de discuter.",
+        "proves": {
+          "type": "observation",
+          "label": "Cadrage",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "la vitesse est limitée à 90 km/h sur route et 120 sur autoroute, les courses automobiles et les rallyes sont immédiatement interdits",
+        "item_type": "bias",
+        "label": "détails concrets contre chiffres absents",
+        "effect": "Remarquez comment des mesures **visibles et mémorables** de 1973 occupent la place que ne prend aucune donnée sur l'approvisionnement de 2026.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "Inquiétude familière",
+          "strength": 0.85,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "Mais la farce ne réside pas tant dans la répétition des événements que dans celle de notre impréparation.",
+      "proves": {
+        "type": "observation",
+        "label": "Cadrage",
+        "strength": 0.95,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase désigne **l'impréparation**, et non les faits, comme l'objet de la série. Elle suppose qu'un même défaut traverse cinquante ans, et range le lecteur dans le « nous » qui le porte. Elle ne dit pas ce qui, entre-temps, a été construit — **stocks obligatoires, parc nucléaire** — ni comment on distinguerait une impréparation d'une exposition qui demeure."
+    }
+  }
+}

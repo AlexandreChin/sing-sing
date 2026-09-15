@@ -1,0 +1,122 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "Le parallèle 1973-2026 est **installé par la forme avant d'être argumenté** : quatre phrases nominales sans verbe posent la ressemblance, une double négation la rend indiscutable, et la prémisse qui la porte n'apparie que du décor — une guerre, deux discours — sans jamais comparer les mécanismes de prix. La rhétorique fait le travail que le raisonnement ne fait pas.",
+        "layers": [
+          "logic",
+          "probe",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "pr_0",
+          "lr_0",
+          "bias_0",
+          "bias_1",
+          "obs_2"
+        ]
+      },
+      {
+        "text": "L'écart entre parole publique et archives privées est **rejoué quatre fois et interprété une seule** : le texte le convertit en impréparation sans jamais envisager la gestion délibérée de la panique, et l'hypothèse qui autorise cette conversion reste tacite. La répétition tient lieu de démonstration.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "pr_3",
+          "ia_0",
+          "lr_1",
+          "er_1"
+        ]
+      },
+      {
+        "text": "Le montage donne au PDG de TotalEnergies le **statut de lucidité** validé par les archives de 1973, au moment précis où sa position de vendeur lui donne intérêt à annoncer la pénurie — un conflit d'intérêts que ni le texte ni le lecteur ne peuvent peser, faute de signalement.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "ia_2",
+          "bs_2",
+          "cb_0",
+          "claim_1"
+        ]
+      },
+      {
+        "text": "La **précision documentaire suit l'époque, pas le sujet** : la consommation de 1947-1973 est chiffrée et vérifiable, tandis que le Brent de 2026 avance sans cotation et les stocks stratégiques invoqués ne sont jamais quantifiés. Le lecteur ne peut arbitrer entre la porte-parole et le pétrolier qu'avec les données d'il y a cinquante ans.",
+        "layers": [
+          "probe",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "claim_0",
+          "claim_1",
+          "claim_2",
+          "bs_1",
+          "obs_3"
+        ]
+      },
+      {
+        "text": "Les réponses institutionnelles à 1973 — stocks obligatoires, plan Messmer, programme nucléaire — sont absentes partout où elles feraient obstacle : elles contrediraient l'hypothèse tacite que l'échec à éviter le choc prouve l'absence de leçons, et videraient la thèse d'impréparation qui justifie la série entière.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "bs_3",
+          "ia_3",
+          "lr_2",
+          "obs_4",
+          "focus"
+        ]
+      },
+      {
+        "text": "Le **« nous » collectif** de la phrase-pivot fait coïncider un effet rhétorique et une commodité argumentative : en rangeant le lecteur dans l'impréparation, il transforme une thèse à démontrer en constat partagé, et dispense de distinguer une impréparation d'une exposition résiduelle aux prix.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "logic"
+        ],
+        "references": [
+          "er_1",
+          "focus",
+          "ia_3",
+          "lr_2"
+        ]
+      },
+      {
+        "text": "La grille de lecture — tragédie puis farce — est **posée avant tout fait** et le récit lui fournit ensuite ses illustrations ; le format en épisodes reporte la démonstration aux textes suivants, ce qui donne à la série sa raison d'être sans jamais mettre le parallèle à l'épreuve.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "obs_0",
+          "cb_1",
+          "bias_1"
+        ]
+      },
+      {
+        "text": "Les mesures visibles de 1973 — 90 km/h, télévision coupée à 23 heures — occupent la place que ne prend aucune donnée sur 2026 : le déséquilibre d'exposition produit l'inquiétude qui fait accepter le parallèle, et masque la part du pétrole passée de deux tiers à environ un tiers.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "logic"
+        ],
+        "references": [
+          "er_0",
+          "bias_2",
+          "obs_3",
+          "bs_0"
+        ]
+      }
+    ]
+  }
+}

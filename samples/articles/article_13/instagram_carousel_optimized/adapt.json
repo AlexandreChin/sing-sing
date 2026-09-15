@@ -1,0 +1,365 @@
+{
+  "caption": "Automne 1973 : la vitesse tombe à 90 km/h, la télévision s'arrête à 23 heures, les dimanches se passent sans voiture. Cinquante ans plus tard, Les Jours rouvrent les archives internes de Total. 🛢️\n\n🔎 Les clefs pour lire en une minute ce que ce récit d'archives éclaire, et sur quelle époque.\n\n🔗 Lien vers l'article en commentaires ↓",
+  "hook": {
+    "topic": "Pétrole, le **miroir** 1973",
+    "sub_topic": "Une guerre, deux discours opposés : la **même crise** qu'en 1973 ?",
+    "headline": "Deux crises pétrolières, cinquante ans d'écart, une **même lecture**",
+    "context_line": "Les Jours ouvrent une série d'été sur les chocs pétroliers, archives internes de Total à l'appui.",
+    "sub_topic_alt": [
+      "1973 rejoué en 2026, ou simplement **raconté** ?",
+      "Détroit fermé, prix envolés : l'histoire **rime**-t-elle vraiment ?",
+      "Ce que les archives de 1973 disent — et **ne disent pas** de 2026"
+    ]
+  },
+  "interest": {
+    "why_read": "Savoir quand une **comparaison historique** éclaire, et quand elle décide",
+    "pull_quote": "Car si l'histoire ne se répète jamais exactement, elle a parfois la fâcheuse habitude de rimer.",
+    "next_slide_hook": "D'abord, qui parle et depuis quel format de récit."
+  },
+  "title_bullets": [
+    "Décomposez le jeu de mots : « touche au brut » annonce une **fin**, pas un début.",
+    "Notez le **singulier** : « la crise » fond deux époques avant toute comparaison.",
+    "Repérez la promesse d'**archives inédites** : elle situe la valeur dans le document."
+  ],
+  "chapo_bullets": [
+    "Observez la **grille posée d'emblée** : la farce, l'impréparation, avant tout fait.",
+    "Comptez les paragraphes donnés à **1973** et ceux donnés à **2026**.",
+    "Remarquez le **« nous »** qui range le lecteur dans le constat."
+  ],
+  "context_next_slide_hook": "Deux réflexes à garder en main avant d'entrer dans le récit.",
+  "watch_out_next_slide_hook": "Voyons maintenant où la comparaison s'appuie, et sur quoi.",
+  "forme_next_slide_hook": "Reste à voir quels chiffres tiennent, et pour quelle époque.",
+  "biases_next_slide_hook": "Le socle de tout l'argument tient en trois appuis tacites.",
+  "engagement_question": "Un gouvernement qui rassure pendant qu'il s'inquiète : imprévoyance, ou gestion de la panique ?",
+  "go_further": [
+    {
+      "title": "Les Trente Glorieuses, ou la révolution invisible de 1946 à 1975",
+      "source": "Jean Fourastié, Fayard",
+      "media_type": "book",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Il replace la dépendance pétrolière française dans l'économie qui l'a produite, et permet de mesurer ce qui a changé.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Oil Market Report",
+      "source": "Agence internationale de l'énergie",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": "https://www.iea.org/topics/oil-market-report",
+      "duration_minutes": 20,
+      "why_explore": "Le suivi mensuel du marché pétrolier donne les prix, les stocks et les flux que l'article n'a pas chiffrés.",
+      "cta_question_index": 1
+    },
+    {
+      "title": "Le plan Messmer et le lancement du programme nucléaire français",
+      "source": "INA, archives audiovisuelles",
+      "media_type": "documentary",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": 30,
+      "why_explore": "La réponse institutionnelle directe au choc de 1973, absente du récit, se voit ici se décider en quelques mois.",
+      "cta_question_index": 0
+    }
+  ],
+  "cta": {
+    "title": "Une ressemblance n'est pas un mécanisme",
+    "engagement_sentence": "Que faudrait-il constater en 2026 pour dire que la comparaison ne tient plus ?",
+    "engagement_sentence_alt": [
+      "Cinquante ans de nucléaire et de stocks : qu'est-ce que cela change au risque ?",
+      "Qui paie, aujourd'hui, ce qui n'a pas été construit après 1973 ?",
+      "Entre la porte-parole et le pétrolier, avec quels chiffres tranchez-vous ?"
+    ],
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "Qu'est-ce que la France a construit après 1973, et que le récit ne mentionne pas ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_1",
+        "question": "Sur quelles données jugeriez-vous le risque de pénurie de 2026 ?",
+        "type": "topic_substance"
+      },
+      {
+        "id": "q_2",
+        "question": "Une comparaison historique vous convainc-elle plus vite qu'un raisonnement chiffré ?",
+        "type": "reader_bias"
+      },
+      {
+        "id": "q_3",
+        "question": "Un premier épisode doit-il démontrer sa thèse, ou peut-il la poser ?",
+        "type": "article_quality"
+      }
+    ]
+  },
+  "display": {
+    "thesis_frame": {
+      "main_claim": "La crise pétrolière de 2026 rejoue celle de 1973, surtout par une impréparation qui se répète.",
+      "out_of_scope": [
+        "Les causes diplomatiques de la guerre de 2026",
+        "La politique climatique et la sortie des fossiles",
+        "Le partage de la rente entre pays producteurs"
+      ]
+    },
+    "payoff": "Distinguer ce qui se ressemble de ce qui fonctionne pareil, cinquante ans après",
+    "framing": "Lire la crise de 2026 par le récit détaillé de l'automne 1973",
+    "why_selected": "Mars 2026 : **Ormuz** se ferme, le Brent s'envole. Le gouvernement dit qu'il n'y a pas de pénurie ; TotalEnergies annonce l'inverse.\nLes **archives internes** de Total, ouvertes ici, montrent ce que les pétroliers s'écrivaient pendant l'hiver 1973.",
+    "selection_headline": "Ormuz fermé, deux paroles officielles opposées",
+    "selection_headline_alt": [
+      "Les conseils d'administration de Total, hiver 1973",
+      "Un détroit fermé, un désaccord français",
+      "Le gouvernement rassure, le pétrolier alerte"
+    ],
+    "ethics": "Deux points de vigilance, sans manquement caractérisé",
+    "pre_reading": [
+      "Repérez la grille annoncée dès l'ouverture : tragédie, puis farce.",
+      "Comptez les paragraphes donnés à 1973, puis ceux donnés à 2026."
+    ],
+    "watch_out": [
+      {
+        "label": "ressemblance tenue pour cause",
+        "text": "Une guerre et deux discours opposés suffisent-ils à faire deux crises comparables ?"
+      },
+      {
+        "label": "solidité du raisonnement",
+        "text": "Un écart entre parole publique et note interne peut se lire de plusieurs façons."
+      }
+    ],
+    "strengths": [
+      {
+        "label": "Clarté",
+        "text": "Le présent de narration et les mesures datées rendent 1973 lisible sans prérequis."
+      },
+      {
+        "label": "Angle et originalité",
+        "text": "Les comptes rendus de conseils d'administration de Total apportent une matière rare."
+      }
+    ],
+    "distill_points": [
+      "Le parallèle est installé par la forme — phrases sans verbe, double négation — avant d'être argumenté.",
+      "L'écart entre parole publique et archives privées est rejoué quatre fois, interprété une seule.",
+      "La précision chiffrée suit l'époque, pas le sujet : 1973 documenté, 2026 asserté."
+    ],
+    "after_reading": [
+      "Mesurez ce que vous avez appris de 2026, et de 1973.",
+      "Gardez la valeur des archives sans la transférer au parallèle.",
+      "Cherchez ce que sont devenus stocks stratégiques et part du pétrole."
+    ],
+    "key_takeaways": [
+      {
+        "text": "La consommation française de pétrole est passée de 7 à 112 millions de tonnes entre 1947 et 1973.",
+        "selected": true
+      },
+      {
+        "text": "En 1973 : vitesse limitée à 90 km/h, télévision coupée à 23 heures, dimanches sans voiture.",
+        "selected": true
+      },
+      {
+        "text": "Le Brent passe d'environ 70 dollars à près de 120 après la fermeture du détroit d'Ormuz.",
+        "selected": true
+      },
+      {
+        "text": "Les pays de l'AIE doivent détenir 90 jours d'importations en stocks stratégiques.",
+        "selected": false
+      },
+      {
+        "text": "Le pétrole pèse aujourd'hui environ un tiers de l'énergie consommée en France, contre deux tiers en 1970.",
+        "selected": false
+      },
+      {
+        "text": "Le plan Messmer de mars 1974 a lancé le programme nucléaire français après le premier choc.",
+        "selected": false
+      }
+    ],
+    "blind_spots": [
+      "Le plan Messmer et le nucléaire, réponses directes à 1973, ne sont pas cités.",
+      "Les écarts structurels entre les deux époques ne sont jamais examinés."
+    ],
+    "balance": [
+      "Premier épisode d'une série : poser un cadre est un choix de format.",
+      "Le déséquilibre documentaire entre les deux époques, lui, se lit dès maintenant."
+    ],
+    "lenses": [],
+    "reading_beats": [
+      {
+        "moment": "L'ouverture appareille 2026 et 1973 sans verbe ni comparaison",
+        "quote": "Une guerre au Moyen-Orient. Le conflit israélo-palestinien en toile de fond. Des compagnies pétrolières qui s'inquiètent. Un gouvernement qui se montre rassurant.",
+        "lens_ref": "causalite",
+        "lens_question": "Deux crises se ressemblent : fonctionnent-elles pareil ?",
+        "note": "Devant deux situations appariées, cherchez ce qui a **changé** entre les deux dates.",
+        "answer": "**Le décor seulement** : rien n'y compare la formation des prix, passée en cinquante ans de la négociation entre États et compagnies aux marchés financiers.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "Comparabilité",
+        "centrality": 5,
+        "kind": "biais",
+        "role": "mise en scène",
+        "spine_ref": 1,
+        "rationale": "Pose le parallèle avant tout mécanisme"
+      },
+      {
+        "moment": "La double négation transforme une lecture possible en évidence",
+        "quote": "Difficile de ne pas y voir un écho de ce qui s'est joué il y a plus de cinquante ans.",
+        "lens_ref": "cadrage",
+        "lens_question": "Une lecture proposée, ou déjà imposée ?",
+        "note": "Repérez les tournures qui rendent une **interprétation** difficile à refuser.",
+        "answer": "La formule dispense de justifier le rapprochement : le lecteur qui doute se retrouve du côté de ceux qui ne voient pas l'évidence.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Cadrage",
+        "centrality": 4,
+        "kind": "biais",
+        "role": "pivot",
+        "spine_ref": 1,
+        "rationale": "Rhétorique du parallèle, proche du beat 1"
+      },
+      {
+        "moment": "Le gouvernement de 2026 écarte le risque sans donner de volume",
+        "quote": "Il n'y a pas de pénurie de carburants",
+        "lens_ref": "chiffres",
+        "lens_question": "Une réserve annoncée : combien de jours tient-elle ?",
+        "note": "Quand une autorité invoque des stocks, cherchez leur **volume** et leur durée.",
+        "answer": "**Aucun chiffre** : ni volume ni durée n'accompagnent la phrase, alors que le PDG de TotalEnergies annonce au même moment l'inverse.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "disputed",
+        "selected": false,
+        "theme": "Vérifiabilité",
+        "centrality": 4,
+        "kind": "affirmation",
+        "role": "appui",
+        "spine_ref": 2,
+        "rationale": "Le désaccord de 2026, sans données pour trancher"
+      },
+      {
+        "moment": "Pompidou dit en public ce que ses notes contredisent",
+        "quote": "La France n'a pas à éprouver d'inquiétude particulière",
+        "lens_ref": "opinion_fait",
+        "lens_question": "Rassurer en public : aveuglement, ou décision ?",
+        "note": "Un écart entre parole et archive appelle plusieurs **lectures** : cherchez-les avant de choisir.",
+        "answer": "**Une seule lecture est retenue**, l'impréparation ; éviter la ruée sur les stations-service est une raison de rassurer que le texte n'envisage pas.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "Interprétation de l'écart",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "preuve",
+        "spine_ref": 2,
+        "rationale": "Le cœur du parallèle, avec une lecture unique"
+      },
+      {
+        "moment": "Les archives de Total donnent aux pétroliers le rôle des lucides",
+        "quote": "probablement, à l'heure actuelle, dans un pays comme la France, la denrée la plus essentielle",
+        "lens_ref": "sources",
+        "lens_question": "Qui alerte, et qu'a-t-il à y gagner ?",
+        "note": "Devant une alerte, regardez la **position** de celui qui la lance sur son marché.",
+        "answer": "Le PDG de 1973, que les archives ont validé, sert de garant au PDG de 2026 — dont la position de vendeur de pétrole n'est signalée nulle part.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Conflit d'intérêts",
+        "centrality": 4,
+        "kind": "enjeu",
+        "role": "appui",
+        "spine_ref": 2,
+        "rationale": "Angle mort déontologique explicite"
+      },
+      {
+        "moment": "La croissance de la consommation, chiffrée et vérifiable",
+        "quote": "de 1947 à 1973, elle est passée de 7 à 112 millions de tonnes par an, soit une multiplication par seize",
+        "lens_ref": "chiffres",
+        "lens_question": "Un chiffre ancien : vaut-il encore aujourd'hui ?",
+        "note": "Vérifiez si la **date** d'un chiffre correspond à l'époque dont on parle.",
+        "answer": "**Il s'arrête en 1973** : le pétrole pesait alors deux tiers de l'énergie française, contre environ un tiers aujourd'hui — un écart que le texte ne donne pas.",
+        "figure": "×16",
+        "figure_label": "consommation française de pétrole, 1947-1973",
+        "figure_caption": "",
+        "factcheck": "true",
+        "selected": false,
+        "theme": "Exposition",
+        "centrality": 3,
+        "kind": "statistique",
+        "role": "preuve",
+        "spine_ref": 2,
+        "rationale": "Chiffre solide, mais daté d'une seule époque"
+      },
+      {
+        "moment": "Les mesures de 1973 rendent la privation visible",
+        "quote": "la vitesse est limitée à 90 km/h sur route et 120 sur autoroute, les courses automobiles et les rallyes sont immédiatement interdits",
+        "lens_ref": "cadrage",
+        "lens_question": "Ce qui est montré, et ce qui reste hors champ ?",
+        "note": "Quand des détails concrets occupent l'espace, cherchez les **données** qui n'y sont pas.",
+        "answer": "Ces mesures visaient aussi l'électricité au fioul : depuis, le nucléaire produit l'essentiel du courant français, ce que le récit ne dit pas.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "Registre émotionnel",
+        "centrality": 3,
+        "kind": "fait",
+        "role": "mise en scène",
+        "spine_ref": 1,
+        "rationale": "L'inquiétude par l'image, pas par la donnée"
+      },
+      {
+        "moment": "La clôture désigne l'impréparation comme sujet de la série",
+        "quote": "Mais la farce ne réside pas tant dans la répétition des événements que dans celle de notre impréparation.",
+        "lens_ref": "angles_morts",
+        "lens_question": "Rien n'a été fait depuis : vraiment rien ?",
+        "note": "Quand un texte parle d'échec répété, cherchez ce qui a été **construit** entre-temps.",
+        "answer": "**Deux dispositifs manquent** : les 90 jours de stocks obligatoires et le plan Messmer de 1974, qui a lancé le nucléaire en réponse directe au choc.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "Précédents",
+        "centrality": 5,
+        "kind": "enjeu",
+        "role": "pivot",
+        "spine_ref": 3,
+        "rationale": "La conclusion de l'article, et son angle mort"
+      }
+    ],
+    "global_analysis": {
+      "headline": "L'histoire rime, et nous n'avons **rien appris**",
+      "headline_alt": [
+        "Cinquante ans après, la même impréparation",
+        "Une crise qui rejoue la précédente",
+        "Impréparés en 1973, impréparés en 2026"
+      ],
+      "core_recap": [
+        "Ce qu'il tient pour acquis : que deux crises qui se ressemblent obéissent aux **mêmes mécanismes** ; qu'un gouvernement qui rassure est un gouvernement surpris ; qu'échouer à éviter un choc prouve **l'absence de leçons**"
+      ]
+    },
+    "open_question": "Que faudrait-il constater en 2026 pour dire que la comparaison ne tient plus ?",
+    "root_issue": "Cinquante ans de politique énergétique ont réduit la **part du pétrole** sans supprimer l'exposition au **prix** : l'enjeu est moins l'oubli des leçons que ce qu'aucune leçon ne pouvait effacer.",
+    "steel_man": {
+      "argument": "Les leçons ont été tirées : 90 jours de stocks, un parc nucléaire, une part du pétrole divisée par deux.",
+      "alternative": "La sérénité de 2026 s'appuierait sur un dispositif construit, pas sur un oubli."
+    },
+    "reperes_headline": "Avant de lire : le contexte et trois réflexes",
+    "bilan_headline": "Ce que le récit d'archives éclaire, et sur quoi",
+    "essentiel": [
+      "La séquence de 2026 reproduit celle de **l'automne 1973**",
+      "Discours public rassurant contre **inquiétude interne** documentée, aux deux époques",
+      "Ce qui se répète, c'est notre **impréparation**"
+    ],
+    "essentiel_summary": "Mars 2026 : guerre au Moyen-Orient, détroit d'Ormuz fermé, Brent passé de **70 à près de 120 dollars**. Les Jours lisent la séquence à travers **l'automne 1973** — embargo, 90 km/h, dimanches sans voiture — et, archives internes de Total à l'appui, concluent que ce qui se répète est surtout **notre impréparation**."
+  }
+}

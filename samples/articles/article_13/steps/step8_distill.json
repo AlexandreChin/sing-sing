@@ -1,0 +1,61 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "Le parallèle 1973-2026 est **installé par la forme avant d'être argumenté** : phrases nominales, double négation, et une prémisse qui n'apparie que du décor — une guerre, deux discours — sans jamais comparer les mécanismes de prix. La grille de lecture précède les faits, que le récit vient ensuite illustrer.",
+        "references": [
+          "pr_0",
+          "lr_0",
+          "bias_0",
+          "bias_1",
+          "obs_2",
+          "obs_0",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "L'écart entre parole publique et archives privées est **rejoué quatre fois et interprété une seule** : converti en impréparation, jamais en gestion délibérée de la panique. L'hypothèse qui autorise cette conversion reste tacite.",
+        "references": [
+          "pr_3",
+          "ia_0",
+          "lr_1",
+          "er_1"
+        ]
+      },
+      {
+        "text": "Les réponses institutionnelles à 1973 — stocks obligatoires, plan Messmer, programme nucléaire — sont absentes partout où elles feraient obstacle. Leur présence contredirait l'hypothèse tacite que l'échec à éviter le choc prouve l'absence de leçons, et viderait la thèse qui justifie la série entière.",
+        "references": [
+          "bs_3",
+          "ia_3",
+          "lr_2",
+          "obs_4",
+          "focus"
+        ]
+      },
+      {
+        "text": "La **précision documentaire suit l'époque, pas le sujet** : la consommation de 1947-1973 est chiffrée, le Brent de 2026 avance sans cotation et les stocks stratégiques ne sont jamais quantifiés. Le lecteur ne peut arbitrer entre la porte-parole et le pétrolier qu'avec les données d'il y a cinquante ans.",
+        "references": [
+          "claim_0",
+          "claim_1",
+          "claim_2",
+          "bs_1",
+          "obs_3"
+        ]
+      },
+      {
+        "text": "Le montage donne au PDG de TotalEnergies le **statut de lucidité** validé par les archives de 1973, au moment précis où sa position de vendeur lui donne intérêt à annoncer la pénurie — un conflit d'intérêts jamais signalé.",
+        "references": [
+          "ia_2",
+          "bs_2",
+          "cb_0",
+          "claim_1"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quelle part du choc de 1973 les stocks stratégiques et le nucléaire absorberaient-ils aujourd'hui ?",
+      "Que valait réellement le Brent en 2026, et selon quelle cotation ?",
+      "Un écart entre parole publique et notes internes relève-t-il de l'impréparation ou d'une gestion de la panique ?"
+    ]
+  }
+}

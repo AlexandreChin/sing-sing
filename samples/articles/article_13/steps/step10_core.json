@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "La crise énergétique de 2026 est lue à travers le miroir de l'automne 1973.",
+      "kind": "angle",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 0,
+        "excerpt": "reproduit celle de l'automne 1973",
+        "strength": 0.95,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "L'écart entre discours public rassurant et inquiétude interne se rejoue à cinquante ans d'intervalle.",
+      "kind": "affirmation",
+      "centrality": 5,
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 1,
+        "excerpt": "Du décalage entre le discours officiel rassurant et les archives internes inquiètes",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Des archives internes de Total documentent le diagnostic des pétroliers pendant l'hiver 1973.",
+      "kind": "fait",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "Les archives internes de Total montrent que les pétroliers voyaient venir ce que le pouvoir minimisait",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "La dépendance française au pétrole, dont le pays ne maîtrise ni les flux ni les prix.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "La France importe la quasi-totalité du pétrole qu'elle consomme",
+        "strength": 0.85,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "Le choc se traduit en mesures concrètes du quotidien : vitesse limitée, télévision coupée, dimanches sans voiture.",
+      "kind": "fait",
+      "centrality": 3,
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "en 1973 les centrales thermiques au fioul y tenaient une place importante",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "eth1",
+        "category": "conflict_of_interest",
+        "label": "Conflict of Interest",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "Patrick Pouyanné tient un discours beaucoup plus inquiet. Le patron de TotalEnergies décrit un marché des produits pétroliers « disloqué » et assure que le risque est important que la France entre « dans une ère de pénurie énergétique ».",
+        "explanation": "L'intérêt d'un vendeur de pétrole à annoncer la pénurie n'est signalé nulle part au lecteur."
+      },
+      {
+        "id": "eth2",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "À Paris, les annonces de l'Opep sont d'abord accueillies avec une forme de désinvolture. Le gouvernement tarde à mesurer qu'une bascule est en cours.",
+        "explanation": "Le reproche d'impréparation vise l'exécutif de 2026 comme de 1973 sans réponse sollicitée."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Signaler la position commerciale de TotalEnergies au moment où son PDG annonce la pénurie, et chiffrer les stocks stratégiques que l'exécutif invoque."
+    },
+    "summary": "La déontologie n'est pas entièrement propre : deux points de vigilance, sans manquement caractérisé. L'intérêt commercial du dirigeant cité et l'absence de réponse aux reproches d'impréparation restent non traités."
+  }
+}
