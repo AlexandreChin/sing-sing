@@ -1,0 +1,197 @@
+{
+  "main_claim": "La colère lycéenne exprime des **inégalités structurelles anciennes**, scolaires et policières, non un accès ponctuel.",
+  "premisses": [
+    {
+      "id": "p1",
+      "statement": "Les lycées ne sont pas dotés de façon égale : les **établissements les moins demandés** reçoivent leurs enseignants en dernier.",
+      "quality": "Mécanisme réel du barème de mutation, mais **aucun chiffre** sur la pénurie d'enseignants ou l'état des bâtiments n'est donné."
+    },
+    {
+      "id": "p2",
+      "statement": "En France, le **diplôme pèse plus qu'ailleurs** sur l'avenir professionnel, ce qui rend l'échec scolaire plus lourd.",
+      "quality": "Comparaison internationale **affirmée sans source**, appuyée par un « tout le monde le sait »."
+    },
+    {
+      "id": "p3",
+      "statement": "Les jeunes devant les lycées subissent depuis longtemps des **contrôles d'identité au faciès** répétés.",
+      "quality": "Fondée sur des **données publiques solides** (Défenseur des droits, condamnation de l'État), mais présentée ici comme un constat général sans chiffres."
+    },
+    {
+      "id": "p4",
+      "statement": "Les jeunes sont **politisés** et une large part se dit prête à voter Mélenchon.",
+      "quality": "Repose sur un **sondage Cevipof** cité sans date, sans échantillon ni marge d'erreur."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "id": "ia1",
+      "statement": "Les lycéens qui bloquent partagent les **motivations** que leur prêtent les deux chercheurs.",
+      "impact": "Si les bloqueurs ont d'autres raisons, l'explication structurelle **décrit les invités plus que le mouvement**."
+    },
+    {
+      "id": "ia2",
+      "statement": "Les lycéens mobilisés viennent surtout de **quartiers populaires** exposés aux contrôles.",
+      "impact": "Si le mouvement touche aussi d'autres publics, le lien entre blocages et **rapports à la police** perd sa portée générale."
+    },
+    {
+      "id": "ia3",
+      "statement": "L'ancienneté d'un problème suffit à expliquer **pourquoi il explose maintenant**.",
+      "impact": "Sans **déclencheur identifié**, rien n'explique le moment précis de la mobilisation."
+    },
+    {
+      "id": "ia4",
+      "statement": "Le vote déclaré pour Mélenchon des 18-24 ans renseigne sur l'état d'esprit des **lycéens de 15 à 18 ans**.",
+      "impact": "Si les deux populations diffèrent, le lien entre mobilisation et **radicalité politique** devient fragile."
+    }
+  ],
+  "blind_spots": [
+    {
+      "id": "bs1",
+      "topic": "La parole des **lycéens eux-mêmes** et de l'UNL.",
+      "significance": "Leurs propres mots auraient permis de vérifier si les **causes avancées** sont bien les leurs."
+    },
+    {
+      "id": "bs2",
+      "topic": "Le point de vue du **ministère, du gouvernement et des forces de l'ordre**.",
+      "significance": "Leur version du maintien de l'ordre aurait **mis à l'épreuve** la lecture structurelle des deux invités."
+    },
+    {
+      "id": "bs3",
+      "topic": "Le **déclencheur concret** du mouvement il y a une semaine.",
+      "significance": "Le nommer aurait montré si la colère est **diffuse ou ciblée** sur une mesure précise."
+    },
+    {
+      "id": "bs4",
+      "topic": "Les **incidents** lors des blocages, évoqués seulement via des « images angoissantes ».",
+      "significance": "Leur description aurait permis de juger **la part réelle de violence** que le texte attribue au cadrage médiatique."
+    }
+  ],
+  "emphasis": [
+    "Le texte consacre trois paragraphes aux **inégalités scolaires** et deux aux **rapports avec la police**, alors que les blocages eux-mêmes ne sont décrits qu'en une phrase d'ouverture.",
+    "L'**ancienneté des problèmes** revient au moins quatre fois (« depuis longtemps », « depuis plus de 20, 30 ans », « en germe »), alors que le présent du mouvement n'est jamais détaillé.",
+    "Le chiffre de **42 % pour Mélenchon** est le seul chiffre développé de l'entretien, quand pénurie d'enseignants et bâti scolaire restent sans données."
+  ],
+  "logical_reasoning": [
+    {
+      "id": "lr1",
+      "step": "Les lycées sont **inégalement dotés** et Parcoursup accroît les inégalités ; donc les revendications sont **structurelles et légitimes**.",
+      "problem_type": "soundness",
+      "diagnosis": "Le lien est cohérent, mais l'effet de Parcoursup et la pénurie sont **affirmés sans données**."
+    },
+    {
+      "id": "lr2",
+      "step": "Les jeunes des quartiers subissent des **contrôles au faciès** ; donc les tensions devant les lycées **rejouent** ces rapports quotidiens.",
+      "problem_type": "validity",
+      "diagnosis": "Le passage suppose que les jeunes présents devant les lycées sont **ceux qui subissent ces contrôles**, ce qui n'est pas établi."
+    },
+    {
+      "id": "lr3",
+      "step": "L'école ne promet plus l'ascension sociale et le politique ne répond pas ; donc la mobilisation exprime une **colère diffuse**.",
+      "problem_type": "validity",
+      "diagnosis": "La « colère diffuse » **englobe tout** et ne peut être contredite par aucun fait précis."
+    },
+    {
+      "id": "lr4",
+      "step": "Les jeunes votent largement Mélenchon ; donc ils sont **politisés** et portent une demande de radicalité.",
+      "problem_type": "soundness",
+      "diagnosis": "Le sondage porte sur les **18-24 ans** et n'est pas daté, alors que le sujet est les lycéens."
+    }
+  ],
+  "observations": [
+    {
+      "id": "o1",
+      "aspect": "Cadrage",
+      "summary": "L'entretien passe vite sur le mouvement (**180 établissements**, appel de l'UNL lié à la **grève de la fonction publique**) pour s'installer dans ses causes. L'actualité sert de point de départ, pas d'objet d'analyse.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "blocages de lycées… près de 180 établissements",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "id": "o2",
+      "aspect": "Contexte",
+      "summary": "Le texte ne rappelle ni **Mantes-la-Jolie en 2018** ni la série de contestations liées à **Parcoursup et aux réformes du lycée**. Ces précédents auraient appuyé la thèse d'un problème ancien.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "interventions policières controversées… Mantes-la-Jolie",
+        "strength": 0.7,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "o3",
+      "aspect": "Sourçage",
+      "summary": "Les contrôles au faciès sont décrits **sans chiffre ni décision de justice**. Or le Défenseur des droits mesure un risque **20 fois supérieur** et la Cour de cassation a condamné l'État en 2016.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "20 fois plus de risques d'être contrôlé",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "o4",
+      "aspect": "Preuve",
+      "summary": "La « fiction » d'égalité scolaire est affirmée par témoignage d'expert. Les données **PISA**, qui placent la France parmi les pays où **l'origine sociale pèse le plus**, ne sont pas mobilisées.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "l'origine sociale pèse le plus",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "o5",
+      "aspect": "Chiffrage",
+      "summary": "Le chiffre de **42 %** dépasse le tiers des voix des 18-24 ans obtenu par Mélenchon **en 2022**. L'écart n'est ni commenté ni situé dans le temps.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 3,
+        "excerpt": "un tiers des voix des 18-24 ans",
+        "strength": 0.7,
+        "nature": "contradiction"
+      }
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "Les blocages peuvent répondre à un **déclencheur précis et récent**, ou à une dynamique d'imitation entre établissements, plus qu'à des inégalités anciennes qui existaient déjà les années sans blocage.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 2,
+        "excerpt": "L'ancienneté d'un problème suffit à expliquer pourquoi il explose maintenant",
+        "strength": 0.8,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "Le mouvement s'expliquerait d'abord par **la conjoncture**, les causes structurelles n'en étant que le terrain."
+    },
+    {
+      "counterargument": "Sans parole lycéenne, rien ne garantit que les bloqueurs réclament des enseignants ou dénoncent les contrôles ; les revendications pourraient être **politiques, nationales ou hétérogènes**.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "La parole des lycéens eux-mêmes et de l'UNL",
+        "strength": 0.9,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "L'entretien livrerait **la lecture des chercheurs** sur le mouvement, pas les raisons du mouvement."
+    },
+    {
+      "counterargument": "Si les lycées mobilisés ne se limitent pas aux quartiers populaires, les tensions avec la police tiennent peut-être **au maintien de l'ordre des blocages** eux-mêmes plutôt qu'aux contrôles quotidiens.",
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 1,
+        "excerpt": "les tensions devant les lycées rejouent ces rapports quotidiens",
+        "strength": 0.7,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "Les heurts relèveraient de **la gestion des blocages** autant que d'un passif entre police et quartiers."
+    }
+  ]
+}

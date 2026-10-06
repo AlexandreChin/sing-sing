@@ -1,0 +1,107 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "L'hypothèse que les bloqueurs partagent les **motivations des chercheurs** n'est jamais testée en logique, puis devient rhétoriquement une demande **prêtée aux lycéens**. Le bénéfice va au mouvement : l'angle mort sur la parole lycéenne rend ce glissement invisible.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "ia_0",
+          "bs_0",
+          "bias_1",
+          "cb_0"
+        ]
+      },
+      {
+        "text": "Le sondage sur les **18-24 ans** sert de pont vers les lycéens (ia_3, lr_3), puis permet de parler de « la jeunesse » entière (bias_2). L'opération profite à **La France insoumise**, avec un chiffre que la vérification situe au-dessus du score mesuré en 2022.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "ia_3",
+          "lr_3",
+          "bias_2",
+          "cb_1",
+          "claim_0"
+        ]
+      },
+      {
+        "text": "Le **constat le mieux étayé** par des sources officielles, les contrôles au faciès, est aussi celui que le texte avance **sans chiffre ni décision de justice**. C'est précisément sur lui que repose la mise en cause de la police, sans droit de réponse.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "pr_2",
+          "obs_2",
+          "claim_3",
+          "lr_1"
+        ]
+      },
+      {
+        "text": "L'insistance sur **l'ancienneté des problèmes** (focus, emphasis) laisse ouverte la question du **déclencheur** (bs_2). La « colère diffuse » (lr_2) comble ce vide : elle explique tout, donc pas le moment précis de la mobilisation.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "ia_2",
+          "bs_2",
+          "lr_2",
+          "obs_0"
+        ]
+      },
+      {
+        "text": "Le registre d'**indignation** est porté par des mots forts (« fiction ») plutôt que par les données disponibles, comme PISA ou les rapports sur la dotation des lycées. L'émotion arrive **avant les preuves** qui, pourtant, existent et appuieraient la thèse.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "logic"
+        ],
+        "references": [
+          "er_0",
+          "bias_0",
+          "obs_3",
+          "claim_2",
+          "pr_0"
+        ]
+      },
+      {
+        "text": "Le lien entre blocages et police suppose des lycéens **issus des quartiers contrôlés** (ia_1). L'absence de toute description des **incidents** et de la version des forces de l'ordre empêche de vérifier si les heurts relèvent de ce passif ou de la gestion des blocages.",
+        "layers": [
+          "logic",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "ia_1",
+          "lr_1",
+          "bs_3",
+          "bs_1"
+        ]
+      },
+      {
+        "text": "Les lycéens sont compris **de l'intérieur** par le registre d'empathie, mais toujours à travers deux chercheurs. Le ton posé et pédagogique donne à cette **parole par procuration** l'apparence d'un constat.",
+        "layers": [
+          "rhetoric",
+          "logic",
+          "probe"
+        ],
+        "references": [
+          "er_1",
+          "bs_0",
+          "bias_1",
+          "ia_0"
+        ]
+      }
+    ]
+  }
+}

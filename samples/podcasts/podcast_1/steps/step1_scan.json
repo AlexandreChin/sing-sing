@@ -1,0 +1,207 @@
+{
+  "article_type": "interview",
+  "key_claims": [
+    {
+      "quote": "Lancé il y a une semaine en Île-de-France, le mouvement de blocages se poursuit dans près de 180 établissements.",
+      "source": null,
+      "type": "statistical"
+    },
+    {
+      "quote": "La principale organisation syndicale lycéenne, l'UNL, appelle à bloquer tous les lycées lors de la journée nationale de grève dans la fonction publique.",
+      "source": "UNL",
+      "type": "factual"
+    },
+    {
+      "quote": "Ce que demandent les lycéens et les lycéennes, c’est avoir des profs devant eux, c’est une revendication basique",
+      "source": "Fabien Truong",
+      "type": "attributed"
+    },
+    {
+      "quote": "le système de points de l’Éducation nationale, qui fait que les lycées les moins désirés socialement sont les lycées qui sont pourvus en dernier",
+      "source": "Fabien Truong",
+      "type": "attributed"
+    },
+    {
+      "quote": "qu’on a vraiment des lycées à plusieurs vitesses",
+      "source": "Fabien Truong",
+      "type": "attributed"
+    },
+    {
+      "quote": "on mesure un recul très grand de l’idée que l'école va être un outil de promotion sociale, les gens n'y croient plus et les jeunes encore moins",
+      "source": "Anne Muxel",
+      "type": "attributed"
+    },
+    {
+      "quote": "qu'en France, le diplôme compte beaucoup plus dans votre situation professionnelle future que dans d'autres pays avec le même niveau de développement économique",
+      "source": "Fabien Truong",
+      "type": "attributed"
+    },
+    {
+      "quote": "les garçons de 16, 17, 18 ans qui sont devant les parvis des lycées, ce sont des garçons qui se font contrôler dans leur quartier ou devant chez eux dans des contrôles d'identité au faciès, sans avoir nécessairement commis de délit, de manière extrêmement régulière et répétée",
+      "source": "Fabien Truong",
+      "type": "testimonial"
+    },
+    {
+      "quote": "Dans la dernière vague de l'enquête électorale que nous avons menée, au Cevipof, ce sont 42 % des 18-24 ans qui disent qu'ils voteraient pour Jean-Luc Mélenchon",
+      "source": "Anne Muxel / Cevipof",
+      "type": "statistical"
+    },
+    {
+      "quote": "Contrairement à ce qui est souvent dit, les jeunes sont politisés",
+      "source": "Anne Muxel",
+      "type": "attributed"
+    }
+  ],
+  "key_quotes": [
+    "Ce que demandent les lycéens et les lycéennes, c’est avoir des profs devant eux, c’est une revendication basique",
+    "Il y a toujours eu cette fiction que dans le lycée général, tout le monde était traité de la même manière",
+    "Par ailleurs, l'école en France n'est plus perçue comme un vecteur d'égalité des chances",
+    "qu'en réalité, l'égalité devant le service public et l'égal accès au droit commun sur le territoire n'existent pas dans les faits",
+    "finalement ce qui se rejoue devant les établissements, ce sont des relations qui sont quasi quotidiennes dans les quartiers et qui posent la question du rapport au maintien de l’ordre",
+    "le chemin de l'éducation et la non-violence qui est demandé par les responsables politiques, c'est celui que demandent ces lycéens et ces lycéennes depuis longtemps",
+    "Contrairement à ce qui est souvent dit, les jeunes sont politisés",
+    "Jean-Luc Mélenchon est une personnalité qui fait écho à la demande de radicalité, de changement et de transformation de la société que formule la jeunesse aujourd'hui",
+    "la jeunesse est dans la rue, c'est sans doute ce que redoutent le plus les gouvernements et les politiques, parce qu'on ne sait pas jusqu'où ça peut aller",
+    "des images angoissantes de poubelles qui brûlent, où on voit des affrontements mais on ne sait pas ce qui se passe, et on ne parle même pas du fond du problème"
+  ],
+  "key_actors": [
+    {
+      "name": "Fabien Truong",
+      "role": "Sociologue, enseignant à l'université Paris 8, membre du Cresppa-CSU, invité"
+    },
+    {
+      "name": "Anne Muxel",
+      "role": "Directrice de recherche émérite au CNRS, chargée de mission au Cevipof (Sciences Po), invitée"
+    },
+    {
+      "name": "UNL (Union nationale lycéenne)",
+      "role": "Principale organisation syndicale lycéenne, appelle à bloquer tous les lycées"
+    },
+    {
+      "name": "Lycéens mobilisés",
+      "role": "Acteurs des blocages dans près de 180 établissements, évoqués mais jamais entendus"
+    },
+    {
+      "name": "Forces de l'ordre",
+      "role": "Chargées du maintien de l'ordre devant les lycées"
+    },
+    {
+      "name": "Responsables politiques / gouvernement",
+      "role": "Appellent à l'éducation et à la non-violence ; décrits comme redoutant la mobilisation"
+    },
+    {
+      "name": "Jean-Luc Mélenchon / La France insoumise",
+      "role": "Force politique présentée comme en « rencontre possible » avec la jeunesse"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Fabien Truong (Paris 8, Cresppa-CSU)",
+      "used_for": "Établir que les revendications lycéennes viennent de difficultés structurelles anciennes et que les tensions avec la police prolongent les contrôles au faciès quotidiens"
+    },
+    {
+      "entity": "Anne Muxel (CNRS, Cevipof)",
+      "used_for": "Affirmer le recul de la croyance en l'école comme outil de promotion sociale et la politisation des jeunes"
+    },
+    {
+      "entity": "Enquête électorale du Cevipof",
+      "used_for": "Chiffrer à 42 % la part des 18-24 ans prêts à voter pour Jean-Luc Mélenchon"
+    },
+    {
+      "entity": "UNL",
+      "used_for": "Signaler l'ampleur et l'extension prévue du mouvement de blocage"
+    }
+  ],
+  "notable_omissions": [
+    "Aucun lycéen ni représentant de l'UNL n'est interrogé : les revendications sont rapportées par des chercheurs.",
+    "Aucune voix du ministère de l'Éducation nationale, du gouvernement ou des forces de l'ordre.",
+    "Aucun contradicteur : les deux invités partagent la même lecture structurelle du mouvement.",
+    "L'élément déclencheur précis du mouvement, il y a une semaine, n'est pas nommé.",
+    "Aucun chiffre sur la pénurie d'enseignants ou l'état du bâti scolaire n'est fourni.",
+    "Le sondage Cevipof est cité sans date, taille d'échantillon ni marge d'erreur.",
+    "Les violences ou incidents survenus lors des blocages ne sont ni décrits ni chiffrés.",
+    "Les lycées hors quartiers populaires et hors Île-de-France ne sont pas évoqués."
+  ],
+  "rhetorical_patterns": [
+    "Insistance répétée sur l'ancienneté des problèmes (« depuis longtemps », « depuis plus de 20, 30 ans », « en germe depuis longtemps ») qui déplace l'attention de l'événement vers ses causes structurelles.",
+    "Intertitres qui posent chacun une thèse explicative (« Un système scolaire à deux vitesses », « Des rapports structurellement tendus avec les forces de l’ordre »).",
+    "Retournement d'un discours adverse : « Contrairement à ce qui est souvent dit » ; la non-violence réclamée par les politiques est renvoyée comme une demande des lycéens eux-mêmes.",
+    "Démystification par le mot « fiction » appliqué à l'égalité de traitement dans le lycée général.",
+    "Appel à l'évidence partagée (« tout le monde le sait », « On voit bien ») pour appuyer des affirmations générales.",
+    "Glissement progressif de l'école vers la police puis vers le vote Mélenchon, reliés sous l'idée d'une « colère diffuse ».",
+    "Critique des images médiatiques de violences formulée au sein même d'un média, qui se présente implicitement comme traitant « le fond du problème »."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx1",
+        "text": "Un mouvement de **blocages de lycées** parti d'Île-de-France touche près de 180 établissements en une semaine."
+      },
+      {
+        "id": "ctx2",
+        "text": "L'UNL appelle à l'extension du mouvement lors d'une **journée de grève de la fonction publique**, ce qui le relie à une mobilisation sociale plus large."
+      },
+      {
+        "id": "ctx3",
+        "text": "Les blocages lycéens ont déjà donné lieu à des **interventions policières controversées**, comme l'interpellation de 151 jeunes à Mantes-la-Jolie en décembre 2018."
+      },
+      {
+        "id": "ctx4",
+        "text": "Parcoursup et les **réformes du lycée** alimentent des contestations lycéennes récurrentes depuis 2018."
+      }
+    ],
+    "who_is_speaking": [
+      "France Culture est une radio du **service public** (Radio France), financée par des fonds publics.",
+      "« L'Invité(e) des Matins » est une émission d'entretien qui reçoit surtout des chercheurs et intellectuels.",
+      "Fabien Truong, sociologue à Paris 8, a enseigné en Seine-Saint-Denis et travaille sur les **jeunes des quartiers populaires**.",
+      "Anne Muxel, chercheuse au Cevipof, est une spécialiste reconnue des **comportements politiques des jeunes**."
+    ],
+    "important_facts": [
+      {
+        "id": "fact1",
+        "text": "Selon le Défenseur des droits (2017), un jeune homme perçu comme noir ou arabe a environ **20 fois plus de risques** d'être contrôlé que le reste de la population."
+      },
+      {
+        "id": "fact2",
+        "text": "L'État a été **définitivement condamné** pour contrôles au faciès par la Cour de cassation en 2016."
+      },
+      {
+        "id": "fact3",
+        "text": "Les enquêtes PISA classent la France parmi les pays de l'OCDE où **l'origine sociale pèse le plus** sur les résultats scolaires."
+      },
+      {
+        "id": "fact4",
+        "text": "À la présidentielle de 2022, Jean-Luc Mélenchon a obtenu environ **un tiers des voix des 18-24 ans** au premier tour selon les sondages sortie des urnes."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "UNL",
+        "definition": "Union nationale lycéenne, syndicat qui représente les élèves de lycée."
+      },
+      {
+        "term": "Parcoursup",
+        "definition": "Plateforme nationale où les lycéens formulent leurs vœux d'études supérieures et reçoivent les réponses des formations."
+      },
+      {
+        "term": "Cevipof",
+        "definition": "Centre de recherches politiques de Sciences Po, connu pour ses enquêtes sur les élections et l'opinion."
+      },
+      {
+        "term": "Contrôle au faciès",
+        "definition": "Contrôle d'identité décidé sur l'apparence physique de la personne plutôt que sur son comportement."
+      },
+      {
+        "term": "Capital culturel",
+        "definition": "Ensemble des connaissances, diplômes et codes transmis par la famille qui aident à réussir à l'école."
+      },
+      {
+        "term": "Système de points de l'Éducation nationale",
+        "definition": "Barème qui classe les demandes de mutation des enseignants selon leur ancienneté et leur situation, laissant aux débutants les postes les moins demandés."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "Source : France Culture"
+  }
+}

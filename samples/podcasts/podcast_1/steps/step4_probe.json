@@ -1,0 +1,164 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "id": "f1",
+        "quote": "Dans la dernière vague de l'enquête électorale que nous avons menée, au Cevipof, ce sont 42 % des 18-24 ans qui disent qu'ils voteraient pour Jean-Luc Mélenchon",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Chiffrage",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre est attribué au **Cevipof**, mais cité **sans date ni échantillon**, et il dépasse le score d'environ un tiers mesuré chez les 18-24 ans en 2022.",
+        "external_sources": [
+          {
+            "name": "Cevipof / Ipsos, Enquête électorale française (vagues successives)",
+            "supports": "neutral",
+            "evidence_type": "academic"
+          },
+          {
+            "name": "Ipsos-Sopra Steria, sondage sortie des urnes 1er tour présidentielle 2022 (vote par âge)",
+            "supports": "neutral",
+            "evidence_type": "media"
+          }
+        ],
+        "confidence": 60
+      },
+      {
+        "id": "f2",
+        "quote": "en France, le diplôme compte beaucoup plus dans votre situation professionnelle future que dans d'autres pays avec le même niveau de développement économique",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Preuve",
+          "strength": 0.7,
+          "nature": "illustration"
+        },
+        "explanation": "La comparaison internationale est **affirmée sans chiffre**. Des travaux de l'OCDE et du Céreq documentent pourtant un **lien fort entre diplôme et insertion** en France.",
+        "external_sources": [
+          {
+            "name": "OCDE, Regards sur l'éducation (indicateurs d'emploi par niveau de diplôme)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Céreq, enquêtes Génération sur l'insertion des sortants du système éducatif",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 70
+      },
+      {
+        "id": "f3",
+        "quote": "le système de points de l’Éducation nationale, qui fait que les lycées les moins désirés socialement sont les lycées qui sont pourvus en dernier",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Preuve",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "Le mécanisme du **barème de mutation** est décrit par plusieurs rapports publics, mais l'entretien ne donne **aucune donnée** sur ses effets.",
+        "external_sources": [
+          {
+            "name": "Cour des comptes, « Gérer les enseignants autrement » (2017-2018)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Cnesco, rapport sur les inégalités scolaires d'origine sociale et ethnoculturelle (2016)",
+            "supports": "validates",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": 80
+      },
+      {
+        "id": "f4",
+        "quote": "ce sont des garçons qui se font contrôler dans leur quartier ou devant chez eux dans des contrôles d'identité au faciès, sans avoir nécessairement commis de délit, de manière extrêmement régulière et répétée",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Le constat est posé **sans chiffre**, alors que le Défenseur des droits mesure un **risque de contrôle 20 fois supérieur** pour les jeunes hommes perçus comme noirs ou arabes.",
+        "external_sources": [
+          {
+            "name": "Défenseur des droits, Enquête sur l'accès aux droits — Relations police/population (2017)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Cour de cassation, arrêts du 9 novembre 2016 condamnant l'État pour contrôles discriminatoires",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Conseil d'État, décision du 11 octobre 2023 reconnaissant l'existence de contrôles discriminatoires",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 85
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "id": "b1",
+        "quote": "Il y a toujours eu cette fiction que dans le lycée général, tout le monde était traité de la même manière",
+        "item_type": "bias",
+        "label": "mot chargé",
+        "effect": "Remarquez comment le mot « **fiction** » fait passer l'égalité scolaire pour **un mensonge entretenu**, avant même qu'une donnée soit avancée.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "b2",
+        "quote": "le chemin de l'éducation et la non-violence qui est demandé par les responsables politiques, c'est celui que demandent ces lycéens et ces lycéennes depuis longtemps",
+        "item_type": "fallacy",
+        "label": "parler à la place des concernés",
+        "effect": "Remarquez comment une demande est **prêtée aux lycéens** sans qu'aucun d'eux ne soit cité, ce qui **retourne l'injonction** vers les responsables politiques.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Les lycéens mobilisés et l'UNL",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "b3",
+        "quote": "Jean-Luc Mélenchon est une personnalité qui fait écho à la demande de radicalité, de changement et de transformation de la société que formule la jeunesse aujourd'hui",
+        "item_type": "fallacy",
+        "label": "généralisation abusive",
+        "effect": "Remarquez comment un sondage sur les **18-24 ans** devient la voix de « **la jeunesse** » tout entière, lycéens compris.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "La France insoumise",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "ça fait longtemps que ces problèmes existent et qu'ils sont connus localement",
+      "proves": {
+        "type": "observation",
+        "label": "Cadrage",
+        "strength": 0.8,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase présente la colère comme **l'aboutissement de problèmes anciens**, connus de tous sur le terrain. Elle suggère que l'explosion était prévisible et que l'inaction est en cause. Si ces problèmes durent depuis longtemps, **qu'est-ce qui a changé cette semaine** ?"
+    }
+  }
+}

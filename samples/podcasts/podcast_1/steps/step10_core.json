@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Les blocages de lycées traduisent des inégalités scolaires anciennes : manque de professeurs, établissements à plusieurs vitesses.",
+      "kind": "affirmation",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 0,
+        "excerpt": "les établissements les moins demandés reçoivent leurs enseignants en dernier",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "Les tensions devant les lycées rejoueraient les contrôles au faciès subis au quotidien dans les quartiers.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "contrôles d'identité au faciès répétés",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "L'école n'est plus perçue comme un outil de promotion sociale, alors que le diplôme pèse fortement en France.",
+      "kind": "affirmation",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 1,
+        "excerpt": "le diplôme pèse plus qu'ailleurs sur l'avenir professionnel",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "Les jeunes sont présentés comme politisés ; un sondage Cevipof chiffre à 42 % leur vote déclaré pour Mélenchon.",
+      "kind": "fait",
+      "centrality": 3,
+      "seeds": {
+        "source": "premisse",
+        "index": 3,
+        "excerpt": "Les jeunes sont politisés et une large part se dit prête à voter Mélenchon",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Les lycéens ne sont jamais entendus : seuls deux chercheurs expliquent leurs motivations.",
+      "kind": "angle",
+      "centrality": 3,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "La parole des lycéens eux-mêmes et de l'UNL",
+        "strength": 0.9,
+        "nature": "inference"
+      }
+    }
+  ]
+}

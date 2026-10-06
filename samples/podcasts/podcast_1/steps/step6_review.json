@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "L'entretien repose sur **deux chercheurs** et un seul chiffre sourcé, le sondage Cevipof (f1), cité **sans date ni échantillon**. Les contrôles au faciès (f4) et le barème de mutation (f3) sont affirmés sans les rapports publics qui les documentent. Aucun lycéen, aucun membre de l'UNL, du ministère ou de la police n'est cité (bs1, bs2).",
+        "lesson": "Comptez les voix d'un entretien : deux experts du même bord valent une analyse, pas un tableau complet."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "Les constats de fond tiennent : contrôles discriminatoires (f4, confiance 85) et effet du barème de mutation (f3, confiance 80) sont confirmés par des sources officielles. En revanche, le **42 % pour Mélenchon** (f1, confiance 60) dépasse le tiers mesuré chez les 18-24 ans en 2022, sans explication. La comparaison internationale sur le diplôme (f2) est **présentée comme un fait établi**, sans chiffre.",
+        "lesson": "Vérifiez la date et la population d'un sondage avant d'en tirer une conclusion sur un autre groupe."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 3,
+        "rationale": "L'enchaînement école, police puis vote est lisible et cohérent (lr1). Il repose toutefois sur des sauts non signalés : les jeunes devant les lycées seraient **ceux qui subissent les contrôles** (lr2), et un sondage sur les 18-24 ans renseignerait sur les lycéens (lr4). La « colère diffuse » (lr3) **englobe tout** et ne peut être contredite.",
+        "lesson": "Repérez l'explication qui couvre tous les cas : si aucun fait ne peut la démentir, elle n'explique rien de précis."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "Le format entretien rend le point de vue des invités visible. Mais les limites restent tues : rien ne signale que les **motivations prêtées aux bloqueurs** (ia1) viennent des chercheurs et non des lycéens. L'écart entre 18-24 ans et 15-18 ans (ia4) n'est jamais mentionné.",
+        "lesson": "Demandez-vous, à chaque « les jeunes veulent », qui parle réellement et sur quelle base."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Le mouvement tient en une phrase d'ouverture, quand les causes occupent cinq paragraphes (emphasis). Le **déclencheur concret** (bs3), les incidents des blocages (bs4) et les précédents comme **Mantes-la-Jolie en 2018** (o2) sont absents. Les données PISA, qui appuieraient la thèse, ne sont pas mobilisées (o4).",
+        "lesson": "Cherchez ce qui a changé cette semaine : un problème ancien n'explique pas seul une mobilisation nouvelle."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 3,
+        "rationale": "Le ton reste posé et pédagogique, sans caricature des forces de l'ordre. Mais une demande est **prêtée aux lycéens** sans qu'aucun ne soit cité (b2), et le mot « fiction » (b1) disqualifie l'égalité scolaire avant toute donnée. La police est mise en cause **sans droit de réponse** (d1).",
+        "lesson": "Distinguez la parole d'un groupe de la parole qu'on lui attribue : la seconde n'en est pas une preuve."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "La progression école, police, vote est claire et le registre accessible ; des exemples concrets ancrent le propos (profs absents, contrôles « devant chez eux »). Le titre « D'où vient la colère » pose pourtant **la colère comme acquise** sans la décrire (title_analysis), et le vocabulaire glisse du geste au sentiment.",
+        "lesson": "Relisez le titre comme une question orientée : il choisit souvent la réponse avant le texte."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "L'entretien apporte un **recul sociologique** utile face à une actualité traitée surtout par les images de blocage (o1). L'angle structurel reste toutefois attendu et ne se confronte à aucune hypothèse rivale, comme un **déclencheur conjoncturel** ou un effet d'imitation (steel_man).",
+        "lesson": "Testez une explication en imaginant la rivale la plus forte : si le texte ne l'évoque jamais, faites-le vous-même."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Enseignants, parents d'élèves ou étudiants en sciences sociales qui veulent replacer les blocages dans les inégalités scolaires et policières, et savent déjà que ces constats sont documentés ailleurs.",
+      "payoff": "Le lecteur obtient une grille de lecture structurelle claire du mouvement, en quelques minutes. Il apprend aussi à repérer une explication d'experts qui **parle à la place des concernés**.",
+      "signature_move": "L'entretien d'experts transforme une actualité en **explication sociologique de long terme**, où deux chercheurs prêtent leurs causes à des lycéens qu'on n'entend jamais.",
+      "main_blind_side": "L'absence de **toute parole lycéenne** révèle un format pensé pour expliquer vite, par des voix disponibles, plutôt que pour enquêter sur le mouvement lui-même.",
+      "further_resource": {
+        "title": "Inégalités sociales et migratoires : comment l'école amplifie-t-elle les inégalités ?",
+        "source": "Cnesco (Conseil national d'évaluation du système scolaire), 2016",
+        "media_type": "report",
+        "why_explore": "Il chiffre ce que l'entretien affirme sur la dotation inégale des établissements, et permet de juger la thèse sur pièces.",
+        "url": null
+      },
+      "summary": "Lecture utile avec réserves pour qui veut comprendre le terrain des blocages : la lecture structurelle est claire, mais elle reste **celle des chercheurs**, sans parole lycéenne ni données à l'appui."
+    }
+  }
+}
