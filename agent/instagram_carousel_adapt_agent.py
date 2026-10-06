@@ -170,9 +170,20 @@ _VERDICT_LEAD = re.compile(
     r"^(?:constat[ée]e?s?|rien\b|aucun|aucune|jamais|personne|nulle part|à rien|non\b|faux\b|pas d)",
     re.I)
 
-# A présupposé whose subject is a bare pronoun (« qu'ils parlent d'une voix »)
-# cannot be decoded on a slide where three groups were just named.
-_PRONOUN_PRESUPPOSE = re.compile(r"^qu['’](?:ils|elles)\b", re.I)
+# Every displayed line reads with what it says and what earlier slides said,
+# never with what comes after it. Two shapes break that, whatever the field:
+# a line that opens on a pronoun with nothing to point at (« Elle repose sur un
+# pari », « qu'ils parlent d'une voix »), and a headless « ce que / ce qui »
+# that only the quote below fills in (« Ce que l'État exige, les lycéens le
+# réclament »). Impersonal « il » (il faut, il y a…) is not a reference. The
+# hook is exempt: a teaser's unknown is its point (« Ce que les chiffres ne
+# comptent pas »).
+_IMPERSONAL = r"(?!\s+(?:y\b|faut|s['’]agit|suffit|semble|reste|manque))"
+_OPENING_PRONOUN = re.compile(rf"^(?:qu['’])?(?:il{_IMPERSONAL}|elle|ils|elles|cela|ça|ceci)\b", re.I)
+_FORWARD_REFERENCE = re.compile(r"^(?:ce|celui|celle|ceux|celles)\s+(?:que|qu['’]|qui|dont)\b", re.I)
+# …unless the line names it itself: after a colon, or in a cleft (« Ce qui
+# rapporte, c'est le nombre de retraités »).
+_NAMED_AFTER = re.compile(r":|,\s*(?:c['’]est|ce sont|c['’]était)\b", re.I)
 
 # The closing question is open: the reader weighs a degree or a condition, not
 # a yes/no. An open interrogative must head the question or one of its clauses
@@ -192,6 +203,43 @@ _LOADED_QUESTION = re.compile(
 
 def _plain(text: str) -> str:
     return re.sub(r"\s+", " ", (text or "").replace("**", "")).strip()
+
+
+def _displayed_lines(pres, d) -> list[tuple[str, str]]:
+    """(label, text) for every line we write that reaches a slide after the hook.
+    Présupposés are split into their own lines, as the slide prints them."""
+    lines = [("display.reperes_headline", d.reperes_headline)]
+    lines += [(f"display.essentiel[{i}]", p) for i, p in enumerate(d.essentiel)]
+    for i, b in enumerate(d.reading_beats):
+        if b.selected:
+            lines += [(f"display.reading_beats[{i}].{f}", getattr(b, f)) for f in ("moment", "lens_question", "answer")]
+    if d.global_analysis:
+        lines.append(("display.global_analysis.headline", d.global_analysis.headline))
+        for i, point in enumerate(d.global_analysis.core_recap):
+            body = point.split(":", 1)[1] if ":" in point else point
+            lines += [(f"display.global_analysis.core_recap[{i}] presupposé {j + 1}", c.strip())
+                      for j, c in enumerate(c for c in body.split(";") if c.strip())]
+    if d.steel_man:
+        lines.append(("display.steel_man.argument", d.steel_man.argument))
+    lines += [("display.root_issue", d.root_issue), ("cta.engagement_sentence", pres.cta.engagement_sentence)]
+    return [(label, _plain(text)) for label, text in lines if text and text.strip()]
+
+
+def _standalone_errors(pres, d) -> list[str]:
+    errors = []
+    for label, text in _displayed_lines(pres, d):
+        if _OPENING_PRONOUN.match(text):
+            errors.append(
+                f"{label} opens on a pronoun (« {text[:30]}… ») — a reader who skipped the source "
+                f"cannot tell what it points at; name it"
+            )
+        if _FORWARD_REFERENCE.match(text) and not _NAMED_AFTER.search(text):
+            errors.append(
+                f"{label} opens on « {text.split()[0]} {text.split()[1]}… » without saying what — "
+                f"only the quote or a later slide would tell; name the thing (« Ce que l'État exige, "
+                f"les lycéens le réclament » → « L'État prône la non-violence, les lycéens la réclament »)"
+            )
+    return errors
 
 
 def _coherence_errors(pres, d) -> list[str]:
@@ -245,14 +293,7 @@ def _coherence_errors(pres, d) -> list[str]:
                 f"display.global_analysis.headline is {len(headline)} characters (max "
                 f"{_TITLE_MAX_CHARS}) — the socle title holds two lines"
             )
-        for i, point in enumerate(d.global_analysis.core_recap):
-            body = point.split(":", 1)[1] if ":" in point else point
-            for j, clause in enumerate(c.strip() for c in body.split(";") if c.strip()):
-                if _PRONOUN_PRESUPPOSE.match(_plain(clause)):
-                    errors.append(
-                        f"display.global_analysis.core_recap[{i}] presupposé {j + 1} has a bare "
-                        f"pronoun for subject (« {clause[:30]}… ») — name who, and what is shared"
-                    )
+    errors += _standalone_errors(pres, d)
     question = _plain(pres.cta.engagement_sentence)
     if question:
         if not _OPEN_QUESTION.search(question):

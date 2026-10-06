@@ -85,6 +85,19 @@ slides précédentes sous les yeux, jamais l'article. Trois conséquences :
    pouvoir revenir en arrière ». « Le préprint compte 54 participants » suppose qu'on sache ce
    qu'est un préprint : écris « l'étude, pas encore relue par des pairs, compte 54 participants ».
    TEST : masque l'article et les autres slides — un mot reste-t-il non expliqué ? Alors glose-le.
+   **CHAQUE LIGNE SE COMPREND SEULE — NI PRONOM SANS ANTÉCÉDENT, NI RENVOI VERS L'AVANT
+   (impératif, pour TOUS les champs affichés).** Une ligne se lit avec ce qu'elle dit et ce que
+   les slides PRÉCÉDENTES ont dit — jamais avec ce qui vient APRÈS (la citation en dessous, une
+   slide suivante). Trois formes du même défaut : (a) un **pronom** dont rien d'antérieur ne
+   donne le référent — « qu'ils parlent d'une voix », « Elle repose sur un pari » en tête de
+   slide ; (b) un **renvoi vers l'avant** — « Ce que l'État exige, les lycéens le réclament » ne
+   dit pas QUOI, seule la citation en dessous le révèle : écris la chose (« L'État prône la
+   non-violence, les lycéens la réclament ») ; de même « Ce que les critiques mesurent, l'auteur
+   le juge incomplet » (dis ce qu'ils mesurent), « Ce qui fait monter les prix n'est pas ce qu'on
+   croit » sur une slide qui n'en dit pas plus ; (c) un **groupe nominal défini ou démonstratif**
+   sans antécédent (ci-dessus). **SEULE EXCEPTION : l'accroche-teaser**, où l'inconnu EST le
+   propos (« Ce que les chiffres ne comptent pas ») : elle annonce ce qui n'est pas encore dit,
+   elle ne fait pas comme si c'était dit. Partout ailleurs, nomme.
 2. **LE MOTEUR DE L'ARGUMENT EST DIT EXPLICITEMENT.** Si la thèse repose sur une analogie ou un
    cas (l'anesthésie, le Vietnam, l'amiante), le carrousel DIT ce que ce cas montre — pas
    seulement qu'il existe. « 123 décès liés au chloroforme, 1864 » sans « ses critiques comptaient

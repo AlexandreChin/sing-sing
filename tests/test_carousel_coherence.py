@@ -20,7 +20,9 @@ def _errors(hook="Derrière les **poubelles** brûlées, une école à deux vite
             headline="La colère lycéenne vient d'**inégalités anciennes**"):
     pres = NS(hook=NS(sub_topic=hook), cta=NS(engagement_sentence=question))
     d = NS(root_issue=root_issue, reperes_headline="Avant d'écouter : le contexte et trois réflexes",
-           reading_beats=[NS(selected=True, moment="Un titre", answer=answer, figure="")],
+           essentiel=[], steel_man=None,
+           reading_beats=[NS(selected=True, moment="Un titre", lens_question="Une question ?",
+                             answer=answer, figure="")],
            global_analysis=NS(headline=headline, core_recap=[presupposes]))
     return _coherence_errors(pres, d)
 
@@ -91,7 +93,9 @@ def test_duration_flag_on_analyze_and_produce():
 def _beat_errors(moment, answer, figure=""):
     pres = NS(hook=NS(sub_topic="Une accroche"), cta=NS(engagement_sentence=_GOOD_QUESTION))
     d = NS(root_issue="L'école publique promet l'**égalité**.", reperes_headline="Avant d'écouter",
-           reading_beats=[NS(selected=True, moment=moment, answer=answer, figure=figure)],
+           essentiel=[], steel_man=None,
+           reading_beats=[NS(selected=True, moment=moment, lens_question="Une question ?",
+                             answer=answer, figure=figure)],
            global_analysis=None)
     return _coherence_errors(pres, d)
 
@@ -113,3 +117,24 @@ def test_figure_moment_has_a_shorter_answer():
 def test_socle_title_holds_two_lines():
     errs = _errors(headline="Une colère lycéenne née d'**inégalités anciennes**, scolaires et policières")
     assert any("headline" in e for e in errs)
+
+
+def test_forward_reference_in_any_line():
+    errs = _beat_errors("Ce que l'État exige, les lycéens le réclament", "**Un fait**.")
+    assert any("without saying what" in e for e in errs)
+    # naming the thing, or a colon that names it, passes
+    assert _beat_errors("L'État prône la non-violence, les lycéens la réclament", "**Un fait**.") == []
+    assert not any("without saying what" in e
+                   for e in _beat_errors("Ce qui fait monter les prix : le loyer", "**Un fait**."))
+    assert not any("without saying what" in e
+                   for e in _beat_errors("Ce qui rapporte, c'est le nombre de retraités", "**Un fait**."))
+    # not only titles: an answer or an enjeu fails the same way
+    errs = _errors(root_issue="Ce que les critiques mesurent, l'auteur le juge **incomplet**.")
+    assert any("root_issue" in e and "without saying what" in e for e in errs)
+
+
+def test_opening_pronoun_in_any_line():
+    errs = _beat_errors("Un titre", "Elle repose sur un **pari** que rien ne vérifie.")
+    assert any("opens on a pronoun" in e for e in errs)
+    # impersonal « il » is not a reference
+    assert not any("pronoun" in e for e in _beat_errors("Un titre", "Il faut **chercher** la date du sondage."))

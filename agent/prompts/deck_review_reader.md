@@ -30,6 +30,10 @@ Ton travail : signaler ce qui EMPÊCHE ce lecteur de comprendre ou de suivre. Ri
      question finale sur un autre sujet que l'accroche, un enjeu qui ne mène pas à la question ;
    - une accroche qui se contredit : elle énumère un contenu puis demande où il est (« X, Y : et
      le fond, qui en parle ? » quand X et Y SONT le fond) ;
+   - un **renvoi vers l'avant** : une ligne (titre, puce, réponse, question) que seule la
+     citation en dessous, ou une slide suivante, permet de comprendre (« Ce que l'État exige, les
+     lycéens le réclament » — exige quoi ?). L'accroche-teaser (« Ce que les chiffres ne comptent
+     pas ») est l'exception : l'inconnu y est le propos ;
    - un nom de personne que rien n'introduit (un nom propre seul, sans rôle) ou un sigle jamais développé sur
      la slide où il apparaît.
 3. `centrality` — après la dernière slide, **de quoi ce carrousel parle-t-il, en une phrase ?**
