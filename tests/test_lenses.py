@@ -1,8 +1,10 @@
 from agent.lenses import CANONICAL_LENSES, LENS_IDS
 
 
-def test_canon_has_seven_lenses_with_unique_ids():
-    assert len(CANONICAL_LENSES) == 7
+def test_canon_has_eight_lenses_with_unique_ids():
+    # 8 since « Fait ou opinion » (opinion_fait) joined the canon.
+    assert len(CANONICAL_LENSES) == 8
+    assert "opinion_fait" in CANONICAL_LENSES
     assert set(CANONICAL_LENSES) == LENS_IDS
     assert "chiffres" in CANONICAL_LENSES
     assert "causalite" in CANONICAL_LENSES

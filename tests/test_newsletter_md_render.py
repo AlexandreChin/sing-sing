@@ -108,11 +108,13 @@ def test_blockquote_default_renders_qlist_row():
     assert 'class="openq"' not in html
 
 
-def test_forced_keystone_renders_qlist_row():
+def test_forced_keystone_renders_open_question():
+    # `::: keystone` is « La question » — its own block since the newsletter
+    # redesign (a06ee33), no longer a plain qlist row.
     html = render_body_html(
         "### Au fil de la lecture\n\n::: keystone\n> some quote\n:::\n"
     )
-    assert 'class="plain qlist"' in html
+    assert 'class="openq"' in html and "La question" in html and "some quote" in html
     assert 'class="claim"' not in html
 
 

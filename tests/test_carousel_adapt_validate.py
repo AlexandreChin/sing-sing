@@ -24,11 +24,14 @@ def _display(**over):
             ReadingBeat(moment="C", quote="qui l'affirme", lens_ref="sources", note="n", answer="r", role="pivot",
                         lens_question="Qui a financé cette étude ?"),
         ],
-        global_analysis=GlobalAnalysis(headline="Une méthode", core_recap=["a", "b"]),
+        # one présupposé per selected beat, on one « Label : a ; b ; c » line
+        global_analysis=GlobalAnalysis(headline="Une méthode", core_recap=[
+            "Ce qu'il tient pour acquis : que la base suffit ; que la hausse est subie ; que l'étude est neutre"]),
         root_issue="L'enjeu est surtout symbolique : une élite qui affiche son indifférence.",
         steel_man=SteelMan(argument="Un tourisme encadré crée des ambassadeurs", alternative="le bilan net pourrait s'inverser"),
         key_takeaways=["a", "b"],
-        essentiel=["La thèse de l'article.", "Son appui chiffré.", "Sa conclusion."],
+        # slide 2 gilds one key expression per bullet
+        essentiel=["La **thèse** de l'article.", "Son appui **chiffré**.", "Sa **conclusion**."],
         essentiel_summary="L'article avance sa thèse, l'appuie sur un chiffre, et conclut.",
     )
     good.update(over)
