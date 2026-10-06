@@ -153,6 +153,128 @@ def _tired_question_errors(label: str, text: str) -> list[str]:
     ]
 
 
+# Slide 1 clamps the hook to four lines at 85px: a 67-character hook rendered
+# whole, an 89-character one lost its last word to an ellipsis.
+_HOOK_MAX_CHARS = 68
+# Slide titles (repères, moments, socle) hold two lines at 60px: « Devant le lycée, les contrôles
+# du quartier se rejouent » (54) fits, a three-line title pushed slide 5 out of frame.
+_TITLE_MAX_CHARS = 54
+# A moment with a figure stacks title, figure, caption, quote, réflexe and
+# answer: a 25-word answer overflowed it even under a two-line title, 17 fit.
+_FIGURE_ANSWER_MAX_WORDS = 18
+
+# A moment's answer hands the reader a tool, it does not report the source's
+# failings. These leads turn the reveal into a verdict (« **Constaté** : aucun
+# chiffre… », « **Rien ne tranche** »), and the deck reads as a grading.
+_VERDICT_LEAD = re.compile(
+    r"^(?:constat[ée]e?s?|rien\b|aucun|aucune|jamais|personne|nulle part|à rien|non\b|faux\b|pas d)",
+    re.I)
+
+# A présupposé whose subject is a bare pronoun (« qu'ils parlent d'une voix »)
+# cannot be decoded on a slide where three groups were just named.
+_PRONOUN_PRESUPPOSE = re.compile(r"^qu['’](?:ils|elles)\b", re.I)
+
+# The closing question is open: the reader weighs a degree or a condition, not
+# a yes/no. An open interrogative must head the question or one of its clauses
+# (« Quand…, qu'a-t-on appris… ? » is open; « Peut-on condamner ceux qui… ? » is not).
+_OPEN_QUESTION = re.compile(
+    r"(?:^|[,:;—]\s*)(?:dans quelle mesure|à quelles? conditions?|jusqu['’]où|comment|pourquoi|"
+    r"en quoi|à quoi|de quoi|sur quoi|combien|que\b|qu['’]|quel(?:le)?s?\b|lequel|laquelle|"
+    r"lesquel(?:le)?s|qui\b|où\b)",
+    re.I)
+
+# Words that settle the question for the reader: they tilt it before it is asked.
+_LOADED_QUESTION = re.compile(
+    r"\b(?:légitim\w*|illégitim\w*|injust\w*|ignoré\w*|aucune autre (?:voie|issue|solution)|"
+    r"seul moyen|condamn\w*)",
+    re.I)
+
+
+def _plain(text: str) -> str:
+    return re.sub(r"\s+", " ", (text or "").replace("**", "")).strip()
+
+
+def _coherence_errors(pres, d) -> list[str]:
+    """The rules a hand-edited deck taught us: each one is a reader who could not
+    follow, or a slide that judged where it should have equipped."""
+    errors: list[str] = []
+    hook = _plain(pres.hook.sub_topic)
+    if len(hook) > _HOOK_MAX_CHARS:
+        errors.append(
+            f"hook.sub_topic is {len(hook)} characters (max {_HOOK_MAX_CHARS}) — slide 1 cuts it "
+            f"at four lines and the reader loses its last words"
+        )
+    reperes = _plain(d.reperes_headline)
+    if len(reperes) > _TITLE_MAX_CHARS:
+        errors.append(
+            f"display.reperes_headline is {len(reperes)} characters (max {_TITLE_MAX_CHARS}) — "
+            f"the slide 3 title holds two lines"
+        )
+    if norm_for_match(_plain(d.root_issue)).startswith(("l'enjeu de fond", "enjeu de fond")):
+        errors.append(
+            "display.root_issue opens with « L'enjeu de fond » — the slide already prints that "
+            "label; start with the stake itself"
+        )
+    for i, b in enumerate(d.reading_beats):
+        if not b.selected:
+            continue
+        moment = _plain(b.moment)
+        if len(moment) > _TITLE_MAX_CHARS:
+            errors.append(
+                f"display.reading_beats[{i}].moment is {len(moment)} characters (max "
+                f"{_TITLE_MAX_CHARS}) — the title holds two lines; a third pushes the slide out "
+                f"of frame"
+            )
+        answer = _plain(b.answer)
+        if (b.figure or "").strip() and len(answer.split()) > _FIGURE_ANSWER_MAX_WORDS:
+            errors.append(
+                f"display.reading_beats[{i}].answer is {len(answer.split())} words with a figure "
+                f"on the slide (max {_FIGURE_ANSWER_MAX_WORDS}) — the figure takes the room of "
+                f"the second sentence"
+            )
+        if _VERDICT_LEAD.match(answer):
+            errors.append(
+                f"display.reading_beats[{i}].answer opens on a verdict (« {answer[:30]}… ») — "
+                f"lead with the tool or the fact that answers the réflexe, then what to look for; "
+                f"the moment equips the reader, it does not grade the source"
+            )
+    if d.global_analysis:
+        headline = _plain(d.global_analysis.headline)
+        if len(headline) > _TITLE_MAX_CHARS:
+            errors.append(
+                f"display.global_analysis.headline is {len(headline)} characters (max "
+                f"{_TITLE_MAX_CHARS}) — the socle title holds two lines"
+            )
+        for i, point in enumerate(d.global_analysis.core_recap):
+            body = point.split(":", 1)[1] if ":" in point else point
+            for j, clause in enumerate(c.strip() for c in body.split(";") if c.strip()):
+                if _PRONOUN_PRESUPPOSE.match(_plain(clause)):
+                    errors.append(
+                        f"display.global_analysis.core_recap[{i}] presupposé {j + 1} has a bare "
+                        f"pronoun for subject (« {clause[:30]}… ») — name who, and what is shared"
+                    )
+    question = _plain(pres.cta.engagement_sentence)
+    if question:
+        if not _OPEN_QUESTION.search(question):
+            errors.append(
+                "cta.engagement_sentence is a yes/no question — make it open (a degree, a "
+                "condition, a limit: « Dans quelle mesure… », « À quelles conditions… », "
+                "« Jusqu'où… »), varying the form from one deck to the next"
+            )
+        if (m := _LOADED_QUESTION.search(question)):
+            errors.append(
+                f"cta.engagement_sentence uses « {m.group(0)} » — a word that answers the question "
+                f"before the reader does; ask it neutrally"
+            )
+        n_bold = len(_BOLD_RE.findall(pres.cta.engagement_sentence))
+        if not 1 <= n_bold <= 2:
+            errors.append(
+                f"cta.engagement_sentence has {n_bold} **bold** span(s) — gild 1 or 2: the terms "
+                f"the reader weighs against each other"
+            )
+    return errors
+
+
 def _gilded_errors(pres, d) -> list[str]:
     """Every slide carries at least one gilded phrase. The prompt asks for bold in
     each sentence, but nothing checked it, so a generation can arrive with whole
@@ -224,16 +346,15 @@ def _lens_layer_errors(d) -> list[str]:
                     f"display.reading_beats[{i}].quote is {n_quote} words (max 24) — elide its "
                     f"middle with « […] », keeping the clauses that carry the point"
                 )
-            # 28, not 22: glossing an unfamiliar tool and naming the mechanism
-            # cost words, and a short line the reader cannot use is worse than a
-            # long one. A ceiling, not a target.
+            # 32 words, two sentences: the fact or tool that answers the réflexe,
+            # then what to look or listen for. A ceiling, not a target.
             n_answer = len(b.answer.split())
-            if n_answer > 28:
-                errors.append(f"display.reading_beats[{i}].answer is {n_answer} words (max 28)")
-            if len(_SENTENCE_END.findall(b.answer.strip())) > 1:
+            if n_answer > 32:
+                errors.append(f"display.reading_beats[{i}].answer is {n_answer} words (max 32)")
+            if len(_SENTENCE_END.findall(b.answer.strip())) > 2:
                 errors.append(
-                    f"display.reading_beats[{i}].answer runs to more than one sentence — "
-                    f"state the finding, not the finding plus its interpretation"
+                    f"display.reading_beats[{i}].answer runs to more than two sentences — "
+                    f"the answer, then what to look for; nothing more"
                 )
         # `role` (what the quote does for the thesis) keeps the reveal from
         # contradicting the passage it annotates — see the prompt's coherence rule.
@@ -469,6 +590,7 @@ def _validate(data: dict, article_text: str | None = None) -> list[str]:
         if not item.text.strip():
             errors.append(f"display.strengths[{i}].text is empty")
     errors += _gilded_errors(pres, d)
+    errors += _coherence_errors(pres, d)
     errors += _tired_opening_errors("hook.sub_topic", pres.hook.sub_topic)
     errors += _tired_opening_errors("cta.engagement_sentence", pres.cta.engagement_sentence)
     errors += _tired_question_errors("cta.engagement_sentence", pres.cta.engagement_sentence)

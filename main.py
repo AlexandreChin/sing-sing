@@ -39,9 +39,10 @@ def _layout(stem: str, fmt: str | None = None, base: Path | None = None) -> dict
     return paths
 
 
-async def run_full_analysis(text: str, no_api: bool = False, input_path: str | None = None, extra_instructions: str | None = None, medium: str = "article", source: str | None = None, url: str | None = None, published_at: str | None = None) -> Path:
+async def run_full_analysis(text: str, no_api: bool = False, input_path: str | None = None, extra_instructions: str | None = None, medium: str = "article", source: str | None = None, url: str | None = None, published_at: str | None = None, duration_minutes: int | None = None) -> Path:
     analysis_input = FullAnalysisInput(body=text, extra_instructions=extra_instructions, medium=medium,
-                                      source=source, url=url, published_at=published_at)
+                                      source=source, url=url, published_at=published_at,
+                                      duration_minutes=duration_minutes)
 
     stem = Path(input_path).stem if input_path else datetime.now().strftime("%Y%m%d_%H%M%S")
     lay = _layout(stem, base=_base_dir(input_path, stem))
@@ -80,7 +81,8 @@ async def cmd_analyze(args: argparse.Namespace) -> None:
         sys.exit(1)
 
     await run_full_analysis(text, no_api=args.no_api, input_path=input_path, extra_instructions=extra_instructions,
-                            medium=args.medium, source=args.source, url=args.url, published_at=args.published_at)
+                            medium=args.medium, source=args.source, url=args.url, published_at=args.published_at,
+                            duration_minutes=args.duration)
 
 
 async def cmd_simplify(args: argparse.Namespace) -> None:
@@ -138,6 +140,16 @@ async def cmd_extract(args: argparse.Namespace) -> None:
         await asyncio.to_thread(render_from_json, out_path, slides_dir)
 
 
+def _report_check(extract_path: Path, fmt: str) -> None:
+    """Print the deterministic deck check after a carousel is built or re-rendered,
+    so a broken rule shows up in the loop that caused it. Never fails the run —
+    `check` is the gate; this is the reminder."""
+    if not fmt.startswith("instagram_carousel"):
+        return
+    from tools.check_deck import check, format_report
+    print(format_report(check(extract_path)), file=sys.stderr)
+
+
 async def cmd_render(args: argparse.Namespace) -> None:
     _, _, renderer_mod = FORMATS[args.format]
     mod = importlib.import_module(renderer_mod)
@@ -148,6 +160,7 @@ async def cmd_render(args: argparse.Namespace) -> None:
         await asyncio.to_thread(mod.render_from_markdown, json_path, out_dir)
     else:
         await asyncio.to_thread(mod.render_from_json, json_path, out_dir)
+        _report_check(json_path, args.format)
 
 
 async def cmd_html(args: argparse.Namespace) -> None:
@@ -254,7 +267,8 @@ async def cmd_produce(args: argparse.Namespace) -> None:
     lay["fmt_dir"].mkdir(parents=True, exist_ok=True)
     full = await analyze_for_full_analysis(
         FullAnalysisInput(body=text, medium=args.medium, source=args.source,
-                          url=args.url, published_at=args.published_at),
+                          url=args.url, published_at=args.published_at,
+                          duration_minutes=args.duration),
         no_api=args.no_api,
         steps_dir=lay["steps"],
     )
@@ -285,6 +299,7 @@ async def cmd_produce(args: argparse.Namespace) -> None:
         render_from_json = importlib.import_module(renderer_mod).render_from_json
         print(f"Rendering into {lay['fmt_dir']}/", file=sys.stderr)
         await asyncio.to_thread(render_from_json, lay["extract"], lay["fmt_dir"])
+    _report_check(lay["extract"], args.format)
 
 
 async def cmd_program(args: argparse.Namespace) -> None:
@@ -369,6 +384,8 @@ def _add_source_args(p: argparse.ArgumentParser) -> None:
     p.add_argument("--source", help="publication name (e.g. \"Aeon\")")
     p.add_argument("--url", help="canonical article URL")
     p.add_argument("--published-at", help="publication date as it should read (e.g. \"7 septembre 2026\")")
+    p.add_argument("--duration", type=int, metavar="MIN",
+                   help="listening/viewing time in minutes (default: estimated from the word count)")
 
 
 def _build_parser() -> argparse.ArgumentParser:

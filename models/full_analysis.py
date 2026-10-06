@@ -69,6 +69,9 @@ class FullAnalysisInput(BaseModel):
     source: str | None = None
     published_at: str | None = None
     medium: Literal["article", "video", "podcast"] = "article"
+    # Listening/viewing time of the source, in minutes. A transcript's word count
+    # says nothing about a 40-minute episode, so a podcast or video passes it in.
+    duration_minutes: int | None = None
     extra_instructions: str | None = None
 
 

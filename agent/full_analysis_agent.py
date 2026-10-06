@@ -179,7 +179,7 @@ async def analyze_for_full_analysis(
             published_at=input.published_at,
             type=extraction.article_type,
             medium=input.medium,
-            reading_time_minutes=max(1, len(input.body.split()) // 200),
+            reading_time_minutes=input.duration_minutes or max(1, len(input.body.split()) // 200),
             chapo=article_chapo,
         ),
         extraction=ArticleExtraction(

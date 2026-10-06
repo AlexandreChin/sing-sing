@@ -199,6 +199,66 @@ def _restated_presupposes(doc: InstagramCarouselDocument) -> list[str]:
     return problems
 
 
+# The carousel is read by someone who never opened the source, so a name or an
+# acronym is only usable once a slide has said who or what it is. Advisory: the
+# heuristics cannot tell « le syndicat lycéen UNL » from a bare « l'UNL » every
+# time, so a human decides.
+_ACRONYM = re.compile(r"\b[A-ZÀ-Þ]{2,}[0-9]*\b")
+_KNOWN_ACRONYMS = {"IA", "UE", "ONU", "PIB", "USA", "CO2"}
+_FULL_NAME = re.compile(
+    r"\b(?!(?:Le|La|Les|Un|Une|Des|Du|Au|Aux|Ce|Cet|Cette|Ces|Son|Sa|Ses|Leur|Leurs)\b)"
+    r"[A-ZÀ-Þ][a-zà-ÿ]+(?:-[A-ZÀ-Þ][a-zà-ÿ]+)? [A-ZÀ-Þ][a-zà-ÿ]+\b")
+_ARTICLE_BEFORE = re.compile(r"(?:\b(?:le|la|les|du|des|de|au|aux)\s|\b[ld]['’])$", re.I)
+
+
+def _orphan_references(doc: InstagramCarouselDocument) -> list[str]:
+    d = doc.presentation.display
+    quotes = {b.quote for b in d.reading_beats if b.selected}
+    meta = doc.analysis.article_metadata
+    known = f"{meta.source or ''} {meta.title or ''}"
+    problems, seen_acronyms, seen_names = [], set(), set()
+    for label, text in _slide_order(doc):
+        if text in quotes:
+            continue
+        plain = text.replace("**", "")
+        for m in _ACRONYM.finditer(plain):
+            acr = m.group(0)
+            if acr in _KNOWN_ACRONYMS or acr in seen_acronyms:
+                continue
+            seen_acronyms.add(acr)
+            before, after = plain[:m.start()], plain[m.end():]
+            # explained by an apposition (« l'UNL, leur syndicat », « (…) ») or a
+            # descriptor right before it (« le syndicat lycéen UNL »)
+            glossed = after.startswith((", ", " (")) or before.endswith("(") or (
+                before.strip() and not _ARTICLE_BEFORE.search(before))
+            if not glossed:
+                problems.append(f"{label}: acronym {acr} is never spelled out — say what it is the first time")
+        for m in _FULL_NAME.finditer(plain):
+            name = m.group(0)
+            if name in seen_names or name in known:
+                continue
+            seen_names.add(name)
+            before = plain[:m.start()]
+            # introduced by a descriptor right before it (« l'économiste Larry Summers »)
+            if before.strip() and not _ARTICLE_BEFORE.search(before) and before.rstrip()[-1:].isalpha():
+                continue
+            problems.append(
+                f"{label}: « {name} » — a reader who skipped the source does not know who this is; "
+                f"say who they are (« l'économiste … », « l'un des invités ») the first time"
+            )
+    # « ces inégalités » in the closing question must point at something the
+    # enjeu printed just above it names.
+    question = doc.presentation.cta.engagement_sentence.replace("**", "")
+    for m in re.finditer(r"\b(?:ces|cette|cet|ce)\s+(?!que\b|qui\b|qu['’])([a-zà-ÿ]+)", question, re.I):
+        noun = re.sub(r"^(?:in|im|dés|dé)", "", m.group(1).lower())[:5]
+        if noun and noun not in _norm(d.root_issue):
+            problems.append(
+                f"socle question: « {m.group(0)} » has no antecedent in the enjeu above it — "
+                f"« {question[:50]}… »"
+            )
+    return problems
+
+
 def check(extract_path: Path, article_path: Path | None = None) -> dict[str, list[str]]:
     """Run every check. Returns {family: [problems]} — empty lists mean clean."""
     extract_path = Path(extract_path)
@@ -279,6 +339,7 @@ def check(extract_path: Path, article_path: Path | None = None) -> dict[str, lis
     report["vocabulary (advisory)"] = _late_vocabulary(doc)
     report["vocabulary (advisory)"] += _stated_presupposes(doc, article_raw)
     report["vocabulary (advisory)"] += _restated_presupposes(doc)
+    report["standalone (advisory)"] = _orphan_references(doc)
 
     # Slide 4 lists one numbered réflexe per selected beat, and each beat repeats
     # that question; the renderer derives both from the same list, so a mismatch

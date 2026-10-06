@@ -8,7 +8,7 @@ Ton travail : vérifier que ce carrousel dit ce que l'article dit, sur ce que l'
 
 ## Ce que tu cherches
 
-1. `fidelity` — une affirmation de notre prose qui ne se retrouve PAS dans l'article. Quatre
+1. `fidelity` — une affirmation de notre prose qui ne se retrouve PAS dans l'article. Six
    formes, par ordre de fréquence :
    - l'**ajout** : un fait, un acteur, une date que le texte ne donne pas ;
    - l'**extrapolation** : le texte dit « souvent », nous écrivons « toujours » ; il dit
@@ -19,6 +19,12 @@ Ton travail : vérifier que ce carrousel dit ce que l'article dit, sur ce que l'
      aucune quantité et ne force aucune conclusion — ne signale que si le résultat affirme plus
      que la somme de ses parties ;
    - la **causalité fabriquée** : l'article juxtapose, nous relions par « donc », « parce que ».
+   - le **statut déplacé** : nous changeons QUI soutient une idée ou QUEL TYPE d'énoncé elle est.
+     Une thèse que le texte réfute présentée comme la sienne ; une explication de l'auteur
+     présentée comme une revendication des acteurs ; une analogie traitée comme le sujet ; une
+     proposition de l'auteur présentée comme un constat ;
+   - le **mot plus fort que le texte** : il dit « des incidents », nous écrivons « des violences » ;
+     il dit « une baisse », nous écrivons « un effondrement ».
    Un implicite REEL du texte est acceptable ; une déduction que seul un lecteur averti ferait ne
    l'est pas.
 2. `frame` — une remarque qui répond à une question que l'article ne pose pas. Le cadre t'est
