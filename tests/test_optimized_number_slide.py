@@ -44,7 +44,8 @@ def test_beat_with_figure_renders_number_slide(tmp_path):
                          figure="4 400 %", figure_label="de voyageurs en 20 ans",
                          figure_caption="230 → 10 000")]
     opt.generate_html(_doc(beats), tmp_path)
-    html = (tmp_path / "04_moment.html").read_text(encoding="utf-8")
+    # French typography puts no-break spaces inside « 4 400 % »: compare as read.
+    html = (tmp_path / "04_moment.html").read_text(encoding="utf-8").replace("\u202f", " ").replace("\u00a0", " ")
     assert '<div class="num-fig' in html     # the hero slot is filled
     assert "4 400 %" in html and "de voyageurs en 20 ans" in html
     assert "q" in html                        # the quote takes the caption's old slot
@@ -62,12 +63,17 @@ def test_chiffres_beat_without_figure_uses_standard_moment(tmp_path):
 
 
 def test_recap_labels_render_as_subtitle_with_icons(tmp_path):
+    # The socle slide (was 08_vue_ensemble): the label becomes a subtitle with its
+    # icon, each présupposé its own line; the legacy « À questionner » row is
+    # dropped (superseded by « La question » on the prise de recul).
     from renderer.instagram_carousel._shared import ICONS
     beats = [ReadingBeat(moment="m", quote="q", lens_ref="chiffres", note="n")]
-    doc = _doc(beats, core_recap=["Le fil : la chaîne du raisonnement",
+    doc = _doc(beats, core_recap=["Ce qu'il tient pour acquis : que la chaîne tient ; que la base suffit",
                                    "À questionner : l'hypothèse centrale ?"])
     opt.generate_html(doc, tmp_path)
-    html = (tmp_path / "08_vue_ensemble.html").read_text(encoding="utf-8")
-    assert "Le fil" in html and "À questionner" in html          # labels as subtitles
-    assert "la chaîne du raisonnement" in html                   # body split from label
-    assert ICONS["link"] in html and ICONS["help"] in html       # the two new icons
+    # numbering adapts to the beat count, so find the slide by its name
+    html = next(tmp_path.glob("*_socle.html")).read_text(encoding="utf-8").replace("&#39;", "'")
+    assert "Ce qu'il tient pour acquis" in html                  # label as subtitle
+    assert "que la chaîne tient" in html and "que la base suffit" in html  # one line each
+    assert ICONS["anchor"] in html
+    assert "À questionner" not in html

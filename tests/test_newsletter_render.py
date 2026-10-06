@@ -42,7 +42,7 @@ def test_markdown_structure_and_order():
     positions = [md.index(a) for a in acts]
     assert positions == sorted(positions), "acts out of order"
     # subsections live under "Après la lecture"
-    assert md.index("## Après la lecture") < md.index("### L'architecture de l'argument")
+    assert md.index("## Après la lecture") < md.index("### Les présupposés")
     assert md.index("### Angles morts") < md.index("### Nuances")
     # go_further is structured (front-matter) + a body marker at its position
     assert md.index("### Nuances") < md.index("::: gofurther") < md.index("### Avant de partir")
@@ -62,10 +62,10 @@ def test_email_both_themes():
     for theme in ("light", "dark"):
         html = generate_email_html(sample_doc(), theme)
         assert "Au fil de la lecture" in html
-        assert "L'architecture de l'argument" in html
+        assert "Les présupposés" in html
         assert "À retenir" not in html          # "À retenir" section removed
         assert "Comment le lire" in html         # réflexes now live under "Comment le lire"
-        assert "À qui profite ce cadrage ?" in html
+        assert "Le cadrage" in html
         assert "Pour aller plus loin" in html
 
 
@@ -88,10 +88,11 @@ def test_essentiel_is_titleless_lead():
 
 def test_markdown_has_all_new_subsections():
     md = generate_markdown(sample_doc())
-    for sub in ("### Le lexique", "### Comment le lire",
+    for sub in ("### Le lexique", "### Comment le lire", "### Le cadrage", "### Les présupposés",
                 "### Les enjeux de fond", "### Les objections les plus solides",
-                "### Les questions à se poser", "### Avant de partir"):
+                "### Avant de partir"):
         assert sub in md
+    assert "### Les questions à se poser" not in md  # folded into "Les enjeux de fond" as « La question »
     assert "### À retenir" not in md                # "À retenir" removed
     assert "### Les réflexes critiques" not in md   # merged into "Comment le lire"
     assert "### À vous de repérer" not in md   # exercises removed (redundant with beats)
@@ -99,13 +100,14 @@ def test_markdown_has_all_new_subsections():
 
 
 def test_markdown_reordered_after_reading():
-    # machinery (architecture → cui bono) → judge (enjeux → objections → angles
-    # morts → nuances → questions) → extend (pour aller plus loin → avant de partir).
+    # machinery (cadrage → présupposés) → judge (angles morts → nuances →
+    # objections → enjeux, closed by « La question ») → extend (pour aller plus
+    # loin → avant de partir). Mirrors the carousel's "Après la lecture".
     md = generate_markdown(sample_doc())
-    order = ["### L'architecture de l'argument", "### À qui profite ce cadrage ?",
-             "### Les enjeux de fond", "### Les objections les plus solides",
+    order = ["### Le cadrage", "### Les présupposés",
              "### Angles morts", "### Nuances",
-             "### Les questions à se poser", "::: gofurther", "### Avant de partir"]
+             "### Les objections les plus solides", "### Les enjeux de fond",
+             "::: gofurther", "### Avant de partir"]
     positions = [md.index(s) for s in order]
     assert positions == sorted(positions), "Après la lecture subsections out of order"
 

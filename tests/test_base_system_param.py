@@ -9,8 +9,9 @@ def test_call_accepts_system_param():
 
 def test_no_api_uses_override_system(monkeypatch):
     captured = {}
-    def fake_run(cmd, capture_output, text, encoding):
-        captured["prompt"] = cmd[2]
+    def fake_run(cmd, input, capture_output, text, encoding):
+        # the prompt goes on stdin (argv overflows MAX_ARG_STRLEN on adapt prompts)
+        captured["prompt"] = input
         class R:  # minimal CompletedProcess stand-in
             returncode = 0
             # `claude -p --output-format json` wraps the model output in an

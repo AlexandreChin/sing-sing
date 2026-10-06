@@ -27,7 +27,9 @@ def sample_doc() -> NewsletterDocument:
             DecryptageItem(kind="faille", quote="Q4", presentation="", reading="Mécanisme 2.", prompt="Le mot est-il neutre ?", lens_ref="cadrage"),
             DecryptageItem(kind="faille", quote="Q5", presentation="", reading="Lecture 3.", prompt="Quelle base ?", lens_ref="chiffres"),
         ],
-        architecture={"keystone": "Sur quoi tient la thèse ?"},
+        framing="L'article cadre le sujet par la morale plutôt que par les chiffres.",
+        architecture={"keystone": "Sur quoi tient la thèse ?",
+                      "presupposes": ["que les chiffres cités sont comparables", "que le cadrage moral suffit"]},
         a_emporter={"key_takeaways": ["À retenir 1.", "À retenir 2.", "À retenir 3.", "À retenir 4."],
                     "reflexes_critiques": [
                         {"lens_ref": "chiffres", "rule": "De combien à combien ?", "reusable_on": "santé, économie"},
