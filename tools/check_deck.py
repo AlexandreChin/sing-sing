@@ -110,8 +110,8 @@ def _slide_order(doc: InstagramCarouselDocument) -> list[tuple[str, str]]:
         seq += [("socle présupposé", c.strip())
                 for point in d.global_analysis.core_recap
                 for c in (point.split(":", 1)[-1]).split(";") if c.strip()]
-    seq.append(("socle question", pres.cta.engagement_sentence))
     seq.append(("recul enjeu", d.root_issue))
+    seq.append(("recul question", pres.cta.engagement_sentence))
     if d.steel_man:
         seq += [("recul objection", d.steel_man.argument), ("recul objection", d.steel_man.alternative)]
     return [(label, text) for label, text in seq if text]
@@ -208,6 +208,13 @@ _KNOWN_ACRONYMS = {"IA", "UE", "ONU", "PIB", "USA", "CO2"}
 _FULL_NAME = re.compile(
     r"\b(?!(?:Le|La|Les|Un|Une|Des|Du|Au|Aux|Ce|Cet|Cette|Ces|Son|Sa|Ses|Leur|Leurs)\b)"
     r"[A-ZÀ-Þ][a-zà-ÿ]+(?:-[A-ZÀ-Þ][a-zà-ÿ]+)? [A-ZÀ-Þ][a-zà-ÿ]+\b")
+_DEMONSTRATIVE = re.compile(
+    r"\b(?:ces|cette|cet|ce)\s+(?!que\b|qui\b|qu['’]|dont\b|sont\b|n['’])"
+    r"(?:(?:même|mêmes|deux|trois|quatre|nouveaux?|nouvelles?|derniers?|dernières?)\s+)?([a-zà-ÿ]+)", re.I)
+# Demonstratives that situate in time or in the text itself, not in something shown.
+_NO_ANTECEDENT_NEEDED = {"semaine", "semaines", "année", "années", "jour", "jours", "mois", "moment",
+                         "siècle", "temps", "fois", "soir", "matin", "épisode", "article", "essai",
+                         "texte", "entretien", "podcast", "carrousel", "point", "cas", "sens"}
 _ARTICLE_BEFORE = re.compile(r"(?:\b(?:le|la|les|du|des|de|au|aux)\s|\b[ld]['’])$", re.I)
 
 
@@ -246,16 +253,24 @@ def _orphan_references(doc: InstagramCarouselDocument) -> list[str]:
                 f"{label}: « {name} » — a reader who skipped the source does not know who this is; "
                 f"say who they are (« l'économiste … », « l'un des invités ») the first time"
             )
-    # « ces inégalités » in the closing question must point at something the
-    # enjeu printed just above it names.
-    question = doc.presentation.cta.engagement_sentence.replace("**", "")
-    for m in re.finditer(r"\b(?:ces|cette|cet|ce)\s+(?!que\b|qui\b|qu['’])([a-zà-ÿ]+)", question, re.I):
-        noun = re.sub(r"^(?:in|im|dés|dé)", "", m.group(1).lower())[:5]
-        if noun and noun not in _norm(d.root_issue):
-            problems.append(
-                f"socle question: « {m.group(0)} » has no antecedent in the enjeu above it — "
-                f"« {question[:50]}… »"
-            )
+    # « ces inégalités », « cette mesure » — on any slide — must point at
+    # something the reader has already been shown, on this line or before it.
+    seen = ""
+    for label, text in _slide_order(doc):
+        plain = text.replace("**", "")
+        if text not in quotes:
+            for m in _DEMONSTRATIVE.finditer(plain):
+                word = m.group(1).lower()
+                # four letters: « ce choix » finds « choisir », « ces inégalités » « égalité »
+                noun = re.sub(r"^(?:in|im|dés|dé)", "", word)[:4]
+                if word in _NO_ANTECEDENT_NEEDED or not noun:
+                    continue
+                if noun not in _norm(seen + " " + plain[:m.start()]):
+                    problems.append(
+                        f"{label}: « {m.group(0)} » points at nothing the reader has been shown — "
+                        f"« {plain[:50]}… »"
+                    )
+        seen += " " + plain
     return problems
 
 
