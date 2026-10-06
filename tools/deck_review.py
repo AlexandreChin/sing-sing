@@ -39,7 +39,7 @@ _FIDELITY_PROMPT = (_PROMPTS / "deck_review_fidelity.md").read_text(encoding="ut
 
 MAX_FINDINGS = 8
 
-_KINDS = ["comprehension", "coherence", "centrality", "fidelity", "frame", "presupposition"]
+_KINDS = ["comprehension", "coherence", "centrality", "posture", "fidelity", "frame", "presupposition"]
 
 _SCHEMA = {
     "type": "object",

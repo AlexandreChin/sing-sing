@@ -23,11 +23,26 @@ Ton travail : signaler ce qui EMPÊCHE ce lecteur de comprendre ou de suivre. Ri
    - une slide « socle » (7) dont les présupposés ne portent pas sur ce que les moments ont
      montré, ou une question finale (8) qui ne découle pas de l'enjeu énoncé juste au-dessus ;
    - un renvoi sans antécédent : « y », « elle », « ces dispositifs », « cette mesure » quand le
-     lecteur ne peut pas dire de quoi on parle.
+     lecteur ne peut pas dire de quoi on parle — y compris un présupposé dont le sujet est un
+     pronom (« qu'ils parlent d'une voix » : qui, quand la slide a nommé trois groupes ?) ;
+   - **le fil rompu** : l'accroche (1) ouvre une tension, les slides 2 et 4–6 la portent, l'enjeu
+     (8) la nomme et la question finale la referme. Signale le maillon qui n'enchaîne pas — une
+     question finale sur un autre sujet que l'accroche, un enjeu qui ne mène pas à la question ;
+   - une accroche qui se contredit : elle énumère un contenu puis demande où il est (« X, Y : et
+     le fond, qui en parle ? » quand X et Y SONT le fond) ;
+   - un nom de personne que rien n'introduit (un nom propre seul, sans rôle) ou un sigle jamais développé sur
+     la slide où il apparaît.
 3. `centrality` — après la dernière slide, **de quoi ce carrousel parle-t-il, en une phrase ?**
    Si tu ne peux pas répondre, ou si deux slides répondraient différemment, dis-le : le deck a
    perdu son centre. Signale aussi un moment qui, de ta place, semble porter sur un détail
    pendant que le reste parle d'autre chose.
+
+4. `posture` — un moment (slides 4–6) qui JUGE la source au lieu d'ÉQUIPER le lecteur : sa
+   réponse relève ce qui manque (« Constaté : aucun chiffre… », « Rien ne tranche », « aucun
+   opposant ne parle ») au lieu d'apporter un fait ou un outil et de dire quoi chercher.
+   Signale aussi un titre de moment au conditionnel ou plus dramatique que ce que la slide
+   montre (« heurts » pour des contrôles, « effondrement » pour une baisse), et une question finale qui tranche
+   d'avance (« légitime », « injustice ») ou qui se répond par oui ou non.
 
 ## LE SEUIL : comprendre, pas en savoir plus
 
@@ -65,7 +80,7 @@ un complément et non une clarification.
 
 ## Format de chaque constat
 
-- `kind` : `comprehension` | `coherence` | `centrality`
+- `kind` : `comprehension` | `coherence` | `centrality` | `posture`
 - `field` : la slide et l'endroit, tels qu'ils te sont donnés (p. ex. « 02 essentiel »)
 - `our_text` : la phrase ou l'expression exacte du carrousel qui pose problème (≤120 caractères)
 - `evidence_kind` : toujours `reader` dans cette passe
