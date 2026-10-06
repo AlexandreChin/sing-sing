@@ -1,0 +1,73 @@
+{
+  "emotional_register": [
+    {
+      "id": "er1",
+      "emotion": "indignation",
+      "how": "Le texte accumule les **injustices concrètes** (profs absents, bâtiments délabrés, **contrôles au faciès** « sans avoir nécessairement commis de délit ») et qualifie l'égalité scolaire de « fiction ».",
+      "effect": "Le lecteur est préparé à voir les blocages comme une **réaction légitime** plutôt que comme un désordre.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "20 fois plus de risques d'être contrôlé",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "er2",
+      "emotion": "empathie",
+      "how": "Les jeunes sont décrits par leurs **angoisses** (« choix très anxiogène », « colère diffuse », « angoisse ») et par des demandes qualifiées de « **basiques** ».",
+      "effect": "Le lecteur est invité à comprendre les lycéens **de l'intérieur**, sans les avoir entendus.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "Parcoursup et les réformes du lycée alimentent des contestations",
+        "strength": 0.7,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "cb1",
+      "beneficiary": "Les lycéens mobilisés et l'UNL",
+      "explanation": "Leurs revendications sont présentées comme **anciennes, concrètes et basiques** par deux chercheurs reconnus. La non-violence réclamée par les politiques leur est **attribuée comme leur propre demande**.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "L'UNL appelle à l'extension du mouvement",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "id": "cb2",
+      "beneficiary": "La France insoumise",
+      "explanation": "Le parti est décrit comme faisant **écho à la demande de radicalité** de la jeunesse, chiffre de 42 % à l'appui. Le soupçon de récupération est évoqué puis écarté au profit d'une « **rencontre possible** ».",
+      "seeds": {
+        "source": "important_fact",
+        "index": 3,
+        "excerpt": "un tiers des voix des 18-24 ans",
+        "strength": 0.7,
+        "nature": "specification"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Présupposé",
+        "observation": "« D'où vient la colère » pose la colère comme un fait acquis, sans la décrire."
+      },
+      {
+        "label": "Question",
+        "observation": "La question oriente d'emblée vers les causes, que les deux invités situent toutes dans le passé."
+      },
+      {
+        "label": "Vocabulaire",
+        "observation": "« Blocus » désigne l'action, « colère » l'émotion : le titre passe du geste au sentiment."
+      }
+    ],
+    "body": "L'entretien aborde les blocages par leurs **causes structurelles** : dotation inégale des lycées, Parcoursup, poids du diplôme, contrôles policiers dans les quartiers. Le mouvement lui-même tient en une phrase d'ouverture ; le reste relève de **l'explication sociologique**. La parole est donnée à deux chercheurs, dans un registre posé et pédagogique. Le propos avance de l'école vers la police puis vers le vote des jeunes, sous l'idée d'une **colère diffuse**."
+  }
+}

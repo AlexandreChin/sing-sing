@@ -1,0 +1,69 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Ce texte est un entretien avec deux chercheurs : vous lirez **leur explication** du mouvement lycéen, pas la parole des lycéens eux-mêmes.",
+      "L'argument suit une chaîne **école, police, vote** ; à chaque maillon, demandez-vous quelle preuve relie un constat au suivant.",
+      "Gardez en tête qu'un problème ancien n'explique pas à lui seul **pourquoi la mobilisation éclate maintenant**."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "wo_0",
+          "text": "Les motivations attribuées aux bloqueurs viennent des chercheurs, mais elles finissent présentées comme **une demande des lycéens**. Aucun lycéen n'est cité pour le confirmer.",
+          "references": [
+            "ia_0",
+            "bias_1",
+            "bs_0"
+          ]
+        },
+        {
+          "id": "wo_1",
+          "text": "Un sondage portant sur les **18-24 ans** sert à parler des lycéens, puis de toute la jeunesse. Le chiffre avancé dépasse aussi le score mesuré pour cette tranche d'âge en 2022.",
+          "references": [
+            "ia_3",
+            "lr_3",
+            "claim_0"
+          ]
+        },
+        {
+          "id": "wo_2",
+          "text": "Les contrôles au faciès sont bien documentés ailleurs, mais le texte les affirme **sans chiffre ni source**. La police est mise en cause sans que sa version soit donnée, et les incidents des blocages ne sont pas décrits.",
+          "references": [
+            "claim_3",
+            "lr_1",
+            "bs_1"
+          ]
+        },
+        {
+          "id": "wo_3",
+          "text": "L'idée d'une **colère diffuse** couvre tous les cas : elle ne permet ni d'être démentie ni d'expliquer le moment précis de la mobilisation.",
+          "references": [
+            "lr_2",
+            "bs_2",
+            "ia_2"
+          ]
+        },
+        {
+          "id": "wo_4",
+          "text": "Le titre tient la colère pour acquise et annonce d'emblée **ses causes** : le texte répond à « d'où vient-elle » sans jamais décrire ce qu'elle est.",
+          "references": [
+            "er_0",
+            "ia_2"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Cherchez ce que les lycéens bloqueurs **revendiquent eux-mêmes**, dans leurs propres mots.",
+      "Avant de reprendre le chiffre du sondage, vérifiez **sa date et la population** qu'il mesure.",
+      "Demandez-vous quel **événement récent** a pu déclencher les blocages, puisque les causes invoquées sont anciennes.",
+      "Pour juger la thèse sur pièces, consultez les données publiques sur la **dotation des lycées** et les contrôles d'identité."
+    ],
+    "title_note": null,
+    "perspective": {
+      "framing": "L'article traite les blocages lycéens comme **le symptôme d'inégalités de long terme**, scolaires et policières, expliquées par deux chercheurs. Le registre est posé et pédagogique, avec une empathie pour des lycéens compris **de l'intérieur**.",
+      "blind_spots": "Aucune **parole lycéenne** n'apparaît, ni celle du ministère ou de la police. Le **déclencheur concret** du mouvement et le déroulé des blocages restent absents.",
+      "balance": "Un entretien donne par nature la parole à ses invités, et ne prétend pas enquêter sur le terrain. Les limites relevées sont réelles, mais elles tiennent en partie **au format** : on peut y chercher un éclairage, pas un tableau complet."
+    }
+  }
+}

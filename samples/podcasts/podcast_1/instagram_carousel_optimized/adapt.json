@@ -1,0 +1,360 @@
+{
+  "caption": "Près de 180 lycées bloqués en une semaine, et un syndicat lycéen qui appelle à étendre le mouvement : deux sociologues remontent aux causes, de la salle de classe au trottoir. 🏫\n\n🔎 Les clefs pour comprendre en une minute d'où ils font partir cette colère.\n\n🔗 Lien vers l'épisode en commentaires ↓",
+  "hook": {
+    "topic": "Blocus des **lycées**",
+    "sub_topic": "Derrière les **poubelles** brûlées, une école à deux vitesses",
+    "headline": "classes sans profs, police au portail : ce qui fait **bloquer**",
+    "context_line": "Près de 180 lycées bloqués en une semaine ; deux sociologues cherchent les causes en amont.",
+    "sub_topic_alt": [
+      "Des profs qui manquent, des **contrôles** répétés : quelle réponse attendue ?",
+      "Postes vides, police au portail : la **réponse** reste à écrire",
+      "Moins de profs, plus de police : ce que les **poubelles** brûlées cachent ?"
+    ]
+  },
+  "interest": {
+    "why_read": "Distinguer ce que disent les **lycéens** de ce qu'on leur prête.",
+    "pull_quote": "Ce que demandent les lycéens et les lycéennes, c’est avoir des profs devant eux, c’est une revendication basique",
+    "next_slide_hook": "D'abord, ce que soutiennent les deux invités, en trois points."
+  },
+  "title_bullets": [
+    "Remarquez que le titre tient la **colère** pour acquise avant de la décrire.",
+    "Notez que la question oriente d'emblée vers les **causes**, pas vers le mouvement.",
+    "Repérez le passage du geste (« blocus ») au **sentiment** (« colère »)."
+  ],
+  "chapo_bullets": [
+    "Observez que le mouvement tient en **une phrase** d'ouverture avant l'explication.",
+    "Notez que la parole est confiée à **deux chercheurs**, sans voix lycéenne."
+  ],
+  "context_next_slide_hook": "Trois réflexes pour écouter ces deux chercheurs sans perdre le fil.",
+  "watch_out_next_slide_hook": "Premier moment : les classes où les professeurs arrivent en dernier.",
+  "forme_next_slide_hook": "Ce qui est établi, et ce qui reste affirmé sans chiffre.",
+  "biases_next_slide_hook": "Ce que l'explication tient pour acquis, sans jamais le vérifier.",
+  "engagement_question": "Pour comprendre un mouvement de jeunes, qui faudrait-il entendre en premier ?",
+  "go_further": [
+    {
+      "title": "Inégalités sociales et migratoires : comment l'école amplifie-t-elle les inégalités ?",
+      "source": "Cnesco (Conseil national d'évaluation du système scolaire), 2016",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Il chiffre la dotation inégale des établissements que l'épisode décrit sans données.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Enquête sur l'accès aux droits — Relations police/population : le cas des contrôles d'identité",
+      "source": "Défenseur des droits, 2017",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Il mesure qui est contrôlé, et à quelle fréquence, pour situer les tensions devant les lycées.",
+      "cta_question_index": 1
+    },
+    {
+      "title": "Jeunesses françaises. Bac + 5 made in banlieue",
+      "source": "Fabien Truong, La Découverte, 2015",
+      "media_type": "book",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "L'invité y suit des élèves de Seine-Saint-Denis sur plusieurs années, à partir de leurs propres récits.",
+      "cta_question_index": null
+    }
+  ],
+  "cta": {
+    "title": "Expliquer une colère n'est pas l'entendre",
+    "engagement_sentence": "Dans quelle mesure le recours à la **violence** peut-il se justifier quand ces **inégalités** persistent malgré les demandes ?",
+    "engagement_sentence_alt": [
+      "Quand des experts racontent un mouvement, que reste-t-il de la voix de ceux qui le font ?",
+      "Un problème ancien peut-il, à lui seul, expliquer qu'une révolte éclate un jour précis ?",
+      "Devant une mobilisation, cherchez-vous d'abord ses causes ou ses revendications ?"
+    ],
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "Quelles revendications les lycéens bloqueurs formulent-ils eux-mêmes, sans intermédiaire ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_1",
+        "question": "Les heurts avec la police viennent-ils d'un passif de contrôles ou de la gestion des blocages ?",
+        "type": "topic_substance"
+      },
+      {
+        "id": "q_2",
+        "question": "Quel événement récent a déclenché la mobilisation, alors que les causes invoquées sont anciennes ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_3",
+        "question": "Une explication par les inégalités vous convainc-elle d'autant plus qu'elle confirme ce que vous pensiez déjà ?",
+        "type": "reader_bias"
+      }
+    ]
+  },
+  "display": {
+    "thesis_frame": {
+      "main_claim": "La colère lycéenne exprime des inégalités anciennes, scolaires et policières, plutôt qu'un accès ponctuel.",
+      "out_of_scope": [
+        "La légalité des blocages d'établissements",
+        "Le contenu des programmes scolaires",
+        "Le bilan de la politique éducative du gouvernement en place"
+      ]
+    },
+    "payoff": "Relier une colère à ses **causes**, et vérifier **qui** la raconte.",
+    "framing": "Les blocages comme **symptôme** d'inégalités scolaires et policières de long terme.",
+    "why_selected": "Près de **180 lycées** bloqués en une semaine ; le syndicat lycéen UNL appelle à étendre le mouvement. France Culture reçoit deux sociologues.\nIls relient les portails bloqués à deux terrains : classes sans **professeurs**, contrôles de police dans les quartiers.",
+    "selection_headline": "Le blocus vu par deux sociologues",
+    "selection_headline_alt": [
+      "Une semaine de blocus, deux chercheurs",
+      "Des portails fermés, deux explications",
+      "Le mouvement lycéen, raconté par la recherche"
+    ],
+    "ethics": "Pas de manquement ; la **police**, mise en cause, n'a pas la parole.",
+    "pre_reading": [
+      "Vous entendrez **deux chercheurs**, pas les lycéens eux-mêmes.",
+      "Suivez la chaîne **école, police, vote**, maillon par maillon."
+    ],
+    "watch_out": [
+      {
+        "label": "parler à la place des concernés",
+        "text": "Une demande est attribuée aux **lycéens** : cherchez qui l'a recueillie."
+      },
+      {
+        "label": "saut logique",
+        "text": "Contrôles au faciès : **bien documentés**. Leur lien avec les heurts devant les lycées, moins."
+      }
+    ],
+    "strengths": [
+      {
+        "label": "Clarté",
+        "text": "Une progression **école, police, vote** facile à suivre, ancrée dans des exemples concrets."
+      },
+      {
+        "label": "Exactitude factuelle",
+        "text": "Les constats de fond, contrôles et affectation des profs, sont **confirmés** par des sources officielles."
+      }
+    ],
+    "distill_points": [
+      "Les motivations des bloqueurs viennent des **chercheurs**, puis deviennent une demande attribuée aux lycéens.",
+      "Les contrôles au faciès, **bien documentés** ailleurs, sont avancés ici sans chiffre ; la police ne répond pas.",
+      "L'**ancienneté** des problèmes laisse ouverte la question de ce qui a tout déclenché cette semaine."
+    ],
+    "after_reading": [
+      "Cherchez ce que les bloqueurs **revendiquent** eux-mêmes.",
+      "Vérifiez la **date et la population** d'un sondage cité.",
+      "Demandez-vous quel **événement récent** a lancé les blocages."
+    ],
+    "key_takeaways": [
+      {
+        "text": "Les lycées les moins demandés reçoivent leurs **enseignants** en dernier, selon le barème de mutation.",
+        "selected": true
+      },
+      {
+        "text": "Un jeune homme perçu noir ou arabe a **20 fois plus** de risques d'être contrôlé.",
+        "selected": true
+      },
+      {
+        "text": "En France, le **diplôme** pèserait plus qu'ailleurs sur l'avenir professionnel.",
+        "selected": true
+      },
+      {
+        "text": "L'État a été **condamné** pour contrôles au faciès par la Cour de cassation en 2016.",
+        "selected": false
+      },
+      {
+        "text": "Un sondage Cevipof donne **42 %** des 18-24 ans prêts à voter Mélenchon.",
+        "selected": false
+      }
+    ],
+    "blind_spots": [
+      "Aucune **parole lycéenne**, ni celle du ministère ou de la police.",
+      "Le **déclencheur** du mouvement et le déroulé des blocages restent absents."
+    ],
+    "balance": [
+      "Un entretien donne par nature la parole à ses **invités**, sans enquête de terrain.",
+      "On y cherche un **éclairage** sur les causes, pas un tableau complet."
+    ],
+    "lenses": [],
+    "reading_beats": [
+      {
+        "moment": "L'égalité au lycée général qualifiée de « fiction »",
+        "quote": "Il y a toujours eu cette fiction que dans le lycée général, tout le monde était traité de la même manière",
+        "lens_ref": "cadrage",
+        "lens_question": "Un mot fort : posé avant ou après les données ?",
+        "note": "Devant un mot qui disqualifie, cherchez la **donnée** qui le soutient.",
+        "answer": "**Avant** : aucune donnée ne suit, alors que les enquêtes **PISA** placent la France parmi les pays où l'origine sociale pèse le plus.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "inégalités scolaires",
+        "centrality": 3,
+        "kind": "biais",
+        "role": "mise en scène",
+        "spine_ref": 1,
+        "rationale": "Le mot qui installe l'indignation sur l'école."
+      },
+      {
+        "moment": "Les lycées délaissés reçoivent leurs profs en dernier",
+        "quote": "le système de points de l’Éducation nationale, qui fait que les lycées les moins désirés socialement sont les lycées qui sont pourvus en dernier",
+        "lens_ref": "sources",
+        "lens_question": "Un mécanisme décrit : comment en mesurer l'effet ?",
+        "note": "Devant un mécanisme décrit, cherchez **combien** de postes il laisse vides.",
+        "answer": "**Le nombre de postes vacants** : la Cour des comptes documente ce barème et ses effets. À l'écoute, repérez quels lycées sont concernés.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "likely true",
+        "selected": true,
+        "theme": "dotation des lycées",
+        "centrality": 5,
+        "kind": "fait",
+        "role": "preuve",
+        "spine_ref": 1,
+        "rationale": "Le mécanisme concret qui fonde l'école à plusieurs vitesses."
+      },
+      {
+        "moment": "Le diplôme pèserait en France plus qu'ailleurs",
+        "quote": "en France, le diplôme compte beaucoup plus dans votre situation professionnelle future que dans d'autres pays […]",
+        "lens_ref": "opinion_fait",
+        "lens_question": "Une comparaison entre pays : sur quelles données ?",
+        "note": "Devant « plus qu'ailleurs », demandez **quels pays** et quelle mesure.",
+        "answer": "**Aucune citée** : la comparaison est affirmée, même si l'**OCDE** documente un lien fort entre diplôme et emploi en France.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "likely true",
+        "selected": false,
+        "theme": "promotion sociale",
+        "centrality": 4,
+        "kind": "affirmation",
+        "role": "appui",
+        "spine_ref": 1,
+        "rationale": "Explique pourquoi l'échec scolaire pèse si lourd."
+      },
+      {
+        "moment": "Les contrôles d'identité répétés dans les quartiers",
+        "quote": "ce sont des garçons qui se font contrôler dans leur quartier ou devant chez eux dans des contrôles d'identité au faciès, sans avoir nécessairement commis de délit […]",
+        "lens_ref": "chiffres",
+        "lens_question": "Des contrôles « répétés » : combien, et pour qui ?",
+        "note": "Devant « extrêmement régulière », cherchez la **fréquence** mesurée.",
+        "answer": "**Vingt fois plus** pour un jeune homme perçu noir ou arabe, selon le Défenseur des droits en 2017 ; l'épisode ne le chiffre pas.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "true",
+        "selected": false,
+        "theme": "rapport à la police",
+        "centrality": 4,
+        "kind": "fait",
+        "role": "preuve",
+        "spine_ref": 2,
+        "rationale": "Constat solide, avancé sans le chiffre qui l'étaye."
+      },
+      {
+        "moment": "Devant le lycée, les contrôles du quartier se rejouent",
+        "quote": "finalement ce qui se rejoue devant les établissements, ce sont des relations qui sont quasi quotidiennes dans les quartiers […]",
+        "lens_ref": "causalite",
+        "lens_question": "Du quartier au lycée : qu'est-ce qui relie les deux ?",
+        "note": "Devant un lien entre deux lieux, vérifiez que ce sont les **mêmes jeunes**.",
+        "answer": "**Les mêmes jeunes** : un jeune homme perçu noir ou arabe a **20 fois plus** de risques d'être contrôlé (Défenseur des droits, 2017). Repérez si l'épisode situe les lycées bloqués.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "rapport à la police",
+        "centrality": 5,
+        "kind": "enjeu",
+        "role": "appui",
+        "spine_ref": 2,
+        "rationale": "Le pont entre contrôles quotidiens et tensions des blocages."
+      },
+      {
+        "moment": "Ce que l'État exige, les lycéens le réclament déjà",
+        "quote": "le chemin de l'éducation et la non-violence qui est demandé par les responsables politiques, c'est celui que demandent ces lycéens […] depuis longtemps",
+        "lens_ref": "equilibre",
+        "lens_question": "Une demande attribuée aux jeunes : d'où vient-elle ?",
+        "note": "Devant « ce que demandent les jeunes », cherchez **un jeune** qui le dit.",
+        "answer": "**D'une enquête de terrain** : l'un des deux sociologues invités suit des élèves de Seine-Saint-Denis depuis des années. Pour l'entendre des lycéens eux-mêmes, écoutez aussi l'**UNL**, leur syndicat.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": true,
+        "theme": "réponse attendue",
+        "centrality": 4,
+        "kind": "enjeu",
+        "role": "pivot",
+        "spine_ref": 3,
+        "rationale": "Là où l'épisode dit quelle réponse les lycéens attendent."
+      },
+      {
+        "moment": "Un sondage sur les 18-24 ans pour parler des lycéens",
+        "quote": "Dans la dernière vague de l'enquête électorale que nous avons menée, au Cevipof, ce sont 42 % des 18-24 ans qui disent qu'ils voteraient pour Jean-Luc Mélenchon",
+        "lens_ref": "chiffres",
+        "lens_question": "Un sondage sur les jeunes : quel âge, et quand ?",
+        "note": "Devant un sondage, comparez la **population** mesurée à celle dont on parle.",
+        "answer": "**18 à 24 ans, sans date** : les lycéens ont 15 à 18 ans, et le chiffre dépasse le tiers mesuré en 2022.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "disputed",
+        "selected": false,
+        "theme": "politisation",
+        "centrality": 3,
+        "kind": "statistique",
+        "role": "preuve",
+        "spine_ref": 0,
+        "rationale": "Seul chiffre développé, sur une autre tranche d'âge."
+      },
+      {
+        "moment": "Les images de poubelles en feu masquent le fond",
+        "quote": "des images angoissantes de poubelles qui brûlent, où on voit des affrontements mais on ne sait pas ce qui se passe, et on ne parle même pas du fond du problème",
+        "lens_ref": "angles_morts",
+        "lens_question": "Des images de violence : que montrent-elles vraiment ?",
+        "note": "Devant une critique des images, demandez ce qu'on **sait** des faits.",
+        "answer": "**On l'ignore encore** : l'épisode écarte ces images sans décrire les incidents, ni dire combien de lycées en ont connu.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "factcheck": "",
+        "selected": false,
+        "theme": "cadrage médiatique",
+        "centrality": 3,
+        "kind": "enjeu",
+        "role": "mise en scène",
+        "spine_ref": 3,
+        "rationale": "Clôture : le fond opposé aux images de violence."
+      }
+    ],
+    "global_analysis": {
+      "headline": "La colère lycéenne vient d'**inégalités anciennes**",
+      "headline_alt": [
+        "Des lycées inégaux, une police présente : une colère attendue",
+        "Le blocus, aboutissement de problèmes connus depuis longtemps",
+        "Une colère née à l'école et devant ses portes"
+      ],
+      "core_recap": [
+        "Ce qu'il tient pour acquis : qu'un **manque ancien** explique l'explosion ; que les bloqueurs viennent des **quartiers** ; que les 180 lycées bloqués partagent les **mêmes** revendications"
+      ]
+    },
+    "open_question": "Quel événement récent a déclenché la mobilisation, alors que les problèmes invoqués sont anciens ?",
+    "root_issue": "L'école publique promet l'**égalité** ; selon le lycée, elle n'offre pas les mêmes moyens, et encore moins les mêmes **chances**.",
+    "steel_man": {
+      "argument": "La colère porte sur l'**avenir** plus que sur l'école : une angoisse diffuse face à une politique qui ne promet plus rien.",
+      "alternative": "L'**inquiétude** pour l'avenir d'abord ; les inégalités scolaires n'en seraient qu'une expression."
+    },
+    "reperes_headline": "Avant d'écouter : le contexte et trois réflexes",
+    "bilan_headline": "",
+    "essentiel": [
+      "Profs absents, locaux délabrés : les lycées les moins demandés sont servis en **dernier**.",
+      "Devant ces mêmes lycées, la police rejoue les **contrôles au faciès** du quartier.",
+      "La réponse attendue : l'**éducation**, plutôt que le maintien de l'ordre."
+    ],
+    "essentiel_summary": "Près de **180 lycées** bloqués en une semaine. Pour deux sociologues, cette colère vient de problèmes anciens : des établissements pourvus en **professeurs** en dernier, une école qui ne promet plus l'ascension sociale, des contrôles policiers répétés dans les quartiers. La réponse attendue passerait par l'**éducation**, non par le maintien de l'ordre."
+  }
+}

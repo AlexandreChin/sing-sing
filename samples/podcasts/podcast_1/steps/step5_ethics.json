@@ -1,0 +1,20 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "d1",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "ce qui se rejoue devant les établissements, ce sont des relations qui sont quasi quotidiennes dans les quartiers et qui posent la question du rapport au maintien de l’ordre",
+        "explanation": "La mise en cause du maintien de l'ordre n'est suivie d'**aucune réponse sollicitée** auprès de la police ou du gouvernement."
+      }
+    ],
+    "verdict": {
+      "overall": "good",
+      "editorial_note": "Signaler l'absence de réponse des forces de l'ordre et du ministère, ou en solliciter une."
+    },
+    "summary": "Aucun manquement déontologique caractérisé n'a été relevé. **Une seule réserve mineure** : les forces de l'ordre sont mises en cause sans qu'on leur donne la parole."
+  }
+}

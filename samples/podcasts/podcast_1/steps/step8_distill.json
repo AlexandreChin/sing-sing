@@ -1,0 +1,52 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "Le texte suppose sans le vérifier que les bloqueurs partagent les **motivations des chercheurs**, puis présente ces motivations comme une **demande des lycéens**. Le ton posé fait passer cette **parole par procuration** pour un constat.",
+        "references": [
+          "ia_0",
+          "bs_0",
+          "bias_1",
+          "cb_0",
+          "er_1"
+        ]
+      },
+      {
+        "text": "Les contrôles au faciès sont le constat **le mieux documenté** par les sources officielles, mais le texte l'avance **sans chiffre ni décision de justice**. C'est pourtant sur ce point que repose la mise en cause de la police, qui n'a **aucun droit de réponse** et dont les incidents ne sont pas décrits.",
+        "references": [
+          "pr_2",
+          "obs_2",
+          "claim_3",
+          "lr_1",
+          "ia_1",
+          "bs_3",
+          "bs_1"
+        ]
+      },
+      {
+        "text": "Un sondage sur les **18-24 ans** sert de pont vers les lycéens, puis vers « la jeunesse » entière. Le glissement profite à **La France insoumise**, avec un chiffre supérieur au score mesuré en 2022.",
+        "references": [
+          "ia_3",
+          "lr_3",
+          "bias_2",
+          "cb_1",
+          "claim_0"
+        ]
+      },
+      {
+        "text": "L'insistance sur **l'ancienneté des problèmes** laisse sans réponse la question du **déclencheur**. La « colère diffuse » comble ce vide : elle explique tout, donc rien du moment précis de la mobilisation.",
+        "references": [
+          "ia_2",
+          "bs_2",
+          "lr_2",
+          "obs_0"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quelles revendications les lycéens bloqueurs formulent-ils eux-mêmes, sans intermédiaire ?",
+      "Quel événement récent a déclenché la mobilisation, alors que les problèmes invoqués sont anciens ?",
+      "Les heurts avec la police viennent-ils d'un passif de contrôles ou de la gestion des blocages ?"
+    ]
+  }
+}
