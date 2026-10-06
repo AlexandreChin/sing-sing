@@ -187,9 +187,10 @@ _NAMED_AFTER = re.compile(r":|,\s*(?:c['’]est|ce sont|c['’]était)\b", re.I)
 
 # The closing question is open: the reader weighs a degree or a condition, not
 # a yes/no. An open interrogative must head the question or one of its clauses
-# (« Quand…, qu'a-t-on appris… ? » is open; « Peut-on condamner ceux qui… ? » is not).
+# (« Quand…, qu'a-t-on appris… ? » and « Pour qui… ? » are open; « Peut-on condamner
+# ceux qui… ? » is not).
 _OPEN_QUESTION = re.compile(
-    r"(?:^|[,:;—]\s*)(?:dans quelle mesure|à quelles? conditions?|jusqu['’]où|comment|pourquoi|"
+    r"(?:^|[,:;—]\s*)(?:(?:pour|par|avec|chez|selon|sur|contre|envers|à|de)\s+)?(?:dans quelle mesure|à quelles? conditions?|jusqu['’]où|comment|pourquoi|"
     r"en quoi|à quoi|de quoi|sur quoi|combien|que\b|qu['’]|quel(?:le)?s?\b|lequel|laquelle|"
     r"lesquel(?:le)?s|qui\b|où\b)",
     re.I)

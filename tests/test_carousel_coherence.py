@@ -65,6 +65,9 @@ def test_open_question_after_a_clause_passes():
     errs = _errors(question="Si seules les **poubelles** qui brûlent font parler des lycées, "
                             "qu'a-t-on appris à ceux qui réclamaient des profs ?")
     assert not any("yes/no" in e for e in errs)
+    # an interrogative after a preposition is open too
+    assert not any("yes/no" in e for e in _errors(
+        question="Pour **qui** l'école tient-elle encore sa promesse d'**avenir** ?"))
 
 
 def test_loaded_word_in_closing_question():
