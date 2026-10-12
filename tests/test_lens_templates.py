@@ -106,6 +106,8 @@ def test_prise_de_recul_shows_root_issue_then_question():
     assert "une élite qui affiche son indifférence" in html
     assert "La question" in html and "symbole" in html
     assert html.index("L'enjeu de fond") < html.index("La question")
+    assert html.count('class="card') == 2 and 'class="card qc"' in html    # one card each, the question tinted
+    assert "Avant de trancher." not in html.split("<body>")[-1].split("next-hook-bar")[0]
 
 
 def test_tracker_uses_four_act_labels_but_keeps_phase_keys():
