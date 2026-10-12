@@ -110,10 +110,9 @@ def test_prise_de_recul_shows_root_issue_then_question():
     assert "Avant de trancher." in html and html.count("<i></i>") == 1      # the arrow between cards
 
 
-def test_tracker_uses_four_act_labels_but_keeps_phase_keys():
-    html = _text(_render("moment.html", phase="analyse", index=1, moment="m", quote="q",
-                         lens_question="Qui l'affirme ?", lens_name="L", lens_n=1))
-    # three beats, named by the medium's labels (here: article)
-    assert "Avant de lire" in html
-    assert "Décryptage" in html
-    assert "Prise de recul" in html
+def test_no_act_tracker_on_the_slides():
+    # the « Avant de lire · Décryptage · Prise de recul » header was removed
+    for name, ctx in (("moment.html", dict(index=1, moment="m", quote="q", lens_question="Qui ?", lens_name="L", lens_n=1)),
+                      ("03_reperes.html", {}), ("08_socle.html", dict(headline="h", recap_items=[])),
+                      ("08_prise_de_recul.html", dict(root_issue="r", question="q ?"))):
+        assert 'class="tracker"' not in _render(name, **ctx), name
