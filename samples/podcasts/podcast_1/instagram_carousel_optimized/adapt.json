@@ -65,7 +65,7 @@
   ],
   "cta": {
     "title": "Expliquer une colère n'est pas l'entendre",
-    "engagement_sentence": "Quels **signes** concrets montreraient que l'école républicaine tient sa promesse **méritocratique** ?",
+    "engagement_sentence": "Quels signes concrets montreraient que l'école républicaine tient sa **promesse** méritocratique ?",
     "engagement_sentence_alt": [
       "Quand des experts racontent un mouvement, que reste-t-il de la voix de ceux qui le font ?",
       "Un problème ancien peut-il, à lui seul, expliquer qu'une révolte éclate un jour précis ?",
@@ -351,7 +351,7 @@
       ]
     },
     "open_question": "Quel événement récent a déclenché la mobilisation, alors que les problèmes invoqués sont anciens ?",
-    "root_issue": "Au-delà des moyens et des inégalités scolaires, la société promet toujours l'**avenir** par l'école ; la **jeunesse** n'y croit plus.",
+    "root_issue": "Au-delà des moyens et des inégalités scolaires, la société **promet** toujours l'avenir par l'école ; la jeunesse n'y croit plus.",
     "steel_man": {
       "argument": "Les inégalités sont le terreau de la colère ; l'**étincelle**, elle, date de cette semaine.",
       "alternative": "Un **déclencheur** récent d'abord ; les inégalités anciennes n'en seraient que le terrain.",
