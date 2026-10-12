@@ -69,11 +69,12 @@ def _our_prose(doc: InstagramCarouselDocument) -> list[tuple[str, str]]:
         ("hook.sub_topic", pres.hook.sub_topic),
         ("display.selection_headline", d.selection_headline),
         ("display.why_selected", d.why_selected),
-        ("display.reperes_context", d.reperes_context),
+
         ("display.root_issue", d.root_issue),
         ("cta.engagement_sentence", pres.cta.engagement_sentence),
     ]
     fields += [(f"display.essentiel[{i}]", p) for i, p in enumerate(d.essentiel)]
+    fields += [(f"display.reperes_facts[{i}]", f.text) for i, f in enumerate(d.reperes_facts)]
     if d.global_analysis:
         fields.append(("global_analysis.headline", d.global_analysis.headline))
         fields += [(f"global_analysis.core_recap[{i}]", p)
@@ -98,10 +99,13 @@ def _slide_order(doc: InstagramCarouselDocument) -> list[tuple[str, str]]:
     seq += [("02 essentiel", paras[0] if paras else "")]
     seq += [("02 essentiel", p) for p in d.essentiel]
     # slide 3 shows the chosen context, or the first one on decks that predate it
-    context = d.reperes_context
-    if not context and doc.analysis.context and doc.analysis.context.contexts:
-        context = doc.analysis.context.contexts[0].text
-    seq += [("03 reperes", context)]
+    if d.reperes_facts:
+        seq += [("03 reperes", f.text) for f in d.reperes_facts]
+    else:
+        context = d.reperes_context
+        if not context and doc.analysis.context and doc.analysis.context.contexts:
+            context = doc.analysis.context.contexts[0].text
+        seq += [("03 reperes", context)]
     for b in d.reading_beats:
         if b.selected:
             seq += [("beat", b.moment), ("beat", b.quote), ("beat", b.lens_question),

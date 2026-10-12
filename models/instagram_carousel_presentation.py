@@ -78,6 +78,14 @@ class Pictogram(BaseModel):
     caption: str           # what is counted + the source, e.g. "Risque d'être contrôlé · Défenseur des droits, 2017"
 
 
+class ReperesFact(BaseModel):
+    """One labelled line of slide 3 « À savoir »: a short label naming what the
+    fact is about (« L'école », « La police ») and the fact, chosen from the
+    analysis's context so the reader can weigh the source on each side."""
+    label: str   # 1–2 words
+    text: str    # ≤14 words, one sentence, a real source
+
+
 class ReadingBeat(BaseModel):
     moment: str    # ≤10 words — where we are in the article (reading order)
     quote: str     # verbatim anchor from the article
@@ -129,6 +137,10 @@ class KeyTakeaway(BaseModel):
 class SteelMan(BaseModel):
     argument: str      # ≤18 words — the strongest objection to the article's thesis
     alternative: str   # ≤14 words — the conclusion that follows if it holds
+    # Which présupposé (1-based, slide 7 order) the objection weakens: slide 7
+    # highlights that pillar, dims the others and points the objection at it.
+    # 0 = none named (older decks): every pillar stays plain.
+    targets: int = 0
 
 
 class ThesisFrame(BaseModel):
@@ -168,7 +180,10 @@ class CarouselDisplay(BaseModel):
     # Slide 3 « À savoir »: one sentence the adapt step CHOOSES from the analysis's
     # context (what came before, why now) — never slide 2's news again. Empty on
     # older decks; the renderer then falls back to the first `context.contexts`.
-    reperes_context: str = ""
+    reperes_context: str = ""   # (legacy) one sentence; superseded by reperes_facts
+    # Slide 3 « À savoir »: 2–3 labelled facts the adapt step CHOOSES from the
+    # analysis's context — what the reader needs to weigh the source, each side.
+    reperes_facts: list[ReperesFact] = Field(default_factory=list)
     bilan_headline: str = ""     # slide 9 headline override; empty → "L'essentiel, et les bons réflexes."
     essentiel: list[str] = Field(default_factory=list)  # 3 slide-sized points — kept in the pipeline (not rendered), reserve for later
     essentiel_summary: str = ""  # ≤50 words — the neutral prose summary rendered on the "L'essentiel" slide (right after the hook)

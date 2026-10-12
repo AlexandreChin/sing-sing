@@ -213,7 +213,7 @@ def _plain(text: str) -> str:
 def _displayed_lines(pres, d) -> list[tuple[str, str]]:
     """(label, text) for every line we write that reaches a slide after the hook.
     Présupposés are split into their own lines, as the slide prints them."""
-    lines = [("display.reperes_context", d.reperes_context)]
+    lines = [(f"display.reperes_facts[{i}].text", f.text) for i, f in enumerate(d.reperes_facts)]
     lines += [(f"display.essentiel[{i}]", p) for i, p in enumerate(d.essentiel)]
     for i, b in enumerate(d.reading_beats):
         if b.selected:
@@ -563,6 +563,12 @@ def _lens_layer_errors(d) -> list[str]:
             errors.append("display.steel_man.argument is empty")
         if not sm.alternative.strip():
             errors.append("display.steel_man.alternative is empty")
+        # slide 7 points the objection at a pillar: it must be one the slide shows
+        if not 0 <= sm.targets <= n_selected:
+            errors.append(
+                f"display.steel_man.targets is {sm.targets} — the présupposé (1–{n_selected}) the "
+                f"objection weakens, or 0"
+            )
     # A pictogram draws one real ratio as people: at most one per deck, never on a
     # beat that already has the figure slot, counts that fit a row, a sourced caption.
     pictos = [(i, b) for i, b in enumerate(beats) if b.selected and b.pictogram]
@@ -636,20 +642,23 @@ def _validate(data: dict, article_text: str | None = None) -> list[str]:
                 f"display.essentiel[{i}] restates the lede printed two lines above it "
                 f"(« {point[:50]}… ») — the claims develop §1, they do not repeat it"
             )
-    # Slide 3 « À savoir »: one sentence chosen from the analysis's context —
-    # what came before, why now — read two swipes after slide 2's lede, so it
-    # must not say the news again.
-    ctx = _plain(d.reperes_context)
-    if not ctx:
-        errors.append("display.reperes_context is empty — slide 3 opens on one sentence of context")
-    else:
-        if len(ctx.split()) > 20:
-            errors.append(f"display.reperes_context is {len(ctx.split())} words (max 20)")
-        stems = _stems(ctx)
+    # Slide 3 « À savoir »: 2–3 labelled facts chosen from the analysis's context,
+    # so the reader can weigh the source on each side — read two swipes after
+    # slide 2's lede, so none says the news again.
+    facts = d.reperes_facts
+    if not 2 <= len(facts) <= 3:
+        errors.append(f"display.reperes_facts must have 2–3 items, got {len(facts)}")
+    for i, f in enumerate(facts):
+        text = _plain(f.text)
+        if not f.label.strip() or len(f.label.split()) > 2:
+            errors.append(f"display.reperes_facts[{i}].label must be 1–2 words (« L'école », « La police »)")
+        if len(text.split()) > 14:
+            errors.append(f"display.reperes_facts[{i}].text is {len(text.split())} words (max 14)")
+        stems = _stems(text)
         if stems and len(stems & lede_stems) / len(stems) >= 0.5:
             errors.append(
-                f"display.reperes_context restates slide 2's lede (« {ctx[:50]}… ») — choose what "
-                f"came before or why now, not the news again"
+                f"display.reperes_facts[{i}] restates slide 2's lede (« {text[:50]}… ») — choose what "
+                f"came before, a reference point or who speaks, not the news again"
             )
     if not (1 <= len(d.blind_spots) <= 2):
         errors.append(f"display.blind_spots must have 1–2 items, got {len(d.blind_spots)}")

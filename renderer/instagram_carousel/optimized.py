@@ -97,6 +97,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
                                        "lede": next((p.strip() for p in d.why_selected.split("\n")
                                                      if p.strip()), "")}),
         ("reperes", "03_reperes", {
+            "facts": [f.model_dump() for f in d.reperes_facts],
             "context": d.reperes_context or (contexts[0].text if contexts else ""),
             "lenses": [{"n": l["n"], "name": l["name"], "question": l["question"],
                         "icon_svg": l.get("icon_svg", "")} for l in display_lenses],
@@ -159,9 +160,10 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         if d.steel_man and d.steel_man.argument.strip():
             recap_items.append({"label": "L'objection la plus solide",
                                 "clauses": [d.steel_man.argument], "icon": "shield"})
-        # slide 7 draws the présupposés as pillars under the thesis
+        # slide 7 draws the présupposés as pillars; the objection points at the one it weakens
         specs.append(("socle", "08_socle",
-                      {"headline": ga.headline, "recap_items": recap_items}))
+                      {"headline": ga.headline, "recap_items": recap_items,
+                       "target": d.steel_man.targets if d.steel_man else 0}))
 
     # Slide 9 — Prise de recul: the deep stake + the strongest objection
     # (the closing question moved to slide 8's "La question").
