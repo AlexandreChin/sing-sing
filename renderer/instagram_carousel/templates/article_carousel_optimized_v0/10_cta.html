@@ -22,6 +22,7 @@
 .sec-row .sec-label { font-size: 44px; font-weight: 900; color: #f0f0f0; }
 .sec-row .sec-body { font-size: 39px; color: #9a9a9a; }
 .sec-row .sec-body strong { color: #d4aa00; font-weight: 800; }
+.divider.cta-perch { margin-top: 70px; }
 </style>
 </head>
 <body>
@@ -31,7 +32,7 @@
   {% include '_brand.html' %}
   <div class="stage">
     <h1 class="cta-head">On <em>sélectionne</em>.<br>On <em>éclaire</em>.<br><span class="l-gold">Vous jugez.</span></h1>
-    <div class="divider"></div>
+    <div class="divider cta-perch" data-perch>{% include '_perch.html' %}</div>
     <div class="sec-row"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg><span><span class="sec-label">Sauvegardez &amp; partagez</span> <span class="sec-body">— à relire, et à transmettre.</span></span></div>
     <div class="sec-row"><svg viewBox="0 0 24 24">{{ ICONS.speech_bubble | safe }}</svg><span><span class="sec-label">Commentez</span> <span class="sec-body">— {{ L.cta_comment }}.</span></span></div>
     <div class="sec-row"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg><span><span class="sec-label">La newsletter</span> <span class="sec-body">— commentez «&#160;<strong>NEWSLETTER</strong>&#160;»&#160;: nos analyses, chaque semaine.</span></span></div>

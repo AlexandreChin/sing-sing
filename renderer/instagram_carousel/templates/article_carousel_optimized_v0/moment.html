@@ -20,7 +20,7 @@
 .watch .wtxt strong { color: #d4aa00; font-weight: 900; }
 
 /* ── Reveal: the answer ── */
-.reveal { display: flex; gap: 18px; align-items: flex-start; }
+.reveal { display: flex; gap: 18px; align-items: flex-start; margin-top: 30px; }
 .reveal .arw { flex: none; font-size: 46px; line-height: 1.15; color: #d4aa00; font-weight: 900; }
 .reveal .rev { font-size: 38px; line-height: 1.42; color: #cfcfcf; text-align: justify; hyphens: auto; }
 /* — The réflexe's icon, as on slide 3: in a gold disc before the label, and
@@ -67,7 +67,7 @@
     </div>{% endif %}
     {% if quote %}<div class="evidence"><p class="ev-quote">«&#160;{{ quote | fr }}&#160;»</p></div>{% endif %}
     <p class="watch"><svg viewBox="0 0 24 24">{% if lens_icon_svg %}{{ lens_icon_svg | safe }}{% else %}{{ ICONS.lightbulb | safe }}{% endif %}</svg><span class="wtxt">{{ lens_question | fr }}</span></p>
-    {% if answer %}<div class="reveal"><span class="arw">&#8594;</span><p class="rev">{{ answer | md_bold }}</p></div>{% endif %}
+    {% if answer %}<div class="reveal" data-perch>{% include '_perch.html' %}<span class="arw">&#8594;</span><p class="rev">{{ answer | md_bold }}</p></div>{% endif %}
     {% if pictogram %}{% set person %}<svg viewBox="0 0 20 40"><circle cx="10" cy="7" r="6"/><path d="M2 40V22a8 8 0 0 1 16 0v18z"/></svg>{% endset %}
     <div class="picto">
       <div><div class="who">{{ pictogram.reference_label | fr }}</div><div class="ppl muted">{% for _ in range(pictogram.reference_count) %}{{ person | safe }}{% endfor %}</div></div>

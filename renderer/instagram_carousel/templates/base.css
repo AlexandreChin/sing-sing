@@ -184,20 +184,11 @@ body {
   margin: 20px 0;
 }
 
-/* ── Logo ── */
-.logo-img {
-  position: absolute;
-  top: 44px;
-  right: 56px;
-  width: 144px;
-  height: 144px;
-  object-fit: contain;
-}
-
+/* ── Wordmark ── the bird left it: it perches on each slide's key element. */
 .company-name {
   position: absolute;
   top: 80px;
-  right: 204px;
+  right: 90px;
   font-size: 28px;
   font-weight: 700;
   color: #d4aa00;
@@ -205,6 +196,11 @@ body {
   text-align: right;
   line-height: 1.28;
 }
+
+/* ── The perched bird (see _perch.html) ── */
+[data-perch] { position: relative; }
+.perch { position: absolute; right: 6px; top: -60px; height: 62px; width: auto; z-index: 4;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,.6)); pointer-events: none; }
 
 .next-hook-bar {
   position: absolute;

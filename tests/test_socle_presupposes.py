@@ -24,7 +24,7 @@ def test_leader_line_ties_the_objection_to_its_pillar():
     items = [{"label": "Ce qu'il tient pour acquis", "icon": "anchor", "clauses": ["a", "b", "c"]},
              {"label": "L'objection la plus solide", "icon": "shield", "clauses": ["une **objection**"]}]
     body = _render(items, target=2).split("<body>")[-1]
-    assert body.count('<div class="pillar">') == 3                              # pillars stay equal
+    assert body.count('<div class="pillar"') == 3                               # pillars stay equal
     assert body.count('class="leader"') == 1
     assert 'cx="450.0"' in body                                                   # under the middle pillar
     plain = _render(items).split("<body>")[-1]                                    # older decks
