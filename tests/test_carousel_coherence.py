@@ -11,7 +11,7 @@ _GOOD_QUESTION = ("Dans quelle mesure le recours à la **violence** peut-il se j
 
 def _errors(hook="Derrière les **poubelles** brûlées, une école à deux vitesses",
             root_issue="L'école publique promet l'**égalité** ; selon le lycée, elle n'offre pas les "
-                       "mêmes moyens, et encore moins les mêmes **chances**.",
+                       "mêmes moyens, et encore moins les mêmes **chances**, ni les mêmes **inégalités**.",
             question=_GOOD_QUESTION,
             answer="**Les mêmes jeunes** : un jeune homme perçu noir ou arabe a **20 fois plus** de "
                    "risques d'être contrôlé. Repérez si l'épisode situe les lycées bloqués.",
@@ -97,7 +97,7 @@ def test_duration_flag_on_analyze_and_produce():
 def _beat_errors(moment, answer, figure=""):
     pres = NS(hook=NS(sub_topic="Une accroche", subtitle="Comprendre qui la paie."),
               cta=NS(engagement_sentence=_GOOD_QUESTION))
-    d = NS(root_issue="L'école publique promet l'**égalité**.", reperes_facts=[], reperes_context="",
+    d = NS(root_issue="L'école publique promet l'égalité ; les **inégalités** demeurent.", reperes_facts=[], reperes_context="",
            essentiel=[], steel_man=None,
            reading_beats=[NS(selected=True, moment=moment, lens_question="Une question ?",
                              answer=answer, figure=figure)],
@@ -172,3 +172,12 @@ def test_reperes_facts_are_chosen_not_the_news_again():
     long = {"label": "L'école", "text": " ".join(["mot"] * 15) + "."}
     assert any("max 14" in e for e in errs(good[:2] + [long]))
     assert any("1–2 words" in e for e in errs(good[:2] + [{"label": "Le contexte de l'école", "text": "Un fait."}]))
+
+
+def test_question_shares_a_gilded_word_with_the_enjeu():
+    errs = _errors(root_issue="La société **promet** l'avenir par l'école ; la jeunesse n'y croit plus.",
+                   question="Quels signes montreraient que l'école tient sa **promesse** ?")
+    assert not any("shares no" in e for e in errs)
+    errs = _errors(root_issue="La société **promet** l'avenir par l'école.",
+                   question="Quels **signes** montreraient que l'école tient sa promesse ?")
+    assert any("shares no" in e for e in errs)
