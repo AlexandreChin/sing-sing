@@ -413,26 +413,32 @@ body {
    space shared out: this slide is read before listening, not studied. */
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 30px 0 20px; }
 .head { font-size: 72px; font-weight: 900; line-height: 1.04; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; margin-top: 10px; }
-.ctx { font-size: 40px; line-height: 1.3; color: #e6e6e6; max-width: 900px; margin-top: 30px; text-wrap: balance; }
+.ctx { font-size: 34px; line-height: 1.3; color: #e6e6e6; text-wrap: balance; }
 .ctx strong { color: #d4aa00; font-weight: 700; }
 /* labelled facts: what the reader needs to weigh the source, one line each */
-.facts { display: flex; flex-direction: column; gap: 16px; margin-top: 30px; }
-.fact { display: grid; grid-template-columns: 236px 1fr; gap: 18px; align-items: baseline; }
+/* two cards, as on slide 8: what to know, then the réflexes to apply */
+.card { background: #161616; border: 1px solid #2c2c2c; border-radius: 22px; padding: 26px 30px 30px; margin-top: 26px; }
+.q-head { display: flex; gap: 16px; align-items: center; margin-bottom: 18px; }
+.q-head svg { width: 36px; height: 36px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.q-label { font-size: 40px; font-weight: 900; line-height: 1.05; letter-spacing: -0.01em; color: #f0f0f0; }
+.facts { display: flex; flex-direction: column; gap: 14px; }
+.fact { display: grid; grid-template-columns: 212px 1fr; gap: 14px; align-items: baseline; }
 .fact .fl { font-size: 24px; font-weight: 800; letter-spacing: .08em; white-space: nowrap; text-transform: uppercase; color: #d4aa00; }
-.fact .ft { font-size: 34px; line-height: 1.28; color: #e6e6e6; text-wrap: pretty; }
+.fact .ft { font-size: 31px; line-height: 1.28; color: #e6e6e6; text-wrap: pretty; text-align: left; hyphens: none; }
 .fact .ft strong { color: #f0f0f0; font-weight: 700; }
 .sep2 { width: 120px; height: 3px; background: #d4aa00; margin: 32px 0 36px; }
-.tools { display: flex; flex-direction: column; gap: 32px; }
-.tool { display: grid; grid-template-columns: 124px 1fr; align-items: center; }
+.tools { display: flex; flex-direction: column; gap: 22px; }
+.tool { display: grid; grid-template-columns: 96px 1fr; align-items: center; }
 .tool .n { font-size: 54px; font-weight: 900; color: #d4aa00; line-height: 1; font-variant-numeric: tabular-nums; }
 /* the lens icon is the réflexe's signature: the moment that applies it wears the same */
-.tool .ic { position: relative; width: 96px; height: 96px; border: 2px solid #d4aa00; border-radius: 50%;
+.tool .ic { position: relative; width: 74px; height: 74px; border: 2px solid #d4aa00; border-radius: 50%;
   display: flex; align-items: center; justify-content: center; }
-.tool .ic svg { width: 50px; height: 50px; stroke: #d4aa00; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tool .ic svg { width: 38px; height: 38px; stroke: #d4aa00; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .tool .ic b { position: absolute; right: -8px; bottom: -8px; background: #d4aa00; color: #0a0a0a;
   font-size: 22px; font-weight: 900; border-radius: 999px; padding: 3px 9px; line-height: 1; }
-.tool .name { font-size: 42px; font-weight: 800; color: #f0f0f0; line-height: 1.15; }
-.tool .q { font-size: 35px; color: #cfcfcf; line-height: 1.25; margin-top: 8px; text-wrap: balance; }
+.tool .name { font-size: 34px; font-weight: 800; color: #f0f0f0; line-height: 1.15; }
+/* one line: the question is the réflexe's whole statement, read at a glance */
+.tool .q { font-size: 28px; color: #cfcfcf; line-height: 1.25; margin-top: 4px; white-space: nowrap; }
 .link { font-size: 30px; color: #f0f0f0; margin-bottom: 34px; }
 </style>
 </head>
@@ -452,13 +458,17 @@ body {
     <span class="kick"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>Avant d&#39;écouter</span>
     <h1 class="head">À savoir, à se demander</h1>
     <div class="divider"></div>
-    <div class="facts"><div class="fact"><span class="fl">L&#39;école</span><p class="ft">L&#39;<strong>origine sociale</strong> y pèse plus qu&#39;ailleurs sur les résultats (PISA).</p></div><div class="fact"><span class="fl">Les lycéens</span><p class="ft"><strong>Parcoursup</strong> et les réformes nourrissent des contestations depuis 2018.</p></div><div class="fact"><span class="fl">La police</span><p class="ft">En 2018, l&#39;interpellation de 151 jeunes à <strong>Mantes-la-Jolie</strong> avait fait polémique.</p></div></div>
-    
-    
-    <div class="sep2"></div>
+    <div class="card">
+      <div class="q-head"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg><span class="q-label">Le contexte</span></div>
+      <div class="facts"><div class="fact"><span class="fl">L&#39;école</span><p class="ft">L&#39;<strong>origine sociale</strong> y pèse plus qu&#39;ailleurs sur les résultats (PISA).</p></div><div class="fact"><span class="fl">Les lycéens</span><p class="ft"><strong>Parcoursup</strong> et les réformes nourrissent des contestations depuis 2018.</p></div><div class="fact"><span class="fl">La police</span><p class="ft">En 2018, l&#39;interpellation de 151 jeunes à <strong>Mantes-la-Jolie</strong> avait fait polémique.</p></div></div>
+      
+      
+    </div>
+    <div class="card">
+    <div class="q-head"><svg viewBox="0 0 24 24"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1.22.5 2.54 1.5 3.5.76.76 1.23 1.52 1.41 2.5"/></svg><span class="q-label">3 réflexes</span></div>
     <div class="tools">
       <div class="tool"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="21" y1="21" x2="15.8" y2="15.8"/></svg><b>01</b></span><div><div class="name">Sources</div><p class="q">Un mécanisme décrit : comment en mesurer l&#39;effet ?</p></div></div><div class="tool"><span class="ic"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><b>02</b></span><div><div class="name">Causalité</div><p class="q">Du quartier au lycée : qu&#39;est‑ce qui relie les deux ?</p></div></div><div class="tool"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M4 21h16"/><path d="M5 7h14"/><path d="M5 7l-3 6h6z"/><path d="M19 7l-3 6h6z"/></svg><b>03</b></span><div><div class="name">Équilibre</div><p class="q">Une demande attribuée aux jeunes : d&#39;où vient-elle ?</p></div></div>
-    </div>
+    </div></div>
   </div>
   <p class="link">Lien vers l&#39;épisode en commentaires ↓</p>
   <div class="slide-num">3 / 9</div>
