@@ -41,11 +41,15 @@
 .shade { position: absolute; inset: 0; z-index: -2;
   background: linear-gradient(to bottom, #000 0, #000 190px, rgba(0,0,0,.35) 270px,
               rgba(0,0,0,.1) 32%, rgba(0,0,0,.88) 47%, #000 55%); }
-.slide.bleed .src-pill { margin-top: 70px; }
-/* the source's own title, under the pill: on the full-bleed slide the photo
-   no longer carries it (on the card slide it is inside the capture) */
-.src-title { align-self: flex-start; font-size: 30px; font-style: italic; line-height: 1.3; color: #f0f0f0;
-  margin-top: 14px; max-width: 900px; padding: 8px 16px; border-radius: 10px; background: rgba(0,0,0,.62);
+/* On the full-bleed slide, the photo's caption: the source's own title, then
+   the pill, stacked at the photo's bottom-left — two labels of one family, same
+   shape, size and padding; the title dark and italic, the pill gold. (On the
+   card slide the title is inside the capture and the pill stays above it.) */
+.src-block { position: absolute; left: 90px; bottom: 710px; right: 90px; display: flex; flex-direction: column;
+  align-items: flex-start; gap: 10px; }
+.slide.bleed .src-pill, .src-title { border-radius: 20px; padding: 12px 22px; font-size: 26px; line-height: 1.3; }
+.src-title { max-width: 900px; font-style: italic; font-weight: 600; color: #f0f0f0; background: rgba(0,0,0,.72);
+  box-shadow: 0 8px 22px rgba(0,0,0,.55);
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .slide.bleed .cover-head { margin-top: auto; }
 /* — The title, then the promise that continues it. — */
@@ -71,8 +75,8 @@
   {% include '_brand.html' %}
   {% if rubrique %}<div class="rubrique-tab"><svg viewBox="0 0 24 24">{{ glyph | safe }}</svg>{{ rubrique }}</div>{% endif %}
 
-  {{ pill_html }}
-  {% if background and source_title %}<p class="src-title">«&#160;{{ source_title | fr }}&#160;»</p>{% endif %}
+  {% if background %}<div class="src-block">{% if source_title %}<p class="src-title">{{ source_title | fr }}</p>{% endif %}{{ pill_html }}</div>
+  {% else %}{{ pill_html }}{% endif %}
   {% if thumb and not background %}<div class="shot"><img src="{{ thumb }}" alt=""{% if slot_max %} style="max-height: {{ slot_max }}px"{% endif %}><div class="edge"></div></div>{% endif %}
 
   {# French spacing is applied by the md_bold filter, for every field. #}
