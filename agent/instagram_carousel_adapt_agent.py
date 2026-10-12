@@ -323,6 +323,18 @@ def _coherence_errors(pres, d) -> list[str]:
                 f"cta.engagement_sentence uses « {m.group(0)} » — a word that answers the question "
                 f"before the reader does; ask it neutrally"
             )
+        # slide 8 draws the question as following from the enjeu: the word they
+        # share (« promet » / « promesse ») is the gold one on both sides
+        q_roots = {w[:5] for span in _BOLD_RE.findall(pres.cta.engagement_sentence)
+                   for w in re.findall(r"[a-zà-ÿ]{4,}", span.lower())}
+        e_roots = {w[:5] for span in _BOLD_RE.findall(d.root_issue or "")
+                   for w in re.findall(r"[a-zà-ÿ]{4,}", span.lower())}
+        if d.root_issue and not q_roots & e_roots:
+            errors.append(
+                "cta.engagement_sentence shares no **gilded** word with display.root_issue — slide 8 "
+                "ties the two cards by the word they share: gild it on both sides (« la société "
+                "**promet** … » / « … tient sa **promesse** ? »)"
+            )
         n_bold = len(_BOLD_RE.findall(pres.cta.engagement_sentence))
         if not 1 <= n_bold <= 2:
             errors.append(

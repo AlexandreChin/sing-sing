@@ -5,10 +5,17 @@
 <style>
 {% include 'base.css' %}
 /* « Prise de recul »: the deep stake, then the question to take away, each in
-   its own card under the deck's usual subtitle-with-icon. The question's card
-   is tinted gold: it is what the reader leaves with. */
+   its own card under the deck's usual subtitle-with-icon. An arrow runs from
+   the first card to the second — the question follows from the stake — and the
+   word they share is the gold one on both sides. The question's card is tinted
+   gold: it is what the reader leaves with. */
+.head { font-size: 60px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; margin-top: 14px; }
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-.cards { display: flex; flex-direction: column; gap: 28px; margin-top: 36px; }
+.cards { display: flex; flex-direction: column; margin-top: 36px; }
+.link { height: 56px; padding-left: 54px; }
+.link i { position: relative; display: block; width: 3px; height: 44px; margin-top: 6px; background: #d4aa00; }
+.link i::after { content: ''; position: absolute; left: -7px; bottom: -10px; border: 8.5px solid transparent;
+  border-top: 12px solid #d4aa00; border-bottom: 0; }
 .card { background: #161616; border: 1px solid #2c2c2c; border-radius: 22px; padding: 34px 36px 38px; }
 .card.qc { background: #1c1806; border-color: #5a4a08; }
 .q-head { display: flex; gap: 18px; align-items: center; margin-bottom: 18px; }
@@ -27,11 +34,13 @@
   {% include '_tracker.html' %}
   <div class="stage">
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.widen | safe }}</svg>Prise de recul</span>
+    <h1 class="head">Avant de trancher.</h1>
     <div class="cards">
       {% if root_issue %}<div class="card">
         <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.anchor | safe }}</svg></span><span class="q-label">L'enjeu de fond</span></div>
         <p>{{ root_issue | md_bold }}</p>
       </div>{% endif %}
+      {% if root_issue and question %}<div class="link"><i></i></div>{% endif %}
       {% if question %}<div class="card qc">
         <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.speech_bubble | safe }}</svg></span><span class="q-label">La question</span></div>
         <p>{{ question | md_bold }}</p>
