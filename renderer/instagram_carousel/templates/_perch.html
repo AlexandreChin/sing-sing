@@ -1,0 +1,4 @@
+{# The Sing Sing bird, perched on the top-right corner of the slide's key
+   element (the one marked `data-perch`). The wire that runs across the deck is
+   drawn at screenshot time (renderer/shoot.py), once every perch is measured. #}
+{% if bird %}<img class="perch" src="{{ bird }}" alt="">{% endif %}

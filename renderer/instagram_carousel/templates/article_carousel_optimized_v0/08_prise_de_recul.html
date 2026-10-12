@@ -11,7 +11,7 @@
    gold: it is what the reader leaves with. */
 .head { font-size: 60px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; margin-top: 14px; }
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-.cards { display: flex; flex-direction: column; margin-top: 36px; }
+.cards { display: flex; flex-direction: column; margin-top: 70px; }
 .link { height: 56px; padding-left: 54px; }
 .link i { position: relative; display: block; width: 3px; height: 44px; margin-top: 6px; background: #d4aa00; }
 .link i::after { content: ''; position: absolute; left: -7px; bottom: -10px; border: 8.5px solid transparent;
@@ -34,7 +34,7 @@
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.widen | safe }}</svg>Prise de recul</span>
     <h1 class="head">Avant de trancher.</h1>
     <div class="cards">
-      {% if root_issue %}<div class="card">
+      {% if root_issue %}<div class="card" data-perch>{% include '_perch.html' %}
         <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.anchor | safe }}</svg></span><span class="q-label">L'enjeu de fond</span></div>
         <p>{{ root_issue | md_bold }}</p>
       </div>{% endif %}

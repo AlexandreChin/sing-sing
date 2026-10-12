@@ -15,6 +15,7 @@
 /* labelled facts: what the reader needs to weigh the source, one line each */
 /* two cards, as on slide 8: what to know, then the réflexes to apply */
 .card { background: #161616; border: 1px solid #2c2c2c; border-radius: 22px; padding: 26px 30px 30px; margin-top: 26px; }
+.card.keycard { margin-top: 50px; }
 .q-head { display: flex; gap: 16px; align-items: center; margin-bottom: 18px; }
 .q-head svg { width: 36px; height: 36px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .q-label { font-size: 40px; font-weight: 900; line-height: 1.05; letter-spacing: -0.01em; color: #f0f0f0; }
@@ -52,7 +53,7 @@
       {% elif context %}<p class="ctx">{{ context | md_bold }}</p>{% endif %}
       {% if framing %}<p class="ctx">{{ framing | md_bold }}</p>{% endif %}
     </div>{% endif %}
-    {% if lenses %}<div class="card">
+    {% if lenses %}<div class="card keycard" data-perch>{% include '_perch.html' %}
     <div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS.lightbulb | safe }}</svg><span class="q-label">{{ lenses | length }} réflexes</span></div>
     <div class="tools">
       {% for l in lenses %}<div class="tool">{% if l.icon_svg %}<span class="ic"><svg viewBox="0 0 24 24">{{ l.icon_svg | safe }}</svg><b>{{ '%02d'|format(l.n) }}</b></span>{% else %}<span class="n">{{ '%02d'|format(l.n) }}</span>{% endif %}<div><div class="name">{{ l.name }}</div><p class="q">{{ l.question | replace("est-ce", "est‑ce") | fr }}</p></div></div>{% endfor %}

@@ -19,6 +19,7 @@
    claims, numbered — three scannable lines instead of one 57-word block. */
 .sel-stage { gap: 0 !important; }
 .card { background: #161616; border: 1px solid #2c2c2c; border-radius: 22px; padding: 26px 30px 26px; margin-top: 26px; }
+.card.keycard { margin-top: 56px; }
 .q-head { display: flex; gap: 16px; align-items: center; margin-bottom: 14px; }
 .q-head svg { width: 36px; height: 36px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .q-label { font-size: 40px; font-weight: 900; line-height: 1.05; letter-spacing: -0.01em; color: #f0f0f0; }
@@ -42,7 +43,7 @@
       <div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS.info | safe }}</svg><span class="q-label">Ce qui se passe</span></div>
       <p class="lede">{{ lede | md_bold }}</p>
     </div>{% endif %}
-    <div class="card">
+    <div class="card keycard" data-perch>{% include '_perch.html' %}
       <div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS.lightbulb | safe }}</svg><span class="q-label">{% if essentiel %}{{ essentiel | length }} idées clés{% else %}L'essentiel{% endif %}</span></div>
       {% if essentiel %}<div class="pts">
         {% for pt in essentiel %}<div class="pt"><span class="pt-n">{{ '%02d'|format(loop.index) }}</span><span class="pt-t">{{ pt | md_bold }}</span></div>{% endfor %}

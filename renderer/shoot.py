@@ -61,10 +61,53 @@ def is_slide(html_file) -> bool:
     return 'class="slide"' in Path(html_file).read_text(encoding="utf-8")
 
 
+# ── The wire ──────────────────────────────────────────────────────────────────
+# One gold line runs through the whole carousel. On each slide it lies level
+# along the top edge of the key element (`data-perch`, where the bird sits) and
+# changes height only in the side margins; at each edge between two slides it
+# sits at the same height on both sides, so a swipe reads it as unbroken and the
+# bird seems to hop along it. Drawn here because it needs every slide measured.
+WIRE_MARGIN = 90        # the slides' side padding: the wire is level between them
+WIRE_FLOOR = 1318       # a slide with no perch: the wire runs along its foot, under all content
+WIRE_CLASS = "ss-wire"
+
+
+def wire_paths(tops: list[float | None], width: int = SLIDE_W, margin: int = WIRE_MARGIN,
+               floor: float = WIRE_FLOOR) -> list[str]:
+    """SVG path data per slide, from each slide's perch top (None = no perch).
+
+    A slide without a perch is crossed along its foot, under the content, so the
+    wire stays unbroken without running through text or images; a deck with no
+    perch at all gets no wire."""
+    if all(t is None for t in tops):
+        return ["" for _ in tops]
+    level = [t if t is not None else floor for t in tops]
+    edges = [level[0]] + [(a + b) / 2 for a, b in zip(level, level[1:])] + [level[-1]]
+    L, R = margin, width - margin
+    paths = []
+    for i, t in enumerate(level):
+        y_in, y_out, y = edges[i], edges[i + 1], t - 1
+        paths.append(f"M0 {y_in:.1f} C {L * .6:.1f} {y_in:.1f}, {L * .4:.1f} {y:.1f}, {L} {y:.1f} "
+                     f"L {R} {y:.1f} C {R + (width - R) * .6:.1f} {y:.1f}, {R + (width - R) * .4:.1f} "
+                     f"{y_out:.1f}, {width} {y_out:.1f}")
+    return paths
+
+
+_MEASURE = """() => { const s = document.querySelector('.slide'), el = document.querySelector('[data-perch]');
+  return (s && el) ? el.getBoundingClientRect().top - s.getBoundingClientRect().top : null; }"""
+_DRAW = """([d, cls]) => { document.querySelectorAll('.' + cls).forEach(e => e.remove());
+  if (!d) return; const s = document.querySelector('.slide'); if (!s) return;
+  s.insertAdjacentHTML('beforeend', '<svg class="' + cls + '" viewBox="0 0 1080 1350" style="position:absolute;' +
+    'inset:0;width:1080px;height:1350px;pointer-events:none;z-index:3"><path d="' + d + '" fill="none" ' +
+    'stroke="#d4aa00" stroke-width="3" stroke-linecap="round"/></svg>'); }"""
+
+
 def shoot_dir(html_dir, out_dir=None) -> list[Path]:
     """Screenshot every *.html in `html_dir` to a .png (sorted by name).
 
-    PNGs land in `out_dir` if given, otherwise next to the HTML."""
+    PNGs land in `out_dir` if given, otherwise next to the HTML. When the slides
+    mark a perch, the wire is measured across all of them, drawn into each HTML
+    (saved back, so html/ matches slides/) and shot with it."""
     html_dir = Path(html_dir)
     out_dir = Path(out_dir) if out_dir else html_dir
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -72,7 +115,20 @@ def shoot_dir(html_dir, out_dir=None) -> list[Path]:
     out: list[Path] = []
     with sync_playwright() as p:
         browser = p.chromium.launch()
+        page = browser.new_page(viewport={"width": SLIDE_W, "height": SLIDE_H})
+        tops = []
         for f in files:
-            out.append(_shoot_slide(browser, f, out_dir / (f.stem + ".png")))
+            page.set_content(f.read_text(encoding="utf-8"), wait_until="networkidle")
+            tops.append(page.evaluate(_MEASURE))
+        for f, d in zip(files, wire_paths(tops)):
+            page.set_content(f.read_text(encoding="utf-8"), wait_until="networkidle")
+            page.evaluate(_DRAW, [d, WIRE_CLASS])
+            if d:
+                f.write_text("<!DOCTYPE html>\n" + page.content(), encoding="utf-8")
+            png = out_dir / (f.stem + ".png")
+            page.screenshot(path=str(png), clip={"x": 0, "y": 0, "width": SLIDE_W, "height": SLIDE_H})
+            print(f"  ✓ {png.name}")
+            out.append(png)
+        page.close()
         browser.close()
     return out

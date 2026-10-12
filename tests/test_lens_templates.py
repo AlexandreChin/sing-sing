@@ -106,7 +106,7 @@ def test_prise_de_recul_shows_root_issue_then_question():
     assert "une élite qui affiche son indifférence" in html
     assert "La question" in html and "symbole" in html
     assert html.index("L'enjeu de fond") < html.index("La question")
-    assert html.count('<div class="card">') == 1 and html.count('<div class="card qc">') == 1  # one card each, the question tinted
+    assert html.count('class="card"') == 1 and html.count('class="card qc"') == 1  # one card each, the question tinted
     assert "Avant de trancher." in html and html.count("<i></i>") == 1      # the arrow between cards
 
 
@@ -116,3 +116,17 @@ def test_no_act_tracker_on_the_slides():
                       ("03_reperes.html", {}), ("08_socle.html", dict(headline="h", recap_items=[])),
                       ("08_prise_de_recul.html", dict(root_issue="r", question="q ?"))):
         assert 'class="tracker"' not in _render(name, **ctx), name
+
+
+def test_each_slide_marks_one_perch_for_the_bird():
+    cases = {
+        "moment.html": dict(index=1, moment="m", quote="q", lens_question="Qui ?", lens_name="L", lens_n=1, answer="**r**"),
+        "03_reperes.html": dict(lenses=[{"n": 1, "name": "Sources", "question": "Qui ?"}]),
+        "08_socle.html": dict(headline="h", recap_items=[{"label": "x", "icon": "anchor", "clauses": ["a", "b"]}], target=2),
+        "08_prise_de_recul.html": dict(root_issue="r", question="q ?"),
+        "10_cta.html": {},
+    }
+    for name, ctx in cases.items():
+        html = _render(name, bird="data:image/png;base64,B", **ctx).split("<body>")[-1]
+        assert html.count("data-perch") == 1, name
+        assert html.count('class="perch"') == 1, name
