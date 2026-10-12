@@ -354,7 +354,8 @@
     "root_issue": "Au-delà des moyens et des inégalités scolaires, la société promet toujours l'**avenir** par l'école ; la **jeunesse** n'y croit plus.",
     "steel_man": {
       "argument": "Les inégalités sont le terreau de la colère ; l'**étincelle**, elle, date de cette semaine.",
-      "alternative": "Un **déclencheur** récent d'abord ; les inégalités anciennes n'en seraient que le terrain."
+      "alternative": "Un **déclencheur** récent d'abord ; les inégalités anciennes n'en seraient que le terrain.",
+      "targets": 1
     },
     "reperes_headline": "Avant d'écouter : le contexte et trois réflexes",
     "bilan_headline": "",
@@ -364,6 +365,20 @@
       "La réponse attendue : l'**éducation**, plutôt que le maintien de l'ordre."
     ],
     "essentiel_summary": "Près de **180 lycées** bloqués en une semaine. Pour deux sociologues, cette colère vient de problèmes anciens : des établissements pourvus en **professeurs** en dernier, une école qui ne promet plus l'ascension sociale, des contrôles policiers répétés dans les quartiers. La réponse attendue passerait par l'**éducation**, non par le maintien de l'ordre.",
-    "reperes_context": "Depuis 2018, **Parcoursup** et les réformes du lycée nourrissent des contestations lycéennes récurrentes."
+    "reperes_context": "Depuis 2018, **Parcoursup** et les réformes du lycée nourrissent des contestations lycéennes récurrentes.",
+    "reperes_facts": [
+      {
+        "label": "L'école",
+        "text": "L'**origine sociale** y pèse plus qu'ailleurs sur les résultats (PISA)."
+      },
+      {
+        "label": "Les lycéens",
+        "text": "**Parcoursup** et les réformes nourrissent des contestations depuis 2018."
+      },
+      {
+        "label": "La police",
+        "text": "En 2018, l'interpellation de 151 jeunes à **Mantes-la-Jolie** avait fait polémique."
+      }
+    ]
   }
 }
