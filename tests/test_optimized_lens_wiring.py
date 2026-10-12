@@ -83,7 +83,8 @@ def test_beats_repeat_slide_4s_numbered_reflexes(tmp_path):
     import re
     opt.generate_html(_doc(), tmp_path)
     reperes = (tmp_path / "03_reperes.html").read_text(encoding="utf-8")
-    listed = re.findall(r'<span class="n">(\d\d)</span><div><div class="name">([^<]+)</div>'
+    # the number sits alone, or as a badge on the lens icon
+    listed = re.findall(r'(?:<span class="n">|<b>)(\d\d)(?:</span>|</b></span>)<div><div class="name">([^<]+)</div>'
                         r'<p class="q">([^<]+)</p>', reperes)
     assert listed, "slide 3 lists no numbered réflexe"
     for i, (number, name, question) in enumerate(listed):

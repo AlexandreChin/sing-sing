@@ -289,11 +289,12 @@ def _coherence_errors(pres, d) -> list[str]:
                 f"of frame"
             )
         answer = _plain(b.answer)
-        if (b.figure or "").strip() and len(answer.split()) > _FIGURE_ANSWER_MAX_WORDS:
+        visual = (b.figure or "").strip() or getattr(b, "pictogram", None)
+        if visual and len(answer.split()) > _FIGURE_ANSWER_MAX_WORDS:
             errors.append(
                 f"display.reading_beats[{i}].answer is {len(answer.split())} words with a figure "
-                f"on the slide (max {_FIGURE_ANSWER_MAX_WORDS}) — the figure takes the room of "
-                f"the second sentence"
+                f"or pictogram on the slide (max {_FIGURE_ANSWER_MAX_WORDS}) — the visual takes "
+                f"the room of the second sentence, and carries the number"
             )
         if _VERDICT_LEAD.match(answer):
             errors.append(
@@ -562,6 +563,26 @@ def _lens_layer_errors(d) -> list[str]:
             errors.append("display.steel_man.argument is empty")
         if not sm.alternative.strip():
             errors.append("display.steel_man.alternative is empty")
+        # slide 7 cracks the pillar the objection weakens: it must be one the slide shows
+        if not 0 <= sm.targets <= n_selected:
+            errors.append(
+                f"display.steel_man.targets is {sm.targets} — the présupposé (1–{n_selected}) the "
+                f"objection weakens, or 0"
+            )
+    # A pictogram draws one real ratio as people: at most one per deck, never on a
+    # beat that already has the figure slot, counts that fit a row, a sourced caption.
+    pictos = [(i, b) for i, b in enumerate(beats) if b.selected and b.pictogram]
+    if len(pictos) > 1:
+        errors.append(f"display.reading_beats: {len(pictos)} pictograms (max 1 per deck)")
+    for i, b in pictos:
+        pg = b.pictogram
+        if (b.figure or "").strip():
+            errors.append(f"display.reading_beats[{i}] has both a figure and a pictogram — keep one")
+        for field in ("reference_count", "subject_count"):
+            if not 1 <= getattr(pg, field) <= 30:
+                errors.append(f"display.reading_beats[{i}].pictogram.{field} is {getattr(pg, field)} (1–30)")
+        if not pg.caption.strip() or not pg.reference_label.strip() or not pg.subject_label.strip():
+            errors.append(f"display.reading_beats[{i}].pictogram needs both labels and a caption naming the source")
     return errors
 
 
