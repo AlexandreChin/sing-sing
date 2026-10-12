@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <style>
 {% include 'base.css' %}
-/* The argument drawn as a structure: the thesis as the slide's title, the
+/* The argument drawn as a structure: under « Le socle », the thesis as the title, the
    présupposés it rests on as equal pillars, the objection below.
    When the objection names the pillar it weakens (`target`, 1-based), a thin
    leader line runs from the objection to a dot under that pillar, like a note
    on a diagram: the link is drawn, and no pillar outranks the others. */
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-.head { font-size: 60px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
+.head { font-size: 60px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; margin-top: 14px; }
 .head strong, .pillar strong, .objection strong { color: #d4aa00; }
 .lbl { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #d4aa00; margin-bottom: 8px; }
 .lbl svg { width: 24px; height: 24px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -36,6 +36,7 @@
   {% include '_brand.html' %}
   {% include '_tracker.html' %}
   <div class="stage">
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.hierarchy | safe }}</svg>Le socle</span>
     <h1 class="head">{{ headline | md_bold }}</h1>
     {% if pillars %}<div class="under">
       {% if pres[0].label %}<span class="lbl"><svg viewBox="0 0 24 24">{{ ICONS[pres[0].icon] | safe }}</svg>{{ pres[0].label }}</span>{% endif %}
