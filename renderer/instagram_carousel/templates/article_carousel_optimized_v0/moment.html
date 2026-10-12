@@ -56,7 +56,6 @@
   {% if lens_icon_svg %}<div class="bigmark"><svg viewBox="0 0 24 24">{{ lens_icon_svg | safe }}</svg></div>
   {% else %}<div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>{% endif %}
   {% include '_brand.html' %}
-  {% include '_tracker.html' %}
   <div class="stage">
     <span class="kick">{% if lens_icon_svg %}<span class="disc"><svg viewBox="0 0 24 24">{{ lens_icon_svg | safe }}</svg></span>{% else %}<svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>{% endif %}{% if lens_n %}Réflexe {{ '%02d'|format(lens_n) }} &middot; {% endif %}{{ lens_name or L.during }}</span>
     <h1 class="head">{{ moment | md_bold }}</h1>
