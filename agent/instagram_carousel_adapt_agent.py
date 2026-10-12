@@ -433,6 +433,12 @@ def _lens_layer_errors(d) -> list[str]:
             errors.append(f"display.reading_beats[{i}].lens_question is empty (required for selected beats)")
         # Printed twice — slide 4's list and the beat header — so it has to stay
         # one line in both. The cap was documented and never enforced.
+        # slide 3 sets each question on one line (28px, beside the lens icon)
+        if b.selected and len(b.lens_question.strip()) > 54:
+            errors.append(
+                f"display.reading_beats[{i}].lens_question is {len(b.lens_question.strip())} characters "
+                f"(max 54) — slide 3 holds it on one line"
+            )
         if b.selected and len(b.lens_question.split()) > 12:
             errors.append(
                 f"display.reading_beats[{i}].lens_question is {len(b.lens_question.split())} "

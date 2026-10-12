@@ -204,3 +204,9 @@ def test_objection_targets_a_shown_presuppose():
     assert any("steel_man.targets is 4" in e for e in _lens_layer_errors(_display(steel_man=sm)))
     assert not any("targets" in e for e in _lens_layer_errors(
         _display(steel_man=SteelMan(argument="a", alternative="b", targets=1))))
+
+
+def test_lens_question_holds_one_line():
+    base = _display().reading_beats
+    long = [base[0].model_copy(update={"lens_question": "Un mécanisme décrit dans le texte : comment en mesurer l'effet ?"})] + base[1:]
+    assert any("max 54" in e for e in _lens_layer_errors(_display(reading_beats=long)))
