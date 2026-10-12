@@ -200,7 +200,7 @@
       },
       {
         "moment": "Les lycées délaissés reçoivent leurs profs en dernier",
-        "quote": "le système de points de l’Éducation nationale, qui fait que les lycées les moins désirés socialement sont les lycées qui sont pourvus en dernier",
+        "quote": "le système de points […] fait que les lycées les moins désirés socialement sont […] pourvus en dernier",
         "lens_ref": "sources",
         "lens_question": "Un mécanisme décrit : comment en mesurer l'effet ?",
         "note": "Devant un mécanisme décrit, cherchez **combien** de postes il laisse vides.",
@@ -257,7 +257,7 @@
       },
       {
         "moment": "Devant le lycée, les contrôles du quartier se rejouent",
-        "quote": "finalement ce qui se rejoue devant les établissements, ce sont des relations qui sont quasi quotidiennes dans les quartiers […]",
+        "quote": "ce qui se rejoue devant les établissements, ce sont des relations […] quasi quotidiennes dans les quartiers",
         "lens_ref": "causalite",
         "lens_question": "Du quartier au lycée : qu'est-ce qui relie les deux ?",
         "note": "Devant un lien entre deux lieux, vérifiez que ce sont les **mêmes jeunes**.",
@@ -276,7 +276,7 @@
       },
       {
         "moment": "L'État prône la non-violence, les lycéens la réclament",
-        "quote": "le chemin de l'éducation et la non-violence qui est demandé par les responsables politiques, c'est celui que demandent ces lycéens […] depuis longtemps",
+        "quote": "le chemin de l'éducation et la non-violence […], c'est celui que demandent ces lycéens […] depuis longtemps",
         "lens_ref": "equilibre",
         "lens_question": "Une demande attribuée aux jeunes : d'où vient-elle ?",
         "note": "Devant « ce que demandent les jeunes », cherchez **un jeune** qui le dit.",
@@ -356,6 +356,7 @@
       "Devant ces mêmes lycées, la police rejoue les **contrôles au faciès** du quartier.",
       "La réponse attendue : l'**éducation**, plutôt que le maintien de l'ordre."
     ],
-    "essentiel_summary": "Près de **180 lycées** bloqués en une semaine. Pour deux sociologues, cette colère vient de problèmes anciens : des établissements pourvus en **professeurs** en dernier, une école qui ne promet plus l'ascension sociale, des contrôles policiers répétés dans les quartiers. La réponse attendue passerait par l'**éducation**, non par le maintien de l'ordre."
+    "essentiel_summary": "Près de **180 lycées** bloqués en une semaine. Pour deux sociologues, cette colère vient de problèmes anciens : des établissements pourvus en **professeurs** en dernier, une école qui ne promet plus l'ascension sociale, des contrôles policiers répétés dans les quartiers. La réponse attendue passerait par l'**éducation**, non par le maintien de l'ordre.",
+    "reperes_context": "Depuis 2018, **Parcoursup** et les réformes du lycée nourrissent des contestations lycéennes récurrentes."
   }
 }
