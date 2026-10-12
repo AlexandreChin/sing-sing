@@ -408,9 +408,8 @@ body {
 .trk svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .trk-sep { color: #3a3a3a; }
 /* « Le socle de l'argument » drawn as what it is: the thesis as a roof, the
-   présupposés it rests on as pillars over a base, and the objection as a crack
-   through the pillar it weakens (`target`, 1-based; 0 = no crack). The reader
-   sees the argument's structure, and where it is attacked, before reading. */
+   présupposés it rests on as pillars over a base, the objection below. The
+   reader sees the argument's structure before reading it. */
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; }
 .stage > .kick { margin-bottom: 26px; }
 .lbl { display: block; font-size: 22px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #d4aa00; margin-bottom: 8px; }
@@ -421,9 +420,6 @@ body {
 .pillar { position: relative; background: #161616; border-radius: 10px 10px 0 0; padding: 22px 18px 26px;
   min-height: 300px; font-size: 30px; line-height: 1.3; color: #e6e6e6; }
 .pillar .n { display: block; font-size: 34px; font-weight: 900; color: #d4aa00; margin-bottom: 10px; }
-.pillar.cracked { padding-right: 52px; }
-.pillar .crack { position: absolute; right: 8px; top: 0; width: 34px; height: 100%; }
-.pillar .crack path { fill: none; stroke: #d4aa00; stroke-width: 3; }
 .base { height: 18px; background: #d4aa00; border-radius: 4px; margin: 0 6px; position: relative; }
 .base span { position: absolute; left: 0; right: 0; top: 26px; display: flex; gap: 10px; justify-content: center; align-items: center;
   font-size: 24px; font-weight: 700; color: #9a9a9a; letter-spacing: .06em; }
@@ -450,11 +446,10 @@ body {
     <span class="kick"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="2" y="16" width="6" height="5" rx="1"/><rect x="16" y="16" width="6" height="5" rx="1"/><path d="M12 8v5M5 13h14M5 13v3M19 13v3"/></svg>Le socle de l'argument</span>
     <div class="roof"><span class="lbl">La thèse</span>La colère lycéenne vient d&#39;<strong>inégalités anciennes</strong></div>
     <div class="pillars" style="grid-template-columns: repeat(3, 1fr);">
-      <div class="pillar cracked"><span class="n">01</span>qu&#39;un <strong>manque ancien</strong> explique l&#39;explosion
-        <svg class="crack" viewBox="0 0 40 300" preserveAspectRatio="none"><path d="M22 0 L12 60 L26 110 L10 170 L24 230 L14 300"/></svg></div><div class="pillar"><span class="n">02</span>que les bloqueurs viennent des <strong>quartiers</strong></div><div class="pillar"><span class="n">03</span>que les 180 lycées bloqués partagent les <strong>mêmes</strong> revendications</div>
+      <div class="pillar"><span class="n">01</span>qu&#39;un <strong>manque ancien</strong> explique l&#39;explosion</div><div class="pillar"><span class="n">02</span>que les bloqueurs viennent des <strong>quartiers</strong></div><div class="pillar"><span class="n">03</span>que les 180 lycées bloqués partagent les <strong>mêmes</strong> revendications</div>
     </div>
     <div class="base"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>Ce qu&#39;il tient pour acquis</span></div>
-    <div class="objection"><span class="lbl">L&#39;objection la plus solide · vise le pilier 01</span>Les inégalités sont le terreau de la colère ; l&#39;<strong>étincelle</strong>, elle, date de cette semaine.</div>
+    <div class="objection"><span class="lbl">L&#39;objection la plus solide</span>Les inégalités sont le terreau de la colère ; l&#39;<strong>étincelle</strong>, elle, date de cette semaine.</div>
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Avant de trancher &#8250;</span></div>
   <div class="slide-num">7 / 9</div>
