@@ -204,7 +204,7 @@
         "lens_ref": "sources",
         "lens_question": "Un mécanisme décrit : comment en mesurer l'effet ?",
         "note": "Devant un mécanisme décrit, cherchez **combien** de postes il laisse vides.",
-        "answer": "**Le nombre de postes vacants** : la Cour des comptes documente ce barème et ses effets. À l'écoute, repérez quels lycées sont concernés.",
+        "answer": "**Le nombre de postes vacants** par lycée. À l'écoute, repérez lesquels sont cités.",
         "figure": "",
         "figure_label": "",
         "figure_caption": "",
@@ -351,7 +351,7 @@
       ]
     },
     "open_question": "Quel événement récent a déclenché la mobilisation, alors que les problèmes invoqués sont anciens ?",
-    "root_issue": "Au-delà des moyens et des inégalités scolaires, la société **promet** toujours l'avenir par l'école ; la jeunesse n'y croit plus.",
+    "root_issue": "Politique ou scolaire, la colère bute sur une même promesse : la société **promet** l'avenir par l'école ; la jeunesse n'y croit plus.",
     "steel_man": {
       "argument": "Pour ses détracteurs, la gauche radicale **attise** le mouvement : la colère serait moins scolaire que politique.",
       "alternative": "Une colère **politique** d'abord ; les inégalités scolaires n'en seraient que le prétexte.",
