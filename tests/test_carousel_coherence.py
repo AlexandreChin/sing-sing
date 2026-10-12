@@ -91,7 +91,8 @@ def test_duration_overrides_the_word_count_estimate():
 def test_duration_flag_on_analyze_and_produce():
     from main import _build_parser
     for cmd in ("analyze", "produce"):
-        assert _build_parser().parse_args([cmd, "a.txt", "--duration", "40"]).duration == 40
+        args = _build_parser().parse_args([cmd, "a.txt", "--duration", "40", "--title", "Un titre"])
+        assert args.duration == 40 and args.title == "Un titre"
 
 
 def _beat_errors(moment, answer, figure=""):
