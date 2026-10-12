@@ -42,7 +42,7 @@ MEDIUM_FR = {"article": "Article", "video": "Vidéo", "podcast": "Podcast"}
 # all read from here so an article/video/podcast reads natively end-to-end.
 MEDIUM_LABELS = {
     "article": {
-        "why": "Pourquoi cet article", "essentiel": "L'essentiel de l'article",
+        "why": "Pourquoi cet article", "essentiel": "L'essentiel de l'article", "source_noun": "L'article",
         "how_to": "Comment le lire", "how_to_short": "Comment bien le lire",
         "during": "Au fil de la lecture", "after": "Après la lecture",
         "prog_before": "Avant de lire", "prog_during": "Décryptage", "prog_after": "Prise de recul",
@@ -54,7 +54,7 @@ MEDIUM_LABELS = {
         "cta_comment": "votre avis, ou un article à décrypter",
     },
     "video": {
-        "why": "Pourquoi cette vidéo", "essentiel": "L'essentiel de la vidéo",
+        "why": "Pourquoi cette vidéo", "essentiel": "L'essentiel de la vidéo", "source_noun": "La vidéo",
         "how_to": "Comment la regarder", "how_to_short": "Comment bien la regarder",
         "during": "Au fil de la vidéo", "after": "Après le visionnage",
         # header tracker: only the first phase names the medium; the other two
@@ -68,7 +68,7 @@ MEDIUM_LABELS = {
         "cta_comment": "votre avis, ou une vidéo à décrypter",
     },
     "podcast": {
-        "why": "Pourquoi cet épisode", "essentiel": "L'essentiel de l'épisode",
+        "why": "Pourquoi cet épisode", "essentiel": "L'essentiel de l'épisode", "source_noun": "L'épisode",
         "how_to": "Comment l'écouter", "how_to_short": "Comment bien l'écouter",
         "during": "Au fil de l'écoute", "after": "Après l'écoute",
         "prog_before": "Avant d'écouter", "prog_during": "Décryptage", "prog_after": "Prise de recul",

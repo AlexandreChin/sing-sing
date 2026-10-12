@@ -103,6 +103,7 @@ def test_source_title_under_the_pill_on_the_full_bleed_slide_only():
     assert 'class="src-title"' in bleed and "Blocus des lycées" in bleed
     body = bleed.split("<body>")[-1]
     assert body.index('class="src-title"') < body.index('class="src-pill"')   # title, then the pill
-    assert "« Blocus" not in body                                              # italic, no quotes
+    assert "« Blocus" not in body                                              # no quotes
+    assert body.index("L&#39;article") < body.index('class="src-title"')      # the label attributes it
     card = _render(thumb="data:image/png;base64,A", source_title="Blocus des lycées")
     assert 'class="src-title"' not in card            # the capture already shows it
