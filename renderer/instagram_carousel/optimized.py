@@ -28,9 +28,6 @@ PHASE_OF = {
     "socle": "verdict", "prise_de_recul": "verdict",
 }
 
-# French number words for the réflexes section label on the merged repères slide.
-_COUNT_WORD = {1: "Un", 2: "Deux", 3: "Trois", 4: "Quatre"}
-
 
 def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -100,9 +97,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
                                        "lede": next((p.strip() for p in d.why_selected.split("\n")
                                                      if p.strip()), "")}),
         ("reperes", "03_reperes", {
-            "reperes_headline": d.reperes_headline,
-            "context": contexts[0].text if contexts else "",
-            "lens_count_word": _COUNT_WORD.get(len(display_lenses), "Les"),
+            "context": d.reperes_context or (contexts[0].text if contexts else ""),
             "lenses": [{"n": l["n"], "name": l["name"], "question": l["question"]} for l in display_lenses],
         }),
     ]

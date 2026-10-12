@@ -149,7 +149,11 @@ class CarouselDisplay(BaseModel):
     open_question: str = ""                                     # (legacy) — superseded by root_issue
     root_issue: str = ""                                        # Act 4 slide 08 — the deeper problematic the article raises
     steel_man: SteelMan | None = None                          # Act 4 slide 08 — strongest objection
-    reperes_headline: str = ""   # slide 3 headline override; empty → "Avant de vous lancer."
+    reperes_headline: str = ""   # (legacy) slide 3's title is now fixed in the template
+    # Slide 3 « À savoir »: one sentence the adapt step CHOOSES from the analysis's
+    # context (what came before, why now) — never slide 2's news again. Empty on
+    # older decks; the renderer then falls back to the first `context.contexts`.
+    reperes_context: str = ""
     bilan_headline: str = ""     # slide 9 headline override; empty → "L'essentiel, et les bons réflexes."
     essentiel: list[str] = Field(default_factory=list)  # 3 slide-sized points — kept in the pipeline (not rendered), reserve for later
     essentiel_summary: str = ""  # ≤50 words — the neutral prose summary rendered on the "L'essentiel" slide (right after the hook)

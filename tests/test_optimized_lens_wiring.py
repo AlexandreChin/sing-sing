@@ -83,11 +83,12 @@ def test_beats_repeat_slide_4s_numbered_reflexes(tmp_path):
     import re
     opt.generate_html(_doc(), tmp_path)
     reperes = (tmp_path / "03_reperes.html").read_text(encoding="utf-8")
-    listed = re.findall(r'<span class="rk">(\d\d)</span><span><strong>([^<]+)</strong> — ([^<]+)</span>',
-                        reperes)
-    assert listed, "slide 4 lists no numbered réflexe"
+    listed = re.findall(r'<span class="n">(\d\d)</span><div><div class="name">([^<]+)</div>'
+                        r'<p class="q">([^<]+)</p>', reperes)
+    assert listed, "slide 3 lists no numbered réflexe"
     for i, (number, name, question) in enumerate(listed):
         beat = (tmp_path / f"0{4 + i}_moment.html").read_text(encoding="utf-8")
         assert f"Réflexe {number}" in beat
         assert name in beat
-        assert question.strip() in beat          # the same wording, not a paraphrase
+        # the same wording, not a paraphrase (slide 3 keeps « est-ce » unbroken)
+        assert question.replace("\u2011", "-").strip() in beat

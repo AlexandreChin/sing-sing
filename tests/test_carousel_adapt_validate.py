@@ -173,3 +173,11 @@ def test_copied_out_of_scope_is_caught_despite_accents_and_case():
         main_claim="La thèse.",
         out_of_scope=["L'Effet Mondial Des Emissions Francaises.", "autre chose"])))
     assert any("repeats a generic example" in e for e in errs)
+
+
+def test_quote_holds_three_lines():
+    from models.instagram_carousel_presentation import ReadingBeat
+    long = " ".join(["mot"] * 19)
+    beats = [ReadingBeat(moment="A", quote=long, lens_ref="chiffres", note="n", answer="**r**", role="preuve",
+                         lens_question="Ce pourcentage : quelle base ?")] + _display().reading_beats[1:]
+    assert any("quote is 19 words (max 18)" in e for e in _lens_layer_errors(_display(reading_beats=beats)))
