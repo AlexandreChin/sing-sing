@@ -4,42 +4,54 @@
 <meta charset="UTF-8">
 <style>
 {% include 'base.css' %}
-/* « Le socle de l'argument » drawn as what it is: the thesis as a roof, the
-   présupposés it rests on as pillars over a base, the objection below. The
-   reader sees the argument's structure before reading it. */
+/* The argument drawn as a structure: the thesis as the slide's title, the
+   présupposés it rests on as pillars over a base, the objection below. When the
+   objection names the pillar it weakens (`target`, 1-based), that pillar is
+   outlined, the others dim, and an arrow runs from the objection up to it —
+   the link is drawn, not left to a metaphor the reader has to decode. */
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-.stage > .kick { margin-bottom: 26px; }
-.lbl { display: block; font-size: 22px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #d4aa00; margin-bottom: 8px; }
-.roof { border: 2px solid #d4aa00; border-radius: 14px; padding: 22px 28px; font-size: 44px; font-weight: 900;
-  line-height: 1.12; letter-spacing: -0.01em; color: #f0f0f0; text-wrap: balance; }
-.roof strong, .pillar strong, .objection strong { color: #d4aa00; }
-.pillars { display: grid; gap: 18px; margin: 18px 22px 0; }
-.pillar { position: relative; background: #161616; border-radius: 10px 10px 0 0; padding: 22px 18px 26px;
+.head { font-size: 60px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
+.head strong, .pillar strong, .objection strong { color: #d4aa00; }
+.lbl { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #d4aa00; margin-bottom: 8px; }
+.lbl svg { width: 24px; height: 24px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.under { margin-top: 44px; }
+.cols { display: grid; gap: 18px; margin: 0 22px; }
+.pillar { background: #161616; border-radius: 10px 10px 0 0; padding: 22px 18px 26px;
   min-height: 300px; font-size: 30px; line-height: 1.3; color: #e6e6e6; }
 .pillar .n { display: block; font-size: 34px; font-weight: 900; color: #d4aa00; margin-bottom: 10px; }
-.base { height: 18px; background: #d4aa00; border-radius: 4px; margin: 0 6px; position: relative; }
-.base span { position: absolute; left: 0; right: 0; top: 26px; display: flex; gap: 10px; justify-content: center; align-items: center;
-  font-size: 24px; font-weight: 700; color: #9a9a9a; letter-spacing: .06em; }
-.base svg { width: 26px; height: 26px; stroke: #9a9a9a; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.objection { margin-top: 74px; font-size: 34px; line-height: 1.32; color: #e6e6e6; text-wrap: pretty; }
+.pillar.dim { opacity: .38; }
+.pillar.target { outline: 3px dashed #d4aa00; outline-offset: -3px; background: #1d1a0c; }
+.base { height: 18px; background: #d4aa00; border-radius: 4px; margin: 0 6px; }
+.arrow { height: 64px; display: flex; justify-content: center; }
+.arrow i { position: relative; width: 3px; height: 54px; margin-top: 10px; background: #d4aa00; }
+.arrow i::before { content: ''; position: absolute; left: -7px; top: -10px; border: 8.5px solid transparent;
+  border-bottom: 12px solid #d4aa00; border-top: 0; }
+.objection { margin-top: 10px; font-size: 34px; line-height: 1.32; color: #e6e6e6; text-wrap: pretty; }
+.objection.free { margin-top: 64px; }
 </style>
 </head>
 <body>
 {% set pres = recap_items | rejectattr("icon", "equalto", "shield") | list %}
 {% set obj = recap_items | selectattr("icon", "equalto", "shield") | first %}
 {% set pillars = pres | map(attribute="clauses") | sum(start=[]) %}
+{% set aim = target if target and target <= pillars | length else 0 %}
 <div class="slide" style="justify-content: flex-start;">
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
   {% include '_tracker.html' %}
   <div class="stage">
-    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.hierarchy | safe }}</svg>Le socle de l'argument</span>
-    <div class="roof"><span class="lbl">La thèse</span>{{ headline | md_bold }}</div>
-    {% if pillars %}<div class="pillars" style="grid-template-columns: repeat({{ pillars | length }}, 1fr);">
-      {% for clause in pillars %}<div class="pillar"><span class="n">{{ '%02d'|format(loop.index) }}</span>{{ clause | md_bold }}</div>{% endfor %}
-    </div>
-    <div class="base">{% if pres and pres[0].label %}<span><svg viewBox="0 0 24 24">{{ ICONS[pres[0].icon] | safe }}</svg>{{ pres[0].label }}</span>{% endif %}</div>{% endif %}
-    {% if obj %}<div class="objection"><span class="lbl">{{ obj.label }}</span>{% for clause in obj.clauses %}{{ clause | md_bold }}{% endfor %}</div>{% endif %}
+    <h1 class="head">{{ headline | md_bold }}</h1>
+    {% if pillars %}<div class="under">
+      {% if pres[0].label %}<span class="lbl"><svg viewBox="0 0 24 24">{{ ICONS[pres[0].icon] | safe }}</svg>{{ pres[0].label }}</span>{% endif %}
+      <div class="cols" style="grid-template-columns: repeat({{ pillars | length }}, 1fr);">
+        {% for clause in pillars %}<div class="pillar{% if aim %}{{ ' target' if loop.index == aim else ' dim' }}{% endif %}"><span class="n">{{ '%02d'|format(loop.index) }}</span>{{ clause | md_bold }}</div>{% endfor %}
+      </div>
+      <div class="base"></div>
+      {% if aim and obj %}<div class="cols" style="grid-template-columns: repeat({{ pillars | length }}, 1fr);">
+        {% for _ in pillars %}<div class="arrow">{% if loop.index == aim %}<i></i>{% endif %}</div>{% endfor %}
+      </div>{% endif %}
+    </div>{% endif %}
+    {% if obj %}<div class="objection{{ '' if aim else ' free' }}"><span class="lbl">{{ obj.label }}</span>{% for clause in obj.clauses %}{{ clause | md_bold }}{% endfor %}</div>{% endif %}
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Avant de trancher &#8250;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>

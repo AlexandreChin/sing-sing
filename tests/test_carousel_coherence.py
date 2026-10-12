@@ -20,7 +20,7 @@ def _errors(hook="Derrière les **poubelles** brûlées, une école à deux vite
             headline="La colère lycéenne vient d'**inégalités anciennes**",
             subtitle="Comprendre d'où elle vient."):
     pres = NS(hook=NS(sub_topic=hook, subtitle=subtitle), cta=NS(engagement_sentence=question))
-    d = NS(root_issue=root_issue, reperes_context="Depuis 2018, Parcoursup nourrit des contestations.",
+    d = NS(root_issue=root_issue, reperes_facts=[], reperes_context="",
            essentiel=[], steel_man=None,
            reading_beats=[NS(selected=True, moment="Un titre", lens_question="Une question ?",
                              answer=answer, figure="")],
@@ -97,7 +97,7 @@ def test_duration_flag_on_analyze_and_produce():
 def _beat_errors(moment, answer, figure=""):
     pres = NS(hook=NS(sub_topic="Une accroche", subtitle="Comprendre qui la paie."),
               cta=NS(engagement_sentence=_GOOD_QUESTION))
-    d = NS(root_issue="L'école publique promet l'**égalité**.", reperes_context="Depuis 2018, Parcoursup.",
+    d = NS(root_issue="L'école publique promet l'**égalité**.", reperes_facts=[], reperes_context="",
            essentiel=[], steel_man=None,
            reading_beats=[NS(selected=True, moment=moment, lens_question="Une question ?",
                              answer=answer, figure=figure)],
@@ -153,21 +153,22 @@ def test_subtitle_shape_and_length():
     assert any("characters" in e and "subtitle" in e for e in _errors(subtitle=long))
 
 
-def test_reperes_context_is_chosen_not_the_news_again():
+def test_reperes_facts_are_chosen_not_the_news_again():
     import json
     from pathlib import Path
     from agent.instagram_carousel_adapt_agent import _validate
     data = json.loads(Path("samples/podcasts/podcast_1/instagram_carousel_optimized/adapt.json")
                       .read_text(encoding="utf-8"))
+    good = data["display"]["reperes_facts"]
 
-    def errs(ctx):
-        data["display"]["reperes_context"] = ctx
-        return [e for e in _validate(data) if "reperes_context" in e]
+    def errs(facts):
+        data["display"]["reperes_facts"] = facts
+        return [e for e in _validate(data) if "reperes_facts" in e]
 
-    assert errs("Depuis 2018, **Parcoursup** et les réformes du lycée nourrissent des "
-                "contestations lycéennes récurrentes.") == []
-    assert any("empty" in e for e in errs(""))
-    assert any("restates slide 2" in e for e in errs(
-        "Un mouvement de blocages de lycées parti d'Île-de-France touche près de 180 établissements "
-        "en une semaine."))
-    assert any("max 20" in e for e in errs(" ".join(["mot"] * 21) + "."))
+    assert errs(good) == []
+    assert any("2–3 items" in e for e in errs(good[:1]))
+    news = {"label": "Le mouvement", "text": "Un mouvement de blocages de lycées touche près de 180 établissements."}
+    assert any("restates slide 2" in e for e in errs(good[:2] + [news]))
+    long = {"label": "L'école", "text": " ".join(["mot"] * 15) + "."}
+    assert any("max 14" in e for e in errs(good[:2] + [long]))
+    assert any("1–2 words" in e for e in errs(good[:2] + [{"label": "Le contexte de l'école", "text": "Un fait."}]))
