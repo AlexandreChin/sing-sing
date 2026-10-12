@@ -156,10 +156,10 @@ def _tired_question_errors(label: str, text: str) -> list[str]:
 # Slide 1 clamps the hook to four lines at 85px: a 67-character hook rendered
 # whole, an 89-character one lost its last word to an ellipsis.
 _HOOK_MAX_CHARS = 68
-# Slide 1's promise under the hook: two lines at 35px, in a fixed shape.
-_SUBTITLE_MAX_CHARS = 110
-_SUBTITLE_SHAPE = re.compile(
-    r"^Les 3 idées clés pour comprendre .+, et les réflexes pour en juger soi-même\.?$")
+# Slide 1's promise under the hook: « Comprendre … » on one line at 46px; the
+# template adds « En juger soi-même. » on the next.
+_SUBTITLE_MAX_CHARS = 38
+_SUBTITLE_SHAPE = re.compile(r"^Comprendre [^.?!]+\.$")
 # Slide titles (repères, moments, socle) hold two lines at 60px: « Devant le lycée, les contrôles
 # du quartier se rejouent » (54) fits, a three-line title pushed slide 5 out of frame.
 _TITLE_MAX_CHARS = 54
@@ -263,8 +263,8 @@ def _coherence_errors(pres, d) -> list[str]:
             f"display.reperes_headline is {len(reperes)} characters (max {_TITLE_MAX_CHARS}) — "
             f"the slide 3 title holds two lines"
         )
-    # Slide 1's promise: Sing Sing's value in one sentence, in a fixed shape whose
-    # middle picks up what the hook opens. Two lines under the title.
+    # Slide 1's promise, first half: « Comprendre … », picking up what the hook
+    # opens. One line; the template adds « En juger soi-même. »
     subtitle = _plain(pres.hook.subtitle)
     if not subtitle:
         errors.append("hook.subtitle is empty — slide 1 states the deck's promise under the hook")
@@ -272,12 +272,12 @@ def _coherence_errors(pres, d) -> list[str]:
         if len(subtitle) > _SUBTITLE_MAX_CHARS:
             errors.append(
                 f"hook.subtitle is {len(subtitle)} characters (max {_SUBTITLE_MAX_CHARS}) — it holds "
-                f"two lines under the title"
+                f"one line under the title"
             )
         if not _SUBTITLE_SHAPE.match(subtitle):
             errors.append(
-                "hook.subtitle must read « Les 3 idées clés pour comprendre …, et les réflexes pour "
-                "en juger soi-même. », its middle picking up what the hook opens"
+                "hook.subtitle must be one sentence « Comprendre …. » picking up what the hook "
+                "opens (« Comprendre d'où elle vient. ») — the slide adds « En juger soi-même. »"
             )
     if norm_for_match(_plain(d.root_issue)).startswith(("l'enjeu de fond", "enjeu de fond")):
         errors.append(

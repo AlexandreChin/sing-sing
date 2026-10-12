@@ -95,8 +95,8 @@ samples/outputs/<stem>/
 
 **Slide 1 (hook) — source, title, promise:** top to bottom, a gold source pill
 (medium · length · source · date, from `pill_parts()`; ▶ for podcast/video), the
-hook title (`sub_topic`), the promise (`hook.subtitle`: « Les 3 idées clés pour
-comprendre …, et les réflexes pour en juger soi-même. »), then « Glissez → ».
+hook title (`sub_topic`), the promise — `hook.subtitle` (« Comprendre … ») with
+« En juger soi-même. » added by the template in gold — then « Glissez → ».
 Two image modes, both picked up at `render` time — no schema field, no API rerun:
 - **Full-bleed photo:** a `background.png|jpg|webp` beside the analysis
   (`samples/.../<stem>/`) fills the slide under a black band (the logo stays on
