@@ -417,8 +417,14 @@ body {
 .ctx strong { color: #d4aa00; font-weight: 700; }
 .sep2 { width: 120px; height: 3px; background: #d4aa00; margin: 32px 0 36px; }
 .tools { display: flex; flex-direction: column; gap: 32px; }
-.tool { display: grid; grid-template-columns: 100px 1fr; align-items: baseline; }
+.tool { display: grid; grid-template-columns: 124px 1fr; align-items: center; }
 .tool .n { font-size: 54px; font-weight: 900; color: #d4aa00; line-height: 1; font-variant-numeric: tabular-nums; }
+/* the lens icon is the réflexe's signature: the moment that applies it wears the same */
+.tool .ic { position: relative; width: 96px; height: 96px; border: 2px solid #d4aa00; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; }
+.tool .ic svg { width: 50px; height: 50px; stroke: #d4aa00; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tool .ic b { position: absolute; right: -8px; bottom: -8px; background: #d4aa00; color: #0a0a0a;
+  font-size: 22px; font-weight: 900; border-radius: 999px; padding: 3px 9px; line-height: 1; }
 .tool .name { font-size: 42px; font-weight: 800; color: #f0f0f0; line-height: 1.15; }
 .tool .q { font-size: 35px; color: #cfcfcf; line-height: 1.25; margin-top: 8px; text-wrap: balance; }
 .link { font-size: 30px; color: #f0f0f0; margin-bottom: 34px; }
@@ -444,7 +450,7 @@ body {
     
     <div class="sep2"></div>
     <div class="tools">
-      <div class="tool"><span class="n">01</span><div><div class="name">Sources</div><p class="q">Un mécanisme décrit : comment en mesurer l&#39;effet ?</p></div></div><div class="tool"><span class="n">02</span><div><div class="name">Causalité</div><p class="q">Du quartier au lycée : qu&#39;est‑ce qui relie les deux ?</p></div></div><div class="tool"><span class="n">03</span><div><div class="name">Équilibre</div><p class="q">Une demande attribuée aux jeunes : d&#39;où vient-elle ?</p></div></div>
+      <div class="tool"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="21" y1="21" x2="15.8" y2="15.8"/></svg><b>01</b></span><div><div class="name">Sources</div><p class="q">Un mécanisme décrit : comment en mesurer l&#39;effet ?</p></div></div><div class="tool"><span class="ic"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><b>02</b></span><div><div class="name">Causalité</div><p class="q">Du quartier au lycée : qu&#39;est‑ce qui relie les deux ?</p></div></div><div class="tool"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M4 21h16"/><path d="M5 7h14"/><path d="M5 7l-3 6h6z"/><path d="M19 7l-3 6h6z"/></svg><b>03</b></span><div><div class="name">Équilibre</div><p class="q">Une demande attribuée aux jeunes : d&#39;où vient-elle ?</p></div></div>
     </div>
   </div>
   <p class="link">Lien vers l&#39;épisode en commentaires ↓</p>
