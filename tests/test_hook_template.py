@@ -7,7 +7,7 @@ TPL = "article_carousel_optimized_v0/01_hook.html"
 def _render(**over):
     ctx = dict(
         slide_n=1, slide_total=10, progress=10, logo="", L=medium_labels("article"),
-        meta_parts=["Le Monde", "2026", "Tribune", "20 min de lecture"],
+        pill=["Article", "20 min", "Le Monde", "3 mars 2026"],
         sub_topic="Un **mot** en gras", rubrique="Tech",
         glyph=CATEGORY_ICONS["Tech"], art_svg='<line x1="0" y1="0" x2="10" y2="10"/>',
     )
@@ -21,10 +21,11 @@ def test_hook_renders_layers_rubrique_and_headline():
     assert '<div class="giant">' in html
     assert '<div class="rubrique-tab">' in html
     assert "Tech" in html
-    assert '<div class="meta-line">' in html and "Le Monde" in html  # metadata line, not the source title
+    assert 'class="src-pill"' in html and "Le Monde" in html  # source pill, not the source title
     assert "Titre de l" not in html                # the source's own title lives in the capture
-    assert "Sélection" in html                     # label above the image, .kicker like On décrypte
-    assert "On décrypte" in html                   # brand-voice kicker under the capture
+    # one framing only: the old labels competed with the promise
+    body = html.split("<body>")[-1]
+    assert "Sélection" not in body and "On décrypte" not in body
     assert "<strong>mot</strong>" in html          # md_bold applied
     assert 'class="cat-pill"' not in html          # old pill element no longer rendered
     assert 'x1="0" y1="0" x2="10" y2="10"' in html  # art_svg injected
@@ -70,3 +71,26 @@ def test_essentiel_prefers_bullets_and_falls_back_to_prose():
 
     prose = tpl.render(essentiel=[], essentiel_summary="Le resume en prose", **ctx)
     assert 'class="pts"' not in prose and "Le resume en prose" in prose
+
+
+def test_pill_order_and_play_icon_for_audio():
+    html = _render(pill=["Podcast", "40 min", "France Culture", "1 oct. 2026"])
+    text = html.replace("\u202f", " ").replace("\u00a0", " ")
+    i = [text.index(x) for x in ("Podcast", "40 min", "France Culture", "1 oct. 2026")]
+    assert i == sorted(i)                                  # medium · length · source · date
+    assert 'M7 4.5v15l12-7.5z' in html                     # ▶ for something you listen to
+    assert 'M7 4.5v15l12-7.5z' not in _render()            # not for an article
+
+
+def test_subtitle_renders_under_the_title():
+    html = _render(subtitle="Les **3 idées clés** pour comprendre, et les **réflexes** pour en juger soi-même.")
+    assert 'class="subtitle"' in html and "<strong>3 idées clés</strong>" in html
+    assert html.index('class="cover-head"') < html.index('class="subtitle"')
+    assert 'class="subtitle"' not in _render()             # old decks: the title alone
+
+
+def test_background_photo_takes_the_whole_slide():
+    html = _render(background="data:image/png;base64,BBB", thumb="data:image/png;base64,AAA")
+    assert 'class="slide bleed"' in html and "BBB" in html
+    assert '<div class="shot">' not in html                # the photo replaces the card
+    assert '<div class="artbg">' not in html

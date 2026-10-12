@@ -11,8 +11,8 @@ from pathlib import Path
 from agent.lenses import CANONICAL_LENSES
 from models.instagram_carousel_presentation import InstagramCarouselDocument
 from ._shared import (
-    _env, _LOGO_DATA_URL, _LOGO_TIGHT_DATA_URL, inner_quotes,
-    source_type_label, duration_label, cover_layers, cover_thumb, cover_dims,
+    _env, _LOGO_DATA_URL, inner_quotes,
+    cover_layers, cover_thumb, cover_dims, background_image, pill_parts,
     hook_metrics, medium_labels,
 )
 
@@ -37,14 +37,9 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     full, pres = doc.analysis, doc.presentation
     meta, disp = full.article_metadata, pres.display
 
-    # Slide 1 shows only what the source capture cannot: the article's own title
-    # and chapô are inside the image, so the metadata line carries the rest.
-    meta_parts = [x for x in [
-        meta.source,
-        meta.published_at,
-        source_type_label(meta),
-        duration_label(meta, short=True),
-    ] if x]
+    # Slide 1's source pill: medium · length · source · date. The source's own
+    # title stays inside the capture (card) or is left out (full-bleed photo).
+    pill = pill_parts(meta)
 
     d = disp
     contexts = full.context.contexts[:1]
@@ -85,10 +80,13 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     # Act 2 "Avant de lire" is a single merged slide: context + the lenses shown
     # as réflexes (the standalone lens slide was folded into 03_reperes).
     specs = [
-        ("hook", "01_hook", {"meta_parts": meta_parts,
+        ("hook", "01_hook", {"pill": pill,
                                 "topic": pres.hook.topic, "sub_topic": pres.hook.sub_topic,
-                                "kicker_logo": _LOGO_TIGHT_DATA_URL,
-                                # out_dir is <base>/<format>/html — the capture sits in <base>
+                                "subtitle": pres.hook.subtitle,
+                                # out_dir is <base>/<format>/html — the images sit in <base>.
+                                # A `background.*` photo takes the whole slide; otherwise
+                                # the capture renders as a card with the pill pinned to it.
+                                "background": background_image(_base),
                                 "thumb": cover_thumb(_base), **hook_metrics(cover_dims(_base), hook_head),
                                 "headline": pres.hook.headline, **cover_layers(meta, pres.hook.headline)}),
         # Slide 2 — L'essentiel: the 3 `essentiel` claims, numbered. The prose
