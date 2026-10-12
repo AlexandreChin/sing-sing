@@ -129,9 +129,6 @@ class KeyTakeaway(BaseModel):
 class SteelMan(BaseModel):
     argument: str      # ≤18 words — the strongest objection to the article's thesis
     alternative: str   # ≤14 words — the conclusion that follows if it holds
-    # Which présupposé (1-based, slide 7 order) the objection weakens: slide 7
-    # draws the présupposés as pillars and cracks this one. 0 = none named.
-    targets: int = 0
 
 
 class ThesisFrame(BaseModel):

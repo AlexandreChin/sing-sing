@@ -563,12 +563,6 @@ def _lens_layer_errors(d) -> list[str]:
             errors.append("display.steel_man.argument is empty")
         if not sm.alternative.strip():
             errors.append("display.steel_man.alternative is empty")
-        # slide 7 cracks the pillar the objection weakens: it must be one the slide shows
-        if not 0 <= sm.targets <= n_selected:
-            errors.append(
-                f"display.steel_man.targets is {sm.targets} — the présupposé (1–{n_selected}) the "
-                f"objection weakens, or 0"
-            )
     # A pictogram draws one real ratio as people: at most one per deck, never on a
     # beat that already has the figure slot, counts that fit a row, a sourced caption.
     pictos = [(i, b) for i, b in enumerate(beats) if b.selected and b.pictogram]

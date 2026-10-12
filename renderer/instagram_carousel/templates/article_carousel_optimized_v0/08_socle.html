@@ -5,9 +5,8 @@
 <style>
 {% include 'base.css' %}
 /* « Le socle de l'argument » drawn as what it is: the thesis as a roof, the
-   présupposés it rests on as pillars over a base, and the objection as a crack
-   through the pillar it weakens (`target`, 1-based; 0 = no crack). The reader
-   sees the argument's structure, and where it is attacked, before reading. */
+   présupposés it rests on as pillars over a base, the objection below. The
+   reader sees the argument's structure before reading it. */
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; }
 .stage > .kick { margin-bottom: 26px; }
 .lbl { display: block; font-size: 22px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #d4aa00; margin-bottom: 8px; }
@@ -18,9 +17,6 @@
 .pillar { position: relative; background: #161616; border-radius: 10px 10px 0 0; padding: 22px 18px 26px;
   min-height: 300px; font-size: 30px; line-height: 1.3; color: #e6e6e6; }
 .pillar .n { display: block; font-size: 34px; font-weight: 900; color: #d4aa00; margin-bottom: 10px; }
-.pillar.cracked { padding-right: 52px; }
-.pillar .crack { position: absolute; right: 8px; top: 0; width: 34px; height: 100%; }
-.pillar .crack path { fill: none; stroke: #d4aa00; stroke-width: 3; }
 .base { height: 18px; background: #d4aa00; border-radius: 4px; margin: 0 6px; position: relative; }
 .base span { position: absolute; left: 0; right: 0; top: 26px; display: flex; gap: 10px; justify-content: center; align-items: center;
   font-size: 24px; font-weight: 700; color: #9a9a9a; letter-spacing: .06em; }
@@ -40,11 +36,10 @@
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.hierarchy | safe }}</svg>Le socle de l'argument</span>
     <div class="roof"><span class="lbl">La thèse</span>{{ headline | md_bold }}</div>
     {% if pillars %}<div class="pillars" style="grid-template-columns: repeat({{ pillars | length }}, 1fr);">
-      {% for clause in pillars %}<div class="pillar{{ ' cracked' if loop.index == target else '' }}"><span class="n">{{ '%02d'|format(loop.index) }}</span>{{ clause | md_bold }}{% if loop.index == target %}
-        <svg class="crack" viewBox="0 0 40 300" preserveAspectRatio="none"><path d="M22 0 L12 60 L26 110 L10 170 L24 230 L14 300"/></svg>{% endif %}</div>{% endfor %}
+      {% for clause in pillars %}<div class="pillar"><span class="n">{{ '%02d'|format(loop.index) }}</span>{{ clause | md_bold }}</div>{% endfor %}
     </div>
     <div class="base">{% if pres and pres[0].label %}<span><svg viewBox="0 0 24 24">{{ ICONS[pres[0].icon] | safe }}</svg>{{ pres[0].label }}</span>{% endif %}</div>{% endif %}
-    {% if obj %}<div class="objection"><span class="lbl">{{ obj.label }}{% if target and target <= pillars | length %} · vise le pilier {{ '%02d'|format(target) }}{% endif %}</span>{% for clause in obj.clauses %}{{ clause | md_bold }}{% endfor %}</div>{% endif %}
+    {% if obj %}<div class="objection"><span class="lbl">{{ obj.label }}</span>{% for clause in obj.clauses %}{{ clause | md_bold }}{% endfor %}</div>{% endif %}
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Avant de trancher &#8250;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
