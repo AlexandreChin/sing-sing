@@ -130,3 +130,11 @@ def test_each_slide_marks_one_perch_for_the_bird():
         html = _render(name, bird="data:image/png;base64,B", **ctx).split("<body>")[-1]
         assert html.count("data-perch") == 1, name
         assert html.count('class="perch"') == 1, name
+
+
+def test_cta_closes_on_the_slide1_photo_when_there_is_one():
+    with_photo = _render("10_cta.html", background="data:image/png;base64,BG").split("<body>")[-1]
+    assert 'class="book"' in with_photo and "BG" in with_photo
+    assert 'class="artbg"' not in with_photo
+    plain = _render("10_cta.html").split("<body>")[-1]
+    assert 'class="book"' not in plain and 'class="artbg"' in plain
