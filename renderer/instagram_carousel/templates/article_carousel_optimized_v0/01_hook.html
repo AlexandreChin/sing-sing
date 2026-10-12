@@ -41,15 +41,16 @@
 .shade { position: absolute; inset: 0; z-index: -2;
   background: linear-gradient(to bottom, #000 0, #000 190px, rgba(0,0,0,.35) 270px,
               rgba(0,0,0,.1) 32%, rgba(0,0,0,.88) 47%, #000 55%); }
-/* On the full-bleed slide, the photo's caption at its bottom-left: « Source —
-   its own title », the source's name in bold attributing the title (so it reads
-   as THEIR title, not our subtitle), upright and regular so it never competes
-   with our headline; then the pill, which then drops the source it would repeat.
+/* On the full-bleed slide, the photo's caption at its bottom-left: a gold label
+   naming the medium (« L'épisode »), the source's own title, upright and regular
+   so it never competes with our headline, then the pill. The label is what makes
+   it read as THEIR title, not our subtitle.
    (On the card slide the title is inside the capture and the pill stays above it.) */
 .src-block { position: absolute; left: 90px; bottom: 710px; right: 90px; display: flex; flex-direction: column;
   align-items: flex-start; gap: 16px; }
-.src-title b { font-weight: 800; }
-.src-title { max-width: 900px; font-size: 38px; font-weight: 400; line-height: 1.2; color: #fff; text-wrap: balance;
+.src-label { font-size: 22px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00;
+  text-shadow: 0 2px 6px rgba(0,0,0,.9); margin-bottom: -8px; }
+.src-title { max-width: 900px; font-size: 38px; font-weight: 400; line-height: 1.2; color: #fff;
   text-shadow: 0 2px 4px rgba(0,0,0,.9), 0 0 24px rgba(0,0,0,.85);
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .slide.bleed .cover-head { margin-top: auto; }
@@ -65,7 +66,6 @@
 </head>
 <body>
 {% set play %}<svg viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></svg>{% endset %}
-{% if background and source_title and source_name %}{% set pill = pill | reject("equalto", source_name) | list %}{% endif %}
 {% set pill_html %}{% if pill %}<span class="src-pill">{% if pill[0] in ('Podcast', 'Vidéo') %}{{ play | safe }}{% endif %}{% for part in pill %}{% if not loop.first %}<span class="sep">·</span>{% endif %}{{ part | fr }}{% endfor %}</span>{% endif %}{% endset %}
 <div class="slide{{ ' bleed' if background else '' }}" style="justify-content: flex-start; text-align: left; padding-top: 150px;{{ ' background: #000;' if background else '' }}">
   {% if background %}
@@ -77,7 +77,7 @@
   {% include '_brand.html' %}
   {% if rubrique %}<div class="rubrique-tab"><svg viewBox="0 0 24 24">{{ glyph | safe }}</svg>{{ rubrique }}</div>{% endif %}
 
-  {% if background %}<div class="src-block">{% if source_title %}<p class="src-title">{% if source_name %}<b>{{ source_name }}</b> — {% endif %}{{ source_title | fr }}</p>{% endif %}{{ pill_html }}</div>
+  {% if background %}<div class="src-block">{% if source_title %}<span class="src-label">{{ L.source_noun }}</span><p class="src-title">{{ source_title | fr }}</p>{% endif %}{{ pill_html }}</div>
   {% else %}{{ pill_html }}{% endif %}
   {% if thumb and not background %}<div class="shot"><img src="{{ thumb }}" alt=""{% if slot_max %} style="max-height: {{ slot_max }}px"{% endif %}><div class="edge"></div></div>{% endif %}
 
