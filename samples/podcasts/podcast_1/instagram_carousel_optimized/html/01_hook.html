@@ -420,7 +420,7 @@ body {
 .giant svg circle { fill: none; }
 /* — Slide 1 says, at a glance, what the source is and what the deck gives.
    The source is named by a pill (medium · length · source · date); the deck's
-   promise is the title + the subtitle. No other label: the old « Sélection »,
+   promise is the title + « Comprendre … » + « En juger soi-même. » No other label: the old « Sélection »,
    « On décrypte » and the act tracker made four framings compete. — */
 .src-pill { align-self: flex-start; display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; max-width: 900px;
   background: #d4aa00; color: #0a0a0a; font-size: 26px; font-weight: 800; letter-spacing: .01em;
@@ -449,8 +449,9 @@ body {
 /* — The title, then the promise that continues it. — */
 .cover-head { font-size: 85px; font-weight: 900; line-height: 1.06; letter-spacing: -0.02em; color: #f0f0f0; max-width: 900px; margin-top: 44px; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .cover-head strong { color: #d4aa00; font-weight: 900; }
-.subtitle { font-size: 35px; line-height: 1.38; color: #d6d6d6; margin-top: 26px; max-width: 900px; text-wrap: pretty; }
-.subtitle strong { color: #f0f0f0; font-weight: 700; }
+.subtitle { font-size: 46px; line-height: 1.25; color: #e6e6e6; margin-top: 30px; max-width: 900px; }
+/* the second half of the promise is Sing Sing's, the same on every deck */
+.subtitle .judge { color: #d4aa00; font-weight: 800; }
 .swipe { margin-top: auto; padding-top: 24px; margin-bottom: 40px; font-size: 30px; font-weight: 700; color: #d4aa00; text-align: right; }
 .slide.bleed .swipe { margin-top: 40px; }
 </style>
@@ -471,7 +472,7 @@ body {
 
   
   <h1 class="cover-head" style="font-size: 80px">Derrière les poubelles brûlées, une <strong>colère</strong> qui vient de loin</h1>
-  <p class="subtitle">Les <strong>3 idées clés</strong> pour comprendre d&#39;où elle vient, et les <strong>réflexes</strong> pour en juger soi-même.</p>
+  <p class="subtitle">Comprendre d&#39;où elle vient.<br><span class="judge">En juger soi-même.</span></p>
 
   <div class="swipe">Glissez &#8594;</div>
   <div class="slide-num">1 / 9</div>
