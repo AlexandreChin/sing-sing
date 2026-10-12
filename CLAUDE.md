@@ -101,7 +101,8 @@ Two image modes, both picked up at `render` time — no schema field, no API rer
 - **Full-bleed photo:** a `background.png|jpg|webp` beside the analysis
   (`samples/.../<stem>/`) fills the slide under a black band (the logo stays on
   dark) and fades to black behind the text. Opt-in by file: crop a real photo,
-  never a text-only capture.
+  never a text-only capture. The same photo returns on the last slide, fading
+  behind the sign-off, so the deck opens and closes on it.
 - **Card:** otherwise a `cover.*` (preferred) or `image.*` capture renders as a
   card under the pill, keeping its aspect ratio (`cover_thumb()`, `hook_metrics()`).
 With neither, the pill and the title stand alone. The source's own title shows under the pill on the full-bleed slide only (the capture carries it otherwise).

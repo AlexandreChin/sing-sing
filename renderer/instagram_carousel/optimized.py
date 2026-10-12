@@ -172,7 +172,9 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
             "question": pres.cta.engagement_sentence,
             "root_issue": d.root_issue,
         }))
-    specs.append(("cta", "10_cta", cover_layers(meta, pres.hook.headline)))
+    # the slide-1 photo returns on the last slide: the deck opens and closes on it
+    specs.append(("cta", "10_cta", {**cover_layers(meta, pres.hook.headline),
+                                    "background": background_image(_base)}))
 
     env = _env()
     theme = {}  # backgrounds stay black; category identity lives only in the hook pill/glyph
