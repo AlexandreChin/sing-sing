@@ -99,14 +99,11 @@ def test_background_photo_takes_the_whole_slide():
 
 
 def test_source_title_under_the_pill_on_the_full_bleed_slide_only():
-    bleed = _render(background="data:image/png;base64,B", source_title="Blocus des lycées",
-                    source_name="Le Monde")
+    bleed = _render(background="data:image/png;base64,B", source_title="Blocus des lycées")
     assert 'class="src-title"' in bleed and "Blocus des lycées" in bleed
     body = bleed.split("<body>")[-1]
     assert body.index('class="src-title"') < body.index('class="src-pill"')   # title, then the pill
     assert "« Blocus" not in body                                              # no quotes
-    assert "<b>Le Monde</b> — Blocus des lycées" in body                       # « Source — title »
-    pill = body.split('class="src-pill"')[1].split("</span></div>")[0]
-    assert "Le Monde" not in pill                                              # not repeated in the pill
+    assert body.index("L&#39;article") < body.index('class="src-title"')      # the label attributes it
     card = _render(thumb="data:image/png;base64,A", source_title="Blocus des lycées")
     assert 'class="src-title"' not in card            # the capture already shows it
