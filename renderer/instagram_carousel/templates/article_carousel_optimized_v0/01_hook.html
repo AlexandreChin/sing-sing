@@ -41,15 +41,13 @@
 .shade { position: absolute; inset: 0; z-index: -2;
   background: linear-gradient(to bottom, #000 0, #000 190px, rgba(0,0,0,.35) 270px,
               rgba(0,0,0,.1) 32%, rgba(0,0,0,.88) 47%, #000 55%); }
-/* On the full-bleed slide, the photo's caption: the source's own title, then
-   the pill, stacked at the photo's bottom-left — two labels of one family, same
-   shape, size and padding; the title dark and italic, the pill gold. (On the
-   card slide the title is inside the capture and the pill stays above it.) */
+/* On the full-bleed slide, the photo's caption at its bottom-left: the source's
+   own title, set larger, in italic, straight on the photo; then the pill.
+   (On the card slide the title is inside the capture and the pill stays above it.) */
 .src-block { position: absolute; left: 90px; bottom: 710px; right: 90px; display: flex; flex-direction: column;
-  align-items: flex-start; gap: 10px; }
-.slide.bleed .src-pill, .src-title { border-radius: 20px; padding: 12px 22px; font-size: 26px; line-height: 1.3; }
-.src-title { max-width: 900px; font-style: italic; font-weight: 600; color: #f0f0f0; background: rgba(0,0,0,.72);
-  box-shadow: 0 8px 22px rgba(0,0,0,.55);
+  align-items: flex-start; gap: 16px; }
+.src-title { max-width: 900px; font-size: 38px; font-style: italic; font-weight: 700; line-height: 1.2; color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,.9), 0 0 24px rgba(0,0,0,.85);
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .slide.bleed .cover-head { margin-top: auto; }
 /* — The title, then the promise that continues it. — */
