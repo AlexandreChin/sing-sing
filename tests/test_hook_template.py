@@ -66,6 +66,7 @@ def test_essentiel_prefers_bullets_and_falls_back_to_prose():
     bullets = tpl.render(essentiel=["Premier point", "Deuxième point"],
                          essentiel_summary="Le resume en prose", **ctx)
     assert 'class="pts"' in bullets and "Premier point" in bullets
+    assert "2 idées clés" in bullets                              # card label counts the claims
     assert "01" in bullets and "02" in bullets
     assert "Le resume en prose" not in bullets
 
