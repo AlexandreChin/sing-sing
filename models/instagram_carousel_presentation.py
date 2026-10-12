@@ -66,6 +66,18 @@ class Lens(BaseModel):
     question: str  # the always-ask question, ≤12 words
 
 
+class Pictogram(BaseModel):
+    """A ratio drawn as people: `reference_count` grey figures against
+    `subject_count` gold ones — « 1 » for the rest of the population, « 20 » for
+    the group twenty times more often stopped. Only a real ratio or count from the
+    analysis, never one built to obtain the layout."""
+    reference_label: str   # e.g. "Reste de la population"
+    reference_count: int   # 1–30
+    subject_label: str     # e.g. "Jeune homme perçu noir ou arabe"
+    subject_count: int     # 1–30
+    caption: str           # what is counted + the source, e.g. "Risque d'être contrôlé · Défenseur des droits, 2017"
+
+
 class ReadingBeat(BaseModel):
     moment: str    # ≤10 words — where we are in the article (reading order)
     quote: str     # verbatim anchor from the article
@@ -82,6 +94,9 @@ class ReadingBeat(BaseModel):
     figure: str = ""          # the headline number, e.g. "4 400 %"
     figure_label: str = ""    # one line: what it measures, e.g. "de voyageurs polaires en 20 ans"
     figure_caption: str = ""  # optional reveal, e.g. "230 en 2004 → 10 000 en 2024"
+    # a ratio drawn as people under the answer (optional, at most one per deck,
+    # never with `figure`); the answer then leaves the figure to the image
+    pictogram: Pictogram | None = None
     factcheck: str = ""  # confidence_label of the matching claim (or "" if not a checkable fact)
     # candidate-pool fields (for manual cherry-picking; not rendered except `selected`)
     selected: bool = True   # render this beat as a moment slide (default True → old extracts keep working)
@@ -114,6 +129,9 @@ class KeyTakeaway(BaseModel):
 class SteelMan(BaseModel):
     argument: str      # ≤18 words — the strongest objection to the article's thesis
     alternative: str   # ≤14 words — the conclusion that follows if it holds
+    # Which présupposé (1-based, slide 7 order) the objection weakens: slide 7
+    # draws the présupposés as pillars and cracks this one. 0 = none named.
+    targets: int = 0
 
 
 class ThesisFrame(BaseModel):

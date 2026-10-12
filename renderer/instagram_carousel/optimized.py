@@ -98,7 +98,8 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
                                                      if p.strip()), "")}),
         ("reperes", "03_reperes", {
             "context": d.reperes_context or (contexts[0].text if contexts else ""),
-            "lenses": [{"n": l["n"], "name": l["name"], "question": l["question"]} for l in display_lenses],
+            "lenses": [{"n": l["n"], "name": l["name"], "question": l["question"],
+                        "icon_svg": l.get("icon_svg", "")} for l in display_lenses],
         }),
     ]
 
@@ -118,7 +119,8 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         # The template wraps the quote in « » itself — strip any the source JSON
         # carries so they don't render doubled, and turn an inner pair into “ ”.
         beat = {"moment": b.moment,
-                "quote": inner_quotes(b.quote.strip().strip("«»").strip()), **common}
+                "quote": inner_quotes(b.quote.strip().strip("«»").strip()), **common,
+                "pictogram": b.pictogram.model_dump() if b.pictogram else None}
         if b.figure and not number_done:
             # The hero slot — at most one per deck, so the beats never all look
             # alike. A term swap sets smaller than a count and splits on its
@@ -157,8 +159,10 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         if d.steel_man and d.steel_man.argument.strip():
             recap_items.append({"label": "L'objection la plus solide",
                                 "clauses": [d.steel_man.argument], "icon": "shield"})
+        # slide 7 draws the présupposés as pillars; the objection cracks the one it targets
         specs.append(("socle", "08_socle",
-                      {"headline": ga.headline, "recap_items": recap_items}))
+                      {"headline": ga.headline, "recap_items": recap_items,
+                       "target": d.steel_man.targets if d.steel_man else 0}))
 
     # Slide 9 — Prise de recul: the deep stake + the strongest objection
     # (the closing question moved to slide 8's "La question").

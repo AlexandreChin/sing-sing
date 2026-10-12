@@ -23,6 +23,22 @@
 .reveal { display: flex; gap: 18px; align-items: flex-start; }
 .reveal .arw { flex: none; font-size: 46px; line-height: 1.15; color: #d4aa00; font-weight: 900; }
 .reveal .rev { font-size: 38px; line-height: 1.42; color: #cfcfcf; text-align: justify; hyphens: auto; }
+/* — The réflexe's icon, as on slide 3: in a gold disc before the label, and
+   very large and faint behind the slide in place of its number. — */
+.kick .disc { width: 54px; height: 54px; border-radius: 50%; background: #d4aa00; display: inline-flex;
+  align-items: center; justify-content: center; flex: none; }
+.kick .disc svg { width: 32px; height: 32px; stroke: #0a0a0a; stroke-width: 2.4; }
+.bigmark { position: absolute; right: -120px; bottom: -110px; width: 620px; height: 620px; z-index: -1; opacity: .06; }
+.bigmark svg { width: 100%; height: 100%; stroke: #d4aa00; fill: none; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+/* — Pictogram: a ratio drawn as people, grey for the reference, gold for the
+   group the answer is about. Under the answer; the answer leaves it the figure. — */
+.picto { display: flex; flex-direction: column; gap: 18px; }
+.picto .who { font-size: 26px; font-weight: 700; color: #bdbdbd; margin-bottom: 8px; }
+.picto .ppl { display: flex; flex-wrap: wrap; gap: 8px; }
+.picto .ppl svg { width: 30px; height: 60px; }
+.picto .gold svg { fill: #d4aa00; }
+.picto .muted svg { fill: #7a7a7a; }
+.picto .src { font-size: 22px; color: #8a8a8a; }
 .reveal .rev strong { color: #d4aa00; font-weight: 700; }
 /* — Hero slot: what the beat turns on, when it is one short object the reader can
    hold in mind — a count, a date, a term swap. A count keeps its label (it says
@@ -37,11 +53,12 @@
 </head>
 <body>
 <div class="slide" style="justify-content: flex-start;">
-  <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
+  {% if lens_icon_svg %}<div class="bigmark"><svg viewBox="0 0 24 24">{{ lens_icon_svg | safe }}</svg></div>
+  {% else %}<div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>{% endif %}
   {% include '_brand.html' %}
   {% include '_tracker.html' %}
   <div class="stage">
-    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>{% if lens_n %}Réflexe {{ '%02d'|format(lens_n) }} &middot; {% endif %}{{ lens_name or L.during }}</span>
+    <span class="kick">{% if lens_icon_svg %}<span class="disc"><svg viewBox="0 0 24 24">{{ lens_icon_svg | safe }}</svg></span>{% else %}<svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>{% endif %}{% if lens_n %}Réflexe {{ '%02d'|format(lens_n) }} &middot; {% endif %}{{ lens_name or L.during }}</span>
     <h1 class="head">{{ moment | md_bold }}</h1>
     <div class="divider"></div>
     {% if figure %}<div>
@@ -52,6 +69,12 @@
     {% if quote %}<div class="evidence"><p class="ev-quote">«&#160;{{ quote | fr }}&#160;»</p></div>{% endif %}
     <p class="watch"><svg viewBox="0 0 24 24">{% if lens_icon_svg %}{{ lens_icon_svg | safe }}{% else %}{{ ICONS.lightbulb | safe }}{% endif %}</svg><span class="wtxt">{{ lens_question | fr }}</span></p>
     {% if answer %}<div class="reveal"><span class="arw">&#8594;</span><p class="rev">{{ answer | md_bold }}</p></div>{% endif %}
+    {% if pictogram %}{% set person %}<svg viewBox="0 0 20 40"><circle cx="10" cy="7" r="6"/><path d="M2 40V22a8 8 0 0 1 16 0v18z"/></svg>{% endset %}
+    <div class="picto">
+      <div><div class="who">{{ pictogram.reference_label | fr }}</div><div class="ppl muted">{% for _ in range(pictogram.reference_count) %}{{ person | safe }}{% endfor %}</div></div>
+      <div><div class="who">{{ pictogram.subject_label | fr }}</div><div class="ppl gold">{% for _ in range(pictogram.subject_count) %}{{ person | safe }}{% endfor %}</div></div>
+      <div class="src">{{ pictogram.caption | fr }}</div>
+    </div>{% endif %}
   </div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>

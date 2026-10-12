@@ -14,8 +14,14 @@
 .ctx strong { color: #d4aa00; font-weight: 700; }
 .sep2 { width: 120px; height: 3px; background: #d4aa00; margin: 32px 0 36px; }
 .tools { display: flex; flex-direction: column; gap: 32px; }
-.tool { display: grid; grid-template-columns: 100px 1fr; align-items: baseline; }
+.tool { display: grid; grid-template-columns: 124px 1fr; align-items: center; }
 .tool .n { font-size: 54px; font-weight: 900; color: #d4aa00; line-height: 1; font-variant-numeric: tabular-nums; }
+/* the lens icon is the réflexe's signature: the moment that applies it wears the same */
+.tool .ic { position: relative; width: 96px; height: 96px; border: 2px solid #d4aa00; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; }
+.tool .ic svg { width: 50px; height: 50px; stroke: #d4aa00; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tool .ic b { position: absolute; right: -8px; bottom: -8px; background: #d4aa00; color: #0a0a0a;
+  font-size: 22px; font-weight: 900; border-radius: 999px; padding: 3px 9px; line-height: 1; }
 .tool .name { font-size: 42px; font-weight: 800; color: #f0f0f0; line-height: 1.15; }
 .tool .q { font-size: 35px; color: #cfcfcf; line-height: 1.25; margin-top: 8px; text-wrap: balance; }
 .link { font-size: 30px; color: #f0f0f0; margin-bottom: 34px; }
@@ -34,7 +40,7 @@
     {% if framing %}<p class="ctx">{{ framing | md_bold }}</p>{% endif %}
     {% if lenses %}<div class="sep2"></div>
     <div class="tools">
-      {% for l in lenses %}<div class="tool"><span class="n">{{ '%02d'|format(l.n) }}</span><div><div class="name">{{ l.name }}</div><p class="q">{{ l.question | replace("est-ce", "est‑ce") | fr }}</p></div></div>{% endfor %}
+      {% for l in lenses %}<div class="tool">{% if l.icon_svg %}<span class="ic"><svg viewBox="0 0 24 24">{{ l.icon_svg | safe }}</svg><b>{{ '%02d'|format(l.n) }}</b></span>{% else %}<span class="n">{{ '%02d'|format(l.n) }}</span>{% endif %}<div><div class="name">{{ l.name }}</div><p class="q">{{ l.question | replace("est-ce", "est‑ce") | fr }}</p></div></div>{% endfor %}
     </div>{% endif %}
   </div>
   <p class="link">{{ L.link_ref }}</p>

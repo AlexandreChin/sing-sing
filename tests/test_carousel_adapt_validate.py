@@ -181,3 +181,25 @@ def test_quote_holds_three_lines():
     beats = [ReadingBeat(moment="A", quote=long, lens_ref="chiffres", note="n", answer="**r**", role="preuve",
                          lens_question="Ce pourcentage : quelle base ?")] + _display().reading_beats[1:]
     assert any("quote is 19 words (max 18)" in e for e in _lens_layer_errors(_display(reading_beats=beats)))
+
+
+def test_pictogram_rules():
+    from models.instagram_carousel_presentation import Pictogram, ReadingBeat
+    pg = Pictogram(reference_label="Reste", reference_count=1, subject_label="Groupe",
+                   subject_count=20, caption="Risque · Source, 2017")
+    base = _display().reading_beats
+    ok = [base[0].model_copy(update={"pictogram": pg, "answer": "**r**"})] + base[1:]
+    assert not any("pictogram" in e for e in _lens_layer_errors(_display(reading_beats=ok)))
+    two = [b.model_copy(update={"pictogram": pg}) for b in base]
+    assert any("max 1 per deck" in e for e in _lens_layer_errors(_display(reading_beats=two)))
+    big = [base[0].model_copy(update={"pictogram": pg.model_copy(update={"subject_count": 40})})] + base[1:]
+    assert any("subject_count is 40" in e for e in _lens_layer_errors(_display(reading_beats=big)))
+    both = [base[0].model_copy(update={"pictogram": pg, "figure": "×20"})] + base[1:]
+    assert any("both a figure and a pictogram" in e for e in _lens_layer_errors(_display(reading_beats=both)))
+
+
+def test_objection_targets_a_shown_presuppose():
+    sm = SteelMan(argument="a", alternative="b", targets=4)
+    assert any("steel_man.targets is 4" in e for e in _lens_layer_errors(_display(steel_man=sm)))
+    assert not any("targets" in e for e in _lens_layer_errors(
+        _display(steel_man=SteelMan(argument="a", alternative="b", targets=1))))
