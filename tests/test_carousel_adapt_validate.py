@@ -197,9 +197,3 @@ def test_pictogram_rules():
     both = [base[0].model_copy(update={"pictogram": pg, "figure": "×20"})] + base[1:]
     assert any("both a figure and a pictogram" in e for e in _lens_layer_errors(_display(reading_beats=both)))
 
-
-def test_objection_targets_a_shown_presuppose():
-    sm = SteelMan(argument="a", alternative="b", targets=4)
-    assert any("steel_man.targets is 4" in e for e in _lens_layer_errors(_display(steel_man=sm)))
-    assert not any("targets" in e for e in _lens_layer_errors(
-        _display(steel_man=SteelMan(argument="a", alternative="b", targets=1))))

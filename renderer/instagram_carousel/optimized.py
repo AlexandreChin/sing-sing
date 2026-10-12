@@ -159,10 +159,9 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
         if d.steel_man and d.steel_man.argument.strip():
             recap_items.append({"label": "L'objection la plus solide",
                                 "clauses": [d.steel_man.argument], "icon": "shield"})
-        # slide 7 draws the présupposés as pillars; the objection cracks the one it targets
+        # slide 7 draws the présupposés as pillars under the thesis
         specs.append(("socle", "08_socle",
-                      {"headline": ga.headline, "recap_items": recap_items,
-                       "target": d.steel_man.targets if d.steel_man else 0}))
+                      {"headline": ga.headline, "recap_items": recap_items}))
 
     # Slide 9 — Prise de recul: the deep stake + the strongest objection
     # (the closing question moved to slide 8's "La question").
