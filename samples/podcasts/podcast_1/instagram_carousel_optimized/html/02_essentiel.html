@@ -411,21 +411,26 @@ body {
    items, 0.32em label→body — resolved against this template's body size.
    03_reperes keeps the tighter values: it has no vertical slack left. */
 .sel-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 33px; }
-.sel-head { font-size: 64px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
+.sel-head { font-size: 64px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; margin-top: 14px; }
 /* The dispute, folded in from the old "Pourquoi cet article" slide: it sets up
    the three claims below it. */
-.lede { font-size: 43px; font-weight: 400; line-height: 1.26; color: #e8e8e8; text-wrap: pretty; }
+.lede { font-size: 36px; font-weight: 400; line-height: 1.3; color: #e8e8e8; text-wrap: pretty; text-align: left; hyphens: none; }
 .lede strong { color: #d4aa00; font-weight: 700; }
 .es-summary { font-size: 46px; font-weight: 400; line-height: 1.42; color: #e0e0e0; text-wrap: pretty; }
 .es-summary strong { color: #d4aa00; font-weight: 700; }
-/* The three `essentiel` claims, numbered: three scannable lines instead of one
-   57-word block. Hairline rules separate them — no panels, so the framed look
-   stays reserved for the source capture on slide 1. */
+/* Two cards, as on slides 3 and 8: what happened, then the three `essentiel`
+   claims, numbered — three scannable lines instead of one 57-word block. */
+.sel-stage { gap: 0 !important; }
+.card { background: #161616; border: 1px solid #2c2c2c; border-radius: 22px; padding: 26px 30px 26px; margin-top: 26px; }
+.q-head { display: flex; gap: 16px; align-items: center; margin-bottom: 14px; }
+.q-head svg { width: 36px; height: 36px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.q-label { font-size: 40px; font-weight: 900; line-height: 1.05; letter-spacing: -0.01em; color: #f0f0f0; }
 .pts { display: flex; flex-direction: column; }
-.pt { display: flex; gap: 30px; align-items: baseline; padding: 26px 0; border-top: 1px solid #232323; }
-.pt:first-child { border-top: none; padding-top: 6px; }
-.pt-n { flex: none; width: 76px; font-size: 40px; font-weight: 900; color: #d4aa00; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
-.pt-t { font-size: 44px; font-weight: 400; line-height: 1.28; color: #e8e8e8; text-wrap: pretty; }
+.pt { display: flex; gap: 22px; align-items: baseline; padding: 16px 0; border-top: 1px solid #2c2c2c; }
+.pt:first-child { border-top: none; padding-top: 2px; }
+.pt:last-child { padding-bottom: 0; }
+.pt-n { flex: none; width: 60px; font-size: 36px; font-weight: 900; color: #d4aa00; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.pt-t { font-size: 36px; font-weight: 400; line-height: 1.28; color: #e8e8e8; text-wrap: pretty; text-align: left; hyphens: none; }
 .pt-t strong { color: #d4aa00; font-weight: 700; }
 </style>
 </head>
@@ -437,10 +442,15 @@ body {
   <div class="sel-stage">
     <span class="kick"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>L&#39;essentiel de l&#39;épisode</span>
     <h1 class="sel-head">En bref</h1>
-    <div class="divider"></div>
-    <p class="lede">Près de <strong>180 lycées</strong> bloqués en une semaine ; le syndicat lycéen UNL appelle à étendre le mouvement. France Culture reçoit deux sociologues.</p>
-    <div class="pts">
-      <div class="pt"><span class="pt-n">01</span><span class="pt-t">Profs absents, locaux délabrés : les lycées les moins demandés sont servis en <strong>dernier</strong>.</span></div><div class="pt"><span class="pt-n">02</span><span class="pt-t">Devant ces mêmes lycées, la police rejoue les <strong>contrôles au faciès</strong> du quartier.</span></div><div class="pt"><span class="pt-n">03</span><span class="pt-t">La réponse attendue : l&#39;<strong>éducation</strong>, plutôt que le maintien de l&#39;ordre.</span></div>
+    <div class="card">
+      <div class="q-head"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg><span class="q-label">Ce qui se passe</span></div>
+      <p class="lede">Près de <strong>180 lycées</strong> bloqués en une semaine ; le syndicat lycéen UNL appelle à étendre le mouvement. France Culture reçoit deux sociologues.</p>
+    </div>
+    <div class="card">
+      <div class="q-head"><svg viewBox="0 0 24 24"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1.22.5 2.54 1.5 3.5.76.76 1.23 1.52 1.41 2.5"/></svg><span class="q-label">3 idées clés</span></div>
+      <div class="pts">
+        <div class="pt"><span class="pt-n">01</span><span class="pt-t">Profs absents, locaux délabrés : les lycées les moins demandés sont servis en <strong>dernier</strong>.</span></div><div class="pt"><span class="pt-n">02</span><span class="pt-t">Devant ces mêmes lycées, la police rejoue les <strong>contrôles au faciès</strong> du quartier.</span></div><div class="pt"><span class="pt-n">03</span><span class="pt-t">La réponse attendue : l&#39;<strong>éducation</strong>, plutôt que le maintien de l&#39;ordre.</span></div>
+      </div>
     </div>
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Comment bien l&#39;écouter &#8250;</span></div>
