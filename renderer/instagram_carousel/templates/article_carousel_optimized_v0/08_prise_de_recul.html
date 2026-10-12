@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <style>
 {% include 'base.css' %}
-/* Vertical rhythm: 0.75em between sibling text blocks, 0.62em between list
-   items, 0.32em label→body — resolved against this template's body size.
-   03_reperes keeps the tighter values: it has no vertical slack left. */
-.head { font-size: 60px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; }
-.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 29px; }
-.q-item { display: flex; flex-direction: column; gap: 14px; }
-.q-head { display: flex; gap: 18px; align-items: center; }
+/* « Prise de recul »: the deep stake, then the question to take away, each in
+   its own card under the deck's usual subtitle-with-icon. The question's card
+   is tinted gold: it is what the reader leaves with. */
+.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.cards { display: flex; flex-direction: column; gap: 28px; margin-top: 36px; }
+.card { background: #161616; border: 1px solid #2c2c2c; border-radius: 22px; padding: 34px 36px 38px; }
+.card.qc { background: #1c1806; border-color: #5a4a08; }
+.q-head { display: flex; gap: 18px; align-items: center; margin-bottom: 18px; }
 .q-head .mk { flex: none; }
 .q-head .mk svg { width: 38px; height: 38px; display: block; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .q-label { font-size: 44px; font-weight: 900; line-height: 1.05; letter-spacing: -0.01em; color: #f0f0f0; }
-.r-list { display: flex; flex-direction: column; gap: 24px; padding-left: 56px; }
-.r-item { display: flex; gap: 16px; align-items: flex-start; font-size: 39px; line-height: 1.4; color: #e0e0e0; }
-.r-item .rk { flex: none; color: #d4aa00; font-weight: 900; font-size: 41px; line-height: 1.1; }
-.r-item strong { color: #d4aa00; font-weight: 700; }
+.card p { font-size: 40px; line-height: 1.3; color: #ececec; text-align: left; hyphens: none; text-wrap: balance; }
+.card p strong { color: #d4aa00; font-weight: 700; }
+.card.qc p { font-weight: 700; color: #f6f6f6; }
 </style>
 </head>
 <body>
@@ -27,20 +27,16 @@
   {% include '_tracker.html' %}
   <div class="stage">
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.widen | safe }}</svg>Prise de recul</span>
-    <h1 class="head">Avant de trancher.</h1>
-    <div class="divider"></div>
-    {% if root_issue %}<div class="q-item">
-      <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.anchor | safe }}</svg></span><span class="q-label">L'enjeu de fond</span></div>
-      <div class="r-list">
-        <div class="r-item"><span class="rk">&#8250;</span><span>{{ root_issue | md_bold }}</span></div>
-      </div>
-    </div>{% endif %}
-    {% if question %}<div class="q-item">
-      <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.speech_bubble | safe }}</svg></span><span class="q-label">La question</span></div>
-      <div class="r-list">
-        <div class="r-item"><span class="rk">&#8250;</span><span>{{ question | md_bold }}</span></div>
-      </div>
-    </div>{% endif %}
+    <div class="cards">
+      {% if root_issue %}<div class="card">
+        <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.anchor | safe }}</svg></span><span class="q-label">L'enjeu de fond</span></div>
+        <p>{{ root_issue | md_bold }}</p>
+      </div>{% endif %}
+      {% if question %}<div class="card qc">
+        <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.speech_bubble | safe }}</svg></span><span class="q-label">La question</span></div>
+        <p>{{ question | md_bold }}</p>
+      </div>{% endif %}
+    </div>
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Avant de partir &#8250;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
