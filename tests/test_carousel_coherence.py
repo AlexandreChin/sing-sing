@@ -17,8 +17,10 @@ def _errors(hook="Derrière les **poubelles** brûlées, une école à deux vite
                    "risques d'être contrôlé. Repérez si l'épisode situe les lycées bloqués.",
             presupposes="Ce qu'il tient pour acquis : qu'un **manque ancien** explique l'explosion ; "
                         "que les 180 lycées bloqués partagent les **mêmes** revendications",
-            headline="La colère lycéenne vient d'**inégalités anciennes**"):
-    pres = NS(hook=NS(sub_topic=hook), cta=NS(engagement_sentence=question))
+            headline="La colère lycéenne vient d'**inégalités anciennes**",
+            subtitle="Les **3 idées clés** pour comprendre d'où elle vient, et les **réflexes** pour en "
+                     "juger soi-même."):
+    pres = NS(hook=NS(sub_topic=hook, subtitle=subtitle), cta=NS(engagement_sentence=question))
     d = NS(root_issue=root_issue, reperes_headline="Avant d'écouter : le contexte et trois réflexes",
            essentiel=[], steel_man=None,
            reading_beats=[NS(selected=True, moment="Un titre", lens_question="Une question ?",
@@ -94,7 +96,9 @@ def test_duration_flag_on_analyze_and_produce():
 
 
 def _beat_errors(moment, answer, figure=""):
-    pres = NS(hook=NS(sub_topic="Une accroche"), cta=NS(engagement_sentence=_GOOD_QUESTION))
+    pres = NS(hook=NS(sub_topic="Une accroche", subtitle="Les 3 idées clés pour comprendre ceci, "
+                                                        "et les réflexes pour en juger soi-même."),
+              cta=NS(engagement_sentence=_GOOD_QUESTION))
     d = NS(root_issue="L'école publique promet l'**égalité**.", reperes_headline="Avant d'écouter",
            essentiel=[], steel_man=None,
            reading_beats=[NS(selected=True, moment=moment, lens_question="Une question ?",
@@ -141,3 +145,11 @@ def test_opening_pronoun_in_any_line():
     assert any("opens on a pronoun" in e for e in errs)
     # impersonal « il » is not a reference
     assert not any("pronoun" in e for e in _beat_errors("Un titre", "Il faut **chercher** la date du sondage."))
+
+
+def test_subtitle_shape_and_length():
+    assert any("hook.subtitle is empty" in e for e in _errors(subtitle=""))
+    assert any("must read" in e for e in _errors(subtitle="Tout comprendre sur la colère des lycéens."))
+    long = ("Les 3 idées clés pour comprendre d'où vient cette colère que l'on voit depuis une semaine "
+            "dans toute l'Île-de-France, et les réflexes pour en juger soi-même.")
+    assert any("characters" in e and "subtitle" in e for e in _errors(subtitle=long))

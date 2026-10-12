@@ -253,11 +253,12 @@ def _find_thumb(base_dir: Path) -> tuple[Path, str] | None:
 
 
 # Slide 1's vertical budget, measured from the rendered template (1350px slide,
-# 80px bottom padding): what the label, metadata, divider, kicker and tracker
-# take, leaving the rest to be split between the capture and the headline.
+# 80px bottom padding): what the source pill and the slot's margin take above,
+# and the subtitle + swipe cue below, leaving the rest to be split between the
+# capture and the headline.
 _HOOK_TOP = 150          # .slide padding-top
-_HOOK_FIXED = 170        # Sélection label + metadata line + the slot's margin
-_HOOK_TAIL = 197         # divider + On décrypte kicker + swipe tracker
+_HOOK_FIXED = 90         # source pill above the capture + the slot's margin
+_HOOK_TAIL = 260         # gap + two-line subtitle + « Glissez → »
 _HOOK_BOX = 1270 - _HOOK_TOP
 _HEAD_LADDER = (85, 78, 70, 62)   # px; 85 is the deck's headline size
 _HEAD_LINE = 1.06                 # .cover-head line-height
@@ -314,6 +315,36 @@ def cover_thumb(base_dir: Path) -> str:
         return ""
     path, mime = found
     return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode()
+
+
+def background_image(base_dir: Path) -> str:
+    """Data URL for a full-bleed slide-1 photo (`background.*` beside the analysis),
+    else "". Opt-in by file, like `cover.*`: a text-only article capture makes a poor
+    background, so only a photo someone chose (and cropped) gets the full slide."""
+    for ext, mime in _THUMB_MIMES.items():
+        path = Path(base_dir) / f"background{ext}"
+        if path.exists():
+            return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode()
+    return ""
+
+
+# The pill holds one line on most decks only with the month shortened.
+_MONTH_SHORT = {"janvier": "janv.", "février": "févr.", "avril": "avr.", "juillet": "juil.",
+                "septembre": "sept.", "octobre": "oct.", "novembre": "nov.", "décembre": "déc."}
+_MONTH_RE = re.compile(r"\b(" + "|".join(_MONTH_SHORT) + r")\b", re.I)
+
+
+def pill_parts(meta) -> list[str]:
+    """Slide 1's source pill, in reading order: medium · length · source · date.
+    Missing parts are skipped; the medium always leads, so a reader knows at once
+    whether the deck is about something to read, watch or listen to."""
+    date = meta.published_at and _MONTH_RE.sub(lambda m: _MONTH_SHORT[m.group(1).lower()], meta.published_at)
+    return [x for x in [
+        MEDIUM_FR.get(getattr(meta, "medium", "article") or "article"),
+        duration_label(meta, short=True),
+        meta.source,
+        date,
+    ] if x]
 
 
 def cover_layers(meta, headline: str) -> dict:

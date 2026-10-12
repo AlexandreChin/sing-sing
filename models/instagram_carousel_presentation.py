@@ -11,6 +11,10 @@ from pydantic import BaseModel, Field, field_validator
 class Hook(BaseModel):
     topic: str
     sub_topic: str
+    # Slide 1, under the title: the deck's promise, « Les 3 idées clés pour
+    # comprendre …, et les réflexes pour en juger soi-même. » Empty on decks
+    # adapted before it existed; slide 1 then shows the title alone.
+    subtitle: str = ""
     headline: str
     context_line: str
     sub_topic_alt: list[str] = Field(default_factory=list)  # menu of alt hook questions (render-ignored; paste to swap)

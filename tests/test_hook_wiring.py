@@ -9,7 +9,7 @@ def test_cover_layers_output_renders_in_hook():
     layers = cover_layers(meta, "Fallback headline")
     html = _env().get_template(TPL).render(
         slide_n=1, slide_total=10, progress=10, logo="", L=medium_labels("article"),
-        meta_parts=["Le Monde"], sub_topic="Un **texte** technique", **layers,
+        pill=["Article", "Le Monde"], sub_topic="Un **texte** technique", **layers,
     )
     assert "Politique" in html
     assert '<div class="artbg">' in html

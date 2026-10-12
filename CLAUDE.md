@@ -93,19 +93,20 @@ samples/outputs/<stem>/
   Re-running `produce`/`render <extract.json>` regenerates `newsletter.md` and
   overwrites hand edits — the edit-safe loop always renders from the `.md`.
 
-**Slide 1 (hook) — the source capture:** drop a `cover.png|jpg|webp` (preferred)
-or `image.*` beside the analysis (`samples/.../<stem>/`) and it renders as the top
-image slot — full slide width less a 48px side padding, height from the image's own
-aspect ratio (a portrait capture gets a taller slot; 720px cap, `contain`). Framed
-by a hairline edge + cast shadow so it reads as a screenshot. Auto-detected by
-`cover_thumb()`: no schema field, no adapt/API rerun, just `render`. With no such
-file the slot drops out and the rest of the slide is unchanged.
-Above the slot: `⌷ SÉLECTION` (`.kicker`, identical type to `On décrypte`) then the
-metadata line — source · date · genre · length, from `meta_parts`. The source's own
-title is **not** rendered: it lives inside the capture. Below the slot, the
-`On décrypte` block carries `sub_topic` (not `topic`) as its headline.
-Pass `--source`/`--url`/`--published-at` to `analyze`/`produce` to fill the
-metadata line; nothing infers them from the article body.
+**Slide 1 (hook) — source, title, promise:** top to bottom, a gold source pill
+(medium · length · source · date, from `pill_parts()`; ▶ for podcast/video), the
+hook title (`sub_topic`), the promise (`hook.subtitle`: « Les 3 idées clés pour
+comprendre …, et les réflexes pour en juger soi-même. »), then « Glissez → ».
+Two image modes, both picked up at `render` time — no schema field, no API rerun:
+- **Full-bleed photo:** a `background.png|jpg|webp` beside the analysis
+  (`samples/.../<stem>/`) fills the slide under a black band (the logo stays on
+  dark) and fades to black behind the text. Opt-in by file: crop a real photo,
+  never a text-only capture.
+- **Card:** otherwise a `cover.*` (preferred) or `image.*` capture renders as a
+  card under the pill, keeping its aspect ratio (`cover_thumb()`, `hook_metrics()`).
+With neither, the pill and the title stand alone. The source's own title is not
+rendered. Pass `--source`/`--url`/`--published-at`/`--duration` to
+`analyze`/`produce` to fill the pill; nothing infers them from the article body.
 
 **Rendering interface:** every renderer module exposes `render_from_json(extract_path, out_dir, pdf=False)` and lays out its own files under `out_dir` — carousels write `html/` + `slides/`, the newsletter writes `newsletter.md`/`.html`/`.email.html`. `produce` and `render` call this uniformly. (`pdf` is a vestigial no-op kept for interface uniformity.)
 
