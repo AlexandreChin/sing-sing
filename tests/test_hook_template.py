@@ -83,8 +83,9 @@ def test_pill_order_and_play_icon_for_audio():
 
 
 def test_subtitle_renders_under_the_title():
-    html = _render(subtitle="Les **3 idées clés** pour comprendre, et les **réflexes** pour en juger soi-même.")
-    assert 'class="subtitle"' in html and "<strong>3 idées clés</strong>" in html
+    html = _render(subtitle="Comprendre d'où elle vient.")
+    assert 'class="subtitle"' in html and "Comprendre d&#39;où elle vient." in html
+    assert '<span class="judge">En juger soi-même.</span>' in html   # Sing Sing's half, fixed
     assert html.index('class="cover-head"') < html.index('class="subtitle"')
     assert 'class="subtitle"' not in _render()             # old decks: the title alone
 
