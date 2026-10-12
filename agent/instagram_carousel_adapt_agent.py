@@ -160,7 +160,7 @@ _HOOK_MAX_CHARS = 68
 # template adds « En juger soi-même. » on the next.
 _SUBTITLE_MAX_CHARS = 38
 _SUBTITLE_SHAPE = re.compile(r"^Comprendre [^.?!]+\.$")
-# Slide titles (repères, moments, socle) hold two lines at 60px: « Devant le lycée, les contrôles
+# Slide titles (moments, socle) hold two lines at 60px: « Devant le lycée, les contrôles
 # du quartier se rejouent » (54) fits, a three-line title pushed slide 5 out of frame.
 _TITLE_MAX_CHARS = 54
 # A moment with a figure stacks title, figure, caption, quote, réflexe and
@@ -213,7 +213,7 @@ def _plain(text: str) -> str:
 def _displayed_lines(pres, d) -> list[tuple[str, str]]:
     """(label, text) for every line we write that reaches a slide after the hook.
     Présupposés are split into their own lines, as the slide prints them."""
-    lines = [("display.reperes_headline", d.reperes_headline)]
+    lines = [("display.reperes_context", d.reperes_context)]
     lines += [(f"display.essentiel[{i}]", p) for i, p in enumerate(d.essentiel)]
     for i, b in enumerate(d.reading_beats):
         if b.selected:
@@ -256,12 +256,6 @@ def _coherence_errors(pres, d) -> list[str]:
         errors.append(
             f"hook.sub_topic is {len(hook)} characters (max {_HOOK_MAX_CHARS}) — slide 1 cuts it "
             f"at four lines and the reader loses its last words"
-        )
-    reperes = _plain(d.reperes_headline)
-    if len(reperes) > _TITLE_MAX_CHARS:
-        errors.append(
-            f"display.reperes_headline is {len(reperes)} characters (max {_TITLE_MAX_CHARS}) — "
-            f"the slide 3 title holds two lines"
         )
     # Slide 1's promise, first half: « Comprendre … », picking up what the hook
     # opens. One line; the template adds « En juger soi-même. »
@@ -398,14 +392,14 @@ def _lens_layer_errors(d) -> list[str]:
         # four blocks readable; the second sentence of an answer almost always
         # restates the réflexe printed two lines above it.
         if b.selected:
-            # 24 words ≈ the three lines the quote block holds. Over that, the
-            # model elides the middle rather than picking a shorter, weaker
-            # passage: a 15-word cap disqualified 16 of the analysis's own 20
-            # key quotes and left fragments that carried no claim.
+            # 18 words ≈ three lines of the quote block. Over that, the model
+            # elides the middle rather than picking a shorter, weaker passage (a
+            # 15-word cap disqualified most key quotes); 24 words read as four
+            # lines, which a hand-edited deck trimmed back to the passage's core.
             n_quote = len(b.quote.split())
-            if n_quote > 24:
+            if n_quote > 18:
                 errors.append(
-                    f"display.reading_beats[{i}].quote is {n_quote} words (max 24) — elide its "
+                    f"display.reading_beats[{i}].quote is {n_quote} words (max 18) — elide its "
                     f"middle with « […] », keeping the clauses that carry the point"
                 )
             # 32 words, two sentences: the fact or tool that answers the réflexe,
@@ -626,6 +620,21 @@ def _validate(data: dict, article_text: str | None = None) -> list[str]:
             errors.append(
                 f"display.essentiel[{i}] restates the lede printed two lines above it "
                 f"(« {point[:50]}… ») — the claims develop §1, they do not repeat it"
+            )
+    # Slide 3 « À savoir »: one sentence chosen from the analysis's context —
+    # what came before, why now — read two swipes after slide 2's lede, so it
+    # must not say the news again.
+    ctx = _plain(d.reperes_context)
+    if not ctx:
+        errors.append("display.reperes_context is empty — slide 3 opens on one sentence of context")
+    else:
+        if len(ctx.split()) > 20:
+            errors.append(f"display.reperes_context is {len(ctx.split())} words (max 20)")
+        stems = _stems(ctx)
+        if stems and len(stems & lede_stems) / len(stems) >= 0.5:
+            errors.append(
+                f"display.reperes_context restates slide 2's lede (« {ctx[:50]}… ») — choose what "
+                f"came before or why now, not the news again"
             )
     if not (1 <= len(d.blind_spots) <= 2):
         errors.append(f"display.blind_spots must have 1–2 items, got {len(d.blind_spots)}")

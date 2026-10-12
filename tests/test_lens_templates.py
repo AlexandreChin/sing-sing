@@ -26,7 +26,8 @@ def test_reperes_renders_lenses_as_reflexes():
                        {"n": 2, "name": "Causalité", "question": "Cause ou corrélation ?"},
                    ])
     html = _text(html)
-    assert "Trois réflexes" in html
+    assert "À savoir, à se demander" in html       # fixed title: what to know, what to ask
+    assert "Saurez-vous" not in html
     assert "01" in html and "02" in html           # numbered like the moments that echo them
     assert "Chiffres sans base" in html
     assert "Rapporté à quoi ?" in html
