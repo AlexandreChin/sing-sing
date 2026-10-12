@@ -1225,7 +1225,7 @@
           "lens_ref": "causalite",
           "lens_question": "Du quartier au lycée : qu'est-ce qui relie les deux ?",
           "note": "Devant un lien entre deux lieux, vérifiez que ce sont les **mêmes jeunes**.",
-          "answer": "**Les mêmes jeunes** : un jeune homme perçu noir ou arabe a **20 fois plus** de risques d'être contrôlé (Défenseur des droits, 2017). Repérez si l'épisode situe les lycées bloqués.",
+          "answer": "**Les mêmes jeunes**, contrôlés au quartier comme devant le lycée.",
           "figure": "",
           "figure_label": "",
           "figure_caption": "",
@@ -1236,7 +1236,14 @@
           "kind": "enjeu",
           "role": "appui",
           "spine_ref": 2,
-          "rationale": "Le pont entre contrôles quotidiens et tensions des blocages."
+          "rationale": "Le pont entre contrôles quotidiens et tensions des blocages.",
+          "pictogram": {
+            "reference_label": "Reste de la population",
+            "reference_count": 1,
+            "subject_label": "Jeune homme perçu noir ou arabe",
+            "subject_count": 20,
+            "caption": "Risque d'être contrôlé · Défenseur des droits, 2017"
+          }
         },
         {
           "moment": "L'État prône la non-violence, les lycéens la réclament",
@@ -1311,7 +1318,8 @@
       "root_issue": "Au-delà des moyens et des inégalités scolaires, la société promet toujours l'**avenir** par l'école ; la **jeunesse** n'y croit plus.",
       "steel_man": {
         "argument": "Les inégalités sont le terreau de la colère ; l'**étincelle**, elle, date de cette semaine.",
-        "alternative": "Un **déclencheur** récent d'abord ; les inégalités anciennes n'en seraient que le terrain."
+        "alternative": "Un **déclencheur** récent d'abord ; les inégalités anciennes n'en seraient que le terrain.",
+        "targets": 1
       },
       "reperes_headline": "Avant d'écouter : le contexte et trois réflexes",
       "bilan_headline": "",
