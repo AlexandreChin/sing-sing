@@ -107,7 +107,7 @@ def test_prise_de_recul_shows_root_issue_then_question():
     assert "La question" in html and "symbole" in html
     assert html.index("L'enjeu de fond") < html.index("La question")
     assert html.count('class="card"') == 1 and html.count('class="card qc"') == 1  # one card each, the question tinted
-    assert "Avant de trancher." in html and html.count("<i></i>") == 1      # the arrow between cards
+    assert "Avant de trancher." in html and "<i></i>" not in html          # no arrow: the wire links the cards
 
 
 def test_no_act_tracker_on_the_slides():
