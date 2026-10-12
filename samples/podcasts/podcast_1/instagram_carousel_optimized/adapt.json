@@ -153,7 +153,7 @@
         "selected": true
       },
       {
-        "text": "Un jeune homme perçu noir ou arabe a **20 fois plus** de risques d'être contrôlé.",
+        "text": "Un jeune homme perçu noir ou arabe a **12 fois plus** de risques d'un contrôle poussé (2025).",
         "selected": true
       },
       {
@@ -277,8 +277,8 @@
           "reference_label": "Reste de la population",
           "reference_count": 1,
           "subject_label": "Jeune homme perçu noir ou arabe",
-          "subject_count": 20,
-          "caption": "Risque d'être contrôlé · Défenseur des droits, 2017"
+          "subject_count": 12,
+          "caption": "Risque de contrôle poussé · Défenseur des droits, 2025"
         }
       },
       {
