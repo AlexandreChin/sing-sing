@@ -20,15 +20,14 @@ def test_each_presuppose_gets_its_own_line():
     assert "un coût chiffré dit l" in html and "une étude fragile" in html
 
 
-def test_leader_line_ties_the_objection_to_its_pillar():
+def test_bird_perches_on_the_pillar_the_objection_targets():
     items = [{"label": "Ce qu'il tient pour acquis", "icon": "anchor", "clauses": ["a", "b", "c"]},
              {"label": "L'objection la plus solide", "icon": "shield", "clauses": ["une **objection**"]}]
     body = _render(items, target=2).split("<body>")[-1]
+    pillars = body.split('<div class="pillar"')[1:]
+    assert "data-perch" in pillars[1] and "data-perch" not in pillars[0] + pillars[2]
     assert body.count('<div class="pillar"') == 3                               # pillars stay equal
-    assert body.count('class="leader"') == 1
-    assert 'cx="450.0"' in body                                                   # under the middle pillar
-    plain = _render(items).split("<body>")[-1]                                    # older decks
-    assert 'class="leader"' not in plain
+    assert 'class="leader"' not in body                                          # the bird is the pointer
     assert "La thèse" not in body and 'class="head"' in body                     # thesis as the title
 
 
