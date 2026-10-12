@@ -77,7 +77,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     # Act 2 "Avant de lire" is a single merged slide: context + the lenses shown
     # as réflexes (the standalone lens slide was folded into 03_reperes).
     specs = [
-        ("hook", "01_hook", {"pill": pill,
+        ("hook", "01_hook", {"pill": pill, "source_title": meta.title,
                                 "topic": pres.hook.topic, "sub_topic": pres.hook.sub_topic,
                                 "subtitle": pres.hook.subtitle,
                                 # out_dir is <base>/<format>/html — the images sit in <base>.

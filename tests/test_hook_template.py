@@ -96,3 +96,10 @@ def test_background_photo_takes_the_whole_slide():
     assert 'class="slide bleed"' in html and "BBB" in html
     assert '<div class="shot">' not in html                # the photo replaces the card
     assert '<div class="artbg">' not in html
+
+
+def test_source_title_under_the_pill_on_the_full_bleed_slide_only():
+    bleed = _render(background="data:image/png;base64,B", source_title="Blocus des lycées")
+    assert 'class="src-title"' in bleed and "Blocus des lycées" in bleed
+    card = _render(thumb="data:image/png;base64,A", source_title="Blocus des lycées")
+    assert 'class="src-title"' not in card            # the capture already shows it

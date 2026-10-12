@@ -104,8 +104,8 @@ Two image modes, both picked up at `render` time — no schema field, no API rer
   never a text-only capture.
 - **Card:** otherwise a `cover.*` (preferred) or `image.*` capture renders as a
   card under the pill, keeping its aspect ratio (`cover_thumb()`, `hook_metrics()`).
-With neither, the pill and the title stand alone. The source's own title is not
-rendered. Pass `--source`/`--url`/`--published-at`/`--duration` to
+With neither, the pill and the title stand alone. The source's own title shows under the pill on the full-bleed slide only (the capture carries it otherwise).
+Pass `--title`/`--source`/`--url`/`--published-at`/`--duration` to
 `analyze`/`produce` to fill the pill; nothing infers them from the article body.
 
 **Rendering interface:** every renderer module exposes `render_from_json(extract_path, out_dir, pdf=False)` and lays out its own files under `out_dir` — carousels write `html/` + `slides/`, the newsletter writes `newsletter.md`/`.html`/`.email.html`. `produce` and `render` call this uniformly. (`pdf` is a vestigial no-op kept for interface uniformity.)

@@ -39,10 +39,10 @@ def _layout(stem: str, fmt: str | None = None, base: Path | None = None) -> dict
     return paths
 
 
-async def run_full_analysis(text: str, no_api: bool = False, input_path: str | None = None, extra_instructions: str | None = None, medium: str = "article", source: str | None = None, url: str | None = None, published_at: str | None = None, duration_minutes: int | None = None) -> Path:
+async def run_full_analysis(text: str, no_api: bool = False, input_path: str | None = None, extra_instructions: str | None = None, medium: str = "article", source: str | None = None, url: str | None = None, published_at: str | None = None, duration_minutes: int | None = None, title: str | None = None) -> Path:
     analysis_input = FullAnalysisInput(body=text, extra_instructions=extra_instructions, medium=medium,
                                       source=source, url=url, published_at=published_at,
-                                      duration_minutes=duration_minutes)
+                                      duration_minutes=duration_minutes, title=title)
 
     stem = Path(input_path).stem if input_path else datetime.now().strftime("%Y%m%d_%H%M%S")
     lay = _layout(stem, base=_base_dir(input_path, stem))
@@ -82,7 +82,7 @@ async def cmd_analyze(args: argparse.Namespace) -> None:
 
     await run_full_analysis(text, no_api=args.no_api, input_path=input_path, extra_instructions=extra_instructions,
                             medium=args.medium, source=args.source, url=args.url, published_at=args.published_at,
-                            duration_minutes=args.duration)
+                            duration_minutes=args.duration, title=args.title)
 
 
 async def cmd_simplify(args: argparse.Namespace) -> None:
@@ -268,7 +268,7 @@ async def cmd_produce(args: argparse.Namespace) -> None:
     full = await analyze_for_full_analysis(
         FullAnalysisInput(body=text, medium=args.medium, source=args.source,
                           url=args.url, published_at=args.published_at,
-                          duration_minutes=args.duration),
+                          duration_minutes=args.duration, title=args.title),
         no_api=args.no_api,
         steps_dir=lay["steps"],
     )
@@ -381,6 +381,7 @@ async def cmd_check(args: argparse.Namespace) -> None:
 
 def _add_source_args(p: argparse.ArgumentParser) -> None:
     """Source metadata — never inferred from the body, shown on the hook slide."""
+    p.add_argument("--title", help="the source's own title, as published (shown on slide 1)")
     p.add_argument("--source", help="publication name (e.g. \"Aeon\")")
     p.add_argument("--url", help="canonical article URL")
     p.add_argument("--published-at", help="publication date as it should read (e.g. \"7 septembre 2026\")")
