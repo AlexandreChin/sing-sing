@@ -408,10 +408,17 @@ body {
 .trk svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .trk-sep { color: #3a3a3a; }
 /* « Prise de recul »: the deep stake, then the question to take away, each in
-   its own card under the deck's usual subtitle-with-icon. The question's card
-   is tinted gold: it is what the reader leaves with. */
+   its own card under the deck's usual subtitle-with-icon. An arrow runs from
+   the first card to the second — the question follows from the stake — and the
+   word they share is the gold one on both sides. The question's card is tinted
+   gold: it is what the reader leaves with. */
+.head { font-size: 60px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; margin-top: 14px; }
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-.cards { display: flex; flex-direction: column; gap: 28px; margin-top: 36px; }
+.cards { display: flex; flex-direction: column; margin-top: 36px; }
+.link { height: 56px; padding-left: 54px; }
+.link i { position: relative; display: block; width: 3px; height: 44px; margin-top: 6px; background: #d4aa00; }
+.link i::after { content: ''; position: absolute; left: -7px; bottom: -10px; border: 8.5px solid transparent;
+  border-top: 12px solid #d4aa00; border-bottom: 0; }
 .card { background: #161616; border: 1px solid #2c2c2c; border-radius: 22px; padding: 34px 36px 38px; }
 .card.qc { background: #1c1806; border-color: #5a4a08; }
 .q-head { display: flex; gap: 18px; align-items: center; margin-bottom: 18px; }
@@ -437,14 +444,16 @@ body {
 </div>
   <div class="stage">
     <span class="kick"><svg viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>Prise de recul</span>
+    <h1 class="head">Avant de trancher.</h1>
     <div class="cards">
       <div class="card">
         <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg></span><span class="q-label">L'enjeu de fond</span></div>
-        <p>Au-delà des moyens et des inégalités scolaires, la société promet toujours l&#39;<strong>avenir</strong> par l&#39;école ; la <strong>jeunesse</strong> n&#39;y croit plus.</p>
+        <p>Au-delà des moyens et des inégalités scolaires, la société <strong>promet</strong> toujours l&#39;avenir par l&#39;école ; la jeunesse n&#39;y croit plus.</p>
       </div>
+      <div class="link"><i></i></div>
       <div class="card qc">
         <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span class="q-label">La question</span></div>
-        <p>Quels <strong>signes</strong> concrets montreraient que l&#39;école républicaine tient sa promesse <strong>méritocratique</strong> ?</p>
+        <p>Quels signes concrets montreraient que l&#39;école républicaine tient sa <strong>promesse</strong> méritocratique ?</p>
       </div>
     </div>
   </div>
