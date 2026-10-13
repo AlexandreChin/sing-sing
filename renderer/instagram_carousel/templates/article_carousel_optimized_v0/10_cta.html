@@ -18,9 +18,10 @@
 .book { position: absolute; left: 0; right: 0; top: 120px; height: 680px; z-index: -2; background-size: cover; background-position: center; opacity: .55; }
 .book-fade { position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(to bottom, #000 0, #000 190px, rgba(0,0,0,.35) 270px, rgba(0,0,0,.6) 36%, #000 58%); }
-/* the end of the deck: the bird flies home, back beside the wordmark */
+/* the end of the deck: the bird flies home — the logo exactly as it sat before
+   the bird left it (base.css history: 144px box, top 44, right 56; wordmark at 204) */
 .company-name { right: 204px !important; }
-.home-bird { position: absolute; top: 50px; right: 66px; height: 120px; width: auto; }
+.logo-img { position: absolute; top: 44px; right: 56px; width: 144px; height: 144px; object-fit: contain; }
 .slide { padding-top: 260px; }
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 29px; }
 .cta-head { font-size: 69px; font-weight: 900; color: #f0f0f0; line-height: 1.12; letter-spacing: -0.01em; }
@@ -40,7 +41,7 @@
   {% else %}<div class="artbg"><svg viewBox="0 0 1080 1350" preserveAspectRatio="xMidYMid slice">{{ art_svg | safe }}</svg></div>
   {% if glyph %}<div class="giant"><svg viewBox="0 0 24 24">{{ glyph | safe }}</svg></div>{% endif %}{% endif %}
   {% include '_brand.html' %}
-  {% if bird %}<img class="home-bird" src="{{ bird }}" alt="">{% endif %}
+  {% if logo %}<img class="logo-img" src="{{ logo }}" alt="">{% endif %}
   <div class="stage">
     <h1 class="cta-head">On <em>sélectionne</em>.<br>On <em>éclaire</em>.<br><span class="l-gold">Vous jugez.</span></h1>
     <div class="divider"></div>

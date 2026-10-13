@@ -140,5 +140,5 @@ def test_cta_closes_on_the_slide1_photo_when_there_is_one():
 
 
 def test_cta_bird_flies_home_beside_the_wordmark():
-    body = _render("10_cta.html", bird="data:image/png;base64,B").split("<body>")[-1]
-    assert "data-perch" not in body and 'class="home-bird"' in body
+    body = _render("10_cta.html", logo="data:image/png;base64,L").split("<body>")[-1]
+    assert "data-perch" not in body and 'class="logo-img"' in body
