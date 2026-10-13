@@ -258,7 +258,7 @@ def _find_thumb(base_dir: Path) -> tuple[Path, str] | None:
 # capture and the headline.
 _HOOK_TOP = 150          # .slide padding-top
 _HOOK_FIXED = 90         # source pill above the capture + the slot's margin
-_HOOK_TAIL = 304         # gap (room for the perched bird) + two-line subtitle + « Glissez → »
+_HOOK_TAIL = 260         # gap + two-line subtitle + « Glissez → »
 _HOOK_BOX = 1270 - _HOOK_TOP
 _HEAD_LADDER = (85, 78, 70, 62)   # px; 85 is the deck's headline size
 _HEAD_LINE = 1.06                 # .cover-head line-height
