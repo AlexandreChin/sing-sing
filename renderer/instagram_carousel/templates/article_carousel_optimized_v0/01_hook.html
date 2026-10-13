@@ -58,11 +58,15 @@
 /* — The title, then the promise that continues it. — */
 .cover-head { font-size: 85px; font-weight: 900; line-height: 1.06; letter-spacing: -0.02em; color: #f0f0f0; max-width: 900px; margin-top: 44px; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .cover-head strong { color: #d4aa00; font-weight: 900; }
-.subtitle { font-size: 46px; line-height: 1.25; color: #e6e6e6; margin-top: 74px; max-width: 900px; }
+.subtitle { font-size: 46px; line-height: 1.25; color: #e6e6e6; margin-top: 30px; max-width: 900px; }
 /* the second half of the promise is Sing Sing's, the same on every deck */
 .subtitle .judge { color: #d4aa00; font-weight: 800; }
 .swipe { margin-top: auto; padding-top: 24px; margin-bottom: 40px; font-size: 30px; font-weight: 700; color: #d4aa00; text-align: right; }
 .slide.bleed .swipe { margin-top: 40px; }
+/* the deck opens with the bird at home, the logo exactly as before the bird
+   left it (144px box, top 44, right 56; wordmark at 204); it perches from slide 2 */
+.company-name { right: 204px !important; }
+.logo-img { position: absolute; top: 44px; right: 56px; width: 144px; height: 144px; object-fit: contain; }
 </style>
 </head>
 <body>
@@ -76,6 +80,7 @@
   {% if glyph %}<div class="giant"><svg viewBox="0 0 24 24">{{ glyph | safe }}</svg></div>{% endif %}
   {% endif %}
   {% include '_brand.html' %}
+  {% if logo %}<img class="logo-img" src="{{ logo }}" alt="">{% endif %}
   {% if rubrique %}<div class="rubrique-tab"><svg viewBox="0 0 24 24">{{ glyph | safe }}</svg>{{ rubrique }}</div>{% endif %}
 
   {% if background %}<div class="src-block">{% if source_title %}<span class="src-label">{{ L.source_noun }}</span><p class="src-title">{{ source_title | fr }}</p>{% endif %}{{ pill_html }}</div>
@@ -84,7 +89,7 @@
 
   {# French spacing is applied by the md_bold filter, for every field. #}
   <h1 class="cover-head" style="font-size: {{ 64 if background else (head_size | default(85)) }}px">{{ (sub_topic or topic or headline) | md_bold }}</h1>
-  {% if subtitle %}<p class="subtitle" data-perch>{% include '_perch.html' %}{{ subtitle | md_bold }}<br><span class="judge">En juger soi-même.</span></p>{% endif %}
+  {% if subtitle %}<p class="subtitle">{{ subtitle | md_bold }}<br><span class="judge">En juger soi-même.</span></p>{% endif %}
 
   <div class="swipe">Glissez &#8594;</div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>

@@ -107,3 +107,8 @@ def test_source_title_under_the_pill_on_the_full_bleed_slide_only():
     assert body.index("L&#39;article") < body.index('class="src-title"')      # the label attributes it
     card = _render(thumb="data:image/png;base64,A", source_title="Blocus des lycées")
     assert 'class="src-title"' not in card            # the capture already shows it
+
+
+def test_hook_keeps_the_bird_at_home():
+    body = _render(logo="data:image/png;base64,L", subtitle="Comprendre ceci.").split("<body>")[-1]
+    assert "data-perch" not in body and 'class="logo-img"' in body
