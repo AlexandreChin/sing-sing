@@ -11,7 +11,7 @@ from pathlib import Path
 from agent.lenses import CANONICAL_LENSES
 from models.instagram_carousel_presentation import InstagramCarouselDocument
 from ._shared import (
-    _env, _LOGO_TIGHT_DATA_URL, inner_quotes,
+    _env, _LOGO_DATA_URL, _LOGO_TIGHT_DATA_URL, inner_quotes,
     cover_layers, cover_thumb, cover_dims, background_image, pill_parts,
     hook_metrics, medium_labels,
 )
@@ -183,7 +183,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     for i, (base, tpl_name, ctx) in enumerate(specs, 1):
         out_name = f"{i:02d}_{base}"
         html = env.get_template(f"{TPL}/{tpl_name}.html").render(
-            bird=_LOGO_TIGHT_DATA_URL, phase=PHASE_OF.get(base), L=medium_labels(meta.medium),
+            bird=_LOGO_TIGHT_DATA_URL, logo=_LOGO_DATA_URL, phase=PHASE_OF.get(base), L=medium_labels(meta.medium),
             slide_n=i, slide_total=total, progress=round(i / total * 100), **theme, **ctx)
         path = out_dir / f"{out_name}.html"
         path.write_text(html, encoding="utf-8")
