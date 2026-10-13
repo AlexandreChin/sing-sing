@@ -10,15 +10,17 @@
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; }
 .head { font-size: 60px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; margin-top: 14px; }
 .head strong, .pillar strong, .objection strong { color: #d4aa00; }
-.lbl { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #d4aa00; margin-bottom: 8px; }
-.lbl svg { width: 24px; height: 24px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+/* section headings as on the other slides: gold outline icon, bold white label */
+.q-head { display: flex; gap: 16px; align-items: center; margin-bottom: 16px; }
+.q-head svg { width: 36px; height: 36px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.q-label { font-size: 40px; font-weight: 900; line-height: 1.05; letter-spacing: -0.01em; color: #f0f0f0; }
 .under { margin-top: 44px; }
-.under .lbl + .cols { margin-top: 76px; }
+.under .q-head + .cols { margin-top: 70px; }
 .cols { display: grid; gap: 14px; margin: 0; }
 .pillar { background: #161616; border-radius: 10px; padding: 24px 18px 28px;
   min-height: 320px; font-size: 32px; line-height: 1.28; color: #e6e6e6; hyphens: none; }
 .pillar .n { display: block; font-size: 34px; font-weight: 900; color: #d4aa00; margin-bottom: 10px; }
-.objection { margin-top: 56px; font-size: 34px; line-height: 1.32; color: #e6e6e6; text-wrap: pretty; }
+.objection { margin-top: 48px; font-size: 34px; line-height: 1.32; color: #e6e6e6; text-wrap: pretty; }
 .objection.free { margin-top: 64px; }
 </style>
 </head>
@@ -34,12 +36,12 @@
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.hierarchy | safe }}</svg>Le socle</span>
     <h1 class="head">{{ headline | md_bold }}</h1>
     {% if pillars %}<div class="under">
-      {% if pres[0].label %}<span class="lbl"><svg viewBox="0 0 24 24">{{ ICONS[pres[0].icon] | safe }}</svg>{{ pres[0].label }}</span>{% endif %}
+      {% if pres[0].label %}<div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS[pres[0].icon] | safe }}</svg><span class="q-label">{{ pres[0].label }}</span></div>{% endif %}
       <div class="cols" style="grid-template-columns: repeat({{ pillars | length }}, 1fr);">
         {% for clause in pillars %}<div class="pillar"{% if loop.index == (aim or 1) %} data-perch{% endif %}>{% if loop.index == (aim or 1) %}{% include '_perch.html' %}{% endif %}<span class="n">{{ '%02d'|format(loop.index) }}</span>{{ clause | md_bold }}</div>{% endfor %}
       </div>
     </div>{% endif %}
-    {% if obj %}<div class="objection{{ '' if aim else ' free' }}"><span class="lbl">{{ obj.label }}</span>{% for clause in obj.clauses %}{{ clause | md_bold }}{% endfor %}</div>{% endif %}
+    {% if obj %}<div class="objection{{ '' if aim else ' free' }}"><div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS[obj.icon] | safe }}</svg><span class="q-label">{{ obj.label }}</span></div>{% for clause in obj.clauses %}{{ clause | md_bold }}{% endfor %}</div>{% endif %}
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Avant de trancher &#8250;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
