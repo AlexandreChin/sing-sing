@@ -147,5 +147,5 @@ def test_cta_bird_flies_home_beside_the_wordmark():
 def test_question_card_shows_where_to_look():
     html = _text(_render("08_prise_de_recul.html", root_issue="r", question="q ?",
                          where_to_look=["Source A", "Source B"]))
-    assert "Pour chercher" in html and "<span>Source A</span><span>Source B</span>" in html
+    assert "<span>Source A</span><span>Source B</span>" in html and "Pour chercher" not in html
     assert 'class="look"' not in _render("08_prise_de_recul.html", root_issue="r", question="q ?")
