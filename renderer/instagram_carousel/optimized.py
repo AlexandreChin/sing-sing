@@ -170,6 +170,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     if d.root_issue or pres.cta.engagement_sentence:
         specs.append(("prise_de_recul", "08_prise_de_recul", {
             "question": pres.cta.engagement_sentence,
+            "where_to_look": pres.cta.where_to_look,
             "root_issue": d.root_issue,
         }))
     # the slide-1 photo returns on the last slide: the deck opens and closes on it
