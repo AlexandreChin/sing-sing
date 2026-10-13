@@ -47,6 +47,9 @@ class CTA(BaseModel):
     title: str = ""   # punchy closing headline (≤10 words) that echoes the verdict's thesis
     engagement_sentence: str
     engagement_sentence_alt: list[str] = Field(default_factory=list)  # menu of alt closing questions (render-ignored)
+    # Where to look for answers to the closing question: 2–3 short source names,
+    # shown in small type under it on slide 8 (the links go in the caption).
+    where_to_look: list[str] = Field(default_factory=list)
     post_reading_questions: list[PostReadingQuestion]
 
 

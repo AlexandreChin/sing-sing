@@ -142,3 +142,10 @@ def test_cta_closes_on_the_slide1_photo_when_there_is_one():
 def test_cta_bird_flies_home_beside_the_wordmark():
     body = _render("10_cta.html", logo="data:image/png;base64,L").split("<body>")[-1]
     assert "data-perch" not in body and 'class="logo-img"' in body
+
+
+def test_question_card_shows_where_to_look():
+    html = _text(_render("08_prise_de_recul.html", root_issue="r", question="q ?",
+                         where_to_look=["Source A", "Source B"]))
+    assert "Pour chercher" in html and "<span>Source A</span><span>Source B</span>" in html
+    assert 'class="look"' not in _render("08_prise_de_recul.html", root_issue="r", question="q ?")
