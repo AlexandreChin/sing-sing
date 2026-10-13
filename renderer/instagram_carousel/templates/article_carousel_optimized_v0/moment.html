@@ -23,11 +23,8 @@
 .reveal { display: flex; gap: 18px; align-items: flex-start; margin-top: 30px; }
 .reveal .arw { flex: none; font-size: 46px; line-height: 1.15; color: #d4aa00; font-weight: 900; }
 .reveal .rev { font-size: 38px; line-height: 1.42; color: #cfcfcf; text-align: left; hyphens: none; text-wrap: pretty; }
-/* — The réflexe's icon, as on slide 3: in a gold disc before the label, and
+/* — The réflexe's icon, as on slide 3: before the label (the deck's kicker style), and
    very large and faint behind the slide in place of its number. — */
-.kick .disc { width: 54px; height: 54px; border-radius: 50%; background: #d4aa00; display: inline-flex;
-  align-items: center; justify-content: center; flex: none; }
-.kick .disc svg { width: 32px; height: 32px; stroke: #0a0a0a; stroke-width: 2.4; }
 .bigmark { position: absolute; right: -120px; bottom: -110px; width: 620px; height: 620px; z-index: -1; opacity: .06; }
 .bigmark svg { width: 100%; height: 100%; stroke: #d4aa00; fill: none; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
 /* — Pictogram: a ratio drawn as people, grey for the reference, gold for the
@@ -57,7 +54,7 @@
   {% else %}<div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>{% endif %}
   {% include '_brand.html' %}
   <div class="stage">
-    <span class="kick">{% if lens_icon_svg %}<span class="disc"><svg viewBox="0 0 24 24">{{ lens_icon_svg | safe }}</svg></span>{% else %}<svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>{% endif %}{% if lens_n %}Réflexe {{ '%02d'|format(lens_n) }} &middot; {% endif %}{{ lens_name or L.during }}</span>
+    <span class="kick">{% if lens_icon_svg %}<svg viewBox="0 0 24 24">{{ lens_icon_svg | safe }}</svg>{% else %}<svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>{% endif %}{% if lens_n %}Réflexe {{ '%02d'|format(lens_n) }} &middot; {% endif %}{{ lens_name or L.during }}</span>
     <h1 class="head">{{ moment | md_bold }}</h1>
     <div class="divider"></div>
     {% if figure %}<div>
