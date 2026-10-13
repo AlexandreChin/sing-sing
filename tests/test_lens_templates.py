@@ -124,7 +124,6 @@ def test_each_slide_marks_one_perch_for_the_bird():
         "03_reperes.html": dict(lenses=[{"n": 1, "name": "Sources", "question": "Qui ?"}]),
         "08_socle.html": dict(headline="h", recap_items=[{"label": "x", "icon": "anchor", "clauses": ["a", "b"]}], target=2),
         "08_prise_de_recul.html": dict(root_issue="r", question="q ?"),
-        "10_cta.html": {},
     }
     for name, ctx in cases.items():
         html = _render(name, bird="data:image/png;base64,B", **ctx).split("<body>")[-1]
@@ -138,3 +137,8 @@ def test_cta_closes_on_the_slide1_photo_when_there_is_one():
     assert 'class="artbg"' not in with_photo
     plain = _render("10_cta.html").split("<body>")[-1]
     assert 'class="book"' not in plain and 'class="artbg"' in plain
+
+
+def test_cta_bird_flies_home_beside_the_wordmark():
+    body = _render("10_cta.html", bird="data:image/png;base64,B").split("<body>")[-1]
+    assert "data-perch" not in body and 'class="home-bird"' in body
