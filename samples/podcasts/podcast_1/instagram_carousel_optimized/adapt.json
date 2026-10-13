@@ -1,5 +1,5 @@
 {
-  "caption": "Près de 180 lycées bloqués en une semaine, et un syndicat lycéen qui appelle à étendre le mouvement : deux sociologues remontent aux causes, de la salle de classe au trottoir. 🏫\n\n🔎 Les clefs pour comprendre en une minute d'où ils font partir cette colère.\n\n🔗 Lien vers l'épisode en commentaires ↓",
+  "caption": "Près de 180 lycées bloqués en une semaine, et un syndicat lycéen qui appelle à étendre le mouvement : deux sociologues remontent aux causes, de la salle de classe au trottoir. 🏫\n\n🔎 Les clefs pour comprendre en une minute d'où ils font partir cette colère.\n\n🔗 Lien vers l'épisode en commentaires ↓\n\n📚 Pour chercher par vous-même :\n— Cnesco, « Inégalités sociales et migratoires : comment l'école amplifie-t-elle les inégalités ? » (2016) : https://www.cnesco.fr/wp-content/uploads/2016/09/270916_synthese_inegalites.pdf\n— France Stratégie, « Nés sous la même étoile ? Origine sociale et niveau de vie » (2018) : https://solidarites.gouv.fr/sites/solidarite/files/2023-03/nes_sous_la_meme_etoile_france_strategie.pdf\n— DEPP, panel d'élèves 2007, l'orientation en fin de troisième : https://www.education.gouv.fr/depp/orientation-en-fin-de-troisieme-une-procedure-marquee-par-de-fortes-disparites-scolaires-et-sociales-8417",
   "hook": {
     "topic": "Blocus des **lycées**",
     "sub_topic": "Derrière les poubelles brûlées, une **colère** qui vient de loin",
@@ -65,7 +65,7 @@
   ],
   "cta": {
     "title": "Expliquer une colère n'est pas l'entendre",
-    "engagement_sentence": "Quels signes concrets montreraient que l'école républicaine tient sa **promesse** méritocratique ?",
+    "engagement_sentence": "Comment savoir si l'école tient sa **promesse**, au-delà de ce que chacun en croit ?",
     "engagement_sentence_alt": [
       "Quand des experts racontent un mouvement, que reste-t-il de la voix de ceux qui le font ?",
       "Un problème ancien peut-il, à lui seul, expliquer qu'une révolte éclate un jour précis ?",
@@ -92,6 +92,11 @@
         "question": "Une explication par les inégalités vous convainc-elle d'autant plus qu'elle confirme ce que vous pensiez déjà ?",
         "type": "reader_bias"
       }
+    ],
+    "where_to_look": [
+      "Le Cnesco sur les inégalités scolaires (2016)",
+      "France Stratégie sur l'origine sociale (2018)",
+      "Les suivis d'élèves du ministère de l'Éducation (DEPP)"
     ]
   },
   "display": {
