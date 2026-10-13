@@ -76,20 +76,30 @@ def wire_paths(tops: list[float | None], width: int = SLIDE_W, margin: int = WIR
                floor: float = WIRE_FLOOR) -> list[str]:
     """SVG path data per slide, from each slide's perch top (None = no perch).
 
-    A slide without a perch is crossed along its foot, under the content, so the
-    wire stays unbroken without running through text or images; a deck with no
-    perch at all gets no wire."""
-    if all(t is None for t in tops):
+    The wire runs from the first perch to the last: slides before and after
+    (the bird at home on the hook and the sign-off) get none, and it starts and
+    ends at the text column's edge rather than at the slide's. A slide without a
+    perch between two perched ones is crossed along its foot, under the content,
+    so the wire stays unbroken without running through text or images."""
+    perched = [i for i, t in enumerate(tops) if t is not None]
+    if not perched:
         return ["" for _ in tops]
+    first, last = perched[0], perched[-1]
     level = [t if t is not None else floor for t in tops]
     edges = [level[0]] + [(a + b) / 2 for a, b in zip(level, level[1:])] + [level[-1]]
     L, R = margin, width - margin
     paths = []
     for i, t in enumerate(level):
+        if i < first or i > last:
+            paths.append("")
+            continue
         y_in, y_out, y = edges[i], edges[i + 1], t - 1
-        paths.append(f"M0 {y_in:.1f} C {L * .6:.1f} {y_in:.1f}, {L * .4:.1f} {y:.1f}, {L} {y:.1f} "
-                     f"L {R} {y:.1f} C {R + (width - R) * .6:.1f} {y:.1f}, {R + (width - R) * .4:.1f} "
-                     f"{y_out:.1f}, {width} {y_out:.1f}")
+        start = (f"M{L} {y:.1f}" if i == first else
+                 f"M0 {y_in:.1f} C {L * .6:.1f} {y_in:.1f}, {L * .4:.1f} {y:.1f}, {L} {y:.1f}")
+        end = (f"L {R} {y:.1f}" if i == last else
+               f"L {R} {y:.1f} C {R + (width - R) * .6:.1f} {y:.1f}, {R + (width - R) * .4:.1f} "
+               f"{y_out:.1f}, {width} {y_out:.1f}")
+        paths.append(f"{start} {end}")
     return paths
 
 
