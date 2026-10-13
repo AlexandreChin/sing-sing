@@ -40,7 +40,7 @@
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>{{ L.essentiel }}</span>
     <h1 class="sel-head">En bref</h1>
     {% if lede %}<div class="card">
-      <div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS.info | safe }}</svg><span class="q-label">Ce qui se passe</span></div>
+      <div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS.info | safe }}</svg><span class="q-label">Le sujet</span></div>
       <p class="lede">{{ lede | md_bold }}</p>
     </div>{% endif %}
     <div class="card keycard" data-perch>{% include '_perch.html' %}
