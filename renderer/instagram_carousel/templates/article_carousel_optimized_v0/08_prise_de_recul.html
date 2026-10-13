@@ -21,7 +21,6 @@
 .card p strong { color: #d4aa00; font-weight: 700; }
 /* where to look for answers: small, under the question */
 .card .look { margin-top: 20px; font-size: 26px; line-height: 1.35; color: #b8b8b8; }
-.card .look b { display: block; color: #d4aa00; font-weight: 800; letter-spacing: .04em; margin-bottom: 4px; }
 .card .look span { display: block; }
 .card .look span::before { content: '› '; color: #d4aa00; font-weight: 800; }
 </style>
@@ -41,7 +40,7 @@
       {% if question %}<div class="card qc">
         <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.speech_bubble | safe }}</svg></span><span class="q-label">La question</span></div>
         <p>{{ question | md_bold }}</p>
-        {% if where_to_look %}<div class="look"><b>Pour chercher</b>{% for w in where_to_look %}<span>{{ w | fr }}</span>{% endfor %}</div>{% endif %}
+        {% if where_to_look %}<div class="look">{% for w in where_to_look %}<span>{{ w | fr }}</span>{% endfor %}</div>{% endif %}
       </div>{% endif %}
     </div>
   </div>
