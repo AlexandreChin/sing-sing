@@ -156,6 +156,12 @@ def _tired_question_errors(label: str, text: str) -> list[str]:
 # Slide 1 clamps the hook to four lines at 85px: a 67-character hook rendered
 # whole, an 89-character one lost its last word to an ellipsis.
 _HOOK_MAX_CHARS = 68
+# A moment's answer: four lines at 38px across the text column.
+_ANSWER_MAX_CHARS = 150
+
+# Where to look (slide 8, under the closing question): 2–3 short source names.
+_LOOK_MAX_CHARS = 60
+
 # Slide 1's promise under the hook: « Comprendre … » on one line at 46px; the
 # template adds « En juger soi-même. » on the next.
 _SUBTITLE_MAX_CHARS = 38
@@ -335,6 +341,12 @@ def _coherence_errors(pres, d) -> list[str]:
                 "ties the two cards by the word they share: gild it on both sides (« la société "
                 "**promet** … » / « … tient sa **promesse** ? »)"
             )
+        looks = [w for w in getattr(pres.cta, "where_to_look", []) if w.strip()]
+        if looks and not 2 <= len(looks) <= 3:
+            errors.append(f"cta.where_to_look has {len(looks)} item(s) — 2–3 sources, or none")
+        for j, w in enumerate(looks):
+            if len(w) > _LOOK_MAX_CHARS:
+                errors.append(f"cta.where_to_look[{j}] is {len(w)} characters (max {_LOOK_MAX_CHARS}) — one line on slide 8")
         n_bold = len(_BOLD_RE.findall(pres.cta.engagement_sentence))
         if not 1 <= n_bold <= 2:
             errors.append(
@@ -415,11 +427,16 @@ def _lens_layer_errors(d) -> list[str]:
                     f"display.reading_beats[{i}].quote is {n_quote} words (max 18) — elide its "
                     f"middle with « […] », keeping the clauses that carry the point"
                 )
-            # 32 words, two sentences: the fact or tool that answers the réflexe,
-            # then what to look or listen for. A ceiling, not a target.
-            n_answer = len(b.answer.split())
-            if n_answer > 32:
-                errors.append(f"display.reading_beats[{i}].answer is {n_answer} words (max 32)")
+            # Four lines on the slide (38px over the text column) — about 150
+            # characters, bold markers aside: the fact or tool that answers the
+            # réflexe, then what to look or listen for. A 31-word answer passed
+            # the old 32-word cap and ran to six lines.
+            n_chars = len(_plain(b.answer))
+            if n_chars > _ANSWER_MAX_CHARS:
+                errors.append(
+                    f"display.reading_beats[{i}].answer is {n_chars} characters (max "
+                    f"{_ANSWER_MAX_CHARS}) — it holds four lines on the slide"
+                )
             if len(_SENTENCE_END.findall(b.answer.strip())) > 2:
                 errors.append(
                     f"display.reading_beats[{i}].answer runs to more than two sentences — "
@@ -732,6 +749,17 @@ def _full_analysis_context(full: ArticleFullAnalysis) -> str:
     )
 
 
+def caption_with_sources(caption: str, go_further) -> str:
+    """Append the « Pour chercher par vous-même » block to the post caption, from
+    the go_further resources that carry a link — slide 8 names the sources, the
+    caption gives where to find them. No link, no block; never added twice."""
+    linked = [g for g in go_further if (g.url or "").startswith(("http://", "https://"))]
+    if not linked or "Pour chercher par vous-même" in caption:
+        return caption
+    lines = [f"— {g.source}, « {g.title} » : {g.url}" for g in linked]
+    return caption.rstrip() + "\n\n📚 Pour chercher par vous-même :\n" + "\n".join(lines)
+
+
 def adapt(
     full: ArticleFullAnalysis,
     no_api: bool = False,
@@ -753,4 +781,5 @@ def adapt(
         q.model_copy(update={"id": f"q_{i}"})
         for i, q in enumerate(pres.cta.post_reading_questions)
     ]
-    return pres.model_copy(update={"cta": pres.cta.model_copy(update={"post_reading_questions": questions})})
+    return pres.model_copy(update={"cta": pres.cta.model_copy(update={"post_reading_questions": questions}),
+                                   "caption": caption_with_sources(pres.caption, pres.go_further)})

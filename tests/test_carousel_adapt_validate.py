@@ -210,3 +210,11 @@ def test_lens_question_holds_one_line():
     base = _display().reading_beats
     long = [base[0].model_copy(update={"lens_question": "Un mécanisme décrit dans le texte : comment en mesurer l'effet ?"})] + base[1:]
     assert any("max 54" in e for e in _lens_layer_errors(_display(reading_beats=long)))
+
+
+def test_answer_holds_four_lines():
+    base = _display().reading_beats
+    long = [base[0].model_copy(update={"answer": "**Un fait** " + "mot " * 40})] + base[1:]
+    assert any("characters (max 150)" in e for e in _lens_layer_errors(_display(reading_beats=long)))
+    ok = [base[0].model_copy(update={"answer": "**Un fait** court, puis ce qu'il faut écouter."})] + base[1:]
+    assert not any("characters" in e for e in _lens_layer_errors(_display(reading_beats=ok)))
