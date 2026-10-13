@@ -182,3 +182,32 @@ def test_question_shares_a_gilded_word_with_the_enjeu():
     errs = _errors(root_issue="La société **promet** l'avenir par l'école.",
                    question="Quels **signes** montreraient que l'école tient sa promesse ?")
     assert any("shares no" in e for e in errs)
+
+
+def test_where_to_look_is_two_or_three_short_sources():
+    import json
+    from pathlib import Path
+    from agent.instagram_carousel_adapt_agent import _validate
+    data = json.loads(Path("samples/podcasts/podcast_1/instagram_carousel_optimized/adapt.json")
+                      .read_text(encoding="utf-8"))
+
+    def errs(looks):
+        data["cta"]["where_to_look"] = looks
+        return [e for e in _validate(data) if "where_to_look" in e]
+
+    assert errs([]) == []                                       # optional
+    assert errs(["Le Cnesco (2016)", "France Stratégie (2018)"]) == []
+    assert any("2–3 sources" in e for e in errs(["Une seule source"]))
+    assert any("max 60" in e for e in errs(["x" * 61, "Une autre source"]))
+
+
+def test_caption_lists_the_linked_sources_once():
+    from types import SimpleNamespace as NS
+    from agent.instagram_carousel_adapt_agent import caption_with_sources
+    gf = [NS(source="Cnesco", title="Inégalités", url="https://cnesco.fr/x"),
+          NS(source="Un livre", title="Sans lien", url=None)]
+    out = caption_with_sources("Légende.", gf)
+    assert "📚 Pour chercher par vous-même :" in out and "— Cnesco, « Inégalités » : https://cnesco.fr/x" in out
+    assert "Sans lien" not in out                                # no URL, not listed
+    assert caption_with_sources(out, gf) == out                  # never twice
+    assert caption_with_sources("Légende.", gf[1:]) == "Légende."  # no link, no block
