@@ -1225,7 +1225,7 @@
           "lens_ref": "causalite",
           "lens_question": "Du quartier au lycée : qu'est-ce qui relie les deux ?",
           "note": "Devant un lien entre deux lieux, vérifiez que ce sont les **mêmes jeunes**.",
-          "answer": "**Les mêmes jeunes**, contrôlés au quartier comme devant le lycée.",
+          "answer": "**Les mêmes jeunes**, contrôlés au quartier comme devant le lycée : 12 fois plus de contrôles poussés s'ils sont perçus noirs ou arabes (2025).",
           "figure": "",
           "figure_label": "",
           "figure_caption": "",
@@ -1237,13 +1237,7 @@
           "role": "appui",
           "spine_ref": 2,
           "rationale": "Le pont entre contrôles quotidiens et tensions des blocages.",
-          "pictogram": {
-            "reference_label": "Reste de la population",
-            "reference_count": 1,
-            "subject_label": "Jeune homme perçu noir ou arabe",
-            "subject_count": 12,
-            "caption": "Risque de contrôle poussé · Défenseur des droits, 2025"
-          }
+          "pictogram": null
         },
         {
           "moment": "L'État prône la non-violence, les lycéens la réclament",
