@@ -453,7 +453,10 @@ body {
 .src-title { max-width: 900px; font-size: 62px; font-weight: 400; line-height: 1.1; letter-spacing: -0.01em; color: #fff;
   text-wrap: balance; text-shadow: 0 2px 4px rgba(0,0,0,.9), 0 0 24px rgba(0,0,0,.85);
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.slide.bleed .cover-head { margin-top: auto; }
+/* a gold rule opens our part of the slide, as it does on the sign-off */
+.hook-divider { margin: 44px 0 0; }
+.slide.bleed .hook-divider { margin-top: auto; }
+.slide.bleed .cover-head { margin-top: 26px; }
 /* — The title, then the promise that continues it. — */
 .cover-head { font-size: 85px; font-weight: 900; line-height: 1.06; letter-spacing: -0.02em; color: #f0f0f0; max-width: 900px; margin-top: 44px; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .cover-head strong { color: #d4aa00; font-weight: 900; }
@@ -484,6 +487,7 @@ body {
   
 
   
+  <div class="divider hook-divider"></div>
   <h1 class="cover-head" style="font-size: 64px">Derrière les poubelles brûlées, une <strong>colère</strong> qui vient de loin</h1>
   <p class="subtitle">Comprendre d&#39;où elle vient.<br><span class="judge">En juger soi-même.</span></p>
 
