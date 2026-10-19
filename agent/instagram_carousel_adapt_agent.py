@@ -742,7 +742,16 @@ def _full_analysis_context(full: ArticleFullAnalysis) -> str:
             "ÉLÉMENTS CENTRAUX (la présentation doit les COUVRIR — ne pas se limiter "
             "à l'angle du titre) :\n" + lines + "\n\n"
         )
+    angle = ""
+    if full.article_metadata.extra_instructions:
+        angle = (
+            "CONSIGNES ÉDITORIALES (prioritaires — elles fixent l'angle de la "
+            "présentation, l'enjeu de fond et la question de la slide 8 ; elles "
+            "l'emportent sur les choix de l'analyse) :\n"
+            f"{full.article_metadata.extra_instructions.strip()}\n\n"
+        )
     return (
+        f"{angle}"
         f"ARTICLE METADATA :\n{_j(full.article_metadata.model_dump(mode="json"))}\n\n"
         f"{core}"
         f"ANALYSE COMPLÈTE :\n{full.model_dump_json(indent=2)}"
