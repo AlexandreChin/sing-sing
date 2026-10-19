@@ -33,3 +33,14 @@ def test_side_subject_bullet_is_flagged():
     pres.display.essentiel[2] = "L'État rend la manifestation plus **coûteuse** devant la loi."
     errs = _axis_errors(pres, pres.display)
     assert len(errs) == 1 and errs[0].startswith("display.essentiel[2]")
+
+
+def test_moment_must_show_its_link_to_slide_8():
+    pres = _pres()
+    for b in pres.display.reading_beats:
+        b.axis_link = "lien"
+    picked = [b for b in pres.display.reading_beats if b.selected]
+    picked[0].lens_question = "Une intention prêtée : sur quelle preuve ?"
+    picked[0].answer = "**Des déclarations officielles**, seule parole citée."
+    errs = _axis_errors(pres, pres.display)
+    assert len(errs) == 1 and "neither lens_question nor answer" in errs[0]
