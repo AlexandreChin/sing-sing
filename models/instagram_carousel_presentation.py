@@ -91,7 +91,11 @@ class ReperesFact(BaseModel):
 
 class ReadingBeat(BaseModel):
     moment: str    # ≤10 words — where we are in the article (reading order)
-    quote: str     # verbatim anchor from the article
+    quote: str     # verbatim anchor from the article — or its French translation, see below
+    # The passage as the article words it, when the article is not in French:
+    # `quote` then carries the faithful French translation shown on the slide,
+    # and this field is what the accuracy checks match. "" = French source.
+    quote_original: str = ""
     lens_ref: str  # a canonical lens id (see agent/lenses.py), e.g. "chiffres"
     # The réflexe question shown on slide 4, written for THIS article's terrain.
     # Slide 4 comes before the moments, so it must read without having read the

@@ -92,18 +92,45 @@ def quote_is_faithful(quote: str, article_normalised: str) -> bool:
     return True
 
 
+_FR_MARKERS = {"le", "la", "les", "des", "est", "une", "dans", "que", "qui", "pour", "pas", "sur"}
+_EN_MARKERS = {"the", "and", "of", "is", "that", "to", "in", "was", "for", "with", "are", "have"}
+
+
+def is_french(text: str) -> bool:
+    """Rough language guess from function words — enough to tell a French article
+    from an English one, which is all the quote contract needs."""
+    words = re.findall(r"[a-zà-ÿ]+", text.lower())
+    return sum(w in _FR_MARKERS for w in words) >= sum(w in _EN_MARKERS for w in words)
+
+
+def verbatim_quote(b) -> str:
+    """The text that must appear in the article: the original-language passage
+    when the slide shows a translation, else the quote itself."""
+    return b.quote_original.strip() or b.quote
+
+
 def _quote_errors(d, article_text: str) -> list[str]:
     """Quotes are verbatim by contract. The model rewords them to meet the word
     cap — « frapper au plus fort de son bombardement aérien de la bande » loses
-    « de la bande » — so the loop has to see the article to catch it."""
+    « de la bande » — so the loop has to see the article to catch it. A
+    non-French article is quoted in translation, its original kept alongside."""
     article = norm_for_match(article_text)
-    return [
-        f"display.reading_beats[{i}].quote is not in the article word for word — "
-        f"« {b.quote[:60]}… ». Keep the passage and elide its middle with « […] » if it is "
-        f"too long; never reword it, and never drop the clause that carries the point"
+    errors = []
+    if not is_french(article_text):
+        errors += [
+            f"display.reading_beats[{i}].quote_original is empty — the article is not in French: "
+            f"put the passage as written in quote_original, and its faithful French translation in quote"
+            for i, b in enumerate(d.reading_beats)
+            if b.selected and b.quote.strip() and not b.quote_original.strip()
+        ]
+    errors += [
+        f"display.reading_beats[{i}].{'quote_original' if b.quote_original.strip() else 'quote'} is not "
+        f"in the article word for word — « {verbatim_quote(b)[:60]}… ». Keep the passage and elide its "
+        f"middle with « […] » if it is too long; never reword it, and never drop the clause that carries the point"
         for i, b in enumerate(d.reading_beats)
-        if b.selected and b.quote.strip() and not quote_is_faithful(b.quote, article)
+        if b.selected and b.quote.strip() and not quote_is_faithful(verbatim_quote(b), article)
     ]
+    return errors
 
 
 # Openings that ossified across decks: a prompt example becomes the template, and
