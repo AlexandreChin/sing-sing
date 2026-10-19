@@ -11,6 +11,7 @@ Steps:
   8. Distill  — select top 3–5 patterns + open_questions
   9. Guide    — reader companion: pre_reading, watch_out, after_reading
 """
+import hashlib
 import json
 import sys
 import tempfile
@@ -62,6 +63,28 @@ def _load_or_run(steps_dir: Path, filename: str, run_fn):
     return run_fn()
 
 
+_INSTRUCTIONS_STAMP = "instructions.sha256"
+
+
+def _sync_instructions_stamp(steps_dir: Path, extra_instructions: str | None) -> None:
+    """Step files are reused whenever they exist, so a cache written under other
+    instructions would silently win. Stamp the cache with the instructions' hash;
+    on a mismatch, move the stale step files aside (never deleted) so every step
+    reruns. An unstamped cache counts as written without instructions."""
+    digest = hashlib.sha256((extra_instructions or "").strip().encode("utf-8")).hexdigest()
+    stamp = steps_dir / _INSTRUCTIONS_STAMP
+    previous = stamp.read_text().strip() if stamp.exists() else hashlib.sha256(b"").hexdigest()
+    cached = sorted(steps_dir.glob("step*.json"))
+    if previous != digest and cached:
+        stale = steps_dir / f"stale_{previous[:8]}"
+        stale.mkdir(exist_ok=True)
+        for f in cached:
+            f.rename(stale / f.name)
+        print(f"  instructions changed — {len(cached)} cached step(s) moved to {stale.name}/",
+              file=sys.stderr, flush=True)
+    stamp.write_text(digest + "\n")
+
+
 def _extract_title_chapo(body: str) -> tuple[str | None, str | None]:
     lines = body.split('\n')
     title = None
@@ -106,6 +129,7 @@ async def analyze_for_full_analysis(
     if steps_dir is None:
         steps_dir = Path(tempfile.mkdtemp(prefix="sing-sing-steps-"))
     steps_dir.mkdir(parents=True, exist_ok=True)
+    _sync_instructions_stamp(steps_dir, input.extra_instructions)
 
     article = _article_header(input)
     article_title, article_chapo = _extract_title_chapo(input.body)
