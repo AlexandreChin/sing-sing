@@ -45,3 +45,12 @@ def test_parent_images_ignored_without_the_input_file(tmp_path):
     base = tmp_path / "podcast_1"; base.mkdir()
     (tmp_path / "image.png").write_bytes(PNG)               # some other sample's image
     assert cover_thumb(base) == ""
+
+
+def test_card_hook_leaves_room_for_a_three_line_headline():
+    # article_14's first render: a 1.6:1 photo and this headline clipped its third line
+    from renderer.instagram_carousel._shared import _HOOK_BOX, _HOOK_FIXED, _HOOK_TAIL, _HEAD_GAP, hook_metrics
+    head = "Mineurs blessés, **7000** interpellés, peu jugés : **nouvelle norme** ?"
+    m = hook_metrics((962, 602), head)
+    need = 3 * round(m["head_size"] * 1.06)
+    assert m["slot_max"] + need <= _HOOK_BOX - _HOOK_FIXED - _HOOK_TAIL - _HEAD_GAP
