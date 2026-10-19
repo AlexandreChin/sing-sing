@@ -111,8 +111,11 @@ async def cmd_adapt(args: argparse.Namespace) -> None:
     if "analysis_path" in adapt_params:
         kwargs["analysis_path"] = json_path
     if "article_text" in adapt_params:
-        article = json_path.parent / f"{json_path.parent.name}.txt"
-        if article.exists():
+        # The input sits in the analysis folder or beside it (see _base_dir).
+        base = json_path.parent
+        article = next((c for c in (base / f"{base.name}.txt", base.parent / f"{base.name}.txt")
+                        if c.exists()), None)
+        if article:
             kwargs["article_text"] = article.read_text(encoding="utf-8")
     presentation = adapt_fn(full, **kwargs)
     out_path = json_path.with_stem(json_path.stem + f"_{args.format}_adapt")
