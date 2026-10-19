@@ -14,7 +14,7 @@ uv add <package>
 uv sync
 
 # Full pipeline: analyze → adapt → extract → render
-python main.py produce <article.txt> [--format instagram_carousel_optimized] [--no-api] [--render]
+python main.py produce <article.txt> [--format instagram_carousel_optimized] [--no-api] [--render] [--instructions-file <path>]
 
 # Individual stages
 python main.py analyze <article.txt> [--instructions "..."] [--instructions-file <path>]
@@ -70,6 +70,12 @@ tools/
 
 **Data flow (`produce`):** `analyze_for_full_analysis(text)` → `ArticleFullAnalysis` JSON → `adapt()` → presentation JSON → `extract()` → trimmed render document (`extract.json`) → `render_from_json()` → PNG slides.
 
+**Instructions (editorial angle):** `--instructions`/`--instructions-file` on `analyze` or `produce`
+reach every analysis step and are kept in `analysis.json` (`article_metadata.extra_instructions`),
+so the adapt agent leads its prompt with them. `steps/` is stamped with their hash
+(`instructions.sha256`); changed instructions move the cached steps to `steps/stale_<hash>/`
+and every step reruns.
+
 **Output layout:** one folder per analysis (see `_layout()` in `main.py`):
 ```
 samples/outputs/<stem>/
@@ -82,7 +88,7 @@ samples/outputs/<stem>/
 ```
 
 **Formats:** registered in `extractors/registry.py`, all fed by the same `analyze`. The carousel has its own `adapt()` copy; the newsletter has its own prose adapt.
-- `instagram_carousel_optimized` (default) — 9-slide "lens to read with" deck on the `article_carousel_optimized_v0` templates: Hook (source pill, title, promise) → En bref (lede + the 3 numbered `essentiel` claims; the prose `essentiel_summary` is the fallback) → À savoir, à se demander (`reperes_facts`: 2–3 labelled facts chosen from the analysis's context, then the réflexes) → 3 moments (one réflexe each, its question repeated word for word) → Le socle de l'argument (thesis, présupposés, objection) → Prise de recul (enjeu de fond, « La question », and under it `cta.where_to_look`: 2–3 sources to find answers; the `go_further` items that carry a URL are appended to the post caption by `caption_with_sources()`) → CTA. The bird and the wire: the Sing Sing bird leaves the wordmark and perches on each slide's key element (marked `data-perch` in the template, fixed per slide type: the idées-clés card, the réflexes card, each moment's answer, the targeted pillar, the enjeu card); `renderer/shoot.py` measures every perch and draws one gold wire through the whole deck (`wire_paths()`), level along each perch and continuous at every slide edge, so a swipe reads it unbroken. A slide without a perch is crossed along its foot. Visual layer: each réflexe wears its lens icon (`CANONICAL_LENSES[…]["icon_svg"]`) on slide 3 and on its moment; a moment may draw one sourced count as people or things (`reading_beats[].pictogram`, max one per deck, never a relative risk); slide 7 draws the présupposés as pillars under the thesis, and the bird perches on the pillar `steel_man.targets` names. On slides 1 and 9 the bird sits at home, beside the wordmark top right (the original logo), and those slides carry no wire: it runs from the first perch to the last, starting and ending at the text column's edge. The renderer builds the slide list conditionally (numbering adapts); reading beats are a candidate pool (`selected`), and the réflexe lenses are derived from the selected beats.
+- `instagram_carousel_optimized` (default) — 9-slide "lens to read with" deck on the `article_carousel_optimized_v0` templates: Hook (source pill, title, promise) → En bref (lede + the 3 numbered `essentiel` claims; the prose `essentiel_summary` is the fallback) → À savoir, à se demander (`reperes_facts`: 2–3 labelled facts chosen from the analysis's context, then the réflexes) → 3 moments (one réflexe each, its question repeated word for word) → Le socle de l'argument (thesis, présupposés, objection) → Prise de recul (enjeu de fond, « La question », and under it `cta.where_to_look`: 2–3 sources to find answers; the `go_further` items that carry a URL are appended to the post caption by `caption_with_sources()`) → CTA. The bird and the wire: the Sing Sing bird leaves the wordmark and perches on each slide's key element (marked `data-perch` in the template, fixed per slide type: the idées-clés card, the réflexes card, each moment's answer, the targeted pillar, the enjeu card); `renderer/shoot.py` measures every perch and draws one gold wire through the whole deck (`wire_paths()`), level along each perch and continuous at every slide edge, so a swipe reads it unbroken. A slide without a perch is crossed along its foot. Visual layer: each réflexe wears its lens icon (`CANONICAL_LENSES[…]["icon_svg"]`) on slide 3 and on its moment; a moment may draw one sourced count as people or things (`reading_beats[].pictogram`, max one per deck, never a relative risk); slide 7 draws the présupposés as pillars under the thesis, and the bird perches on the pillar `steel_man.targets` names. On slides 1 and 9 the bird sits at home, beside the wordmark top right (the original logo), and those slides carry no wire: it runs from the first perch to the last, starting and ending at the text column's edge. The renderer builds the slide list conditionally (numbering adapts); reading beats are a candidate pool (`selected`), and the réflexe lenses are derived from the selected beats. The axis: slide 8 (`root_issue` + « La question ») is written first and the deck leads to it — each selected beat carries an `axis_link` (not rendered), and the validator requires the hook, each `essentiel` bullet and the slide-7 thesis to share a key word with slide 8. Quotes from a non-French source show in French (`quote`), with the passage as written in `quote_original`, which the verbatim checks match.
 - `newsletter` — prose, not slides. Own adapt agent (`newsletter_adapt_agent`) + `NewsletterPresentation`. Renders **Markdown** + a rich `newsletter.html` (dark gold-on-black, SVG radar) + email-safe HTML in two themes (table layout, inline styles, no SVG/flexbox): `newsletter.email.html` (light, default) and `newsletter.email.dark.html`. Themes live in `EMAIL_THEMES`; only chrome is themed, the semantic gauge/bar colours are fixed.
   Manual editing: the newsletter's editable source is `newsletter.md` (YAML
   front-matter + Markdown body). Edit it, then `python main.py render
@@ -97,7 +103,7 @@ samples/outputs/<stem>/
 (medium · length · source · date, from `pill_parts()`; ▶ for podcast/video), the
 hook title (`sub_topic`), the promise — `hook.subtitle` (« Comprendre … ») with
 « En juger soi-même. » added by the template in gold — then « Glissez → ».
-Two image modes, both picked up at `render` time — no schema field, no API rerun:
+Two image modes, both picked up at `render` time — no schema field, no API rerun. Images are looked for beside the analysis, then beside the input file when the analysis sits in a `<stem>/` folder next to it (`article_14/article.txt` → `article_14/article/`):
 - **Full-bleed photo:** a `background.png|jpg|webp` beside the analysis
   (`samples/.../<stem>/`) fills the slide under a black band (the logo stays on
   dark) and fades to black behind the text. Opt-in by file: crop a real photo,
