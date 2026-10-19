@@ -24,7 +24,7 @@ import json
 import re
 from pathlib import Path
 
-from agent.instagram_carousel_adapt_agent import _stems, _validate, norm_for_match, quote_is_faithful
+from agent.instagram_carousel_adapt_agent import _stems, _validate, norm_for_match, quote_is_faithful, verbatim_quote
 from models.instagram_carousel_presentation import InstagramCarouselDocument
 
 # Punctuation that French sets off with a no-break space.
@@ -315,9 +315,10 @@ def check(extract_path: Path, article_path: Path | None = None) -> dict[str, lis
         article_numbers = _numbers(article)
         for i, b in enumerate(doc.presentation.display.reading_beats):
             if b.selected and b.quote.strip():
-                if not quote_is_faithful(b.quote, article):
+                if not quote_is_faithful(verbatim_quote(b), article):
+                    field = "quote_original" if b.quote_original.strip() else "quote"
                     report["accuracy"].append(
-                        f"beat[{i}].quote is not in the article word for word — « {b.quote[:60]}… » "
+                        f"beat[{i}].{field} is not in the article word for word — « {verbatim_quote(b)[:60]}… » "
                         f"(elision « […] » is fine; rewording is not)"
                     )
         # A figure absent from the article may still be legitimate: the analysis
