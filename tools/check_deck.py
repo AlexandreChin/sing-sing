@@ -300,14 +300,16 @@ def check(extract_path: Path, article_path: Path | None = None) -> dict[str, lis
         report["structure (adapt)"] = list(_validate(adapted))
 
     if article_path is None:
+        # The input sits in the analysis folder (`podcast_1/podcast_1.txt`) or
+        # beside it (`article_14/article.txt` → `article_14/article/`).
         base = extract_path.parent.parent
-        candidate = base / f"{base.name}.txt"
-        article_path = candidate if candidate.exists() else None
+        candidates = (base / f"{base.name}.txt", base.parent / f"{base.name}.txt")
+        article_path = next((c for c in candidates if c.exists()), None)
 
     article_raw = None
     if article_path is None:
         report["accuracy"].append(
-            "article text not found — pass it as the second argument to check quotes and figures"
+            "article text not found — run `check <extract.json> <article.txt>` to check quotes and figures"
         )
     else:
         article_raw = Path(article_path).read_text(encoding="utf-8")

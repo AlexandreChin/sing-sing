@@ -243,13 +243,30 @@ _THUMB_STEMS = ("cover", "image")
 _THUMB_MIMES = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp"}
 
 
-def _find_thumb(base_dir: Path) -> tuple[Path, str] | None:
-    for stem in _THUMB_STEMS:
-        for ext, mime in _THUMB_MIMES.items():
-            path = Path(base_dir) / f"{stem}{ext}"
-            if path.exists():
-                return path, mime
+def _image_dirs(base_dir: Path) -> list[Path]:
+    """Where slide-1 images are looked for: beside the analysis, then beside the
+    input file when the analysis lives in a <stem>/ folder next to it
+    (`article_14/article.txt` → `article_14/article/`), so an image dropped next
+    to the article is found without copying it in."""
+    base_dir = Path(base_dir)
+    dirs = [base_dir]
+    if (base_dir.parent / f"{base_dir.name}.txt").exists():
+        dirs.append(base_dir.parent)
+    return dirs
+
+
+def _find_image(base_dir: Path, stems: tuple[str, ...]) -> tuple[Path, str] | None:
+    for d in _image_dirs(base_dir):
+        for stem in stems:
+            for ext, mime in _THUMB_MIMES.items():
+                path = d / f"{stem}{ext}"
+                if path.exists():
+                    return path, mime
     return None
+
+
+def _find_thumb(base_dir: Path) -> tuple[Path, str] | None:
+    return _find_image(base_dir, _THUMB_STEMS)
 
 
 # Slide 1's vertical budget, measured from the rendered template (1350px slide,
@@ -321,11 +338,11 @@ def background_image(base_dir: Path) -> str:
     """Data URL for a full-bleed slide-1 photo (`background.*` beside the analysis),
     else "". Opt-in by file, like `cover.*`: a text-only article capture makes a poor
     background, so only a photo someone chose (and cropped) gets the full slide."""
-    for ext, mime in _THUMB_MIMES.items():
-        path = Path(base_dir) / f"background{ext}"
-        if path.exists():
-            return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode()
-    return ""
+    found = _find_image(base_dir, ("background",))
+    if not found:
+        return ""
+    path, mime = found
+    return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode()
 
 
 # The pill holds one line on most decks only with the month shortened.
