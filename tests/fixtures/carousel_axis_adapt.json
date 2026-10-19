@@ -1,0 +1,387 @@
+{
+  "caption": "Près de 7 000 interpellations, dont 87 % de mineurs : en France, la révolte lycéenne de l'automne fait face à une réponse policière massive, et une loi « casseurs-payeurs » arrive fin octobre. 🏫\n\n🔎 Ce qu'il faut savoir pour lire ce bras de fer entre lycéens et État, et s'en faire une idée.\n\n🔗 Lien vers l'article en commentaires ↓",
+  "hook": {
+    "topic": "Révolte lycéenne, réponse **policière**",
+    "sub_topic": "Révolte lycéenne : ce que le mot « **casseurs** » cache",
+    "subtitle": "Comprendre ce qu'on ne voit plus.",
+    "headline": "lycéens dits « casseurs », mineurs arrêtés : le **prix** de manifester",
+    "context_line": "En France, la mobilisation lycéenne de l'automne 2026 se heurte à près de 7 000 interpellations.",
+    "sub_topic_alt": [
+      "Des **mineurs** en garde à vue, un mot : « casseurs ». Et manifester ?",
+      "« Casseurs », dit l'État ; des **mineurs** arrêtés par milliers",
+      "Lycéens en cellule, loi en préparation : manifester **coûte** quoi ?"
+    ]
+  },
+  "interest": {
+    "why_read": "Lire un **chiffre** et un récit sans les confondre.",
+    "pull_quote": "too young to vote, old enough to be tear-gassed",
+    "next_slide_hook": "D'abord, ce que l'article raconte."
+  },
+  "title_bullets": [
+    "Lisez la question du titre comme une **thèse** que le texte va défendre.",
+    "Repérez **qui** est au centre du titre : le gouvernement, pas les lycéens."
+  ],
+  "chapo_bullets": [
+    "Notez que le chapeau parle de **répression** avant de parler d'école.",
+    "Repérez les mots forts de l'auteur : « **arbitrary** », « excessive »."
+  ],
+  "context_next_slide_hook": "Trois réflexes pour lire la suite.",
+  "watch_out_next_slide_hook": "Place aux passages qui portent l'argument.",
+  "forme_next_slide_hook": "Reste à séparer les faits des opinions.",
+  "biases_next_slide_hook": "Ce que tout cela laisse au lecteur.",
+  "engagement_question": "Quand une mobilisation déborde, comment entendre encore ce qu'elle réclame ?",
+  "go_further": [
+    {
+      "title": "Un pays qui se tient sage",
+      "source": "David Dufresne, documentaire (2020)",
+      "media_type": "documentary",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": 86,
+      "why_explore": "Le film confronte images de violences policières et points de vue contradictoires, dont celui de policiers, sur la légitimité de la force.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Article 222-14-2 : participation à un groupement en vue de commettre des violences",
+      "source": "Code pénal",
+      "media_type": "other",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Le texte qui permet d'interpeller avant tout acte violent, et éclaire l'écart entre gardes à vue et poursuites.",
+      "cta_question_index": 0
+    },
+    {
+      "title": "Bilans des interpellations",
+      "source": "Ministère de l'Intérieur",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Les chiffres officiels d'interpellations et de blessés, à mettre en regard de ceux de l'article.",
+      "cta_question_index": 1
+    }
+  ],
+  "cta": {
+    "title": "Un mot choisi décide de ce qu'on regarde",
+    "engagement_sentence": "Pourquoi le récit des « **casseurs** » s'impose-t-il si souvent dans les médias français ?",
+    "engagement_sentence_alt": [
+      "À quelles conditions les actes de quelques-uns peuvent-ils engager tous ceux qui **réclament** avec eux ?",
+      "Qui devrait répondre des dégâts d'une manifestation, quand la foule **réclame** et que quelques-uns cassent ?"
+    ],
+    "where_to_look": [
+      "Acrimed, observatoire critique des médias",
+      "Arthur Vuattoux, sociologue de la justice des mineurs",
+      "Le Défenseur des droits sur l'usage de la force"
+    ],
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "Quelle part des gardes à vue relève du délit de groupement en vue de violences ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_1",
+        "question": "Quel bilan des violences commises pendant ces manifestations permettrait de juger la proportionnalité de la réponse ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_2",
+        "question": "Que réclament concrètement les lycéens mobilisés pour leur école ?",
+        "type": "topic_substance"
+      },
+      {
+        "id": "q_3",
+        "question": "Mon avis sur ces manifestations s'est-il formé avant ou après la lecture des chiffres ?",
+        "type": "reader_bias"
+      }
+    ]
+  },
+  "display": {
+    "thesis_frame": {
+      "main_claim": "En réduisant la révolte lycéenne à des casseurs, le gouvernement justifie une répression inédite contre des mineurs.",
+      "out_of_scope": [
+        "les doctrines de maintien de l'ordre des autres pays européens",
+        "le recrutement et la formation des policiers",
+        "la stratégie électorale des partis d'opposition"
+      ]
+    },
+    "payoff": "Distinguer le **récit**, les **chiffres** et le droit quand une mobilisation est réprimée.",
+    "framing": "La mobilisation vue par la **répression**, du côté des libertés publiques.",
+    "why_selected": "Des lycéens des **quartiers populaires** bloquent leurs établissements pour réclamer des moyens. Fin octobre, une loi veut faire payer les dégâts aux manifestants.\nLe Premier ministre dément les violences policières ; Amnesty International France dénonce un **usage disproportionné** de la force.",
+    "selection_headline": "Lycées bloqués, violences policières démenties",
+    "selection_headline_alt": [
+      "Un Premier ministre face à Amnesty",
+      "Des blocages, et une loi en préparation",
+      "Une rentrée sous gaz lacrymogène"
+    ],
+    "ethics": "Déontologie à surveiller : un **chiffre non sourcé**, des médias non nommés.",
+    "pre_reading": [
+      "Lisez-le comme un **plaidoyer** pour les libertés publiques, assumé.",
+      "Repérez d'où vient chaque **chiffre** avancé."
+    ],
+    "watch_out": [
+      {
+        "label": "solidité",
+        "text": "Un **écart chiffré** sans source tient lieu de preuve d'arbitraire."
+      },
+      {
+        "label": "accumulation de détails chocs",
+        "text": "Les **blessures** de mineurs ouvrent le texte, avant toute analyse."
+      }
+    ],
+    "strengths": [
+      {
+        "label": "Clarté",
+        "text": "Une structure claire, ancrée dans des **chiffres** et des cas concrets."
+      },
+      {
+        "label": "Rigueur des sources",
+        "text": "Des voix critiques **identifiables** : ONG, avocat, syndicat étudiant, sociologue."
+      }
+    ],
+    "distill_points": [
+      "La conclusion d'arbitraire repose sur un **écart chiffré** sans source ; le délit de groupement n'est pas évoqué.",
+      "Sans bilan des violences côté manifestants, la **proportionnalité** de la réponse reste à juger.",
+      "L'intention de « sauver la face » est **supposée** à partir des seuls propos publics du gouvernement."
+    ],
+    "after_reading": [
+      "Cherchez quelle part des **gardes à vue** a un motif légal.",
+      "Trouvez un **bilan des violences** pour juger la proportionnalité.",
+      "Demandez-vous ce que les lycéens **réclament** concrètement."
+    ],
+    "key_takeaways": [
+      {
+        "text": "Près de **7 000 interpellations**, dont environ 87 % de mineurs.",
+        "selected": true
+      },
+      {
+        "text": "Au moins **5 000 gardes à vue** pour 1 500 dossiers transmis à la justice.",
+        "selected": true
+      },
+      {
+        "text": "Une loi « **casseurs-payeurs** » est examinée fin octobre.",
+        "selected": true
+      },
+      {
+        "text": "Amnesty International France a dénoncé le 2 octobre un **usage disproportionné** de la force.",
+        "selected": false
+      },
+      {
+        "text": "Une loi de 1970 instaurait déjà une **responsabilité collective**, abrogée en 1981.",
+        "selected": false
+      }
+    ],
+    "blind_spots": [
+      "Le **bilan des violences** côté manifestants n'est jamais donné.",
+      "La **parole policière** et les précédents législatifs restent absents."
+    ],
+    "balance": [
+      "Un texte engagé, à l'angle explicite, **n'a pas à** peser tous les camps à parts égales.",
+      "Ses absences appellent un **complément**, pas un rejet."
+    ],
+    "lenses": [],
+    "reading_beats": [
+      {
+        "moment": "Des mâchoires brisées, placées en ouverture",
+        "quote": "adolescents who have had their jaws shattered by rubber bullets or their hands blown off by explosive stun grenades",
+        "lens_ref": "cadrage",
+        "lens_question": "Des blessures en ouverture : que préparent-elles ?",
+        "note": "Demandez-vous ce que l'**ordre** des faits prépare chez le lecteur.",
+        "answer": "**Le jugement**, avant les chiffres. L'autre plateau, blessés policiers et dégâts, se cherche dans les bilans du ministère de l'Intérieur.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": false,
+        "theme": "Violence subie par les mineurs",
+        "centrality": 4,
+        "kind": "biais",
+        "role": "mise en scène",
+        "spine_ref": 2,
+        "rationale": "Ouverture émotionnelle qui oriente toute la lecture."
+      },
+      {
+        "moment": "Ministres et médias de droite, même récit",
+        "quote": "government ministers and right-wing media alike want to portray the student revolt as little more than a case of youth nihilism run amok",
+        "lens_ref": "sources",
+        "lens_question": "Un camp accusé de relayer : qui le compose ?",
+        "note": "Devant une accusation collective, cherchez les **noms** des accusés.",
+        "answer": "**Les ministres** sont cités par leurs déclarations ; pour les médias, cherchez les titres et unes d'octobre qui reprennent le mot « casseurs ».",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "disputed",
+        "selected": false,
+        "theme": "Relais médiatique du cadrage",
+        "centrality": 3,
+        "kind": "affirmation",
+        "role": "appui",
+        "spine_ref": 1,
+        "rationale": "Étend le cadrage du gouvernement aux médias."
+      },
+      {
+        "moment": "Pour l'auteur, « casseurs » sert à sauver la face",
+        "quote": "sauver la face […] dépend de sa capacité à présenter le mouvement comme une couverture pour des voyous",
+        "lens_ref": "opinion_fait",
+        "lens_question": "« Sauver la face » : sur quelle preuve ?",
+        "note": "Devant une intention prêtée, cherchez sur quoi elle **s'appuie**.",
+        "answer": "**Ses déclarations publiques**, seule parole officielle citée. Celle du Premier ministre se lit au compte rendu de l'Assemblée du 6 octobre.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "unverifiable",
+        "selected": true,
+        "theme": "Cadrage gouvernemental",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "pivot",
+        "spine_ref": 1,
+        "rationale": "La thèse du cadrage stratégique, énoncée par l'auteur."
+      },
+      {
+        "moment": "5 000 gardes à vue, 1 500 poursuites : l'écart accuse",
+        "quote": "5,000 […] taken into official custody […] compared with the 1,500 cases handed over to the justice system",
+        "lens_ref": "chiffres",
+        "lens_question": "Arrêtés sans être poursuivis : pour quel motif ?",
+        "note": "Devant un écart entre deux chiffres, cherchez ce que **chacun mesure**.",
+        "answer": "**Le délit de groupement**, créé en 2010, permet d'interpeller avant tout acte violent. Une part de l'écart peut tenir à ce cadre légal.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "disputed",
+        "selected": false,
+        "theme": "Ampleur de la répression",
+        "centrality": 5,
+        "kind": "statistique",
+        "role": "preuve",
+        "spine_ref": 2,
+        "rationale": "Le chiffre central sur lequel repose l'accusation d'arbitraire."
+      },
+      {
+        "moment": "L'enseignant aspergé d'essence, rangé en exception",
+        "quote": "With exceptional examples such as the teacher who was doused in gasoline and beaten up by rioters in southern France on October 2",
+        "lens_ref": "equilibre",
+        "lens_question": "Des violences de manifestants : combien, au total ?",
+        "note": "Devant un cas jugé isolé, cherchez le **décompte** qui le montrerait.",
+        "answer": "**Un bilan officiel** des violences et dégâts dirait si le cas est isolé ; cherchez-le dans les chiffres du ministère de l'Intérieur.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": false,
+        "theme": "Violences côté manifestants",
+        "centrality": 2,
+        "kind": "biais",
+        "role": "concession",
+        "spine_ref": 0,
+        "rationale": "Seule mention des violences venues des manifestants."
+      },
+      {
+        "moment": "Le syndicat : « nos demandes étaient claires »",
+        "quote": "Nos demandes ont été claires dès le début.",
+        "lens_ref": "angles_morts",
+        "lens_question": "Des demandes « claires » : lesquelles, au juste ?",
+        "note": "Devant une revendication invoquée, cherchez son **contenu** précis.",
+        "answer": "**Plus de moyens** pour l'école : le détail se lit dans les plateformes publiées par les syndicats lycéens et étudiants.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": true,
+        "theme": "Revendications scolaires",
+        "centrality": 3,
+        "kind": "enjeu",
+        "role": "appui",
+        "spine_ref": 2,
+        "rationale": "Seule place donnée aux revendications du mouvement."
+      },
+      {
+        "moment": "Traités en émeute, car venus des quartiers populaires",
+        "quote": "celle-ci est traitée comme une émeute urbaine […] elle est née dans des quartiers défavorisés",
+        "lens_ref": "causalite",
+        "lens_question": "Traités selon leur quartier : comment le mesurer ?",
+        "note": "Devant un lien de cause, cherchez la **comparaison** qui l'établirait.",
+        "answer": "**En comparant** les interpellations selon les lycées ; ici, le lien vient d'un sociologue et d'un témoignage syndical.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": true,
+        "theme": "Origine sociale et adultification",
+        "centrality": 4,
+        "kind": "affirmation",
+        "role": "appui",
+        "spine_ref": 3,
+        "rationale": "Explique le cadrage par l'origine sociale des lycéens."
+      },
+      {
+        "moment": "Casseurs-payeurs : la crainte d'une sanction pour tous",
+        "quote": "Critics fear that in practice this could put anyone who joins a protest at risk of sanction.",
+        "lens_ref": "angles_morts",
+        "lens_question": "Une loi contre les casseurs : quels précédents ?",
+        "note": "Devant une loi présentée comme une étape, cherchez ce qui l'a **précédée**.",
+        "answer": "**Une loi de 1970** rendait déjà les manifestants collectivement responsables ; abrogée en 1981. Celle de 2019 fut en partie censurée.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": false,
+        "theme": "Arsenal législatif",
+        "centrality": 4,
+        "kind": "enjeu",
+        "role": "appui",
+        "spine_ref": 3,
+        "rationale": "Où aboutit l'argument : le coût légal de manifester."
+      }
+    ],
+    "global_analysis": {
+      "headline": "Le récit « casseurs » cache l'école et la répression",
+      "headline_alt": [
+        "Un mot, « casseurs », pour justifier la force",
+        "Le cadrage du pouvoir rend manifester plus coûteux"
+      ],
+      "core_recap": [
+        "Ce qu'il tient pour acquis : que les **casseurs** sont une minorité ; que le mot « casseurs » **vient d'en haut** ; que l'**école** suffit à expliquer la révolte"
+      ]
+    },
+    "open_question": "",
+    "root_issue": "Des lycéens **réclament** des moyens pour une école qui se délite ; le débat public s'est déplacé vers les **casseurs**.",
+    "steel_man": {
+      "argument": "Un enseignant aspergé d'essence le 2 octobre : le gouvernement peut décrire des **violences réelles**.",
+      "alternative": "Le récit « casseurs » serait une lecture **partielle mais sincère**.",
+      "targets": 1
+    },
+    "reperes_headline": "",
+    "reperes_context": "",
+    "reperes_facts": [
+      {
+        "label": "Le journal",
+        "text": "The Nation, **hebdomadaire progressiste** américain, écrit pour des lecteurs des États-Unis."
+      },
+      {
+        "label": "Le droit",
+        "text": "Garde à vue limitée à 48 h, avocat et parents prévenus pour un **mineur**."
+      },
+      {
+        "label": "Les lycées",
+        "text": "En 2018, 151 lycéens de **Mantes-la-Jolie**, filmés à genoux, avaient fait polémique."
+      }
+    ],
+    "bilan_headline": "",
+    "essentiel": [
+      "Le gouvernement réduit la révolte lycéenne à une affaire de **casseurs**.",
+      "Ce récit éclipse ce que les lycéens **réclament** : des moyens pour l'école.",
+      "Le même récit couvre une répression d'ampleur inédite contre des **mineurs**."
+    ],
+    "essentiel_summary": "The Nation décrit une mobilisation lycéenne face à **près de 7 000 interpellations**, dont 87 % de mineurs, et **5 000 gardes à vue** pour 1 500 dossiers en justice. Pour l'article, le gouvernement la réduit à des « casseurs » afin de justifier une répression qui rend **manifester** plus coûteux."
+  }
+}
