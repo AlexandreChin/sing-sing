@@ -62,13 +62,16 @@ async def run_full_analysis(text: str, no_api: bool = False, input_path: str | N
 
 # ── Command handlers ────────────────────────────────────────────────────────────
 
-async def cmd_analyze(args: argparse.Namespace) -> None:
+def _extra_instructions(args: argparse.Namespace) -> str | None:
     if args.instructions is not None:
-        extra_instructions = args.instructions
-    elif args.instructions_file is not None:
-        extra_instructions = Path(args.instructions_file).read_text(encoding="utf-8").strip()
-    else:
-        extra_instructions = None
+        return args.instructions
+    if args.instructions_file is not None:
+        return Path(args.instructions_file).read_text(encoding="utf-8").strip()
+    return None
+
+
+async def cmd_analyze(args: argparse.Namespace) -> None:
+    extra_instructions = _extra_instructions(args)
 
     if args.article:
         input_path = args.article
@@ -266,7 +269,8 @@ async def cmd_produce(args: argparse.Namespace) -> None:
     lay = _layout(stem, args.format, base=_base_dir(input_path, stem))
     lay["fmt_dir"].mkdir(parents=True, exist_ok=True)
     full = await analyze_for_full_analysis(
-        FullAnalysisInput(body=text, medium=args.medium, source=args.source,
+        FullAnalysisInput(body=text, extra_instructions=_extra_instructions(args),
+                          medium=args.medium, source=args.source,
                           url=args.url, published_at=args.published_at,
                           duration_minutes=args.duration, title=args.title),
         no_api=args.no_api,
@@ -389,6 +393,13 @@ def _add_source_args(p: argparse.ArgumentParser) -> None:
                    help="listening/viewing time in minutes (default: estimated from the word count)")
 
 
+def _add_instruction_args(p: argparse.ArgumentParser) -> None:
+    """Editorial angle for the run — reaches the analysis steps and the adapt agent."""
+    g = p.add_mutually_exclusive_group()
+    g.add_argument("--instructions", help="extra analysis instructions (inline)")
+    g.add_argument("--instructions-file", help="extra analysis instructions (from file)")
+
+
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="main.py", description="Analyze news articles and render Instagram carousels.")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -400,8 +411,7 @@ def _build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("analyze", help="run the full analysis pipeline on an article")
     p.add_argument("article", nargs="?", help="article .txt file (reads stdin if omitted)")
     p.add_argument("--no-api", action="store_true", help="use the local claude CLI instead of the API")
-    p.add_argument("--instructions", help="extra analysis instructions (inline)")
-    p.add_argument("--instructions-file", help="extra analysis instructions (from file)")
+    _add_instruction_args(p)
     p.add_argument("--medium", choices=["article", "video", "podcast"], default="article",
                    help="source medium — drives reader-facing vocabulary (default: article)")
     _add_source_args(p)
@@ -425,6 +435,7 @@ def _build_parser() -> argparse.ArgumentParser:
     _add_format(p)
     p.add_argument("--no-api", action="store_true")
     p.add_argument("--render", action="store_true")
+    _add_instruction_args(p)
     p.add_argument("--medium", choices=["article", "video", "podcast"], default="article",
                    help="source medium — drives reader-facing vocabulary (default: article)")
     _add_source_args(p)
