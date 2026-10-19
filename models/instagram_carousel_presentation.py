@@ -123,6 +123,10 @@ class ReadingBeat(BaseModel):
     # apart and the deck stops building.
     # 0 = legacy deck produced before the field existed — checks stay off.
     spine_ref: Literal[0, 1, 2, 3] = 0
+    # What this moment gives the reader toward slide 8 (root_issue / « La
+    # question »), the deck's axis. Not rendered; required on selected beats once
+    # a deck carries it. "" = legacy deck produced before the field — checks off.
+    axis_link: str = ""
     rationale: str = ""     # editor aid — one line on why this beat is worth a slide
 
 

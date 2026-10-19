@@ -381,6 +381,34 @@ def _gilded_errors(pres, d) -> list[str]:
     ]
 
 
+def _axis_errors(pres, d) -> list[str]:
+    """Slide 8 — the enjeu de fond and « La question » — is where the deck leads.
+    Every selected moment says what it gives toward it (`axis_link`), and the hook,
+    each slide-2 bullet and the slide-7 thesis share a key word with it, so no
+    slide drifts onto a side subject. Only enforced on decks carrying `axis_link`
+    at all, so older decks keep validating."""
+    beats = d.reading_beats
+    if not any(b.axis_link.strip() for b in beats):
+        return []
+    errors = [
+        f"display.reading_beats[{i}].axis_link is empty (required for selected beats) — say what "
+        f"this moment gives toward slide 8, or deselect it"
+        for i, b in enumerate(beats) if b.selected and not b.axis_link.strip()
+    ]
+    axis = _stems(_plain(d.root_issue)) | _stems(_plain(pres.cta.engagement_sentence))
+    fields = [("hook.sub_topic", pres.hook.sub_topic)]
+    fields += [(f"display.essentiel[{i}]", e) for i, e in enumerate(d.essentiel)]
+    if d.global_analysis:
+        fields.append(("display.global_analysis.headline", d.global_analysis.headline))
+    for label, text in fields:
+        if text.strip() and not _stems(_plain(text)) & axis:
+            errors.append(
+                f"{label} shares no key word with slide 8 (root_issue / cta.engagement_sentence) — "
+                f"« {_plain(text)[:60]} » reads as a side subject; tie it to the enjeu or the question"
+            )
+    return errors
+
+
 def _lens_layer_errors(d) -> list[str]:
     """Validate the 4-act lens layer (Task: lens-arc). Additive — leaves the
     legacy checks in _validate untouched so the short format keeps working."""
@@ -726,6 +754,7 @@ def _validate(data: dict, article_text: str | None = None) -> list[str]:
     errors += _tired_question_errors("cta.engagement_sentence", pres.cta.engagement_sentence)
     errors += _tired_opening_errors("display.selection_headline", d.selection_headline)
     errors.extend(_lens_layer_errors(d))
+    errors += _axis_errors(pres, d)
     if article_text:
         errors.extend(_quote_errors(d, article_text))
     return errors
