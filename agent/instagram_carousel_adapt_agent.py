@@ -433,6 +433,16 @@ def _axis_errors(pres, d) -> list[str]:
                 f"{label} shares no key word with slide 8 (root_issue / cta.engagement_sentence) — "
                 f"« {_plain(text)[:60]} » reads as a side subject; tie it to the enjeu or the question"
             )
+    # The moment slide shows its réflexe question and its answer: that is what the
+    # reader carries away, so the link to slide 8 must be visible there, not only
+    # in the unrendered axis_link.
+    for i, b in enumerate(beats):
+        if b.selected and not _stems(_plain(f"{b.lens_question} {b.answer}")) & axis:
+            errors.append(
+                f"display.reading_beats[{i}] — neither lens_question nor answer shares a key word with "
+                f"slide 8: the slide teaches a reading habit but hands the reader nothing toward the "
+                f"enjeu or the question; ask and answer in slide 8's terms"
+            )
     return errors
 
 
