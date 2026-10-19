@@ -276,6 +276,7 @@ def _find_thumb(base_dir: Path) -> tuple[Path, str] | None:
 _HOOK_TOP = 150          # .slide padding-top
 _HOOK_FIXED = 90         # source pill above the capture + the slot's margin
 _HOOK_TAIL = 260         # gap + two-line subtitle + « Glissez → »
+_HEAD_GAP = 90           # between capture and headline: divider (44px margin + 2px rule) + .cover-head margin-top (44px)
 _HOOK_BOX = 1270 - _HOOK_TOP
 _HEAD_LADDER = (85, 78, 70, 62)   # px; 85 is the deck's headline size
 _HEAD_LINE = 1.06                 # .cover-head line-height
@@ -303,7 +304,7 @@ def hook_metrics(dims: tuple[int, int] | None, headline: str) -> dict:
         return {"slot_max": None, "head_size": _HEAD_LADDER[0]}
     width, height = dims
     slot = min(_SLOT_MAX, round(_SLOT_W * height / width))
-    room = _HOOK_BOX - _HOOK_FIXED - _HOOK_TAIL
+    room = _HOOK_BOX - _HOOK_FIXED - _HOOK_TAIL - _HEAD_GAP
     for size in _HEAD_LADDER:
         need = _head_lines(headline, size) * round(size * _HEAD_LINE)
         if room - slot >= need:
