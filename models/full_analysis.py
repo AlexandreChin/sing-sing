@@ -103,6 +103,9 @@ class ArticleMetadata(BaseModel):
     ] | None = None
     reading_time_minutes: int | None = None
     chapo: str | None = None
+    # The editorial angle the run was given (--instructions). Kept with the
+    # analysis so the adapt agents, which only see analysis.json, follow it too.
+    extra_instructions: str | None = None
 
     @field_validator("category", mode="before")
     @classmethod

@@ -25,3 +25,16 @@ def test_same_instructions_keep_cache(tmp_path):
     (steps / "step1_scan.json").write_text("{}")
     _sync_instructions_stamp(steps, "angle")
     assert (steps / "step1_scan.json").exists()
+
+
+def test_adapt_context_leads_with_instructions():
+    import json
+    from pathlib import Path
+    from agent.instagram_carousel_adapt_agent import _full_analysis_context
+    from models.full_analysis import ArticleFullAnalysis
+    data = json.loads(Path("samples/podcasts/podcast_1/analysis.json").read_text())
+    full = ArticleFullAnalysis.model_validate(data)
+    assert "CONSIGNES ÉDITORIALES" not in _full_analysis_context(full)
+    full.article_metadata.extra_instructions = "Angle : le cadrage « casseurs »."
+    ctx = _full_analysis_context(full)
+    assert ctx.startswith("CONSIGNES ÉDITORIALES") and "cadrage « casseurs »" in ctx
