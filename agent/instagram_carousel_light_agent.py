@@ -13,7 +13,7 @@ from pathlib import Path
 from pydantic import BaseModel
 
 from agent._base import _call_with_retry
-from agent.instagram_carousel_adapt_agent import _validate, adapt as adapt_full, caption_with_sources
+from agent.instagram_carousel_adapt_agent import _BOLD_RE, _validate, adapt as adapt_full, caption_with_sources
 from models.full_analysis import ArticleFullAnalysis
 from models.instagram_carousel_presentation import InstagramCarouselPresentation
 
@@ -74,6 +74,22 @@ def merge(full: dict, copy: dict) -> dict:
     return out
 
 
+def _same_axis_errors(base: dict, merged: dict) -> list[str]:
+    """The light deck keeps the full deck's slide 8: condensed, its question and its
+    enjeu still carry the gold word they share in the full version."""
+    errors = []
+    for label, full_text, light_text in (
+        ("cta.engagement_sentence", base["cta"]["engagement_sentence"], merged["cta"]["engagement_sentence"]),
+        ("display.root_issue", base["display"]["root_issue"], merged["display"]["root_issue"]),
+    ):
+        gold = {w.lower()[:5] for span in _BOLD_RE.findall(full_text) for w in span.split()}
+        kept = {w.lower()[:5] for span in _BOLD_RE.findall(light_text) for w in span.split()}
+        if gold and not gold & kept:
+            errors.append(f"light: {label} drops the full deck's gold word — condense « {full_text} », "
+                          f"do not replace it")
+    return errors
+
+
 def _full_presentation(full: ArticleFullAnalysis, analysis_path: Path | None, no_api: bool,
                        article_text: str | None) -> dict:
     """The full deck's adapt.json beside the analysis, or a fresh full adapt (saved
@@ -102,7 +118,8 @@ def adapt(
     copy = _call_with_retry(
         user_msg,
         LightCopy.model_json_schema(),
-        validator=lambda data: _validate(merge(base, data), article_text, light=True),
+        validator=lambda data: (_validate(merge(base, data), article_text, light=True)
+                                + _same_axis_errors(base, merge(base, data))),
         no_api=no_api,
         label="light",
     )
