@@ -65,7 +65,7 @@ def merge(full: dict, copy: dict) -> dict:
             beats[m.index].update(m.model_dump(exclude={"index"}))
     if d.get("global_analysis"):
         d["global_analysis"]["headline"] = c.headline
-        d["global_analysis"]["core_recap"] = ["Ce qu'il tient pour acquis : " + " ; ".join(c.presupposes)]
+        d["global_analysis"]["core_recap"] = ["Ses présupposés : " + " ; ".join(c.presupposes)]
     if d.get("steel_man"):
         d["steel_man"]["argument"] = c.objection
     d["root_issue"] = c.root_issue

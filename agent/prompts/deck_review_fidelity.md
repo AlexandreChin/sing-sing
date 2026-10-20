@@ -34,7 +34,7 @@ Ton travail : vérifier que ce carrousel dit ce que l'article dit, sur ce que l'
    remarque vraie mais périphérique ? Et les trois font-ils trois gestes différents, ou trois fois
    le même ? Signale le moment qu'un candidat du vivier (fourni) remplacerait avantageusement,
    en le nommant.
-4. `presupposition` — sur les présupposés du socle (« Ce qu'il tient pour acquis ») et sur
+4. `presupposition` — sur les présupposés du socle (« Ses présupposés ») et sur
    l'objection (`steel_man`), applique les trois tests :
    - **est-ce non dit ?** Si l'article ARGUMENTE ce point, ce n'est pas un présupposé mais le
      résumé de sa démonstration ;
