@@ -46,3 +46,15 @@ def test_light_caps_and_counts():
     d["essentiel"][0] = "Le gouvernement réduit la révolte lycéenne à une affaire de **casseurs**."
     pres = InstagramCarouselPresentation.model_validate(data)
     assert any("essentiel[0]" in e for e in _light_errors(pres, pres.display))
+
+
+def test_light_claim_detail_ideas():
+    data = _data()
+    data["display"]["essentiel"] = ["On montre des **casseurs** : quelques violences pour toute la révolte",
+                                    "On tait leurs **demandes** : l'école, l'égalité, être entendus",
+                                    "L'État oppose la **force** : arrestations, loi « casseurs-payeurs »"]
+    pres = InstagramCarouselPresentation.model_validate(data)
+    assert not any("essentiel" in e for e in _light_errors(pres, pres.display))
+    data["display"]["essentiel"][0] = "On montre surtout des **casseurs** partout : quelques violences"
+    pres = InstagramCarouselPresentation.model_validate(data)
+    assert any("essentiel[0]" in e for e in _light_errors(pres, pres.display))

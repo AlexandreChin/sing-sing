@@ -11,7 +11,7 @@ Le carrousel complet est fourni ci-dessus (JSON). Produis sa VERSION LÉGÈRE : 
 **Champs et plafonds**
 - `hook_sub_topic` : l'accroche, ≤40 caractères. Elle nomme le sujet ; pas de « Derrière… ».
 - `hook_subtitle` : « Comprendre … », ≤38 caractères (la slide ajoute « En juger soi-même. »).
-- `essentiel` : les 3 idées de la version complète, ≤48 caractères chacune (pas en mots : huit mots longs font trois lignes), dans le même ordre ; chacune se comprend seule (pas de « Ce récit » qui renvoie à la précédente).
+- `essentiel` : les 3 idées de la version complète, dans le même ordre, chacune écrite « affirmation : détail » — la slide affiche l'affirmation en blanc (≤30 caractères, une ligne, le mot doré dedans) et le détail en gris dessous (≤45 caractères). Ex. « On montre des **casseurs** : quelques violences pour toute la révolte ». Chacune se comprend seule (pas de « Ce récit » qui renvoie à la précédente).
 - `reperes_fact` : UN seul repère (`label` 1–2 mots, `text` ≤10 mots), celui sans lequel le lecteur se tromperait sur la source ou le contexte.
 - `moments` : un objet par moment SÉLECTIONNÉ de la version complète, avec son `index` dans `reading_beats` :
   - `moment` : le titre, ≤45 caractères — ce que le passage fait, lisible seul.

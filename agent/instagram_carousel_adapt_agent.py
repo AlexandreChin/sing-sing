@@ -490,7 +490,8 @@ def _clue_errors(pres, d) -> list[str]:
 # characters, not words — eight long words still wrap to three lines at 54px.
 _LIGHT_CAPS = {"hook": 40, "essentiel": 48, "moment": 45, "quote": 12, "answer": 110,
                "presupposé": 10, "objection": 100, "root_issue": 60, "question": 60,
-               "headline": 45, "lens_questions": 120, "source": 48}
+               "headline": 45, "lens_questions": 120, "source": 48,
+               "claim": 30, "detail": 45}
 
 
 def _light_errors(pres, d) -> list[str]:
@@ -499,8 +500,16 @@ def _light_errors(pres, d) -> list[str]:
     if len(_plain(pres.hook.sub_topic)) > c["hook"]:
         errors.append(f"light: hook.sub_topic is over {c['hook']} characters")
     def chars(t): return len(_plain(t))
-    errors += [f"light: display.essentiel[{i}] is {chars(e)} characters (max {c['essentiel']})"
-               for i, e in enumerate(d.essentiel) if chars(e) > c["essentiel"]]
+    # slide 2 shows « claim : detail » as a short claim over a grey detail line:
+    # each part holds one line
+    for i, e in enumerate(d.essentiel):
+        claim, sep, detail = _plain(e).partition(" : ")
+        if not sep and chars(e) > c["essentiel"]:
+            errors.append(f"light: display.essentiel[{i}] is {chars(e)} characters (max {c['essentiel']}) — "
+                          f"or write it « claim : detail »")
+        elif sep and (len(claim) > c["claim"] or len(detail) > c["detail"]):
+            errors.append(f"light: display.essentiel[{i}] — claim ≤{c['claim']} and detail ≤{c['detail']} characters "
+                          f"(one line each), got {len(claim)} / {len(detail)}")
     picked = [b for b in d.reading_beats if b.selected]
     total_q = sum(chars(b.lens_question) for b in picked)
     if total_q > c["lens_questions"]:

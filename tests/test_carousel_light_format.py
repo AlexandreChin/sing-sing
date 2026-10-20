@@ -36,7 +36,7 @@ def test_merge_keeps_the_full_decks_choices():
     assert [b["lens_ref"] for b in d["reading_beats"]] == [b["lens_ref"] for b in fd["reading_beats"]]
     assert d["why_selected"] == fd["why_selected"]          # the newsletter still has its lede
     assert d["reperes_facts"] == [{"label": "Le journal", "text": "The Nation : hebdomadaire progressiste."}]
-    assert d["global_analysis"]["core_recap"] == ["Ce qu'il tient pour acquis : que a ; que b ; que c"]
+    assert d["global_analysis"]["core_recap"] == ["Ses présupposés : que a ; que b ; que c"]
     picked = [b for b in d["reading_beats"] if b.get("selected", True)]
     assert all(b["moment"].startswith("M") for b in picked)
 
@@ -48,3 +48,11 @@ def test_moment_template_moves_the_perch_to_the_question_in_light():
     full, light = tpl.render(**ctx), tpl.render(light=True, **ctx)
     assert 'class="reveal" data-perch' in full and 'class="watch" data-perch' not in full
     assert 'class="watch" data-perch' in light and 'class="reveal" data-perch' not in light
+
+
+def test_idea_splits_into_claim_and_detail():
+    tpl = _env().get_template("article_carousel_optimized_v0/02_essentiel.html")
+    html = tpl.render(essentiel=["On montre des **casseurs** : quelques violences", "Sans détail ici"],
+                      lede="", slide_n=2, slide_total=9, progress=20, L={"essentiel": "x"}, ICONS={})
+    assert '<span class="pt-claim">' in html and '<span class="pt-detail">quelques violences' in html
+    assert "Sans détail ici" in html
