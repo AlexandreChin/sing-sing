@@ -485,10 +485,11 @@ def _clue_errors(pres, d) -> list[str]:
     return errors
 
 
-# The light format's caps, measured on article_14's slides at the light type scale:
+# The light format's caps, measured on article_14's slides at the light type scale
+# (slide 7 sets pillars at 38px and the objection at 44px, so they take full-length lines):
 # characters, not words — eight long words still wrap to three lines at 54px.
 _LIGHT_CAPS = {"hook": 40, "essentiel": 48, "moment": 45, "quote": 12, "answer": 110,
-               "presupposé": 6, "objection": 70, "root_issue": 60, "question": 60,
+               "presupposé": 10, "objection": 100, "root_issue": 60, "question": 60,
                "headline": 45, "lens_questions": 120, "source": 48}
 
 
