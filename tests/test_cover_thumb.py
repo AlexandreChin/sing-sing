@@ -59,6 +59,6 @@ def test_card_hook_leaves_room_for_a_three_line_headline():
 def test_source_label_says_what_is_translated():
     from renderer.instagram_carousel._shared import source_label
     assert source_label("L'article", None) == "L'article"
-    assert source_label("L'article", "espagnol") == "L'article · traduit de l'espagnol"
-    assert source_label("L'épisode", "Anglais") == "L'épisode · traduit de l'anglais"
-    assert source_label("L'article", "portugais") == "L'article · traduit du portugais"
+    assert source_label("L'article", "espagnol") == "Article original en espagnol"
+    assert source_label("L'épisode", "Anglais") == "Épisode original en anglais"
+    assert source_label("La vidéo", "portugais") == "Vidéo originale en portugais"

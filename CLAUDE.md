@@ -118,7 +118,7 @@ With neither, the pill and the title stand alone. The source's own title shows u
 Pass `--title`/`--source`/`--url`/`--published-at`/`--duration` to
 `analyze`/`produce` to fill the pill; nothing infers them from the article body.
 For a non-French source, `--language espagnol` (the language in French) makes the
-full-bleed label read « L'article · traduit de l'espagnol » (`source_label()`).
+full-bleed label read « Article original en espagnol » (`source_label()`).
 
 **Rendering interface:** every renderer module exposes `render_from_json(extract_path, out_dir, pdf=False)` and lays out its own files under `out_dir` — carousels write `html/` + `slides/`, the newsletter writes `newsletter.md`/`.html`/`.email.html`. `produce` and `render` call this uniformly. (`pdf` is a vestigial no-op kept for interface uniformity.)
 
