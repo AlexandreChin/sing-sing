@@ -70,6 +70,9 @@
    left it (144px box, top 44, right 56; wordmark at 204); it perches from slide 2 */
 .company-name { right: 204px !important; }
 .logo-img { position: absolute; top: 44px; right: 56px; width: 144px; height: 144px; object-fit: contain; }
+{% if light %}/* light format: larger type */
+.subtitle { font-size: 52px; }
+{% endif %}
 </style>
 </head>
 <body>
@@ -92,7 +95,7 @@
 
   {# French spacing is applied by the md_bold filter, for every field. #}
   <div class="divider hook-divider"></div>
-  <h1 class="cover-head" style="font-size: {{ 64 if background else (head_size | default(85)) }}px">{{ (sub_topic or topic or headline) | md_bold }}</h1>
+  <h1 class="cover-head" style="font-size: {{ (84 if light else 64) if background else (head_size | default(85)) }}px">{{ (sub_topic or topic or headline) | md_bold }}</h1>
   {% if subtitle %}<p class="subtitle">{{ subtitle | md_bold }}<br><span class="judge">En juger soi-même.</span></p>{% endif %}
 
   <div class="swipe">Glissez &#8594;</div>

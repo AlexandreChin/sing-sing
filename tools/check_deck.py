@@ -25,6 +25,7 @@ import re
 from pathlib import Path
 
 from agent.instagram_carousel_adapt_agent import _stems, _validate, norm_for_match, quote_is_faithful, verbatim_quote
+from agent.instagram_carousel_light_agent import LIGHT_FORMAT
 from models.instagram_carousel_presentation import InstagramCarouselDocument
 
 # Punctuation that French sets off with a no-break space.
@@ -280,6 +281,8 @@ def _orphan_references(doc: InstagramCarouselDocument) -> list[str]:
 
 
 def check(extract_path: Path, article_path: Path | None = None) -> dict[str, list[str]]:
+    # the light format lives in its own folder and is checked against its own caps
+    light = Path(extract_path).parent.name == LIGHT_FORMAT
     """Run every check. Returns {family: [problems]} — empty lists mean clean."""
     extract_path = Path(extract_path)
     doc = InstagramCarouselDocument.model_validate(json.loads(extract_path.read_text(encoding="utf-8")))
@@ -291,13 +294,13 @@ def check(extract_path: Path, article_path: Path | None = None) -> dict[str, lis
     # The extract is what renders and what gets hand-edited; the adapt is what
     # a rerun would regenerate from. Reporting only the adapt (as this did) sends
     # you hunting through the extract for an error that is not in it.
-    report["structure (extract)"] = [e for e in _validate(doc.presentation) if "go_further" not in e]
+    report["structure (extract)"] = [e for e in _validate(doc.presentation, light=light) if "go_further" not in e]
     adapt_path = extract_path.parent / "adapt.json"
     if adapt_path.exists():
         from models.instagram_carousel_presentation import InstagramCarouselPresentation
         adapted = InstagramCarouselPresentation.model_validate(
             json.loads(adapt_path.read_text(encoding="utf-8")))
-        report["structure (adapt)"] = list(_validate(adapted))
+        report["structure (adapt)"] = list(_validate(adapted, light=light))
 
     if article_path is None:
         # The input sits in the analysis folder (`podcast_1/podcast_1.txt`) or

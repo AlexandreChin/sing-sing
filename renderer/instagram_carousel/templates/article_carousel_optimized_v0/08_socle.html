@@ -22,6 +22,9 @@
 .pillar .n { display: block; font-size: 34px; font-weight: 900; color: #d4aa00; margin-bottom: 10px; }
 .objection { margin-top: 48px; font-size: 34px; line-height: 1.32; color: #a8a8a8; text-wrap: pretty; }
 .objection.free { margin-top: 64px; }
+{% if light %}/* light format: larger type */
+.head, .sel-head { font-size: 72px; } .q-label { font-size: 60px; } .q-head svg { width: 52px; height: 52px; } .pillar { font-size: 48px; } .pillar .n { font-size: 44px; } .objection { font-size: 54px; }
+{% endif %}
 </style>
 </head>
 <body>
