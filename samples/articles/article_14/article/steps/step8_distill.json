@@ -1,0 +1,62 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "La conclusion d'arbitraire repose sur un écart chiffré **sans source** (5 000 gardes à vue contre 1 500 dossiers). Le délit de groupement, qui pourrait en expliquer une partie, **n'est jamais évoqué**.",
+        "references": [
+          "pr_2",
+          "lr_1",
+          "obs_2",
+          "claim_0",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "Les blessures de mineurs, placées en ouverture, orientent le jugement, et l'agression d'un enseignant est réduite à **un adjectif**. Sans bilan des violences côté manifestants, **la proportionnalité de la réponse reste impossible à juger**.",
+        "references": [
+          "er_0",
+          "bias_0",
+          "bias_1",
+          "ia_1",
+          "bs_1",
+          "lr_3"
+        ]
+      },
+      {
+        "text": "L'intention de « sauver la face » est **supposée, jamais établie**, puis sert de ressort au « à qui profite ». Le gouvernement n'étant cité que par ses déclarations publiques, le texte ne permet pas de distinguer **stratégie de communication** et lecture sincère.",
+        "references": [
+          "ia_0",
+          "lr_0",
+          "bs_3",
+          "cb_0",
+          "claim_2"
+        ]
+      },
+      {
+        "text": "La mise en cause d'une partie des médias traverse l'article **sans qu'un seul titre soit nommé**. Ce silence prive les médias visés de tout **droit de réponse**.",
+        "references": [
+          "pr_0",
+          "bs_2",
+          "claim_3"
+        ]
+      },
+      {
+        "text": "Le texte reproche au cadrage « casseurs » d'**effacer les revendications** scolaires, mais ne leur accorde lui-même que deux mentions. Le lien entre origine sociale et traitement en « émeute urbaine » repose sur **un seul témoignage** et un sociologue.",
+        "references": [
+          "obs_0",
+          "bs_0",
+          "ia_2",
+          "cb_0",
+          "focus",
+          "pr_3",
+          "lr_2"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quelle part des gardes à vue classées sans suite relève du délit de groupement en vue de violences ?",
+      "Quel bilan chiffré des violences commises pendant ces manifestations permettrait de juger la proportionnalité de la réponse ?",
+      "Que sont devenues, dans le débat public, les revendications scolaires portées par les lycéens ?"
+    ]
+  }
+}

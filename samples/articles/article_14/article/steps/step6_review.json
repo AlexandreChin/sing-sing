@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 3,
+        "rationale": "Les voix critiques sont **variées et identifiables** : Amnesty International France (c2, attribuée et datée), un avocat, un syndicat étudiant et un sociologue. En revanche, les chiffres d'interpellations ne sont **attribués à aucune source** (c1). Les médias accusés de relayer le cadrage ne sont ni nommés ni cités (c4, confiance 45).",
+        "lesson": "Vérifier d'où vient chaque chiffre avant de lui accorder le poids d'une preuve."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "Les faits datés tiennent, notamment le communiqué d'Amnesty du 2 octobre (confiance 85). Mais la comparaison entre 5 000 gardes à vue et 1 500 dossiers est **présentée comme un fait établi** (c1). Elle ne dit rien des **motifs légaux**, et l'audit déontologique la signale (d1). L'intention de « sauver la face » prêtée au gouvernement est une **opinion présentée comme un fait** (c3).",
+        "lesson": "Comparer deux chiffres seulement après avoir vérifié qu'ils mesurent bien la même chose."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 3,
+        "rationale": "Le fil du raisonnement est lisible : cadrage, répression, puis nouvel arsenal législatif. Deux sauts restent pourtant masqués. L'intention du gouvernement est **déduite de ses seuls propos** (lr1), et l'écart chiffré devient **une preuve d'arbitraire** (lr2) alors que le délit de groupement peut en expliquer une partie.",
+        "lesson": "Repérer le moment où un constat chiffré devient une intention prêtée à quelqu'un."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 3,
+        "rationale": "L'angle des libertés publiques est assumé : le texte oppose ouvertement les déclarations officielles aux voix critiques. Mais certaines hypothèses restent **implicites**. Le cadrage « casseurs » y serait une stratégie plutôt qu'une lecture de bonne foi (ia1), et les violences resteraient marginales (ia2). La **parole policière** n'est jamais sollicitée directement (bs4).",
+        "lesson": "Chercher ce que l'auteur tient pour acquis sans le dire, puis se demander ce que l'argument devient sans cette hypothèse."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Le texte rappelle la comparaison avec les gilets jaunes. Il omet pourtant des repères qui pèsent : la loi anticasseurs de 1970, **abrogée en 1981** (o2), et Mantes-la-Jolie (o4). Le **bilan des violences** côté manifestants est absent (bs2). Quant aux revendications lycéennes, elles tiennent **en deux mentions** face à plusieurs paragraphes sur la répression (emphasis).",
+        "lesson": "Se demander quelle donnée manquante permettrait de juger la proportionnalité décrite."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Les blessures graves de mineurs ouvrent le texte et **préparent le jugement** avant l'analyse (b1). L'agression d'un enseignant aspergé d'essence est rangée parmi les cas « exceptional » **sans chiffre** pour le montrer (b2). Le point de vue gouvernemental n'apparaît qu'à travers des déclarations publiques, **sans réponse développée**.",
+        "lesson": "Comparer l'espace et l'ordre accordés à chaque camp avant de se forger un avis."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "La structure est claire, ancrée dans des chiffres et des cas concrets. Elle s'appuie sur des voix expertes qui rendent l'analyse accessible. Le titre en **question rhétorique** et l'expression « overplayed its hand » (title_analysis) orientent cependant la lecture **dès l'entrée**.",
+        "lesson": "Lire le titre comme une thèse à vérifier, pas comme une question ouverte."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "Le texte relie le traitement « émeute urbaine » à **l'origine sociale** des lycéens, une lecture qui dépasse le simple compte rendu (focus, o1). Mais il reproduit lui-même **l'effacement des revendications** qu'il reproche au cadrage gouvernemental (o1). Les contre-arguments sérieux, comme le cadre légal ou les violences réelles, ne sont pas discutés (steel_man).",
+        "lesson": "Vérifier si un article critique un cadrage tout en le reproduisant dans ses propres proportions."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Pour qui suit le maintien de l'ordre et les libertés publiques en France et veut un regard étranger sur la mobilisation lycéenne, à condition de connaître déjà le cadre légal des interpellations.",
+      "payoff": "Le lecteur dispose d'un **inventaire documenté de la répression** et des voix qui la contestent. Il apprend aussi à repérer comment des chiffres non sourcés deviennent **la preuve d'une intention**.",
+      "signature_move": "Le texte fait d'un **écart chiffré non sourcé** et de blessures placées en ouverture **la preuve d'une stratégie gouvernementale**, selon la tradition du journalisme engagé pour les libertés publiques.",
+      "main_blind_side": "L'absence de tout **bilan des violences** côté manifestants révèle un choix éditorial : documenter un seul plateau de la balance, ce qui laisse **la proportionnalité impossible à juger**.",
+      "further_resource": {
+        "title": "Un pays qui se tient sage",
+        "source": "David Dufresne, documentaire (2020)",
+        "media_type": "documentary",
+        "why_explore": "Le film confronte images de violences policières et points de vue contradictoires, dont celui de policiers, sur la légitimité de la force.",
+        "url": null
+      },
+      "summary": "Lecture avec réserves pour qui suit le maintien de l'ordre en France : l'article **documente solidement la répression**, mais il transforme des chiffres non sourcés en **preuve d'intention** sans peser l'autre côté."
+    }
+  }
+}

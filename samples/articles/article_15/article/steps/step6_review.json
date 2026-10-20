@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "Le texte cite des sources identifiées : la LDH, l'IGPN, **les syndicats** et Mediapart. Mais les **120 000 bacheliers sans place** ne sont pas sourcés, l'année de scolarité perdue vient d'une **partie prenante**, et le portrait du mouvement s'appuie surtout sur d'autres médias.",
+        "lesson": "Demandez-vous **qui fournit chaque chiffre** et s'il a un intérêt dans le débat."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "Les **36 enquêtes de l'IGPN** sont vérifiables (confiance 75), et un rapport parlementaire de 2018 appuie l'ordre de grandeur de l'année perdue. En revanche, le chiffre de Parcoursup est donné comme un fait établi alors qu'il correspond à **la fin de la phase principale**, et « alentador » est **une opinion posée comme un constat**.",
+        "lesson": "Vérifiez **à quel moment** un chiffre a été mesuré avant de le tenir pour définitif."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "La chaîne qui va des conditions scolaires à la protestation, puis au réveil citoyen, se suit sans rupture. Elle se fragilise sur Bardella : la caricature repose sur **une phrase isolée** (lr3), et la fin répond par **le passé de l'auteur** de la critique plutôt que par son argument (lr4).",
+        "lesson": "Séparez **ce qu'une personne a dit** de ce qu'elle a fait : l'un ne répond pas à l'autre."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 3,
+        "rationale": "Le registre de **tribune assumée** est lisible : le texte qualifie ouvertement les faits (« tan legítima », « barata »). Il ne signale pas en revanche que deux figures, Soumaya Sarré et Henri-IV, sont supposées **représentatives** d'une génération entière (ia2).",
+        "lesson": "Repérez quand **un cas emblématique** est chargé de parler pour tout un groupe."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "La maltraitance scolaire est détaillée, mais **l'ampleur réelle** de la mobilisation n'est jamais chiffrée (bs2), et le gouvernement n'est pas entendu (bs1). L'emphase pèse : **le dernier tiers** porte sur Bardella, davantage que sur les jeunes et leurs revendications (bs3).",
+        "lesson": "Cherchez **combien de personnes** un mouvement réunit avant d'y voir celui d'une génération."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Les jeunes sont montrés avec des visages et des mots ; Bardella et la police **n'ont pas de réponse** (d1, d2). Les qualificatifs « tan legítima » et « barata » **tranchent le débat** dans la phrase qui le décrit (br2).",
+        "lesson": "Comparez **le vocabulaire** employé pour chaque camp : l'asymétrie dit souvent l'angle."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "Le récit avance du collectif aux figures incarnées, **de Creil à Henri-IV** puis à Soumaya Sarré, ce qui rend le propos concret. Le titre pose toutefois la **maltraitance** comme acquise et parle d'une génération entière, sans le chiffrer.",
+        "lesson": "Lisez le titre **comme une thèse** à vérifier, pas comme un résumé neutre."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "Le regard **depuis Madrid**, pour un lectorat espagnol, situe la mobilisation française dans un enjeu démocratique avant la présidentielle (o1). L'apport propre reste mince : le texte reprend surtout **la couverture d'autres médias**, et le contre-argument sur la portée du mot « wesh » n'est pas envisagé.",
+        "lesson": "Demandez-vous **ce que le texte ajoute** aux articles qu'il cite."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Pour un lecteur qui suit la mobilisation lycéenne française et veut voir **comment une tribune étrangère** la raconte à la veille de la présidentielle.",
+      "payoff": "Le lecteur voit comment **des griefs scolaires réels** servent de base à une prise de position politique. Il apprend à séparer, dans un même texte, **les faits vérifiables** des jugements de l'autrice.",
+      "signature_move": "La tribune donne aux griefs scolaires **une force cumulée**, puis les incarne dans des figures pour faire de la protestation **un acte citoyen** qu'elle oppose au RN.",
+      "main_blind_side": "L'absence de **chiffres sur l'ampleur** du mouvement montre que le texte part d'**une conviction**, qu'il illustre par des cas plus qu'il ne la mesure.",
+      "further_resource": {
+        "title": "Avoir 20 ans en politique. Les enfants du désenchantement",
+        "source": "Anne Muxel, Seuil (2010)",
+        "media_type": "book",
+        "why_explore": "La politologue y décrit **comment les jeunes entrent en politique**, de quoi mettre en perspective l'idée d'un réveil soudain.",
+        "url": null
+      },
+      "summary": "Lecture **avec réserves** pour qui suit la mobilisation lycéenne : la tribune s'appuie sur des griefs scolaires étayés, mais **son portrait d'une génération** repose sur quelques figures, sans chiffre d'ampleur ni réponse des personnes mises en cause."
+    }
+  }
+}

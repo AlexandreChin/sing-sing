@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "L'école maltraite les jeunes : Parcoursup laisse 120 000 bacheliers sans place, classes surchargées, professeurs absents.",
+      "kind": "fait",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 0,
+        "excerpt": "Les jeunes subissent une maltraitance scolaire",
+        "strength": 1.0,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "La mobilisation montre des jeunes qui se sentent citoyens et agissent comme tels.",
+      "kind": "affirmation",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 1,
+        "excerpt": "La mobilisation montre des jeunes qui se sentent citoyens",
+        "strength": 1.0,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Le mouvement s'incarne : Fédération des étudiants des quartiers populaires, Soumaya Sarré, solidarité des élèves d'Henri-IV.",
+      "kind": "angle",
+      "centrality": 4,
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "Le mouvement serait parti d'un lycée de Creil",
+        "strength": 0.7,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Bardella ramène cette jeunesse « au wesh » ; l'autrice y voit une caricature, à l'approche de la présidentielle.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 3,
+        "excerpt": "Bardella réduit cette jeunesse à une caricature",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "La fin répond à Bardella par ses propos passés plutôt que par l'examen de son argument.",
+      "kind": "biais",
+      "centrality": 3,
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 3,
+        "excerpt": "donc sa critique ne vaut pas",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    }
+  ]
+}

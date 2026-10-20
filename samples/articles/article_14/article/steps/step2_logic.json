@@ -1,0 +1,197 @@
+{
+  "main_claim": "En réduisant la révolte lycéenne à des « casseurs », le gouvernement justifie une répression inédite contre des mineurs.",
+  "premisses": [
+    {
+      "id": "p1",
+      "statement": "Le gouvernement et **une partie des médias** présentent la mobilisation comme une couverture pour des voyous ou comme un **entrisme d'extrême gauche**.",
+      "quality": "Repose sur des déclarations citées (Lecornu, « Ultraviolence… »). Les médias concernés ne sont **ni nommés ni cités**."
+    },
+    {
+      "id": "p2",
+      "statement": "La réponse de l'État est d'une **ampleur inédite** : près de 7 000 interpellations, dont environ 87 % de mineurs.",
+      "quality": "Chiffres précis, mais **sans source ni méthode** indiquées."
+    },
+    {
+      "id": "p3",
+      "statement": "Plus de 5 000 gardes à vue pour **1 500 dossiers transmis** à la justice montrent des arrestations sans suite judiciaire.",
+      "quality": "Données chiffrées. L'écart peut aussi tenir au **cadre légal** des interpellations préventives, que le texte n'évoque pas."
+    },
+    {
+      "id": "p4",
+      "statement": "Les lycéens des **quartiers populaires** subissent une force plus dure que ceux des établissements prestigieux.",
+      "quality": "Repose sur **un seul témoignage** (Cohen-Morzadec) et sur l'analyse d'un sociologue."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "id": "ia1",
+      "statement": "Le cadrage « casseurs » relève d'une **stratégie de communication** plutôt que d'une lecture des faits de bonne foi.",
+      "impact": "Si le gouvernement croit sincèrement à une montée des violences, la thèse d'un récit **pour sauver la face** perd sa force."
+    },
+    {
+      "id": "ia2",
+      "statement": "Les violences commises en marge du mouvement restent **marginales** par rapport à la mobilisation pacifique.",
+      "impact": "Si elles étaient nombreuses, une partie de la réponse policière deviendrait **explicable sans cadrage**."
+    },
+    {
+      "id": "ia3",
+      "statement": "Les revendications des lycéens sont **claires et partagées** au sein du mouvement.",
+      "impact": "Si elles étaient floues, l'idée d'un fond **occulté par le cadrage** serait plus difficile à soutenir."
+    },
+    {
+      "id": "ia4",
+      "statement": "Le jugement de l'« **adultification** » s'applique au public en général, pas seulement au gouvernement.",
+      "impact": "Sans cette extension, le cadrage resterait une affaire de **discours officiel**, pas de perception collective."
+    }
+  ],
+  "blind_spots": [
+    {
+      "id": "bs1",
+      "topic": "Le **contenu précis** des revendications lycéennes, réduit à « plus de moyens » et à une école « qui se délite ».",
+      "significance": "Connaître ces demandes permettrait de mesurer **ce que le cadrage « casseurs » laisse dans l'ombre**."
+    },
+    {
+      "id": "bs2",
+      "topic": "Le **bilan des violences** côté manifestants : blessés parmi les forces de l'ordre, dégâts matériels.",
+      "significance": "Ces chiffres diraient si le cadrage gouvernemental s'appuie sur **des faits d'ampleur** ou sur des cas isolés."
+    },
+    {
+      "id": "bs3",
+      "topic": "Les médias qui reprennent le cadrage ne sont **ni nommés ni cités**.",
+      "significance": "Sans exemples, l'étendue du **relais médiatique** reste une affirmation."
+    },
+    {
+      "id": "bs4",
+      "topic": "La **parole policière ou gouvernementale** n'est recueillie qu'à travers des déclarations publiques.",
+      "significance": "Une réponse directe aurait permis de distinguer **stratégie de communication** et justification opérationnelle."
+    }
+  ],
+  "emphasis": [
+    "Le texte consacre **plusieurs paragraphes** aux blessures, gardes à vue et projets de loi, alors que les revendications scolaires tiennent en **deux mentions**.",
+    "Les cas de blessures graves (mâchoires brisées, mains arrachées) apparaissent **dès le début**, avant toute analyse du cadrage.",
+    "L'agression d'un enseignant aspergé d'essence est évoquée **en une proposition**, qualifiée d'« exceptionnelle »."
+  ],
+  "logical_reasoning": [
+    {
+      "id": "lr1",
+      "step": "Le gouvernement qualifie le mouvement de violent ; donc il cherche à **le délégitimer** pour sauver la face.",
+      "problem_type": "validity",
+      "diagnosis": "L'intention prêtée au gouvernement est **déduite de ses propos**, sans élément sur ses motivations réelles."
+    },
+    {
+      "id": "lr2",
+      "step": "L'écart entre 5 000 gardes à vue et 1 500 dossiers judiciaires prouve des **arrestations arbitraires**.",
+      "problem_type": "soundness",
+      "diagnosis": "L'écart est réel, mais une partie peut s'expliquer par le **délit de groupement**, qui autorise l'interpellation avant tout acte."
+    },
+    {
+      "id": "lr3",
+      "step": "Le mouvement vient des quartiers populaires ; il est donc traité comme **une émeute urbaine**.",
+      "problem_type": "soundness",
+      "diagnosis": "Le lien repose sur **l'analyse d'un seul sociologue** et un témoignage, sans comparaison chiffrée entre établissements."
+    },
+    {
+      "id": "lr4",
+      "step": "Les manifestants sont majoritairement mineurs ; la force employée est donc **disproportionnée**.",
+      "problem_type": null,
+      "diagnosis": null
+    }
+  ],
+  "observations": [
+    {
+      "id": "o1",
+      "aspect": "Cadrage",
+      "summary": "Le texte rappelle qu'un **mouvement scolaire** est à l'origine de la mobilisation. Ses demandes s'effacent ensuite derrière **le récit de la répression**, y compris dans l'article lui-même.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "un mouvement lycéen parti des quartiers populaires réclame davantage de moyens",
+        "strength": 0.9,
+        "nature": "contradiction"
+      }
+    },
+    {
+      "id": "o2",
+      "aspect": "Chronologie",
+      "summary": "Le texte inscrit la loi « casseurs-payeurs » dans **un arsenal qui s'élargit**. Il ne rappelle pas qu'une responsabilité collective existait déjà en 1970, puis **fut abrogée** en 1981.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 1,
+        "excerpt": "Une loi « anticasseurs » de 1970 instaurait déjà une responsabilité collective",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "id": "o3",
+      "aspect": "Sourçage",
+      "summary": "L'écart entre gardes à vue et poursuites est présenté comme **un abus de pouvoir**. Le **délit de groupement**, qui permet d'interpeller avant tout acte, n'est pas mentionné ; les règles de garde à vue des mineurs non plus.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 3,
+        "excerpt": "le délit de participation à un groupement en vue de commettre des violences",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "id": "o4",
+      "aspect": "Comparaison",
+      "summary": "Le texte compare la répression aux **gilets jaunes** de 2018. Il ne cite pas **Mantes-la-Jolie**, où 151 lycéens avaient été filmés à genoux la même année.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 4,
+        "excerpt": "l'interpellation de 151 lycéens à Mantes-la-Jolie",
+        "strength": 0.7,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "o5",
+      "aspect": "Temporalité",
+      "summary": "Publié **le jour d'une nouvelle journée nationale**, l'article décrit une escalade en cours. La loi « casseurs-payeurs » n'est pas encore votée ; son sort pourrait rejoindre celui de la loi de 2019, **partiellement censurée**.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "maintien de l'ordre massif et prépare une loi « casseurs-payeurs »",
+        "strength": 0.7,
+        "nature": "inference"
+      }
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "Des violences réelles ont eu lieu, dont l'agression d'un enseignant aspergé d'essence ; le gouvernement peut **décrire des faits**, pas construire un récit.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 0,
+        "excerpt": "Le cadrage « casseurs » relève d'une stratégie de communication",
+        "strength": 0.8,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Le cadrage « casseurs » serait **une lecture partielle** mais sincère, et non une manœuvre pour sauver la face."
+    },
+    {
+      "counterargument": "Le délit de groupement permet légalement d'interpeller avant tout acte ; l'écart entre gardes à vue et poursuites **ne prouve pas l'arbitraire**.",
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 1,
+        "excerpt": "L'écart prouve des arrestations arbitraires",
+        "strength": 0.7,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Les gardes à vue de masse relèveraient d'**un cadre légal contestable**, plutôt que d'un abus ponctuel."
+    },
+    {
+      "counterargument": "Sans bilan des dégâts ni des blessés côté policier, **l'ampleur des violences** reste inconnue ; la proportionnalité ne peut être jugée sur les seules victimes manifestantes.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 1,
+        "excerpt": "Le bilan des violences côté manifestants",
+        "strength": 0.6,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "La question de la disproportion resterait **ouverte**, faute d'éléments sur l'autre plateau de la balance."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Lisez cet article comme un **plaidoyer pour les libertés publiques** : l'angle est assumé, il est cohérent, et il n'a pas pour but de peser les deux camps.",
+      "Repérez d'où vient chaque chiffre, car le raisonnement central repose sur un **écart entre deux nombres** dont la source n'est pas donnée.",
+      "Gardez en tête que la loi encadre déjà les interpellations, notamment par le **délit de groupement en vue de violences**, que le texte n'évoque pas."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "text": "La comparaison entre gardes à vue et dossiers transmis est présentée comme une **preuve d'arbitraire**. Ses chiffres ne sont pas sourcés et elle ne dit rien des **motifs légaux** des interpellations.",
+          "references": [
+            "lr_1",
+            "claim_0",
+            "bias_2"
+          ]
+        },
+        {
+          "text": "Des blessures graves de mineurs ouvrent l'article et **installent l'émotion** avant l'analyse. Les violences venues des manifestants sont évoquées en passant, **sans aucun bilan chiffré**.",
+          "references": [
+            "er_0",
+            "bias_1",
+            "bs_1"
+          ]
+        },
+        {
+          "text": "L'idée que le gouvernement cherche à **sauver la face** est supposée à partir de ses seuls propos publics. Le texte ne permet pas de la distinguer d'une **lecture sincère** des événements.",
+          "references": [
+            "ia_0",
+            "lr_0",
+            "claim_2"
+          ]
+        },
+        {
+          "text": "Une partie des médias est accusée de relayer le cadrage officiel, mais **aucun titre n'est nommé**. Vous ne pouvez donc pas vérifier cette accusation par vous-même.",
+          "references": [
+            "pr_0",
+            "bs_2",
+            "claim_3"
+          ]
+        },
+        {
+          "text": "L'article reproche au gouvernement d'effacer les revendications lycéennes, mais il leur consacre lui-même **très peu de place**.",
+          "references": [
+            "obs_0",
+            "bs_0",
+            "ia_2"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Avant de reprendre la conclusion d'arbitraire, demandez-vous **quelle part des gardes à vue** pourrait relever d'un motif légal précis.",
+      "Cherchez un **bilan des violences** commises pendant ces manifestations pour juger vous-même la proportionnalité de la réponse.",
+      "Rappelez-vous que la responsabilité collective des casseurs a **déjà existé en droit** (1970–1981) avant de juger la nouveauté du projet de loi.",
+      "Demandez-vous ce que les lycéens **réclamaient concrètement** : l'article ne vous le dit presque pas."
+    ],
+    "title_note": "Le titre est une **question rhétorique** qui annonce déjà la réponse : lisez-le comme une thèse à vérifier.",
+    "perspective": {
+      "framing": "L'article traite la mobilisation lycéenne sous l'angle des **libertés publiques et du maintien de l'ordre**. Il place au centre la répression, les blessures et les voix critiques, dans un registre d'inquiétude et du point de vue des manifestants et de leurs défenseurs.",
+      "blind_spots": "Le **bilan des violences** côté manifestants n'est jamais donné, ce qui empêche de juger la proportionnalité. La **parole policière** et les précédents législatifs, de la loi anticasseurs de 1970 au délit de groupement, sont eux aussi absents.",
+      "balance": "Un article de journalisme engagé, à l'angle explicite, **n'a pas à présenter tous les camps** à parts égales. Les absences relevées sont réelles, mais elles tiennent en partie à ce **choix de genre** : elles appellent un complément, pas un rejet."
+    }
+  }
+}

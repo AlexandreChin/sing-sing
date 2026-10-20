@@ -1,0 +1,220 @@
+{
+  "article_type": "opinion",
+  "key_claims": [
+    {
+      "quote": "dejar sin plaza a más de 120.000 bachilleres, como ocurrió el pasado julio",
+      "source": null,
+      "type": "statistical"
+    },
+    {
+      "quote": "la acumulación de esas ausencias les haga perder el equivalente a un año de escolarización, según los sindicatos de Educación",
+      "source": "Sindicatos de Educación",
+      "type": "attributed"
+    },
+    {
+      "quote": "su movilización demuestra que “se sienten ciudadanos y que actúan como tales”, escribe la politóloga Agathe Cagé en AOC media",
+      "source": "Agathe Cagé (AOC media)",
+      "type": "attributed"
+    },
+    {
+      "quote": "una respuesta policial desproporcionada, de una violencia inusitada, como ha denunciado la Liga de los Derechos Humanos (LDH) y atestiguan las 36 investigaciones iniciadas por la Inspección General de la Policía Nacional (IGPN)",
+      "source": "LDH, IGPN",
+      "type": "statistical"
+    },
+    {
+      "quote": "el líder del Reagrupamiento Nacional, Jordan Bardella, solo ve una juventud reducida “al wesh”, expresión que, a su juicio, no debería constituir el “horizonte cultural” ofrecido a los jóvenes",
+      "source": "Jordan Bardella",
+      "type": "attributed"
+    },
+    {
+      "quote": "una palabra del árabe dialectal magrebí incorporada oficialmente al diccionario Le Petit Robert en 2009",
+      "source": null,
+      "type": "factual"
+    },
+    {
+      "quote": "mientras él a los 18 años vertía comentarios antisemitas en sus redes sociales ―como reveló una investigación del diario Mediapart―",
+      "source": "Mediapart",
+      "type": "attributed"
+    },
+    {
+      "quote": "Soumaya Sarré, la joven musulmana a quien critica, a su misma edad ganaba el concurso de oratoria para estudiantes de secundaria que cada cada año organiza el Memorial de la Shoah",
+      "source": null,
+      "type": "factual"
+    },
+    {
+      "quote": "La Generación Z quiere ser “la última en ser maltratada”, se podía leer en la pancarta de un estudiante durante la manifestación celebrada en la plaza de la Bastilla el 8 de octubre, según relata la revista Nouvel Obs",
+      "source": "Nouvel Obs",
+      "type": "testimonial"
+    }
+  ],
+  "key_quotes": [
+    "hay algo alentador en la protesta estudiantil que lleva semanas bloqueando tanto institutos como universidades, y llenando las calles del país",
+    "su movilización demuestra que “se sienten ciudadanos y que actúan como tales”",
+    "La Generación Z quiere ser “la última en ser maltratada”",
+    "“Queremos compartir nuestros privilegios”",
+    "“Wesh (Tío), te estás pasando: cuando se trata de imponerte una forma de vestir, el Estado reacciona enseguida, pero cuando se trata de garantizar unas condiciones educativas normales, desaparece”",
+    "“Deberíais estar orgullosos de vuestra juventud, no temerla”",
+    "reducir una aspiración democrática tan legítima a una caricatura barata dice mucho de la concepción que tiene de la juventud el partido que aspira a gobernar Francia en los próximos meses"
+  ],
+  "key_actors": [
+    {
+      "name": "Carla Mascia",
+      "role": "Autrice de la tribune"
+    },
+    {
+      "name": "Agathe Cagé",
+      "role": "Politologue, autrice d'une analyse dans AOC media"
+    },
+    {
+      "name": "Soumaya Sarré",
+      "role": "Étudiante à la Sorbonne, visage de la Fédération des étudiants des quartiers populaires"
+    },
+    {
+      "name": "Jordan Bardella",
+      "role": "Président du Rassemblement national"
+    },
+    {
+      "name": "Emmanuel Macron",
+      "role": "Président de la République, ancien élève d'Henri-IV, interpellé par Soumaya Sarré"
+    },
+    {
+      "name": "Élèves du lycée Henri-IV",
+      "role": "Lycéens privilégiés mobilisés par solidarité"
+    },
+    {
+      "name": "Fédération des étudiants des quartiers populaires",
+      "role": "Nouveau syndicat étudiant né en banlieue"
+    },
+    {
+      "name": "Ligue des droits de l'Homme (LDH)",
+      "role": "Association dénonçant la réponse policière"
+    },
+    {
+      "name": "Inspection générale de la Police nationale (IGPN)",
+      "role": "Organe ayant ouvert 36 enquêtes"
+    },
+    {
+      "name": "Syndicats de l'Éducation",
+      "role": "Source du chiffre de l'année de scolarité perdue"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Agathe Cagé (AOC media)",
+      "used_for": "Affirmer que les jeunes mobilisés **se sentent citoyens** et agissent comme tels."
+    },
+    {
+      "entity": "Syndicats de l'Éducation",
+      "used_for": "Chiffrer à **une année de scolarité** les heures de cours perdues en Seine-Saint-Denis."
+    },
+    {
+      "entity": "Ligue des droits de l'Homme (LDH)",
+      "used_for": "Qualifier la réponse policière de **disproportionnée**."
+    },
+    {
+      "entity": "IGPN",
+      "used_for": "Appuyer la violence policière par **36 enquêtes** ouvertes."
+    },
+    {
+      "entity": "Le Petit Robert",
+      "used_for": "Montrer que « wesh » est un **mot entré dans la langue** courante."
+    },
+    {
+      "entity": "Mediapart",
+      "used_for": "Rappeler les **commentaires antisémites** attribués à Bardella à 18 ans."
+    },
+    {
+      "entity": "Nouvel Obs, Le Monde",
+      "used_for": "Documenter les pancartes et le **portrait de Soumaya Sarré**."
+    }
+  ],
+  "notable_omissions": [
+    "Aucune parole de manifestant n'est recueillie directement : pancartes et témoignages passent par d'autres médias.",
+    "Ni le gouvernement ni le ministère de l'Éducation ne répondent sur Parcoursup, les bâtiments ou les absences.",
+    "La déclaration de Bardella n'est pas citée en entier ni datée : son contexte reste inconnu.",
+    "Aucun chiffre sur l'ampleur de la mobilisation (nombre de lycées bloqués, de manifestants).",
+    "Le chiffre des 120 000 bacheliers sans place n'est ni sourcé ni comparé à la suite de la procédure.",
+    "Les revendications précises du mouvement ne sont pas énumérées."
+  ],
+  "rhetorical_patterns": [
+    "Le texte s'ouvre sur l'échéance présidentielle et **l'extrême droite**, ce qui cadre la mobilisation comme un enjeu démocratique.",
+    "Une **anaphore de la lassitude** (« cansados », « agotados », « hartos ») enchaîne les griefs.",
+    "Le propos passe du **collectif** (une génération) à une **figure incarnée** (Soumaya Sarré), puis à son adversaire (Bardella).",
+    "Les jugements de valeur sont assumés : « alentador », « tan legítima », « caricatura barata », « erróneamente ».",
+    "Le mot « wesh » sert de **pivot** : chez Sarré il interpelle, chez Bardella il disqualifie, chez l'autrice il est défendu par le dictionnaire.",
+    "La fin oppose **deux parcours au même âge** : Bardella répond par son passé, non par l'analyse de son argument.",
+    "Les sources d'autorité sont surtout **indirectes** (articles d'autres médias, pancartes)."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx1",
+        "text": "Depuis fin septembre 2026, des **blocages de lycées et d'universités** et des manifestations touchent plusieurs villes françaises."
+      },
+      {
+        "id": "ctx2",
+        "text": "La **présidentielle de 2027** approche, avec un Rassemblement national en tête de nombreux sondages."
+      },
+      {
+        "id": "ctx3",
+        "text": "Le mouvement serait parti d'un lycée de **Creil**, en périphérie parisienne, avant de gagner Paris, dont Henri-IV."
+      },
+      {
+        "id": "ctx4",
+        "text": "La réponse policière aux mobilisations a donné lieu à **36 enquêtes de l'IGPN**, selon l'article."
+      }
+    ],
+    "who_is_speaking": [
+      "**El País** est le premier quotidien espagnol, de ligne **centre gauche**, propriété du groupe PRISA.",
+      "Le texte est publié en rubrique **Opinion** : une tribune signée, qui assume ses jugements.",
+      "**Carla Mascia** y commente régulièrement l'actualité française, pour un lectorat espagnol."
+    ],
+    "important_facts": [
+      {
+        "id": "fact1",
+        "text": "**Parcoursup** a remplacé APB en 2018 ; chaque été, des milliers de candidats restent sans affectation à la fin de la phase principale, puis une partie est placée en phase complémentaire."
+      },
+      {
+        "id": "fact2",
+        "text": "Un **rapport parlementaire de 2018** sur la Seine-Saint-Denis estimait déjà qu'un élève y perdait l'équivalent d'environ **une année de scolarité** en heures non remplacées."
+      },
+      {
+        "id": "fact3",
+        "text": "La **Seine-Saint-Denis** est le département le plus pauvre de France métropolitaine."
+      },
+      {
+        "id": "fact4",
+        "text": "Jordan Bardella, né en 1995, préside le **Rassemblement national** depuis 2022."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "Parcoursup",
+        "definition": "Plateforme nationale qui répartit les bacheliers dans les formations du supérieur."
+      },
+      {
+        "term": "IGPN",
+        "definition": "Service qui enquête sur les fautes des policiers, souvent appelé « police des polices »."
+      },
+      {
+        "term": "LDH",
+        "definition": "Ligue des droits de l'Homme, association de défense des libertés fondée en 1898."
+      },
+      {
+        "term": "Wesh",
+        "definition": "Interjection familière venue de l'arabe maghrébin, proche de « salut » ou « hé »."
+      },
+      {
+        "term": "AOC media",
+        "definition": "Quotidien en ligne d'analyses et de tribunes signées par des chercheurs et des écrivains."
+      },
+      {
+        "term": "Génération Z",
+        "definition": "Personnes nées environ entre la fin des années 1990 et le début des années 2010."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "<extra_instructions>"
+  }
+}

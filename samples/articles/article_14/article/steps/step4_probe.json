@@ -1,0 +1,154 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "id": "c1",
+        "quote": "a significant share of at least 5,000 have been taken into official custody, legally for up to 48 hours. That figure is to be compared with the 1,500 cases handed over to the justice system for a formal investigation and possible pursuits.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Les chiffres ne sont **attribués à aucune source** ; l'écart ne dit rien des **motifs légaux** d'interpellation, comme le délit de groupement.",
+        "external_sources": [
+          {
+            "name": "Ministère de l'Intérieur, bilans des interpellations",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Code pénal, article 222-14-2 (participation à un groupement en vue de commettre des violences)",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 60
+      },
+      {
+        "id": "c2",
+        "quote": "In an October 2 press release, Amnesty International France warned against the “disproportionate use of force by law enforcement.”",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation",
+          "strength": 0.7,
+          "nature": "illustration"
+        },
+        "explanation": "La mise en garde est **datée et attribuée** à une ONG identifiable ; elle s'appuie, selon l'article, sur **des images** de clés d'étranglement et de tirs tendus.",
+        "external_sources": [
+          {
+            "name": "Amnesty International France, communiqué du 2 octobre 2026",
+            "supports": "validates",
+            "evidence_type": "testimony"
+          },
+          {
+            "name": "Défenseur des droits",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 85
+      },
+      {
+        "id": "c3",
+        "quote": "For Lecornu’s government, saving face in the crisis depends on its ability to present the protest movement as a cover for hooliganism.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Le gouvernement Lecornu",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "La phrase prête au gouvernement **une intention** (« sauver la face ») présentée comme un constat, **sans élément** sur ses motivations.",
+        "external_sources": [
+          {
+            "name": "Déclaration de Sébastien Lecornu à l'Assemblée nationale, 6 octobre 2026",
+            "supports": "neutral",
+            "evidence_type": "party_statement"
+          }
+        ],
+        "confidence": null
+      },
+      {
+        "id": "c4",
+        "quote": "government ministers and right-wing media alike want to portray the student revolt as little more than a case of youth nihilism run amok",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Cadrage",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "Le texte attribue le cadrage à des ministres et à **une partie des médias**, sans **nommer ni citer** un seul titre de presse.",
+        "external_sources": [
+          {
+            "name": "Déclarations publiques de Sébastien Lecornu et Gérald Darmanin, octobre 2026",
+            "supports": "validates",
+            "evidence_type": "party_statement"
+          },
+          {
+            "name": "Acrimed, observatoire critique des médias",
+            "supports": "neutral",
+            "evidence_type": "media"
+          }
+        ],
+        "confidence": 45
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "id": "b1",
+        "quote": "Among the most harrowing cases are adolescents who have had their jaws shattered by rubber bullets or their hands blown off by explosive stun grenades.",
+        "item_type": "bias",
+        "label": "accumulation de détails chocs",
+        "effect": "Remarquez comment ces images de **corps mutilés** précèdent les chiffres et préparent le lecteur à juger la réponse de l'État **avant tout examen**.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "b2",
+        "quote": "With exceptional examples such as the teacher who was doused in gasoline and beaten up by rioters in southern France on October 2",
+        "item_type": "bias",
+        "label": "minimisation par un adjectif",
+        "effect": "Remarquez comment le mot « **exceptional** » range d'emblée l'agression d'un enseignant parmi les **cas isolés**, sans chiffre pour le montrer.",
+        "proves": {
+          "type": "observation",
+          "label": "Cadrage",
+          "strength": 0.6,
+          "nature": "nuance"
+        }
+      },
+      {
+        "id": "b3",
+        "quote": "The steep drop-off between those numbers leads some legal experts to accuse the government of wantonly arresting individuals in a blatant abuse of power.",
+        "item_type": "fallacy",
+        "label": "conclusion tirée d'un seul écart chiffré",
+        "effect": "Remarquez comment l'écart entre gardes à vue et poursuites devient **la preuve d'un abus**, sans que d'autres explications légales soient **envisagées**.",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "Unlike previous student mobilizations, this one is being treated like an urban riot, and much of that has to do with the fact that it emerged from underprivileged neighborhoods",
+      "proves": {
+        "type": "observation",
+        "label": "Cadrage",
+        "strength": 0.9,
+        "nature": "illustration"
+      },
+      "analysis": "Un sociologue relie le traitement **« émeute urbaine »** du mouvement à l'origine sociale de ses lycéens. Ce cadrage fait passer **des élèves qui réclament des moyens** pour des délinquants à discipliner. Que reste-t-il, dans le récit, de ce que ces lycéens demandaient au départ ?"
+    }
+  }
+}

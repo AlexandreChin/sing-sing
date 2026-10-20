@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Le gouvernement et une partie des médias présentent la révolte lycéenne comme un problème de « casseurs » ou d'entrisme d'extrême gauche.",
+      "kind": "angle",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 0,
+        "excerpt": "Le gouvernement et une partie des médias présentent la mobilisation comme une couverture pour des voyous",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Des mineurs subissent une force grave : mâchoires brisées, mains arrachées, près de 7 000 interpellations, dont 87 % de mineurs.",
+      "kind": "fait",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 1,
+        "excerpt": "près de 7 000 interpellations, dont environ 87 % de mineurs",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Au moins 5 000 gardes à vue pour 1 500 dossiers transmis à la justice.",
+      "kind": "fait",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "Plus de 5 000 gardes à vue pour 1 500 dossiers transmis",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Venu des quartiers populaires, le mouvement est traité comme une émeute urbaine ; ses lycéens sont « adultifiés ».",
+      "kind": "affirmation",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 3,
+        "excerpt": "Les lycéens des quartiers populaires subissent une force plus dure",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "Les lycéens réclament plus de moyens pour une école qui se délite ; l'article en dit peu.",
+      "kind": "enjeu",
+      "centrality": 3,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "Le contenu précis des revendications lycéennes, réduit à « plus de moyens »",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    }
+  ]
+}

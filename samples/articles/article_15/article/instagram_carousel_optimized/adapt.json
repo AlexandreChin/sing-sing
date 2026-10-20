@@ -1,0 +1,450 @@
+{
+  "caption": "Plus de 120 000 bacheliers sans place en juillet, des lycées et des universités bloqués depuis des semaines : dans El País, Carla Mascia voit une génération qui se découvre citoyenne. 📚\n\n🔎 Les clefs pour comprendre en une minute ce que cette tribune défend, et comment la lire.\n\n🔗 Lien vers l'article en commentaires ↓",
+  "hook": {
+    "topic": "La jeunesse française **mobilisée**",
+    "sub_topic": "Des **règles** imposées vite, une **école** qui attend",
+    "subtitle": "Comprendre ce qu'ils réclament.",
+    "headline": "des lycéens qui se veulent **citoyens**, un parti qui répond « wesh »",
+    "context_line": "Lycées et universités bloqués en France, à quelques mois d'une présidentielle où l'extrême droite fait la course en tête.",
+    "sub_topic_alt": [
+      "Classes surchargées, jeunes **citoyens** : et en face, une caricature ?",
+      "Une jeunesse sans profs se lève : comment l'**entendre** ?",
+      "Parcoursup, murs qui s'effritent, et des lycéens devenus **citoyens**"
+    ]
+  },
+  "interest": {
+    "why_read": "Voir comment une tribune transforme des **griefs scolaires** en enjeu démocratique.",
+    "pull_quote": "Nous voulons partager nos privilèges",
+    "next_slide_hook": "D'abord, ce que la tribune soutient, en trois temps."
+  },
+  "title_bullets": [
+    "Lisez « maltraitée » comme **la thèse** de l'autrice, à vérifier dans le texte.",
+    "Notez que « génération » désigne **tout un groupe** : cherchez qui il recouvre vraiment.",
+    "Interrogez l'image du **réveil** : ces jeunes dormaient-ils avant ?"
+  ],
+  "chapo_bullets": [
+    "Repérez le mot « hartazgo » : le chapeau pose d'emblée **la lassitude** comme moteur.",
+    "Notez « invisibles » : le chapeau présente la protestation comme **une demande d'être vu**."
+  ],
+  "context_next_slide_hook": "Trois réflexes pour lire une tribune engagée.",
+  "watch_out_next_slide_hook": "Place aux passages qui portent l'argument.",
+  "forme_next_slide_hook": "Reste à trier ce qui est fait et ce qui est avis.",
+  "biases_next_slide_hook": "Prenons du recul sur ce qui est vraiment en jeu.",
+  "engagement_question": "Qu'est-ce qui vous fait entendre une jeunesse qui manifeste comme citoyenne, plutôt que comme un désordre ?",
+  "go_further": [
+    {
+      "title": "Rapport d'information sur l'évaluation de l'action de l'État en Seine-Saint-Denis",
+      "source": "Assemblée nationale, François Cornut-Gentille et Rodrigue Kokouendo (2018)",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Il chiffre les heures de cours non remplacées dans le département le plus pauvre de métropole.",
+      "cta_question_index": 0
+    },
+    {
+      "title": "Tableaux de bord Parcoursup",
+      "source": "Ministère de l'Enseignement supérieur et de la Recherche",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Ils montrent combien de bacheliers restent sans place à chaque étape de la procédure.",
+      "cta_question_index": 1
+    },
+    {
+      "title": "Avoir 20 ans en politique. Les enfants du désenchantement",
+      "source": "Anne Muxel, Seuil (2010)",
+      "media_type": "book",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "La politologue y décrit comment les jeunes entrent en politique, de quoi situer l'idée d'un réveil soudain.",
+      "cta_question_index": null
+    }
+  ],
+  "cta": {
+    "title": "Écouter une génération avant de la résumer",
+    "engagement_sentence": "Comment savoir qu'une société a vraiment **entendu** ses jeunes, avant d'exiger le respect de ses **règles** ?",
+    "engagement_sentence_alt": [
+      "À quelles conditions une jeunesse qui bloque ses lycées est-elle reconnue comme **citoyenne** ?",
+      "Qui décide qu'une protestation de jeunes relève de la **citoyenneté** plutôt que du désordre ?",
+      "Jusqu'où les mots employés pour décrire une jeunesse décident-ils de ce qu'on entend d'elle ?"
+    ],
+    "where_to_look": [
+      "Le Conseil national de la vie lycéenne",
+      "La Convention des droits de l'enfant, article 12",
+      "La Fédération des étudiants des quartiers populaires"
+    ],
+    "post_reading_questions": [
+      {
+        "id": "q_0",
+        "question": "Combien de jeunes ont réellement participé à ce mouvement, et sur quelle part du pays ?",
+        "type": "blind_spot"
+      },
+      {
+        "id": "q_1",
+        "question": "Combien de bacheliers restent sans place à la fin de la phase complémentaire de Parcoursup ?",
+        "type": "topic_substance"
+      },
+      {
+        "id": "q_2",
+        "question": "Dans ce texte, quelles phrases décrivent des faits, et lesquelles donnent l'avis de l'autrice ?",
+        "type": "article_quality"
+      },
+      {
+        "id": "q_3",
+        "question": "Votre propre regard sur les blocages de lycées change-t-il selon qui les décrit ?",
+        "type": "reader_bias"
+      }
+    ]
+  },
+  "display": {
+    "thesis_frame": {
+      "main_claim": "Une génération maltraitée par l'école se découvre citoyenne ; le parti qui aspire à gouverner la caricature.",
+      "out_of_scope": [
+        "La réforme souhaitable de Parcoursup ou de l'école",
+        "La légalité des blocages de lycées et d'universités",
+        "Le programme éducatif du Rassemblement national"
+      ]
+    },
+    "payoff": "Séparer les faits des avis dans une tribune engagée, et remonter à chaque chiffre.",
+    "framing": "La mobilisation vue depuis Madrid, du côté des jeunes, face à l'extrême droite.",
+    "why_selected": "Lycées et universités bloqués depuis **fin septembre**, présidentielle de 2027 en vue : une chroniqueuse d'**El País** raconte la France à l'Espagne.\nLe texte s'appuie sur des chiffres de syndicats, une politologue et des pancartes : de quoi trier faits et **opinion**.",
+    "selection_headline": "Une tribune espagnole sur les lycées français",
+    "selection_headline_alt": [
+      "Madrid regarde les lycées bloqués",
+      "Une génération racontée depuis l'Espagne",
+      "Les lycéens français vus d'El País"
+    ],
+    "ethics": "Pas de faute nette ; Bardella et la police sans droit de réponse.",
+    "pre_reading": [
+      "Lisez ce texte comme **une tribune assumée**, pas comme un reportage.",
+      "Suivez le chemin : griefs scolaires, figures incarnées, puis **le Rassemblement national**."
+    ],
+    "watch_out": [
+      {
+        "label": "validité",
+        "text": "Une critique se discute sur **ce qu'elle dit**, pas seulement sur qui la porte."
+      },
+      {
+        "label": "rigueur des sources",
+        "text": "Certains chiffres viennent de **parties au débat** : regardez qui les fournit."
+      }
+    ],
+    "strengths": [
+      {
+        "label": "Clarté",
+        "text": "Le récit va du collectif à **des visages**, de Creil à Henri-IV, et reste concret."
+      },
+      {
+        "label": "Transparence de l'approche",
+        "text": "La tribune **assume sa position** : ses jugements sont lisibles comme tels."
+      }
+    ],
+    "distill_points": [
+      "Le titre parle d'**une génération** ; le récit repose sur quelques lycées et une figure.",
+      "Les **36 enquêtes de l'IGPN** disent que des signalements existent, pas encore leur issue.",
+      "La fin répond à Jordan Bardella par **son passé**, sans examiner sa phrase sur le « wesh »."
+    ],
+    "after_reading": [
+      "Séparez **les faits vérifiables** des jugements de l'autrice.",
+      "Cherchez **le chiffre final** de Parcoursup et l'ampleur du mouvement.",
+      "Retenez que le **passé d'une personne** ne répond pas à ce qu'elle dit."
+    ],
+    "key_takeaways": [
+      {
+        "text": "Plus de **120 000 bacheliers** étaient sans place à la fin de la phase principale de Parcoursup.",
+        "selected": true
+      },
+      {
+        "text": "En Seine-Saint-Denis, les absences non remplacées équivalent à **une année de cours**, selon les syndicats.",
+        "selected": true
+      },
+      {
+        "text": "Des élèves d'**Henri-IV**, lycée d'élite, se mobilisent par solidarité avec d'autres lycées.",
+        "selected": true
+      },
+      {
+        "text": "L'IGPN, la « police des polices », a ouvert **36 enquêtes** sur la réponse policière.",
+        "selected": false
+      },
+      {
+        "text": "Une politologue décrit des jeunes qui **se sentent citoyens** et agissent comme tels.",
+        "selected": false
+      }
+    ],
+    "blind_spots": [
+      "L'**ampleur réelle** de la mobilisation : nombre de lycées bloqués, de manifestants.",
+      "Les **revendications précises** des lycéens, et la parole du gouvernement."
+    ],
+    "balance": [
+      "Une tribune affiche sa position : elle n'a pas à donner **la parole à tous**.",
+      "Un format court ne peut pas tout chiffrer : c'est **un plaidoyer**, pas une enquête."
+    ],
+    "lenses": [],
+    "reading_beats": [
+      {
+        "moment": "Plus de 120 000 bacheliers sans place en juillet",
+        "quote": "laisse sans place plus de 120 000 bacheliers, comme en juillet dernier",
+        "quote_original": "deje sin plaza a más de 120.000 bachilleres, como ocurrió el pasado julio",
+        "lens_ref": "chiffres",
+        "lens_question": "Un chiffre d'été : mesuré à quelle étape ?",
+        "note": "Devant un chiffre de procédure, cherchez **le moment** où il a été mesuré.",
+        "answer": "**À la fin de la phase principale** de Parcoursup : une phase complémentaire place ensuite une partie de ces candidats.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "likely true",
+        "selected": false,
+        "theme": "maltraitance scolaire — Parcoursup",
+        "centrality": 4,
+        "kind": "statistique",
+        "role": "preuve",
+        "spine_ref": 1,
+        "axis_link": "",
+        "rationale": "Chiffre central de la maltraitance, mesuré à une étape précise."
+      },
+      {
+        "moment": "En Seine-Saint-Denis, une année de cours perdue",
+        "quote": "le cumul de ces absences leur fait perdre l'équivalent d'une année de scolarité, selon les syndicats de l'Éducation",
+        "quote_original": "la acumulación de esas ausencias les haga perder el equivalente a un año de escolarización, según los sindicatos de Educación",
+        "lens_ref": "sources",
+        "lens_question": "Ce que l'école leur doit : qui le mesure ?",
+        "note": "Quand un chiffre vient d'**une partie au débat**, cherchez une mesure indépendante.",
+        "answer": "**Les syndicats**, ici ; un rapport parlementaire de 2018 sur la Seine-Saint-Denis donnait un ordre de grandeur proche.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "disputed",
+        "selected": true,
+        "theme": "maltraitance scolaire — professeurs absents",
+        "centrality": 5,
+        "kind": "statistique",
+        "role": "preuve",
+        "spine_ref": 1,
+        "axis_link": "Il montre que la maltraitance scolaire, point de départ du réveil citoyen, s'appuie sur une mesure ancienne et recoupable.",
+        "rationale": "Pièce chiffrée de la maltraitance, source partie au débat."
+      },
+      {
+        "moment": "Imposer une tenue, oui ; garantir l'école, non",
+        "quote": "t'imposer une tenue, l'État réagit tout de suite […] garantir des conditions d'étude normales, il disparaît",
+        "quote_original": "imponerte una forma de vestir, el Estado reacciona enseguida […] garantizar unas condiciones educativas normales, desaparece",
+        "lens_ref": "opinion_fait",
+        "lens_question": "Règles imposées, école qui tarde : comment comparer ?",
+        "note": "Devant une comparaison qui accuse, séparez ce qui se vérifie de ce qui se juge.",
+        "answer": "**Côte à côte** : les règles de tenue dans les textes, les profs absents non remplacés dans les chiffres du ministère.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": true,
+        "theme": "Un État qui impose sans garantir",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "pivot",
+        "spine_ref": 2,
+        "axis_link": "Sa phrase pose l'enjeu de la slide 8 : un État qui exige le respect de ses règles sans garantir l'école promise.",
+        "rationale": "La phrase de Soumaya Sarré, figure du mouvement, résume ce que les jeunes reprochent à l'État."
+      },
+      {
+        "moment": "Une réponse policière jugée disproportionnée",
+        "quote": "une réponse policière disproportionnée, d'une violence inusitée, comme l'a dénoncé la Ligue des droits de l'Homme",
+        "quote_original": "una respuesta policial desproporcionada, de una violencia inusitada, como ha denunciado la Liga de los Derechos Humanos",
+        "lens_ref": "equilibre",
+        "lens_question": "La force policière : qui la juge, qui manque ?",
+        "note": "Devant une réponse jugée excessive, cherchez qui la juge et qui n'est pas entendu.",
+        "answer": "**36 enquêtes de la police des polices** ; la version de l'État manque : cherchez-la pour peser ce qu'il exige.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": true,
+        "theme": "Réponse policière",
+        "centrality": 4,
+        "kind": "fait",
+        "role": "appui",
+        "spine_ref": 3,
+        "axis_link": "Il montre le côté « règles » de l'enjeu : l'État se fait obéir par la force pendant que l'école promise attend.",
+        "rationale": "La pancarte d'une mère et les enquêtes de l'IGPN : la seule place que l'autrice donne à la réponse de l'État."
+      },
+      {
+        "moment": "La police, une forme de maltraitance parmi d'autres",
+        "quote": "comme l'a dénoncé la Ligue des droits de l'Homme (LDH) et l'attestent les 36 enquêtes ouvertes par l'IGPN",
+        "quote_original": "como ha denunciado la Liga de los Derechos Humanos (LDH) y atestiguan las 36 investigaciones iniciadas por la Inspección General de la Policía Nacional (IGPN)",
+        "lens_ref": "equilibre",
+        "lens_question": "Une enquête ouverte : que dit-elle déjà ?",
+        "note": "Distinguez **une enquête ouverte** d'un fait établi.",
+        "answer": "**Qu'il y a des signalements** : l'IGPN, la « police des polices », n'a pas encore rendu ses conclusions.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "likely true",
+        "selected": false,
+        "theme": "réponse policière",
+        "centrality": 3,
+        "kind": "fait",
+        "role": "appui",
+        "spine_ref": 1,
+        "axis_link": "",
+        "rationale": "Une forme de maltraitance, secondaire dans le fil."
+      },
+      {
+        "moment": "La protestation, jugée encourageante d'emblée",
+        "quote": "il y a quelque chose d'encourageant dans la protestation étudiante qui bloque depuis des semaines lycées et universités",
+        "quote_original": "hay algo alentador en la protesta estudiantil que lleva semanas bloqueando tanto institutos como universidades",
+        "lens_ref": "opinion_fait",
+        "lens_question": "Une tribune engagée : où s'arrête le constat ?",
+        "note": "Dans une tribune, repérez **les mots qui jugent** avant de lire les faits.",
+        "answer": "**À « encourageant »**, avis de l'autrice posé en première ligne. Plus loin, « légitime » qualifie le mouvement du même registre.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "unverifiable",
+        "selected": false,
+        "theme": "réveil citoyen — cadrage de l'ouverture",
+        "centrality": 4,
+        "kind": "affirmation",
+        "role": "mise en scène",
+        "spine_ref": 2,
+        "axis_link": "Il montre que ce sont d'abord les mots de l'autrice qui font entendre la protestation comme citoyenne.",
+        "rationale": "L'ouverture pose le regard citoyen par un jugement."
+      },
+      {
+        "moment": "Une politologue : ils agissent en citoyens",
+        "quote": "leur mobilisation montre qu'ils « se sentent citoyens et agissent comme tels »",
+        "quote_original": "su movilización demuestra que “se sienten ciudadanos y que actúan como tales”",
+        "lens_ref": "sources",
+        "lens_question": "Une analyse savante : sur quoi s'appuie-t-elle ?",
+        "note": "Devant un avis d'expert, cherchez **ce qu'il a observé**.",
+        "answer": "**Sur des pancartes et des portraits** rapportés par Le Monde ou L'Obs : lisez ces reportages pour entendre les lycéens eux-mêmes.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": false,
+        "theme": "réveil citoyen — autorité",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "appui",
+        "spine_ref": 2,
+        "axis_link": "",
+        "rationale": "Cœur de la thèse, porté par une politologue."
+      },
+      {
+        "moment": "Henri-IV, lycée d'élite, solidaire des autres lycées",
+        "quote": "Nous voulons partager nos privilèges",
+        "quote_original": "Queremos compartir nuestros privilegios",
+        "lens_ref": "angles_morts",
+        "lens_question": "Henri-IV solidaire : qui parle pour qui ?",
+        "note": "Devant **un cas emblématique**, cherchez combien il en existe.",
+        "answer": "**Les lycées des quartiers populaires**, d'où le mouvement est parti, à Creil. Comparez la place que leur donnent photos et unes.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": false,
+        "theme": "incarnation — solidarité",
+        "centrality": 3,
+        "kind": "fait",
+        "role": "appui",
+        "spine_ref": 2,
+        "axis_link": "Il montre qui se fait entendre comme citoyen : un lycée d'élite porte la voix de lycées qu'on entend moins.",
+        "rationale": "Figure forte du réveil, représentativité non mesurée."
+      },
+      {
+        "moment": "Le « wesh », jugé caricature d'une aspiration",
+        "quote": "réduire une aspiration démocratique si légitime à une caricature bon marché",
+        "quote_original": "reducir una aspiración democrática tan legítima a una caricatura barata",
+        "lens_ref": "opinion_fait",
+        "lens_question": "Un mot fort : constat, ou position ?",
+        "note": "Repérez **les qualificatifs** qui tranchent avant de décrire.",
+        "answer": "**Position de l'autrice** : « si légitime » et « bon marché » qualifient avant de décrire. La phrase visée n'est pas citée en entier.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": false,
+        "theme": "réduction — caricature",
+        "centrality": 4,
+        "kind": "enjeu",
+        "role": "pivot",
+        "spine_ref": 3,
+        "axis_link": "",
+        "rationale": "Énonce la conclusion, avec des mots qui jugent."
+      },
+      {
+        "moment": "Face à Bardella, la tribune répond par son passé",
+        "quote": "alors que lui, à 18 ans, publiait des commentaires antisémites sur ses réseaux sociaux",
+        "quote_original": "mientras él a los 18 años vertía comentarios antisemitas en sus redes sociales",
+        "lens_ref": "sophismes",
+        "lens_question": "Que doit-on offrir aux jeunes, selon Bardella ?",
+        "note": "Demandez-vous si l'on répond **à l'argument** ou à la personne.",
+        "answer": "**Un « horizon culturel »**, dit-il ; la tribune répond par son passé. Retrouvez sa phrase pour comparer.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": false,
+        "theme": "réduction — réponse à Bardella",
+        "centrality": 4,
+        "kind": "biais",
+        "role": "pivot",
+        "spine_ref": 3,
+        "axis_link": "Bardella parle de l'« horizon culturel offert aux jeunes » : ce qu'on leur doit, la question de la slide 8 — à juger sur sa phrase, pas sur son passé.",
+        "rationale": "La conclusion repose sur une réponse à la personne."
+      }
+    ],
+    "global_analysis": {
+      "headline": "Avant d'obéir, une jeunesse qui réclame d'être entendue",
+      "headline_alt": [
+        "L'école délaisse ses jeunes, qui s'éveillent en citoyens",
+        "Maltraitée par l'école, une jeunesse devient citoyenne",
+        "Une jeunesse citoyenne, réduite à une caricature"
+      ],
+      "core_recap": [
+        "Ce qu'il tient pour acquis : que l'école **doit** à chacun les mêmes chances ; que respecter les **règles** suppose d'abord d'être respecté ; que les mobilisés parlent pour toute leur génération"
+      ]
+    },
+    "open_question": "",
+    "root_issue": "Exiger le respect des **règles** sans garantir l'école promise, c'est ce qui met en jeu l'autorité de l'État auprès de sa jeunesse.",
+    "steel_man": {
+      "argument": "La loi s'applique à tous, même quand l'État manque à ses **promesses**.",
+      "alternative": "L'école promise se réclamerait alors à côté des règles, pas **avant** elles.",
+      "targets": 2
+    },
+    "reperes_headline": "",
+    "reperes_context": "",
+    "reperes_facts": [
+      {
+        "label": "Parcoursup",
+        "text": "La plateforme qui répartit les bacheliers dans le **supérieur**."
+      },
+      {
+        "label": "Le 93",
+        "text": "Le département le plus **pauvre** de France métropolitaine."
+      },
+      {
+        "label": "Les règles",
+        "text": "À l'école, la loi interdit les signes religieux **ostensibles** depuis 2004, l'abaya depuis 2023."
+      }
+    ],
+    "bilan_headline": "",
+    "essentiel": [
+      "L'**école** maltraite les jeunes : places, classes et professeurs manquent.",
+      "Maltraités par l'école, lycéens et étudiants s'organisent et agissent en **citoyens**.",
+      "À leurs demandes, l'État répond d'abord par la **force** policière."
+    ],
+    "essentiel_summary": "Plus de **120 000 bacheliers** sans place en juillet, des classes surchargées, l'équivalent d'**une année de cours** perdue en Seine-Saint-Denis : dans El País, Carla Mascia voit les lycéens mobilisés se découvrir citoyens. Elle reproche à Jordan Bardella, qui les ramène « au wesh », d'en faire une **caricature**."
+  }
+}

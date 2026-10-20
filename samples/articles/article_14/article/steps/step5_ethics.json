@@ -1,0 +1,29 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "d1",
+        "category": "false_statistics",
+        "label": "False Statistics",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "a significant share of at least 5,000 have been taken into official custody, legally for up to 48 hours. That figure is to be compared with the 1,500 cases handed over to the justice system for a formal investigation and possible pursuits.",
+        "explanation": "Comparer gardes à vue et dossiers judiciaires, sans source ni motif légal, présente l'écart comme une **preuve d'abus**."
+      },
+      {
+        "id": "d2",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "government ministers and right-wing media alike want to portray the student revolt as little more than a case of youth nihilism run amok",
+        "explanation": "Des médias sont accusés de cadrage sans être **nommés, cités ni sollicités**."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Sourcer les chiffres d'interpellations et nommer, citer ou solliciter les médias accusés de reprendre le cadrage gouvernemental."
+    },
+    "summary": "La déontologie n'est **pas entièrement nette** : deux points de vigilance, une **mise en regard chiffrée** non sourcée et une accusation contre des médias **non identifiés**. Aucun manquement grave n'a été relevé."
+  }
+}

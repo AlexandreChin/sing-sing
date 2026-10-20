@@ -1,0 +1,275 @@
+{
+  "article_type": "news_report",
+  "key_claims": [
+    {
+      "quote": "There are no orders for restraint",
+      "source": "Laurent Nuñez, ministre de l'Intérieur",
+      "type": "attributed"
+    },
+    {
+      "quote": "The figures of total arrests are now approaching 7,000 individuals, with some 87 percent estimated to be underage minors.",
+      "source": null,
+      "type": "statistical"
+    },
+    {
+      "quote": "Upward of 400,000 students, teachers, and supporters demonstrated across the country on October 6",
+      "source": null,
+      "type": "statistical"
+    },
+    {
+      "quote": "It’s a lie to claim that there is an intentional and disproportionate use of force by the police",
+      "source": "Sébastien Lecornu, Premier ministre",
+      "type": "attributed"
+    },
+    {
+      "quote": "As of October 8, the oversight bureau charged with internal inquiries into the use of force has announced a total of 18 investigations since the beginning of the student mobilization.",
+      "source": "organe de contrôle interne de la police",
+      "type": "statistical"
+    },
+    {
+      "quote": "Among the most harrowing cases are adolescents who have had their jaws shattered by rubber bullets or their hands blown off by explosive stun grenades.",
+      "source": null,
+      "type": "factual"
+    },
+    {
+      "quote": "the proportionate use of force must never inhibit the work of reestablishing public order",
+      "source": "Mémo de Laurent Nuñez du 30 septembre",
+      "type": "attributed"
+    },
+    {
+      "quote": "Ultraviolence is knocking on the doors of our high schools",
+      "source": "Sébastien Lecornu, Premier ministre",
+      "type": "attributed"
+    },
+    {
+      "quote": "Unlike previous student mobilizations, this one is being treated like an urban riot, and much of that has to do with the fact that it emerged from underprivileged neighborhoods",
+      "source": "Arthur Vuattoux, sociologue",
+      "type": "attributed"
+    },
+    {
+      "quote": "a significant share of at least 5,000 have been taken into official custody, legally for up to 48 hours. That figure is to be compared with the 1,500 cases handed over to the justice system for a formal investigation and possible pursuits.",
+      "source": null,
+      "type": "statistical"
+    },
+    {
+      "quote": "disproportionate use of force by law enforcement",
+      "source": "Amnesty International France, communiqué du 2 octobre",
+      "type": "attributed"
+    },
+    {
+      "quote": "If adopted, the bill would sanction individuals accused of having participated in a violent “grouping” by making them financially liable for property damage regardless of direct individual responsibility.",
+      "source": null,
+      "type": "legal"
+    },
+    {
+      "quote": "The “breakers-pay” law would even allow authorities to deduct damages from social welfare such as housing aid and child benefits paid to parents.",
+      "source": null,
+      "type": "legal"
+    },
+    {
+      "quote": "I couldn’t breathe, I thought I was going to die",
+      "source": "jeune manifestant, cité par StreetPress",
+      "type": "testimonial"
+    },
+    {
+      "quote": "This shows the difference in treatment between the mobilizations at prestigious Parisian schools and less privileged establishments.",
+      "source": "Alice Cohen-Morzadec, L’Union Étudiante",
+      "type": "testimonial"
+    }
+  ],
+  "key_quotes": [
+    "There are no orders for restraint",
+    "led first by high school students fed up with a fraying secondary education system",
+    "police everywhere, education nowhere",
+    "too young to vote, old enough to be tear-gassed",
+    "It’s a dirty slander against the republican police!",
+    "Ultraviolence is knocking on the doors of our high schools",
+    "For Lecornu’s government, saving face in the crisis depends on its ability to present the protest movement as a cover for hooliganism.",
+    "Unlike previous student mobilizations, this one is being treated like an urban riot, and much of that has to do with the fact that it emerged from underprivileged neighborhoods",
+    "They are no longer seen as teenagers who deserve a degree of leniency but as delinquents to be disciplined.",
+    "penal response of great firmness",
+    "violation of the rule of law and an instrumentalization of the justice system by the demands of law enforcement",
+    "This is a maneuver to break the student movement",
+    "The government has never cared about student representation. Our demands have been clear from the beginning.",
+    "Critics fear that in practice this could put anyone who joins a protest at risk of sanction."
+  ],
+  "key_actors": [
+    {
+      "name": "Laurent Nuñez",
+      "role": "Ministre de l'Intérieur, responsable des forces de maintien de l'ordre"
+    },
+    {
+      "name": "Sébastien Lecornu",
+      "role": "Premier ministre"
+    },
+    {
+      "name": "Gérald Darmanin",
+      "role": "Ministre de la Justice"
+    },
+    {
+      "name": "Emmanuel Macron",
+      "role": "Président de la République"
+    },
+    {
+      "name": "Alice Cohen-Morzadec",
+      "role": "Étudiante, porte-parole de L’Union Étudiante"
+    },
+    {
+      "name": "Raphaël Kempf",
+      "role": "Avocat spécialiste des libertés publiques, défenseur de manifestants placés en garde à vue"
+    },
+    {
+      "name": "Arthur Vuattoux",
+      "role": "Sociologue spécialiste de la justice des mineurs"
+    },
+    {
+      "name": "Amnesty International France",
+      "role": "ONG de défense des droits humains"
+    },
+    {
+      "name": "Bally Bagayoko",
+      "role": "Maire LFI de Saint-Denis"
+    },
+    {
+      "name": "La France insoumise",
+      "role": "Parti de gauche soutenant le mouvement"
+    },
+    {
+      "name": "Lycéens et étudiants mobilisés",
+      "role": "Initiateurs du mouvement, majoritairement mineurs"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Amnesty International France",
+      "used_for": "Établir un usage **disproportionné de la force** (clés d'étranglement, tirs tendus de lacrymogènes, balles en caoutchouc)."
+    },
+    {
+      "entity": "Arthur Vuattoux, sociologue",
+      "used_for": "Soutenir que le mouvement est **traité comme une émeute urbaine** en raison de l'origine sociale des lycéens."
+    },
+    {
+      "entity": "Raphaël Kempf, avocat",
+      "used_for": "Qualifier les gardes à vue de masse d'**atteinte à l'État de droit**."
+    },
+    {
+      "entity": "Alice Cohen-Morzadec, L’Union Étudiante",
+      "used_for": "Attester l'**absence de désescalade** et un traitement inégal selon les établissements."
+    },
+    {
+      "entity": "Organe de contrôle interne de la police",
+      "used_for": "Chiffrer à **18 enquêtes** les cas signalés d'usage de la force."
+    },
+    {
+      "entity": "StreetPress",
+      "used_for": "Rapporter le témoignage d'un jeune manifestant traîné sur du verre brisé."
+    },
+    {
+      "entity": "Mediapart",
+      "used_for": "Montrer que la suspension des grenades ne vise que **les modèles tirés au lanceur**."
+    }
+  ],
+  "notable_omissions": [
+    "Les **revendications précises** des lycéens ne sont jamais détaillées au-delà de « plus de moyens » et d'une école « qui se délite ».",
+    "Aucune voix policière, syndicale de police ou gouvernementale n'est interrogée directement ; le gouvernement n'est cité que par ses déclarations publiques.",
+    "L'origine et la méthode des chiffres (400 000 manifestants, 87 % de mineurs) ne sont pas sourcées.",
+    "Aucun bilan des **blessés côté forces de l'ordre** ni des dégâts matériels n'est donné.",
+    "L'affaire de l'enseignant aspergé d'essence est évoquée comme « exceptionnelle » sans détail sur l'enquête.",
+    "Les médias qui reprennent le cadrage gouvernemental ne sont **ni nommés ni cités**.",
+    "Le contenu du projet de loi « casseurs-payeurs » n'est pas rattaché à un texte ou à un rapporteur identifiable."
+  ],
+  "rhetorical_patterns": [
+    "Le titre pose une **question rhétorique** dont l'article fournit ensuite une réponse affirmative.",
+    "Les déclarations gouvernementales sont citées puis **immédiatement contredites** par des avocats, ONG ou syndicats.",
+    "Accumulation de **cas de blessures graves** (mâchoires brisées, mains arrachées) placés tôt pour l'impact émotionnel.",
+    "Usage récurrent de la mise en regard chiffrée (5 000 gardes à vue contre 1 500 dossiers judiciaires).",
+    "Insistance sur la **minorité des manifestants** (« underage minors », « teens ») pour cadrer la répression.",
+    "Vocabulaire fort de l'auteur lui-même : « carte blanche », « wantonly arresting », « blatant abuse of power ».",
+    "Le cadrage « casseurs » du gouvernement est présenté comme une **stratégie pour sauver la face**, pas comme une lecture possible des faits."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx1",
+        "text": "Depuis l'automne 2026, un **mouvement lycéen** parti des quartiers populaires réclame davantage de moyens pour l'école."
+      },
+      {
+        "id": "ctx2",
+        "text": "Le gouvernement Lecornu répond par un **maintien de l'ordre massif** et prépare une loi « casseurs-payeurs » examinée fin octobre."
+      },
+      {
+        "id": "ctx3",
+        "text": "Le mouvement s'inscrit après d'autres mobilisations marquées par la répression, notamment les **gilets jaunes** de 2018."
+      },
+      {
+        "id": "ctx4",
+        "text": "L'article paraît le 8 octobre, jour d'une **nouvelle journée nationale** de manifestations."
+      }
+    ],
+    "who_is_speaking": [
+      "The Nation est un **hebdomadaire américain progressiste** fondé en 1865, financé en partie par ses lecteurs.",
+      "L'article est signé de **deux journalistes indépendants** : June Loper, franco-américaine, qui couvre les luttes sociales et environnementales, et Harrison Stetler, basé à Paris.",
+      "Il s'adresse à un **lectorat américain**, ce qui explique les comparaisons et les explications de contexte français.",
+      "Les sources interrogées sont **toutes critiques** de la réponse gouvernementale."
+    ],
+    "important_facts": [
+      {
+        "id": "fact1",
+        "text": "En France, la **garde à vue** dure 24 heures, renouvelable une fois ; pour les mineurs, elle est encadrée par des règles spécifiques (avocat, information des parents)."
+      },
+      {
+        "id": "fact2",
+        "text": "Une loi « **anticasseurs** » de 1970 instaurait déjà une responsabilité collective des participants ; elle a été abrogée en 1981."
+      },
+      {
+        "id": "fact3",
+        "text": "La loi « anticasseurs » d'avril 2019, votée après les gilets jaunes, a vu sa mesure d'**interdiction administrative de manifester** censurée par le Conseil constitutionnel."
+      },
+      {
+        "id": "fact4",
+        "text": "Depuis 2010, le délit de **participation à un groupement en vue de commettre des violences** permet d'interpeller avant tout passage à l'acte, ce qui explique en partie l'écart entre gardes à vue et poursuites."
+      },
+      {
+        "id": "fact5",
+        "text": "En décembre 2018, l'interpellation de **151 lycéens à Mantes-la-Jolie**, filmés à genoux mains sur la tête, avait déjà suscité une polémique nationale."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "CRS",
+        "definition": "Compagnies républicaines de sécurité : unités de police spécialisées dans le maintien de l'ordre."
+      },
+      {
+        "term": "Garde à vue",
+        "definition": "Privation de liberté décidée par la police pour interroger une personne soupçonnée, sous contrôle d'un magistrat."
+      },
+      {
+        "term": "IGPN",
+        "definition": "Inspection générale de la police nationale, l'organe qui enquête sur les agents de police, souvent appelée « police des polices »."
+      },
+      {
+        "term": "LBD (balles en caoutchouc)",
+        "definition": "Lanceur de balles de défense : arme qui tire des projectiles en caoutchouc, dite « à létalité réduite »."
+      },
+      {
+        "term": "Grenade de désencerclement",
+        "definition": "Grenade lancée à la main qui projette des plots de caoutchouc pour disperser une foule proche."
+      },
+      {
+        "term": "Entrisme",
+        "definition": "Stratégie d'un groupe politique qui s'infiltre dans un mouvement pour l'orienter."
+      },
+      {
+        "term": "Adultification",
+        "definition": "Fait de percevoir et traiter des mineurs comme des adultes, donc avec moins d'indulgence."
+      },
+      {
+        "term": "Loi « casseurs-payeurs »",
+        "definition": "Projet de loi qui rendrait les participants à un rassemblement violent financièrement responsables des dégâts, même sans faute personnelle prouvée."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "<extra_instructions>"
+  }
+}
