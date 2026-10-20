@@ -280,9 +280,10 @@ def _orphan_references(doc: InstagramCarouselDocument) -> list[str]:
     return problems
 
 
-def check(extract_path: Path, article_path: Path | None = None) -> dict[str, list[str]]:
+def check(extract_path: Path, article_path: Path | None = None, light: bool | None = None) -> dict[str, list[str]]:
     # the light format lives in its own folder and is checked against its own caps
-    light = Path(extract_path).parent.name == LIGHT_FORMAT
+    if light is None:
+        light = Path(extract_path).parent.name == LIGHT_FORMAT
     """Run every check. Returns {family: [problems]} — empty lists mean clean."""
     extract_path = Path(extract_path)
     doc = InstagramCarouselDocument.model_validate(json.loads(extract_path.read_text(encoding="utf-8")))

@@ -485,9 +485,11 @@ def _clue_errors(pres, d) -> list[str]:
     return errors
 
 
-# The light format's caps, tuned on article_14: each slide reads in a few seconds.
-_LIGHT_CAPS = {"hook": 40, "essentiel": 8, "moment": 45, "quote": 12, "answer": 110,
-               "presupposé": 6, "objection": 14, "root_issue": 12, "question": 12}
+# The light format's caps, measured on article_14's slides at the light type scale:
+# characters, not words — eight long words still wrap to three lines at 54px.
+_LIGHT_CAPS = {"hook": 40, "essentiel": 48, "moment": 45, "quote": 12, "answer": 110,
+               "presupposé": 6, "objection": 70, "root_issue": 60, "question": 60,
+               "headline": 45, "lens_questions": 120}
 
 
 def _light_errors(pres, d) -> list[str]:
@@ -495,8 +497,14 @@ def _light_errors(pres, d) -> list[str]:
     def words(t): return len(_plain(t).split())
     if len(_plain(pres.hook.sub_topic)) > c["hook"]:
         errors.append(f"light: hook.sub_topic is over {c['hook']} characters")
-    errors += [f"light: display.essentiel[{i}] is {words(e)} words (max {c['essentiel']})"
-               for i, e in enumerate(d.essentiel) if words(e) > c["essentiel"]]
+    def chars(t): return len(_plain(t))
+    errors += [f"light: display.essentiel[{i}] is {chars(e)} characters (max {c['essentiel']})"
+               for i, e in enumerate(d.essentiel) if chars(e) > c["essentiel"]]
+    picked = [b for b in d.reading_beats if b.selected]
+    total_q = sum(chars(b.lens_question) for b in picked)
+    if total_q > c["lens_questions"]:
+        errors.append(f"light: the réflexe questions total {total_q} characters (max {c['lens_questions']}) — "
+                      f"slide 3 holds one two-line question, not three")
     for i, b in enumerate(d.reading_beats):
         if not b.selected:
             continue
@@ -506,17 +514,19 @@ def _light_errors(pres, d) -> list[str]:
             errors.append(f"light: display.reading_beats[{i}].quote is {words(b.quote)} words (max {c['quote']})")
         if len(_plain(b.answer)) > c["answer"]:
             errors.append(f"light: display.reading_beats[{i}].answer is over {c['answer']} characters")
+    if d.global_analysis and chars(d.global_analysis.headline) > c["headline"]:
+        errors.append(f"light: display.global_analysis.headline is over {c['headline']} characters")
     if d.global_analysis:
         for rec in d.global_analysis.core_recap:
             body = _plain(rec).split(":", 1)[-1]
             errors += [f"light: présupposé « {p.strip()} » is {len(p.split())} words (max {c['presupposé']})"
                        for p in body.split(";") if len(p.split()) > c["presupposé"]]
-    if d.steel_man and words(d.steel_man.argument) > c["objection"]:
-        errors.append(f"light: display.steel_man.argument is {words(d.steel_man.argument)} words (max {c['objection']})")
-    if words(d.root_issue) > c["root_issue"]:
-        errors.append(f"light: display.root_issue is {words(d.root_issue)} words (max {c['root_issue']})")
-    if words(pres.cta.engagement_sentence) > c["question"]:
-        errors.append(f"light: cta.engagement_sentence is {words(pres.cta.engagement_sentence)} words (max {c['question']})")
+    if d.steel_man and chars(d.steel_man.argument) > c["objection"]:
+        errors.append(f"light: display.steel_man.argument is {chars(d.steel_man.argument)} characters (max {c['objection']})")
+    if chars(d.root_issue) > c["root_issue"]:
+        errors.append(f"light: display.root_issue is {chars(d.root_issue)} characters (max {c['root_issue']})")
+    if chars(pres.cta.engagement_sentence) > c["question"]:
+        errors.append(f"light: cta.engagement_sentence is {chars(pres.cta.engagement_sentence)} characters (max {c['question']})")
     return errors
 
 
