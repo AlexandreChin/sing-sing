@@ -70,7 +70,7 @@
     </div>{% endif %}
     {% if quote %}<div class="evidence"><p class="ev-quote">«&#160;{{ quote | fr }}&#160;»</p></div>{% endif %}
     <p class="watch"{% if light %} data-perch{% endif %}>{% if light %}{% include '_perch.html' %}{% endif %}<svg viewBox="0 0 24 24">{% if lens_icon_svg %}{{ lens_icon_svg | safe }}{% else %}{{ ICONS.lightbulb | safe }}{% endif %}</svg><span class="wtxt">{{ lens_question | fr }}</span></p>
-    {% if answer %}<div class="reveal"{% if not light %} data-perch{% endif %}>{% if not light %}{% include '_perch.html' %}{% endif %}<span class="arw">&#8594;</span><p class="rev">{{ answer | md_bold }}</p></div>{% endif %}
+    {% if answer %}<div class="reveal"{% if not light %} data-perch{% endif %}>{% if not light %}{% include '_perch.html' %}{% endif %}<span class="arw">&#8594;</span><p class="rev">{{ answer | claim_detail }}</p></div>{% endif %}
     {% if pictogram %}{% set person %}<svg viewBox="0 0 20 40"><circle cx="10" cy="7" r="6"/><path d="M2 40V22a8 8 0 0 1 16 0v18z"/></svg>{% endset %}
     <div class="picto">
       <div><div class="who">{{ pictogram.reference_label | fr }}</div><div class="ppl muted">{% for _ in range(pictogram.reference_count) %}{{ person | safe }}{% endfor %}</div></div>

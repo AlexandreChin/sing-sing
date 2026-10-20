@@ -169,7 +169,9 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path, light: bool = F
         # test. The reader-facing question moved to the prise de recul, last.
         if d.steel_man and d.steel_man.argument.strip():
             recap_items.append({"label": "L'objection la plus solide",
-                                "clauses": [d.steel_man.argument], "icon": "shield"})
+                                "clauses": [d.steel_man.argument], "icon": "shield",
+                                # its consequence, in grey under it (claim over detail)
+                                "detail": d.steel_man.alternative})
         # slide 7 draws the présupposés as pillars; the objection points at the one it weakens
         specs.append(("socle", "08_socle",
                       {"headline": ga.headline, "recap_items": recap_items,

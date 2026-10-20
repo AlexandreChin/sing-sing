@@ -17,10 +17,10 @@ Le carrousel complet est fourni ci-dessus (JSON). Produis sa VERSION LÉGÈRE : 
   - `moment` : le titre, ≤45 caractères — ce que le passage fait, lisible seul.
   - `quote` / `quote_original` : un extrait PLUS COURT du même passage, ≤12 mots. `quote_original` reste MOT POUR MOT celui de l'article (élision « […] » permise) ; `quote` en est la traduction française fidèle si l'article n'est pas en français (sinon `quote_original` vide).
   - `lens_question` : la question du réflexe, ≤70 caractères — et les trois questions ensemble ≤120 caractères : la slide 3 n'en tient qu'UNE sur deux lignes, les autres courtes — compréhensible sur la slide 3 AVANT d'avoir vu le moment — jamais un pronom sans antécédent (« Pourquoi eux ? » ne dit pas qui).
-  - `answer` : ≤110 caractères. **ELLE DIT OÙ REGARDER (impératif)** : une institution, un document, un chiffre, une personne citée dans l'article — « **Des déclarations** : à relire au compte rendu de l'Assemblée », « **L'Union étudiante** compare Sciences Po et la Seine-Saint-Denis : vérifiez auprès des préfectures ». Jamais une consigne nue (« **Comparez** les arrestations d'un lycée à l'autre » dit quoi faire, pas où).
+  - `answer` : écrite « constat : où regarder » — la slide affiche le constat en blanc (≤70 caractères) et la source en gris dessous (≤55). **ELLE DIT OÙ REGARDER (impératif)** : une institution, un document, un chiffre, une personne citée dans l'article — « **Des déclarations** : à relire au compte rendu de l'Assemblée », « **L'Union étudiante** compare Sciences Po et la Seine-Saint-Denis : vérifiez auprès des préfectures ». Jamais une consigne nue (« **Comparez** les arrestations d'un lycée à l'autre » dit quoi faire, pas où).
 - `headline` : la thèse du socle, ≤45 caractères (deux lignes).
 - `presupposes` : les 3 présupposés, ≤10 mots chacun, chacun commençant par « que ».
 - `objection` : ≤100 caractères (trois lignes), concrète et appuyée sur l'article — jamais une hypothèse en « si ».
-- `root_issue` : l'enjeu de fond, ≤70 caractères — il garde le mot doré qu'il partage avec la question.
+- `root_issue` : l'enjeu de fond, écrit « affirmation : détail » (affirmation ≤70 caractères, détail gris ≤55) — il garde le mot doré qu'il partage avec la question.
 - `question` : « La question » de la version complète, CONDENSÉE et non remplacée : même sens, même mot doré (contrôlé), ≤60 caractères, ouverte, neutre.
 - `where_to_look` : 1 ou 2 sources de la version complète, chacune nommée (qui la publie, quel document), ≤48 caractères (une ligne).
