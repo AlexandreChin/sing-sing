@@ -533,8 +533,10 @@ def _light_errors(pres, d) -> list[str]:
             body = _plain(rec).split(":", 1)[-1]
             errors += [f"light: présupposé « {p.strip()} » is {len(p.split())} words (max {c['presupposé']})"
                        for p in body.split(";") if len(p.split()) > c["presupposé"]]
-    if d.steel_man and chars(d.steel_man.argument) > c["objection"]:
-        errors.append(f"light: display.steel_man.argument is {chars(d.steel_man.argument)} characters (max {c['objection']})")
+    if d.steel_man:
+        claim, sep, detail = _plain(d.steel_man.argument).partition(" : ")
+        if (len(claim) if sep else chars(d.steel_man.argument)) > c["objection"] or len(detail) > c["detail"]:
+            errors.append(f"light: display.steel_man.argument — claim ≤{c['objection']}, detail ≤{c['detail']} characters")
     claim, sep, detail = _plain(d.root_issue).partition(" : ")
     if (len(claim) if sep else chars(d.root_issue)) > c["root_issue"] or len(detail) > c["detail"]:
         errors.append(f"light: display.root_issue — claim ≤{c['root_issue']}, detail ≤{c['detail']} characters")
