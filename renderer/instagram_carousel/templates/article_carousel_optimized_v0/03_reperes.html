@@ -23,7 +23,7 @@
 .fact { display: grid; grid-template-columns: 212px 1fr; gap: 14px; align-items: baseline; }
 .fact .fl { font-size: 24px; font-weight: 800; letter-spacing: .08em; white-space: nowrap; text-transform: uppercase; color: #d4aa00; }
 .fact .ft { font-size: 31px; line-height: 1.28; color: #a8a8a8; text-wrap: pretty; text-align: left; hyphens: none; }
-.fact .ft strong { color: #cfcfcf; font-weight: 700; }
+.fact .ft strong { color: #fff; font-weight: 700; }
 .tools { display: flex; flex-direction: column; gap: 22px; }
 .tool { display: grid; grid-template-columns: 96px 1fr; align-items: center; }
 .tool .n { font-size: 54px; font-weight: 900; color: #d4aa00; line-height: 1; font-variant-numeric: tabular-nums; }
@@ -35,7 +35,7 @@
   font-size: 22px; font-weight: 900; border-radius: 999px; padding: 3px 9px; line-height: 1; }
 .tool .name { font-size: 34px; font-weight: 800; color: #fff; line-height: 1.15; }
 /* one line: the question is the réflexe's whole statement, read at a glance */
-.tool .q { font-size: 28px; color: #a8a8a8; line-height: 1.25; margin-top: 4px; white-space: nowrap; }
+.tool .q { font-size: 28px; color: #fff;  /* the same question is white on its moment */ line-height: 1.25; margin-top: 4px; white-space: nowrap; }
 .link { font-size: 30px; color: #f0f0f0; margin-bottom: 34px; }
 {% if light %}/* light format: larger type */
 .head, .sel-head { font-size: 72px; } .q-label { font-size: 60px; } .q-head svg { width: 52px; height: 52px; } .fact .ft { font-size: 44px; } .fact .fl { font-size: 30px; }
