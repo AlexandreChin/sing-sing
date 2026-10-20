@@ -41,7 +41,7 @@
 .head, .sel-head { font-size: 72px; } .q-label { font-size: 60px; } .q-head svg { width: 52px; height: 52px; } /* the label sits above its text, which matches the réflexe questions (38px) */
 .fact { display: block; } .fact .fl { display: block; font-size: 26px; margin-bottom: 6px; } .fact .ft { font-size: 38px; }
 .tool .name { font-size: 44px; } .link { font-size: 26px; }
-.tool .q { font-size: 38px; white-space: normal; text-align: left; }  /* wraps to two lines */
+.tool .q { font-size: 38px; white-space: normal; text-align: left; color: #a8a8a8; }  /* wraps to two lines; grey under its white name, as slide 2's details */
 {% endif %}
 </style>
 </head>
@@ -54,7 +54,7 @@
     <h1 class="head">À savoir, à se demander</h1>
     <div class="divider"></div>
     {% if facts or context or framing %}<div class="card">
-      <div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS.info | safe }}</svg><span class="q-label">Le contexte</span></div>
+      {% if not light %}<div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS.info | safe }}</svg><span class="q-label">Le contexte</span></div>{% endif %}
       {% if facts %}<div class="facts">{% for f in facts %}<div class="fact"><span class="fl">{{ f.label }}</span><p class="ft">{{ f.text | md_bold }}</p></div>{% endfor %}</div>
       {% elif context %}<p class="ctx">{{ context | md_bold }}</p>{% endif %}
       {% if framing %}<p class="ctx">{{ framing | md_bold }}</p>{% endif %}
