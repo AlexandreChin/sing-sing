@@ -352,6 +352,16 @@ _MONTH_SHORT = {"janvier": "janv.", "février": "févr.", "avril": "avr.", "juil
 _MONTH_RE = re.compile(r"\b(" + "|".join(_MONTH_SHORT) + r")\b", re.I)
 
 
+def source_label(noun: str, language: str | None) -> str:
+    """Slide 1's label above the source title: « L'article », or « L'article ·
+    traduit de l'espagnol » when the source is not in French — the title shown
+    and the quotes are our translation, and the reader should know it."""
+    if not language:
+        return noun
+    lang = language.strip().lower()
+    return f"{noun} · traduit {'de l' + chr(39) if lang[:1] in 'aeéèêiîoôuh' else 'du '}{lang}"
+
+
 def pill_parts(meta) -> list[str]:
     """Slide 1's source pill, in reading order: medium · length · source · date.
     Missing parts are skipped; the medium always leads, so a reader knows at once

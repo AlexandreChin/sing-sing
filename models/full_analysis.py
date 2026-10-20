@@ -73,6 +73,9 @@ class FullAnalysisInput(BaseModel):
     # says nothing about a 40-minute episode, so a podcast or video passes it in.
     duration_minutes: int | None = None
     extra_instructions: str | None = None
+    # The source's language, in French (« espagnol », « anglais »), when it is not
+    # French; slide 1 then says the title and quotes are translated from it.
+    language: str | None = None
 
 
 def _fold_category(x: str) -> str:
@@ -106,6 +109,7 @@ class ArticleMetadata(BaseModel):
     # The editorial angle the run was given (--instructions). Kept with the
     # analysis so the adapt agents, which only see analysis.json, follow it too.
     extra_instructions: str | None = None
+    language: str | None = None   # see FullAnalysisInput.language
 
     @field_validator("category", mode="before")
     @classmethod
