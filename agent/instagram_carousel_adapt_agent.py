@@ -452,7 +452,7 @@ def _axis_errors(pres, d) -> list[str]:
 _CLUE_WORDS = re.compile(
     r"rapport|bilan|compte rendu|chiffres|données|statistique|ministère|préfecture|syndica|"
     r"tribunal|décision|loi|décret|code|enquête|étude|archives|plateforme|registre|budget|"
-    r"observatoire|défenseur|conseil|insee|dares|depp|cour des comptes", re.I)
+    r"observatoire|défenseur|conseil|insee|dares|depp|cour des comptes|l'article", re.I)
 
 
 def _names_a_source(text: str) -> bool:
