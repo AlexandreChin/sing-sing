@@ -38,7 +38,8 @@
 .tool .q { font-size: 28px; color: #fff;  /* the same question is white on its moment */ line-height: 1.25; margin-top: 4px; white-space: nowrap; }
 .link { font-size: 30px; color: #f0f0f0; margin-bottom: 34px; }
 {% if light %}/* light format: larger type */
-.head, .sel-head { font-size: 72px; } .q-label { font-size: 60px; } .q-head svg { width: 52px; height: 52px; } .fact .ft { font-size: 44px; } .fact .fl { font-size: 30px; }
+.head, .sel-head { font-size: 72px; } .q-label { font-size: 60px; } .q-head svg { width: 52px; height: 52px; } /* the label sits above its text, which matches the réflexe questions (38px) */
+.fact { display: block; } .fact .fl { display: block; font-size: 26px; margin-bottom: 6px; } .fact .ft { font-size: 38px; }
 .tool .name { font-size: 44px; } .link { font-size: 26px; }
 .tool .q { font-size: 38px; white-space: normal; text-align: left; }  /* wraps to two lines */
 {% endif %}
