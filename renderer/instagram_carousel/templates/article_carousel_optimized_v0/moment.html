@@ -46,6 +46,12 @@
 .num-fig .arrow { color: #6a5a10; }
 .num-caption { font-size: 33px; color: #9a9a9a; margin-top: 8px; letter-spacing: -0.01em; }
 .num-sub { font-size: 46px; font-weight: 700; color: #f0f0f0; margin-top: 8px; line-height: 1.15; }
+{% if light %}/* light format: larger type */
+.head, .sel-head { font-size: 72px; } .ev-quote { font-size: 52px; }
+/* the bird perches on the question, so question and answer read as one block */
+.watch { margin-top: 72px; padding-top: 16px; } .watch .wtxt { font-size: 54px; color: #fff; }
+.reveal .rev { font-size: 46px; } .reveal .arw { font-size: 50px; }
+{% endif %}
 </style>
 </head>
 <body>
@@ -63,8 +69,8 @@
       {% if figure_caption and not quote %}<div class="num-caption">{{ figure_caption | fr }}</div>{% endif %}
     </div>{% endif %}
     {% if quote %}<div class="evidence"><p class="ev-quote">«&#160;{{ quote | fr }}&#160;»</p></div>{% endif %}
-    <p class="watch"><svg viewBox="0 0 24 24">{% if lens_icon_svg %}{{ lens_icon_svg | safe }}{% else %}{{ ICONS.lightbulb | safe }}{% endif %}</svg><span class="wtxt">{{ lens_question | fr }}</span></p>
-    {% if answer %}<div class="reveal" data-perch>{% include '_perch.html' %}<span class="arw">&#8594;</span><p class="rev">{{ answer | md_bold }}</p></div>{% endif %}
+    <p class="watch"{% if light %} data-perch{% endif %}>{% if light %}{% include '_perch.html' %}{% endif %}<svg viewBox="0 0 24 24">{% if lens_icon_svg %}{{ lens_icon_svg | safe }}{% else %}{{ ICONS.lightbulb | safe }}{% endif %}</svg><span class="wtxt">{{ lens_question | fr }}</span></p>
+    {% if answer %}<div class="reveal"{% if not light %} data-perch{% endif %}>{% if not light %}{% include '_perch.html' %}{% endif %}<span class="arw">&#8594;</span><p class="rev">{{ answer | md_bold }}</p></div>{% endif %}
     {% if pictogram %}{% set person %}<svg viewBox="0 0 20 40"><circle cx="10" cy="7" r="6"/><path d="M2 40V22a8 8 0 0 1 16 0v18z"/></svg>{% endset %}
     <div class="picto">
       <div><div class="who">{{ pictogram.reference_label | fr }}</div><div class="ppl muted">{% for _ in range(pictogram.reference_count) %}{{ person | safe }}{% endfor %}</div></div>
