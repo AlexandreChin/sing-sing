@@ -151,6 +151,13 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path, light: bool = F
         for c in ga.core_recap:
             label, sep, body = c.partition(":")
             label, body = (label.strip(), body.strip()) if sep else ("", c.strip())
+            # The présupposés heading names the source, not its author: « L'article
+            # suppose… » (« L'épisode », « La vidéo »). The data keeps its label, old
+            # decks included (« Ce qu'il tient pour acquis », « Ses présupposés »).
+            if label in ("Ce qu'il tient pour acquis", "Ses présupposés"):
+                recap_icons[label] = "anchor"
+                label = f"{medium_labels(meta.medium)['source_noun']} suppose…"
+                recap_icons[label] = "anchor"
             if label == "À questionner":
                 continue  # legacy label — superseded by "La question" (engagement) below
             # One line per presupposé: crammed onto a single line they compress into
