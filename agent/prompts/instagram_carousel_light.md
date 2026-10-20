@@ -11,16 +11,16 @@ Le carrousel complet est fourni ci-dessus (JSON). Produis sa VERSION LÉGÈRE : 
 **Champs et plafonds**
 - `hook_sub_topic` : l'accroche, ≤40 caractères. Elle nomme le sujet ; pas de « Derrière… ».
 - `hook_subtitle` : « Comprendre … », ≤38 caractères (la slide ajoute « En juger soi-même. »).
-- `essentiel` : les 3 idées de la version complète, ≤8 mots chacune, dans le même ordre ; chacune se comprend seule (pas de « Ce récit » qui renvoie à la précédente).
+- `essentiel` : les 3 idées de la version complète, ≤48 caractères chacune (pas en mots : huit mots longs font trois lignes), dans le même ordre ; chacune se comprend seule (pas de « Ce récit » qui renvoie à la précédente).
 - `reperes_fact` : UN seul repère (`label` 1–2 mots, `text` ≤10 mots), celui sans lequel le lecteur se tromperait sur la source ou le contexte.
 - `moments` : un objet par moment SÉLECTIONNÉ de la version complète, avec son `index` dans `reading_beats` :
   - `moment` : le titre, ≤45 caractères — ce que le passage fait, lisible seul.
   - `quote` / `quote_original` : un extrait PLUS COURT du même passage, ≤12 mots. `quote_original` reste MOT POUR MOT celui de l'article (élision « […] » permise) ; `quote` en est la traduction française fidèle si l'article n'est pas en français (sinon `quote_original` vide).
-  - `lens_question` : la question du réflexe, ≤70 caractères, compréhensible sur la slide 3 AVANT d'avoir vu le moment — jamais un pronom sans antécédent (« Pourquoi eux ? » ne dit pas qui).
+  - `lens_question` : la question du réflexe, ≤70 caractères — et les trois questions ensemble ≤120 caractères : la slide 3 n'en tient qu'UNE sur deux lignes, les autres courtes — compréhensible sur la slide 3 AVANT d'avoir vu le moment — jamais un pronom sans antécédent (« Pourquoi eux ? » ne dit pas qui).
   - `answer` : ≤110 caractères. **ELLE DIT OÙ REGARDER (impératif)** : une institution, un document, un chiffre, une personne citée dans l'article — « **Des déclarations** : à relire au compte rendu de l'Assemblée », « **L'Union étudiante** compare Sciences Po et la Seine-Saint-Denis : vérifiez auprès des préfectures ». Jamais une consigne nue (« **Comparez** les arrestations d'un lycée à l'autre » dit quoi faire, pas où).
-- `headline` : la thèse du socle, ≤54 caractères.
+- `headline` : la thèse du socle, ≤45 caractères (deux lignes).
 - `presupposes` : les 3 présupposés, ≤6 mots chacun, chacun commençant par « que ».
-- `objection` : ≤14 mots, avec l'exemple concret de la version complète.
-- `root_issue` : l'enjeu de fond, ≤12 mots — il garde le mot doré qu'il partage avec la question.
-- `question` : « La question », ≤12 mots, ouverte, neutre, même mot doré que l'enjeu.
+- `objection` : ≤70 caractères (deux lignes), avec l'exemple concret de la version complète.
+- `root_issue` : l'enjeu de fond, ≤60 caractères — il garde le mot doré qu'il partage avec la question.
+- `question` : « La question », ≤60 caractères, ouverte, neutre, même mot doré que l'enjeu.
 - `where_to_look` : 1 ou 2 sources de la version complète, chacune nommée (qui la publie, quel document).
