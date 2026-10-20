@@ -13,9 +13,9 @@
 .ev-quote { font-size: 39px; font-style: italic; line-height: 1.4; color: #a8a8a8; }
 
 /* ── Watch-out: the challenge (lens + imperative, one line) ── */
-.watch { display: flex; gap: 16px; align-items: flex-start; }
-.watch svg { width: 40px; height: 40px; flex: none; margin-top: 9px;  /* centres the icon on the first line: (57.6px line-height − 40px) / 2 */ stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.watch .wtxt { font-size: 43px; font-weight: 500; line-height: 1.34; color: #fff; }
+.watch { display: flex; gap: .4em; align-items: flex-start; font-size: 43px; line-height: 1.34; }
+.watch svg { width: .9em; height: .9em; flex: none; margin-top: .22em;  /* sized on the question, centred on its first line: (1.34em − .9em) / 2 */ stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.watch .wtxt { font-weight: 700; color: #fff; }  /* the question, in bold: the line the slide is about */
 .watch .wtxt .wl { color: #d4aa00; font-weight: 900; }
 .watch .wtxt strong { color: #d4aa00; font-weight: 900; }
 
@@ -49,7 +49,7 @@
 {% if light %}/* light format: larger type */
 .head, .sel-head { font-size: 72px; } .ev-quote { font-size: 52px; }
 /* the bird perches on the question, so question and answer read as one block */
-.watch { margin-top: 72px; padding-top: 16px; } .watch .wtxt { font-size: 54px; }
+.watch { margin-top: 72px; padding-top: 16px; font-size: 54px; }
 .reveal .rev { font-size: 46px; } .reveal .arw { font-size: 50px; }
 {% endif %}
 </style>
