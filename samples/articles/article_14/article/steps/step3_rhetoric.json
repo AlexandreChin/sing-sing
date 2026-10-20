@@ -1,0 +1,73 @@
+{
+  "emotional_register": [
+    {
+      "id": "er1",
+      "emotion": "indignation",
+      "how": "L'article **accumule les blessures graves** infligées à des mineurs (mâchoires brisées, mains arrachées, verre dans le crâne) et les place juste après le démenti du Premier ministre.",
+      "effect": "Le lecteur est préparé à juger la réponse de l'État **disproportionnée** avant d'avoir lu l'analyse du cadrage.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "maintien de l'ordre massif",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "er2",
+      "emotion": "inquiétude",
+      "how": "Le texte décrit un **arsenal qui s'élargit** : loi « casseurs-payeurs », sanctions sans faute personnelle, retenues sur les allocations des parents.",
+      "effect": "Le lecteur est amené à voir dans la crise **une « nouvelle normalité »** durable, qui dépasse le seul mouvement lycéen.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 1,
+        "excerpt": "Une loi « anticasseurs » de 1970 instaurait déjà une responsabilité collective",
+        "strength": 0.6,
+        "nature": "specification"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "cb1",
+      "beneficiary": "Le gouvernement Lecornu",
+      "explanation": "Le cadrage « casseurs » déplace le débat **des moyens de l'école vers l'ordre public**. Il justifie aussi la répression et le projet de loi « casseurs-payeurs ».",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "un mouvement lycéen parti des quartiers populaires réclame davantage de moyens",
+        "strength": 0.8,
+        "nature": "contradiction"
+      }
+    },
+    {
+      "id": "cb2",
+      "beneficiary": "Les opposants à la loi « casseurs-payeurs »",
+      "explanation": "En centrant le récit sur **des mineurs blessés et arrêtés en masse**, l'article fournit des arguments contre le texte, **avant son examen** fin octobre.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "prépare une loi « casseurs-payeurs » examinée fin octobre",
+        "strength": 0.6,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Question rhétorique",
+        "observation": "Le titre pose une question à laquelle **le corps répond par l'affirmative**, sans voix contraire développée."
+      },
+      {
+        "label": "Vocabulaire",
+        "observation": "« Overplayed its hand » décrit la crise comme **un coup stratégique** du gouvernement, non comme un maintien de l'ordre."
+      },
+      {
+        "label": "Cadrage",
+        "observation": "Le titre place **le gouvernement au centre** ; les lycéens et leurs demandes n'y figurent pas."
+      }
+    ],
+    "body": "Le corps aborde la mobilisation par **la réponse de l'État** : chiffres d'interpellations, blessures, consignes ministérielles et projet de loi. Il oppose systématiquement les déclarations gouvernementales à des voix critiques : avocat, ONG, syndicat étudiant, sociologue. Le cadrage « casseurs » y est traité comme **une stratégie gouvernementale**, relayée par une partie des médias. Écrit depuis un hebdomadaire progressiste américain, il adopte **le point de vue des libertés publiques** et des mineurs mobilisés."
+  }
+}

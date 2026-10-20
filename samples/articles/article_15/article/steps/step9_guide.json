@@ -1,0 +1,70 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Lisez ce texte comme **une tribune assumée**, écrite depuis Madrid pour un lectorat espagnol, et non comme un reportage.",
+      "Repérez la structure : des **griefs scolaires** s'accumulent, s'incarnent dans quelques figures, puis deviennent **un acte citoyen** opposé au Rassemblement national.",
+      "Gardez en tête une question simple : **combien de jeunes** ce mouvement réunit-il vraiment ?"
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "wo_1",
+          "text": "Le titre parle d'**une génération entière**, mais le récit s'appuie sur quelques lycées et une seule figure. Aucun chiffre ne mesure **l'ampleur du mouvement**.",
+          "references": [
+            "ia_1",
+            "bs_1",
+            "pr_2"
+          ]
+        },
+        {
+          "id": "wo_2",
+          "text": "Le nombre de bacheliers sans place n'est pas sourcé et correspond à **la fin de la phase principale** de Parcoursup, pas au bilan final. L'année de scolarité perdue vient **des syndicats**, partie prenante du débat.",
+          "references": [
+            "claim_0",
+            "claim_1",
+            "obs_1"
+          ]
+        },
+        {
+          "id": "wo_3",
+          "text": "Les enquêtes de l'IGPN indiquent que **des signalements existent**, pas que des violences ont été établies. La police n'est pas entendue.",
+          "references": [
+            "obs_4",
+            "claim_3",
+            "cb_0"
+          ]
+        },
+        {
+          "id": "wo_4",
+          "text": "La critique adressée à Jordan Bardella repose sur **une phrase isolée**, sans date ni contexte. Le texte y répond par **son passé** plutôt que par son argument, et sans recueillir sa réponse.",
+          "references": [
+            "lr_3",
+            "ia_2",
+            "bs_3"
+          ]
+        },
+        {
+          "id": "wo_5",
+          "text": "Les jeunes ont **des visages et des mots** ; le gouvernement, la police et Jordan Bardella n'ont pas de réponse. Certains qualificatifs **tranchent le débat** dans la phrase même qui le décrit.",
+          "references": [
+            "bs_0",
+            "bias_1",
+            "cb_1"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Séparez **les faits vérifiables** (enquêtes, rapports, procédures) des **jugements de l'autrice** sur ces faits.",
+      "Cherchez **le chiffre final** de Parcoursup et le nombre de participants avant de parler du mouvement d'une génération.",
+      "Demandez-vous quelles sont **les revendications précises** des lycéens, que le texte esquisse à peine.",
+      "Retenez que répondre au **passé d'une personne** ne répond pas à **ce qu'elle a dit**."
+    ],
+    "title_note": null,
+    "perspective": {
+      "framing": "Le texte regarde la mobilisation lycéenne française **depuis l'Espagne**, à la veille de la présidentielle. Il place au centre **la parole des jeunes** et leurs griefs scolaires, sur un registre d'indignation et d'espoir, et parle de leur côté face au Rassemblement national.",
+      "blind_spots": "**L'ampleur réelle** de la mobilisation n'est jamais chiffrée. Le gouvernement, la police et Jordan Bardella **ne sont pas entendus**, et les revendications des lycéens restent floues.",
+      "balance": "Une tribune qui affiche sa position n'a pas à donner la parole à tous les camps, et un format court ne peut pas tout chiffrer. Les limites relevées restent réelles, mais elles se lisent **à l'aune du genre** : un plaidoyer, pas une enquête."
+    }
+  }
+}

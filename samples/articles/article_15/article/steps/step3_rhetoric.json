@@ -1,0 +1,73 @@
+{
+  "emotional_register": [
+    {
+      "id": "er1",
+      "emotion": "espoir",
+      "how": "Le texte qualifie d'emblée la mobilisation d'**« alentador »** et la place face à l'arrivée possible de l'extrême droite, puis la montre à travers des visages : Soumaya Sarré et les élèves solidaires d'Henri-IV.",
+      "effect": "Le lecteur est préparé à voir dans la protestation **un sursaut démocratique** plutôt qu'un désordre.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "La présidentielle de 2027 approche",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "er2",
+      "emotion": "indignation",
+      "how": "Une **accumulation de griefs** (« cansados », « agotados », « hartos ») enchaîne Parcoursup, les murs qui s'effritent et l'**année de scolarité perdue**.",
+      "effect": "Le lecteur est amené à tenir la colère des jeunes pour **fondée**, et la remarque de Bardella pour un mépris.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 1,
+        "excerpt": "un élève y perdait l'équivalent d'environ une année de scolarité",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "cb1",
+      "beneficiary": "Le mouvement lycéen et étudiant, dont la Fédération des étudiants des quartiers populaires",
+      "explanation": "Présentée comme **un réveil citoyen** né de conditions scolaires dégradées, la mobilisation gagne en légitimité. La réponse policière y figure comme **une forme** de maltraitance de plus.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "des blocages de lycées et d'universités",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "cb2",
+      "beneficiary": "Les adversaires du Rassemblement national à l'approche de la présidentielle",
+      "explanation": "Le texte oppose cette jeunesse au **parti qui aspire à gouverner** et répond à Bardella par son passé. Le désaccord devient **un enjeu électoral**.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 3,
+        "excerpt": "Jordan Bardella, né en 1995, préside le Rassemblement national",
+        "strength": 0.7,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Présupposé",
+        "observation": "Le titre pose la **maltraitance** comme un fait acquis, pas comme une question à examiner."
+      },
+      {
+        "label": "Généralisation",
+        "observation": "Le titre parle d'**une génération** entière ; le corps décrit des jeunes mobilisés, sans chiffre d'ampleur."
+      },
+      {
+        "label": "Métaphore",
+        "observation": "« Réveil » suppose une **jeunesse jusque-là endormie**, image que le texte dit erronée."
+      }
+    ],
+    "body": "Le corps aborde la mobilisation par **l'expérience scolaire** des jeunes : Parcoursup, bâtiments dégradés, professeurs absents. Il passe du collectif à **des figures incarnées**, Henri-IV puis Soumaya Sarré, avant de se tourner vers Jordan Bardella. Le registre est celui d'**une tribune assumée**, qui qualifie les faits (« alentador », « tan legítima ») et s'appuie surtout sur d'autres médias. Le texte parle depuis Madrid, pour un lectorat espagnol, en situant la France à l'approche de la présidentielle."
+  }
+}

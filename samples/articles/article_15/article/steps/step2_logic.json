@@ -1,0 +1,192 @@
+{
+  "main_claim": "Une génération maltraitée par l'école se découvre citoyenne ; le RN la caricature.",
+  "premisses": [
+    {
+      "id": "p1",
+      "statement": "Les jeunes subissent une **maltraitance scolaire** : Parcoursup, classes surchargées, bâtiments dégradés, professeurs absents.",
+      "quality": "En partie étayée : les 120 000 bacheliers sans place ne sont pas sourcés, et **l'année de scolarité perdue** vient des syndicats."
+    },
+    {
+      "id": "p2",
+      "statement": "La mobilisation montre des jeunes qui **se sentent citoyens** et agissent comme tels.",
+      "quality": "Appuyée sur l'analyse d'**une politologue** et sur des pancartes rapportées par d'autres médias."
+    },
+    {
+      "id": "p3",
+      "statement": "Le mouvement dépasse les clivages sociaux : les élèves d'Henri-IV se mobilisent **par solidarité**.",
+      "quality": "Repose sur **un cas emblématique** et sur ses pancartes."
+    },
+    {
+      "id": "p4",
+      "statement": "En parlant de « wesh », Bardella **réduit cette jeunesse** à une caricature.",
+      "quality": "Assertion fondée sur **une phrase isolée**, citée sans date ni contexte."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "id": "ia1",
+      "statement": "Les griefs scolaires énumérés sont **la cause principale** de la mobilisation.",
+      "impact": "Si d'autres motifs dominent, le lien entre **maltraitance et réveil** se distend."
+    },
+    {
+      "id": "ia2",
+      "statement": "Soumaya Sarré et Henri-IV sont **représentatifs** de l'ensemble du mouvement.",
+      "impact": "Si ces figures sont des exceptions, le portrait d'**une génération entière** perd sa base."
+    },
+    {
+      "id": "ia3",
+      "statement": "La phrase de Bardella sur le « wesh » vise **la jeunesse mobilisée**, et non un usage précis du mot.",
+      "impact": "Si elle visait autre chose, la **caricature** qu'on lui prête change de portée."
+    }
+  ],
+  "blind_spots": [
+    {
+      "id": "bs1",
+      "topic": "La parole du **gouvernement** sur Parcoursup, les bâtiments et les absences.",
+      "significance": "Elle permettrait de mesurer si la **maltraitance** relève d'un choix, d'un manque de moyens ou d'un héritage."
+    },
+    {
+      "id": "bs2",
+      "topic": "L'**ampleur réelle** de la mobilisation : nombre de lycées, de manifestants.",
+      "significance": "Elle dirait si le **réveil** concerne une génération ou une minorité active."
+    },
+    {
+      "id": "bs3",
+      "topic": "Les **revendications précises** du mouvement, à peine esquissées.",
+      "significance": "Elles montreraient comment ces jeunes **agissent en citoyens** au-delà de la protestation."
+    },
+    {
+      "id": "bs4",
+      "topic": "Le **contexte complet** de la déclaration de Bardella.",
+      "significance": "Il permettrait au lecteur de juger lui-même **la caricature** reprochée."
+    }
+  ],
+  "emphasis": [
+    "Le texte consacre **un paragraphe entier** à Soumaya Sarré et un autre à sa comparaison avec Bardella, alors que la Fédération des étudiants des quartiers populaires n'est décrite qu'en **deux phrases**.",
+    "La **maltraitance scolaire** occupe un paragraphe ; la réponse policière tient en **une seule phrase**, via une pancarte.",
+    "Le dernier tiers porte sur **Bardella** et le mot « wesh », davantage que sur les jeunes eux-mêmes."
+  ],
+  "logical_reasoning": [
+    {
+      "id": "lr1",
+      "step": "Les jeunes subissent des **conditions scolaires dégradées**, donc ils protestent.",
+      "problem_type": null,
+      "diagnosis": null
+    },
+    {
+      "id": "lr2",
+      "step": "Ils protestent et s'organisent, donc ils **se découvrent citoyens**.",
+      "problem_type": null,
+      "diagnosis": null
+    },
+    {
+      "id": "lr3",
+      "step": "Bardella parle de « wesh », donc le RN **réduit cette jeunesse** à une caricature.",
+      "problem_type": "soundness",
+      "diagnosis": "La prémisse repose sur **une phrase isolée**, non citée en entier ni datée."
+    },
+    {
+      "id": "lr4",
+      "step": "À 18 ans, Bardella tenait des propos antisémites quand Sarré gagnait un concours au Mémorial de la Shoah, donc **sa critique ne vaut pas**.",
+      "problem_type": "validity",
+      "diagnosis": "La fin répond par **le passé de l'auteur** de la critique, pas par l'examen de son argument."
+    }
+  ],
+  "observations": [
+    {
+      "id": "o1",
+      "aspect": "Cadrage",
+      "summary": "Le texte s'ouvre sur la **présidentielle** et l'arrivée possible de l'extrême droite, ce qui place la mobilisation sous l'angle d'un **enjeu démocratique**.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "La présidentielle de 2027 approche",
+        "strength": 1.0,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "o2",
+      "aspect": "Sourçage",
+      "summary": "Le chiffre de **l'année de scolarité perdue** est attribué aux syndicats ; un **rapport parlementaire de 2018** sur la Seine-Saint-Denis, département le plus pauvre, avançait déjà un ordre de grandeur proche.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 1,
+        "excerpt": "Un rapport parlementaire de 2018 sur la Seine-Saint-Denis",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "id": "o3",
+      "aspect": "Chiffrage",
+      "summary": "Les **120 000 bacheliers sans place** sont donnés sans source ; le chiffre correspond à **la fin de la phase principale** de Parcoursup, avant la phase complémentaire.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "des milliers de candidats restent sans affectation à la fin de la phase principale",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "id": "o4",
+      "aspect": "Incarnation",
+      "summary": "Le récit suit le mouvement **de Creil à Henri-IV**, puis à une figure unique, Soumaya Sarré, pour donner un visage au **réveil citoyen**.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "Le mouvement serait parti d'un lycée de Creil",
+        "strength": 0.7,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "o5",
+      "aspect": "Proportion",
+      "summary": "Les **36 enquêtes de l'IGPN** sont la seule donnée chiffrée sur la réponse policière, présentée comme **une forme** de la maltraitance parmi d'autres.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "36 enquêtes de l'IGPN",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "La phrase de Bardella pourrait viser **la place d'un mot** dans l'offre culturelle faite aux jeunes, pas la jeunesse mobilisée elle-même.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 2,
+        "excerpt": "La phrase de Bardella sur le « wesh » vise la jeunesse mobilisée",
+        "strength": 0.8,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "Le désaccord porterait sur **une politique culturelle**, non sur la reconnaissance de cette jeunesse comme citoyenne."
+    },
+    {
+      "counterargument": "Sans chiffres sur l'ampleur du mouvement, le **réveil d'une génération** peut être celui d'une **minorité visible**.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 1,
+        "excerpt": "L'ampleur réelle de la mobilisation",
+        "strength": 0.7,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "Une partie de la jeunesse se mobilise ; **la génération entière** reste à décrire."
+    },
+    {
+      "counterargument": "Rappeler les propos de Bardella à 18 ans ne dit rien de **la justesse ou non** de sa remarque actuelle.",
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 3,
+        "excerpt": "donc sa critique ne vaut pas",
+        "strength": 0.9,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "La critique de Bardella resterait **à discuter sur le fond**, indépendamment de son passé."
+    }
+  ]
+}

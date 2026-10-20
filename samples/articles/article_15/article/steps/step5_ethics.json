@@ -1,0 +1,29 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "d1",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "mientras él a los 18 años vertía comentarios antisemitas en sus redes sociales ―como reveló una investigación del diario Mediapart―",
+        "explanation": "Une accusation grave contre Bardella est reprise **sans aucune trace de sa réponse** à l'enquête citée."
+      },
+      {
+        "id": "d2",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "una respuesta policial desproporcionada, de una violencia inusitada, como ha denunciado la Liga de los Derechos Humanos (LDH) y atestiguan las 36 investigaciones iniciadas por la Inspección General de la Policía Nacional (IGPN)",
+        "explanation": "Les enquêtes ouvertes **servent de preuve** de violences, sans réponse de la police ni du ministère."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Mentionner la réponse de Bardella à Mediapart et la position de la police ou du ministère sur les enquêtes de l'IGPN."
+    },
+    "summary": "Aucune violation nette n'a été relevée dans cette tribune d'opinion ; on note **deux réserves mineures** sur le droit de réponse, concernant Bardella et la police."
+  }
+}

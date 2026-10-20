@@ -1,0 +1,111 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "La caricature reprochée à Bardella part d'**une phrase sans date ni contexte**, dont la cible est supposée et non établie. La fin répond ensuite par **son passé à 18 ans**, sans trace de sa réponse : le désaccord sur un mot devient un enjeu électoral.",
+        "layers": [
+          "logic",
+          "probe",
+          "rhetoric",
+          "ethics"
+        ],
+        "references": [
+          "ia_2",
+          "bs_3",
+          "lr_2",
+          "lr_3",
+          "bias_2",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "L'enchaînement « cansados », « agotados », « hartos » donne aux griefs **une force cumulée**. Il porte ainsi deux chiffres fragiles : les 120 000 bacheliers non sourcés, mesurés **à la fin de la phase principale**, et l'année perdue fournie par les syndicats.",
+        "layers": [
+          "probe",
+          "rhetoric",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "bias_0",
+          "er_1",
+          "claim_0",
+          "claim_1",
+          "obs_1",
+          "obs_2",
+          "ia_0"
+        ]
+      },
+      {
+        "text": "Le titre parle d'**une génération**, et le récit l'incarne dans Creil, Henri-IV et Soumaya Sarré. Aucune donnée sur **l'ampleur du mouvement** ne vient vérifier que ces figures sont représentatives : les cas tiennent lieu de mesure.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "ia_1",
+          "obs_3",
+          "pr_2",
+          "bs_1"
+        ]
+      },
+      {
+        "text": "Le jugement « alentador » est posé **comme un constat** dès la première phrase, dans un cadrage ouvert sur la présidentielle. L'espoir est ainsi attaché d'emblée à **un enjeu démocratique** qui oppose cette jeunesse au parti qui aspire à gouverner.",
+        "layers": [
+          "probe",
+          "rhetoric",
+          "logic"
+        ],
+        "references": [
+          "claim_2",
+          "er_0",
+          "obs_0",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "Les **36 enquêtes de l'IGPN**, seul chiffre sur la réponse policière, servent de preuve de violences alors qu'elles disent seulement que des signalements existent. Faute de réponse de la police, elles rangent cette réponse parmi **les formes de maltraitance**, ce qui légitime le mouvement.",
+        "layers": [
+          "logic",
+          "probe",
+          "rhetoric",
+          "ethics"
+        ],
+        "references": [
+          "obs_4",
+          "claim_3",
+          "cb_0"
+        ]
+      },
+      {
+        "text": "L'idée que ces jeunes **se découvrent citoyens** repose sur l'analyse d'une politologue et sur des pancartes. Leurs **revendications précises** restent à peine esquissées : l'acte citoyen est affirmé par le cadrage plus que montré par le contenu.",
+        "layers": [
+          "logic",
+          "probe"
+        ],
+        "references": [
+          "pr_1",
+          "lr_1",
+          "bs_2",
+          "focus"
+        ]
+      },
+      {
+        "text": "Les jeunes parlent, avec des visages et des mots, tandis que le gouvernement, la police et Bardella **restent sans réponse**. Les qualificatifs « tan legítima » et « barata » **tranchent le débat** dans la phrase qui le décrit, ce qui accentue cette asymétrie.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "bs_0",
+          "bs_3",
+          "bias_1",
+          "cb_1"
+        ]
+      }
+    ]
+  }
+}

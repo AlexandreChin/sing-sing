@@ -1,0 +1,154 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "id": "cs1",
+        "quote": "deje sin plaza a más de 120.000 bachilleres, como ocurrió el pasado julio",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Chiffrage",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre est donné **sans source** ; il correspond à **la fin de la phase principale** de Parcoursup, avant la phase complémentaire.",
+        "external_sources": [
+          {
+            "name": "Ministère de l'Enseignement supérieur — tableaux de bord Parcoursup",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Le Monde — couverture des résultats Parcoursup de juillet",
+            "supports": "validates",
+            "evidence_type": "media"
+          }
+        ],
+        "confidence": 65
+      },
+      {
+        "id": "cs2",
+        "quote": "la acumulación de esas ausencias les haga perder el equivalente a un año de escolarización, según los sindicatos de Educación",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 1.0,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre vient **des syndicats**, partie prenante ; un **rapport parlementaire de 2018** sur la Seine-Saint-Denis avançait un ordre de grandeur proche.",
+        "external_sources": [
+          {
+            "name": "Rapport d'information Cornut-Gentille et Kokouendo sur l'action de l'État en Seine-Saint-Denis (Assemblée nationale, 2018)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Syndicats enseignants de Seine-Saint-Denis (FSU, SNES)",
+            "supports": "validates",
+            "evidence_type": "party_statement"
+          }
+        ],
+        "confidence": 60
+      },
+      {
+        "id": "cs3",
+        "quote": "hay algo alentador en la protesta estudiantil que lleva semanas bloqueando tanto institutos como universidades",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "espoir",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "« Alentador » est **un jugement de l'autrice**, posé dès la première phrase comme un constat.",
+        "external_sources": [
+          {
+            "name": "Carla Mascia, tribune dans El País",
+            "supports": "neutral",
+            "evidence_type": "media"
+          }
+        ],
+        "confidence": null
+      },
+      {
+        "id": "cs4",
+        "quote": "como ha denunciado la Liga de los Derechos Humanos (LDH) y atestiguan las 36 investigaciones iniciadas por la Inspección General de la Policía Nacional (IGPN)",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Proportion",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "Les **36 enquêtes** sont un chiffre vérifiable ; elles disent qu'il y a des signalements, **pas encore leur issue**.",
+        "external_sources": [
+          {
+            "name": "Inspection générale de la Police nationale (IGPN)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Ligue des droits de l'Homme (LDH)",
+            "supports": "validates",
+            "evidence_type": "testimony"
+          }
+        ],
+        "confidence": 75
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "id": "br1",
+        "quote": "Agotados de tener que estudiar en aulas masificadas cuyas paredes se desmoronan por la humedad y bajo techos que amenazan con derrumbarse.",
+        "item_type": "bias",
+        "label": "accumulation de griefs",
+        "effect": "Remarquez comment l'enchaînement « cansados », « agotados », « hartos » donne aux griefs **une force cumulée** que chacun, pris seul, n'aurait pas.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "br2",
+        "quote": "reducir una aspiración democrática tan legítima a una caricatura barata",
+        "item_type": "bias",
+        "label": "qualificatifs chargés",
+        "effect": "Remarquez comment « tan legítima » et « barata » **tranchent le débat** dans la phrase même qui le décrit.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Les adversaires du Rassemblement national à l'approche de la présidentielle",
+          "strength": 0.7,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "br3",
+        "quote": "mientras él a los 18 años vertía comentarios antisemitas en sus redes sociales",
+        "item_type": "fallacy",
+        "label": "répondre par le passé de l'auteur plutôt que par son argument",
+        "effect": "Remarquez que la fin oppose **deux parcours à 18 ans** ; la remarque sur le « wesh » n'est pas examinée **sur le fond**.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Les adversaires du Rassemblement national à l'approche de la présidentielle",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "su movilización demuestra que “se sienten ciudadanos y que actúan como tales”",
+      "proves": {
+        "type": "observation",
+        "label": "Cadrage",
+        "strength": 0.9,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase, empruntée à une politologue, fait de la protestation **un acte citoyen** plutôt qu'un désordre. Elle sous-entend que ces jeunes **n'étaient pas reconnus** comme citoyens avant de se mobiliser. Reste à savoir ce qui, dans un blocage ou une manifestation, fait qu'on l'entend comme **citoyen** — et qui en décide."
+    }
+  }
+}

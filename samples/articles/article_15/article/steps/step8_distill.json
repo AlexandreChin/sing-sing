@@ -1,0 +1,67 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "Le titre annonce **une génération**, mais le récit repose sur Creil, Henri-IV et Soumaya Sarré, sans aucune donnée sur **l'ampleur du mouvement**. Ces cas tiennent lieu de mesure, et l'éveil citoyen est affirmé par le cadrage plus que montré par des revendications précises.",
+        "references": [
+          "ia_1",
+          "obs_3",
+          "pr_2",
+          "bs_1",
+          "pr_1",
+          "lr_1",
+          "bs_2",
+          "focus"
+        ]
+      },
+      {
+        "text": "Les **36 enquêtes de l'IGPN** prouvent que des signalements existent, pas que des violences ont eu lieu. Sans réponse de la police, elles suffisent pourtant à classer la réponse policière parmi **les formes de maltraitance** qui légitiment le mouvement.",
+        "references": [
+          "obs_4",
+          "claim_3",
+          "cb_0"
+        ]
+      },
+      {
+        "text": "La caricature reprochée à Bardella repose sur **une phrase sans date ni contexte**, dont la cible reste supposée. L'article répond par **son passé à 18 ans** sans recueillir sa réponse : un désaccord sur un mot devient un enjeu présidentiel.",
+        "references": [
+          "ia_2",
+          "bs_3",
+          "lr_2",
+          "lr_3",
+          "bias_2",
+          "cb_1",
+          "claim_2",
+          "er_0",
+          "obs_0"
+        ]
+      },
+      {
+        "text": "Les jeunes ont des visages et des mots ; le gouvernement, la police et Bardella **restent sans réponse**. Des qualificatifs comme « tan legítima » et « barata » **tranchent le débat** dans la phrase même qui le décrit.",
+        "references": [
+          "bs_0",
+          "bs_3",
+          "bias_1",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "L'accumulation « cansados », « agotados », « hartos » donne aux griefs **une force cumulée** qui porte deux chiffres fragiles. Les 120 000 bacheliers ne sont pas sourcés et datent **de la fin de la phase principale**, et l'année perdue vient des syndicats.",
+        "references": [
+          "bias_0",
+          "er_1",
+          "claim_0",
+          "claim_1",
+          "obs_1",
+          "obs_2",
+          "ia_0"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Combien de jeunes ont réellement participé à ce mouvement, et sur quelle part du pays ?",
+      "Combien de bacheliers restent sans affectation à la fin de la procédure complémentaire ?",
+      "Que contiennent les 36 enquêtes de l'IGPN, et combien ont abouti à des faits établis ?"
+    ]
+  }
+}

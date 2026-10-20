@@ -1,0 +1,113 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "Un écart chiffré **sans source** (5 000 gardes à vue contre 1 500 dossiers) sert d'appui à la conclusion d'arbitraire. La sonde le classe comme fait établi, l'audit déontologique le signale, et le délit de groupement, qui pourrait expliquer une partie de l'écart, **n'est jamais évoqué**.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "pr_2",
+          "lr_1",
+          "obs_2",
+          "claim_0",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "L'intention de « sauver la face », supposée sans être dite, devient une **opinion présentée comme un fait**, puis le ressort du « à qui profite ». La parole gouvernementale n'étant recueillie que par déclarations publiques, rien dans le texte ne permet de distinguer **stratégie de communication** et lecture sincère.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "ia_0",
+          "lr_0",
+          "bs_3",
+          "cb_0",
+          "claim_2"
+        ]
+      },
+      {
+        "text": "Les blessures de mineurs, placées en ouverture, fixent le jugement d'indignation ; l'agression d'un enseignant est rangée parmi les cas « exceptional » **en un adjectif**. Comme le bilan des violences côté manifestants est absent, l'hypothèse de violences marginales n'est jamais mise à l'épreuve et **la proportionnalité reste impossible à juger**.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "er_0",
+          "bias_0",
+          "bias_1",
+          "ia_1",
+          "bs_1",
+          "lr_3"
+        ]
+      },
+      {
+        "text": "Le texte reproche au cadrage « casseurs » d'**effacer les revendications** scolaires, mais il ne leur accorde lui-même que deux mentions. Le focus éditorial pose la question de ce qu'il reste des demandes lycéennes, que **l'article laisse aussi sans réponse**.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "obs_0",
+          "bs_0",
+          "ia_2",
+          "cb_0",
+          "focus"
+        ]
+      },
+      {
+        "text": "La mise en cause d'une partie des médias revient de la prémisse jusqu'à l'affirmation sondée (confiance 45) sans qu'**un seul titre** soit nommé. Ce silence est relevé à la fois comme angle mort, comme manquement au **droit de réponse** et dans la note de rigueur des sources.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "pr_0",
+          "bs_2",
+          "claim_3"
+        ]
+      },
+      {
+        "text": "L'inquiétude face à un « **arsenal qui s'élargit** » tient en partie à l'omission des précédents : responsabilité collective dès 1970, abrogée en 1981, et cadre légal du délit de groupement. Sans ces repères, la nouveauté de la loi « casseurs-payeurs » paraît plus grande, et l'article sert les opposants **avant l'examen** du texte.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "er_1",
+          "obs_1",
+          "obs_4",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "Le lien entre origine sociale des lycéens et traitement en **« émeute urbaine »** repose sur un seul témoignage et un sociologue. C'est pourtant ce passage que la sonde retient comme **focus éditorial**, celui qui porte le plus du cadrage.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "pr_3",
+          "lr_2",
+          "focus",
+          "obs_0"
+        ]
+      }
+    ]
+  }
+}
