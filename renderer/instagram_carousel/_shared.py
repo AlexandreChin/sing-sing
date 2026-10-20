@@ -228,9 +228,23 @@ def _md_bold(text) -> Markup:
     return Markup(re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', escaped))
 
 
+def _claim_detail(text, detail: str = "") -> Markup:
+    """A line written « claim : detail » shows as a claim, then its detail smaller
+    in grey on its own line — the reader stops at the claim or reads on. `detail`
+    supplies the second line when it lives in its own field (the objection)."""
+    claim, sep, rest = str(text).partition(" : ")
+    if not sep:
+        claim, rest = str(text), detail
+    if not rest.strip():
+        return _md_bold(text)
+    return Markup(f'<span class="cd-claim">{_md_bold(claim)}</span>'
+                  f'<span class="cd-detail">{_md_bold(rest)}</span>')
+
+
 def _env() -> Environment:
     env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)), autoescape=True)
     env.filters["md_bold"] = _md_bold
+    env.filters["claim_detail"] = _claim_detail
     # For fields rendered raw (no bold conversion) but still French prose.
     env.filters["fr"] = _fr_spacing
     env.globals["ICONS"] = ICONS
@@ -352,14 +366,16 @@ _MONTH_SHORT = {"janvier": "janv.", "février": "févr.", "avril": "avr.", "juil
 _MONTH_RE = re.compile(r"\b(" + "|".join(_MONTH_SHORT) + r")\b", re.I)
 
 
+_ORIGINAL = {"L'article": "Article original", "L'épisode": "Épisode original", "La vidéo": "Vidéo originale"}
+
+
 def source_label(noun: str, language: str | None) -> str:
-    """Slide 1's label above the source title: « L'article », or « L'article ·
-    traduit de l'espagnol » when the source is not in French — the title shown
-    and the quotes are our translation, and the reader should know it."""
+    """Slide 1's label above the source title: « L'article », or « Article original
+    en espagnol » when the source is not in French — the title shown and the quotes
+    are our translation, and the reader should know it."""
     if not language:
         return noun
-    lang = language.strip().lower()
-    return f"{noun} · traduit {'de l' + chr(39) if lang[:1] in 'aeéèêiîoôuh' else 'du '}{lang}"
+    return f"{_ORIGINAL.get(noun, noun)} en {language.strip().lower()}"
 
 
 def pill_parts(meta) -> list[str]:

@@ -44,7 +44,7 @@
         {% for clause in pillars %}<div class="pillar"{% if loop.index == (aim or 1) %} data-perch{% endif %}>{% if loop.index == (aim or 1) %}{% include '_perch.html' %}{% endif %}<span class="n">{{ '%02d'|format(loop.index) }}</span>{{ clause | md_bold }}</div>{% endfor %}
       </div>
     </div>{% endif %}
-    {% if obj %}<div class="objection{{ '' if aim else ' free' }}"><div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS[obj.icon] | safe }}</svg><span class="q-label">{{ obj.label }}</span></div>{% for clause in obj.clauses %}{{ clause | md_bold }}{% endfor %}</div>{% endif %}
+    {% if obj %}<div class="objection{{ '' if aim else ' free' }}"><div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS[obj.icon] | safe }}</svg><span class="q-label">{{ obj.label }}</span></div>{% for clause in obj.clauses %}{{ clause | claim_detail(obj.detail or "") }}{% endfor %}</div>{% endif %}
   </div>
   <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Avant de trancher &#8250;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>

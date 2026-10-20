@@ -39,7 +39,7 @@
     <div class="cards">
       {% if root_issue %}<div class="card" data-perch>{% include '_perch.html' %}
         <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.anchor | safe }}</svg></span><span class="q-label">L'enjeu de fond</span></div>
-        <p>{{ root_issue | md_bold }}</p>
+        <p>{{ root_issue | claim_detail }}</p>
       </div>{% endif %}
       {% if question %}<div class="card qc">
         <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.speech_bubble | safe }}</svg></span><span class="q-label">La question</span></div>

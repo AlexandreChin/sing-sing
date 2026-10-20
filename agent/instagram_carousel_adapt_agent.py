@@ -488,10 +488,10 @@ def _clue_errors(pres, d) -> list[str]:
 # The light format's caps, measured on article_14's slides at the light type scale
 # (slide 7 sets pillars at 38px and the objection at 44px, so they take full-length lines):
 # characters, not words — eight long words still wrap to three lines at 54px.
-_LIGHT_CAPS = {"hook": 40, "essentiel": 48, "moment": 45, "quote": 12, "answer": 110,
+_LIGHT_CAPS = {"hook": 40, "essentiel": 48, "moment": 45, "quote": 12, "answer": 70,
                "presupposé": 10, "objection": 100, "root_issue": 70, "question": 60,
                "headline": 45, "lens_questions": 120, "source": 48,
-               "claim": 30, "detail": 45}
+               "claim": 30, "detail": 55}
 
 
 def _light_errors(pres, d) -> list[str]:
@@ -522,8 +522,10 @@ def _light_errors(pres, d) -> list[str]:
             errors.append(f"light: display.reading_beats[{i}].moment is over {c['moment']} characters")
         if words(b.quote) > c["quote"]:
             errors.append(f"light: display.reading_beats[{i}].quote is {words(b.quote)} words (max {c['quote']})")
-        if len(_plain(b.answer)) > c["answer"]:
-            errors.append(f"light: display.reading_beats[{i}].answer is over {c['answer']} characters")
+        claim, sep, detail = _plain(b.answer).partition(" : ")
+        if (len(claim) if sep else len(_plain(b.answer))) > c["answer"] or len(detail) > c["detail"]:
+            errors.append(f"light: display.reading_beats[{i}].answer — claim ≤{c['answer']}, "
+                          f"detail ≤{c['detail']} characters")
     if d.global_analysis and chars(d.global_analysis.headline) > c["headline"]:
         errors.append(f"light: display.global_analysis.headline is over {c['headline']} characters")
     if d.global_analysis:
@@ -533,8 +535,9 @@ def _light_errors(pres, d) -> list[str]:
                        for p in body.split(";") if len(p.split()) > c["presupposé"]]
     if d.steel_man and chars(d.steel_man.argument) > c["objection"]:
         errors.append(f"light: display.steel_man.argument is {chars(d.steel_man.argument)} characters (max {c['objection']})")
-    if chars(d.root_issue) > c["root_issue"]:
-        errors.append(f"light: display.root_issue is {chars(d.root_issue)} characters (max {c['root_issue']})")
+    claim, sep, detail = _plain(d.root_issue).partition(" : ")
+    if (len(claim) if sep else chars(d.root_issue)) > c["root_issue"] or len(detail) > c["detail"]:
+        errors.append(f"light: display.root_issue — claim ≤{c['root_issue']}, detail ≤{c['detail']} characters")
     errors += [f"light: cta.where_to_look[{j}] is {chars(w)} characters (max {c['source']}) — one line"
                for j, w in enumerate(pres.cta.where_to_look) if chars(w) > c["source"]]
     if chars(pres.cta.engagement_sentence) > c["question"]:
