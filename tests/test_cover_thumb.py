@@ -54,3 +54,11 @@ def test_card_hook_leaves_room_for_a_three_line_headline():
     m = hook_metrics((962, 602), head)
     need = 3 * round(m["head_size"] * 1.06)
     assert m["slot_max"] + need <= _HOOK_BOX - _HOOK_FIXED - _HOOK_TAIL - _HEAD_GAP
+
+
+def test_source_label_says_what_is_translated():
+    from renderer.instagram_carousel._shared import source_label
+    assert source_label("L'article", None) == "L'article"
+    assert source_label("L'article", "espagnol") == "L'article · traduit de l'espagnol"
+    assert source_label("L'épisode", "Anglais") == "L'épisode · traduit de l'anglais"
+    assert source_label("L'article", "portugais") == "L'article · traduit du portugais"

@@ -86,7 +86,7 @@
   {% if logo %}<img class="logo-img" src="{{ logo }}" alt="">{% endif %}
   {% if rubrique %}<div class="rubrique-tab"><svg viewBox="0 0 24 24">{{ glyph | safe }}</svg>{{ rubrique }}</div>{% endif %}
 
-  {% if background %}<div class="src-block">{% if source_title %}<span class="src-label">{{ L.source_noun }}</span><p class="src-title">{{ source_title | fr }}</p>{% endif %}{{ pill_html }}</div>
+  {% if background %}<div class="src-block">{% if source_title %}<span class="src-label">{{ source_label or L.source_noun }}</span><p class="src-title">{{ source_title | fr }}</p>{% endif %}{{ pill_html }}</div>
   {% else %}{{ pill_html }}{% endif %}
   {% if thumb and not background %}<div class="shot"><img src="{{ thumb }}" alt=""{% if slot_max %} style="max-height: {{ slot_max }}px"{% endif %}><div class="edge"></div></div>{% endif %}
 

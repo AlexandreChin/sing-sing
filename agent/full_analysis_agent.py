@@ -206,6 +206,7 @@ async def analyze_for_full_analysis(
             reading_time_minutes=input.duration_minutes or max(1, len(input.body.split()) // 200),
             chapo=article_chapo,
             extra_instructions=input.extra_instructions,
+            language=input.language,
         ),
         extraction=ArticleExtraction(
             authority_anchors=extraction.authority_anchors,

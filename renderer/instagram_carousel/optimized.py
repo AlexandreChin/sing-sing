@@ -13,7 +13,7 @@ from models.instagram_carousel_presentation import InstagramCarouselDocument
 from ._shared import (
     _env, _LOGO_DATA_URL, _LOGO_TIGHT_DATA_URL, inner_quotes,
     cover_layers, cover_thumb, cover_dims, background_image, pill_parts,
-    hook_metrics, medium_labels,
+    hook_metrics, medium_labels, source_label,
 )
 
 TPL = "article_carousel_optimized_v0"
@@ -78,6 +78,8 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     # as réflexes (the standalone lens slide was folded into 03_reperes).
     specs = [
         ("hook", "01_hook", {"pill": pill, "source_title": meta.title,
+                                "source_label": source_label(medium_labels(meta.medium)["source_noun"],
+                                                             meta.language),
                                 "topic": pres.hook.topic, "sub_topic": pres.hook.sub_topic,
                                 "subtitle": pres.hook.subtitle,
                                 # out_dir is <base>/<format>/html — the images sit in <base>.
