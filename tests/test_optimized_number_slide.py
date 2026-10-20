@@ -73,7 +73,7 @@ def test_recap_labels_render_as_subtitle_with_icons(tmp_path):
     opt.generate_html(doc, tmp_path)
     # numbering adapts to the beat count, so find the slide by its name
     html = next(tmp_path.glob("*_socle.html")).read_text(encoding="utf-8").replace("&#39;", "'")
-    assert "Ce qu'il tient pour acquis" in html                  # label as subtitle
+    assert "L'article suppose…" in html                          # label as subtitle (legacy label mapped)
     assert "que la chaîne tient" in html and "que la base suffit" in html  # one line each
     assert ICONS["anchor"] in html
     assert "À questionner" not in html

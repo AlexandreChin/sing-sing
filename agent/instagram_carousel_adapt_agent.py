@@ -489,7 +489,7 @@ def _clue_errors(pres, d) -> list[str]:
 # (slide 7 sets pillars at 38px and the objection at 44px, so they take full-length lines):
 # characters, not words — eight long words still wrap to three lines at 54px.
 _LIGHT_CAPS = {"hook": 40, "essentiel": 48, "moment": 45, "quote": 12, "answer": 110,
-               "presupposé": 10, "objection": 100, "root_issue": 60, "question": 60,
+               "presupposé": 10, "objection": 100, "root_issue": 70, "question": 60,
                "headline": 45, "lens_questions": 120, "source": 48,
                "claim": 30, "detail": 45}
 
