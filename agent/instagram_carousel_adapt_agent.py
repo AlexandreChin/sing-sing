@@ -489,7 +489,7 @@ def _clue_errors(pres, d) -> list[str]:
 # characters, not words — eight long words still wrap to three lines at 54px.
 _LIGHT_CAPS = {"hook": 40, "essentiel": 48, "moment": 45, "quote": 12, "answer": 110,
                "presupposé": 6, "objection": 70, "root_issue": 60, "question": 60,
-               "headline": 45, "lens_questions": 120}
+               "headline": 45, "lens_questions": 120, "source": 48}
 
 
 def _light_errors(pres, d) -> list[str]:
@@ -525,6 +525,8 @@ def _light_errors(pres, d) -> list[str]:
         errors.append(f"light: display.steel_man.argument is {chars(d.steel_man.argument)} characters (max {c['objection']})")
     if chars(d.root_issue) > c["root_issue"]:
         errors.append(f"light: display.root_issue is {chars(d.root_issue)} characters (max {c['root_issue']})")
+    errors += [f"light: cta.where_to_look[{j}] is {chars(w)} characters (max {c['source']}) — one line"
+               for j, w in enumerate(pres.cta.where_to_look) if chars(w) > c["source"]]
     if chars(pres.cta.engagement_sentence) > c["question"]:
         errors.append(f"light: cta.engagement_sentence is {chars(pres.cta.engagement_sentence)} characters (max {c['question']})")
     return errors
