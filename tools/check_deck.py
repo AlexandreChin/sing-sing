@@ -52,6 +52,7 @@ _norm = norm_for_match
 def _numbers(text: str) -> set[str]:
     """Figures in a string, with digit-group spaces closed up (4 400 → 4400)."""
     closed = re.sub(r"(?<=\d)[    ](?=\d)", "", _norm(text))
+    closed = re.sub(r"(?<=\d),(?=\d{3}(?!\d))", "", closed)   # English thousands: 400,000 → 400000
     return {m.group(0).replace(",", ".") for m in _DIGITS.finditer(closed)}
 
 
