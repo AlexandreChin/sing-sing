@@ -280,7 +280,7 @@ def _standalone_errors(pres, d) -> list[str]:
     return errors
 
 
-def _coherence_errors(pres, d) -> list[str]:
+def _coherence_errors(pres, d, light: bool = False) -> list[str]:
     """The rules a hand-edited deck taught us: each one is a reader who could not
     follow, or a slide that judged where it should have equipped."""
     errors: list[str] = []
@@ -369,8 +369,9 @@ def _coherence_errors(pres, d) -> list[str]:
                 "**promet** … » / « … tient sa **promesse** ? »)"
             )
         looks = [w for w in getattr(pres.cta, "where_to_look", []) if w.strip()]
-        if looks and not 2 <= len(looks) <= 3:
-            errors.append(f"cta.where_to_look has {len(looks)} item(s) — 2–3 sources, or none")
+        lo, hi = (1, 2) if light else (2, 3)
+        if looks and not lo <= len(looks) <= hi:
+            errors.append(f"cta.where_to_look has {len(looks)} item(s) — {lo}–{hi} sources, or none")
         for j, w in enumerate(looks):
             if len(w) > _LOOK_MAX_CHARS:
                 errors.append(f"cta.where_to_look[{j}] is {len(w)} characters (max {_LOOK_MAX_CHARS}) — one line on slide 8")
@@ -446,7 +447,80 @@ def _axis_errors(pres, d) -> list[str]:
     return errors
 
 
-def _lens_layer_errors(d) -> list[str]:
+# What makes a clue findable: a named place to look. A proper noun past the first
+# word (« l'Assemblée », « The Nation », « Acrimed »), or a kind of document.
+_CLUE_WORDS = re.compile(
+    r"rapport|bilan|compte rendu|chiffres|données|statistique|ministère|préfecture|syndica|"
+    r"tribunal|décision|loi|décret|code|enquête|étude|archives|plateforme|registre|budget|"
+    r"observatoire|défenseur|conseil|insee|dares|depp|cour des comptes", re.I)
+
+
+def _names_a_source(text: str) -> bool:
+    plain = _plain(text)
+    if _CLUE_WORDS.search(plain):
+        return True
+    words = re.findall(r"[A-ZÀ-Ý][\w'’-]+", plain)
+    first = re.match(r"\W*([\w'’-]+)", plain)
+    return any(w != (first.group(1) if first else "") for w in words)
+
+
+def _clue_errors(pres, d) -> list[str]:
+    """A moment's answer and slide 8's sources tell the reader where to check. « Comparez
+    les arrestations d'un lycée à l'autre » says what to do but not where: each answer
+    names a place to look — an institution, a document, a figure, a person quoted.
+    Only enforced on decks carrying `axis_link`, so older decks keep validating."""
+    if not any(b.axis_link.strip() for b in d.reading_beats):
+        return []
+    errors = [
+        f"display.reading_beats[{i}].answer names no place to look — « {_plain(b.answer)[:60]} »: "
+        f"say where the reader checks (an institution, a document, a figure, a person quoted), "
+        f"not only what to do"
+        for i, b in enumerate(d.reading_beats)
+        if b.selected and b.answer.strip() and not _names_a_source(b.answer)
+    ]
+    errors += [
+        f"cta.where_to_look[{j}] is not a findable source — « {w} »: name it (who publishes it, which document)"
+        for j, w in enumerate(pres.cta.where_to_look) if w.strip() and not _names_a_source(w)
+    ]
+    return errors
+
+
+# The light format's caps, tuned on article_14: each slide reads in a few seconds.
+_LIGHT_CAPS = {"hook": 40, "essentiel": 8, "moment": 45, "quote": 12, "answer": 110,
+               "presupposé": 6, "objection": 14, "root_issue": 12, "question": 12}
+
+
+def _light_errors(pres, d) -> list[str]:
+    c, errors = _LIGHT_CAPS, []
+    def words(t): return len(_plain(t).split())
+    if len(_plain(pres.hook.sub_topic)) > c["hook"]:
+        errors.append(f"light: hook.sub_topic is over {c['hook']} characters")
+    errors += [f"light: display.essentiel[{i}] is {words(e)} words (max {c['essentiel']})"
+               for i, e in enumerate(d.essentiel) if words(e) > c["essentiel"]]
+    for i, b in enumerate(d.reading_beats):
+        if not b.selected:
+            continue
+        if len(_plain(b.moment)) > c["moment"]:
+            errors.append(f"light: display.reading_beats[{i}].moment is over {c['moment']} characters")
+        if words(b.quote) > c["quote"]:
+            errors.append(f"light: display.reading_beats[{i}].quote is {words(b.quote)} words (max {c['quote']})")
+        if len(_plain(b.answer)) > c["answer"]:
+            errors.append(f"light: display.reading_beats[{i}].answer is over {c['answer']} characters")
+    if d.global_analysis:
+        for rec in d.global_analysis.core_recap:
+            body = _plain(rec).split(":", 1)[-1]
+            errors += [f"light: présupposé « {p.strip()} » is {len(p.split())} words (max {c['presupposé']})"
+                       for p in body.split(";") if len(p.split()) > c["presupposé"]]
+    if d.steel_man and words(d.steel_man.argument) > c["objection"]:
+        errors.append(f"light: display.steel_man.argument is {words(d.steel_man.argument)} words (max {c['objection']})")
+    if words(d.root_issue) > c["root_issue"]:
+        errors.append(f"light: display.root_issue is {words(d.root_issue)} words (max {c['root_issue']})")
+    if words(pres.cta.engagement_sentence) > c["question"]:
+        errors.append(f"light: cta.engagement_sentence is {words(pres.cta.engagement_sentence)} words (max {c['question']})")
+    return errors
+
+
+def _lens_layer_errors(d, light: bool = False) -> list[str]:
     """Validate the 4-act lens layer (Task: lens-arc). Additive — leaves the
     legacy checks in _validate untouched so the short format keeps working."""
     errors: list[str] = []
@@ -515,11 +589,12 @@ def _lens_layer_errors(d) -> list[str]:
             errors.append(f"display.reading_beats[{i}].lens_question is empty (required for selected beats)")
         # Printed twice — slide 4's list and the beat header — so it has to stay
         # one line in both. The cap was documented and never enforced.
-        # slide 3 sets each question on one line (28px, beside the lens icon)
-        if b.selected and len(b.lens_question.strip()) > 54:
+        # slide 3 sets each question on one line (28px, beside the lens icon);
+        # the light deck lets it wrap to two, so it gets more room
+        if b.selected and len(b.lens_question.strip()) > (70 if light else 54):
             errors.append(
                 f"display.reading_beats[{i}].lens_question is {len(b.lens_question.strip())} characters "
-                f"(max 54) — slide 3 holds it on one line"
+                f"(max {70 if light else 54}) — slide 3 holds it on {'two lines' if light else 'one line'}"
             )
         if b.selected and len(b.lens_question.split()) > 12:
             errors.append(
@@ -686,7 +761,9 @@ def _lens_layer_errors(d) -> list[str]:
     return errors
 
 
-def _validate(data: dict, article_text: str | None = None) -> list[str]:
+def _validate(data: dict, article_text: str | None = None, light: bool = False) -> list[str]:
+    """Every rule the deck must meet. `light` checks the light format: the same
+    deck, condensed — tighter caps, one context line, no lede on slide 2."""
     pres = InstagramCarouselPresentation.model_validate(data)
     errors = []
     # The caption is the post's own copy, not a slide: no hashtags, ever.
@@ -734,7 +811,8 @@ def _validate(data: dict, article_text: str | None = None) -> list[str]:
     # §1 and the `essentiel` claims now share slide 2, so they must cohere rather
     # than stay apart: the old non-overlap rule enforced the opposite. What is
     # forbidden now is a claim that merely repeats a figure from the lede.
-    lede_stems = _stems(paras[0] if paras else "")
+    # The light deck shows no lede: §1 stays in the data (the newsletter uses it).
+    lede_stems = set() if light else _stems(paras[0] if paras else "")
     for i, point in enumerate(d.essentiel):
         stems = _stems(point)
         if stems and len(stems & lede_stems) / len(stems) >= 0.6:
@@ -746,8 +824,9 @@ def _validate(data: dict, article_text: str | None = None) -> list[str]:
     # so the reader can weigh the source on each side — read two swipes after
     # slide 2's lede, so none says the news again.
     facts = d.reperes_facts
-    if not 2 <= len(facts) <= 3:
-        errors.append(f"display.reperes_facts must have 2–3 items, got {len(facts)}")
+    lo, hi = (1, 1) if light else (2, 3)
+    if not lo <= len(facts) <= hi:
+        errors.append(f"display.reperes_facts must have {lo}–{hi} items, got {len(facts)}")
     for i, f in enumerate(facts):
         text = _plain(f.text)
         if not f.label.strip() or len(f.label.split()) > 2:
@@ -785,13 +864,16 @@ def _validate(data: dict, article_text: str | None = None) -> list[str]:
         if not item.text.strip():
             errors.append(f"display.strengths[{i}].text is empty")
     errors += _gilded_errors(pres, d)
-    errors += _coherence_errors(pres, d)
+    errors += _coherence_errors(pres, d, light)
     errors += _tired_opening_errors("hook.sub_topic", pres.hook.sub_topic)
     errors += _tired_opening_errors("cta.engagement_sentence", pres.cta.engagement_sentence)
     errors += _tired_question_errors("cta.engagement_sentence", pres.cta.engagement_sentence)
     errors += _tired_opening_errors("display.selection_headline", d.selection_headline)
-    errors.extend(_lens_layer_errors(d))
+    errors.extend(_lens_layer_errors(d, light))
     errors += _axis_errors(pres, d)
+    errors += _clue_errors(pres, d)
+    if light:
+        errors += _light_errors(pres, d)
     if article_text:
         errors.extend(_quote_errors(d, article_text))
     return errors
