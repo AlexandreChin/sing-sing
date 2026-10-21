@@ -784,6 +784,15 @@ def _lens_layer_errors(d, light: bool = False) -> list[str]:
             errors.append("display.steel_man.argument is empty")
         if not sm.alternative.strip():
             errors.append("display.steel_man.alternative is empty")
+        # slide 7 prints `alternative` in grey under the argument — the « so » that
+        # makes it an objection; an argument written « claim : detail » takes that
+        # line for its own detail, and the conclusion silently disappears
+        elif " : " in _plain(sm.argument):
+            errors.append(
+                "display.steel_man.argument is written « claim : detail » — slide 7 would show the detail "
+                "in place of steel_man.alternative, and the objection would lose its conclusion; join "
+                "the two halves with « ; » or a comma"
+            )
         # slide 7 points the objection at a pillar: it must be one the slide shows
         if not 0 <= sm.targets <= n_selected:
             errors.append(
