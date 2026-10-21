@@ -112,3 +112,11 @@ def test_source_title_under_the_pill_on_the_full_bleed_slide_only():
 def test_hook_keeps_the_bird_at_home():
     body = _render(logo="data:image/png;base64,L", subtitle="Comprendre ceci.").split("<body>")[-1]
     assert "data-perch" not in body and 'class="logo-img"' in body
+
+
+def test_long_source_title_shrinks_instead_of_being_cut():
+    short = _render(background="data:image/png;base64,B", source_title="Blocus des lycées")
+    long = _render(background="data:image/png;base64,B",
+                   source_title="La GenZ dans la rue : naissance d'une génération en feu")
+    assert 'class="src-title" style="font-size: 62px"' in short
+    assert 'class="src-title" style="font-size: 50px"' in long
