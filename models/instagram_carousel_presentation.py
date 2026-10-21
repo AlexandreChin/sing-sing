@@ -16,7 +16,7 @@ class Hook(BaseModel):
     # Empty on decks adapted before it existed; slide 1 then shows the title alone.
     subtitle: str = ""
     headline: str
-    context_line: str
+    context_line: str = ""  # (legacy) no longer produced
     sub_topic_alt: list[str] = Field(default_factory=list)  # menu of alt hook questions (render-ignored; paste to swap)
 
 
@@ -50,7 +50,7 @@ class CTA(BaseModel):
     # Where to look for answers to the closing question: 2–3 short source names,
     # listed in small type under it on slide 8 (the links go in the caption).
     where_to_look: list[str] = Field(default_factory=list)
-    post_reading_questions: list[PostReadingQuestion]
+    post_reading_questions: list[PostReadingQuestion] = Field(default_factory=list)  # (legacy) no longer produced
 
 
 class WatchOutItem(BaseModel):
@@ -102,7 +102,7 @@ class ReadingBeat(BaseModel):
     # article, and must not give away this beat's `answer`. Empty → the canonical
     # lens question is used, which is identical for every article using that lens.
     lens_question: str = ""   # ≤12 words
-    note: str      # ≤20 words — the CHALLENGE: what to look for (imperative/question), no verdict
+    note: str = ""  # ≤20 words — the CHALLENGE: what to look for (imperative/question), no verdict
     answer: str = ""  # ≤35 words — the REVEAL: what one finds / why it matters, no verdict
     # number-forward slide (optional): filled only for a chiffres beat built around
     # one striking figure; empty → the beat renders on the standard moment template
@@ -166,20 +166,22 @@ class ThesisFrame(BaseModel):
 class CarouselDisplay(BaseModel):
     """Condensed, carousel-ready display strings for the long format slides."""
     thesis_frame: ThesisFrame | None = None  # editorial guard-rail, not rendered
-    payoff: str              # ≤15 words — what the reader gets from this article
-    framing: str             # ≤15 words — the article's angle in plain language
+    # Fields marked (legacy) are no longer produced — nothing renders them — and
+    # default to empty so older decks keep loading.
+    payoff: str = ""         # (legacy) ≤15 words — what the reader gets from this article
+    framing: str = ""        # (legacy) ≤15 words — the article's angle in plain language
     why_selected: str        # ≤20 words — the editorial reason this article earned a decrypt
     selection_headline: str  # ≤12 words — punchy one-line "why we chose it" (slide 2 headline)
     selection_headline_alt: list[str] = Field(default_factory=list)  # menu of alt subtitles (render-ignored)
-    ethics: str              # ≤12 words — explicit clean/not-clean statement
-    pre_reading: list[str]   # exactly 2 items, ≤12 words each
-    watch_out: list[WatchOutItem]  # exactly 2 items, ≤15 words each, no article quotes
-    strengths: list[StrengthItem]  # exactly 2 items — the article's 2 strongest dimensions
-    distill_points: list[str]  # exactly 3 items, ≤20 words each
-    after_reading: list[str]   # exactly 3 items, ≤12 words each
+    ethics: str = ""         # (legacy) ≤12 words — explicit clean/not-clean statement
+    pre_reading: list[str] = Field(default_factory=list)     # (legacy)
+    watch_out: list[WatchOutItem] = Field(default_factory=list)  # (legacy)
+    strengths: list[StrengthItem] = Field(default_factory=list)  # (legacy)
+    distill_points: list[str] = Field(default_factory=list)  # (legacy)
+    after_reading: list[str] = Field(default_factory=list)   # (legacy)
     key_takeaways: list[KeyTakeaway] = Field(default_factory=list)  # candidate POOL; the `selected` ones (2–3) render on slide 8. Plain strings are coerced to selected takeaways (back-compat).
-    blind_spots: list[str]   # exactly 2 items, ≤15 words each — what the article leaves out
-    balance: list[str]       # exactly 2 items, ≤15 words each — calibrating note on the analysis limits
+    blind_spots: list[str] = Field(default_factory=list)  # (legacy)
+    balance: list[str] = Field(default_factory=list)      # (legacy)
     # 4-act "lens to read with" fields — all defaulted so old extracts still load.
     lenses: list[Lens] = Field(default_factory=list)            # Act 2 — 2–3 selected
     reading_beats: list[ReadingBeat] = Field(default_factory=list)  # Act 3 — 2–3, reading order
@@ -214,14 +216,15 @@ class InstagramCarouselPresentation(BaseModel):
     # alongside the deck. Hand-written during editing; not rendered on any slide.
     caption: str = ""
     hook: Hook
-    interest: Interest
+    # (legacy) fields below, down to engagement_question: no longer produced.
+    interest: Interest | None = None
     title_bullets: list[str] = Field(default_factory=list)
     chapo_bullets: list[str] = Field(default_factory=list)
-    context_next_slide_hook: str
-    watch_out_next_slide_hook: str
-    forme_next_slide_hook: str
-    biases_next_slide_hook: str
-    engagement_question: str
+    context_next_slide_hook: str = ""
+    watch_out_next_slide_hook: str = ""
+    forme_next_slide_hook: str = ""
+    biases_next_slide_hook: str = ""
+    engagement_question: str = ""
     go_further: list[CarouselGoFurtherItem]
     cta: CTA
     display: CarouselDisplay

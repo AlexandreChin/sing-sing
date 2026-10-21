@@ -1,19 +1,26 @@
 """Generate the Instagram carousel presentation layer from a completed ArticleFullAnalysis."""
+import hashlib
 import json
 import re
 import unicodedata
 import sys
 from pathlib import Path
+from typing import Literal
+
+from pydantic import BaseModel, Field
 
 from agent._base import _OUT_OF_SCOPE_CLICHES, _call_with_retry, _fold, _j, medium_directive
 from agent.lenses import CANONICAL_LENSES
 from models.full_analysis import ArticleFullAnalysis
 from models.instagram_carousel_presentation import (
+    CarouselGoFurtherItem,
     InstagramCarouselPresentation,
-    PostReadingQuestion,
+    KeyTakeaway,
+    Pictogram,
+    ReperesFact,
+    SteelMan,
+    ThesisFrame,
 )
-
-_PROMPT = (Path(__file__).parent / "prompts" / "instagram_carousel.md").read_text(encoding="utf-8")
 
 _BOLD_RE = re.compile(r"\*\*(.+?)\*\*")
 # Sentence end: . ! ? followed by a space+capital or end of string (skips "3 %.", "1967 :").
@@ -409,6 +416,26 @@ def _gilded_errors(pres, d) -> list[str]:
     ]
 
 
+def _axis_stems(pres, d) -> set[str]:
+    return _stems(_plain(d.root_issue)) | _stems(_plain(pres.cta.engagement_sentence))
+
+
+def _off_axis_errors(pres, d, fields: list[tuple[str, str]]) -> list[str]:
+    """The slide-2 bullets and the slide-7 thesis, plus whatever `fields` adds, each
+    share a key word with slide 8. Not gated on `axis_link`: the axis stage checks
+    them before any beat exists."""
+    fields = fields + [(f"display.essentiel[{i}]", e) for i, e in enumerate(d.essentiel)]
+    if d.global_analysis:
+        fields.append(("display.global_analysis.headline", d.global_analysis.headline))
+    axis = _axis_stems(pres, d)
+    return [
+        f"{label} shares no key word with slide 8 (root_issue / cta.engagement_sentence) — "
+        f"« {_plain(text)[:60]} » reads as a side subject; tie it to the enjeu or the question"
+        for label, text in fields
+        if text.strip() and not _stems(_plain(text)) & axis
+    ]
+
+
 def _axis_errors(pres, d) -> list[str]:
     """Slide 8 — the enjeu de fond and « La question » — is where the deck leads.
     Every selected moment says what it gives toward it (`axis_link`), and the hook,
@@ -423,17 +450,8 @@ def _axis_errors(pres, d) -> list[str]:
         f"this moment gives toward slide 8, or deselect it"
         for i, b in enumerate(beats) if b.selected and not b.axis_link.strip()
     ]
-    axis = _stems(_plain(d.root_issue)) | _stems(_plain(pres.cta.engagement_sentence))
-    fields = [("hook.sub_topic", pres.hook.sub_topic)]
-    fields += [(f"display.essentiel[{i}]", e) for i, e in enumerate(d.essentiel)]
-    if d.global_analysis:
-        fields.append(("display.global_analysis.headline", d.global_analysis.headline))
-    for label, text in fields:
-        if text.strip() and not _stems(_plain(text)) & axis:
-            errors.append(
-                f"{label} shares no key word with slide 8 (root_issue / cta.engagement_sentence) — "
-                f"« {_plain(text)[:60]} » reads as a side subject; tie it to the enjeu or the question"
-            )
+    errors += _off_axis_errors(pres, d, [("hook.sub_topic", pres.hook.sub_topic)])
+    axis = _axis_stems(pres, d)
     # The moment slide shows its réflexe question and its answer: that is what the
     # reader carries away, so the link to slide 8 must be visible there, not only
     # in the unrendered axis_link.
@@ -716,8 +734,6 @@ def _lens_layer_errors(d, light: bool = False) -> list[str]:
                     )
     if not d.root_issue.strip():
         errors.append("display.root_issue is empty")
-    if not d.essentiel_summary.strip():
-        errors.append("display.essentiel_summary is empty")
     if len(d.essentiel) != 3 or any(not p.strip() for p in d.essentiel):
         errors.append(f"display.essentiel must have exactly 3 non-empty points, got {len(d.essentiel)}")
     # Slide 2 renders these as 01/02/03 with the bold span gilded, so a bullet
@@ -797,23 +813,11 @@ def _validate(data: dict, article_text: str | None = None, light: bool = False) 
     if "#" in pres.caption:
         tags = " ".join(re.findall(r"#\S+", pres.caption)) or "#"
         errors.append(f"caption contains hashtag(s) ({tags}) — the caption carries none, ever")
-    if not pres.cta.title.strip():
-        errors.append("cta.title is empty")
-    n_cta = len(pres.cta.post_reading_questions)
-    if not (1 <= n_cta <= 4):
-        errors.append(f"cta.post_reading_questions: expected 1–4, got {n_cta}")
-    if not any(q.type == "blind_spot" for q in pres.cta.post_reading_questions):
-        errors.append("cta.post_reading_questions: at least one must be type 'blind_spot'")
     n_go = len(pres.go_further)
     if n_go != 3:
         errors.append(f"go_further: expected exactly 3 items, got {n_go}")
-    for i, item in enumerate(pres.go_further):
-        if item.cta_question_index is not None and not (0 <= item.cta_question_index < n_cta):
-            errors.append(
-                f"go_further[{i}].cta_question_index={item.cta_question_index} out of range (0–{n_cta - 1})"
-            )
     d = pres.display
-    for field in ("payoff", "framing", "why_selected", "selection_headline", "ethics"):
+    for field in ("why_selected", "selection_headline"):
         if not getattr(d, field).strip():
             errors.append(f"display.{field} is empty")
     # Slides 2 and 3 are one swipe apart: slide 2 summarises the article, slide 3
@@ -866,30 +870,6 @@ def _validate(data: dict, article_text: str | None = None, light: bool = False) 
                 f"display.reperes_facts[{i}] restates slide 2's lede (« {text[:50]}… ») — choose what "
                 f"came before, a reference point or who speaks, not the news again"
             )
-    if not (1 <= len(d.blind_spots) <= 2):
-        errors.append(f"display.blind_spots must have 1–2 items, got {len(d.blind_spots)}")
-    if not (1 <= len(d.balance) <= 2):
-        errors.append(f"display.balance must have 1–2 items, got {len(d.balance)}")
-    if len(d.pre_reading) != 2:
-        errors.append(f"display.pre_reading must have exactly 2 items, got {len(d.pre_reading)}")
-    if len(d.distill_points) != 3:
-        errors.append(f"display.distill_points must have exactly 3 items, got {len(d.distill_points)}")
-    if len(d.after_reading) != 3:
-        errors.append(f"display.after_reading must have exactly 3 items, got {len(d.after_reading)}")
-    if not (1 <= len(d.watch_out) <= 2):
-        errors.append(f"display.watch_out must have 1–2 items, got {len(d.watch_out)}")
-    for i, item in enumerate(d.watch_out):
-        if not item.label.strip():
-            errors.append(f"display.watch_out[{i}].label is empty")
-        if not item.text.strip():
-            errors.append(f"display.watch_out[{i}].text is empty")
-    if not (1 <= len(d.strengths) <= 2):
-        errors.append(f"display.strengths must have 1–2 items, got {len(d.strengths)}")
-    for i, item in enumerate(d.strengths):
-        if not item.label.strip():
-            errors.append(f"display.strengths[{i}].label is empty")
-        if not item.text.strip():
-            errors.append(f"display.strengths[{i}].text is empty")
     errors += _gilded_errors(pres, d)
     errors += _coherence_errors(pres, d, light)
     errors += _tired_opening_errors("hook.sub_topic", pres.hook.sub_topic)
@@ -906,7 +886,18 @@ def _validate(data: dict, article_text: str | None = None, light: bool = False) 
     return errors
 
 
-def _full_analysis_context(full: ArticleFullAnalysis) -> str:
+# The analysis each stage reads: the thesis and its reasoning (`fond`) for all,
+# the context for the axis and the copy, the quotes and the checked claims for
+# the selection and the copy. Review, ethics, blend, distill and guide reach no
+# slide, so no stage sees them.
+_STAGE_ANALYSIS = {
+    1: {"analysis": {"fond"}, "context": True},
+    2: {"analysis": {"fond"}, "extraction": True, "annotations": {"facts_vs_opinions"}},
+    3: {"analysis": {"fond"}, "context": True, "extraction": True, "annotations": {"facts_vs_opinions"}},
+}
+
+
+def _full_analysis_context(full: ArticleFullAnalysis, stage: int = 3) -> str:
     core = ""
     if full.core_elements and full.core_elements.elements:
         lines = "\n".join(
@@ -929,7 +920,7 @@ def _full_analysis_context(full: ArticleFullAnalysis) -> str:
         f"{angle}"
         f"ARTICLE METADATA :\n{_j(full.article_metadata.model_dump(mode="json"))}\n\n"
         f"{core}"
-        f"ANALYSE COMPLÈTE :\n{full.model_dump_json(indent=2)}"
+        f"ANALYSE :\n{full.model_dump_json(indent=2, include=_STAGE_ANALYSIS[stage])}"
     )
 
 
@@ -944,26 +935,234 @@ def caption_with_sources(caption: str, go_further) -> str:
     return caption.rstrip() + "\n\n📚 Pour chercher par vous-même :\n" + "\n".join(lines)
 
 
+# ── The three stages ────────────────────────────────────────────────────────
+# Slide 8 is where the deck leads, so it is written first and fixed: (1) the
+# axis — the enjeu, « La question », the socle, the thesis; (2) the moments
+# chosen for it, with their présupposés and the objection; (3) the copy. Each
+# stage gets the ones before it as fixed context and repairs only its own fields.
+
+class AxisStep(BaseModel):
+    """Stage 1, in the order it is written: the frame, slide 8, then the socle
+    that leads to it. Flat; `_assemble` places each field in the deck."""
+    thesis_frame: ThesisFrame
+    root_issue: str
+    engagement_sentence: str                                  # → cta.engagement_sentence
+    engagement_sentence_alt: list[str] = Field(default_factory=list)
+    essentiel: list[str]
+    headline: str                                             # → display.global_analysis.headline
+    headline_alt: list[str] = Field(default_factory=list)
+
+
+class BeatCandidate(BaseModel):
+    """A pool candidate as stage 2 chooses it: no réflexe nor answer yet."""
+    moment: str
+    quote: str
+    quote_original: str = ""
+    lens_ref: str
+    factcheck: str = ""
+    selected: bool
+    theme: str = ""
+    centrality: int = 0
+    kind: str = ""
+    role: str = ""
+    spine_ref: Literal[0, 1, 2, 3] = 0
+    axis_link: str = ""
+    rationale: str = ""
+
+
+class SelectionStep(BaseModel):
+    reading_beats: list[BeatCandidate]
+    core_recap: list[str]                                     # → display.global_analysis.core_recap
+    steel_man: SteelMan
+
+
+class BeatCopy(BaseModel):
+    """Stage 3's copy for one selected beat, `index` into the pool."""
+    index: int
+    lens_question: str
+    note: str
+    answer: str
+    figure: str = ""
+    figure_label: str = ""
+    figure_caption: str = ""
+    pictogram: Pictogram | None = None
+
+
+class HookCopy(BaseModel):
+    topic: str
+    sub_topic: str
+    subtitle: str
+    headline: str
+    sub_topic_alt: list[str] = Field(default_factory=list)
+
+
+class WritingStep(BaseModel):
+    """Stage 3, in the order it is written: the moments, slides 3 and 2, the
+    sources, then the hook — which opens what all the rest holds — and the caption."""
+    beats: list[BeatCopy]
+    reperes_facts: list[ReperesFact]
+    why_selected: str
+    selection_headline: str
+    key_takeaways: list[KeyTakeaway]
+    go_further: list[CarouselGoFurtherItem]
+    where_to_look: list[str]                                  # → cta.where_to_look
+    hook: HookCopy
+    caption: str
+
+
+_STAGES = {1: ("axis", AxisStep), 2: ("selection", SelectionStep), 3: ("writing", WritingStep)}
+_PROMPTS = Path(__file__).parent / "prompts"
+_SHARED_PROMPT = (_PROMPTS / "carousel_shared.md").read_text(encoding="utf-8")
+_STAGE_PROMPTS = {n: (_PROMPTS / f"carousel_{n}_{name}.md").read_text(encoding="utf-8")
+                  for n, (name, _) in _STAGES.items()}
+
+
+def _assemble(stages: dict[str, dict]) -> dict:
+    """The deck as far as the stages go; the fields of later stages stay empty."""
+    deck = {"hook": {"topic": "", "sub_topic": "", "headline": ""}, "go_further": [],
+            "cta": {"engagement_sentence": ""},
+            "display": {"why_selected": "", "selection_headline": ""}}
+    d = deck["display"]
+    if "axis" in stages:
+        a = AxisStep.model_validate(stages["axis"])
+        d |= {"thesis_frame": a.thesis_frame.model_dump(), "root_issue": a.root_issue,
+              "essentiel": a.essentiel,
+              "global_analysis": {"headline": a.headline, "headline_alt": a.headline_alt}}
+        deck["cta"] |= {"engagement_sentence": a.engagement_sentence,
+                        "engagement_sentence_alt": a.engagement_sentence_alt}
+    if "selection" in stages:
+        sel = SelectionStep.model_validate(stages["selection"])
+        d["reading_beats"] = [b.model_dump() for b in sel.reading_beats]
+        d.setdefault("global_analysis", {"headline": ""})["core_recap"] = sel.core_recap
+        d["steel_man"] = sel.steel_man.model_dump()
+    if "writing" in stages:
+        w = WritingStep.model_validate(stages["writing"])
+        beats = d.get("reading_beats", [])
+        for c in w.beats:
+            if 0 <= c.index < len(beats):
+                beats[c.index].update(c.model_dump(exclude={"index"}))
+        d |= {"reperes_facts": [f.model_dump() for f in w.reperes_facts],
+              "why_selected": w.why_selected, "selection_headline": w.selection_headline,
+              "key_takeaways": [t.model_dump() for t in w.key_takeaways]}
+        deck["go_further"] = [g.model_dump() for g in w.go_further]
+        deck["cta"]["where_to_look"] = w.where_to_look
+        deck["hook"] = w.hook.model_dump()
+        deck["caption"] = w.caption
+    return deck
+
+
+# Which stage owns an error, by the field it names: a stage repairs only its own
+# fields, the ones before it are fixed. Labels not listed fall to the copy.
+_STAGE_PREFIXES = (
+    ("display.global_analysis.headline", 1), ("display.global_analysis is missing", 1),
+    ("display.thesis_frame", 1), ("display.essentiel", 1), ("display.root_issue", 1),
+    ("cta.engagement_sentence", 1), ("slide prise de recul", 1),
+    ("display.global_analysis", 2), ("display.steel_man", 2), ("slide socle", 2),
+)
+_COPY_BEAT_FIELDS = {"lens_question", "note", "answer", "figure", "figure_label", "figure_caption", "pictogram"}
+_BEAT_LABEL = re.compile(r"display\.reading_beats(?:\[\d+\])?(?:\.(\w+))?")
+
+
+def _stage_of(error: str) -> int:
+    if "restates the lede" in error:  # the bullets are fixed: §1 is what moves
+        return 3
+    if (m := _BEAT_LABEL.match(error)):
+        if m.group(1):
+            return 3 if m.group(1) in _COPY_BEAT_FIELDS else 2
+        return 3 if re.search(r"lens_question|figure|pictogram", error) else 2
+    return next((stage for prefix, stage in _STAGE_PREFIXES if error.startswith(prefix)), 3)
+
+
+def _stage_errors(n: int, stages: dict[str, dict], article_text: str | None) -> list[str]:
+    """The full deck's rules on the deck so far, kept to stage `n`'s fields."""
+    deck = _assemble(stages)
+    errors = _validate(deck, article_text)
+    if n == 1:
+        # the axis check proper waits for `axis_link` (stage 2); the socle and
+        # the thesis are fixed by then, so they are checked here
+        pres = InstagramCarouselPresentation.model_validate(deck)
+        errors += _off_axis_errors(pres, pres.display, [])
+    if n == 3:
+        picked = {i for i, b in enumerate(deck["display"].get("reading_beats", [])) if b["selected"]}
+        errors += [f"beats: index {c['index']} is not a selected beat of reading_beats"
+                   for c in stages["writing"]["beats"] if c["index"] not in picked]
+    return [e for e in dict.fromkeys(errors) if _stage_of(e) == n]
+
+
+def _stage_message(n: int, full: ArticleFullAnalysis, stages: dict[str, dict], article_text: str | None) -> str:
+    parts = [_full_analysis_context(full, n)]
+    if article_text:
+        parts.append(f"ARTICLE :\n{article_text.strip()}")
+    if "axis" in stages:
+        parts.append(f"AXE FIXÉ (étape 1 — ne le réécris pas) :\n{_j(stages['axis'])}")
+    if "selection" in stages:
+        parts.append(f"SÉLECTION FIXÉE (étape 2 — ne la réécris pas) :\n{_j(stages['selection'])}")
+    parts += [_SHARED_PROMPT, _STAGE_PROMPTS[n]]
+    if (directive := medium_directive(full.article_metadata.medium)):
+        parts.append(directive)
+    return "\n\n---\n\n".join(parts)
+
+
+def _digest(*parts: str) -> str:
+    return hashlib.sha256("\x00".join(parts).encode("utf-8")).hexdigest()
+
+
+def _cached_stage(steps_dir: Path | None, name: str, inputs: str, run) -> tuple[dict, bool]:
+    """A stage's output, reused while what it was built from is unchanged
+    (`<name>.sha256` holds that hash). A hand edit to the file is kept, and moves
+    the hash of every stage after it. An outdated file goes to `stale_<hash>/`."""
+    if steps_dir is None:
+        return run(), False
+    path, stamp = steps_dir / f"{name}.json", steps_dir / f"{name}.sha256"
+    if path.exists():
+        previous = stamp.read_text().strip() if stamp.exists() else ""
+        if previous == inputs:
+            return json.loads(path.read_text(encoding="utf-8")), True
+        stale = steps_dir / f"stale_{(previous or 'unstamped')[:8]}"
+        stale.mkdir(parents=True, exist_ok=True)
+        path.replace(stale / path.name)
+        if stamp.exists():
+            stamp.replace(stale / stamp.name)
+    data = run()
+    steps_dir.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    stamp.write_text(inputs)
+    return data, False
+
+
 def adapt(
     full: ArticleFullAnalysis,
     no_api: bool = False,
     article_text: str | None = None,
-) -> InstagramCarouselPresentation:
-    user_msg = f"{_full_analysis_context(full)}\n\n---\n\n{_PROMPT}"
-    if (directive := medium_directive(full.article_metadata.medium)):
-        user_msg += f"\n\n---\n\n{directive}"
-    print("Adaptation carousel…", file=sys.stderr, flush=True)
-    data = _call_with_retry(
-        user_msg,
-        InstagramCarouselPresentation.model_json_schema(),
-        validator=lambda data: _validate(data, article_text),
-        no_api=no_api,
-    )
-    pres = InstagramCarouselPresentation.model_validate(data)
-    # Assign IDs to CTA questions
-    questions = [
-        q.model_copy(update={"id": f"q_{i}"})
-        for i, q in enumerate(pres.cta.post_reading_questions)
-    ]
-    return pres.model_copy(update={"cta": pres.cta.model_copy(update={"post_reading_questions": questions}),
-                                   "caption": caption_with_sources(pres.caption, pres.go_further)})
+    steps_dir: Path | None = None,
+    stop_after: str | None = None,
+) -> InstagramCarouselPresentation | None:
+    """Three calls, each fixing what the next receives: the axis, the moments
+    chosen for it, the copy. With `steps_dir`, each stage is kept there as
+    1_axis.json / 2_selection.json / 3_writing.json and reused while its inputs
+    are unchanged, so editing one reruns only the stages after it.
+    `stop_after` ("axis" or "selection") returns None once that stage is written."""
+    stages: dict[str, dict] = {}
+    inputs = _digest(full.model_dump_json(), article_text or "")
+    for n, (name, model) in _STAGES.items():
+        def run(n=n, name=name, model=model):
+            print(f"Adaptation carousel — étape {n}/3 ({name})…", file=sys.stderr, flush=True)
+            return _call_with_retry(
+                _stage_message(n, full, stages, article_text),
+                model.model_json_schema(),
+                validator=lambda data: _stage_errors(n, stages | {name: data}, article_text),
+                no_api=no_api,
+                label=name,
+            )
+        data, cached = _cached_stage(steps_dir, f"{n}_{name}", inputs, run)
+        stages[name] = data
+        if cached:
+            print(f"Adaptation carousel — étape {n}/3 ({name}) : {steps_dir / f'{n}_{name}.json'} réutilisé",
+                  file=sys.stderr, flush=True)
+            for e in _stage_errors(n, stages, article_text):
+                print(f"  ⚠  {e}", file=sys.stderr)
+        inputs = _digest(inputs, json.dumps(data, sort_keys=True, ensure_ascii=False))
+        if name == stop_after:
+            return None
+    pres = InstagramCarouselPresentation.model_validate(_assemble(stages))
+    return pres.model_copy(update={"caption": caption_with_sources(pres.caption, pres.go_further)})
