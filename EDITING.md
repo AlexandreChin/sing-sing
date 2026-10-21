@@ -129,7 +129,15 @@ All per-slide *headlines* are now data-driven (slides 1, 2, 3, 4–6, 7, 9).
 `python main.py produce` / `adapt` / `extract` for that article, your manual
 edits there are overwritten. For a one-off reshoot, editing `extract.json` is
 perfect. For permanent changes, edit `adapt.json` (then re-extract) or the
-adapt prompt (`agent/prompts/instagram_carousel.md`).
+adapt prompts (`agent/prompts/carousel_*.md`).
+
+To change the deck's direction rather than its words, edit the adapt stages in
+`<format>/adapt_steps/`: `1_axis.json` (enjeu, « La question », the three
+`essentiel` claims, the slide-7 thesis), `2_selection.json` (which moments,
+their quotes, the présupposés, the objection), `3_writing.json` (the copy).
+Re-running `produce`/`adapt` keeps an edited stage and rebuilds only the ones
+after it. `--stop-after axis` (or `selection`) stops there so you can review
+the axis before anything is written around it.
 
 ---
 

@@ -98,7 +98,8 @@ def _full_presentation(full: ArticleFullAnalysis, analysis_path: Path | None, no
     if path and path.exists():
         print(f"Light: condensing {path}", file=sys.stderr, flush=True)
         return json.loads(path.read_text(encoding="utf-8"))
-    pres = adapt_full(full, no_api=no_api, article_text=article_text)
+    pres = adapt_full(full, no_api=no_api, article_text=article_text,
+                      steps_dir=path.parent / "adapt_steps" if path else None)
     if path:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(pres.model_dump_json(indent=2), encoding="utf-8")

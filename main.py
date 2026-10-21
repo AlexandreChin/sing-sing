@@ -98,6 +98,25 @@ async def cmd_simplify(args: argparse.Namespace) -> None:
     print(f"Simplified JSON written to {out_path}", file=sys.stderr)
 
 
+def _adapt_stage_kwargs(adapt_params, kwargs: dict, steps_dir: Path, stop_after: str | None) -> bool:
+    """Pass the stage cache (and the stop point) to an adapt agent that runs in
+    stages. False when --stop-after was asked of one that does not."""
+    if "steps_dir" in adapt_params:
+        kwargs["steps_dir"] = steps_dir
+    if stop_after:
+        if "stop_after" not in adapt_params:
+            print(f"--stop-after is only available for {DEFAULT_FORMAT}.", file=sys.stderr)
+            return False
+        kwargs["stop_after"] = stop_after
+    return True
+
+
+def _report_stop(steps_dir: Path, stage: str) -> None:
+    name = {"axis": "1_axis.json", "selection": "2_selection.json"}[stage]
+    print(f"Stopped after the {stage} stage: review or edit {steps_dir / name}, then rerun "
+          f"without --stop-after — the stages after it are rebuilt from your version.", file=sys.stderr)
+
+
 async def cmd_adapt(args: argparse.Namespace) -> None:
     from models.full_analysis import ArticleFullAnalysis
 
@@ -117,7 +136,13 @@ async def cmd_adapt(args: argparse.Namespace) -> None:
                         if c.exists()), None)
         if article:
             kwargs["article_text"] = article.read_text(encoding="utf-8")
+    steps_dir = json_path.parent / args.format / "adapt_steps"
+    if not _adapt_stage_kwargs(adapt_params, kwargs, steps_dir, args.stop_after):
+        return
     presentation = adapt_fn(full, **kwargs)
+    if presentation is None:
+        _report_stop(steps_dir, args.stop_after)
+        return
     out_path = json_path.with_stem(json_path.stem + f"_{args.format}_adapt")
     out_path.write_text(presentation.model_dump_json(indent=2), encoding="utf-8")
     print(f"Presentation written to {out_path}", file=sys.stderr)
@@ -294,7 +319,13 @@ async def cmd_produce(args: argparse.Namespace) -> None:
         kwargs["analysis_path"] = lay["analysis"]
     if "article_text" in adapt_params:
         kwargs["article_text"] = text      # lets the loop verify quotes verbatim
+    steps_dir = lay["fmt_dir"] / "adapt_steps"
+    if not _adapt_stage_kwargs(adapt_params, kwargs, steps_dir, args.stop_after):
+        return
     presentation = adapt_fn(full, **kwargs)
+    if presentation is None:
+        _report_stop(steps_dir, args.stop_after)
+        return
     lay["adapt"].write_text(presentation.model_dump_json(indent=2), encoding="utf-8")
     print(f"Presentation written to {lay['adapt']}", file=sys.stderr)
 
@@ -403,6 +434,12 @@ def _add_source_args(p: argparse.ArgumentParser) -> None:
                    help="listening/viewing time in minutes (default: estimated from the word count)")
 
 
+def _add_stop_after(p: argparse.ArgumentParser) -> None:
+    p.add_argument("--stop-after", choices=["axis", "selection"],
+                   help="stop the carousel adapt after this stage, to review or edit it "
+                        "(<format>/adapt_steps/); rerun to continue from it")
+
+
 def _add_instruction_args(p: argparse.ArgumentParser) -> None:
     """Editorial angle for the run — reaches the analysis steps and the adapt agent."""
     g = p.add_mutually_exclusive_group()
@@ -431,6 +468,7 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("analysis", help="analysis.json")
     _add_format(p)
     p.add_argument("--no-api", action="store_true")
+    _add_stop_after(p)
     p.set_defaults(func=cmd_adapt)
 
     p = sub.add_parser("extract", help="trim a presentation into a render-ready document")
@@ -445,6 +483,7 @@ def _build_parser() -> argparse.ArgumentParser:
     _add_format(p)
     p.add_argument("--no-api", action="store_true")
     p.add_argument("--render", action="store_true")
+    _add_stop_after(p)
     _add_instruction_args(p)
     p.add_argument("--medium", choices=["article", "video", "podcast"], default="article",
                    help="source medium — drives reader-facing vocabulary (default: article)")

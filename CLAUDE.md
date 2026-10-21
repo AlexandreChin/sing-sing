@@ -14,12 +14,12 @@ uv add <package>
 uv sync
 
 # Full pipeline: analyze → adapt → extract → render
-python main.py produce <article.txt> [--format instagram_carousel_optimized] [--no-api] [--render] [--instructions-file <path>]
+python main.py produce <article.txt> [--format instagram_carousel_optimized] [--no-api] [--render] [--instructions-file <path>] [--stop-after axis|selection]
 python main.py produce <article.txt> --format instagram_carousel_light [--no-api] [--render]   # light version (after or instead of the full one)
 
 # Individual stages
 python main.py analyze <article.txt> [--instructions "..."] [--instructions-file <path>]
-python main.py adapt   <analysis.json>   [--format <fmt>] [--no-api]
+python main.py adapt   <analysis.json>   [--format <fmt>] [--no-api] [--stop-after axis|selection]
 python main.py extract <analysis.json> <presentation.json> [--format <fmt>] [--render]
 python main.py render  <extract.json> [<output_dir>] [--format <fmt>]
 
@@ -45,7 +45,7 @@ main.py                            CLI dispatcher for all subcommands
 agent/
   full_analysis_agent.py           analyze_for_full_analysis — 9-step pipeline (steps/ 1–9), cached per step
   steps/step1_scan.py … step9_guide.py
-  instagram_carousel_adapt_agent.py    adapt(): ArticleFullAnalysis → carousel presentation
+  instagram_carousel_adapt_agent.py    adapt(): ArticleFullAnalysis → carousel presentation, in 3 cached stages
   instagram_carousel_simplify_agent.py simplify_carousel(): shrink an existing carousel
   newsletter_adapt_agent.py            adapt(): ArticleFullAnalysis → newsletter prose
   media_trend_agent.py
@@ -71,6 +71,20 @@ tools/
 
 **Data flow (`produce`):** `analyze_for_full_analysis(text)` → `ArticleFullAnalysis` JSON → `adapt()` → presentation JSON → `extract()` → trimmed render document (`extract.json`) → `render_from_json()` → PNG slides.
 
+**Carousel adapt, three stages** (`agent/instagram_carousel_adapt_agent.py`, prompts
+`agent/prompts/carousel_shared.md` + `carousel_{1_axis,2_selection,3_writing}.md`): slide 8 is
+written first and everything is written toward it. (1) **axis** — `thesis_frame`, `root_issue`,
+« La question », the 3 `essentiel` claims, the slide-7 thesis; (2) **selection** — the beat pool,
+the 3 selected, présupposés, objection; (3) **writing** — moments' réflexe/answer, slides 2–3,
+sources, hook, caption. Each call gets the earlier stages as fixed context, the article text, and
+only its slice of the analysis (`_STAGE_ANALYSIS`: `fond`, context, quotes, claims — never review,
+ethics, blend, distill or guide). `_validate()` stays the whole-deck rulebook; `_stage_of()` routes
+each error to the stage that owns its field, so a stage repairs only its own. Stages are cached in
+`<format>/adapt_steps/` with an input hash: a hand-edited stage is kept and the later ones rerun;
+`--stop-after axis|selection` stops for review. Fields no slide shows (watch_out, strengths,
+distill_points, payoff, interest, the *_next_slide_hook…) are no longer produced; they stay in the
+model as empty defaults so older decks load.
+
 **Instructions (editorial angle):** `--instructions`/`--instructions-file` on `analyze` or `produce`
 reach every analysis step and are kept in `analysis.json` (`article_metadata.extra_instructions`),
 so the adapt agent leads its prompt with them. `steps/` is stamped with their hash
@@ -83,6 +97,7 @@ samples/outputs/<stem>/
   analysis.json            ArticleFullAnalysis
   steps/                   step1…step9 cache
   <format>/                e.g. instagram_carousel_optimized/
+    adapt_steps/           carousel adapt stages: 1_axis / 2_selection / 3_writing .json (+ .sha256)
     adapt.json             InstagramCarouselPresentation
     extract.json           InstagramCarouselDocument
     slides/                NN_*.png
