@@ -77,3 +77,12 @@ def test_light_question_fits_a_verbatim_question():
     data["cta"]["engagement_sentence"] = "Comment redonner une place réelle aux **citoyens** dans le pouvoir ?"
     pres = InstagramCarouselPresentation.model_validate(data)
     assert not any("engagement_sentence is" in e for e in _light_errors(pres, pres.display))
+
+
+def test_objection_with_a_colon_would_hide_its_conclusion():
+    data = _data()
+    sm = data["display"]["steel_man"]
+    sm["argument"] = "700 policiers blessés : interdire peut répondre à un **risque réel**."
+    assert any("steel_man.argument is written « claim : detail »" in e for e in _validate(data))
+    sm["argument"] = "Avec 700 policiers blessés, interdire peut répondre à un **risque réel**."
+    assert not any("steel_man.argument is written" in e for e in _validate(data))
