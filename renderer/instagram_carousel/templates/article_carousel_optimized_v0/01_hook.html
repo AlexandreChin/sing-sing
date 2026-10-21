@@ -50,10 +50,10 @@
   align-items: flex-start; gap: 16px; }
 .src-label { font-size: 22px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00;
   text-shadow: 0 2px 6px rgba(0,0,0,.9); margin-bottom: -8px; }
-/* up to two balanced lines, then cut */
+/* sized by length (see the markup) so the whole title shows; three lines at most */
 .src-title { max-width: 900px; font-size: 62px; font-weight: 400; line-height: 1.1; letter-spacing: -0.01em; color: #fff;
   text-wrap: balance; text-shadow: 0 2px 4px rgba(0,0,0,.9), 0 0 24px rgba(0,0,0,.85);
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 /* a gold rule opens our part of the slide, as it does on the sign-off */
 .hook-divider { margin: 44px 0 0; }
 .slide.bleed .hook-divider { margin-top: auto; }
@@ -89,7 +89,7 @@
   {% if logo %}<img class="logo-img" src="{{ logo }}" alt="">{% endif %}
   {% if rubrique %}<div class="rubrique-tab"><svg viewBox="0 0 24 24">{{ glyph | safe }}</svg>{{ rubrique }}</div>{% endif %}
 
-  {% if background %}<div class="src-block">{% if source_title %}<span class="src-label">{{ source_label or L.source_noun }}</span><p class="src-title">{{ source_title | fr }}</p>{% endif %}{{ pill_html }}</div>
+  {% if background %}<div class="src-block">{% if source_title %}<span class="src-label">{{ source_label or L.source_noun }}</span>{% set st_len = source_title | length %}<p class="src-title" style="font-size: {{ 62 if st_len <= 40 else (50 if st_len <= 80 else 42) }}px">{{ source_title | fr }}</p>{% endif %}{{ pill_html }}</div>
   {% else %}{{ pill_html }}{% endif %}
   {% if thumb and not background %}<div class="shot"><img src="{{ thumb }}" alt=""{% if slot_max %} style="max-height: {{ slot_max }}px"{% endif %}><div class="edge"></div></div>{% endif %}
 

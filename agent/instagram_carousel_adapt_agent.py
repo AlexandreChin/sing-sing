@@ -506,8 +506,10 @@ def _clue_errors(pres, d) -> list[str]:
 # The light format's caps, measured on article_14's slides at the light type scale
 # (slide 7 sets pillars at 38px and the objection at 44px, so they take full-length lines):
 # characters, not words — eight long words still wrap to three lines at 54px.
-_LIGHT_CAPS = {"hook": 40, "essentiel": 48, "moment": 45, "quote": 12, "answer": 70,
-               "presupposé": 10, "objection": 100, "root_issue": 70, "question": 60,
+# Quotes in characters, not words: « Il y en a qui passent le bac de maths sans prof
+# de maths » (14 words) took two lines, an 84-character quote three.
+_LIGHT_CAPS = {"hook": 40, "essentiel": 48, "moment": 45, "quote": 90, "answer": 70,
+               "presupposé": 10, "objection": 100, "root_issue": 70, "question": 70,
                "headline": 45, "lens_questions": 135, "source": 48,
                "claim": 30, "detail": 55}
 
@@ -538,8 +540,9 @@ def _light_errors(pres, d) -> list[str]:
             continue
         if len(_plain(b.moment)) > c["moment"]:
             errors.append(f"light: display.reading_beats[{i}].moment is over {c['moment']} characters")
-        if words(b.quote) > c["quote"]:
-            errors.append(f"light: display.reading_beats[{i}].quote is {words(b.quote)} words (max {c['quote']})")
+        if chars(b.quote) > c["quote"]:
+            errors.append(f"light: display.reading_beats[{i}].quote is {chars(b.quote)} characters "
+                          f"(max {c['quote']}, three lines)")
         claim, sep, detail = _plain(b.answer).partition(" : ")
         if (len(claim) if sep else len(_plain(b.answer))) > c["answer"] or len(detail) > c["detail"]:
             errors.append(f"light: display.reading_beats[{i}].answer — claim ≤{c['answer']}, "

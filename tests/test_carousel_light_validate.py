@@ -58,3 +58,22 @@ def test_light_claim_detail_ideas():
     data["display"]["essentiel"][0] = "On montre surtout des **casseurs** partout : quelques violences"
     pres = InstagramCarouselPresentation.model_validate(data)
     assert any("essentiel[0]" in e for e in _light_errors(pres, pres.display))
+
+
+def test_light_quote_is_capped_by_length_not_words():
+    data = _data()
+    i, beat = next((i, b) for i, b in enumerate(data["display"]["reading_beats"]) if b["selected"])
+    label = f"reading_beats[{i}].quote is"
+    beat["quote"] = "Il y en a qui passent le bac de maths sans prof de maths."  # 14 words, two lines
+    pres = InstagramCarouselPresentation.model_validate(data)
+    assert not any(label in e for e in _light_errors(pres, pres.display))
+    beat["quote"] = "une sorte de première mondiale où ce type de mouvement […] arrive à […] faire tomber des gouvernements"
+    pres = InstagramCarouselPresentation.model_validate(data)
+    assert any(label in e and "three lines" in e for e in _light_errors(pres, pres.display))
+
+
+def test_light_question_fits_a_verbatim_question():
+    data = _data()
+    data["cta"]["engagement_sentence"] = "Comment redonner une place réelle aux **citoyens** dans le pouvoir ?"
+    pres = InstagramCarouselPresentation.model_validate(data)
+    assert not any("engagement_sentence is" in e for e in _light_errors(pres, pres.display))
