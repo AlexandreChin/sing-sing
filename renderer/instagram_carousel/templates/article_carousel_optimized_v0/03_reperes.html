@@ -57,17 +57,17 @@
 <div class="slide" style="justify-content: flex-start;">
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
-  <div class="stage">
+  <div class="stage" data-fit>
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.eye | safe }}</svg>{{ L.prog_before }}</span>
     <h1 class="head">À savoir, à se demander</h1>
     <div class="divider"></div>
-    {% if facts or context or framing %}<div class="card">
+    {% if facts or context or framing %}<div class="card" data-gap>
       {% if not light %}<div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS.info | safe }}</svg><span class="q-label">Le contexte</span></div>{% endif %}
       {% if facts %}<div class="facts">{% for f in facts %}<div class="fact"><span class="fl">{{ f.label }}</span><p class="ft">{% set claim, sep, detail = f.text.partition(' : ') %}{% if sep %}<span class="pt-claim">{{ claim | md_bold }}</span><span class="pt-detail">{{ detail | md_bold }}</span>{% else %}<span class="pt-plain">{{ f.text | md_bold }}</span>{% endif %}</p></div>{% endfor %}</div>
       {% elif context %}<p class="ctx">{{ context | md_bold }}</p>{% endif %}
       {% if framing %}<p class="ctx">{{ framing | md_bold }}</p>{% endif %}
     </div>{% endif %}
-    {% if lenses %}<div class="card keycard" data-perch>{% include '_perch.html' %}
+    {% if lenses %}<div class="card keycard" data-perch data-gap>{% include '_perch.html' %}
     <div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS.lightbulb | safe }}</svg><span class="q-label">{{ lenses | length }} réflexes</span></div>
     <div class="tools">
       {% for l in lenses %}<div class="tool">{% if l.icon_svg %}<span class="ic"><svg viewBox="0 0 24 24">{{ l.icon_svg | safe }}</svg><b>{{ '%02d'|format(l.n) }}</b></span>{% else %}<span class="n">{{ '%02d'|format(l.n) }}</span>{% endif %}<div><div class="name">{{ l.name }}</div><p class="q">{{ l.question | replace("est-ce", "est‑ce") | fr }}</p></div></div>{% endfor %}

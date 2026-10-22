@@ -103,6 +103,30 @@ def wire_paths(tops: list[float | None], width: int = SLIDE_W, margin: int = WIR
     return paths
 
 
+# Short content leaves the foot of a slide empty. The stage that holds it
+# (`data-fit`) is centred, so its title is first pinned where it stands (top
+# alignment, padded to the same spot); the free room above the page number,
+# less FIT_MARGIN, is then shared between the blocks marked `data-gap`, at most
+# FIT_CAP each. Type never changes size, and a slide with no room is left as is.
+FIT_MARGIN = 40
+FIT_CAP = 60
+_FIT = """([margin, cap]) => {
+  const fit = document.querySelector('[data-fit]'), num = document.querySelector('.slide-num');
+  if (!fit || !num || !fit.firstElementChild || fit.hasAttribute('data-fitted')) return 0;  // once only: shot HTML is saved back
+  const gaps = [...fit.querySelectorAll('[data-gap]')];
+  if (!gaps.length) return 0;
+  const anchor = fit.firstElementChild, top0 = anchor.getBoundingClientRect().top;
+  const pad0 = parseFloat(getComputedStyle(fit).paddingTop) || 0;
+  fit.style.justifyContent = 'flex-start';
+  const pad = pad0 + top0 - anchor.getBoundingClientRect().top;
+  if (pad < 0) { fit.style.justifyContent = ''; return 0; }   // content already overflows: leave it
+  fit.style.paddingTop = pad + 'px';
+  const bottom = Math.max(...[...fit.children].map(c => c.getBoundingClientRect().bottom));
+  const add = Math.min(cap, Math.max(0, (num.getBoundingClientRect().top - margin - bottom) / gaps.length));
+  for (const g of gaps) g.style.marginTop = (parseFloat(getComputedStyle(g).marginTop) || 0) + add + 'px';
+  fit.setAttribute('data-fitted', '');
+  return add; }"""
+
 _MEASURE = """() => { const s = document.querySelector('.slide'), el = document.querySelector('[data-perch]');
   return (s && el) ? el.getBoundingClientRect().top - s.getBoundingClientRect().top : null; }"""
 _DRAW = """([d, cls]) => { document.querySelectorAll('.' + cls).forEach(e => e.remove());
@@ -129,11 +153,13 @@ def shoot_dir(html_dir, out_dir=None) -> list[Path]:
         tops = []
         for f in files:
             page.set_content(f.read_text(encoding="utf-8"), wait_until="networkidle")
+            page.evaluate(_FIT, [FIT_MARGIN, FIT_CAP])   # the perches move with the spacing
             tops.append(page.evaluate(_MEASURE))
         for f, d in zip(files, wire_paths(tops)):
             page.set_content(f.read_text(encoding="utf-8"), wait_until="networkidle")
+            fitted = page.evaluate(_FIT, [FIT_MARGIN, FIT_CAP])
             page.evaluate(_DRAW, [d, WIRE_CLASS])
-            if d:
+            if d or fitted:
                 f.write_text("<!DOCTYPE html>\n" + page.content(), encoding="utf-8")
             png = out_dir / (f.stem + ".png")
             page.screenshot(path=str(png), clip={"x": 0, "y": 0, "width": SLIDE_W, "height": SLIDE_H})

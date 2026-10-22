@@ -35,16 +35,16 @@
 <div class="slide" style="justify-content: flex-start;">
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
-  <div class="stage">
+  <div class="stage" data-fit>
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.hierarchy | safe }}</svg>Le socle</span>
     <h1 class="head">{{ headline | md_bold }}</h1>
-    {% if pillars %}<div class="under">
+    {% if pillars %}<div class="under" data-gap>
       {% if pres[0].label %}<div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS[pres[0].icon] | safe }}</svg><span class="q-label">{{ pres[0].label }}</span></div>{% endif %}
       <div class="cols" style="grid-template-columns: repeat({{ pillars | length }}, 1fr);">
         {% for clause in pillars %}<div class="pillar"{% if loop.index == (aim or 1) %} data-perch{% endif %}>{% if loop.index == (aim or 1) %}{% include '_perch.html' %}{% endif %}<span class="n">{{ '%02d'|format(loop.index) }}</span>{{ clause | md_bold }}</div>{% endfor %}
       </div>
     </div>{% endif %}
-    {% if obj %}<div class="objection{{ '' if aim else ' free' }}"><div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS[obj.icon] | safe }}</svg><span class="q-label">{{ obj.label }}</span></div>{% for clause in obj.clauses %}{{ clause | claim_detail(obj.detail or "") }}{% endfor %}</div>{% endif %}
+    {% if obj %}<div class="objection{{ '' if aim else ' free' }}" data-gap><div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS[obj.icon] | safe }}</svg><span class="q-label">{{ obj.label }}</span></div>{% for clause in obj.clauses %}{{ clause | claim_detail(obj.detail or "") }}{% endfor %}</div>{% endif %}
   </div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>

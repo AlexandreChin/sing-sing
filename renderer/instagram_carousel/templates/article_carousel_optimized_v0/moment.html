@@ -59,20 +59,20 @@
   {% if lens_icon_svg %}<div class="bigmark"><svg viewBox="0 0 24 24">{{ lens_icon_svg | safe }}</svg></div>
   {% else %}<div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>{% endif %}
   {% include '_brand.html' %}
-  <div class="stage">
+  <div class="stage" data-fit>
     <span class="kick">{% if lens_icon_svg %}<svg viewBox="0 0 24 24">{{ lens_icon_svg | safe }}</svg>{% else %}<svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>{% endif %}{% if lens_n %}Réflexe {{ '%02d'|format(lens_n) }} &middot; {% endif %}{{ lens_name or L.during }}</span>
     <h1 class="head">{{ moment | md_bold }}</h1>
     <div class="divider"></div>
-    {% if figure %}<div>
+    {% if figure %}<div data-gap>
       <div class="num-fig{% if figure_is_term %} is-term{% endif %}">{% if figure_arrow %}{{ figure_before | fr }}<span class="arrow">&#8594;</span>{{ figure_after | fr }}{% else %}{{ figure | fr }}{% endif %}</div>
       {% if figure_label %}<div class="num-sub">{{ figure_label | fr }}</div>{% endif %}
       {% if figure_caption and not quote %}<div class="num-caption">{{ figure_caption | fr }}</div>{% endif %}
     </div>{% endif %}
-    {% if quote %}<div class="evidence"><p class="ev-quote">«&#160;{{ quote | fr }}&#160;»</p></div>{% endif %}
-    <p class="watch" data-perch>{% include '_perch.html' %}<svg viewBox="0 0 24 24">{% if lens_icon_svg %}{{ lens_icon_svg | safe }}{% else %}{{ ICONS.lightbulb | safe }}{% endif %}</svg><span class="wtxt">{{ lens_question | fr }}</span></p>
+    {% if quote %}<div class="evidence" data-gap><p class="ev-quote">«&#160;{{ quote | fr }}&#160;»</p></div>{% endif %}
+    <p class="watch" data-perch data-gap>{% include '_perch.html' %}<svg viewBox="0 0 24 24">{% if lens_icon_svg %}{{ lens_icon_svg | safe }}{% else %}{{ ICONS.lightbulb | safe }}{% endif %}</svg><span class="wtxt">{{ lens_question | fr }}</span></p>
     {% if answer %}<div class="reveal"><span class="arw">&#8594;</span><p class="rev">{{ answer | claim_detail }}</p></div>{% endif %}
     {% if pictogram %}{% set person %}<svg viewBox="0 0 20 40"><circle cx="10" cy="7" r="6"/><path d="M2 40V22a8 8 0 0 1 16 0v18z"/></svg>{% endset %}
-    <div class="picto">
+    <div class="picto" data-gap>
       <div><div class="who">{{ pictogram.reference_label | fr }}</div><div class="ppl muted">{% for _ in range(pictogram.reference_count) %}{{ person | safe }}{% endfor %}</div></div>
       <div><div class="who">{{ pictogram.subject_label | fr }}</div><div class="ppl gold">{% for _ in range(pictogram.subject_count) %}{{ person | safe }}{% endfor %}</div></div>
       <div class="src">{{ pictogram.caption | fr }}</div>
