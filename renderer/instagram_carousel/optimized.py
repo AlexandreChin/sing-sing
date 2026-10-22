@@ -30,6 +30,11 @@ PHASE_OF = {
 }
 
 
+def _target_after(order: list[int], target: int) -> int:
+    """The objection's pillar (1-based, source order) once the pillars are reordered."""
+    return order.index(target - 1) + 1 if 1 <= target <= len(order) else target
+
+
 def generate_html(doc: InstagramCarouselDocument, out_dir: Path, light: bool = False) -> list[Path]:
     out_dir.mkdir(parents=True, exist_ok=True)
     full, pres = doc.analysis, doc.presentation
@@ -49,6 +54,15 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path, light: bool = F
     if len(selected_beats) > 3:
         print(f"[optimized] {len(selected_beats)} beats selected; rendering the first 3.", file=sys.stderr)
     selected_beats = selected_beats[:3]
+    # Slides 4-6 illustrate slide 2's claims one for one, in their order: sort the
+    # moments by the claim they illustrate (`spine_ref`), not by where they fall in
+    # the source. The présupposés (one per moment, written in source order) and the
+    # objection's target pillar follow the same permutation. Decks without
+    # `spine_ref` keep the source order.
+    order = list(range(len(selected_beats)))
+    if all(b.spine_ref for b in selected_beats):
+        order.sort(key=lambda i: selected_beats[i].spine_ref)
+        selected_beats = [selected_beats[i] for i in order]
     # Slide 4 promises N numbered réflexes; slides 5–7 answer them in the same
     # order, under the same number and the same question. Without that pairing a
     # reader sees three unrelated lens names.
@@ -170,6 +184,8 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path, light: bool = F
                 # lose the « que » (« que l'argent suffit » → « L'argent suffit »)
                 clauses = [re.sub(r"^qu(?:e\s+|['’])", "", c, flags=re.I) for c in clauses]
                 clauses = [c[:1].upper() + c[1:] for c in clauses]
+                if len(clauses) == len(order):
+                    clauses = [clauses[i] for i in order]
             recap_items.append({"label": label, "clauses": clauses,
                                 "icon": recap_icons.get(label, "hierarchy")})
         # The objection closes the socle: it puts the assumptions just listed to the
@@ -183,7 +199,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path, light: bool = F
         # slide 7 draws the présupposés as pillars; the objection points at the one it weakens
         specs.append(("socle", "08_socle",
                       {"headline": ga.headline, "recap_items": recap_items,
-                       "target": d.steel_man.targets if d.steel_man else 0}))
+                       "target": _target_after(order, d.steel_man.targets if d.steel_man else 0)}))
 
     # Slide 9 — Prise de recul: the deep stake + the strongest objection
     # (the closing question moved to slide 8's "La question").

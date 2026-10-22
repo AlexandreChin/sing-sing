@@ -77,3 +77,18 @@ def test_recap_labels_render_as_subtitle_with_icons(tmp_path):
     assert "La chaîne tient" in html and "La base suffit" in html  # one line each, « que » dropped
     assert ICONS["anchor"] in html
     assert "À questionner" not in html
+
+
+def test_moments_follow_the_claims_and_pillars_follow_the_moments(tmp_path):
+    # source order: claim 2, claim 3, claim 1 — the slides show claims 1, 2, 3
+    beats = [ReadingBeat(moment=f"Moment {n}", quote="q", lens_ref=lens, note="n", answer="a",
+                         spine_ref=n)
+             for n, lens in ((2, "chiffres"), (3, "cadrage"), (1, "sources"))]
+    doc = _doc(beats, core_recap=["Ses présupposés : pilier deux ; pilier trois ; pilier un"])
+    doc.presentation.display.steel_man.targets = 3            # « pilier un », third in source order
+    opt.generate_html(doc, tmp_path)
+    moments = [p.read_text(encoding="utf-8") for p in sorted(tmp_path.glob("*_moment.html"))]
+    assert ["Moment 1" in moments[0], "Moment 2" in moments[1], "Moment 3" in moments[2]] == [True] * 3
+    socle = next(tmp_path.glob("*_socle.html")).read_text(encoding="utf-8")
+    assert socle.index("Pilier un") < socle.index("Pilier deux") < socle.index("Pilier trois")
+    assert opt._target_after([2, 0, 1], 3) == 1                # the objection still aims at « pilier un »
