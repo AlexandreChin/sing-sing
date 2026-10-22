@@ -174,14 +174,12 @@ _TIRED_QUESTIONS_RE = {p: re.compile(p, re.I) for p in _TIRED_QUESTIONS}
 
 
 def _tired_question_errors(label: str, text: str) -> list[str]:
-    """The closing question must LEAVE the subject (see the adapt prompt): a shape
-    that fits any article is the symptom of one that stayed inside this one."""
+    """A question shape that fits any article is the symptom of one written from a
+    template rather than from this case (see the adapt prompt)."""
     stripped = re.sub(r"[*\s]+", " ", text or "").strip()
     return [
-        f"{label} reuses a burnt-out question shape — {why}. The closing question ELARGIT : "
-        f"it starts from the most far-reaching présupposé and leaves the subject, so it still "
-        f"makes sense with the article hidden. Ask what THIS case makes one wonder about "
-        f"everything else, and let the form follow from that"
+        f"{label} reuses a burnt-out question shape — {why}. Ask what THIS case shows of the "
+        f"enjeu de fond printed above it, in concrete words, and let the form follow from that"
         for pat, why in _TIRED_QUESTIONS.items()
         if _TIRED_QUESTIONS_RE[pat].search(stripped)
     ]
@@ -372,10 +370,9 @@ def _coherence_errors(pres, d, light: bool = False) -> list[str]:
             )
         # slide 8 draws the question as following from the enjeu: the word they
         # share (« promet » / « promesse ») is the gold one on both sides
-        q_roots = {w[:5] for span in _BOLD_RE.findall(pres.cta.engagement_sentence)
-                   for w in re.findall(r"[a-zà-ÿ]{4,}", span.lower())}
-        e_roots = {w[:5] for span in _BOLD_RE.findall(d.root_issue or "")
-                   for w in re.findall(r"[a-zà-ÿ]{4,}", span.lower())}
+        # key-word stems, as the other axis checks: « rue » counts, « les » does not
+        q_roots = {w for span in _BOLD_RE.findall(pres.cta.engagement_sentence) for w in _stems(span)}
+        e_roots = {w for span in _BOLD_RE.findall(d.root_issue or "") for w in _stems(span)}
         if d.root_issue and not q_roots & e_roots:
             errors.append(
                 "cta.engagement_sentence shares no **gilded** word with display.root_issue — slide 8 "
@@ -386,6 +383,16 @@ def _coherence_errors(pres, d, light: bool = False) -> list[str]:
         lo, hi = (1, 2) if light else (2, 3)
         if looks and not lo <= len(looks) <= hi:
             errors.append(f"cta.where_to_look has {len(looks)} item(s) — {lo}–{hi} sources, or none")
+        # The sources sit under the question to help answer it: each one bears on
+        # the question or the enjeu, never only on a moment's figures
+        axis = _stems(_plain(d.root_issue)) | _stems(question)
+        for j, w in enumerate(looks):
+            if not _stems(_plain(w)) & axis:
+                errors.append(
+                    f"cta.where_to_look[{j}] « {w} » shares no key word with the question or the enjeu — "
+                    f"name a source where the reader can look for an answer to the question, not one "
+                    f"that recaps a moment's figures"
+                )
         for j, w in enumerate(looks):
             if len(w) > _LOOK_MAX_CHARS:
                 errors.append(f"cta.where_to_look[{j}] is {len(w)} characters (max {_LOOK_MAX_CHARS}) — one line on slide 8")
@@ -731,16 +738,18 @@ def _lens_layer_errors(d, light: bool = False) -> list[str]:
                     f"for {n_selected} selected beats — one per selected beat, in slide order, "
                     f"so each rests on a finding the reader has seen"
                 )
-            # Each presupposé is its own line on the slide, so the budget is per
+            # Each presupposé is its own pillar on the slide, so the budget is per
             # clause. The old 16-word cap on the whole run is what compressed the
             # third one into "les critiques valent Harrison" — a reference the deck
-            # never introduces, and nobody can decode.
+            # never introduces, and nobody can decode; at 10 words a pillar still
+            # read as a slogan (« L'argent suffit »). The light deck keeps 10.
+            cap = 10 if light else 16
             for j, clause in enumerate([c.strip() for c in body.split(";") if c.strip()]):
                 n_words = len(clause.split())
-                if n_words > 10:
+                if n_words > cap:
                     errors.append(
                         f"display.global_analysis.core_recap[{i}] presupposé {j + 1} is "
-                        f"{n_words} words (max 10)"
+                        f"{n_words} words (max {cap})"
                     )
     if not d.root_issue.strip():
         errors.append("display.root_issue is empty")
