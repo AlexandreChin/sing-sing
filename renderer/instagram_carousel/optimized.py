@@ -5,6 +5,7 @@ and screenshots via `renderer.shoot`. Shared helpers come from `._shared`.
 Registered as the `instagram_carousel_optimized` format.
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -151,18 +152,24 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path, light: bool = F
         for c in ga.core_recap:
             label, sep, body = c.partition(":")
             label, body = (label.strip(), body.strip()) if sep else ("", c.strip())
-            # The présupposés heading names the source, not its author: « L'article
-            # suppose… » (« L'épisode », « La vidéo »). The data keeps its label, old
-            # decks included (« Ce qu'il tient pour acquis », « Ses présupposés »).
-            if label in ("Ce qu'il tient pour acquis", "Ses présupposés"):
-                recap_icons[label] = "anchor"
-                label = f"{medium_labels(meta.medium)['source_noun']} suppose…"
+            # The présupposés heading names the source, not its author: « Implicitement,
+            # l'article admet : » (« l'épisode », « la vidéo »). The data keeps its label,
+            # old decks included (« Ce qu'il tient pour acquis », « Ses présupposés »).
+            implicit = label in ("Ce qu'il tient pour acquis", "Ses présupposés")
+            if implicit:
+                noun = medium_labels(meta.medium)["source_noun"]
+                label = f"Implicitement, {noun[0].lower()}{noun[1:]} admet :"
                 recap_icons[label] = "anchor"
             if label == "À questionner":
                 continue  # legacy label — superseded by "La question" (engagement) below
             # One line per presupposé: crammed onto a single line they compress into
             # telegraphese (a "; les critiques valent Harrison" nobody can decode).
             clauses = [c.strip() for c in body.split(";") if c.strip()]
+            if implicit:
+                # pillars are plain statements under that label: decks written « que … »
+                # lose the « que » (« que l'argent suffit » → « L'argent suffit »)
+                clauses = [re.sub(r"^qu(?:e\s+|['’])", "", c, flags=re.I) for c in clauses]
+                clauses = [c[:1].upper() + c[1:] for c in clauses]
             recap_items.append({"label": label, "clauses": clauses,
                                 "icon": recap_icons.get(label, "hierarchy")})
         # The objection closes the socle: it puts the assumptions just listed to the
