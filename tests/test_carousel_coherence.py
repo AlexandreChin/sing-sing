@@ -196,7 +196,10 @@ def test_where_to_look_is_two_or_three_short_sources():
         return [e for e in _validate(data) if "where_to_look" in e]
 
     assert errs([]) == []                                       # optional
-    assert errs(["Le Cnesco (2016)", "France Stratégie (2018)"]) == []
+    assert errs(["Le Cnesco sur l'école et les inégalités (2016)",
+                 "France Stratégie sur la promesse scolaire (2018)"]) == []
+    # each source bears on the question or the enjeu, not only on a moment's figures
+    assert any("shares no key word" in e for e in errs(["Le Cnesco (2016)", "France Stratégie (2018)"]))
     assert any("2–3 sources" in e for e in errs(["Une seule source"]))
     assert any("max 60" in e for e in errs(["x" * 61, "Une autre source"]))
 
