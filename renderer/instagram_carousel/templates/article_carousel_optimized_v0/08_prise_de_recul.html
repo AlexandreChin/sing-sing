@@ -6,13 +6,11 @@
 {% include 'base.css' %}
 /* « Prise de recul »: the deep stake, then the question to take away, each in
    its own card under the deck's usual subtitle-with-icon. The word they share
-   is the gold one on both sides — the question follows from the stake. The question's card is tinted
-   gold: it is what the reader leaves with. */
+   is the gold one on both sides — the question follows from the stake. */
 .head { font-size: 60px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; margin-top: 14px; }
 .stage { flex: 1; display: flex; flex-direction: column; justify-content: center; }
 .cards { display: flex; flex-direction: column; gap: 28px; margin-top: 70px; }
 .card { background: #161616; border: 1px solid #2c2c2c; border-radius: 22px; padding: 34px 36px 38px; }
-.card.qc { background: #1c1806; border-color: #5a4a08; }
 .card.qc p { color: #fff; font-weight: 400; }  /* the closing question is the deck's key message: white */
 .q-head { display: flex; gap: 18px; align-items: center; margin-bottom: 18px; }
 .q-head .mk { flex: none; }
@@ -48,7 +46,6 @@
       </div>{% endif %}
     </div>
   </div>
-  <div class="next-hook-bar"><span style="color: #d4aa00; font-weight: 700;">Avant de partir &#8250;</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
 </div>
