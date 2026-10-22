@@ -8,23 +8,31 @@
    réflexes the moments apply, each a number, a name and its question (the
    moments repeat that question word for word). Type is set large and the
    space shared out: this slide is read before listening, not studied. */
-.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 110px 0 20px; }
+.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 96px 0 20px; }
 .head { font-size: 60px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #f0f0f0; text-wrap: balance; margin-top: 10px; }
 .ctx { font-size: 34px; line-height: 1.3; color: #e6e6e6; text-wrap: balance; }
 .ctx strong { color: #d4aa00; font-weight: 700; }
-/* labelled facts: what the reader needs to weigh the source, one line each */
+/* labelled facts, set like slide 2's « idées clés »: the label where slide 2 has its
+   number, then a short claim in bold and its detail in grey, rows ruled apart */
 /* two cards, as on slide 8: what to know, then the réflexes to apply */
 .card { background: #161616; border: 1px solid #2c2c2c; border-radius: 22px; padding: 26px 30px 30px; margin-top: 26px; }
-.card.keycard { margin-top: 50px; }
+.card.keycard { margin-top: 40px; }
 .q-head { display: flex; gap: 16px; align-items: center; margin-bottom: 18px; }
 .q-head svg { width: 36px; height: 36px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .q-label { font-size: 40px; font-weight: 900; line-height: 1.05; letter-spacing: -0.01em; color: #f0f0f0; }
-.facts { display: flex; flex-direction: column; gap: 14px; }
-.fact { display: grid; grid-template-columns: 212px 1fr; gap: 14px; align-items: baseline; }
+.facts { display: flex; flex-direction: column; }
+.fact { display: grid; grid-template-columns: 190px 1fr; gap: 14px; align-items: baseline; padding: 10px 0; border-top: 1px solid #2c2c2c; }
+.fact:first-child { border-top: none; padding-top: 2px; }
+.fact:last-child { padding-bottom: 0; }
 .fact .fl { font-size: 24px; font-weight: 800; letter-spacing: .08em; white-space: nowrap; text-transform: uppercase; color: #d4aa00; }
-.fact .ft { font-size: 31px; line-height: 1.28; color: #a8a8a8; text-wrap: pretty; text-align: left; hyphens: none; }
-.fact .ft strong { color: #fff; font-weight: 700; }
-.tools { display: flex; flex-direction: column; gap: 22px; }
+.fact .ft { font-size: 34px; font-weight: 600; line-height: 1.28; color: #fff; text-wrap: pretty; text-align: left; hyphens: none; }
+.fact .ft strong { color: #d4aa00; font-weight: 700; }
+.fact .ft .pt-claim { display: block; font-weight: 800; }
+/* a fact not written « claim : detail » (older decks) keeps the grey sentence */
+.fact .ft .pt-plain { font-size: 31px; font-weight: 400; color: #a8a8a8; }
+.fact .ft .pt-plain strong { color: #fff; }
+.fact .ft .pt-detail { display: block; margin-top: 2px; font-size: .8em; font-weight: 400; line-height: 1.3; color: #a8a8a8; }
+.tools { display: flex; flex-direction: column; gap: 16px; }
 .tool { display: grid; grid-template-columns: 96px 1fr; align-items: center; }
 .tool .n { font-size: 54px; font-weight: 900; color: #d4aa00; line-height: 1; font-variant-numeric: tabular-nums; }
 /* the lens icon is the réflexe's signature: the moment that applies it wears the same */
@@ -55,7 +63,7 @@
     <div class="divider"></div>
     {% if facts or context or framing %}<div class="card">
       {% if not light %}<div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS.info | safe }}</svg><span class="q-label">Le contexte</span></div>{% endif %}
-      {% if facts %}<div class="facts">{% for f in facts %}<div class="fact"><span class="fl">{{ f.label }}</span><p class="ft">{{ f.text | md_bold }}</p></div>{% endfor %}</div>
+      {% if facts %}<div class="facts">{% for f in facts %}<div class="fact"><span class="fl">{{ f.label }}</span><p class="ft">{% set claim, sep, detail = f.text.partition(' : ') %}{% if sep %}<span class="pt-claim">{{ claim | md_bold }}</span><span class="pt-detail">{{ detail | md_bold }}</span>{% else %}<span class="pt-plain">{{ f.text | md_bold }}</span>{% endif %}</p></div>{% endfor %}</div>
       {% elif context %}<p class="ctx">{{ context | md_bold }}</p>{% endif %}
       {% if framing %}<p class="ctx">{{ framing | md_bold }}</p>{% endif %}
     </div>{% endif %}
@@ -65,7 +73,6 @@
       {% for l in lenses %}<div class="tool">{% if l.icon_svg %}<span class="ic"><svg viewBox="0 0 24 24">{{ l.icon_svg | safe }}</svg><b>{{ '%02d'|format(l.n) }}</b></span>{% else %}<span class="n">{{ '%02d'|format(l.n) }}</span>{% endif %}<div><div class="name">{{ l.name }}</div><p class="q">{{ l.question | replace("est-ce", "est‑ce") | fr }}</p></div></div>{% endfor %}
     </div></div>{% endif %}
   </div>
-  <p class="link">{{ L.link_ref }}</p>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
 </div>

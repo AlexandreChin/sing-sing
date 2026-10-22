@@ -170,8 +170,9 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path, light: bool = F
         if d.steel_man and d.steel_man.argument.strip():
             recap_items.append({"label": "L'objection la plus solide",
                                 "clauses": [d.steel_man.argument], "icon": "shield",
-                                # its consequence, in grey under it (claim over detail)
-                                "detail": d.steel_man.alternative})
+                                # its consequence, in grey under it (claim over detail),
+                                # without gold: the gold stays on the objection itself
+                                "detail": d.steel_man.alternative.replace("**", "")})
         # slide 7 draws the présupposés as pillars; the objection points at the one it weakens
         specs.append(("socle", "08_socle",
                       {"headline": ga.headline, "recap_items": recap_items,
