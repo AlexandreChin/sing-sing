@@ -31,15 +31,15 @@
 <div class="slide" style="justify-content: flex-start;">
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
-  <div class="stage">
+  <div class="stage" data-fit>
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.widen | safe }}</svg>Prise de recul</span>
     <h1 class="head">Avant de trancher.</h1>
-    <div class="cards">
+    <div class="cards" data-gap>
       {% if root_issue %}<div class="card" data-perch>{% include '_perch.html' %}
         <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.anchor | safe }}</svg></span><span class="q-label">L'enjeu de fond</span></div>
         <p>{{ root_issue | claim_detail }}</p>
       </div>{% endif %}
-      {% if question %}<div class="card qc">
+      {% if question %}<div class="card qc" data-gap>
         <div class="q-head"><span class="mk"><svg viewBox="0 0 24 24">{{ ICONS.speech_bubble | safe }}</svg></span><span class="q-label">La question</span></div>
         <p>{{ question | md_bold }}</p>
         {% if where_to_look %}<div class="look">{% for w in where_to_look %}<span>{{ w | fr }}</span>{% endfor %}</div>{% endif %}

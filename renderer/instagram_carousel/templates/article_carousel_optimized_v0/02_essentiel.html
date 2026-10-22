@@ -43,14 +43,14 @@
 <div class="slide" style="justify-content: flex-start;">
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
-  <div class="sel-stage">
+  <div class="sel-stage" data-fit>
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>{{ L.essentiel }}</span>
     <h1 class="sel-head">En bref</h1>
-    {% if lede %}<div class="card">
+    {% if lede %}<div class="card" data-gap>
       <div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS.info | safe }}</svg><span class="q-label">Le sujet</span></div>
       <p class="lede">{{ lede | md_bold }}</p>
     </div>{% endif %}
-    <div class="card keycard" data-perch>{% include '_perch.html' %}
+    <div class="card keycard" data-perch data-gap>{% include '_perch.html' %}
       <div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS.lightbulb | safe }}</svg><span class="q-label">{% if essentiel %}{{ essentiel | length }} idées clés{% else %}L'essentiel{% endif %}</span></div>
       {% if essentiel %}<div class="pts">
         {% for pt in essentiel %}<div class="pt"><span class="pt-n">{{ '%02d'|format(loop.index) }}</span><span class="pt-t">{% set claim, sep, detail = pt.partition(' : ') %}{% if sep %}<span class="pt-claim">{{ claim | md_bold }}</span><span class="pt-detail">{{ detail | md_bold }}</span>{% else %}{{ pt | md_bold }}{% endif %}</span></div>{% endfor %}
