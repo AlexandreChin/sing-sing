@@ -199,6 +199,8 @@ _LOOK_MAX_CHARS = 60
 # Slide 1's promise under the hook: « Comprendre … » on one line at 46px; the
 # template adds « En juger soi-même. » on the next.
 _SUBTITLE_MAX_CHARS = 38
+# Slide 8's enjeu holds three lines in its card (40px across the text column).
+_ROOT_ISSUE_MAX_CHARS = 125
 _SUBTITLE_SHAPE = re.compile(r"^Comprendre [^.?!]+\.$")
 # Slide titles (moments, socle) hold two lines at 60px: « Devant le lycée, les contrôles
 # du quartier se rejouent » (54) fits, a three-line title pushed slide 5 out of frame.
@@ -313,6 +315,11 @@ def _coherence_errors(pres, d, light: bool = False) -> list[str]:
                 "hook.subtitle must be one sentence « Comprendre …. » picking up what the hook "
                 "opens (« Comprendre d'où elle vient. ») — the slide adds « En juger soi-même. »"
             )
+    if len(_plain(d.root_issue)) > _ROOT_ISSUE_MAX_CHARS:
+        errors.append(
+            f"display.root_issue is {len(_plain(d.root_issue))} characters (max {_ROOT_ISSUE_MAX_CHARS}) — "
+            f"slide 8 holds the enjeu in three lines"
+        )
     if norm_for_match(_plain(d.root_issue)).startswith(("l'enjeu de fond", "enjeu de fond")):
         errors.append(
             "display.root_issue opens with « L'enjeu de fond » — the slide already prints that "

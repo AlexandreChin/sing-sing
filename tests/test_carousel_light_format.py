@@ -41,13 +41,14 @@ def test_merge_keeps_the_full_decks_choices():
     assert all(b["moment"].startswith("M") for b in picked)
 
 
-def test_moment_template_moves_the_perch_to_the_question_in_light():
+def test_moment_template_perches_the_bird_on_the_question():
     tpl = _env().get_template("article_carousel_optimized_v0/moment.html")
     ctx = dict(bird="data:image/png;base64,x", lens_question="Q ?", answer="A.", quote="q",
                moment="m", slide_n=4, slide_total=9, progress=40, L={}, ICONS={})
     full, light = tpl.render(**ctx), tpl.render(light=True, **ctx)
-    assert 'class="reveal" data-perch' in full and 'class="watch" data-perch' not in full
-    assert 'class="watch" data-perch' in light and 'class="reveal" data-perch' not in light
+    # both formats: the wire runs above the question, never between it and its answer
+    for html in (full, light):
+        assert 'class="watch" data-perch' in html and 'class="reveal" data-perch' not in html
 
 
 def test_idea_splits_into_claim_and_detail():

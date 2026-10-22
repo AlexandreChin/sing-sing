@@ -10,8 +10,8 @@ _GOOD_QUESTION = ("Dans quelle mesure le recours à la **violence** peut-il se j
 
 
 def _errors(hook="Derrière les **poubelles** brûlées, une école à deux vitesses",
-            root_issue="L'école publique promet l'**égalité** ; selon le lycée, elle n'offre pas les "
-                       "mêmes moyens, et encore moins les mêmes **chances**, ni les mêmes **inégalités**.",
+            root_issue="L'école publique promet l'**égalité** ; selon le lycée, les moyens varient et "
+                       "les **inégalités** demeurent.",
             question=_GOOD_QUESTION,
             answer="**Les mêmes jeunes** : un jeune homme perçu noir ou arabe a **20 fois plus** de "
                    "risques d'être contrôlé. Repérez si l'épisode situe les lycées bloqués.",
@@ -211,3 +211,10 @@ def test_caption_lists_the_linked_sources_once():
     assert "Sans lien" not in out                                # no URL, not listed
     assert caption_with_sources(out, gf) == out                  # never twice
     assert caption_with_sources("Légende.", gf[1:]) == "Légende."  # no link, no block
+
+
+def test_root_issue_holds_three_lines():
+    errs = _errors(root_issue="Selon le lycée où il est inscrit, un élève n'a ni les mêmes **moyens** ni les mêmes "
+                              "profs ; mineurs, sans droit de vote, les lycéens mobilisés n'ont trouvé que la rue "
+                              "pour **inégalités**.")
+    assert any("display.root_issue is" in e and "three lines" in e for e in errs)
