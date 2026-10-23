@@ -1,0 +1,159 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "id": "c1",
+        "quote": "On compte plus de 30 élèves par classe dans 70 % des cas.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Chiffres",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre est donné **sans source ni périmètre** (lycées seuls ou tout le second degré). Les données nationales de l'Éducation nationale permettent de le **vérifier par type d'établissement**.",
+        "external_sources": [
+          {
+            "name": "DEPP, Repères et références statistiques (ministère de l'Éducation nationale)",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Cour des comptes, rapports sur la gestion des enseignants",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 60
+      },
+      {
+        "id": "c2",
+        "quote": "Au 14 octobre, selon le ministère de l'Intérieur, plus de 6800 personnes ont été interpellées, dont 85 % de mineurs.",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation",
+          "strength": 0.8,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre vient **de l'autorité mise en cause** elle-même, ce qui rend une surestimation peu probable. Le reportage ne dit pas **combien de poursuites** ont suivi.",
+        "external_sources": [
+          {
+            "name": "Ministère de l'Intérieur, bilans des interpellations",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Collectif Action Judiciaire",
+            "supports": "validates",
+            "evidence_type": "testimony"
+          }
+        ],
+        "confidence": 75
+      },
+      {
+        "id": "c3",
+        "quote": "Selon le dernier classement international PISA, le niveau scolaire des élèves français n'a jamais été aussi bas depuis le lancement de l'enquête en 2000.",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Chiffres",
+          "strength": 0.7,
+          "nature": "nuance"
+        },
+        "explanation": "Le constat correspond aux résultats publiés par l'OCDE pour 2022 (**474 points en maths**). Le reportage ne cite **aucun score** et ne dit rien des causes avancées par l'OCDE.",
+        "external_sources": [
+          {
+            "name": "OCDE, Résultats du PISA 2022",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "DEPP, note d'information sur PISA 2022",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 85
+      },
+      {
+        "id": "c4",
+        "quote": "Ce que veut faire le gouvernement, c'est essayer de passer l'envie à toute cette génération de se remobiliser.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "La phrase prête au gouvernement **une intention** sans document pour l'établir. Elle vient d'une avocate du collectif qui **dénonce la répression**, sans réponse d'une préfecture.",
+        "external_sources": [
+          {
+            "name": "Arrêtés préfectoraux d'interdiction de rassemblement (recueils des actes administratifs)",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Haut-Commissariat des Nations unies aux droits de l'homme, déclaration sur les manifestations en France",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": null
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "id": "b1",
+        "quote": "Maël, 16 ans, a perdu l'usage de son œil après un tir compatible à celui d'un LBD.",
+        "item_type": "bias",
+        "label": "Accumulation de cas nommés",
+        "effect": "Remarquez comment **un prénom et un âge** pour chaque blessure pèsent plus que les **700 policiers blessés** cités en un seul chiffre.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "b2",
+        "quote": "Sur les réseaux, on assiste à l'éveil démocratique d'une génération de lycéens.",
+        "item_type": "bias",
+        "label": "Langage d'emphase",
+        "effect": "Remarquez comment **« une génération »** fait d'une partie mobilisée des lycéens **l'ensemble d'une classe d'âge**.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "élan",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "b3",
+        "quote": "Fanny à Nantes et Bilel à Saint-Denis n'ont pas grandi au même endroit, mais ils font le même constat.",
+        "item_type": "fallacy",
+        "label": "Généralisation à partir de deux cas",
+        "effect": "Remarquez comment **deux lycéens mobilisés**, choisis pour le reportage, suffisent ensuite à décrire **un système éducatif devenu inégalitaire**.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "élan",
+          "strength": 0.6,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "Quand une classe est surchargée, c'est de la politique. Quand il manque des professeurs, c'est de la politique.",
+      "proves": {
+        "type": "observation",
+        "label": "Cadrage",
+        "strength": 0.8,
+        "nature": "nuance"
+      },
+      "analysis": "Une lycéenne fait des conditions d'enseignement **un enjeu politique**. Plus tard, d'autres lycéens disent leur mouvement **« apolitique »**, au sens de sans parti, et le reportage s'ouvre et se ferme sur l'élection présidentielle. Où passe la frontière entre un mouvement politique et un mouvement partisan ?"
+    }
+  }
+}

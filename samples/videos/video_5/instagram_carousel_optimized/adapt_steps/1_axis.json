@@ -1,0 +1,28 @@
+{
+  "thesis_frame": {
+    "main_claim": "Une génération connectée et sans chef fait tomber des gouvernements et cherche d'autres formes de démocratie.",
+    "out_of_scope": [
+      "L'influence de puissances étrangères dans ces crises",
+      "Le programme économique des futurs gouvernements",
+      "Les effets des écrans sur la santé des jeunes"
+    ]
+  },
+  "root_issue": "Entre un vote qui ne suffit plus et une rue qui renverse sans gouverner, les **citoyens** n'ont pas de place durable dans les décisions.",
+  "engagement_sentence": "Comment redonner une place réelle aux **citoyens** dans le pouvoir ?",
+  "engagement_sentence_alt": [
+    "Jusqu'où un vote en ligne donne-t-il aux **citoyens** une place dans le **pouvoir** ?",
+    "Que reste-t-il d'une victoire de la rue quand d'autres prennent le **pouvoir** ?",
+    "À quelles conditions une mobilisation sans chef pèse-t-elle sur le **pouvoir** qui la suit ?"
+  ],
+  "essentiel": [
+    "Une génération en colère : des jeunes de six pays ébranlent des **gouvernements**",
+    "Voter ne pèse plus sur le pouvoir : décisions en ligne, **sans chef**",
+    "Une victoire à protéger : l'armée et les anciennes **élites** attendent de gouverner"
+  ],
+  "headline": "Sans chef, la jeunesse fait tomber des gouvernements",
+  "headline_alt": [
+    "La rue des jeunes renverse des gouvernements",
+    "Une génération sans chef pour changer le pouvoir",
+    "Des jeunes sans chef font vaciller le pouvoir"
+  ]
+}

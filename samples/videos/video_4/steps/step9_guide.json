@@ -1,0 +1,70 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Le reportage suit **deux lycéens mobilisés** jusque chez eux : il donne accès à leur vécu, pas à une mesure de l'ensemble du mouvement.",
+      "Repérez **qui fournit chaque chiffre** : certains viennent du ministère de l'Intérieur, d'autres n'ont aucune source.",
+      "Notez **quelles voix manquent** : forces de l'ordre, préfectures et ministère sur les moyens n'interviennent presque pas."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "wo_1",
+          "text": "Le manque de moyens, cause revendiquée du mouvement, est **le volet le moins sourcé**. Un chiffre sur les classes surchargées n'a ni origine ni périmètre, et son rapprochement avec PISA suggère un lien de cause jamais établi.",
+          "references": [
+            "claim_0",
+            "lr_1",
+            "ia_0"
+          ]
+        },
+        {
+          "id": "wo_2",
+          "text": "L'idée que les interdictions de rassemblement visent à **réprimer la contestation** repose sur une seule avocate du collectif. Aucune préfecture n'y répond.",
+          "references": [
+            "ia_3",
+            "obs_2",
+            "claim_3"
+          ]
+        },
+        {
+          "id": "wo_3",
+          "text": "Les lycéens blessés sont **nommés, avec leur âge**, alors que les policiers blessés ne sont qu'un chiffre cité une fois. Ce déséquilibre pèse sur votre perception de la violence.",
+          "references": [
+            "bias_0",
+            "er_0",
+            "bs_0"
+          ]
+        },
+        {
+          "id": "wo_4",
+          "text": "Deux témoignages, les messages reçus par le média et le mot **« génération »** donnent l'impression d'un mouvement unanime. Les lycéens non mobilisés n'apparaissent pas.",
+          "references": [
+            "bias_1",
+            "ia_2",
+            "lr_2"
+          ]
+        },
+        {
+          "id": "wo_5",
+          "text": "Le mouvement est présenté comme **apolitique**, mais le reportage s'ouvre et se ferme sur **l'élection présidentielle**.",
+          "references": [
+            "pr_1",
+            "obs_1",
+            "cb_0"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Demandez-vous si **deux parcours**, même forts, suffisent à décrire l'état de tout un système éducatif.",
+      "Cherchez ce que disent les **chiffres officiels du budget** de l'Éducation nationale avant de trancher sur le manque de moyens.",
+      "Gardez en tête que les **autorités mises en cause** n'ont presque pas répondu : leur silence dans le reportage n'est pas une absence d'arguments.",
+      "Comparez avec une source qui confronte **manifestants et policiers** pour juger de l'ampleur de la répression."
+    ],
+    "title_note": "Le titre annonce une **rupture totale** sans préciser ce qui bascule ; vérifiez à la fin si le reportage tient cette promesse.",
+    "perspective": {
+      "framing": "Le reportage raconte le mouvement **à hauteur de lycéens**, à la première personne, en suivant Fanny à Nantes et Bilel à Saint-Denis jusque dans leurs familles. Il alterne scènes intimes et chiffres nationaux, sur un registre d'**éveil historique** et d'indignation face aux blessures.",
+      "blind_spots": "La **parole policière et préfectorale** est absente, notamment sur les interdictions et les blessures. Les **causes de la baisse de niveau** autres que les moyens, et le budget réel de l'Éducation nationale, ne sont pas abordés.",
+      "balance": "Un reportage d'immersion choisit par nature **un point de vue** et ne peut pas donner la même place à chaque camp. Les absences relevées sont réelles, mais elles tiennent d'abord au genre : ce format sert à **faire entendre des voix peu entendues**, pas à arbitrer le débat."
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "La cause revendiquée du mouvement, le manque de moyens, est **le volet le moins sourcé** : un chiffre sans origine et une juxtaposition avec PISA suggèrent un lien jamais établi. Les chiffres les plus solides portent sur la répression et viennent **de l'autorité mise en cause** : la rigueur des sources suit l'ordre inverse de l'argument.",
+        "references": [
+          "claim_0",
+          "lr_0",
+          "lr_1",
+          "claim_2",
+          "ia_0",
+          "claim_1",
+          "lr_3",
+          "pr_0"
+        ]
+      },
+      {
+        "text": "La thèse d'interdictions destinées à **réprimer la contestation** ne repose que sur une avocate du collectif. Son propos est une **intention présentée comme un fait**, et aucune préfecture n'y répond : la thèse la plus forte est aussi la moins sourcée.",
+        "references": [
+          "ia_3",
+          "obs_2",
+          "claim_3"
+        ]
+      },
+      {
+        "text": "Le procédé qui porte l'indignation, des **mineurs blessés désignés par prénom et âge**, est aussi celui que l'éthique signale, faute de consentement mentionné. Il n'est pas replacé dans le débat sur le LBD déjà ouvert par le Défenseur des droits : **efficacité émotionnelle et prudence déontologique** se jouent sur le même passage.",
+        "references": [
+          "bias_0",
+          "er_0",
+          "obs_4"
+        ]
+      },
+      {
+        "text": "La **parole policière est absente**, et l'accumulation de blessures nommées occupe ce vide. Ce déséquilibre nourrit la critique du maintien de l'ordre : **le silence d'un camp fait la force émotionnelle de l'autre**.",
+        "references": [
+          "bs_0",
+          "er_0",
+          "bias_0",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "Deux lycéens choisis, les messages reçus par le média et le mot **« génération »** dessinent un mouvement unanime. Le récit d'un **éveil historique** repose sur un échantillon que rien ne permet d'étendre.",
+        "references": [
+          "pr_3",
+          "lr_2",
+          "ia_2",
+          "bias_1",
+          "bias_2",
+          "er_1"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quelle part du recul du niveau scolaire tient réellement aux **moyens alloués** à l'éducation ?",
+      "Comment les forces de l'ordre et les préfectures expliquent-elles les **interventions ayant blessé des lycéens** ?",
+      "Quelle proportion des lycéens **participe ou adhère** effectivement au mouvement ?"
+    ]
+  }
+}

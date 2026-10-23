@@ -1,0 +1,70 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Gardez en tête que la vidéo réunit six pays sous un même récit générationnel : **chaque mobilisation a ses propres causes**, à chercher derrière le symbole commun.",
+      "Repérez quand un **chiffre ou une hypothèse** arrive sans date ni source, et qui le formule.",
+      "Demandez-vous, à chaque pays évoqué, **qui a pris le pouvoir** après la chute du gouvernement."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "wo_0",
+          "text": "Le récit suggère qu'**un gouvernement renversé rend la parole aux citoyens**, sans jamais le dire. Les issues qu'il mentionne lui-même montrent que **d'autres acteurs ont pris la suite**.",
+          "references": [
+            "ia_2",
+            "obs_3",
+            "er_1"
+          ]
+        },
+        {
+          "id": "wo_1",
+          "text": "Le vote en ligne au Népal est décrit **par les seuls manifestants, sans chiffre de participation**. Sa portée démocratique reste donc à vérifier.",
+          "references": [
+            "ia_0",
+            "lr_2",
+            "bias_2"
+          ]
+        },
+        {
+          "id": "wo_2",
+          "text": "Le titre présente le phénomène comme une **naissance**, alors que la vidéo cite des **mobilisations comparables de 2022 à 2024**. Ces précédents sont la meilleure indication de ce que deviennent ces victoires.",
+          "references": [
+            "claim_2",
+            "lr_1",
+            "bs_0"
+          ]
+        },
+        {
+          "id": "wo_3",
+          "text": "Un **symbole partagé** et des dates proches ne suffisent pas à faire un mouvement coordonné. Les **causes nationales** (stades au Maroc, censure au Népal) méritent d'être regardées une par une.",
+          "references": [
+            "lr_0",
+            "ia_3",
+            "obs_4"
+          ]
+        },
+        {
+          "id": "wo_4",
+          "text": "Les bilans de la répression ne sont **ni datés ni sourcés**, et le chiffre népalais a depuis été **largement dépassé**. Comparez-les avec un décompte plus récent.",
+          "references": [
+            "claim_0",
+            "er_0",
+            "obs_1"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Cherchez ce que sont devenues les **revendications du Sri Lanka, du Kenya et du Bangladesh** quelques années après la chute des gouvernements.",
+      "Distinguez ce que la vidéo montre bien, **la manière dont ces jeunes s'organisent**, de ce qu'elle ne montre pas, **ce qu'ils ont obtenu**.",
+      "Notez que les gouvernements mis en cause **ne s'expriment jamais** : leur version reste à trouver ailleurs.",
+      "Retenez la question de la manifestante malgache : un **nouveau premier ministre** n'est pas forcément un **changement de système**."
+    ],
+    "title_note": null,
+    "perspective": {
+      "framing": "Le reportage suit **une génération en marche** à travers six pays, réunie par le smartphone, Discord et le drapeau One Piece. Il adopte le point de vue des manifestants, sur un **registre d'espoir**, et place au centre leurs **outils d'organisation**.",
+      "blind_spots": "Les **suites des mobilisations** sont presque absentes : ce qui s'est passé après le Sri Lanka ou le Bangladesh, et la prise du pouvoir par un colonel à Madagascar. Les **gouvernements visés** et les **chiffres de participation** manquent aussi.",
+      "balance": "Un reportage vidéo centré sur le terrain ne peut pas suivre chaque pays dans la durée, et son choix de **donner la parole aux manifestants** est légitime. Les limites relevées tiennent surtout au passage de ces témoignages à un **récit mondial**, qui demande plus de preuves que le format n'en apporte."
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "reading_beats": [
+    {
+      "moment": "Passer le bac de maths sans prof de maths",
+      "quote": "Il y en a qui passent le bac de maths sans prof de maths.",
+      "quote_original": "",
+      "lens_ref": "sources",
+      "factcheck": "",
+      "selected": false,
+      "theme": "Moyens : professeurs non remplacés",
+      "centrality": 3,
+      "kind": "fait",
+      "role": "mise en scène",
+      "spine_ref": 1,
+      "axis_link": "",
+      "rationale": "Premier témoignage, ouvre le manque de moyens par un cas concret"
+    },
+    {
+      "moment": "Les élèves de banlieue se disent laissés à l'abandon",
+      "quote": "On est laissé à l'abandon comme si nous les enfants de banlieue on comptait pas.",
+      "quote_original": "",
+      "lens_ref": "sophismes",
+      "factcheck": "",
+      "selected": true,
+      "theme": "Inégalités : la banlieue délaissée",
+      "centrality": 4,
+      "kind": "affirmation",
+      "role": "appui",
+      "spine_ref": 2,
+      "axis_link": "Montre que la demande de moyens se vit comme un abandon propre à la banlieue, assez fort pour pousser les lycéens vers la rue.",
+      "rationale": "Une voix porte tout le constat d'inégalité, à mesurer"
+    },
+    {
+      "moment": "Médias : les poubelles brûlées avant les élèves",
+      "quote": "les médias […] s'intéressent seulement […] quand il y a des poubelles brûlées",
+      "quote_original": "",
+      "lens_ref": "cadrage",
+      "factcheck": "",
+      "selected": true,
+      "theme": "Écoute : les médias",
+      "centrality": 4,
+      "kind": "enjeu",
+      "role": "pivot",
+      "spine_ref": 3,
+      "axis_link": "Les lycéens y disent pourquoi la rue : seul ce qui dérange attire l'attention, ce que l'enjeu met en cause.",
+      "rationale": "Dit que seule la rue, et ses débordements, attire l'attention"
+    },
+    {
+      "moment": "Apolitique : affilié à aucun syndicat étudiant",
+      "quote": "Certes, c'est de la politique mais quand je dis apolitique c'est on n'est pas affilié à l'UNEF […]",
+      "quote_original": "",
+      "lens_ref": "opinion_fait",
+      "factcheck": "",
+      "selected": false,
+      "theme": "Cadrage : un mouvement dit apolitique",
+      "centrality": 3,
+      "kind": "biais",
+      "role": "concession",
+      "spine_ref": 3,
+      "axis_link": "",
+      "rationale": "Le mouvement se définit hors des syndicats, tout en restant politique"
+    },
+    {
+      "moment": "Des années d'alertes des profs, puis des coups",
+      "quote": "Qu'on leur tape dessus au lieu de les écouter alors que ça fait des années qu'on dénonce […]",
+      "quote_original": "",
+      "lens_ref": "equilibre",
+      "factcheck": "",
+      "selected": true,
+      "theme": "Écoute : des alertes restées sans réponse",
+      "centrality": 5,
+      "kind": "enjeu",
+      "role": "appui",
+      "spine_ref": 1,
+      "axis_link": "Montre que des alertes portées depuis des années par les professeurs n'ont pas été entendues avant que les lycéens descendent dans la rue.",
+      "rationale": "Relie l'écoute absente et la réponse par la force"
+    },
+    {
+      "moment": "Plus de 30 élèves par classe dans 70 % des cas",
+      "quote": "On compte plus de 30 élèves par classe dans 70 % des cas.",
+      "quote_original": "",
+      "lens_ref": "chiffres",
+      "factcheck": "disputed",
+      "selected": false,
+      "theme": "Moyens : classes surchargées",
+      "centrality": 4,
+      "kind": "statistique",
+      "role": "preuve",
+      "spine_ref": 1,
+      "axis_link": "Montre sur quel chiffre repose la demande de moyens que les lycéens portent dans la rue, et ce qu'il faudrait savoir pour la juger.",
+      "rationale": "Chiffre clé donné sans source ni périmètre"
+    },
+    {
+      "moment": "6 800 interpellations, dont 85 % de mineurs",
+      "quote": "selon le ministère de l'Intérieur, plus de 6800 personnes ont été interpellées, dont 85 % de mineurs.",
+      "quote_original": "",
+      "lens_ref": "chiffres",
+      "factcheck": "likely true",
+      "selected": false,
+      "theme": "Répression : la réponse pénale",
+      "centrality": 5,
+      "kind": "statistique",
+      "role": "preuve",
+      "spine_ref": 3,
+      "axis_link": "",
+      "rationale": "Mesure l'ampleur de la réponse de l'État à la rue"
+    },
+    {
+      "moment": "Les lycéens portent l'école dans la présidentielle",
+      "quote": "À quelques mois de l'élection présidentielle, les lycéens remettent ces questions au cœur des débats.",
+      "quote_original": "",
+      "lens_ref": "cadrage",
+      "factcheck": "",
+      "selected": false,
+      "theme": "Cadrage : un mouvement relié à l'élection",
+      "centrality": 3,
+      "kind": "biais",
+      "role": "mise en scène",
+      "spine_ref": 3,
+      "axis_link": "",
+      "rationale": "La clôture relie un mouvement dit apolitique à l'élection"
+    }
+  ],
+  "core_recap": [
+    "Ses présupposés : Le témoignage d'une élève vaut pour tous les lycées de banlieue ; Seul ce qui dérange obtient l'attention des médias ; Les interdictions de rassemblement visent la contestation, pas les violences"
+  ],
+  "steel_man": {
+    "argument": "Avec **700 policiers blessés** et des tirs de mortiers, la police répond à des **violences**, pas aux revendications.",
+    "alternative": "La réponse de l'État relève de l'ordre public, contestable dans ses excès.",
+    "targets": 3
+  }
+}

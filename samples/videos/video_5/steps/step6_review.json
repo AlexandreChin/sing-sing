@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "Les **témoignages de manifestants** dans six pays donnent un accès direct au terrain. En revanche, les bilans chiffrés ne sont **ni datés ni sourcés** (c1), et les experts restent **anonymes**, y compris celui qui avance l'hypothèse d'un « doudou numérique » (e2). Sushila Karki est la seule responsable politique à parler, et les gouvernements visés ne s'expriment jamais.",
+        "lesson": "Vérifier qui avance chaque chiffre et chaque hypothèse avant de leur accorder du poids."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "La **suspension des 26 plateformes** au Népal est documentée (c4, confiance 85). Mais le bilan « au moins 19 morts » est **largement dépassé** par les chiffres publiés ensuite (plus de 70). La tranche d'âge « entre 13 et 26 ans » s'écarte de la définition courante (c2, confiance 40), et la « première mondiale » est une **opinion présentée comme un fait** (c3, confiance 30).",
+        "lesson": "Comparer tout bilan de crise avec un décompte plus récent, car les premiers chiffres sont souvent provisoires."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "La vidéo pose un risque cohérent : sans chef, le mouvement résiste mieux à la répression mais peut **se faire confisquer sa victoire**. Mais elle tire un **mouvement mondial** d'une simple simultanéité et d'un drapeau partagé, et elle déduit une démocratie « plus horizontale » d'un **vote sur Discord** sans chiffres de participation (logical_reasoning 0 et 2).",
+        "lesson": "Distinguer des événements simultanés d'un mouvement coordonné : demander ce qui relie les causes, pas seulement les images."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "La vidéo concède elle-même que la génération **n'est pas homogène**, ce qui signale une limite de son cadre. Mais elle ne dit jamais que la **désignation par Discord** suppose qu'un vote en ligne représente les citoyens (implicit_assumptions 0). Elle tient aussi pour acquis qu'une **chute de gouvernement** redonne une place aux citoyens (implicit_assumptions 2).",
+        "lesson": "Repérer ce que le récit tient pour acquis et se demander ce qui changerait si ce n'était pas vrai."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Les précédents du Sri Lanka, du Kenya et du Bangladesh sont cités en une phrase, **sans ce qui a suivi**. La **prise du pouvoir par un colonel** à Madagascar est résumée par « temporaire ». Plusieurs séquences portent sur Discord et One Piece, alors que les **débouchés institutionnels** tiennent en quelques phrases (emphasis).",
+        "lesson": "Chercher ce que sont devenues des mobilisations comparables quelques années plus tard avant de juger de leur portée."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Les manifestants s'expriment longuement, et leur fonctionnement est décrit par eux-mêmes **sans regard extérieur** (b3). Les pouvoirs sont accusés de corruption **sans droit de réponse** (e1). Le qualificatif **« pacifiques »** cadre la répression avant les bilans (b1).",
+        "lesson": "Noter quelles parties parlent elles-mêmes et lesquelles ne sont décrites que par leurs adversaires."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "Le récit s'ordonne autour d'une question lisible, **la place des citoyens dans le pouvoir**, et passe pays par pays. Des objets concrets comme le smartphone, Discord et le drapeau One Piece ancrent le propos. Le titre en revanche joue sur une **métaphore** (« génération en feu ») et un **présupposé de nouveauté** (« naissance ») que le corps du reportage dément en partie.",
+        "lesson": "Confronter les mots du titre à ce que le reportage montre réellement."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "Rapprocher six pays et s'intéresser aux **outils d'organisation** donne un angle utile. La manifestante malgache qui distingue un « nouveau premier ministre » d'un **« changement de système »** pose une vraie question. Mais l'angle générationnel efface les **griefs nationaux** (stades au Maroc, censure au Népal) et laisse de côté les issues (observations « Issue » et « Déclencheurs »).",
+        "lesson": "Se demander, face à un récit qui regroupe plusieurs pays, ce que chaque cas aurait raconté seul."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Un lecteur qui découvre les mobilisations de 2025 en Asie, en Afrique et en Amérique latine et veut voir de près comment les jeunes s'y organisent, à condition de chercher ailleurs ce qu'elles ont produit.",
+      "payoff": "La vidéo montre bien comment ces mouvements **s'organisent et se reconnaissent**, à travers les témoignages de six pays. Elle laisse au lecteur le soin de vérifier **ce qu'ils ont obtenu**, car le récit générationnel passe vite sur les chiffres, les participants et les suites.",
+      "signature_move": "Le reportage **enchaîne des témoignages de rue** de six pays sous un même symbole, le drapeau One Piece, pour composer **une seule génération en marche**.",
+      "main_blind_side": "L'absence de **ce qui a suivi** au Sri Lanka, au Bangladesh ou à Madagascar montre un récit centré sur l'élan du mouvement plutôt que sur qui prend le pouvoir après sa victoire.",
+      "further_resource": {
+        "title": "Twitter and Tear Gas: The Power and Fragility of Networked Protest",
+        "source": "Zeynep Tufekci, Yale University Press (2017)",
+        "media_type": "book",
+        "why_explore": "L'autrice analyse pourquoi les mouvements organisés en réseau, sans chef, mobilisent vite mais peinent à peser sur la suite, exactement la tension que la vidéo effleure.",
+        "url": "https://www.twitterandteargas.org/"
+      },
+      "summary": "À voir avec réserves : la vidéo donne un accès vivant aux manifestants de six pays et à leurs outils, mais elle les fond dans un seul récit générationnel. Pour juger ce que ces mouvements ont changé, il faut chercher ailleurs les chiffres de participation et ce qui a suivi."
+    }
+  }
+}

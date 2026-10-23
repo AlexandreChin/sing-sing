@@ -1,0 +1,29 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "e1",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Et surtout ils et elles veulent faire le ménage dans des classes politiques très corrompues.",
+        "explanation": "La voix off affirme une **corruption** des gouvernements visés sans **aucune réponse** de leur part."
+      },
+      {
+        "id": "e2",
+        "category": "stereotyping",
+        "label": "Stereotyping",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "c'est comme si c'était un peu un doudu numérique qui remplaçait peut-être un manque affectif à la maison.",
+        "explanation": "Un expert anonyme attribue à toute une génération un **manque affectif familial**, sans appui dans le reportage."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Solliciter la réponse des gouvernements accusés de corruption et identifier l'expert qui avance l'hypothèse d'un manque affectif, ou la retirer."
+    },
+    "summary": "La déontologie n'est pas entièrement nette : aucune violation, mais **deux points de vigilance** mineurs. Le premier est une **accusation de corruption** sans droit de réponse, le second une **généralisation réductrice** sur la Génération Z."
+  }
+}

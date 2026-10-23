@@ -1,0 +1,24 @@
+{
+  "thesis_frame": {
+    "main_claim": "Un mouvement lycéen révèle une école publique inégalitaire, à laquelle l'État répond par la répression plutôt que par l'écoute.",
+    "out_of_scope": [
+      "Les méthodes pédagogiques et le contenu des programmes scolaires",
+      "Le financement et la place de l'enseignement privé",
+      "Les programmes des candidats à la présidentielle de 2027"
+    ]
+  },
+  "root_issue": "La capacité d'une démocratie à donner suite aux demandes de ses citoyens sans qu'ils aient à descendre dans la **rue**.",
+  "engagement_sentence": "Qu'est-ce qui pousse des lycéens à se tourner vers la **rue** plutôt que vers leurs délégués et leurs syndicats ?",
+  "engagement_sentence_alt": [],
+  "essentiel": [
+    "Des lycées sans **moyens** : classes à 35, profs absents, murs délabrés",
+    "Un manque inégal : les lycées de **banlieue** se disent laissés à l'abandon",
+    "Des lycéens non **écoutés** : la rue, puis 6 800 interpellations"
+  ],
+  "headline": "Lycées sans moyens, élèves réprimés plutôt qu'écoutés",
+  "headline_alt": [
+    "Des élèves privés de moyens, que l'État n'écoute pas",
+    "Une école inégale, une jeunesse sans voix",
+    "Le manque de moyens, puis la répression"
+  ]
+}

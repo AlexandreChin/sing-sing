@@ -1,0 +1,29 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "e1",
+        "category": "victim_exploitation",
+        "label": "Victim Exploitation",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "Maël, 16 ans, a perdu l'usage de son œil après un tir compatible à celui d'un LBD. Eden, âgé de 14 ans, a eu la mâchoire fracturée après un tir de grenade de gaz lacrymogène.",
+        "explanation": "Des **mineurs blessés** sont désignés par prénom et âge, sans mention de leur consentement ni de celui de leurs parents."
+      },
+      {
+        "id": "e2",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Donc il y a beaucoup de choses comme ça, c'est-à-dire beaucoup d'infractions qui sont en fait des euh créées pour venir réprimer. Ce que veut faire le gouvernement, c'est essayer de passer l'envie à toute cette génération de se remobiliser.",
+        "explanation": "L'avocate prête une **intention répressive** au gouvernement. Ni le ministère de l'Intérieur ni une préfecture n'y répondent."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Préciser le consentement pour les mineurs blessés nommés et solliciter le ministère de l'Intérieur sur les arrêtés et les interpellations."
+    },
+    "summary": "Aucune violation déontologique caractérisée n'a été relevée. Deux points appellent la prudence : des **mineurs blessés nommés** et une **accusation d'intention** visant le gouvernement, sans réponse du ministère de l'Intérieur."
+  }
+}

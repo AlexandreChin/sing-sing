@@ -1,0 +1,73 @@
+{
+  "emotional_register": [
+    {
+      "id": "er1",
+      "emotion": "indignation",
+      "how": "La vidéo **enchaîne les bilans** de morts et d'arrestations pays par pays, juste après avoir qualifié les manifestations de **« pacifiques »**.",
+      "effect": "Le spectateur est porté à voir dans les pouvoirs visés des **régimes répressifs** face à une jeunesse sans arme.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "plus de 70 morts, bien au-delà des « au moins 19 » cités",
+        "strength": 0.7,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "er2",
+      "emotion": "espoir",
+      "how": "Des formules comme **« souvent victorieuse »**, **« première mondiale »** et la liste des gouvernements tombés se succèdent dès l'ouverture.",
+      "effect": "Le spectateur est préparé à voir dans ces mobilisations **l'invention d'une autre démocratie** plutôt qu'une série de crises locales.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "Depuis 2022, des mobilisations de jeunes ont déjà renversé des dirigeants",
+        "strength": 0.6,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "cb1",
+      "beneficiary": "Les mouvements GenZ et leurs porte-paroles",
+      "explanation": "Réunir des colères nationales sous **une seule génération mondiale** leur donne un poids que chaque mouvement n'a pas seul. Leurs témoignages passent **sans contradiction** de la part des gouvernements visés.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "dépenses pour les stades de la Coupe du monde 2030 à l'état des hôpitaux publics",
+        "strength": 0.6,
+        "nature": "specification"
+      }
+    },
+    {
+      "id": "cb2",
+      "beneficiary": "L'idée d'une démocratie numérique et horizontale",
+      "explanation": "Le vote sur Discord est présenté comme une **désignation par le peuple**, sans chiffre de participation. Le profil de la personne choisie, **ancienne présidente de la Cour suprême**, et l'annonce d'élections classiques restent hors du récit.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 1,
+        "excerpt": "ancienne présidente de la Cour suprême ; élections annoncées pour mars 2026",
+        "strength": 0.8,
+        "nature": "contradiction"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Présupposé",
+        "observation": "« Naissance » pose un phénomène nouveau, alors que la vidéo cite des précédents depuis 2022."
+      },
+      {
+        "label": "Métaphore",
+        "observation": "« Génération en feu » fond des mobilisations nationales distinctes en une seule génération embrasée."
+      },
+      {
+        "label": "Généralisation",
+        "observation": "« La GenZ » désigne toute une classe d'âge, quand la vidéo la dit non homogène."
+      }
+    ],
+    "body": "La vidéo présente les mobilisations de 2025 comme **une même vague générationnelle**, de l'Indonésie au Pérou. Elle met au centre les **outils et les symboles** du mouvement : smartphone, Discord, drapeau One Piece. La parole revient surtout aux **manifestants** et à des experts non nommés, dans un registre proche des jeunes mobilisés. Le récit s'ordonne autour de la question de la **place des citoyens dans le pouvoir**."
+  }
+}

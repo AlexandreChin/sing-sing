@@ -1,0 +1,221 @@
+{
+  "article_type": "news_report",
+  "key_claims": [
+    {
+      "quote": "Un mort et plus de 100 blessés à Lima, au moins 19 morts au Népal, 22 morts à Madagascar, tr morts et un millier d'arrestations au Maroc.",
+      "source": "Voix off ARTE",
+      "type": "statistical"
+    },
+    {
+      "quote": "le 21 septembre aux Philippines où parmi 200 interpellés, la moitié était mineure.",
+      "source": "Voix off ARTE",
+      "type": "statistical"
+    },
+    {
+      "quote": "Mais ces manifestations pacifiques reçoivent quasi systématiquement une réponse violente.",
+      "source": "Voix off ARTE",
+      "type": "factual"
+    },
+    {
+      "quote": "Ce qui explique que même au Népal où 26 plateformes numériques ont été suspendu, ils ont pris de vitesse les autorités pour descendre dans la rue.",
+      "source": "Voix off ARTE",
+      "type": "factual"
+    },
+    {
+      "quote": "C'est quand même euh une sorte de première mondiale où ce type de mouvement plutôt global, local, horizontal arrive à porter aussi loin la critique du pouvoir",
+      "source": "Intervenant non identifié dans la transcription",
+      "type": "attributed"
+    },
+    {
+      "quote": "D'ailleurs, c'est sur Discord que le mouvement JZ Népal s'est accordé pour proposer le nom de la future première ministre.",
+      "source": "Voix off ARTE",
+      "type": "factual"
+    },
+    {
+      "quote": "Le principal point commun de ces jeunes à travers le monde, c'est leur usage immodéré et très habile du smartphone",
+      "source": "Voix off ARTE",
+      "type": "factual"
+    },
+    {
+      "quote": "C'est un choix pour différentes raisons, pour des raisons de valeur très certainement, mais aussi pour des raisons de sécurité pour le mouvement.",
+      "source": "Intervenant non identifié dans la transcription",
+      "type": "attributed"
+    },
+    {
+      "quote": "Un nouveau premier ministre, c'est pas un nouveau premier ministre qu'on veut, c'est un changement de système.",
+      "source": "Manifestant malgache",
+      "type": "testimonial"
+    },
+    {
+      "quote": "Lorsque nous prenons une décision, nous en discutons et votons sur notre plateforme. La majorité l'emporte et nous suivons collectivement cette décision.",
+      "source": "Membre de la Gen Z népalaise",
+      "type": "testimonial"
+    },
+    {
+      "quote": "One Piece, le manga le plus vendu de l'histoire.",
+      "source": "Voix off ARTE",
+      "type": "factual"
+    }
+  ],
+  "key_quotes": [
+    "Dans des pays où voter ne suffit plus, la GenZ chercher à inventer d’autres formes de démocratie, plus numériques, plus horizontales.",
+    "Et pose une question essentielle : comment redonner une place réelle aux citoyens dans le pouvoir ?",
+    "Mais jusqu'où peuvent-ils aller ? dans un monde politique et institutionnel à l'ancienne.",
+    "On en a assez de la classe politique. On en a assez qui nous prennent pour des imbéciles. Ils sont corrompus.",
+    "Il revendique également une concordance, une cohérence entre le discours et l'action.",
+    "En ce qui concerne la génération Z, nous n'avons pas de chef. Chaque personne fait partie du peuple et chacun est le leader de soi-même.",
+    "Mais le risque c'est de se faire confisquer la victoire par d'anciennes castes politiques qui attendaient justement leur tour.",
+    "Un nouveau premier ministre, c'est pas un nouveau premier ministre qu'on veut, c'est un changement de système.",
+    "Je ne suis pas ici parce que je le souhaite.",
+    "Que donneront ces mobilisations à l'avenir ? Reprise par les élites, rupture systémiques, tout reste à écrire.",
+    "Bref, il se bat pour exister politiquement."
+  ],
+  "key_actors": [
+    {
+      "name": "Génération Z (GenZ)",
+      "role": "Jeunes de 13 à 26 ans mobilisés dans plusieurs pays contre la corruption et les inégalités"
+    },
+    {
+      "name": "Mouvement Gen Z Népal",
+      "role": "Collectif qui a désigné sur Discord la Première ministre par intérim"
+    },
+    {
+      "name": "Sushila Karki (« madame Soucila Kar » dans la transcription)",
+      "role": "Première ministre par intérim du Népal, proposée par le mouvement"
+    },
+    {
+      "name": "Collectif « Jens 212 » (GenZ 212)",
+      "role": "Collectif à l'origine des protestations au Maroc"
+    },
+    {
+      "name": "Armée malgache",
+      "role": "Soutien initial des manifestants, puis prise temporaire de la présidence"
+    },
+    {
+      "name": "Manifestants (Pérou, Maroc, Madagascar, Népal)",
+      "role": "Témoins interrogés dans la rue"
+    },
+    {
+      "name": "Intervenants experts non identifiés",
+      "role": "Analysent la nouveauté du mouvement, l'usage du numérique et l'absence de leader"
+    },
+    {
+      "name": "ARTE",
+      "role": "Producteur de la vidéo « Décryptage »"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Intervenant expert non nommé",
+      "used_for": "Affirmer que le mouvement est « une sorte de première mondiale » capable de faire tomber des gouvernements"
+    },
+    {
+      "entity": "Intervenant expert non nommé",
+      "used_for": "Expliquer le rapport des jeunes au smartphone et leur besoin d'appartenance collective"
+    },
+    {
+      "entity": "Intervenant expert non nommé",
+      "used_for": "Justifier l'absence de leader par des raisons de valeur et de sécurité"
+    },
+    {
+      "entity": "Sushila Karki",
+      "used_for": "Montrer que la personne désignée par le mouvement est alignée sur ses valeurs"
+    },
+    {
+      "entity": "One Piece, « le manga le plus vendu de l'histoire »",
+      "used_for": "Donner une portée mondiale au symbole commun des manifestants"
+    }
+  ],
+  "notable_omissions": [
+    "Les **experts interrogés ne sont ni nommés ni présentés** dans la transcription : le spectateur ne sait pas d'où ils parlent.",
+    "**Aucun représentant des gouvernements** visés ne donne sa version.",
+    "Le nombre de participants aux **votes sur Discord** n'est pas donné : on ignore **qui décide** réellement.",
+    "Les **suites des mobilisations de 2022 à 2024** (Sri Lanka, Kenya, Bangladesh) ne sont pas décrites, alors qu'elles éclairent l'issue possible.",
+    "Aucun bilan n'est donné pour l'**Indonésie et les Philippines**, et les bilans cités ne sont pas datés ni sourcés.",
+    "Les **déclencheurs précis** de chaque mobilisation (allocations des députés indonésiens, scandale des digues aux Philippines, réforme des retraites au Pérou) sont peu ou pas détaillés."
+  ],
+  "rhetorical_patterns": [
+    "**Énumération rapide de pays** et de dates qui construit l'image d'une **vague mondiale unique**.",
+    "Usage répété du **vocabulaire du feu et de la colère** (« génération en feu », « colère », « incendie »).",
+    "Alternance de **témoignages de rue** et d'analyses d'experts anonymes, sans contradiction entre eux.",
+    "Comparaisons historiques posées en ouverture (**Mai 68, printemps arabes**) pour situer le mouvement.",
+    "Le symbole **One Piece** sert de fil narratif reliant des contextes nationaux très différents.",
+    "Une **question ouverte** clôt la vidéo et l'introduction : « comment redonner une place réelle aux citoyens dans le pouvoir ? »"
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx1",
+        "text": "Depuis 2022, des mobilisations de jeunes ont déjà **renversé des dirigeants** au Sri Lanka (2022) et au Bangladesh (2024), et fait **retirer un projet de loi de finances** au Kenya (2024)."
+      },
+      {
+        "id": "ctx2",
+        "text": "Au Népal, la **suspension de 26 réseaux sociaux** début septembre 2025 a déclenché les manifestations qui ont conduit à la **démission du Premier ministre K. P. Sharma Oli**."
+      },
+      {
+        "id": "ctx3",
+        "text": "À Madagascar, des manifestations contre les **coupures d'eau et d'électricité** ont abouti en octobre 2025 à la fuite du président Andry Rajoelina et à la **prise du pouvoir par un colonel**, Michael Randrianirina."
+      },
+      {
+        "id": "ctx4",
+        "text": "Au Maroc, GenZ 212 a opposé les **dépenses pour les stades** de la Coupe du monde 2030 à l'état des **hôpitaux publics**."
+      }
+    ],
+    "who_is_speaking": [
+      "**ARTE** est une chaîne culturelle **publique franco-allemande**, financée par les ressources publiques de l'audiovisuel des deux pays.",
+      "La vidéo relève du format court **« Décryptage »**, diffusé sur YouTube, sans auteur signé.",
+      "Les experts qui commentent ne sont **pas identifiés** dans la transcription ; leurs titres et disciplines restent inconnus du lecteur."
+    ],
+    "important_facts": [
+      {
+        "id": "fact1",
+        "text": "Au Népal, les **bilans ultérieurs** font état de **plus de 70 morts**, bien au-delà des « au moins 19 » cités."
+      },
+      {
+        "id": "fact2",
+        "text": "Sushila Karki, **ancienne présidente de la Cour suprême**, est la **première femme** à diriger le gouvernement népalais ; des élections ont été annoncées pour **mars 2026**."
+      },
+      {
+        "id": "fact3",
+        "text": "Le centre de recherche Pew définit la Génération Z comme les personnes **nées entre 1997 et 2012**, soit **13 à 28 ans** en 2025."
+      },
+      {
+        "id": "fact4",
+        "text": "Au Pérou, le Congrès a **destitué la présidente Dina Boluarte** le 10 octobre 2025, remplacée par **José Jerí**, président du Congrès."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "Génération Z",
+        "definition": "Les personnes nées à la fin des années 1990 et au début des années 2010, qui ont grandi avec Internet."
+      },
+      {
+        "term": "Discord",
+        "definition": "Une application de discussion en groupes, organisée en salons, où l'on peut écrire, parler et voter."
+      },
+      {
+        "term": "Telegram",
+        "definition": "Une messagerie qui permet de créer de grands groupes et des canaux de diffusion, avec des options de chiffrement."
+      },
+      {
+        "term": "One Piece",
+        "definition": "Un manga japonais d'Eiichiro Oda sur une bande de pirates qui affronte des pouvoirs corrompus ; son drapeau à tête de mort est devenu un signe de ralliement."
+      },
+      {
+        "term": "Loi martiale",
+        "definition": "Un régime d'exception où l'armée prend en charge l'ordre public et où certaines libertés sont suspendues."
+      },
+      {
+        "term": "Horizontalité",
+        "definition": "Une organisation sans chef, où les décisions se prennent entre égaux."
+      },
+      {
+        "term": "212",
+        "definition": "L'indicatif téléphonique du Maroc, repris dans le nom du collectif GenZ 212."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "<extra_instructions>"
+  }
+}

@@ -1,0 +1,289 @@
+{
+  "article_type": "news_report",
+  "key_claims": [
+    {
+      "quote": "En une semaine, plus de 400 lycées et 27 universités se retrouvent donc à l'arrêt.",
+      "source": "Hugo Décrypte (narration)",
+      "type": "statistical"
+    },
+    {
+      "quote": "Selon le dernier classement international PISA, le niveau scolaire des élèves français n'a jamais été aussi bas depuis le lancement de l'enquête en 2000.",
+      "source": "Classement PISA",
+      "type": "statistical"
+    },
+    {
+      "quote": "Il intervient aussi à quelques mois d'une élection présidentielle, ça n'était jamais arrivé en France.",
+      "source": "Hugo Décrypte (narration)",
+      "type": "factual"
+    },
+    {
+      "quote": "Ils obtiennent alors du président de la République, François Mitterrand, un plan d'urgence à hauteur de 4,5 milliards de francs.",
+      "source": "Hugo Décrypte (narration)",
+      "type": "factual"
+    },
+    {
+      "quote": "le lycée Paul Eluard est classé 2282e sur 2295 lycées généraux.",
+      "source": "Résultats nationaux du baccalauréat",
+      "type": "statistical"
+    },
+    {
+      "quote": "En France, au total, plus de 250000 jeunes défilent selon le ministère de l'Intérieur, plus de 450000 selon les syndicats.",
+      "source": "Ministère de l'Intérieur / syndicats",
+      "type": "statistical"
+    },
+    {
+      "quote": "On compte plus de 30 élèves par classe dans 70 % des cas.",
+      "source": "Hugo Décrypte (narration, source non précisée)",
+      "type": "statistical"
+    },
+    {
+      "quote": "le volume d'heures d'enseignement non assuré est de quasiment 10 % pour les établissements publics du second degré, c'est donc l'équivalent de 20 millions d'heures de cours non dispensées aux élèves l'an dernier.",
+      "source": "Hugo Décrypte (narration, source non précisée)",
+      "type": "statistical"
+    },
+    {
+      "quote": "85 personnels d'établissement, le chiffre a peut-être évolué hier, plus de 700 forces de l'ordre, plus de 215 élèves aussi euh blessés.",
+      "source": "Les autorités, citées par Hugo Décrypte",
+      "type": "statistical"
+    },
+    {
+      "quote": "Ce ne sont pas les lycéens qui sont violents au départ.",
+      "source": "Édouard Geffray, ministre de l'Éducation nationale",
+      "type": "attributed"
+    },
+    {
+      "quote": "Les instructions du gouvernement, enfin du ministère de l'Intérieur, très clairement, sont des instructions de proportionnalité.",
+      "source": "Édouard Geffray, ministre de l'Éducation nationale",
+      "type": "attributed"
+    },
+    {
+      "quote": "Au 14 octobre, selon le ministère de l'Intérieur, 36 procédures ont été ouvertes par l'IGPN, la police des polices, autant d'enquêtes en cours sur des violences policières contre des mineurs.",
+      "source": "Ministère de l'Intérieur",
+      "type": "statistical"
+    },
+    {
+      "quote": "Au 14 octobre, selon le ministère de l'Intérieur, plus de 6800 personnes ont été interpellées, dont 85 % de mineurs.",
+      "source": "Ministère de l'Intérieur",
+      "type": "statistical"
+    },
+    {
+      "quote": "sur la journée du 1er octobre, euh le chiffre était de 1945 interpellations.",
+      "source": "Romane Bartoli, avocate (collectif Action Judiciaire)",
+      "type": "attributed"
+    },
+    {
+      "quote": "Depuis vendredi dernier, sur ordre du ministre de l'Intérieur, euh de très nombreux préfets ont pris des arrêtés d'interdiction de rassemblement aux abords des établissements.",
+      "source": "Romane Bartoli, avocate",
+      "type": "legal"
+    },
+    {
+      "quote": "Le Haut-Commissariat aux droits de l'homme déclare suivre avec inquiétude les incidents liés aux manifestations en France et appelle à un usage proportionné de la force.",
+      "source": "Haut-Commissariat des Nations unies aux droits de l'homme",
+      "type": "attributed"
+    },
+    {
+      "quote": "Il est conçu pour 1000 élèves, aujourd'hui nous sommes 1800 dans ce lycée.",
+      "source": "Message d'un élève à Hugo Décrypte",
+      "type": "testimonial"
+    },
+    {
+      "quote": "L'année dernière, il y avait une camarade à moi qui n'avait pas de professeur de philo toute l'année.",
+      "source": "Bilel, 17 ans, lycée Paul Éluard",
+      "type": "testimonial"
+    }
+  ],
+  "key_quotes": [
+    "On est laissé à l'abandon comme si nous les enfants de banlieue on comptait pas.",
+    "C'est pas un mouvement de de gauche, de droite, d'extrême droite, d'extrême gauche. C'est un mouvement de lycéens.",
+    "Quand une classe est surchargée, c'est de la politique. Quand il manque des professeurs, c'est de la politique. Que Parcoursup détermine une partie de notre avenir, c'est de la politique.",
+    "Faire cours dans des classes surchargées avec 35 à 37 élèves, c'est violent.",
+    "Forcément, on condamne les violences. Mais nous, ce que condamne par-dessus tout, c'est la violence de l'État.",
+    "Quand tu as plus d'empathie pour une poubelle que pour un enfant, je pense qu'il faut se poser des questions, en fait.",
+    "Mais du coup nous on nous demande d'étudier pour un métier qui ça se trouve n'existera plus dans 10 ans en fait.",
+    "Certes, c'est de la politique mais quand je dis apolitique c'est on n'est pas affilié à l'UNEF, on n'est pas affilié à des groupuscules ou autres.",
+    "Qu'on leur tape dessus au lieu de les écouter alors que ça fait des années qu'on dénonce ce qu'ils sont tous en train de dénoncer.",
+    "nos lycéens et leurs revendications se sont retrouvés en fait noyautés et confisqués par des groupuscules qui étaient en fait pour en découdre.",
+    "Ce que veut faire le gouvernement, c'est essayer de passer l'envie à toute cette génération de se remobiliser.",
+    "Disons les choses, même au cœur de la crise des gilets jaunes, je n'avais jamais reçu autant de messages ou de vidéos en si peu de jours.",
+    "Sur les réseaux, on assiste à l'éveil démocratique d'une génération de lycéens."
+  ],
+  "key_actors": [
+    {
+      "name": "Hugo Travers (Hugo Décrypte)",
+      "role": "Journaliste-vidéaste, narrateur et intervieweur"
+    },
+    {
+      "name": "Fanny",
+      "role": "Lycéenne de 16 ans, représentante du lycée Jean-Perrin à Rezé (Nantes)"
+    },
+    {
+      "name": "Marie-Lou",
+      "role": "Sœur jumelle de Fanny, lycéenne"
+    },
+    {
+      "name": "Bilel",
+      "role": "Lycéen de 17 ans en terminale au lycée Paul Éluard à Saint-Denis"
+    },
+    {
+      "name": "Édouard Geffray",
+      "role": "Ministre de l'Éducation nationale"
+    },
+    {
+      "name": "Romane Bartoli",
+      "role": "Avocate de 28 ans, collectif Action Judiciaire"
+    },
+    {
+      "name": "Greta Thunberg",
+      "role": "Militante écologiste venue soutenir les élèves devant le lycée Paul Éluard"
+    },
+    {
+      "name": "Ministère de l'Intérieur",
+      "role": "Source des chiffres de manifestants, d'interpellations et de procédures IGPN"
+    },
+    {
+      "name": "Haut-Commissariat des Nations unies aux droits de l'homme",
+      "role": "Instance internationale appelant à un usage proportionné de la force"
+    },
+    {
+      "name": "Professeurs et parents de lycéens",
+      "role": "Soutiens du mouvement, présents dans les cortèges et devant les lycées"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Classement PISA",
+      "used_for": "Affirmer que le niveau scolaire français n'a jamais été aussi bas depuis 2000"
+    },
+    {
+      "entity": "Ministère de l'Intérieur",
+      "used_for": "Chiffrer les manifestants, les interpellations (6 800 dont 85 % de mineurs) et les 36 enquêtes IGPN"
+    },
+    {
+      "entity": "Syndicats",
+      "used_for": "Avancer un chiffre de plus de 450 000 manifestants"
+    },
+    {
+      "entity": "Haut-Commissariat des Nations unies aux droits de l'homme",
+      "used_for": "Donner une dimension internationale à l'inquiétude sur l'usage de la force"
+    },
+    {
+      "entity": "Romane Bartoli et le collectif Action Judiciaire",
+      "used_for": "Qualifier la réponse pénale de « répression inédite » et soutenir l'idée d'un nombre record d'interpellations"
+    },
+    {
+      "entity": "Résultats nationaux du baccalauréat",
+      "used_for": "Illustrer les difficultés du lycée Paul Éluard (2282e sur 2295)"
+    },
+    {
+      "entity": "Greta Thunberg",
+      "used_for": "Souligner l'écho international du mouvement"
+    }
+  ],
+  "notable_omissions": [
+    "Les chiffres sur les classes surchargées (70 % à plus de 30 élèves) et les heures non assurées (10 %) ne sont pas sourcés.",
+    "Aucune parole de policiers, de syndicats de police ou du ministère de l'Intérieur n'est recueillie directement.",
+    "Les 700 membres des forces de l'ordre blessés sont cités une fois, sans être développés.",
+    "Aucun lycéen opposé aux blocages ou non mobilisé n'est interrogé.",
+    "Le budget de l'Éducation nationale et son évolution récente ne sont pas présentés.",
+    "Les réponses du ministre sur les revendications scolaires (moyens, remplacements, Parcoursup) ne figurent pas dans le montage.",
+    "L'origine des « groupuscules » évoqués par le ministre n'est ni identifiée ni vérifiée.",
+    "Les comparaisons historiques ne précisent pas les chiffres de mobilisation pour 1990 ou 2018."
+  ],
+  "rhetorical_patterns": [
+    "Récit incarné par deux figures, Fanny (Nantes) et Bilel (Saint-Denis), présentées comme représentatives d'un même constat.",
+    "Dramatisation temporelle : titre « La semaine où tout a basculé », « J'ai 5 jours pour tout vous raconter ».",
+    "Le narrateur se met en scène comme témoin privilégié (« je reçois énormément de témoignages », comparaison avec les gilets jaunes).",
+    "Choix annoncé d'écouter les lycéens plutôt que de montrer les violences (« vous les avez déjà vues »).",
+    "Inscription du mouvement dans une généalogie historique (Mai 68, 1973, 1990, 2006, 2018) qui le présente comme inédit.",
+    "Alternance de témoignages émotionnels et de chiffres présentés comme confirmation (« les chiffres confirment-ils ce que nous racontent les lycéens ? »).",
+    "Scènes intimes (chambre, famille, arbitrage de rugby) qui humanisent les protagonistes.",
+    "Lexique de l'éveil et de la génération : « éveil démocratique », « c'est nous l'avenir ».",
+    "Mise en avant répétée du caractère apolitique revendiqué du mouvement, tout en le reliant à l'élection présidentielle.",
+    "Clôture par des questions ouvertes adressées au débat présidentiel."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx1",
+        "text": "Le mouvement part du lycée Saint-Exupéry de **Créteil** quelques semaines après la rentrée, puis s'étend en **72 heures** à toute la France."
+      },
+      {
+        "id": "ctx2",
+        "text": "Il survient à **quelques mois de l'élection présidentielle**, prévue au printemps 2027."
+      },
+      {
+        "id": "ctx3",
+        "text": "Des préfets ont pris des **arrêtés d'interdiction de rassemblement** aux abords des établissements, selon une avocate interrogée."
+      },
+      {
+        "id": "ctx4",
+        "text": "Le mouvement s'inscrit dans une série de mobilisations lycéennes, dont celle de **2018 contre Parcoursup** et la réforme du bac."
+      }
+    ],
+    "who_is_speaking": [
+      "**HugoDécrypte** est un média d'information en ligne fondé par Hugo Travers, très suivi par **les 15-30 ans** sur YouTube et les réseaux sociaux.",
+      "Le format est un **reportage documentaire à la première personne**, où le présentateur apparaît comme enquêteur et témoin.",
+      "Le média se finance principalement par la **publicité et des partenariats** sur les plateformes, sans rattachement à un groupe de presse traditionnel.",
+      "Son public est en partie **celui des lycéens mobilisés**, qui lui écrivent directement, ce qui place le média en position de relais."
+    ],
+    "important_facts": [
+      {
+        "id": "fact1",
+        "text": "Dans **PISA 2022**, la France obtient 474 points en mathématiques, une **baisse de 21 points** par rapport à 2018."
+      },
+      {
+        "id": "fact2",
+        "text": "**Parcoursup** a été créé en 2018 par la loi Orientation et réussite des étudiants, en remplacement d'APB."
+      },
+      {
+        "id": "fact3",
+        "text": "Le **Défenseur des droits** a recommandé dès 2019 de suspendre l'usage du **LBD** lors des manifestations."
+      },
+      {
+        "id": "fact4",
+        "text": "Le chiffre de manifestants diffère souvent du simple au double entre **ministère de l'Intérieur et syndicats** ; des comptages indépendants existent pour certaines manifestations."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "Blocus",
+        "definition": "Action consistant à empêcher l'accès à un lycée ou une université, souvent avec des poubelles ou des barrières."
+      },
+      {
+        "term": "PISA",
+        "definition": "Enquête internationale de l'OCDE qui mesure tous les trois ans le niveau des élèves de 15 ans en lecture, maths et sciences."
+      },
+      {
+        "term": "Parcoursup",
+        "definition": "Plateforme nationale par laquelle les lycéens demandent leur place dans l'enseignement supérieur."
+      },
+      {
+        "term": "LBD",
+        "definition": "Lanceur de balles de défense, arme utilisée par les forces de l'ordre qui tire des projectiles en caoutchouc."
+      },
+      {
+        "term": "IGPN",
+        "definition": "Inspection générale de la police nationale, service qui enquête sur les fautes des policiers."
+      },
+      {
+        "term": "Garde à vue",
+        "definition": "Retenue d'une personne soupçonnée d'une infraction dans un commissariat, pour une durée limitée, afin de l'interroger."
+      },
+      {
+        "term": "Participation à un groupement en vue de commettre un délit",
+        "definition": "Infraction qui punit le fait de rejoindre un groupe préparant des violences ou des dégradations, même sans les avoir commises."
+      },
+      {
+        "term": "CPE",
+        "definition": "Contrat première embauche, contrat de travail pour les moins de 26 ans retiré en 2006 après de fortes manifestations."
+      },
+      {
+        "term": "Contractuel",
+        "definition": "Enseignant embauché en contrat temporaire, sans le statut de fonctionnaire titulaire."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "Titre : La semaine où tout a basculé"
+  }
+}

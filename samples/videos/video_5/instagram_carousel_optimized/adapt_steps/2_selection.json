@@ -1,0 +1,132 @@
+{
+  "reading_beats": [
+    {
+      "moment": "Voter ne suffit plus, dit la vidéo, sans le montrer",
+      "quote": "Dans des pays où voter ne suffit plus, la GenZ chercher à inventer d’autres formes de démocratie, plus numériques, plus horizontales.",
+      "quote_original": "",
+      "lens_ref": "opinion_fait",
+      "factcheck": "",
+      "selected": false,
+      "theme": "Démocratie numérique",
+      "centrality": 4,
+      "kind": "affirmation",
+      "role": "appui",
+      "spine_ref": 2,
+      "axis_link": "",
+      "rationale": "Pose le diagnostic sur le vote sans l'étayer."
+    },
+    {
+      "moment": "Des gouvernements renversés : une première mondiale ?",
+      "quote": "une sorte de première mondiale où ce type de mouvement […] horizontal […] de faire tomber des gouvernements",
+      "quote_original": "",
+      "lens_ref": "opinion_fait",
+      "factcheck": "likely false",
+      "selected": true,
+      "theme": "Nouveauté du mouvement",
+      "centrality": 5,
+      "kind": "affirmation",
+      "role": "appui",
+      "spine_ref": 1,
+      "axis_link": "Les chutes de dirigeants au Sri Lanka et au Bangladesh, que la vidéo cite, montrent ce que deviennent ces victoires pour la place des citoyens.",
+      "rationale": "Pilier de la thèse, contredit par les précédents cités."
+    },
+    {
+      "moment": "Des cortèges pacifiques, des morts dans plusieurs pays",
+      "quote": "ces manifestations pacifiques reçoivent quasi systématiquement une réponse violente. […] au moins 19 morts au Népal, 22 morts à Madagascar",
+      "quote_original": "",
+      "lens_ref": "chiffres",
+      "factcheck": "true",
+      "selected": false,
+      "theme": "Répression",
+      "centrality": 3,
+      "kind": "statistique",
+      "role": "preuve",
+      "spine_ref": 0,
+      "axis_link": "",
+      "rationale": "Bilans ni datés ni sourcés, dépassés ensuite au Népal."
+    },
+    {
+      "moment": "Au Népal, 26 réseaux coupés : obstacle ou étincelle ?",
+      "quote": "même au Népal où 26 plateformes numériques ont été suspendu, ils ont pris de vitesse les autorités pour descendre dans la rue",
+      "quote_original": "",
+      "lens_ref": "causalite",
+      "factcheck": "true",
+      "selected": false,
+      "theme": "Smartphone et censure",
+      "centrality": 3,
+      "kind": "fait",
+      "role": "preuve",
+      "spine_ref": 0,
+      "axis_link": "",
+      "rationale": "La coupure déclenche la révolte plus qu'elle ne la freine."
+    },
+    {
+      "moment": "Sans chef, la majorité tranche en ligne",
+      "quote": "nous n'avons pas de chef. […] nous en discutons et votons sur notre plateforme. La majorité l'emporte",
+      "quote_original": "",
+      "lens_ref": "angles_morts",
+      "factcheck": "",
+      "selected": true,
+      "theme": "Vote sur Discord",
+      "centrality": 5,
+      "kind": "enjeu",
+      "role": "preuve",
+      "spine_ref": 2,
+      "axis_link": "Sans savoir combien votent ni qui, le lecteur ne peut dire si ce vote en ligne donne aux citoyens une place réelle.",
+      "rationale": "Seule preuve concrète de l'autre démocratie, participation inconnue."
+    },
+    {
+      "moment": "Sans chef, une victoire que d'autres peuvent prendre",
+      "quote": "le risque c'est de se faire confisquer la victoire par d'anciennes castes politiques qui attendaient justement leur tour.",
+      "quote_original": "",
+      "lens_ref": "causalite",
+      "factcheck": "",
+      "selected": true,
+      "theme": "Confiscation de la victoire",
+      "centrality": 4,
+      "kind": "enjeu",
+      "role": "concession",
+      "spine_ref": 3,
+      "axis_link": "L'absence de chef qui protège de la répression peut aussi laisser la place aux élites : c'est le nœud de la question.",
+      "rationale": "Nomme le risque sans dire qu'il s'est déjà réalisé."
+    },
+    {
+      "moment": "L'armée à la tête de Madagascar, dite temporaire",
+      "quote": "ont vu les militaires prendre temporairement la présidence du pays. Résultat, un nouveau premier ministre a été nommé contesté par une partie de la Gen Z.",
+      "quote_original": "",
+      "lens_ref": "cadrage",
+      "factcheck": "",
+      "selected": false,
+      "theme": "Prise du pouvoir par l'armée",
+      "centrality": 4,
+      "kind": "fait",
+      "role": "preuve",
+      "spine_ref": 3,
+      "axis_link": "",
+      "rationale": "Un colonel au pouvoir, résumé en une phrase."
+    },
+    {
+      "moment": "Reprise par les élites ou rupture : la fin reste ouverte",
+      "quote": "Que donneront ces mobilisations à l'avenir ? Reprise par les élites, rupture systémiques, tout reste à écrire.",
+      "quote_original": "",
+      "lens_ref": "angles_morts",
+      "factcheck": "",
+      "selected": false,
+      "theme": "Issue des mobilisations",
+      "centrality": 3,
+      "kind": "enjeu",
+      "role": "mise en scène",
+      "spine_ref": 3,
+      "axis_link": "",
+      "rationale": "Clôture ouverte alors que des issues sont déjà connues."
+    }
+  ],
+  "core_recap": [
+    "Ses présupposés : que six pays font **un seul mouvement** ; qu'un vote en ligne **représente les citoyens** ; que renverser, c'est **gagner**"
+  ],
+  "steel_man": {
+    "argument": "Les chutes ont **profité** à une juge, au chef du Parlement péruvien, à un colonel — pas aux **citoyens**",
+    "alternative": "La rue ouvre une **vacance du pouvoir** que les **institutions en place** occupent.",
+    "targets": 3
+  }
+}

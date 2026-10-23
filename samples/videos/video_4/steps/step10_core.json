@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Les lycéens dénoncent un manque de moyens : classes surchargées, professeurs non remplacés, bâtiments dégradés.",
+      "kind": "enjeu",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 0,
+        "excerpt": "Les lycées publics manquent de moyens",
+        "strength": 1.0,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "La réponse de l'État est massive : 6 800 interpellations dont 85 % de mineurs, blessés graves, interdictions de rassemblement.",
+      "kind": "fait",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "La réponse de l'État est d'une ampleur inédite",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Les élèves de banlieue se disent délaissés par un système éducatif décrit comme inégalitaire.",
+      "kind": "affirmation",
+      "centrality": 4,
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 2,
+        "excerpt": "Deux lycéens de villes différentes font le même constat",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Le mouvement se dit apolitique mais le reportage le relie à l'élection présidentielle.",
+      "kind": "angle",
+      "centrality": 3,
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "à quelques mois de l'élection présidentielle",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "Les lycéens disent ne pas être écoutés, ni par les adultes, ni par les médias.",
+      "kind": "enjeu",
+      "centrality": 3,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 3,
+        "excerpt": "Les lycéens non mobilisés ou opposés",
+        "strength": 0.5,
+        "nature": "contradiction"
+      }
+    }
+  ]
+}

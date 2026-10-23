@@ -1,0 +1,66 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "La vidéo laisse entendre qu'**un gouvernement tombé redonne une place aux citoyens**, sans jamais le dire. Pourtant, les issues qu'elle documente (une juge, le président du Congrès, un colonel) montrent que **d'autres ramassent la victoire**, et la version de ceux qui prennent le pouvoir après la chute est absente.",
+        "references": [
+          "ia_2",
+          "er_1",
+          "obs_3",
+          "bs_2",
+          "bs_3",
+          "cb_0",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "Le vote sur Discord n'est décrit **que par le mouvement lui-même, sans chiffre de participation**, et sert l'idée d'une démocratie horizontale. Il a pourtant désigné une **ancienne présidente de la Cour suprême** et mené à un **retour aux urnes**, ce qui contredit la prémisse « voter ne suffit plus ».",
+        "references": [
+          "ia_0",
+          "lr_2",
+          "cb_1",
+          "bias_2",
+          "obs_2",
+          "bs_1",
+          "pr_3"
+        ]
+      },
+      {
+        "text": "Le titre (« naissance ») et la formule « première mondiale » présentent le phénomène comme **nouveau**. Cette nouveauté **efface les précédents de 2022 à 2024**, que la vidéo cite pourtant, et avec eux la seule indication sur **ce que deviennent ces victoires**.",
+        "references": [
+          "claim_2",
+          "lr_1",
+          "bs_0",
+          "obs_0",
+          "er_1"
+        ]
+      },
+      {
+        "text": "Un **drapeau partagé** et la simultanéité suffisent ici à faire un mouvement mondial. Les **griefs nationaux** (stades au Maroc, censure au Népal) se fondent dans une colère générationnelle, ce qui donne à chaque mouvement **un poids qu'il n'a pas seul**.",
+        "references": [
+          "lr_0",
+          "pr_0",
+          "ia_3",
+          "bias_1",
+          "obs_4",
+          "cb_0"
+        ]
+      },
+      {
+        "text": "Le mot « **pacifiques** » cadre la répression avant que les bilans soient donnés, et ces bilans ne sont **ni datés ni sourcés**. Le chiffre népalais est même **sous-estimé** : l'indignation repose sur un cadrage plus que sur un décompte vérifié.",
+        "references": [
+          "pr_1",
+          "bias_0",
+          "er_0",
+          "claim_0",
+          "obs_1"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Que sont devenues les revendications des mouvements de 2022 à 2024, une fois les gouvernements tombés ?",
+      "Combien de personnes ont réellement pris part au vote organisé sur Discord au Népal ?",
+      "Quel est le bilan vérifié des morts de la répression au Népal, et qui l'a établi ?"
+    ]
+  }
+}
