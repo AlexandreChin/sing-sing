@@ -1,0 +1,69 @@
+{
+  "emotional_register": [
+    {
+      "id": "er1",
+      "emotion": "indignation",
+      "how": "Le reportage **accumule les blessures nommées** (un œil perdu, une mâchoire fracturée, une main arrachée), puis les **chiffres d'interpellations de mineurs**.",
+      "effect": "Le spectateur est conduit vers la lecture d'une **répression disproportionnée** envers des adolescents.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "Défenseur des droits a recommandé dès 2019 de suspendre l'usage du LBD",
+        "strength": 0.6,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "er2",
+      "emotion": "élan",
+      "how": "Le récit inscrit la mobilisation dans **une lignée de révoltes lycéennes** et la décrit comme un **« éveil démocratique »** d'une génération.",
+      "effect": "Le mouvement apparaît comme **un tournant historique** plutôt qu'un épisode de contestation parmi d'autres.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "une série de mobilisations lycéennes, dont celle de 2018 contre Parcoursup",
+        "strength": 0.7,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "cb1",
+      "beneficiary": "Les lycéens mobilisés et les acteurs qui portent l'éducation dans la campagne présidentielle",
+      "explanation": "Le reportage relaie les revendications de moyens **sans contradicteur sur le fond**. Le lien répété à **l'élection présidentielle** place ces revendications au centre du débat à venir.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "à quelques mois de l'élection présidentielle",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "id": "cb2",
+      "beneficiary": "Les critiques des méthodes de maintien de l'ordre",
+      "explanation": "Les blessures de mineurs sont détaillées au cas par cas, alors que **la parole policière est absente**. Ce cadrage conforte la demande d'un **usage proportionné de la force**.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "suspendre l'usage du LBD lors des manifestations",
+        "strength": 0.6,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Dramatisation",
+        "observation": "Le titre annonce **une rupture totale** concentrée sur une seule semaine."
+      },
+      {
+        "label": "Ellipse",
+        "observation": "« Tout » ne dit ni **ce qui bascule** ni pour qui."
+      }
+    ],
+    "body": "Le reportage suit le mouvement **à hauteur de lycéens**, à travers deux figures, Fanny à Nantes et Bilel à Saint-Denis. Il alterne scènes de mobilisation, moments intimes en famille et chiffres nationaux sur les conditions d'enseignement et les interpellations. Le présentateur parle **à la première personne**, en témoin et en relais des messages reçus. Le ministre apparaît sur la seule question des violences, et une avocate porte le volet judiciaire."
+  }
+}

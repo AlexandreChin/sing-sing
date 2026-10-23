@@ -1,0 +1,108 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "La parole policière manque dans la logique du reportage (bs_0). La rhétorique compense ce vide par **l'accumulation de blessures nommées** (er_0, bias_0), et le probe montre que ce déséquilibre sert la critique du maintien de l'ordre (cb_1) : **le silence d'un camp fait la force émotionnelle de l'autre**.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "bs_0",
+          "er_0",
+          "bias_0",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "L'hypothèse d'interdictions destinées à **réprimer la contestation** (ia_3) ne s'appuie que sur une avocate du collectif (obs_2). Sa phrase est une **intention présentée comme un fait** (claim_3), et l'éthique relève qu'aucune préfecture n'y répond : la thèse de la répression la plus forte est aussi la moins sourcée.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "ia_3",
+          "obs_2",
+          "claim_3"
+        ]
+      },
+      {
+        "text": "Deux lycéens choisis (pr_3, lr_2), les messages reçus par le média (ia_2) et le mot **« génération »** (bias_1) produisent ensemble l'impression d'un mouvement unanime. La rhétorique de l'**éveil historique** (er_1) repose ainsi sur un échantillon que la logique ne permet pas d'étendre (bias_2).",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "pr_3",
+          "lr_2",
+          "ia_2",
+          "bias_1",
+          "bias_2",
+          "er_1"
+        ]
+      },
+      {
+        "text": "Le mouvement est dit **apolitique** (pr_1), mais le cadrage l'ouvre et le ferme sur **l'élection présidentielle** (obs_1). Cette tension profite aux acteurs qui portent l'éducation dans la campagne (cb_0) ; une lycéenne la formule elle-même dans le focus.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "pr_1",
+          "obs_1",
+          "cb_0",
+          "focus"
+        ]
+      },
+      {
+        "text": "La chaîne causale moyens → niveau scolaire repose sur un chiffre **sans source** (claim_0, lr_0) et sur une juxtaposition avec PISA (lr_1, claim_2) qui suggère un lien jamais établi. L'hypothèse que les moyens sont **la cause principale** (ia_0) n'est donc ni démontrée ni discutée.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "claim_0",
+          "lr_0",
+          "lr_1",
+          "claim_2",
+          "ia_0"
+        ]
+      },
+      {
+        "text": "Les chiffres les plus solides du reportage portent sur la répression et viennent **de l'autorité mise en cause** (claim_1, lr_3). Les moyens, qui sont pourtant la cause revendiquée du mouvement, restent **le volet le moins sourcé** (claim_0, pr_0) : la rigueur des sources est inversée par rapport à l'ordre de l'argument.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "claim_1",
+          "lr_3",
+          "claim_0",
+          "pr_0"
+        ]
+      },
+      {
+        "text": "Le procédé qui porte l'indignation, des **mineurs blessés désignés par prénom et âge** (bias_0, er_0), est le même que l'éthique signale faute de consentement mentionné. Ce procédé n'est pas replacé dans le débat sur le LBD déjà ouvert par le Défenseur des droits (obs_4) : **l'efficacité émotionnelle et la prudence déontologique** se trouvent sur le même passage.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "ethics",
+          "logic"
+        ],
+        "references": [
+          "bias_0",
+          "er_0",
+          "obs_4"
+        ]
+      }
+    ]
+  }
+}

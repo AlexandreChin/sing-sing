@@ -1,0 +1,125 @@
+{
+  "beats": [
+    {
+      "index": 1,
+      "lens_question": "Un lycée délaissé : comparé à quels autres ?",
+      "note": "Devant une voix qui parle pour toute une banlieue, cherchez une **comparaison** entre établissements.",
+      "answer": "**Comparez les moyens** : le lycée de Saint-Denis filmé, 2 000 élèves pour une infirmière à mi-temps, finit 2282e sur 2295 au bac.",
+      "figure": "",
+      "figure_label": "",
+      "figure_caption": "",
+      "pictogram": null
+    },
+    {
+      "index": 2,
+      "lens_question": "Une colère filmée : qu'est-ce qui fait l'actualité ?",
+      "note": "Devant une image forte, demandez ce qui l'a rendue visible : le fond, ou le désordre ?",
+      "answer": "**Comptez les sujets** : demandes pacifiques ou poubelles brûlées, lesquelles font la une ? Les archives de l'INA permettent de comparer.",
+      "figure": "",
+      "figure_label": "",
+      "figure_caption": "",
+      "pictogram": null
+    },
+    {
+      "index": 4,
+      "lens_question": "Des années d'alertes : quelle réponse jusqu'ici ?",
+      "note": "Quand une alerte se dit ancienne, cherchez **ce qu'elle a déjà obtenu**.",
+      "answer": "**Interrogé sur les blessés**, le ministre parle des violences et des groupuscules, pas des moyens demandés : à revoir dans l'entretien de HugoDécrypte.",
+      "figure": "",
+      "figure_label": "",
+      "figure_caption": "",
+      "pictogram": null
+    }
+  ],
+  "reperes_facts": [
+    {
+      "label": "L'école",
+      "text": "**−21 points** en maths : enquête PISA 2018–2022 de l'OCDE"
+    },
+    {
+      "label": "En 2018",
+      "text": "Contre **Parcoursup** en 2018 : une précédente mobilisation lycéenne"
+    },
+    {
+      "label": "Le média",
+      "text": "Un média des **15-30 ans** : HugoDécrypte, à qui des lycéens écrivent"
+    }
+  ],
+  "why_selected": "Créteil, quelques semaines après la rentrée : en 72 heures, **400 lycées** bloqués, à quelques mois de la **présidentielle**.\nLe ministre de l'Éducation accuse des **groupuscules** ; une avocate y voit une volonté de faire taire une génération.",
+  "selection_headline": "Un ministre face aux lycées bloqués",
+  "key_takeaways": [
+    {
+      "text": "Parti de Créteil, le mouvement bloque plus de 400 lycées en une semaine.",
+      "selected": true
+    },
+    {
+      "text": "Plus de 30 élèves par classe dans 70 % des cas, collèges compris.",
+      "selected": true
+    },
+    {
+      "text": "6 800 interpellations au 14 octobre, dont 85 % de mineurs, selon l'Intérieur.",
+      "selected": true
+    },
+    {
+      "text": "36 enquêtes de la police des polices ouvertes sur des violences contre des mineurs.",
+      "selected": false
+    },
+    {
+      "text": "Le ministre attribue les violences à des groupes extérieurs aux lycéens.",
+      "selected": false
+    },
+    {
+      "text": "En 1990, un mouvement lycéen avait obtenu un plan d'urgence de 4,5 milliards de francs.",
+      "selected": false
+    }
+  ],
+  "go_further": [
+    {
+      "title": "Résultats du PISA 2022",
+      "source": "OCDE",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Pour voir ce que mesure la baisse du niveau des élèves français et les causes que l'OCDE avance.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Repères et références statistiques",
+      "source": "DEPP, ministère de l'Éducation nationale",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Pour vérifier la taille des classes et les heures non assurées, lycées et collèges séparés.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Recommandations sur l'usage du LBD en manifestation",
+      "source": "Défenseur des droits",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Pour situer les blessures de lycéens dans un débat ouvert dès 2019 sur cette arme.",
+      "cta_question_index": null
+    }
+  ],
+  "where_to_look": [
+    "Les témoignages de lycéens recueillis par HugoDécrypte",
+    "Les mobilisations de rue de 1990 et 2006 : leurs bilans",
+    "L'INJEP : enquêtes sur l'engagement des jeunes citoyens"
+  ],
+  "hook": {
+    "topic": "Lycées en **colère**",
+    "sub_topic": "Classes à 35, banlieue oubliée : les **lycéens** passent par la rue",
+    "subtitle": "Comprendre ce qui les y pousse.",
+    "headline": "des lycées sans moyens, et des **lycéens** dans la rue",
+    "sub_topic_alt": [
+      "Profs absents, banlieue à part : pourquoi la **rue** plutôt que les délégués ?",
+      "Des **moyens** demandés depuis des années, entendus dans la rue",
+      "Classes pleines, lycées délabrés : la **rue** comme porte-voix"
+    ]
+  },
+  "caption": "En une semaine, plus de 400 lycées bloqués en France, depuis Créteil. Les élèves parlent de classes à 35 et de profs non remplacés. 🎒\n\n🔎 Les clefs pour comprendre en une minute ce qui pousse ces lycéens dans la rue.\n\n🔗 Lien vers la vidéo en commentaires ↓"
+}

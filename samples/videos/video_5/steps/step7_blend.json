@@ -1,0 +1,127 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "L'hypothèse qu'**un gouvernement tombé redonne une place aux citoyens** n'est jamais énoncée, et le registre de l'espoir la nourrit dès l'ouverture. Pourtant, les issues documentées (une juge, le président du Congrès, un colonel) et la phrase de la manifestante malgache montrent que **ce sont d'autres qui ramassent la victoire**.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "ia_2",
+          "er_1",
+          "obs_3",
+          "bs_2"
+        ]
+      },
+      {
+        "text": "Le vote sur Discord est présenté **par le mouvement lui-même, sans chiffre de participation**, ce qui sert l'idée d'une démocratie horizontale. Or, d'après les faits établis, ce vote a désigné une **ancienne présidente de la Cour suprême** et a mené à des élections classiques.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "ia_0",
+          "lr_2",
+          "cb_1",
+          "bias_2",
+          "obs_2",
+          "bs_1"
+        ]
+      },
+      {
+        "text": "La prémisse « **voter ne suffit plus** » est une simple assertion, et l'issue népalaise **la contredit** : le mouvement débouche sur un **retour aux urnes** en mars 2026.",
+        "layers": [
+          "logic",
+          "rhetoric"
+        ],
+        "references": [
+          "pr_3",
+          "obs_2",
+          "cb_1"
+        ]
+      },
+      {
+        "text": "La **nouveauté** du phénomène vient du titre (« naissance ») et de la formule « première mondiale ». Elle **efface les précédents** de 2022 à 2024, que la vidéo cite pourtant, et donc la seule indication disponible sur **ce que deviennent ces victoires**.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "claim_2",
+          "lr_1",
+          "bs_0",
+          "obs_0",
+          "er_1"
+        ]
+      },
+      {
+        "text": "Un **drapeau partagé** et la simultanéité suffisent à faire un mouvement mondial. Les **griefs nationaux** (stades au Maroc, censure au Népal) sont fondus dans une colère générationnelle, ce qui donne aux mouvements **un poids que chacun n'a pas seul**.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "lr_0",
+          "pr_0",
+          "ia_3",
+          "bias_1",
+          "obs_4",
+          "cb_0"
+        ]
+      },
+      {
+        "text": "Le mot « **pacifiques** » cadre la répression avant les bilans, et ces bilans ne sont **ni datés ni sourcés**. Le chiffre népalais est même **sous-estimé** : l'indignation repose sur un cadrage plus que sur un décompte vérifié.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "pr_1",
+          "bias_0",
+          "er_0",
+          "claim_0",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "Les gouvernements visés sont accusés de corruption **sans droit de réponse**, alors que les manifestants décrivent seuls leur fonctionnement. Il manque ainsi la version de **ceux qui absorbent la crise**, celle qui dirait qui prend le pouvoir après la chute.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "bs_3",
+          "cb_0",
+          "bias_2",
+          "obs_3"
+        ]
+      },
+      {
+        "text": "La suspension des 26 plateformes est présentée comme **un obstacle déjoué par le smartphone**, alors que c'est **le déclencheur** de la mobilisation. Ce seul cas sert ensuite de preuve à une prémisse **étendue à tous les pays**.",
+        "layers": [
+          "logic",
+          "probe"
+        ],
+        "references": [
+          "pr_2",
+          "claim_3",
+          "obs_4"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "id": "c1",
+        "quote": "au moins 19 morts au Népal",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Précision",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre n'est **ni daté ni sourcé**, et les bilans officiels publiés ensuite dépassent **70 morts**.",
+        "external_sources": [
+          {
+            "name": "Ministère de la Santé et de la Population du Népal, bilans de septembre 2025",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Reuters, bilans des manifestations de septembre 2025 au Népal",
+            "supports": "validates",
+            "evidence_type": "media"
+          }
+        ],
+        "confidence": 90
+      },
+      {
+        "id": "c2",
+        "quote": "Il ont entre 13 et 26 ans.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Précision",
+          "strength": 0.7,
+          "nature": "nuance"
+        },
+        "explanation": "La définition la plus citée, celle du **Pew Research Center** (nés entre 1997 et 2012), donne **13 à 28 ans** en 2025.",
+        "external_sources": [
+          {
+            "name": "Pew Research Center, définition des générations (2019)",
+            "supports": "contradicts",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": 40
+      },
+      {
+        "id": "c3",
+        "quote": "C'est quand même euh une sorte de première mondiale",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Historique",
+          "strength": 0.8,
+          "nature": "contradiction"
+        },
+        "explanation": "La vidéo cite elle-même les chutes de dirigeants au **Sri Lanka (2022)** et au **Bangladesh (2024)**, déjà portées par des jeunes.",
+        "external_sources": [
+          {
+            "name": "BBC News, démission de Gotabaya Rajapaksa au Sri Lanka (juillet 2022)",
+            "supports": "contradicts",
+            "evidence_type": "media"
+          },
+          {
+            "name": "Reuters, démission de Sheikh Hasina au Bangladesh (août 2024)",
+            "supports": "contradicts",
+            "evidence_type": "media"
+          }
+        ],
+        "confidence": 30
+      },
+      {
+        "id": "c4",
+        "quote": "Ce qui explique que même au Népal où 26 plateformes numériques ont été suspendu, ils ont pris de vitesse les autorités pour descendre dans la rue.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Déclencheurs",
+          "strength": 0.8,
+          "nature": "nuance"
+        },
+        "explanation": "La **suspension des 26 plateformes** est documentée. Elle est le **déclencheur** des manifestations, pas seulement un obstacle contourné.",
+        "external_sources": [
+          {
+            "name": "Gouvernement du Népal, décision de suspension des plateformes non enregistrées (4 septembre 2025)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Associated Press, couverture de l'interdiction des réseaux sociaux au Népal",
+            "supports": "validates",
+            "evidence_type": "media"
+          }
+        ],
+        "confidence": 85
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "id": "b1",
+        "quote": "Mais ces manifestations pacifiques reçoivent quasi systématiquement une réponse violente.",
+        "item_type": "bias",
+        "label": "qualificatif qui oriente la lecture",
+        "effect": "Remarquez comment **« pacifiques »** et **« quasi systématiquement »** posent le cadre avant même que les bilans ne soient donnés.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "b2",
+        "quote": "Ce drapeau, on l'a vu au Nepal, en Indonésie, partout notre génération manifeste.",
+        "item_type": "fallacy",
+        "label": "généralisation à partir d'un symbole",
+        "effect": "Remarquez comment un **drapeau partagé** suffit ici à faire de mobilisations distinctes **une seule génération** en marche.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Les mouvements GenZ et leurs porte-paroles",
+          "strength": 0.7,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "b3",
+        "quote": "Lorsque nous prenons une décision, nous en discutons et votons sur notre plateforme. La majorité l'emporte et nous suivons collectivement cette décision.",
+        "item_type": "bias",
+        "label": "témoignage sans contrepoint",
+        "effect": "Remarquez que ce fonctionnement est décrit par le mouvement lui-même, **sans chiffre de participation** ni regard extérieur.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "L'idée d'une démocratie numérique et horizontale",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "Un nouveau premier ministre, c'est pas un nouveau premier ministre qu'on veut, c'est un changement de système.",
+      "proves": {
+        "type": "observation",
+        "label": "Issue",
+        "strength": 0.9,
+        "nature": "illustration"
+      },
+      "analysis": "Une manifestante malgache distingue **changer de dirigeant** et **changer de système**. Elle le dit alors que l'armée a pris le pouvoir et nommé un Premier ministre qu'elle n'a pas choisi. Qui décide de ce qui remplace un gouvernement tombé ?"
+    }
+  }
+}

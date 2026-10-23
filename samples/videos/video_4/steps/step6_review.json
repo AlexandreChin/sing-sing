@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 3,
+        "rationale": "Les chiffres d'interpellations sont **attribués au ministère de l'Intérieur** (c2), ce qui les rend solides. Mais les chiffres clés sur les classes (« plus de 30 élèves par classe dans 70 % des cas », c1) sont donnés **sans source**. Les interdictions de rassemblement ne reposent que sur une avocate du collectif (o3).",
+        "lesson": "Cherchez qui a produit chaque chiffre avant de lui accorder du poids."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "Les faits vérifiables tiennent : le constat PISA correspond aux résultats de l'OCDE (c3, confiance 85), et les interpellations viennent d'une source officielle (c2). En revanche, l'intention prêtée au gouvernement (« passer l'envie à toute cette génération », c4) est **une opinion présentée comme un fait**, et le chiffre des 70 % n'a **ni source ni périmètre**.",
+        "lesson": "Distinguez un chiffre vérifiable d'une intention prêtée à quelqu'un."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "Le volet sur les interpellations de mineurs s'enchaîne sans faille (lr4). Ailleurs, **deux lycéens** suffisent à décrire « un système éducatif devenu inégalitaire » (lr3), et le niveau PISA est **juxtaposé aux conditions d'enseignement** sans que le lien de cause soit établi (lr2).",
+        "lesson": "Demandez-vous si deux exemples bien choisis suffisent à décrire tout un système."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "Le présentateur assume une position de **témoin à la première personne** et dit vouloir écouter plutôt que montrer les violences. Il ne signale pourtant pas ses limites : les messages reçus par le média servent de mesure du mouvement (ia3), et l'absence de **lycéens non mobilisés** (bs4) n'est jamais mentionnée.",
+        "lesson": "Repérez quand un média prend son propre public pour un échantillon du pays."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "La généalogie des mobilisations depuis 1968 donne de la profondeur (o1). Mais les **700 policiers blessés** sont cités une seule fois quand chaque blessure de lycéen est détaillée (emphasis), et ni le **budget de l'Éducation nationale** (bs3) ni les réponses du ministre sur les moyens (bs2) ne sont fournis.",
+        "lesson": "Comparez le temps accordé à chaque camp avant de juger l'ampleur d'un phénomène."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Lycéens, parents et professeurs ont la parole longuement. Le ministre n'apparaît que sur les violences, et la **parole policière est absente**. L'**accumulation de cas nommés** (« Maël, 16 ans, a perdu l'usage de son œil », b1) pèse plus qu'un chiffre global, et l'expression « une génération » étend le mouvement à toute une classe d'âge (b2).",
+        "lesson": "Notez quelles personnes ont un prénom et lesquelles ne sont qu'un chiffre."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "Le récit suit **deux figures identifiables**, Fanny à Nantes et Bilel à Saint-Denis, en alternant scènes intimes et chiffres nationaux : le propos reste lisible. Le titre annonce une **rupture totale** sans dire ce qui bascule (title_analysis, « Ellipse »).",
+        "lesson": "Vérifiez si le titre tient sa promesse une fois le reportage terminé."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "Suivre le mouvement **à hauteur de lycéens**, jusque dans leurs familles, donne un accès réel à des voix peu entendues. Ce choix laisse de côté les contre-arguments les plus sérieux : les **causes de la baisse de niveau** autres que les moyens, et un risque d'ordre public réel derrière les interdictions (steel_man).",
+        "lesson": "Cherchez l'argument le plus fort du camp absent avant de vous faire un avis."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Parents, enseignants ou lycéens qui veulent entendre de l'intérieur ce que vivent les élèves mobilisés, à condition de chercher ailleurs la parole des autorités.",
+      "payoff": "Le reportage fait **comprendre de l'intérieur** pourquoi des lycéens se mobilisent et ce que leur coûte la réponse pénale. Il apprend aussi à repérer ce qu'un récit **à une seule voix** laisse hors champ.",
+      "signature_move": "Le reportage incarne tout le mouvement dans **deux lycéens suivis jusque chez eux**, une immersion qui donne la parole aux élèves mais laisse les autorités hors du récit.",
+      "main_blind_side": "L'absence des **forces de l'ordre et du ministère** sur les moyens et les interdictions montre un reportage construit depuis les cortèges, sans contradicteur sur le fond.",
+      "further_resource": {
+        "title": "Un pays qui se tient sage",
+        "source": "David Dufresne",
+        "media_type": "documentary",
+        "why_explore": "Le film confronte images de violences policières, chercheurs, manifestants et policiers : il fait entendre plusieurs voix sur le maintien de l'ordre, là où le reportage n'en fait entendre qu'une.",
+        "url": null
+      },
+      "summary": "À voir avec réserves : en suivant deux lycéens mobilisés, le reportage donne **une voix forte aux élèves**, mais il laisse sans réponse **les autorités mises en cause**. Gardez en tête ce silence pour juger de l'ampleur du mouvement et de la répression."
+    }
+  }
+}

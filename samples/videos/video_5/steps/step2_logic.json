@@ -1,0 +1,176 @@
+{
+  "main_claim": "La GenZ, connectée et sans chef, fait tomber des gouvernements et cherche d'autres démocraties.",
+  "premisses": [
+    {
+      "statement": "Des mobilisations de jeunes dans **plusieurs pays** forment **un même mouvement** générationnel.",
+      "quality": "Le rapprochement repose sur l'âge, le calendrier et le **drapeau One Piece**. La vidéo concède elle-même que la génération **n'est pas homogène**, d'un pays à l'autre comme au sein d'une même nation."
+    },
+    {
+      "statement": "Les manifestations **pacifiques** reçoivent **quasi systématiquement** une réponse violente.",
+      "quality": "Elle s'appuie sur des **bilans chiffrés** pour quatre pays. Ces bilans ne sont **ni datés ni sourcés**, et aucun n'est donné pour l'Indonésie."
+    },
+    {
+      "statement": "Le **smartphone** et les messageries cryptées permettent aux jeunes de **déjouer les blocages** des pouvoirs.",
+      "quality": "Elle est étayée par **un seul cas précis**, la suspension de 26 plateformes au Népal, puis étendue à tous les pays cités."
+    },
+    {
+      "statement": "Dans ces pays, **voter ne suffit plus** pour peser sur le pouvoir.",
+      "quality": "Il s'agit d'une **simple assertion** de la voix off, portée par des **témoignages de rue** contre la corruption."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "statement": "Un **vote sur Discord** exprime la volonté des citoyens, ou au moins celle du mouvement.",
+      "impact": "Si seuls quelques milliers de personnes votent, la désignation népalaise n'est **pas plus représentative** qu'une nomination classique."
+    },
+    {
+      "statement": "L'**absence de chef** protège le mouvement **sans l'empêcher** de peser sur la suite.",
+      "impact": "Si l'horizontalité laisse la place libre à l'armée ou aux anciennes élites, elle devient **la cause de la confiscation** que la vidéo redoute."
+    },
+    {
+      "statement": "**Faire tomber un gouvernement** revient à redonner une place aux citoyens dans le pouvoir.",
+      "impact": "Si le remplaçant vient des **institutions déjà en place**, la chute ne change pas la place des citoyens."
+    },
+    {
+      "statement": "Les jeunes des différents pays poursuivent des **buts communs**.",
+      "impact": "Si les causes sont surtout locales, l'idée d'une **génération politique mondiale** perd son socle."
+    }
+  ],
+  "blind_spots": [
+    {
+      "topic": "Ce qu'ont donné les mobilisations de **2022 à 2024** au Sri Lanka, au Kenya et au Bangladesh.",
+      "significance": "Ces précédents auraient montré **ce que deviennent ces victoires** quelques années plus tard, ce qui touche directement la question finale."
+    },
+    {
+      "topic": "**Combien de personnes** votent sur les plateformes, et qui en est exclu.",
+      "significance": "C'est la seule mesure qui dirait si cette **autre forme de démocratie** donne une place réelle aux citoyens."
+    },
+    {
+      "topic": "La **prise du pouvoir par l'armée** à Madagascar, évoquée en une phrase comme « temporaire ».",
+      "significance": "Développée, elle aurait montré qu'**une victoire de la rue** peut profiter à un acteur qu'elle n'a pas choisi."
+    },
+    {
+      "topic": "La version des **gouvernements visés** et des institutions.",
+      "significance": "Leur réponse aurait éclairé ce que les pouvoirs en place sont prêts à **céder ou à absorber**."
+    }
+  ],
+  "emphasis": [
+    "La vidéo consacre **plusieurs séquences** au smartphone, à Discord et à One Piece, alors que les **débouchés institutionnels** (chartes, élections, nouveaux gouvernements) tiennent en quelques phrases.",
+    "Les **témoignages de manifestants** se succèdent dans six pays, alors que **Sushila Karki** est la seule responsable politique à parler.",
+    "La répression est détaillée **pays par pays**, alors que les **déclencheurs précis** de chaque mobilisation ne sont qu'esquissés."
+  ],
+  "logical_reasoning": [
+    {
+      "step": "Des jeunes manifestent au même moment dans plusieurs pays, sous un même drapeau : on en conclut à un **mouvement mondial**.",
+      "problem_type": "validity",
+      "diagnosis": "La **simultanéité** et un symbole partagé ne montrent ni une coordination ni des buts communs. La vidéo signale elle-même cette **hétérogénéité**."
+    },
+    {
+      "step": "Plusieurs gouvernements sont tombés : le mouvement porte donc la critique du pouvoir **plus loin qu'avant**.",
+      "problem_type": "soundness",
+      "diagnosis": "La prémisse de la **nouveauté** oublie les chutes de dirigeants au Sri Lanka et au Bangladesh, que la vidéo cite pourtant en passant."
+    },
+    {
+      "step": "Le mouvement népalais a choisi sa candidate par un **vote sur Discord** : il invente donc une démocratie **plus horizontale**.",
+      "problem_type": "validity",
+      "diagnosis": "Sans **chiffres de participation**, un vote en ligne ne suffit pas à établir qu'il représente plus de citoyens qu'un scrutin classique."
+    },
+    {
+      "step": "Sans chef, la répression ne peut pas décapiter le mouvement, mais celui-ci risque de se faire **confisquer sa victoire**.",
+      "problem_type": null,
+      "diagnosis": null
+    }
+  ],
+  "observations": [
+    {
+      "aspect": "Historique",
+      "summary": "Les précédents du Sri Lanka, du Kenya et du Bangladesh, qui ont **renversé des dirigeants** ou fait **retirer une loi**, sont cités en une phrase. La vidéo ne dit **pas ce qui a suivi**, alors que c'est la meilleure indication sur l'issue des mouvements de 2025.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "Depuis 2022, des mobilisations de jeunes ont déjà renversé des dirigeants",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Précision",
+      "summary": "Au Népal, les bilans ultérieurs dépassent **70 morts**, contre « au moins 19 » dans la vidéo. La tranche d'âge retenue, **13 à 26 ans**, diffère aussi de la définition courante, 13 à 28 ans en 2025.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "plus de 70 morts, bien au-delà des « au moins 19 » cités",
+        "strength": 0.7,
+        "nature": "contradiction"
+      }
+    },
+    {
+      "aspect": "Représentation",
+      "summary": "Le vote sur Discord a désigné une **ancienne présidente de la Cour suprême**, et il a débouché sur l'annonce d'**élections en mars 2026**. Le mouvement présenté comme celui de pays où « voter ne suffit plus » a donc conduit à un **retour aux urnes**.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 1,
+        "excerpt": "ancienne présidente de la Cour suprême ; des élections annoncées pour mars 2026",
+        "strength": 0.9,
+        "nature": "contradiction"
+      }
+    },
+    {
+      "aspect": "Issue",
+      "summary": "À Madagascar, la chute du président a mené à la **prise du pouvoir par un colonel**. Au Pérou, la présidente destituée a été remplacée par le **président du Congrès**, l'institution même que les manifestants accusent.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "prise du pouvoir par un colonel, Michael Randrianirina",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Déclencheurs",
+      "summary": "Chaque mobilisation part d'un **grief national précis** : les dépenses pour les stades face aux hôpitaux au Maroc, la **suspension de 26 réseaux sociaux** au Népal. La vidéo les fond dans une **colère générationnelle commune**.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "dépenses pour les stades de la Coupe du monde 2030 à l'état des hôpitaux publics",
+        "strength": 0.7,
+        "nature": "specification"
+      }
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "Au Népal, au Pérou et à Madagascar, le pouvoir est passé à une juge, au président du Congrès et à un colonel. Les **institutions existantes** ont absorbé la crise, et **les citoyens n'ont pas gagné de place** dans le pouvoir.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 2,
+        "excerpt": "Faire tomber un gouvernement revient à redonner une place aux citoyens",
+        "strength": 0.9,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Ces mouvements ouvrent des **vacances du pouvoir** que d'autres occupent, plus qu'ils ne donnent aux citoyens une place réelle."
+    },
+    {
+      "counterargument": "Un vote en ligne dont **on ne connaît ni les participants ni le nombre** peut être dominé par une minorité active. Le débouché népalais reste d'ailleurs **une élection classique**.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 0,
+        "excerpt": "Un vote sur Discord exprime la volonté des citoyens",
+        "strength": 0.8,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "La démocratie numérique sert à **mobiliser et à proposer** ; la place des citoyens dans le pouvoir passe encore par **le vote et les institutions**."
+    },
+    {
+      "counterargument": "Les revendications diffèrent d'un pays à l'autre : l'eau à Madagascar, la censure au Népal, les hôpitaux au Maroc. Leur **simultanéité** peut tenir à des crises locales et à la circulation des images, **sans projet politique commun**.",
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 0,
+        "excerpt": "on en conclut à un mouvement mondial",
+        "strength": 0.7,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "Il s'agit d'une **convergence de colères nationales** qui partagent des outils et un symbole, plus que d'une génération qui invente ensemble une autre démocratie."
+    }
+  ]
+}

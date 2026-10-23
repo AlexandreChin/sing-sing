@@ -1,0 +1,197 @@
+{
+  "main_claim": "Un mouvement lycéen inédit révèle un système éducatif inégalitaire, auquel l'État répond par la répression.",
+  "premisses": [
+    {
+      "id": "p1",
+      "statement": "Les lycées publics manquent de **moyens** : classes surchargées, professeurs non remplacés, bâtiments dégradés.",
+      "quality": "Appuyée par des chiffres (**70 % des classes à plus de 30 élèves**, 10 % d'heures non assurées), mais leur source n'est pas précisée ; le reste repose sur des témoignages."
+    },
+    {
+      "id": "p2",
+      "statement": "Le mouvement est **spontané et apolitique**, porté par les lycéens eux-mêmes.",
+      "quality": "Simple assertion des intéressés, reprise sans vérification ; un lycéen concède lui-même que **« c'est de la politique »**."
+    },
+    {
+      "id": "p3",
+      "statement": "La réponse de l'État est **d'une ampleur inédite** : interpellations massives, blessés graves, interdictions de rassemblement.",
+      "quality": "Étayée par des chiffres officiels (**6 800 interpellations dont 85 % de mineurs**, 36 enquêtes IGPN) ; le caractère « record » repose sur la recherche personnelle d'une avocate."
+    },
+    {
+      "id": "p4",
+      "statement": "Fanny et Bilel incarnent **le constat de toute une génération**.",
+      "quality": "Deux cas généralisés : **l'anecdote tient lieu d'échantillon**, sans lycéen non mobilisé ni opposé aux blocages."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "id": "ia1",
+      "statement": "Le manque de moyens est la **cause principale** de la baisse du niveau mesurée par PISA.",
+      "impact": "Si d'autres facteurs pèsent davantage, **plus de moyens** ne suffirait pas à répondre aux revendications."
+    },
+    {
+      "id": "ia2",
+      "statement": "Les violences viennent surtout de **groupes extérieurs** ou des forces de l'ordre, pas des lycéens.",
+      "impact": "Si une part des violences venait des cortèges eux-mêmes, la lecture d'une **répression disproportionnée** perdrait de sa force."
+    },
+    {
+      "id": "ia3",
+      "statement": "Le nombre de messages reçus par le média reflète **l'ampleur réelle** du mouvement.",
+      "impact": "Si l'audience du média est surtout celle des lycéens mobilisés, ce signal mesure **son public** plus que le pays."
+    },
+    {
+      "id": "ia4",
+      "statement": "Les interdictions de rassemblement visent à **réprimer la contestation** plutôt qu'à prévenir des violences.",
+      "impact": "Si elles répondent à des débordements constatés, la thèse d'une volonté de **« passer l'envie »** à une génération s'affaiblit."
+    }
+  ],
+  "blind_spots": [
+    {
+      "id": "bs1",
+      "topic": "La parole des **forces de l'ordre** et du ministère de l'Intérieur.",
+      "significance": "Les **700 policiers blessés** et le contexte des interventions pourraient nuancer le récit d'une violence à sens unique."
+    },
+    {
+      "id": "bs2",
+      "topic": "Les **réponses du ministre** sur les moyens, les remplacements et Parcoursup.",
+      "significance": "Sans elles, le spectateur ne peut pas juger **si des mesures existent** ou sont annoncées."
+    },
+    {
+      "id": "bs3",
+      "topic": "Le **budget de l'Éducation nationale** et son évolution.",
+      "significance": "Il permettrait de vérifier si le manque de moyens relève **d'une baisse des crédits** ou de leur répartition."
+    },
+    {
+      "id": "bs4",
+      "topic": "Les lycéens **non mobilisés ou opposés** aux blocages.",
+      "significance": "Leur absence fait apparaître le mouvement comme **unanime** au sein d'une génération."
+    }
+  ],
+  "emphasis": [
+    "Le reportage consacre l'essentiel de sa durée aux **témoignages de lycéens, parents et professeurs**, alors que le ministre n'apparaît que sur la question des violences.",
+    "Les **blessures graves de lycéens** sont détaillées une à une, alors que les 700 membres des forces de l'ordre blessés sont cités **une seule fois**.",
+    "Le texte annonce vouloir écouter plutôt que montrer les violences, mais **la répression occupe une large part** de la seconde moitié."
+  ],
+  "logical_reasoning": [
+    {
+      "id": "lr1",
+      "step": "Des témoignages décrivent classes surchargées et professeurs absents ; des chiffres nationaux sont présentés comme **confirmation**.",
+      "problem_type": "soundness",
+      "diagnosis": "Les chiffres clés (70 %, 10 %) sont donnés **sans source**, ce qui fragilise la confirmation annoncée."
+    },
+    {
+      "id": "lr2",
+      "step": "Le niveau PISA au plus bas est rapproché des conditions d'enseignement **dégradées**.",
+      "problem_type": "validity",
+      "diagnosis": "La juxtaposition suggère **un lien de cause** qui n'est jamais établi."
+    },
+    {
+      "id": "lr3",
+      "step": "Deux lycéens de villes différentes font le même constat, donc **un système éducatif devenu inégalitaire**.",
+      "problem_type": "validity",
+      "diagnosis": "Deux cas choisis ne suffisent pas à **généraliser** à tout le système."
+    },
+    {
+      "id": "lr4",
+      "step": "Les chiffres d'interpellations et d'enquêtes IGPN montrent **une réponse pénale massive** envers des mineurs.",
+      "problem_type": null,
+      "diagnosis": null
+    }
+  ],
+  "observations": [
+    {
+      "id": "o1",
+      "aspect": "Chronologie",
+      "summary": "Le récit insiste sur la **vitesse de propagation** depuis Créteil et sur la mise en scène d'une semaine décisive. Il s'inscrit dans une **généalogie de mobilisations** (1968 à 2018), dont celle contre Parcoursup, toujours revendiquée.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "Le mouvement part du lycée Saint-Exupéry de Créteil",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "o2",
+      "aspect": "Cadrage",
+      "summary": "Le mouvement est présenté comme **apolitique**, mais le reportage le relie à **l'élection présidentielle** en ouverture et en clôture.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "à quelques mois de l'élection présidentielle",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "id": "o3",
+      "aspect": "Sourçage",
+      "summary": "Les interdictions de rassemblement ne sont décrites que **par une avocate** du collectif qui dénonce la répression. Aucun arrêté ni préfecture n'est **cité directement**.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "arrêtés d'interdiction de rassemblement",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "o4",
+      "aspect": "Chiffres",
+      "summary": "Le classement PISA est cité sans le chiffre qui le précise, une **baisse de 21 points en maths** entre 2018 et 2022. Les décomptes de manifestants sont présentés côte à côte, **ministère et syndicats**, sans comptage indépendant.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "PISA 2022, la France obtient 474 points",
+        "strength": 0.7,
+        "nature": "specification"
+      }
+    },
+    {
+      "id": "o5",
+      "aspect": "Contexte",
+      "summary": "Les blessures par LBD sont décrites au cas par cas, sans rappeler que **le Défenseur des droits** en demandait la suspension **dès 2019**.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "Défenseur des droits a recommandé dès 2019",
+        "strength": 0.7,
+        "nature": "contradiction"
+      }
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "La baisse du niveau scolaire peut tenir à des causes que **les moyens seuls** n'expliquent pas : méthodes, programmes, inégalités sociales hors de l'école.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 0,
+        "excerpt": "Le manque de moyens est la cause principale",
+        "strength": 0.7,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "Répondre au mouvement exigerait **plus qu'une hausse des budgets**, et les revendications ne suffiraient pas à redresser le niveau."
+    },
+    {
+      "counterargument": "Avec **plus de 700 policiers blessés** et des mortiers tirés aux abords des lycées, les interdictions et interpellations peuvent répondre à **un risque réel** plutôt qu'à une volonté de faire taire une génération.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "La parole des forces de l'ordre",
+        "strength": 0.8,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "La réponse de l'État serait **une gestion de l'ordre public** contestable dans ses excès, non une répression du mouvement lui-même."
+    },
+    {
+      "counterargument": "Deux lycéens mobilisés et les messages d'un public déjà acquis ne disent pas **ce que pense la majorité** des lycéens.",
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 2,
+        "excerpt": "Deux lycéens de villes différentes font le même constat",
+        "strength": 0.6,
+        "nature": "inference"
+      },
+      "alternative_conclusion": "Le mouvement serait **fort mais minoritaire**, et son « éveil démocratique » resterait à mesurer."
+    }
+  ]
+}

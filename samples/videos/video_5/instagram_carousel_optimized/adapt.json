@@ -1,0 +1,339 @@
+{
+  "caption": "Népal, Madagascar, Pérou, Maroc : en 2025, des jeunes font vaciller leurs gouvernements sous le drapeau pirate d'un manga. 🏴‍☠️\n\n🔎 Les clefs pour comprendre en une minute qui prend le pouvoir après la rue.\n\n🔗 Lien vers la vidéo en commentaires ↓",
+  "hook": {
+    "topic": "Une jeunesse **sans chef**",
+    "sub_topic": "Des régimes tombés, des votes en ligne : à qui va le **pouvoir** ?",
+    "subtitle": "Comprendre à qui il revient.",
+    "headline": "Des gouvernements tombent, mais qui **gouverne** ensuite ?",
+    "context_line": "",
+    "sub_topic_alt": [
+      "La rue renverse, un vote en ligne choisit : qui garde le **pouvoir** ?",
+      "Six pays, des dirigeants chassés : et la **place des citoyens** ?",
+      "Des jeunes sans chef font tomber des régimes : **après**, qui décide ?"
+    ]
+  },
+  "interest": null,
+  "title_bullets": [],
+  "chapo_bullets": [],
+  "context_next_slide_hook": "",
+  "watch_out_next_slide_hook": "",
+  "forme_next_slide_hook": "",
+  "biases_next_slide_hook": "",
+  "engagement_question": "",
+  "go_further": [
+    {
+      "title": "Defining generations: Where Millennials end and Generation Z begins",
+      "source": "Pew Research Center",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Pour savoir d'où vient la tranche d'âge qu'on prête à la Génération Z.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Démission de Gotabaya Rajapaksa au Sri Lanka",
+      "source": "BBC News",
+      "media_type": "article",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Pour voir ce qu'est devenue, en 2022, une victoire de la rue contre un président.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Démission de Sheikh Hasina au Bangladesh",
+      "source": "Reuters",
+      "media_type": "article",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Pour suivre qui a gouverné après la chute de la Première ministre en 2024.",
+      "cta_question_index": null
+    }
+  ],
+  "cta": {
+    "title": "",
+    "engagement_sentence": "Comment redonner une place réelle aux **citoyens** dans le pouvoir ?",
+    "engagement_sentence_alt": [
+      "Jusqu'où un vote en ligne donne-t-il aux **citoyens** une place dans le **pouvoir** ?",
+      "Que reste-t-il d'une victoire de la rue quand d'autres prennent le **pouvoir** ?",
+      "À quelles conditions une mobilisation sans chef pèse-t-elle sur le **pouvoir** qui la suit ?"
+    ],
+    "where_to_look": [
+      "La BBC sur la démission du président du Sri Lanka (2022)",
+      "Reuters sur la chute de la Première ministre du Bangladesh",
+      "Les bilans du ministère de la Santé du Népal (2025)"
+    ],
+    "post_reading_questions": []
+  },
+  "display": {
+    "thesis_frame": {
+      "main_claim": "Une génération connectée et sans chef fait tomber des gouvernements et cherche d'autres formes de démocratie.",
+      "out_of_scope": [
+        "L'influence de puissances étrangères dans ces crises",
+        "Le programme économique des futurs gouvernements",
+        "Les effets des écrans sur la santé des jeunes"
+      ]
+    },
+    "payoff": "",
+    "framing": "",
+    "why_selected": "Fin août à fin septembre 2025, de l'Indonésie au Pérou, le **drapeau pirate** du manga One Piece flotte sur les cortèges.\nAu Népal, des **élections** sont annoncées pour mars 2026 : la suite se jouera aussi dans les urnes.",
+    "selection_headline": "Un manga en étendard, des régimes ébranlés",
+    "selection_headline_alt": [],
+    "ethics": "",
+    "pre_reading": [],
+    "watch_out": [],
+    "strengths": [],
+    "distill_points": [],
+    "after_reading": [],
+    "key_takeaways": [
+      {
+        "text": "En 2025, des mobilisations de jeunes ont fait chuter des dirigeants au Népal et à Madagascar.",
+        "selected": true
+      },
+      {
+        "text": "Au Népal, le mouvement a proposé la future Première ministre par un vote sur Discord.",
+        "selected": true
+      },
+      {
+        "text": "À Madagascar, un colonel a pris le pouvoir après la fuite du président.",
+        "selected": true
+      },
+      {
+        "text": "Les revendications portent sur l'eau, l'électricité, les hôpitaux et la corruption.",
+        "selected": false
+      },
+      {
+        "text": "Au Népal, les bilans de la répression dépassent ensuite 70 morts.",
+        "selected": false
+      },
+      {
+        "text": "Le drapeau pirate de One Piece sert de signe de ralliement d'un pays à l'autre.",
+        "selected": false
+      }
+    ],
+    "blind_spots": [],
+    "balance": [],
+    "lenses": [],
+    "reading_beats": [
+      {
+        "moment": "Voter ne suffit plus, dit la vidéo, sans le montrer",
+        "quote": "Dans des pays où voter ne suffit plus, la GenZ chercher à inventer d’autres formes de démocratie, plus numériques, plus horizontales.",
+        "quote_original": "",
+        "lens_ref": "opinion_fait",
+        "lens_question": "",
+        "note": "",
+        "answer": "",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": false,
+        "theme": "Démocratie numérique",
+        "centrality": 4,
+        "kind": "affirmation",
+        "role": "appui",
+        "spine_ref": 2,
+        "axis_link": "",
+        "rationale": "Pose le diagnostic sur le vote sans l'étayer."
+      },
+      {
+        "moment": "Des gouvernements renversés : une première mondiale ?",
+        "quote": "une sorte de première mondiale où ce type de mouvement […] horizontal […] de faire tomber des gouvernements",
+        "quote_original": "",
+        "lens_ref": "opinion_fait",
+        "lens_question": "Du jamais-vu : comparé à quels précédents ?",
+        "note": "Devant un « jamais vu », cherchez les **précédents** et ce qu'ils sont devenus.",
+        "answer": "**Remontez l'historique** : la rue a renversé des dirigeants au Sri Lanka (2022) et au Bangladesh (2024). Voyez qui a gouverné après.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "likely false",
+        "selected": true,
+        "theme": "Nouveauté du mouvement",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "appui",
+        "spine_ref": 1,
+        "axis_link": "Les chutes de dirigeants au Sri Lanka et au Bangladesh, que la vidéo cite, montrent ce que deviennent ces victoires pour la place des citoyens.",
+        "rationale": "Pilier de la thèse, contredit par les précédents cités."
+      },
+      {
+        "moment": "Des cortèges pacifiques, des morts dans plusieurs pays",
+        "quote": "ces manifestations pacifiques reçoivent quasi systématiquement une réponse violente. […] au moins 19 morts au Népal, 22 morts à Madagascar",
+        "quote_original": "",
+        "lens_ref": "chiffres",
+        "lens_question": "",
+        "note": "",
+        "answer": "",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "true",
+        "selected": false,
+        "theme": "Répression",
+        "centrality": 3,
+        "kind": "statistique",
+        "role": "preuve",
+        "spine_ref": 0,
+        "axis_link": "",
+        "rationale": "Bilans ni datés ni sourcés, dépassés ensuite au Népal."
+      },
+      {
+        "moment": "Au Népal, 26 réseaux coupés : obstacle ou étincelle ?",
+        "quote": "même au Népal où 26 plateformes numériques ont été suspendu, ils ont pris de vitesse les autorités pour descendre dans la rue",
+        "quote_original": "",
+        "lens_ref": "causalite",
+        "lens_question": "",
+        "note": "",
+        "answer": "",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "true",
+        "selected": false,
+        "theme": "Smartphone et censure",
+        "centrality": 3,
+        "kind": "fait",
+        "role": "preuve",
+        "spine_ref": 0,
+        "axis_link": "",
+        "rationale": "La coupure déclenche la révolte plus qu'elle ne la freine."
+      },
+      {
+        "moment": "Sans chef, la majorité tranche en ligne",
+        "quote": "nous n'avons pas de chef. […] nous en discutons et votons sur notre plateforme. La majorité l'emporte",
+        "quote_original": "",
+        "lens_ref": "angles_morts",
+        "lens_question": "Un vote en ligne : qui y participe vraiment ?",
+        "note": "Devant un vote en ligne, demandez **combien** ont voté et **qui** en est exclu.",
+        "answer": "**Le nombre de votants** fait sa portée : cherchez-le dans la presse népalaise. Ce vote a mené à des élections, prévues en mars 2026.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": true,
+        "theme": "Vote sur Discord",
+        "centrality": 5,
+        "kind": "enjeu",
+        "role": "preuve",
+        "spine_ref": 2,
+        "axis_link": "Sans savoir combien votent ni qui, le lecteur ne peut dire si ce vote en ligne donne aux citoyens une place réelle.",
+        "rationale": "Seule preuve concrète de l'autre démocratie, participation inconnue."
+      },
+      {
+        "moment": "Sans chef, une victoire que d'autres peuvent prendre",
+        "quote": "le risque c'est de se faire confisquer la victoire par d'anciennes castes politiques qui attendaient justement leur tour.",
+        "quote_original": "",
+        "lens_ref": "causalite",
+        "lens_question": "Une chute de gouvernement : au profit de qui ?",
+        "note": "Quand un dirigeant tombe, regardez **qui occupe la place** dans les semaines qui suivent.",
+        "answer": "**Suivez l'armée** : à Madagascar, alliée de la rue, elle a placé un colonel, Michael Randrianirina, au pouvoir en octobre 2025.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": true,
+        "theme": "Confiscation de la victoire",
+        "centrality": 4,
+        "kind": "enjeu",
+        "role": "concession",
+        "spine_ref": 3,
+        "axis_link": "L'absence de chef qui protège de la répression peut aussi laisser la place aux élites : c'est le nœud de la question.",
+        "rationale": "Nomme le risque sans dire qu'il s'est déjà réalisé."
+      },
+      {
+        "moment": "L'armée à la tête de Madagascar, dite temporaire",
+        "quote": "ont vu les militaires prendre temporairement la présidence du pays. Résultat, un nouveau premier ministre a été nommé contesté par une partie de la Gen Z.",
+        "quote_original": "",
+        "lens_ref": "cadrage",
+        "lens_question": "",
+        "note": "",
+        "answer": "",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": false,
+        "theme": "Prise du pouvoir par l'armée",
+        "centrality": 4,
+        "kind": "fait",
+        "role": "preuve",
+        "spine_ref": 3,
+        "axis_link": "",
+        "rationale": "Un colonel au pouvoir, résumé en une phrase."
+      },
+      {
+        "moment": "Reprise par les élites ou rupture : la fin reste ouverte",
+        "quote": "Que donneront ces mobilisations à l'avenir ? Reprise par les élites, rupture systémiques, tout reste à écrire.",
+        "quote_original": "",
+        "lens_ref": "angles_morts",
+        "lens_question": "",
+        "note": "",
+        "answer": "",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": false,
+        "theme": "Issue des mobilisations",
+        "centrality": 3,
+        "kind": "enjeu",
+        "role": "mise en scène",
+        "spine_ref": 3,
+        "axis_link": "",
+        "rationale": "Clôture ouverte alors que des issues sont déjà connues."
+      }
+    ],
+    "global_analysis": {
+      "headline": "Sans chef, la jeunesse fait tomber des gouvernements",
+      "headline_alt": [
+        "La rue des jeunes renverse des gouvernements",
+        "Une génération sans chef pour changer le pouvoir",
+        "Des jeunes sans chef font vaciller le pouvoir"
+      ],
+      "core_recap": [
+        "Ses présupposés : que six pays font **un seul mouvement** ; qu'un vote en ligne **représente les citoyens** ; que renverser, c'est **gagner**"
+      ]
+    },
+    "open_question": "",
+    "root_issue": "Entre un vote qui ne suffit plus et une rue qui renverse sans gouverner, les **citoyens** n'ont pas de place durable dans les décisions.",
+    "steel_man": {
+      "argument": "Les chutes ont **profité** à une juge, au chef du Parlement péruvien, à un colonel — pas aux **citoyens**",
+      "alternative": "La rue ouvre une **vacance du pouvoir** que les **institutions en place** occupent.",
+      "targets": 3
+    },
+    "reperes_headline": "",
+    "reperes_context": "",
+    "reperes_facts": [
+      {
+        "label": "La GenZ",
+        "text": "Nés entre 1997 et 2012, selon le **Pew Research Center**, institut américain."
+      },
+      {
+        "label": "Le Népal",
+        "text": "La **suspension de 26 réseaux sociaux** a déclenché la révolte, début septembre 2025."
+      },
+      {
+        "label": "La source",
+        "text": "**ARTE**, chaîne publique culturelle franco-allemande : un récit tourné vers les manifestants."
+      }
+    ],
+    "bilan_headline": "",
+    "essentiel": [
+      "Une génération en colère : des jeunes de six pays ébranlent des **gouvernements**",
+      "Voter ne pèse plus sur le pouvoir : décisions en ligne, **sans chef**",
+      "Une victoire à protéger : l'armée et les anciennes **élites** attendent de gouverner"
+    ],
+    "essentiel_summary": ""
+  }
+}

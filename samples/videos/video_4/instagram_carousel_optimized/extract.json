@@ -1,0 +1,1337 @@
+{
+  "analysis": {
+    "article_metadata": {
+      "url": "https://www.youtube.com/watch?v=IKELe7WKV6A",
+      "title": "La semaine où tout a basculé",
+      "source": "Hugo Décrypte",
+      "published_at": null,
+      "type": "news_report",
+      "medium": "video",
+      "category": "Autre",
+      "reading_time_minutes": 24,
+      "chapo": null,
+      "extra_instructions": null,
+      "language": null
+    },
+    "extraction": {
+      "authority_anchors": [
+        {
+          "entity": "Classement PISA",
+          "used_for": "Affirmer que le niveau scolaire français n'a jamais été aussi bas depuis 2000"
+        },
+        {
+          "entity": "Ministère de l'Intérieur",
+          "used_for": "Chiffrer les manifestants, les interpellations (6 800 dont 85 % de mineurs) et les 36 enquêtes IGPN"
+        },
+        {
+          "entity": "Syndicats",
+          "used_for": "Avancer un chiffre de plus de 450 000 manifestants"
+        },
+        {
+          "entity": "Haut-Commissariat des Nations unies aux droits de l'homme",
+          "used_for": "Donner une dimension internationale à l'inquiétude sur l'usage de la force"
+        },
+        {
+          "entity": "Romane Bartoli et le collectif Action Judiciaire",
+          "used_for": "Qualifier la réponse pénale de « répression inédite » et soutenir l'idée d'un nombre record d'interpellations"
+        },
+        {
+          "entity": "Résultats nationaux du baccalauréat",
+          "used_for": "Illustrer les difficultés du lycée Paul Éluard (2282e sur 2295)"
+        },
+        {
+          "entity": "Greta Thunberg",
+          "used_for": "Souligner l'écho international du mouvement"
+        }
+      ],
+      "key_quotes": [
+        "On est laissé à l'abandon comme si nous les enfants de banlieue on comptait pas.",
+        "C'est pas un mouvement de de gauche, de droite, d'extrême droite, d'extrême gauche. C'est un mouvement de lycéens.",
+        "Quand une classe est surchargée, c'est de la politique. Quand il manque des professeurs, c'est de la politique. Que Parcoursup détermine une partie de notre avenir, c'est de la politique.",
+        "Faire cours dans des classes surchargées avec 35 à 37 élèves, c'est violent.",
+        "Forcément, on condamne les violences. Mais nous, ce que condamne par-dessus tout, c'est la violence de l'État.",
+        "Quand tu as plus d'empathie pour une poubelle que pour un enfant, je pense qu'il faut se poser des questions, en fait.",
+        "Mais du coup nous on nous demande d'étudier pour un métier qui ça se trouve n'existera plus dans 10 ans en fait.",
+        "Certes, c'est de la politique mais quand je dis apolitique c'est on n'est pas affilié à l'UNEF, on n'est pas affilié à des groupuscules ou autres.",
+        "Qu'on leur tape dessus au lieu de les écouter alors que ça fait des années qu'on dénonce ce qu'ils sont tous en train de dénoncer.",
+        "nos lycéens et leurs revendications se sont retrouvés en fait noyautés et confisqués par des groupuscules qui étaient en fait pour en découdre.",
+        "Ce que veut faire le gouvernement, c'est essayer de passer l'envie à toute cette génération de se remobiliser.",
+        "Disons les choses, même au cœur de la crise des gilets jaunes, je n'avais jamais reçu autant de messages ou de vidéos en si peu de jours.",
+        "Sur les réseaux, on assiste à l'éveil démocratique d'une génération de lycéens."
+      ],
+      "notable_omissions": [
+        "Les chiffres sur les classes surchargées (70 % à plus de 30 élèves) et les heures non assurées (10 %) ne sont pas sourcés.",
+        "Aucune parole de policiers, de syndicats de police ou du ministère de l'Intérieur n'est recueillie directement.",
+        "Les 700 membres des forces de l'ordre blessés sont cités une fois, sans être développés.",
+        "Aucun lycéen opposé aux blocages ou non mobilisé n'est interrogé.",
+        "Le budget de l'Éducation nationale et son évolution récente ne sont pas présentés.",
+        "Les réponses du ministre sur les revendications scolaires (moyens, remplacements, Parcoursup) ne figurent pas dans le montage.",
+        "L'origine des « groupuscules » évoqués par le ministre n'est ni identifiée ni vérifiée.",
+        "Les comparaisons historiques ne précisent pas les chiffres de mobilisation pour 1990 ou 2018."
+      ],
+      "rhetorical_patterns": [
+        "Récit incarné par deux figures, Fanny (Nantes) et Bilel (Saint-Denis), présentées comme représentatives d'un même constat.",
+        "Dramatisation temporelle : titre « La semaine où tout a basculé », « J'ai 5 jours pour tout vous raconter ».",
+        "Le narrateur se met en scène comme témoin privilégié (« je reçois énormément de témoignages », comparaison avec les gilets jaunes).",
+        "Choix annoncé d'écouter les lycéens plutôt que de montrer les violences (« vous les avez déjà vues »).",
+        "Inscription du mouvement dans une généalogie historique (Mai 68, 1973, 1990, 2006, 2018) qui le présente comme inédit.",
+        "Alternance de témoignages émotionnels et de chiffres présentés comme confirmation (« les chiffres confirment-ils ce que nous racontent les lycéens ? »).",
+        "Scènes intimes (chambre, famille, arbitrage de rugby) qui humanisent les protagonistes.",
+        "Lexique de l'éveil et de la génération : « éveil démocratique », « c'est nous l'avenir ».",
+        "Mise en avant répétée du caractère apolitique revendiqué du mouvement, tout en le reliant à l'élection présidentielle.",
+        "Clôture par des questions ouvertes adressées au débat présidentiel."
+      ]
+    },
+    "context": {
+      "contexts": [
+        {
+          "id": "ctx_0",
+          "text": "Le mouvement part du lycée Saint-Exupéry de **Créteil** quelques semaines après la rentrée, puis s'étend en **72 heures** à toute la France."
+        },
+        {
+          "id": "ctx_1",
+          "text": "Il survient à **quelques mois de l'élection présidentielle**, prévue au printemps 2027."
+        },
+        {
+          "id": "ctx_2",
+          "text": "Des préfets ont pris des **arrêtés d'interdiction de rassemblement** aux abords des établissements, selon une avocate interrogée."
+        },
+        {
+          "id": "ctx_3",
+          "text": "Le mouvement s'inscrit dans une série de mobilisations lycéennes, dont celle de **2018 contre Parcoursup** et la réforme du bac."
+        }
+      ],
+      "who_is_speaking": [
+        "**HugoDécrypte** est un média d'information en ligne fondé par Hugo Travers, très suivi par **les 15-30 ans** sur YouTube et les réseaux sociaux.",
+        "Le format est un **reportage documentaire à la première personne**, où le présentateur apparaît comme enquêteur et témoin.",
+        "Le média se finance principalement par la **publicité et des partenariats** sur les plateformes, sans rattachement à un groupe de presse traditionnel.",
+        "Son public est en partie **celui des lycéens mobilisés**, qui lui écrivent directement, ce qui place le média en position de relais."
+      ],
+      "important_facts": [
+        {
+          "id": "fact_0",
+          "text": "Dans **PISA 2022**, la France obtient 474 points en mathématiques, une **baisse de 21 points** par rapport à 2018."
+        },
+        {
+          "id": "fact_1",
+          "text": "**Parcoursup** a été créé en 2018 par la loi Orientation et réussite des étudiants, en remplacement d'APB."
+        },
+        {
+          "id": "fact_2",
+          "text": "Le **Défenseur des droits** a recommandé dès 2019 de suspendre l'usage du **LBD** lors des manifestations."
+        },
+        {
+          "id": "fact_3",
+          "text": "Le chiffre de manifestants diffère souvent du simple au double entre **ministère de l'Intérieur et syndicats** ; des comptages indépendants existent pour certaines manifestations."
+        }
+      ],
+      "key_terms": [
+        {
+          "term": "Blocus",
+          "definition": "Action consistant à empêcher l'accès à un lycée ou une université, souvent avec des poubelles ou des barrières."
+        },
+        {
+          "term": "PISA",
+          "definition": "Enquête internationale de l'OCDE qui mesure tous les trois ans le niveau des élèves de 15 ans en lecture, maths et sciences."
+        },
+        {
+          "term": "Parcoursup",
+          "definition": "Plateforme nationale par laquelle les lycéens demandent leur place dans l'enseignement supérieur."
+        },
+        {
+          "term": "LBD",
+          "definition": "Lanceur de balles de défense, arme utilisée par les forces de l'ordre qui tire des projectiles en caoutchouc."
+        },
+        {
+          "term": "IGPN",
+          "definition": "Inspection générale de la police nationale, service qui enquête sur les fautes des policiers."
+        },
+        {
+          "term": "Garde à vue",
+          "definition": "Retenue d'une personne soupçonnée d'une infraction dans un commissariat, pour une durée limitée, afin de l'interroger."
+        },
+        {
+          "term": "Participation à un groupement en vue de commettre un délit",
+          "definition": "Infraction qui punit le fait de rejoindre un groupe préparant des violences ou des dégradations, même sans les avoir commises."
+        },
+        {
+          "term": "CPE",
+          "definition": "Contrat première embauche, contrat de travail pour les moins de 26 ans retiré en 2006 après de fortes manifestations."
+        },
+        {
+          "term": "Contractuel",
+          "definition": "Enseignant embauché en contrat temporaire, sans le statut de fonctionnaire titulaire."
+        }
+      ]
+    },
+    "analysis": {
+      "fond": {
+        "main_claim": "Un mouvement lycéen inédit révèle un système éducatif inégalitaire, auquel l'État répond par la répression.",
+        "premisses": [
+          {
+            "id": "pr_0",
+            "statement": "Les lycées publics manquent de **moyens** : classes surchargées, professeurs non remplacés, bâtiments dégradés.",
+            "quality": "Appuyée par des chiffres (**70 % des classes à plus de 30 élèves**, 10 % d'heures non assurées), mais leur source n'est pas précisée ; le reste repose sur des témoignages."
+          },
+          {
+            "id": "pr_1",
+            "statement": "Le mouvement est **spontané et apolitique**, porté par les lycéens eux-mêmes.",
+            "quality": "Simple assertion des intéressés, reprise sans vérification ; un lycéen concède lui-même que **« c'est de la politique »**."
+          },
+          {
+            "id": "pr_2",
+            "statement": "La réponse de l'État est **d'une ampleur inédite** : interpellations massives, blessés graves, interdictions de rassemblement.",
+            "quality": "Étayée par des chiffres officiels (**6 800 interpellations dont 85 % de mineurs**, 36 enquêtes IGPN) ; le caractère « record » repose sur la recherche personnelle d'une avocate."
+          },
+          {
+            "id": "pr_3",
+            "statement": "Fanny et Bilel incarnent **le constat de toute une génération**.",
+            "quality": "Deux cas généralisés : **l'anecdote tient lieu d'échantillon**, sans lycéen non mobilisé ni opposé aux blocages."
+          }
+        ],
+        "implicit_assumptions": [
+          {
+            "id": "ia_0",
+            "statement": "Le manque de moyens est la **cause principale** de la baisse du niveau mesurée par PISA.",
+            "impact": "Si d'autres facteurs pèsent davantage, **plus de moyens** ne suffirait pas à répondre aux revendications."
+          },
+          {
+            "id": "ia_1",
+            "statement": "Les violences viennent surtout de **groupes extérieurs** ou des forces de l'ordre, pas des lycéens.",
+            "impact": "Si une part des violences venait des cortèges eux-mêmes, la lecture d'une **répression disproportionnée** perdrait de sa force."
+          },
+          {
+            "id": "ia_2",
+            "statement": "Le nombre de messages reçus par le média reflète **l'ampleur réelle** du mouvement.",
+            "impact": "Si l'audience du média est surtout celle des lycéens mobilisés, ce signal mesure **son public** plus que le pays."
+          },
+          {
+            "id": "ia_3",
+            "statement": "Les interdictions de rassemblement visent à **réprimer la contestation** plutôt qu'à prévenir des violences.",
+            "impact": "Si elles répondent à des débordements constatés, la thèse d'une volonté de **« passer l'envie »** à une génération s'affaiblit."
+          }
+        ],
+        "blind_spots": [
+          {
+            "id": "bs_0",
+            "topic": "La parole des **forces de l'ordre** et du ministère de l'Intérieur.",
+            "significance": "Les **700 policiers blessés** et le contexte des interventions pourraient nuancer le récit d'une violence à sens unique."
+          },
+          {
+            "id": "bs_1",
+            "topic": "Les **réponses du ministre** sur les moyens, les remplacements et Parcoursup.",
+            "significance": "Sans elles, le spectateur ne peut pas juger **si des mesures existent** ou sont annoncées."
+          },
+          {
+            "id": "bs_2",
+            "topic": "Le **budget de l'Éducation nationale** et son évolution.",
+            "significance": "Il permettrait de vérifier si le manque de moyens relève **d'une baisse des crédits** ou de leur répartition."
+          },
+          {
+            "id": "bs_3",
+            "topic": "Les lycéens **non mobilisés ou opposés** aux blocages.",
+            "significance": "Leur absence fait apparaître le mouvement comme **unanime** au sein d'une génération."
+          }
+        ],
+        "emphasis": [
+          "Le reportage consacre l'essentiel de sa durée aux **témoignages de lycéens, parents et professeurs**, alors que le ministre n'apparaît que sur la question des violences.",
+          "Les **blessures graves de lycéens** sont détaillées une à une, alors que les 700 membres des forces de l'ordre blessés sont cités **une seule fois**.",
+          "Le texte annonce vouloir écouter plutôt que montrer les violences, mais **la répression occupe une large part** de la seconde moitié."
+        ],
+        "logical_reasoning": [
+          {
+            "id": "lr_0",
+            "step": "Des témoignages décrivent classes surchargées et professeurs absents ; des chiffres nationaux sont présentés comme **confirmation**.",
+            "problem_type": "soundness",
+            "diagnosis": "Les chiffres clés (70 %, 10 %) sont donnés **sans source**, ce qui fragilise la confirmation annoncée."
+          },
+          {
+            "id": "lr_1",
+            "step": "Le niveau PISA au plus bas est rapproché des conditions d'enseignement **dégradées**.",
+            "problem_type": "validity",
+            "diagnosis": "La juxtaposition suggère **un lien de cause** qui n'est jamais établi."
+          },
+          {
+            "id": "lr_2",
+            "step": "Deux lycéens de villes différentes font le même constat, donc **un système éducatif devenu inégalitaire**.",
+            "problem_type": "validity",
+            "diagnosis": "Deux cas choisis ne suffisent pas à **généraliser** à tout le système."
+          },
+          {
+            "id": "lr_3",
+            "step": "Les chiffres d'interpellations et d'enquêtes IGPN montrent **une réponse pénale massive** envers des mineurs.",
+            "problem_type": null,
+            "diagnosis": null
+          }
+        ],
+        "observations": [
+          {
+            "id": "obs_0",
+            "aspect": "Chronologie",
+            "summary": "Le récit insiste sur la **vitesse de propagation** depuis Créteil et sur la mise en scène d'une semaine décisive. Il s'inscrit dans une **généalogie de mobilisations** (1968 à 2018), dont celle contre Parcoursup, toujours revendiquée.",
+            "seeds": {
+              "source": "context",
+              "index": 0,
+              "excerpt": "Le mouvement part du lycée Saint-Exupéry de Créteil",
+              "strength": 0.9,
+              "nature": "illustration"
+            },
+            "proven_by": []
+          },
+          {
+            "id": "obs_1",
+            "aspect": "Cadrage",
+            "summary": "Le mouvement est présenté comme **apolitique**, mais le reportage le relie à **l'élection présidentielle** en ouverture et en clôture.",
+            "seeds": {
+              "source": "context",
+              "index": 1,
+              "excerpt": "à quelques mois de l'élection présidentielle",
+              "strength": 0.8,
+              "nature": "specification"
+            },
+            "proven_by": [
+              {
+                "type": "focus",
+                "index": 0
+              }
+            ]
+          },
+          {
+            "id": "obs_2",
+            "aspect": "Sourçage",
+            "summary": "Les interdictions de rassemblement ne sont décrites que **par une avocate** du collectif qui dénonce la répression. Aucun arrêté ni préfecture n'est **cité directement**.",
+            "seeds": {
+              "source": "context",
+              "index": 2,
+              "excerpt": "arrêtés d'interdiction de rassemblement",
+              "strength": 0.9,
+              "nature": "illustration"
+            },
+            "proven_by": [
+              {
+                "type": "claim",
+                "index": 3
+              }
+            ]
+          },
+          {
+            "id": "obs_3",
+            "aspect": "Chiffres",
+            "summary": "Le classement PISA est cité sans le chiffre qui le précise, une **baisse de 21 points en maths** entre 2018 et 2022. Les décomptes de manifestants sont présentés côte à côte, **ministère et syndicats**, sans comptage indépendant.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 0,
+              "excerpt": "PISA 2022, la France obtient 474 points",
+              "strength": 0.7,
+              "nature": "specification"
+            },
+            "proven_by": [
+              {
+                "type": "claim",
+                "index": 0
+              },
+              {
+                "type": "claim",
+                "index": 2
+              }
+            ]
+          },
+          {
+            "id": "obs_4",
+            "aspect": "Contexte",
+            "summary": "Les blessures par LBD sont décrites au cas par cas, sans rappeler que **le Défenseur des droits** en demandait la suspension **dès 2019**.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 2,
+              "excerpt": "Défenseur des droits a recommandé dès 2019",
+              "strength": 0.7,
+              "nature": "contradiction"
+            },
+            "proven_by": []
+          }
+        ],
+        "steel_man": [
+          {
+            "counterargument": "La baisse du niveau scolaire peut tenir à des causes que **les moyens seuls** n'expliquent pas : méthodes, programmes, inégalités sociales hors de l'école.",
+            "seeds": {
+              "source": "implicit_assumption",
+              "index": 0,
+              "excerpt": "Le manque de moyens est la cause principale",
+              "strength": 0.7,
+              "nature": "inference"
+            },
+            "alternative_conclusion": "Répondre au mouvement exigerait **plus qu'une hausse des budgets**, et les revendications ne suffiraient pas à redresser le niveau."
+          },
+          {
+            "counterargument": "Avec **plus de 700 policiers blessés** et des mortiers tirés aux abords des lycées, les interdictions et interpellations peuvent répondre à **un risque réel** plutôt qu'à une volonté de faire taire une génération.",
+            "seeds": {
+              "source": "blind_spot",
+              "index": 0,
+              "excerpt": "La parole des forces de l'ordre",
+              "strength": 0.8,
+              "nature": "contradiction"
+            },
+            "alternative_conclusion": "La réponse de l'État serait **une gestion de l'ordre public** contestable dans ses excès, non une répression du mouvement lui-même."
+          },
+          {
+            "counterargument": "Deux lycéens mobilisés et les messages d'un public déjà acquis ne disent pas **ce que pense la majorité** des lycéens.",
+            "seeds": {
+              "source": "logical_reasoning",
+              "index": 2,
+              "excerpt": "Deux lycéens de villes différentes font le même constat",
+              "strength": 0.6,
+              "nature": "inference"
+            },
+            "alternative_conclusion": "Le mouvement serait **fort mais minoritaire**, et son « éveil démocratique » resterait à mesurer."
+          }
+        ]
+      },
+      "forme": {
+        "emotional_register": [
+          {
+            "id": "er_0",
+            "emotion": "indignation",
+            "how": "Le reportage **accumule les blessures nommées** (un œil perdu, une mâchoire fracturée, une main arrachée), puis les **chiffres d'interpellations de mineurs**.",
+            "effect": "Le spectateur est conduit vers la lecture d'une **répression disproportionnée** envers des adolescents.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 2,
+              "excerpt": "Défenseur des droits a recommandé dès 2019 de suspendre l'usage du LBD",
+              "strength": 0.6,
+              "nature": "illustration"
+            }
+          },
+          {
+            "id": "er_1",
+            "emotion": "élan",
+            "how": "Le récit inscrit la mobilisation dans **une lignée de révoltes lycéennes** et la décrit comme un **« éveil démocratique »** d'une génération.",
+            "effect": "Le mouvement apparaît comme **un tournant historique** plutôt qu'un épisode de contestation parmi d'autres.",
+            "seeds": {
+              "source": "context",
+              "index": 3,
+              "excerpt": "une série de mobilisations lycéennes, dont celle de 2018 contre Parcoursup",
+              "strength": 0.7,
+              "nature": "illustration"
+            }
+          }
+        ],
+        "cui_bono": [
+          {
+            "id": "cb_0",
+            "beneficiary": "Les lycéens mobilisés et les acteurs qui portent l'éducation dans la campagne présidentielle",
+            "explanation": "Le reportage relaie les revendications de moyens **sans contradicteur sur le fond**. Le lien répété à **l'élection présidentielle** place ces revendications au centre du débat à venir.",
+            "seeds": {
+              "source": "context",
+              "index": 1,
+              "excerpt": "à quelques mois de l'élection présidentielle",
+              "strength": 0.8,
+              "nature": "inference"
+            }
+          },
+          {
+            "id": "cb_1",
+            "beneficiary": "Les critiques des méthodes de maintien de l'ordre",
+            "explanation": "Les blessures de mineurs sont détaillées au cas par cas, alors que **la parole policière est absente**. Ce cadrage conforte la demande d'un **usage proportionné de la force**.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 2,
+              "excerpt": "suspendre l'usage du LBD lors des manifestations",
+              "strength": 0.6,
+              "nature": "inference"
+            }
+          }
+        ],
+        "cadrage": {
+          "title_analysis": [
+            {
+              "label": "Dramatisation",
+              "observation": "Le titre annonce **une rupture totale** concentrée sur une seule semaine."
+            },
+            {
+              "label": "Ellipse",
+              "observation": "« Tout » ne dit ni **ce qui bascule** ni pour qui."
+            }
+          ],
+          "body": "Le reportage suit le mouvement **à hauteur de lycéens**, à travers deux figures, Fanny à Nantes et Bilel à Saint-Denis. Il alterne scènes de mobilisation, moments intimes en famille et chiffres nationaux sur les conditions d'enseignement et les interpellations. Le présentateur parle **à la première personne**, en témoin et en relais des messages reçus. Le ministre apparaît sur la seule question des violences, et une avocate porte le volet judiciaire."
+        }
+      }
+    },
+    "annotations": {
+      "facts_vs_opinions": {
+        "claims_and_sources": [
+          {
+            "id": "claim_0",
+            "quote": "On compte plus de 30 élèves par classe dans 70 % des cas.",
+            "presentation": "presented_as_established_fact",
+            "proves": {
+              "type": "observation",
+              "label": "Chiffres",
+              "strength": 0.8,
+              "nature": "illustration"
+            },
+            "explanation": "Le chiffre est donné **sans source ni périmètre** (lycées seuls ou tout le second degré). Les données nationales de l'Éducation nationale permettent de le **vérifier par type d'établissement**.",
+            "external_sources": [
+              {
+                "name": "DEPP, Repères et références statistiques (ministère de l'Éducation nationale)",
+                "supports": "neutral",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "Cour des comptes, rapports sur la gestion des enseignants",
+                "supports": "neutral",
+                "evidence_type": "official_data"
+              }
+            ],
+            "confidence": 60,
+            "confidence_label": "disputed"
+          },
+          {
+            "id": "claim_1",
+            "quote": "Au 14 octobre, selon le ministère de l'Intérieur, plus de 6800 personnes ont été interpellées, dont 85 % de mineurs.",
+            "presentation": "attributed_to_source",
+            "proves": {
+              "type": "emotional_register",
+              "label": "indignation",
+              "strength": 0.8,
+              "nature": "illustration"
+            },
+            "explanation": "Le chiffre vient **de l'autorité mise en cause** elle-même, ce qui rend une surestimation peu probable. Le reportage ne dit pas **combien de poursuites** ont suivi.",
+            "external_sources": [
+              {
+                "name": "Ministère de l'Intérieur, bilans des interpellations",
+                "supports": "validates",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "Collectif Action Judiciaire",
+                "supports": "validates",
+                "evidence_type": "testimony"
+              }
+            ],
+            "confidence": 75,
+            "confidence_label": "likely true"
+          },
+          {
+            "id": "claim_2",
+            "quote": "Selon le dernier classement international PISA, le niveau scolaire des élèves français n'a jamais été aussi bas depuis le lancement de l'enquête en 2000.",
+            "presentation": "attributed_to_source",
+            "proves": {
+              "type": "observation",
+              "label": "Chiffres",
+              "strength": 0.7,
+              "nature": "nuance"
+            },
+            "explanation": "Le constat correspond aux résultats publiés par l'OCDE pour 2022 (**474 points en maths**). Le reportage ne cite **aucun score** et ne dit rien des causes avancées par l'OCDE.",
+            "external_sources": [
+              {
+                "name": "OCDE, Résultats du PISA 2022",
+                "supports": "validates",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "DEPP, note d'information sur PISA 2022",
+                "supports": "validates",
+                "evidence_type": "official_data"
+              }
+            ],
+            "confidence": 85,
+            "confidence_label": "true"
+          },
+          {
+            "id": "claim_3",
+            "quote": "Ce que veut faire le gouvernement, c'est essayer de passer l'envie à toute cette génération de se remobiliser.",
+            "presentation": "opinion_stated_as_fact",
+            "proves": {
+              "type": "observation",
+              "label": "Sourçage",
+              "strength": 0.9,
+              "nature": "illustration"
+            },
+            "explanation": "La phrase prête au gouvernement **une intention** sans document pour l'établir. Elle vient d'une avocate du collectif qui **dénonce la répression**, sans réponse d'une préfecture.",
+            "external_sources": [
+              {
+                "name": "Arrêtés préfectoraux d'interdiction de rassemblement (recueils des actes administratifs)",
+                "supports": "neutral",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "Haut-Commissariat des Nations unies aux droits de l'homme, déclaration sur les manifestations en France",
+                "supports": "neutral",
+                "evidence_type": "official_data"
+              }
+            ],
+            "confidence": null,
+            "confidence_label": "unverifiable"
+          }
+        ]
+      },
+      "biases_and_focus": {
+        "biases_and_rhetoric": [
+          {
+            "id": "bias_0",
+            "quote": "Maël, 16 ans, a perdu l'usage de son œil après un tir compatible à celui d'un LBD.",
+            "item_type": "bias",
+            "label": "Accumulation de cas nommés",
+            "effect": "Remarquez comment **un prénom et un âge** pour chaque blessure pèsent plus que les **700 policiers blessés** cités en un seul chiffre.",
+            "proves": {
+              "type": "emotional_register",
+              "label": "indignation",
+              "strength": 0.8,
+              "nature": "illustration"
+            }
+          },
+          {
+            "id": "bias_1",
+            "quote": "Sur les réseaux, on assiste à l'éveil démocratique d'une génération de lycéens.",
+            "item_type": "bias",
+            "label": "Langage d'emphase",
+            "effect": "Remarquez comment **« une génération »** fait d'une partie mobilisée des lycéens **l'ensemble d'une classe d'âge**.",
+            "proves": {
+              "type": "emotional_register",
+              "label": "élan",
+              "strength": 0.8,
+              "nature": "illustration"
+            }
+          },
+          {
+            "id": "bias_2",
+            "quote": "Fanny à Nantes et Bilel à Saint-Denis n'ont pas grandi au même endroit, mais ils font le même constat.",
+            "item_type": "fallacy",
+            "label": "Généralisation à partir de deux cas",
+            "effect": "Remarquez comment **deux lycéens mobilisés**, choisis pour le reportage, suffisent ensuite à décrire **un système éducatif devenu inégalitaire**.",
+            "proves": {
+              "type": "emotional_register",
+              "label": "élan",
+              "strength": 0.6,
+              "nature": "illustration"
+            }
+          }
+        ],
+        "focus": {
+          "quote": "Quand une classe est surchargée, c'est de la politique. Quand il manque des professeurs, c'est de la politique.",
+          "proves": {
+            "type": "observation",
+            "label": "Cadrage",
+            "strength": 0.8,
+            "nature": "nuance"
+          },
+          "analysis": "Une lycéenne fait des conditions d'enseignement **un enjeu politique**. Plus tard, d'autres lycéens disent leur mouvement **« apolitique »**, au sens de sans parti, et le reportage s'ouvre et se ferme sur l'élection présidentielle. Où passe la frontière entre un mouvement politique et un mouvement partisan ?"
+        }
+      }
+    },
+    "deontology": {
+      "violations": [
+        {
+          "id": "e1",
+          "category": "victim_exploitation",
+          "label": "Victim Exploitation",
+          "severity": "significant",
+          "status": "caution",
+          "evidence": "Maël, 16 ans, a perdu l'usage de son œil après un tir compatible à celui d'un LBD. Eden, âgé de 14 ans, a eu la mâchoire fracturée après un tir de grenade de gaz lacrymogène.",
+          "explanation": "Des **mineurs blessés** sont désignés par prénom et âge, sans mention de leur consentement ni de celui de leurs parents."
+        },
+        {
+          "id": "e2",
+          "category": "right_of_reply",
+          "label": "Right of Reply",
+          "severity": "minor",
+          "status": "caution",
+          "evidence": "Donc il y a beaucoup de choses comme ça, c'est-à-dire beaucoup d'infractions qui sont en fait des euh créées pour venir réprimer. Ce que veut faire le gouvernement, c'est essayer de passer l'envie à toute cette génération de se remobiliser.",
+          "explanation": "L'avocate prête une **intention répressive** au gouvernement. Ni le ministère de l'Intérieur ni une préfecture n'y répondent."
+        }
+      ],
+      "verdict": {
+        "overall": "passable",
+        "editorial_note": "Préciser le consentement pour les mineurs blessés nommés et solliciter le ministère de l'Intérieur sur les arrêtés et les interpellations."
+      },
+      "summary": "Aucune violation déontologique caractérisée n'a été relevée. Deux points appellent la prudence : des **mineurs blessés nommés** et une **accusation d'intention** visant le gouvernement, sans réponse du ministère de l'Intérieur."
+    },
+    "review": {
+      "dimensions": [
+        {
+          "dimension": "source_rigor",
+          "label": "Source Rigor",
+          "score": 3,
+          "rationale": "Les chiffres d'interpellations sont **attribués au ministère de l'Intérieur** (c2), ce qui les rend solides. Mais les chiffres clés sur les classes (« plus de 30 élèves par classe dans 70 % des cas », c1) sont donnés **sans source**. Les interdictions de rassemblement ne reposent que sur une avocate du collectif (o3).",
+          "lesson": "Cherchez qui a produit chaque chiffre avant de lui accorder du poids."
+        },
+        {
+          "dimension": "factual_accuracy",
+          "label": "Factual Accuracy",
+          "score": 3,
+          "rationale": "Les faits vérifiables tiennent : le constat PISA correspond aux résultats de l'OCDE (c3, confiance 85), et les interpellations viennent d'une source officielle (c2). En revanche, l'intention prêtée au gouvernement (« passer l'envie à toute cette génération », c4) est **une opinion présentée comme un fait**, et le chiffre des 70 % n'a **ni source ni périmètre**.",
+          "lesson": "Distinguez un chiffre vérifiable d'une intention prêtée à quelqu'un."
+        },
+        {
+          "dimension": "reasoning_structure",
+          "label": "Reasoning Structure",
+          "score": 2,
+          "rationale": "Le volet sur les interpellations de mineurs s'enchaîne sans faille (lr4). Ailleurs, **deux lycéens** suffisent à décrire « un système éducatif devenu inégalitaire » (lr3), et le niveau PISA est **juxtaposé aux conditions d'enseignement** sans que le lien de cause soit établi (lr2).",
+          "lesson": "Demandez-vous si deux exemples bien choisis suffisent à décrire tout un système."
+        },
+        {
+          "dimension": "approach_transparency",
+          "label": "Approach Transparency",
+          "score": 2,
+          "rationale": "Le présentateur assume une position de **témoin à la première personne** et dit vouloir écouter plutôt que montrer les violences. Il ne signale pourtant pas ses limites : les messages reçus par le média servent de mesure du mouvement (ia3), et l'absence de **lycéens non mobilisés** (bs4) n'est jamais mentionnée.",
+          "lesson": "Repérez quand un média prend son propre public pour un échantillon du pays."
+        },
+        {
+          "dimension": "context_completeness",
+          "label": "Context & Completeness",
+          "score": 2,
+          "rationale": "La généalogie des mobilisations depuis 1968 donne de la profondeur (o1). Mais les **700 policiers blessés** sont cités une seule fois quand chaque blessure de lycéen est détaillée (emphasis), et ni le **budget de l'Éducation nationale** (bs3) ni les réponses du ministre sur les moyens (bs2) ne sont fournis.",
+          "lesson": "Comparez le temps accordé à chaque camp avant de juger l'ampleur d'un phénomène."
+        },
+        {
+          "dimension": "treatment_fairness",
+          "label": "Treatment Fairness",
+          "score": 2,
+          "rationale": "Lycéens, parents et professeurs ont la parole longuement. Le ministre n'apparaît que sur les violences, et la **parole policière est absente**. L'**accumulation de cas nommés** (« Maël, 16 ans, a perdu l'usage de son œil », b1) pèse plus qu'un chiffre global, et l'expression « une génération » étend le mouvement à toute une classe d'âge (b2).",
+          "lesson": "Notez quelles personnes ont un prénom et lesquelles ne sont qu'un chiffre."
+        },
+        {
+          "dimension": "clarity",
+          "label": "Clarity",
+          "score": 4,
+          "rationale": "Le récit suit **deux figures identifiables**, Fanny à Nantes et Bilel à Saint-Denis, en alternant scènes intimes et chiffres nationaux : le propos reste lisible. Le titre annonce une **rupture totale** sans dire ce qui bascule (title_analysis, « Ellipse »).",
+          "lesson": "Vérifiez si le titre tient sa promesse une fois le reportage terminé."
+        },
+        {
+          "dimension": "angle_originality",
+          "label": "Angle & Originality",
+          "score": 3,
+          "rationale": "Suivre le mouvement **à hauteur de lycéens**, jusque dans leurs familles, donne un accès réel à des voix peu entendues. Ce choix laisse de côté les contre-arguments les plus sérieux : les **causes de la baisse de niveau** autres que les moyens, et un risque d'ordre public réel derrière les interdictions (steel_man).",
+          "lesson": "Cherchez l'argument le plus fort du camp absent avant de vous faire un avis."
+        }
+      ],
+      "verdict": {
+        "quality": "adequate",
+        "reading_recommendation": "with_reservations",
+        "for_whom": "Parents, enseignants ou lycéens qui veulent entendre de l'intérieur ce que vivent les élèves mobilisés, à condition de chercher ailleurs la parole des autorités.",
+        "payoff": "Le reportage fait **comprendre de l'intérieur** pourquoi des lycéens se mobilisent et ce que leur coûte la réponse pénale. Il apprend aussi à repérer ce qu'un récit **à une seule voix** laisse hors champ.",
+        "signature_move": "Le reportage incarne tout le mouvement dans **deux lycéens suivis jusque chez eux**, une immersion qui donne la parole aux élèves mais laisse les autorités hors du récit.",
+        "main_blind_side": "L'absence des **forces de l'ordre et du ministère** sur les moyens et les interdictions montre un reportage construit depuis les cortèges, sans contradicteur sur le fond.",
+        "further_resource": {
+          "title": "Un pays qui se tient sage",
+          "source": "David Dufresne",
+          "media_type": "documentary",
+          "why_explore": "Le film confronte images de violences policières, chercheurs, manifestants et policiers : il fait entendre plusieurs voix sur le maintien de l'ordre, là où le reportage n'en fait entendre qu'une.",
+          "url": null
+        },
+        "summary": "À voir avec réserves : en suivant deux lycéens mobilisés, le reportage donne **une voix forte aux élèves**, mais il laisse sans réponse **les autorités mises en cause**. Gardez en tête ce silence pour juger de l'ampleur du mouvement et de la répression."
+      }
+    },
+    "blend": {
+      "patterns": [
+        {
+          "text": "La parole policière manque dans la logique du reportage (bs_0). La rhétorique compense ce vide par **l'accumulation de blessures nommées** (er_0, bias_0), et le probe montre que ce déséquilibre sert la critique du maintien de l'ordre (cb_1) : **le silence d'un camp fait la force émotionnelle de l'autre**.",
+          "layers": [
+            "logic",
+            "rhetoric",
+            "probe",
+            "review"
+          ],
+          "references": [
+            "bs_0",
+            "er_0",
+            "bias_0",
+            "cb_1"
+          ]
+        },
+        {
+          "text": "L'hypothèse d'interdictions destinées à **réprimer la contestation** (ia_3) ne s'appuie que sur une avocate du collectif (obs_2). Sa phrase est une **intention présentée comme un fait** (claim_3), et l'éthique relève qu'aucune préfecture n'y répond : la thèse de la répression la plus forte est aussi la moins sourcée.",
+          "layers": [
+            "logic",
+            "probe",
+            "ethics"
+          ],
+          "references": [
+            "ia_3",
+            "obs_2",
+            "claim_3"
+          ]
+        },
+        {
+          "text": "Deux lycéens choisis (pr_3, lr_2), les messages reçus par le média (ia_2) et le mot **« génération »** (bias_1) produisent ensemble l'impression d'un mouvement unanime. La rhétorique de l'**éveil historique** (er_1) repose ainsi sur un échantillon que la logique ne permet pas d'étendre (bias_2).",
+          "layers": [
+            "logic",
+            "rhetoric",
+            "probe",
+            "review"
+          ],
+          "references": [
+            "pr_3",
+            "lr_2",
+            "ia_2",
+            "bias_1",
+            "bias_2",
+            "er_1"
+          ]
+        },
+        {
+          "text": "Le mouvement est dit **apolitique** (pr_1), mais le cadrage l'ouvre et le ferme sur **l'élection présidentielle** (obs_1). Cette tension profite aux acteurs qui portent l'éducation dans la campagne (cb_0) ; une lycéenne la formule elle-même dans le focus.",
+          "layers": [
+            "logic",
+            "rhetoric",
+            "probe"
+          ],
+          "references": [
+            "pr_1",
+            "obs_1",
+            "cb_0",
+            "focus"
+          ]
+        },
+        {
+          "text": "La chaîne causale moyens → niveau scolaire repose sur un chiffre **sans source** (claim_0, lr_0) et sur une juxtaposition avec PISA (lr_1, claim_2) qui suggère un lien jamais établi. L'hypothèse que les moyens sont **la cause principale** (ia_0) n'est donc ni démontrée ni discutée.",
+          "layers": [
+            "logic",
+            "probe",
+            "review"
+          ],
+          "references": [
+            "claim_0",
+            "lr_0",
+            "lr_1",
+            "claim_2",
+            "ia_0"
+          ]
+        },
+        {
+          "text": "Les chiffres les plus solides du reportage portent sur la répression et viennent **de l'autorité mise en cause** (claim_1, lr_3). Les moyens, qui sont pourtant la cause revendiquée du mouvement, restent **le volet le moins sourcé** (claim_0, pr_0) : la rigueur des sources est inversée par rapport à l'ordre de l'argument.",
+          "layers": [
+            "logic",
+            "probe",
+            "review"
+          ],
+          "references": [
+            "claim_1",
+            "lr_3",
+            "claim_0",
+            "pr_0"
+          ]
+        },
+        {
+          "text": "Le procédé qui porte l'indignation, des **mineurs blessés désignés par prénom et âge** (bias_0, er_0), est le même que l'éthique signale faute de consentement mentionné. Ce procédé n'est pas replacé dans le débat sur le LBD déjà ouvert par le Défenseur des droits (obs_4) : **l'efficacité émotionnelle et la prudence déontologique** se trouvent sur le même passage.",
+          "layers": [
+            "rhetoric",
+            "probe",
+            "ethics",
+            "logic"
+          ],
+          "references": [
+            "bias_0",
+            "er_0",
+            "obs_4"
+          ]
+        }
+      ]
+    },
+    "distill": {
+      "points": [
+        {
+          "text": "La cause revendiquée du mouvement, le manque de moyens, est **le volet le moins sourcé** : un chiffre sans origine et une juxtaposition avec PISA suggèrent un lien jamais établi. Les chiffres les plus solides portent sur la répression et viennent **de l'autorité mise en cause** : la rigueur des sources suit l'ordre inverse de l'argument.",
+          "references": [
+            "claim_0",
+            "lr_0",
+            "lr_1",
+            "claim_2",
+            "ia_0",
+            "claim_1",
+            "lr_3",
+            "pr_0"
+          ]
+        },
+        {
+          "text": "La thèse d'interdictions destinées à **réprimer la contestation** ne repose que sur une avocate du collectif. Son propos est une **intention présentée comme un fait**, et aucune préfecture n'y répond : la thèse la plus forte est aussi la moins sourcée.",
+          "references": [
+            "ia_3",
+            "obs_2",
+            "claim_3"
+          ]
+        },
+        {
+          "text": "Le procédé qui porte l'indignation, des **mineurs blessés désignés par prénom et âge**, est aussi celui que l'éthique signale, faute de consentement mentionné. Il n'est pas replacé dans le débat sur le LBD déjà ouvert par le Défenseur des droits : **efficacité émotionnelle et prudence déontologique** se jouent sur le même passage.",
+          "references": [
+            "bias_0",
+            "er_0",
+            "obs_4"
+          ]
+        },
+        {
+          "text": "La **parole policière est absente**, et l'accumulation de blessures nommées occupe ce vide. Ce déséquilibre nourrit la critique du maintien de l'ordre : **le silence d'un camp fait la force émotionnelle de l'autre**.",
+          "references": [
+            "bs_0",
+            "er_0",
+            "bias_0",
+            "cb_1"
+          ]
+        },
+        {
+          "text": "Deux lycéens choisis, les messages reçus par le média et le mot **« génération »** dessinent un mouvement unanime. Le récit d'un **éveil historique** repose sur un échantillon que rien ne permet d'étendre.",
+          "references": [
+            "pr_3",
+            "lr_2",
+            "ia_2",
+            "bias_1",
+            "bias_2",
+            "er_1"
+          ]
+        }
+      ],
+      "open_questions": [
+        "Quelle part du recul du niveau scolaire tient réellement aux **moyens alloués** à l'éducation ?",
+        "Comment les forces de l'ordre et les préfectures expliquent-elles les **interventions ayant blessé des lycéens** ?",
+        "Quelle proportion des lycéens **participe ou adhère** effectivement au mouvement ?"
+      ]
+    },
+    "guide": {
+      "pre_reading": [
+        "Le reportage suit **deux lycéens mobilisés** jusque chez eux : il donne accès à leur vécu, pas à une mesure de l'ensemble du mouvement.",
+        "Repérez **qui fournit chaque chiffre** : certains viennent du ministère de l'Intérieur, d'autres n'ont aucune source.",
+        "Notez **quelles voix manquent** : forces de l'ordre, préfectures et ministère sur les moyens n'interviennent presque pas."
+      ],
+      "watch_out": {
+        "items": [
+          {
+            "id": "wo_1",
+            "text": "Le manque de moyens, cause revendiquée du mouvement, est **le volet le moins sourcé**. Un chiffre sur les classes surchargées n'a ni origine ni périmètre, et son rapprochement avec PISA suggère un lien de cause jamais établi.",
+            "references": [
+              "claim_0",
+              "lr_1",
+              "ia_0"
+            ]
+          },
+          {
+            "id": "wo_2",
+            "text": "L'idée que les interdictions de rassemblement visent à **réprimer la contestation** repose sur une seule avocate du collectif. Aucune préfecture n'y répond.",
+            "references": [
+              "ia_3",
+              "obs_2",
+              "claim_3"
+            ]
+          },
+          {
+            "id": "wo_3",
+            "text": "Les lycéens blessés sont **nommés, avec leur âge**, alors que les policiers blessés ne sont qu'un chiffre cité une fois. Ce déséquilibre pèse sur votre perception de la violence.",
+            "references": [
+              "bias_0",
+              "er_0",
+              "bs_0"
+            ]
+          },
+          {
+            "id": "wo_4",
+            "text": "Deux témoignages, les messages reçus par le média et le mot **« génération »** donnent l'impression d'un mouvement unanime. Les lycéens non mobilisés n'apparaissent pas.",
+            "references": [
+              "bias_1",
+              "ia_2",
+              "lr_2"
+            ]
+          },
+          {
+            "id": "wo_5",
+            "text": "Le mouvement est présenté comme **apolitique**, mais le reportage s'ouvre et se ferme sur **l'élection présidentielle**.",
+            "references": [
+              "pr_1",
+              "obs_1",
+              "cb_0"
+            ]
+          }
+        ]
+      },
+      "after_reading": [
+        "Demandez-vous si **deux parcours**, même forts, suffisent à décrire l'état de tout un système éducatif.",
+        "Cherchez ce que disent les **chiffres officiels du budget** de l'Éducation nationale avant de trancher sur le manque de moyens.",
+        "Gardez en tête que les **autorités mises en cause** n'ont presque pas répondu : leur silence dans le reportage n'est pas une absence d'arguments.",
+        "Comparez avec une source qui confronte **manifestants et policiers** pour juger de l'ampleur de la répression."
+      ],
+      "title_note": "Le titre annonce une **rupture totale** sans préciser ce qui bascule ; vérifiez à la fin si le reportage tient cette promesse.",
+      "perspective": {
+        "framing": "Le reportage raconte le mouvement **à hauteur de lycéens**, à la première personne, en suivant Fanny à Nantes et Bilel à Saint-Denis jusque dans leurs familles. Il alterne scènes intimes et chiffres nationaux, sur un registre d'**éveil historique** et d'indignation face aux blessures.",
+        "blind_spots": "La **parole policière et préfectorale** est absente, notamment sur les interdictions et les blessures. Les **causes de la baisse de niveau** autres que les moyens, et le budget réel de l'Éducation nationale, ne sont pas abordés.",
+        "balance": "Un reportage d'immersion choisit par nature **un point de vue** et ne peut pas donner la même place à chaque camp. Les absences relevées sont réelles, mais elles tiennent d'abord au genre : ce format sert à **faire entendre des voix peu entendues**, pas à arbitrer le débat."
+      }
+    },
+    "core_elements": {
+      "elements": [
+        {
+          "statement": "Les lycéens dénoncent un manque de moyens : classes surchargées, professeurs non remplacés, bâtiments dégradés.",
+          "kind": "enjeu",
+          "centrality": 5,
+          "seeds": {
+            "source": "premisse",
+            "index": 0,
+            "excerpt": "Les lycées publics manquent de moyens",
+            "strength": 1.0,
+            "nature": "illustration"
+          }
+        },
+        {
+          "statement": "La réponse de l'État est massive : 6 800 interpellations dont 85 % de mineurs, blessés graves, interdictions de rassemblement.",
+          "kind": "fait",
+          "centrality": 5,
+          "seeds": {
+            "source": "premisse",
+            "index": 2,
+            "excerpt": "La réponse de l'État est d'une ampleur inédite",
+            "strength": 0.9,
+            "nature": "illustration"
+          }
+        },
+        {
+          "statement": "Les élèves de banlieue se disent délaissés par un système éducatif décrit comme inégalitaire.",
+          "kind": "affirmation",
+          "centrality": 4,
+          "seeds": {
+            "source": "logical_reasoning",
+            "index": 2,
+            "excerpt": "Deux lycéens de villes différentes font le même constat",
+            "strength": 0.8,
+            "nature": "illustration"
+          }
+        },
+        {
+          "statement": "Le mouvement se dit apolitique mais le reportage le relie à l'élection présidentielle.",
+          "kind": "angle",
+          "centrality": 3,
+          "seeds": {
+            "source": "context",
+            "index": 1,
+            "excerpt": "à quelques mois de l'élection présidentielle",
+            "strength": 0.8,
+            "nature": "specification"
+          }
+        },
+        {
+          "statement": "Les lycéens disent ne pas être écoutés, ni par les adultes, ni par les médias.",
+          "kind": "enjeu",
+          "centrality": 3,
+          "seeds": {
+            "source": "blind_spot",
+            "index": 3,
+            "excerpt": "Les lycéens non mobilisés ou opposés",
+            "strength": 0.5,
+            "nature": "contradiction"
+          }
+        }
+      ]
+    }
+  },
+  "presentation": {
+    "caption": "En une semaine, plus de 400 lycées bloqués en France, depuis Créteil. Les élèves parlent de classes à 35 et de profs non remplacés. 🎒\n\n🔎 Les clefs pour comprendre en une minute ce qui pousse ces lycéens dans la rue.\n\n🔗 Lien vers la vidéo en commentaires ↓",
+    "hook": {
+      "topic": "Lycées en **colère**",
+      "sub_topic": "Classes à 35, banlieue oubliée : les **lycéens** passent par la rue",
+      "subtitle": "Comprendre ce qui les y pousse.",
+      "headline": "des lycées sans moyens, et des **lycéens** dans la rue",
+      "context_line": "",
+      "sub_topic_alt": [
+        "Profs absents, banlieue à part : pourquoi la **rue** plutôt que les délégués ?",
+        "Des **moyens** demandés depuis des années, entendus dans la rue",
+        "Classes pleines, lycées délabrés : la **rue** comme porte-voix"
+      ]
+    },
+    "interest": null,
+    "title_bullets": [],
+    "chapo_bullets": [],
+    "context_next_slide_hook": "",
+    "watch_out_next_slide_hook": "",
+    "forme_next_slide_hook": "",
+    "biases_next_slide_hook": "",
+    "engagement_question": "",
+    "go_further": [
+      {
+        "title": "Résultats du PISA 2022",
+        "source": "OCDE",
+        "media_type": "report",
+        "category": "deep_dive",
+        "url": null,
+        "duration_minutes": null,
+        "why_explore": "Pour voir ce que mesure la baisse du niveau des élèves français et les causes que l'OCDE avance.",
+        "cta_question_index": null
+      }
+    ],
+    "cta": {
+      "title": "",
+      "engagement_sentence": "Qu'est-ce qui pousse des lycéens à se tourner vers la **rue** plutôt que vers leurs délégués et leurs syndicats ?",
+      "engagement_sentence_alt": [],
+      "where_to_look": [
+        "Les témoignages de lycéens recueillis par HugoDécrypte",
+        "Les mobilisations de rue de 1990 et 2006 : leurs bilans",
+        "L'INJEP : enquêtes sur l'engagement des jeunes citoyens"
+      ],
+      "post_reading_questions": []
+    },
+    "display": {
+      "thesis_frame": {
+        "main_claim": "Un mouvement lycéen révèle une école publique inégalitaire, à laquelle l'État répond par la répression plutôt que par l'écoute.",
+        "out_of_scope": [
+          "Les méthodes pédagogiques et le contenu des programmes scolaires",
+          "Le financement et la place de l'enseignement privé",
+          "Les programmes des candidats à la présidentielle de 2027"
+        ]
+      },
+      "payoff": "",
+      "framing": "",
+      "why_selected": "Créteil, quelques semaines après la rentrée : en 72 heures, **400 lycées** bloqués, à quelques mois de la **présidentielle**.\nLe ministre de l'Éducation accuse des **groupuscules** ; une avocate y voit une volonté de faire taire une génération.",
+      "selection_headline": "Un ministre face aux lycées bloqués",
+      "selection_headline_alt": [],
+      "ethics": "",
+      "pre_reading": [],
+      "watch_out": [],
+      "strengths": [],
+      "distill_points": [],
+      "after_reading": [],
+      "key_takeaways": [
+        {
+          "text": "Parti de Créteil, le mouvement bloque plus de 400 lycées en une semaine.",
+          "selected": true
+        },
+        {
+          "text": "Plus de 30 élèves par classe dans 70 % des cas, collèges compris.",
+          "selected": true
+        },
+        {
+          "text": "6 800 interpellations au 14 octobre, dont 85 % de mineurs, selon l'Intérieur.",
+          "selected": true
+        },
+        {
+          "text": "36 enquêtes de la police des polices ouvertes sur des violences contre des mineurs.",
+          "selected": false
+        },
+        {
+          "text": "Le ministre attribue les violences à des groupes extérieurs aux lycéens.",
+          "selected": false
+        },
+        {
+          "text": "En 1990, un mouvement lycéen avait obtenu un plan d'urgence de 4,5 milliards de francs.",
+          "selected": false
+        }
+      ],
+      "blind_spots": [],
+      "balance": [],
+      "lenses": [],
+      "reading_beats": [
+        {
+          "moment": "Passer le bac de maths sans prof de maths",
+          "quote": "Il y en a qui passent le bac de maths sans prof de maths.",
+          "quote_original": "",
+          "lens_ref": "sources",
+          "lens_question": "",
+          "note": "",
+          "answer": "",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "pictogram": null,
+          "factcheck": "",
+          "selected": false,
+          "theme": "Moyens : professeurs non remplacés",
+          "centrality": 3,
+          "kind": "fait",
+          "role": "mise en scène",
+          "spine_ref": 1,
+          "axis_link": "",
+          "rationale": "Premier témoignage, ouvre le manque de moyens par un cas concret"
+        },
+        {
+          "moment": "Les élèves de banlieue se disent laissés à l'abandon",
+          "quote": "On est laissé à l'abandon comme si nous les enfants de banlieue on comptait pas.",
+          "quote_original": "",
+          "lens_ref": "sophismes",
+          "lens_question": "Un lycée délaissé : comparé à quels autres ?",
+          "note": "Devant une voix qui parle pour toute une banlieue, cherchez une **comparaison** entre établissements.",
+          "answer": "**Comparez les moyens** : le lycée de Saint-Denis filmé, 2 000 élèves pour une infirmière à mi-temps, finit 2282e sur 2295 au bac.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "pictogram": null,
+          "factcheck": "",
+          "selected": true,
+          "theme": "Inégalités : la banlieue délaissée",
+          "centrality": 4,
+          "kind": "affirmation",
+          "role": "appui",
+          "spine_ref": 2,
+          "axis_link": "Montre que la demande de moyens se vit comme un abandon propre à la banlieue, assez fort pour pousser les lycéens vers la rue.",
+          "rationale": "Une voix porte tout le constat d'inégalité, à mesurer"
+        },
+        {
+          "moment": "Médias : les poubelles brûlées avant les élèves",
+          "quote": "les médias […] s'intéressent seulement […] quand il y a des poubelles brûlées",
+          "quote_original": "",
+          "lens_ref": "cadrage",
+          "lens_question": "Une colère filmée : qu'est-ce qui fait l'actualité ?",
+          "note": "Devant une image forte, demandez ce qui l'a rendue visible : le fond, ou le désordre ?",
+          "answer": "**Comptez les sujets** : demandes pacifiques ou poubelles brûlées, lesquelles font la une ? Les archives de l'INA permettent de comparer.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "pictogram": null,
+          "factcheck": "",
+          "selected": true,
+          "theme": "Écoute : les médias",
+          "centrality": 4,
+          "kind": "enjeu",
+          "role": "pivot",
+          "spine_ref": 3,
+          "axis_link": "Les lycéens y disent pourquoi la rue : seul ce qui dérange attire l'attention, ce que l'enjeu met en cause.",
+          "rationale": "Dit que seule la rue, et ses débordements, attire l'attention"
+        },
+        {
+          "moment": "Apolitique : affilié à aucun syndicat étudiant",
+          "quote": "Certes, c'est de la politique mais quand je dis apolitique c'est on n'est pas affilié à l'UNEF […]",
+          "quote_original": "",
+          "lens_ref": "opinion_fait",
+          "lens_question": "",
+          "note": "",
+          "answer": "",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "pictogram": null,
+          "factcheck": "",
+          "selected": false,
+          "theme": "Cadrage : un mouvement dit apolitique",
+          "centrality": 3,
+          "kind": "biais",
+          "role": "concession",
+          "spine_ref": 3,
+          "axis_link": "",
+          "rationale": "Le mouvement se définit hors des syndicats, tout en restant politique"
+        },
+        {
+          "moment": "Des années d'alertes des profs, puis des coups",
+          "quote": "Qu'on leur tape dessus au lieu de les écouter alors que ça fait des années qu'on dénonce […]",
+          "quote_original": "",
+          "lens_ref": "equilibre",
+          "lens_question": "Des années d'alertes : quelle réponse jusqu'ici ?",
+          "note": "Quand une alerte se dit ancienne, cherchez **ce qu'elle a déjà obtenu**.",
+          "answer": "**Interrogé sur les blessés**, le ministre parle des violences et des groupuscules, pas des moyens demandés : à revoir dans l'entretien de HugoDécrypte.",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "pictogram": null,
+          "factcheck": "",
+          "selected": true,
+          "theme": "Écoute : des alertes restées sans réponse",
+          "centrality": 5,
+          "kind": "enjeu",
+          "role": "appui",
+          "spine_ref": 1,
+          "axis_link": "Montre que des alertes portées depuis des années par les professeurs n'ont pas été entendues avant que les lycéens descendent dans la rue.",
+          "rationale": "Relie l'écoute absente et la réponse par la force"
+        },
+        {
+          "moment": "Plus de 30 élèves par classe dans 70 % des cas",
+          "quote": "On compte plus de 30 élèves par classe dans 70 % des cas.",
+          "quote_original": "",
+          "lens_ref": "chiffres",
+          "lens_question": "",
+          "note": "",
+          "answer": "",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "pictogram": null,
+          "factcheck": "disputed",
+          "selected": false,
+          "theme": "Moyens : classes surchargées",
+          "centrality": 4,
+          "kind": "statistique",
+          "role": "preuve",
+          "spine_ref": 1,
+          "axis_link": "Montre sur quel chiffre repose la demande de moyens que les lycéens portent dans la rue, et ce qu'il faudrait savoir pour la juger.",
+          "rationale": "Chiffre clé donné sans source ni périmètre"
+        },
+        {
+          "moment": "6 800 interpellations, dont 85 % de mineurs",
+          "quote": "selon le ministère de l'Intérieur, plus de 6800 personnes ont été interpellées, dont 85 % de mineurs.",
+          "quote_original": "",
+          "lens_ref": "chiffres",
+          "lens_question": "",
+          "note": "",
+          "answer": "",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "pictogram": null,
+          "factcheck": "likely true",
+          "selected": false,
+          "theme": "Répression : la réponse pénale",
+          "centrality": 5,
+          "kind": "statistique",
+          "role": "preuve",
+          "spine_ref": 3,
+          "axis_link": "",
+          "rationale": "Mesure l'ampleur de la réponse de l'État à la rue"
+        },
+        {
+          "moment": "Les lycéens portent l'école dans la présidentielle",
+          "quote": "À quelques mois de l'élection présidentielle, les lycéens remettent ces questions au cœur des débats.",
+          "quote_original": "",
+          "lens_ref": "cadrage",
+          "lens_question": "",
+          "note": "",
+          "answer": "",
+          "figure": "",
+          "figure_label": "",
+          "figure_caption": "",
+          "pictogram": null,
+          "factcheck": "",
+          "selected": false,
+          "theme": "Cadrage : un mouvement relié à l'élection",
+          "centrality": 3,
+          "kind": "biais",
+          "role": "mise en scène",
+          "spine_ref": 3,
+          "axis_link": "",
+          "rationale": "La clôture relie un mouvement dit apolitique à l'élection"
+        }
+      ],
+      "global_analysis": {
+        "headline": "Lycées sans moyens, élèves réprimés plutôt qu'écoutés",
+        "headline_alt": [
+          "Des élèves privés de moyens, que l'État n'écoute pas",
+          "Une école inégale, une jeunesse sans voix",
+          "Le manque de moyens, puis la répression"
+        ],
+        "core_recap": [
+          "Ses présupposés : Le témoignage d'une élève vaut pour tous les lycées de banlieue ; Seul ce qui dérange obtient l'attention des médias ; Les interdictions de rassemblement visent la contestation, pas les violences"
+        ]
+      },
+      "open_question": "",
+      "root_issue": "La capacité d'une démocratie à donner suite aux demandes de ses citoyens sans qu'ils aient à descendre dans la **rue**.",
+      "steel_man": {
+        "argument": "Avec **700 policiers blessés** et des tirs de mortiers, la police répond à des **violences**, pas aux revendications.",
+        "alternative": "La réponse de l'État relève de l'ordre public, contestable dans ses excès.",
+        "targets": 3
+      },
+      "reperes_headline": "",
+      "reperes_context": "",
+      "reperes_facts": [
+        {
+          "label": "L'école",
+          "text": "**−21 points** en maths : enquête PISA 2018–2022 de l'OCDE"
+        },
+        {
+          "label": "En 2018",
+          "text": "Contre **Parcoursup** en 2018 : une précédente mobilisation lycéenne"
+        },
+        {
+          "label": "Le média",
+          "text": "Un média des **15-30 ans** : HugoDécrypte, à qui des lycéens écrivent"
+        }
+      ],
+      "bilan_headline": "",
+      "essentiel": [
+        "Des lycées sans **moyens** : classes à 35, profs absents, murs délabrés",
+        "Un manque inégal : les lycées de **banlieue** se disent laissés à l'abandon",
+        "Des lycéens non **écoutés** : la rue, puis 6 800 interpellations"
+      ],
+      "essentiel_summary": ""
+    }
+  }
+}

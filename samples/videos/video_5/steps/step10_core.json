@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Des jeunes de plusieurs pays font tomber des gouvernements en 2025, présentés comme un mouvement générationnel mondial.",
+      "kind": "affirmation",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 0,
+        "excerpt": "Des mobilisations de jeunes dans plusieurs pays forment un même mouvement générationnel.",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Le mouvement cherche des formes de démocratie plus numériques et horizontales : votes sur Discord, absence de chef.",
+      "kind": "angle",
+      "centrality": 5,
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 0,
+        "excerpt": "Un vote sur Discord exprime la volonté des citoyens, ou au moins celle du mouvement.",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Après la chute des gouvernements, la victoire risque d'être confisquée par l'armée ou les anciennes élites.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 2,
+        "excerpt": "Faire tomber un gouvernement revient à redonner une place aux citoyens dans le pouvoir.",
+        "strength": 0.9,
+        "nature": "contradiction"
+      }
+    },
+    {
+      "statement": "Des manifestations décrites comme pacifiques subissent une répression meurtrière dans plusieurs pays.",
+      "kind": "fait",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 1,
+        "excerpt": "Les manifestations pacifiques reçoivent quasi systématiquement une réponse violente.",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Les revendications portent sur des besoins vitaux et la corruption : eau, électricité, hôpitaux, sécurité.",
+      "kind": "enjeu",
+      "centrality": 3,
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "GenZ 212 a opposé les dépenses pour les stades de la Coupe du monde 2030 à l'état des hôpitaux publics.",
+        "strength": 0.7,
+        "nature": "specification"
+      }
+    }
+  ]
+}

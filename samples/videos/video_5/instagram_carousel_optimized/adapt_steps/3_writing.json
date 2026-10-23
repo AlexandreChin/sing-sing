@@ -1,0 +1,110 @@
+{
+  "beats": [
+    {
+      "index": 1,
+      "lens_question": "Du jamais-vu : comparé à quels précédents ?",
+      "note": "Devant un « jamais vu », cherchez les **précédents** et ce qu'ils sont devenus.",
+      "answer": "**Remontez l'historique** : la rue a renversé des dirigeants au Sri Lanka (2022) et au Bangladesh (2024). Voyez qui a gouverné après."
+    },
+    {
+      "index": 4,
+      "lens_question": "Un vote en ligne : qui y participe vraiment ?",
+      "note": "Devant un vote en ligne, demandez **combien** ont voté et **qui** en est exclu.",
+      "answer": "**Le nombre de votants** fait sa portée : cherchez-le dans la presse népalaise. Ce vote a mené à des élections, prévues en mars 2026."
+    },
+    {
+      "index": 5,
+      "lens_question": "Une chute de gouvernement : au profit de qui ?",
+      "note": "Quand un dirigeant tombe, regardez **qui occupe la place** dans les semaines qui suivent.",
+      "answer": "**Suivez l'armée** : à Madagascar, alliée de la rue, elle a placé un colonel, Michael Randrianirina, au pouvoir en octobre 2025."
+    }
+  ],
+  "reperes_facts": [
+    {
+      "label": "La GenZ",
+      "text": "Nés entre 1997 et 2012, selon le **Pew Research Center**, institut américain."
+    },
+    {
+      "label": "Le Népal",
+      "text": "La **suspension de 26 réseaux sociaux** a déclenché la révolte, début septembre 2025."
+    },
+    {
+      "label": "La source",
+      "text": "**ARTE**, chaîne publique culturelle franco-allemande : un récit tourné vers les manifestants."
+    }
+  ],
+  "why_selected": "Fin août à fin septembre 2025, de l'Indonésie au Pérou, le **drapeau pirate** du manga One Piece flotte sur les cortèges.\nAu Népal, des **élections** sont annoncées pour mars 2026 : la suite se jouera aussi dans les urnes.",
+  "selection_headline": "Un manga en étendard, des régimes ébranlés",
+  "key_takeaways": [
+    {
+      "text": "En 2025, des mobilisations de jeunes ont fait chuter des dirigeants au Népal et à Madagascar.",
+      "selected": true
+    },
+    {
+      "text": "Au Népal, le mouvement a proposé la future Première ministre par un vote sur Discord.",
+      "selected": true
+    },
+    {
+      "text": "À Madagascar, un colonel a pris le pouvoir après la fuite du président.",
+      "selected": true
+    },
+    {
+      "text": "Les revendications portent sur l'eau, l'électricité, les hôpitaux et la corruption.",
+      "selected": false
+    },
+    {
+      "text": "Au Népal, les bilans de la répression dépassent ensuite 70 morts.",
+      "selected": false
+    },
+    {
+      "text": "Le drapeau pirate de One Piece sert de signe de ralliement d'un pays à l'autre.",
+      "selected": false
+    }
+  ],
+  "go_further": [
+    {
+      "title": "Defining generations: Where Millennials end and Generation Z begins",
+      "source": "Pew Research Center",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Pour savoir d'où vient la tranche d'âge qu'on prête à la Génération Z."
+    },
+    {
+      "title": "Démission de Gotabaya Rajapaksa au Sri Lanka",
+      "source": "BBC News",
+      "media_type": "article",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Pour voir ce qu'est devenue, en 2022, une victoire de la rue contre un président."
+    },
+    {
+      "title": "Démission de Sheikh Hasina au Bangladesh",
+      "source": "Reuters",
+      "media_type": "article",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Pour suivre qui a gouverné après la chute de la Première ministre en 2024."
+    }
+  ],
+  "where_to_look": [
+    "La BBC sur la démission du président du Sri Lanka (2022)",
+    "Reuters sur la chute de la Première ministre du Bangladesh",
+    "Les bilans du ministère de la Santé du Népal (2025)"
+  ],
+  "hook": {
+    "topic": "Une jeunesse **sans chef**",
+    "sub_topic": "Des régimes tombés, des votes en ligne : à qui va le **pouvoir** ?",
+    "subtitle": "Comprendre à qui il revient.",
+    "headline": "Des gouvernements tombent, mais qui **gouverne** ensuite ?",
+    "sub_topic_alt": [
+      "La rue renverse, un vote en ligne choisit : qui garde le **pouvoir** ?",
+      "Six pays, des dirigeants chassés : et la **place des citoyens** ?",
+      "Des jeunes sans chef font tomber des régimes : **après**, qui décide ?"
+    ]
+  },
+  "caption": "Népal, Madagascar, Pérou, Maroc : en 2025, des jeunes font vaciller leurs gouvernements sous le drapeau pirate d'un manga. 🏴‍☠️\n\n🔎 Les clefs pour comprendre en une minute qui prend le pouvoir après la rue.\n\n🔗 Lien vers la vidéo en commentaires ↓"
+}
