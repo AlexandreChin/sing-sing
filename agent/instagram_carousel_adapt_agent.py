@@ -765,6 +765,38 @@ def _lens_layer_errors(d) -> list[str]:
     return errors
 
 
+# A check is hard when a program can decide it without judging meaning (length, count,
+# emptiness, verbatim, schema, required format); a flag when it is a proxy for meaning or
+# taste. `_validate` returns one list; the messages below are the flags, all others are hard.
+_FLAG_PATTERNS: tuple[re.Pattern, ...] = tuple(re.compile(p) for p in (
+    r"shares no key word",
+    r"shares no \*\*gilded\*\* word",
+    r"restates (the lede|slide 2's lede)",
+    r"vary the construction",
+    r"reuses a burnt-out question shape",
+    r"is a yes/no question",                                  # close call
+    r"^cta\.engagement_sentence uses «",
+    r"opens on a verdict",
+    r"opens on a pronoun|without saying what",                # close call
+    r" uses « .+ » — write ",                                 # close call
+    r"names no place to look|is not a findable source",       # close call
+    r"lens_question opens like",
+    r"repeats a generic example",                             # close call
+    r"at most 1 selected beat may have role",                 # close call
+    r"distinct role\(s\)",                                    # close call
+    r"repeats a bold term already gilded",                    # close call
+))
+
+
+def split_rules(errors: list[str]) -> tuple[list[str], list[str]]:
+    """Split validator messages into (hard checks, editorial flags), order preserved."""
+    hard: list[str] = []
+    flags: list[str] = []
+    for e in errors:
+        (flags if any(p.search(e) for p in _FLAG_PATTERNS) else hard).append(e)
+    return hard, flags
+
+
 def _validate(data: dict, article_text: str | None = None) -> list[str]:
     """Every rule the deck must meet."""
     pres = InstagramCarouselPresentation.model_validate(data)

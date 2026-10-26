@@ -24,7 +24,7 @@ import json
 import re
 from pathlib import Path
 
-from agent.instagram_carousel_adapt_agent import _stems, _validate, norm_for_match, quote_is_faithful, verbatim_quote
+from agent.instagram_carousel_adapt_agent import _stems, _validate, split_rules, norm_for_match, quote_is_faithful, verbatim_quote
 from models.instagram_carousel_presentation import InstagramCarouselDocument
 
 # Punctuation that French sets off with a no-break space.
@@ -286,19 +286,21 @@ def check(extract_path: Path, article_path: Path | None = None) -> dict[str, lis
     doc = InstagramCarouselDocument.model_validate(json.loads(extract_path.read_text(encoding="utf-8")))
     report: dict[str, list[str]] = {"structure (extract)": [], "structure (adapt)": [],
                                     "accuracy": [], "consistency": [],
-                                    "typography": [], "vocabulary (advisory)": []}
+                                    "typography": [], "vocabulary (advisory)": [],
+                                    "editorial (advisory)": []}
 
     # Both files are checked, and each problem is labelled with the file to open.
     # The extract is what renders and what gets hand-edited; the adapt is what
     # a rerun would regenerate from. Reporting only the adapt (as this did) sends
     # you hunting through the extract for an error that is not in it.
-    report["structure (extract)"] = [e for e in _validate(doc.presentation) if "go_further" not in e]
+    extract_errors = [e for e in _validate(doc.presentation) if "go_further" not in e]
+    report["structure (extract)"], report["editorial (advisory)"] = split_rules(extract_errors)
     adapt_path = extract_path.parent / "adapt.json"
     if adapt_path.exists():
         from models.instagram_carousel_presentation import InstagramCarouselPresentation
         adapted = InstagramCarouselPresentation.model_validate(
             json.loads(adapt_path.read_text(encoding="utf-8")))
-        report["structure (adapt)"] = list(_validate(adapted))
+        report["structure (adapt)"] = split_rules(_validate(adapted))[0]
 
     if article_path is None:
         # The input sits in the analysis folder (`podcast_1/podcast_1.txt`) or
