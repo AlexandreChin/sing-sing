@@ -178,7 +178,7 @@ def _report_check(extract_path: Path, fmt: str) -> None:
     if not fmt.startswith("instagram_carousel"):
         return
     from tools.check_deck import check, format_report
-    print(format_report(check(extract_path, light=fmt == "instagram_carousel_light")), file=sys.stderr)
+    print(format_report(check(extract_path)), file=sys.stderr)
 
 
 async def cmd_render(args: argparse.Namespace) -> None:

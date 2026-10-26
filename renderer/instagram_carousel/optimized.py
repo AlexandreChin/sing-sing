@@ -35,7 +35,7 @@ def _target_after(order: list[int], target: int) -> int:
     return order.index(target - 1) + 1 if 1 <= target <= len(order) else target
 
 
-def generate_html(doc: InstagramCarouselDocument, out_dir: Path, light: bool = False) -> list[Path]:
+def generate_html(doc: InstagramCarouselDocument, out_dir: Path) -> list[Path]:
     out_dir.mkdir(parents=True, exist_ok=True)
     full, pres = doc.analysis, doc.presentation
     meta, disp = full.article_metadata, pres.display
@@ -111,9 +111,8 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path, light: bool = F
         # newsletter but are no longer shown.
         ("essentiel", "02_essentiel", {"essentiel": d.essentiel,
                                        "essentiel_summary": d.essentiel_summary,
-                                       # the light deck drops the lede: the 3 ideas carry the slide
-                                       "lede": "" if light else next((p.strip() for p in d.why_selected.split("\n")
-                                                                       if p.strip()), "")}),
+                                       "lede": next((p.strip() for p in d.why_selected.split("\n")
+                                                     if p.strip()), "")}),
         ("reperes", "03_reperes", {
             "facts": [f.model_dump() for f in d.reperes_facts],
             "context": d.reperes_context or (contexts[0].text if contexts else ""),
@@ -221,7 +220,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path, light: bool = F
         out_name = f"{i:02d}_{base}"
         html = env.get_template(f"{TPL}/{tpl_name}.html").render(
             bird=_LOGO_TIGHT_DATA_URL, logo=_LOGO_DATA_URL, phase=PHASE_OF.get(base), L=medium_labels(meta.medium),
-            slide_n=i, slide_total=total, progress=round(i / total * 100), light=light, **theme, **ctx)
+            slide_n=i, slide_total=total, progress=round(i / total * 100), **theme, **ctx)
         path = out_dir / f"{out_name}.html"
         path.write_text(html, encoding="utf-8")
         paths.append(path)
@@ -229,7 +228,7 @@ def generate_html(doc: InstagramCarouselDocument, out_dir: Path, light: bool = F
     return paths
 
 
-def _warn_invalid(doc: InstagramCarouselDocument, light: bool = False) -> None:
+def _warn_invalid(doc: InstagramCarouselDocument) -> None:
     """Print the adapt-time structural errors before rendering — never fail.
 
     `render` is run on hand-edited extracts, where the caps the adapt loop
@@ -238,22 +237,22 @@ def _warn_invalid(doc: InstagramCarouselDocument, light: bool = False) -> None:
     the result is the point.
     """
     from agent.instagram_carousel_adapt_agent import _validate
-    problems = [e for e in _validate(doc.presentation, light=light) if "go_further" not in e]
+    problems = [e for e in _validate(doc.presentation) if "go_further" not in e]
     for e in problems:
         print(f"  ⚠  {e}", file=sys.stderr)
 
 
-def generate_html_from_json(json_path: Path, out_dir: Path, light: bool = False) -> list[Path]:
+def generate_html_from_json(json_path: Path, out_dir: Path) -> list[Path]:
     data = json.loads(Path(json_path).read_text(encoding="utf-8"))
     doc = InstagramCarouselDocument.model_validate(data)
-    _warn_invalid(doc, light)
-    return generate_html(doc, out_dir, light)
+    _warn_invalid(doc)
+    return generate_html(doc, out_dir)
 
 
-def render_from_json(json_path: Path, out_dir: Path, pdf: bool = False, light: bool = False) -> list[Path]:
+def render_from_json(json_path: Path, out_dir: Path, pdf: bool = False) -> list[Path]:
     """Generate HTML then screenshot it, into out_dir/html and out_dir/slides.
     `pdf` is accepted for a uniform renderer interface but unused (carousels are PNG)."""
     from renderer.shoot import shoot_dir
     out_dir = Path(out_dir)
-    generate_html_from_json(json_path, out_dir / "html", light)
+    generate_html_from_json(json_path, out_dir / "html")
     return shoot_dir(out_dir / "html", out_dir / "slides")

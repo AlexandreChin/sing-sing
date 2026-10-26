@@ -6,12 +6,6 @@ FORMATS: dict[str, tuple[str, str, str]] = {
         "extractors.instagram_carousel",
         "renderer.instagram_carousel.optimized",
     ),
-    # the same deck condensed: same angle and moments, fewer words, larger type
-    "instagram_carousel_light": (
-        "agent.instagram_carousel_light_agent",
-        "extractors.instagram_carousel",
-        "renderer.instagram_carousel.light",
-    ),
     "newsletter": (
         "agent.newsletter_adapt_agent",
         "extractors.newsletter",
