@@ -29,7 +29,7 @@ Show the author the options of the paused step in chat, faithfully: each option'
 | a rewrite of an option | `… --pick b --edit "b=<their text>"` (`b.field=…` for another field; `--edit` is repeatable) |
 | « other suggestions », with or without a remark | `… --more [--remark "<their words>"]` — prints new options; relay them and wait again |
 
-When the author gives a reason, pass it verbatim with `--reason "…"`; it goes in the choice log. Never invent one. Relay any ⚠ warning `choose` prints.
+When the author gives a reason, pass it verbatim with `--reason "…"`; it goes in the choice log. Never invent one. Relay any ⚠ warning `choose` prints, and propose a fix for each (a rewritten text); apply it only once the author accepts — `choose … --edit ID=TEXT` again, or `fix` for a deck field.
 
 Then rerun `produce <input.txt> --guided …` (same flags) to reach the next pause. Repeat until no step is awaiting. `produce` renders only with `--render`: after the last pick (step 7), the final rerun is `produce <input.txt> --guided --render` (an unattended run needs `--render` too for slides). A rerun right after `choose --more` re-prints the same pending step with the new options — expected, not a loop. `--no-api` goes on `choose --more` too.
 

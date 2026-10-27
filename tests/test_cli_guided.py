@@ -72,11 +72,15 @@ def test_choose_prints_warnings_and_passes_args(monkeypatch, tmp_path, capsys, s
 
 def test_choose_more_prints_options_on_stdout(monkeypatch, tmp_path, capsys, stub_full):
     fmt = _fmt_dir(tmp_path)
-    monkeypatch.setattr(run, "more", lambda *a, **k: "NEWFILE")
-    monkeypatch.setattr(run, "format_options", lambda step, sf: f"options {step} {sf}")
+    from agent.carousel_steps.steps import Option
+    from agent.carousel_steps.store import StepFile
+    new = StepFile(step="question", recommended=["c"],
+                   options=[Option(id="c", slot="question", reason="plus large", fields={"text": "Une autre ?"})])
+    monkeypatch.setattr(run, "more", lambda *a, **k: new)
     args = build_parser().parse_args(["choose", str(fmt), "question", "--more", "--remark", "r"])
-    asyncio.run(main.cmd_choose(args))
-    assert capsys.readouterr().out.strip() == "options question NEWFILE"
+    asyncio.run(main.cmd_choose(args))                             # the real format_options
+    out = capsys.readouterr().out
+    assert "c — Une autre ? ★" in out and "↳ plus large" in out
 
 
 def test_choose_without_pick_or_more_is_usage_error(tmp_path, capsys):

@@ -125,13 +125,14 @@ def _pending_step(steps_dir: Path) -> str | None:
     return None
 
 
-def _report_stop(steps_dir: Path, stop_after: str | None, guided: bool = False) -> None:
+def _report_stop(steps_dir: Path, stop_after: str | None, guided: bool = False,
+                 command: str = "produce") -> None:
     """Say why adapt returned nothing: a choice is awaited (a step has no pick), or
-    the run stopped where --stop-after asked."""
+    the run stopped where --stop-after asked. `command` is the one to rerun."""
     pending = _pending_step(steps_dir) if guided else None
     if pending:
         print(f"Awaiting a choice: python main.py choose {steps_dir.parent} {pending} --pick <ids>\n"
-              "then rerun produce with --guided", file=sys.stderr)
+              f"then rerun {command} with --guided", file=sys.stderr)
     else:
         print(f"Stopped after {stop_after}: review or edit the step files in {steps_dir}, then rerun "
               f"without --stop-after — the steps after it are rebuilt from your version.", file=sys.stderr)
@@ -142,7 +143,8 @@ def _article_beside(analysis_path: Path) -> str | None:
     base = analysis_path.parent
     article = next((c for c in (base / f"{base.name}.txt", base.parent / f"{base.name}.txt")
                     if c.exists()), None)
-    return article.read_text(encoding="utf-8") if article else None
+    # stripped, as `produce` reads it: the step stamps hash this text
+    return article.read_text(encoding="utf-8").strip() if article else None
 
 
 def _parse_edits(items: list[str]) -> dict[str, str]:
@@ -175,7 +177,7 @@ async def cmd_adapt(args: argparse.Namespace) -> None:
         return
     presentation = adapt_fn(full, **kwargs)
     if presentation is None:
-        _report_stop(steps_dir, args.stop_after, args.guided)
+        _report_stop(steps_dir, args.stop_after, args.guided, command="adapt")
         return
     out_path = json_path.with_stem(json_path.stem + f"_{args.format}_adapt")
     out_path.write_text(presentation.model_dump_json(indent=2), encoding="utf-8")
@@ -196,6 +198,7 @@ def _load_fmt_dir(fmt_dir: str):
 
 async def cmd_choose(args: argparse.Namespace) -> None:
     from agent.carousel_steps import run
+    from agent.carousel_steps.steps import STEP_BY_NAME
     if not args.pick and not args.more:
         print("choose needs --pick <ids> or --more", file=sys.stderr)
         sys.exit(2)
@@ -203,7 +206,7 @@ async def cmd_choose(args: argparse.Namespace) -> None:
     try:
         if args.more:
             sf = run.more(full, steps_dir, args.step, args.remark, article, args.no_api)
-            print(run.format_options(args.step, sf))
+            print(run.format_options(STEP_BY_NAME[args.step], sf))
             return
         picks = [p.strip() for p in args.pick.split(",") if p.strip()]
         warnings = run.choose(full, steps_dir, args.step, picks, _parse_edits(args.edit), args.reason, article)

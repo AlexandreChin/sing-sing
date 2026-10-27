@@ -55,12 +55,16 @@ def save(steps_dir: Path, sf: StepFile, stamp: str) -> None:
     _stamp_path(steps_dir, step).write_text(stamp)
 
 
-def _move_to(steps_dir: Path, folder: str, paths: list[Path]) -> None:
+def _move_to(steps_dir: Path, folder: str, paths: list[Path]) -> bool:
+    """Move the existing `paths` into `steps_dir/folder`; True when any moved."""
     dest = steps_dir / folder
+    moved = False
     for p in paths:
         if p.exists():
             dest.mkdir(parents=True, exist_ok=True)
             p.replace(dest / p.name)
+            moved = True
+    return moved
 
 
 def retire(steps_dir: Path, step: Step, stamp: str) -> None:
@@ -68,8 +72,8 @@ def retire(steps_dir: Path, step: Step, stamp: str) -> None:
              [step_path(steps_dir, step), _stamp_path(steps_dir, step)])
 
 
-def retire_legacy(steps_dir: Path) -> None:
-    _move_to(steps_dir, "stale_legacy",
+def retire_legacy(steps_dir: Path) -> bool:
+    return _move_to(steps_dir, "stale_legacy",
              [steps_dir / f"{n}{ext}" for n in _LEGACY for ext in (".json", ".sha256")])
 
 

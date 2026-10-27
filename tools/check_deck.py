@@ -1,6 +1,7 @@
 """Deck controller: check a rendered document against the article it came from.
 
-Everything here is deterministic — no API call. Three families of check:
+Everything here is deterministic — no API call. `check` fails on the hard
+families only; the ones marked (advisory) are listed for a human to judge.
 
 * **structure** — the adapt validator's own rules (word caps, one présupposé per
   beat, bold spans, plain French), re-run on the final document, because a deck
@@ -8,13 +9,19 @@ Everything here is deterministic — no API call. Three families of check:
 * **accuracy** — quotes must appear in the article, and every figure we print in
   our own prose must exist in the article. This is what catches a quote quietly
   reworded during an edit pass, or a number nobody can source;
+* **consistency** — what the renderer cannot reconcile (a selected beat with
+  no réflexe question);
 * **typography** — French spacing before `; : ! ?`, which decides whether a
   colon can orphan at the start of a rendered line;
+* **editorial (advisory)** — the adapt validator's editorial flags (`split_rules`);
+* **consistency (advisory)** — a selection headline naming words its paragraphs
+  do not: a word-overlap proxy for meaning, so a hint, not a failure;
 * **vocabulary (advisory)** — words a late slide uses that the deck never showed.
   Advisory because new nouns can be legitimate (an objection may name asbestos
   and opioids); a high count means the slide was written from the analysis
   rather than from the carousel, which is how « ces systèmes » and « la logique
-  de planification » reach a reader who can attach them to nothing.
+  de planification » reach a reader who can attach them to nothing;
+* **standalone (advisory)** — references (« ces … », names, acronyms) the deck never introduced.
 
 Usage: `python main.py check <extract.json> [article.txt]`. The article is found
 next to the analysis when not given.
@@ -285,7 +292,7 @@ def check(extract_path: Path, article_path: Path | None = None) -> dict[str, lis
     extract_path = Path(extract_path)
     doc = InstagramCarouselDocument.model_validate(json.loads(extract_path.read_text(encoding="utf-8")))
     report: dict[str, list[str]] = {"structure (extract)": [], "structure (adapt)": [],
-                                    "accuracy": [], "consistency": [],
+                                    "accuracy": [], "consistency": [], "consistency (advisory)": [],
                                     "typography": [], "vocabulary (advisory)": [],
                                     "editorial (advisory)": []}
 
@@ -351,11 +358,12 @@ def check(extract_path: Path, article_path: Path | None = None) -> dict[str, lis
                 )
 
     # The title may only name what the two paragraphs name (it is read two lines
-    # above them); a term appearing in neither describes another article.
+    # above them); a term appearing in neither describes another article. Word
+    # overlap only approximates meaning (a synonym trips it): advisory.
     d = doc.presentation.display
     stray = _words(d.selection_headline) - _words(d.why_selected)
     if stray:
-        report["consistency"].append(
+        report["consistency (advisory)"].append(
             f"display.selection_headline says {', '.join(sorted(stray))}… — absent from "
             f"why_selected, so the title names something the slide does not"
         )
