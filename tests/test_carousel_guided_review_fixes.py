@@ -116,6 +116,18 @@ def test_missing_slot_raises_naming_the_step(fake, monkeypatch, steps_dir):
     assert load(steps_dir, STEP_BY_NAME["socle"])[0] is None          # nothing half-built saved
 
 
+def test_too_many_options_is_kept_with_a_warning(monkeypatch, steps_dir, capsys):
+    def five(data):
+        data["options"].append({**data["options"][-1], "text": "Une cinquième question ?"})
+        return data
+    _real_call(monkeypatch, "question", five)
+    run.adapt(_full(), steps_dir=steps_dir, stop_after="question")
+    sf, _ = load(steps_dir, STEP_BY_NAME["question"])
+    assert len(sf.options) == 5 and sf.picked == ["a"]
+    assert "slot 'question' has 5 option(s), must have 3–4" in capsys.readouterr().err
+    assert not (steps_dir / "1_question.failed.json").exists()
+
+
 def test_schema_invalid_writing_raises(fake, monkeypatch, steps_dir):
     run.adapt(_full(), steps_dir=steps_dir, stop_after="hook")
     _real_call(monkeypatch, "writing", lambda d: {k: v for k, v in d.items() if k != "caption"})

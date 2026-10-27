@@ -108,15 +108,17 @@ def option_flags(step: Step, option: Option, options: list[Option], recommended:
     return _candidate_rules(step, option, options, recommended, fragments, article_text)[1]
 
 
-def _coverage_errors(step: Step, options: list[Option]) -> list[str]:
+def _coverage_errors(step: Step, options: list[Option], short_only: bool = False) -> list[str]:
+    """Slot counts out of range; `short_only` keeps the ones below the minimum —
+    those the deck cannot be built from (too many options is still usable)."""
     errors = []
     for slot, (lo, hi, _) in step.slots.items():
         n = sum(o.slot == slot for o in options)
-        if not lo <= n <= hi:
+        if n < lo or (n > hi and not short_only):
             errors.append(f"options: slot {slot!r} has {n} option(s), must have {lo}–{hi}")
     if step.name in _TOTALS:
         lo, hi = _TOTALS[step.name]
-        if not lo <= len(options) <= hi:
+        if len(options) < lo or (len(options) > hi and not short_only):
             errors.append(f"options: {len(options)} option(s) in total, must have {lo}–{hi}")
     return errors
 
@@ -207,7 +209,8 @@ def generate(step: Step, full: ArticleFullAnalysis, fragments: dict[str, dict], 
              steps_dir: Path | None = None) -> StepFile:
     """One model call for `step`'s options (writing: its copy), checked against the
     deck so far. The StepFile comes back with nothing picked. An answer that still
-    breaks the schema or leaves a slot uncovered after the retries raises RuntimeError."""
+    breaks the schema or leaves a slot below its minimum after the retries raises
+    RuntimeError; too many options is kept, with a warning."""
     model = _response_model(step)
     message = _message(step, full, fragments, article_text, rejected, remarks)
     if step.option_model is None:
@@ -245,8 +248,10 @@ def generate(step: Step, full: ArticleFullAnalysis, fragments: dict[str, dict], 
         resp, frags, options, recommended, errors = parse(data)
     except ValidationError as exc:
         raise _failed(step, steps_dir, data, _schema_errors(exc)) from None
-    if (uncovered := _coverage_errors(step, options)):
-        raise _failed(step, steps_dir, data, uncovered)
+    if (short := _coverage_errors(step, options, short_only=True)):
+        raise _failed(step, steps_dir, data, short)
+    for e in _coverage_errors(step, options):          # only too many remain: usable
+        print(f"  ⚠  {step.name}: {e}", file=sys.stderr)
     if errors or check_picks(step, options, recommended):
         print("  ⚠  recommended picks invalid, taking the first per slot", file=sys.stderr)
         recommended = default_picks(step, options)
