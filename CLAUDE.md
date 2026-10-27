@@ -84,8 +84,9 @@ Slide 8 is written first and everything is written toward it: `question` (« La 
 `contexte` (the repères facts), `socle` (thesis, présupposés, objection), `hook`, then `writing`
 (réflexes/answers, slides 2–3, sources, caption — no pause). Steps 1–7 each produce several
 **options**, each with its text, a **reason** (↳) and a ★ recommended one; the author picks, edits
-or asks for others. The deck rulebook is split in two (`split_rules`): **hard checks** block (the
-step repairs itself or the pick is refused); **editorial flags** are advisory (⚠ on an option, listed
+or asks for others. The deck rulebook is split in two (`split_rules`): **hard checks** make a generated
+step repair itself, but on the author's own pick or rewrite they come back as ⚠ warnings (the author has
+the last word; `choose` refuses only slot-rule violations); **editorial flags** are advisory (⚠ on an option, listed
 under « editorial (advisory) » by `check`). Every choice, edit and reason is appended to
 `<format>/choices.jsonl`; reusable corrections are promoted by hand to `prompts/carousel_steps/examples/`.
 Each step gets the earlier ones as fixed context, the article text and only its slice of the analysis
