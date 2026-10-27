@@ -115,10 +115,49 @@ def test_stage_kwargs_guided_only_when_accepted(tmp_path):
     assert k == {}
 
 
-def test_report_none_distinguishes(tmp_path, capsys):
+def _write_step(steps, n, name, picked):
+    from agent.carousel_steps.store import StepFile
+    steps.mkdir(parents=True, exist_ok=True)
+    (steps / f"{n}_{name}.json").write_text(StepFile(step=name, picked=picked).model_dump_json(), encoding="utf-8")
+
+
+def test_report_none_names_the_pending_step(tmp_path, capsys):
     steps = tmp_path / "fmt" / "adapt_steps"
+    _write_step(steps, 1, "question", ["a"])
+    _write_step(steps, 2, "enjeu", [])
     main._report_stop(steps, None, True)
     err = capsys.readouterr().err
-    assert "Awaiting a choice: python main.py choose" in err and "--guided" in err
-    main._report_stop(steps, "socle", False)
-    assert "Stopped after socle" in capsys.readouterr().err
+    assert f"Awaiting a choice: python main.py choose {steps.parent} enjeu --pick <ids>" in err
+    assert "--guided" in err and "<step>" not in err
+
+
+def test_report_none_stopped_after(tmp_path, capsys):
+    steps = tmp_path / "fmt" / "adapt_steps"
+    _write_step(steps, 1, "question", ["a"])
+    main._report_stop(steps, "question", False)
+    assert "Stopped after question" in capsys.readouterr().err
+
+
+def test_report_none_guided_and_stop_after_both(tmp_path, capsys):
+    steps = tmp_path / "fmt" / "adapt_steps"
+    _write_step(steps, 1, "question", ["a"])
+    main._report_stop(steps, "question", True)
+    assert "Stopped after question" in capsys.readouterr().err
+    _write_step(steps, 2, "enjeu", [])
+    main._report_stop(steps, "question", True)
+    assert "Awaiting a choice" in capsys.readouterr().err
+
+
+def test_edit_without_equals_is_usage_error(capsys):
+    with pytest.raises(SystemExit) as e:
+        main._parse_edits(["oops"])
+    assert e.value.code == 2 and "ID=TEXT" in capsys.readouterr().err
+
+
+def test_missing_analysis_exits_1(tmp_path, capsys):
+    fmt = tmp_path / "stem" / "instagram_carousel_optimized"
+    fmt.mkdir(parents=True)
+    args = build_parser().parse_args(["fix", str(fmt), "f", "t"])
+    with pytest.raises(SystemExit) as e:
+        asyncio.run(main.cmd_fix(args))
+    assert e.value.code == 1 and "analysis.json" in capsys.readouterr().err
