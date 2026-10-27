@@ -114,12 +114,23 @@ def _adapt_stage_kwargs(adapt_params, kwargs: dict, steps_dir: Path, stop_after:
     return True
 
 
+def _pending_step(steps_dir: Path) -> str | None:
+    """The first of steps 1-7 whose file exists with no pick: the one awaiting a choice."""
+    from agent.carousel_steps.steps import STEPS
+    from agent.carousel_steps.store import load
+    for s in STEPS[:-1]:
+        sf, _ = load(steps_dir, s)
+        if sf is not None and not sf.picked:
+            return s.name
+    return None
+
+
 def _report_stop(steps_dir: Path, stop_after: str | None, guided: bool = False) -> None:
-    """Say why adapt returned nothing: a choice is awaited (guided), or the run
-    stopped where --stop-after asked."""
-    fmt_dir = steps_dir.parent
-    if guided and not stop_after:
-        print(f"Awaiting a choice: python main.py choose {fmt_dir} <step> --pick <ids>\n"
+    """Say why adapt returned nothing: a choice is awaited (a step has no pick), or
+    the run stopped where --stop-after asked."""
+    pending = _pending_step(steps_dir) if guided else None
+    if pending:
+        print(f"Awaiting a choice: python main.py choose {steps_dir.parent} {pending} --pick <ids>\n"
               "then rerun produce with --guided", file=sys.stderr)
     else:
         print(f"Stopped after {stop_after}: review or edit the step files in {steps_dir}, then rerun "
@@ -136,6 +147,10 @@ def _article_beside(analysis_path: Path) -> str | None:
 
 def _parse_edits(items: list[str]) -> dict[str, str]:
     """`ID=TEXT` (or `ID.field=TEXT`) items → {key: text}, split on the first `=`."""
+    bad = [i for i in items if "=" not in i]
+    if bad:
+        print(f"--edit expects ID=TEXT, got {bad[0]!r}", file=sys.stderr)
+        sys.exit(2)
     return dict(item.split("=", 1) for item in items)
 
 
@@ -172,6 +187,9 @@ def _load_fmt_dir(fmt_dir: str):
     from models.full_analysis import ArticleFullAnalysis
     fmt = Path(fmt_dir)
     analysis_path = fmt.parent / "analysis.json"
+    if not analysis_path.exists():
+        print(f"No analysis.json beside {fmt} (expected {analysis_path})", file=sys.stderr)
+        sys.exit(1)
     full = ArticleFullAnalysis.model_validate(json.loads(analysis_path.read_text(encoding="utf-8")))
     return full, fmt / "adapt_steps", _article_beside(analysis_path)
 
@@ -194,7 +212,7 @@ async def cmd_choose(args: argparse.Namespace) -> None:
         sys.exit(1)
     for w in warnings:
         print(f"⚠ {w}", file=sys.stderr)
-    print(f"Kept {', '.join(picks)} at {args.step}; rerun produce to continue.", file=sys.stderr)
+    print(f"Kept {', '.join(picks)} at {args.step}; rerun produce (or adapt) with --guided to continue.", file=sys.stderr)
 
 
 async def cmd_fix(args: argparse.Namespace) -> None:
