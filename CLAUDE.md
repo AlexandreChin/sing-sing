@@ -14,13 +14,18 @@ uv add <package>
 uv sync
 
 # Full pipeline: analyze → adapt → extract → render
-python main.py produce <article.txt> [--format instagram_carousel_optimized] [--no-api] [--render] [--instructions-file <path>] [--stop-after axis|selection]
+python main.py produce <article.txt> [--format instagram_carousel_optimized] [--no-api] [--render] [--instructions-file <path>] [--stop-after <step>] [--guided]
 
 # Individual stages
 python main.py analyze <article.txt> [--instructions "..."] [--instructions-file <path>]
-python main.py adapt   <analysis.json>   [--format <fmt>] [--no-api] [--stop-after axis|selection]
+python main.py adapt   <analysis.json>   [--format <fmt>] [--no-api] [--stop-after <step>] [--guided]
 python main.py extract <analysis.json> <presentation.json> [--format <fmt>] [--render]
 python main.py render  <extract.json> [<output_dir>] [--format <fmt>]
+
+# Guided carousel adapt (steps: question enjeu idees moments contexte socle hook)
+python main.py choose <fmt_dir> <step> --pick a,b [--edit ID=TEXT] [--reason "…"]   # or --more [--remark "…"]
+python main.py fix    <fmt_dir> <field> "<text>"      # rewrite one deck field, no regeneration
+python main.py check  <extract.json> [--reader] [--no-api]
 
 # Find source material (free-to-read French news feeds)
 python main.py fetch                       # list latest candidates from every feed
@@ -44,7 +49,8 @@ main.py                            CLI dispatcher for all subcommands
 agent/
   full_analysis_agent.py           analyze_for_full_analysis — 9-step pipeline (steps/ 1–9), cached per step
   steps/step1_scan.py … step9_guide.py
-  instagram_carousel_adapt_agent.py    adapt(): ArticleFullAnalysis → carousel presentation, in 3 cached stages
+  carousel_steps/                  steps.py / store.py / run.py — the 8 guided adapt steps (prompts/carousel_steps/)
+  instagram_carousel_adapt_agent.py    adapt(): ArticleFullAnalysis → carousel presentation, assembled from the 8 guided steps
   instagram_carousel_simplify_agent.py simplify_carousel(): shrink an existing carousel
   newsletter_adapt_agent.py            adapt(): ArticleFullAnalysis → newsletter prose
   media_trend_agent.py
@@ -70,19 +76,30 @@ tools/
 
 **Data flow (`produce`):** `analyze_for_full_analysis(text)` → `ArticleFullAnalysis` JSON → `adapt()` → presentation JSON → `extract()` → trimmed render document (`extract.json`) → `render_from_json()` → PNG slides.
 
-**Carousel adapt, three stages** (`agent/instagram_carousel_adapt_agent.py`, prompts
-`agent/prompts/carousel_shared.md` + `carousel_{1_axis,2_selection,3_writing}.md`): slide 8 is
-written first and everything is written toward it. (1) **axis** — `thesis_frame`, `root_issue`,
-« La question », the 3 `essentiel` claims, the slide-7 thesis; (2) **selection** — the beat pool,
-the 3 selected, présupposés, objection; (3) **writing** — moments' réflexe/answer, slides 2–3,
-sources, hook, caption. Each call gets the earlier stages as fixed context, the article text, and
-only its slice of the analysis (`_STAGE_ANALYSIS`: `fond`, context, quotes, claims — never review,
-ethics, blend, distill or guide). `_validate()` stays the whole-deck rulebook; `_stage_of()` routes
-each error to the stage that owns its field, so a stage repairs only its own. Stages are cached in
-`<format>/adapt_steps/` with an input hash: a hand-edited stage is kept and the later ones rerun;
-`--stop-after axis|selection` stops for review. Fields no slide shows (watch_out, strengths,
-distill_points, payoff, interest, the *_next_slide_hook…) are no longer produced; they stay in the
-model as empty defaults so older decks load.
+**Carousel adapt, eight guided steps** (`agent/instagram_carousel_adapt_agent.py` assembles the deck;
+`agent/carousel_steps/` — `steps.py` the step table, `store.py` files/stamps/log, `run.py` the
+options, choices and `fix`; prompts in `agent/prompts/carousel_steps/`, with worked `examples/`).
+Slide 8 is written first and everything is written toward it: `question` (« La question »), `enjeu`
+(root issue), `idees` (the 3 `essentiel` claims), `moments` (the reading-beat pool, 3 selected),
+`contexte` (the repères facts), `socle` (thesis, présupposés, objection), `hook`, then `writing`
+(réflexes/answers, slides 2–3, sources, caption — no pause). Steps 1–7 each produce several
+**options**, each with its text, a **reason** (↳) and a ★ recommended one; the author picks, edits
+or asks for others. The deck rulebook is split in two (`split_rules`): **hard checks** block (the
+step repairs itself or the pick is refused); **editorial flags** are advisory (⚠ on an option, listed
+under « editorial (advisory) » by `check`). Every choice, edit and reason is appended to
+`<format>/choices.jsonl`; reusable corrections are promoted by hand to `prompts/carousel_steps/examples/`.
+Each step gets the earlier ones as fixed context, the article text and only its slice of the analysis
+(never review, ethics, blend, distill or guide). Steps are cached in `<format>/adapt_steps/` with an
+input hash: a hand-edited or chosen step is kept and the later ones rerun.
+- `--guided` stops at each step with no pick (options on stdout, the exact `choose` command on stderr);
+  `choose <fmt_dir> <step> --pick a,b [--edit ID=TEXT] [--reason …]` or `--more [--remark …]`, then
+  rerun. Without `--guided`, `adapt`/`produce` run unattended on the recommended picks;
+  `--stop-after <step>` stops after any of steps 1–7 for review.
+- `fix <fmt_dir> <field> "<text>"` rewrites one deck field and re-stamps the steps without regenerating.
+- `check <extract.json> [--reader]` runs the hard checks and lists the flags; `--reader` adds the
+  model-driven reader and fidelity passes. The skill `.claude/skills/carousel-guided/` drives the loop.
+Fields no slide shows (watch_out, strengths, distill_points, payoff, interest, the
+*_next_slide_hook…) are no longer produced; they stay in the model as empty defaults so older decks load.
 
 **Instructions (editorial angle):** `--instructions`/`--instructions-file` on `analyze` or `produce`
 reach every analysis step and are kept in `analysis.json` (`article_metadata.extra_instructions`),
@@ -96,7 +113,8 @@ samples/outputs/<stem>/
   analysis.json            ArticleFullAnalysis
   steps/                   step1…step9 cache
   <format>/                e.g. instagram_carousel_optimized/
-    adapt_steps/           carousel adapt stages: 1_axis / 2_selection / 3_writing .json (+ .sha256)
+    adapt_steps/           1_question … 8_writing .json (+ .sha256); stale_legacy/ holds the old 3-stage files
+    choices.jsonl          the choice log (picks, edits, reasons)
     adapt.json             InstagramCarouselPresentation
     extract.json           InstagramCarouselDocument
     slides/                NN_*.png
