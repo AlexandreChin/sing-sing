@@ -7,6 +7,7 @@ thesis frame travels beside them in `fragments["question_frame"]`."""
 import copy
 import re
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, Literal
 
 from pydantic import BaseModel, Field
@@ -115,6 +116,25 @@ STEPS: tuple[Step, ...] = (
     Step(8, "writing", None, {}, "", 3),
 )
 STEP_BY_NAME: dict[str, Step] = {s.name: s for s in STEPS}
+
+
+# ── Prompts ─────────────────────────────────────────────────────────────────
+
+_PROMPTS = Path(__file__).resolve().parent.parent / "prompts" / "carousel_steps"
+
+
+def prompt_for(step: Step) -> str:
+    """The step's prompt; steps 1–7 open on the shared options preamble."""
+    body = (_PROMPTS / f"{step.n}_{step.name}.md").read_text(encoding="utf-8")
+    if step.option_model is None:
+        return body
+    return (_PROMPTS / "0_options.md").read_text(encoding="utf-8") + "\n" + body
+
+
+def examples_for(step: Step) -> str:
+    """The author's past decisions for this step, "" when there are none."""
+    path = _PROMPTS / "examples" / f"{step.n}_{step.name}.md"
+    return path.read_text(encoding="utf-8") if path.exists() else ""
 
 
 # ── Picks ───────────────────────────────────────────────────────────────────
