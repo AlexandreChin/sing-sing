@@ -2,6 +2,8 @@
 
 ## Retenus
 
+Ces exemples montrent l'angle et le sens retenus par l'auteur ; la forme et la longueur suivent les règles de l'étape.
+
 Thèse de l'article : La colère lycéenne exprime des inégalités anciennes, scolaires et policières, plutôt qu'un accès ponctuel.
 - Enjeu : Politique ou scolaire, la colère bute sur une même promesse : la société **promet** l'avenir par l'école ; la jeunesse n'y croit plus.
 

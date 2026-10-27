@@ -2,6 +2,8 @@
 
 ## Retenus
 
+Ces exemples montrent l'angle et le sens retenus par l'auteur ; la forme et la longueur suivent les règles de l'étape.
+
 Thèse de l'article : La colère lycéenne exprime des inégalités anciennes, scolaires et policières, plutôt qu'un accès ponctuel.
 - Accroche : Derrière les poubelles brûlées, une **colère** qui vient de loin
 - Promesse : Comprendre d'où elle vient.
@@ -21,5 +23,3 @@ Thèse de l'article : Un mouvement lycéen révèle une école publique inégali
 Thèse de l'article : Une génération connectée et sans chef fait tomber des gouvernements et cherche d'autres formes de démocratie.
 - Accroche : Des régimes tombés, des votes en ligne : à qui va le **pouvoir** ?
 - Promesse : Comprendre à qui il revient.
-
-## Écartés (et pourquoi)

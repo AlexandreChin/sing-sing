@@ -2,6 +2,8 @@
 
 ## Retenus
 
+Ces exemples montrent l'angle et le sens retenus par l'auteur ; la forme et la longueur suivent les règles de l'étape.
+
 Thèse de l'article : La colère lycéenne exprime des inégalités anciennes, scolaires et policières, plutôt qu'un accès ponctuel.
 - Puce 1 : Profs absents, locaux délabrés : les lycées les moins demandés sont servis en **dernier**.
 - Puce 2 : Devant ces mêmes lycées, la police rejoue les **contrôles au faciès** du quartier.
@@ -26,5 +28,3 @@ Thèse de l'article : Une génération connectée et sans chef fait tomber des g
 - Puce 1 : Une génération en colère : des jeunes de six pays ébranlent des **gouvernements**
 - Puce 2 : Voter ne pèse plus sur le pouvoir : décisions en ligne, **sans chef**
 - Puce 3 : Une victoire à protéger : l'armée et les anciennes **élites** attendent de gouverner
-
-## Écartés (et pourquoi)
