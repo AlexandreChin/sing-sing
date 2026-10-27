@@ -2,6 +2,8 @@
 
 ## Retenus
 
+Ces exemples montrent l'angle et le sens retenus par l'auteur ; la forme et la longueur suivent les règles de l'étape.
+
 Thèse de l'article : La colère lycéenne exprime des inégalités anciennes, scolaires et policières, plutôt qu'un accès ponctuel.
 - Moment 1 : Les lycées délaissés reçoivent leurs profs en dernier
 - Citation : le système de points […] fait que les lycées les moins désirés socialement sont […] pourvus en dernier
@@ -41,5 +43,3 @@ Thèse de l'article : Une génération connectée et sans chef fait tomber des g
 - Citation : nous n'avons pas de chef. […] nous en discutons et votons sur notre plateforme. La majorité l'emporte
 - Moment 3 : Sans chef, une victoire que d'autres peuvent prendre
 - Citation : le risque c'est de se faire confisquer la victoire par d'anciennes castes politiques qui attendaient justement leur tour.
-
-## Écartés (et pourquoi)

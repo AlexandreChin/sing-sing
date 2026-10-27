@@ -1,9 +1,14 @@
 ADAPTATION CAROUSEL INSTAGRAM
 
-L'analyse de l'article et l'article lui-même sont fournis ci-dessus. Le carrousel se construit en TROIS ÉTAPES, une par appel, et chacune FIXE ce que les suivantes reçoivent :
-1. **L'axe** — `thesis_frame`, l'enjeu de fond (`root_issue`), « La question » (`cta.engagement_sentence`), le socle (`essentiel`) et la thèse de la slide 7 (`global_analysis.headline`).
-2. **La sélection** — le vivier de moments (`reading_beats`), les 3 retenus, leurs présupposés (`global_analysis.core_recap`) et l'objection (`steel_man`).
-3. **La rédaction** — tout le texte restant : accroche, légende, slide 2 (§1), slide 3, les réflexes et réponses des moments, les sources.
+L'analyse de l'article et l'article lui-même sont fournis ci-dessus. Le carrousel se construit en HUIT ÉTAPES, une par appel, et chacune FIXE ce que les suivantes reçoivent :
+1. **La question** — `thesis_frame` et « La question » (`cta.engagement_sentence`).
+2. **L'enjeu** — l'enjeu de fond (`root_issue`).
+3. **Les idées clés** — les 3 puces `essentiel` de la slide 2.
+4. **Les moments** — le vivier de moments (`reading_beats`) et les 3 retenus.
+5. **Le contexte** — les repères de la slide 3 (`reperes_facts`).
+6. **Le socle** — la thèse de la slide 7 (`global_analysis.headline`), ses présupposés (`global_analysis.core_recap`) et l'objection (`steel_man`).
+7. **L'accroche** — la slide 1 (`hook`).
+8. **La rédaction** — tout le texte restant : légende, slide 2 (§1), les réflexes et réponses des moments, les sources.
 Ce qu'une étape antérieure a fixé t'est fourni en contexte : tu ne le réécris JAMAIS, tu écris POUR lui. Les consignes de ton étape suivent ces règles communes.
 
 
@@ -20,7 +25,7 @@ Structure du carousel :
 - Slide 8 : prise de recul — `root_issue` puis « La question » (`cta.engagement_sentence`)
 - Slide 9 : CTA
 
-**L'AXE DU CARROUSEL (impératif) — tout tourne autour de la slide 8.** `root_issue` (l'enjeu de fond) et `cta.engagement_sentence` (« La question ») sont la DESTINATION du carrousel : ils sont écrits EN PREMIER (étape 1) — si des CONSIGNES ÉDITORIALES sont fournies en tête du contexte, elles les fixent, et elles sont suivies à la lettre —, puis tout le reste est écrit POUR Y MENER. Chaque slide est une étape vers cet enjeu et cette question, jamais un sujet à côté : l'accroche (slide 1) ouvre ce que l'enjeu nomme ; les 3 puces `essentiel` (slide 2) y conduisent pas à pas ; le `headline` du socle (slide 7) le porte ; chaque beat sélectionné donne au lecteur quelque chose face à la question ou à l'enjeu ; les présupposés sont ceux dont dépend la réponse à la question. **TEST** : pour chaque slide 1 à 7, « en quoi prépare-t-elle la slide 8 ? ». **Contrôle automatique** : l'accroche (`hook.sub_topic`), chacune des 3 puces `essentiel` et `global_analysis.headline` reprennent chacune AU MOINS UN mot-clé (même racine) de `root_issue` ou de `cta.engagement_sentence` ; de même, pour chaque beat sélectionné, la `lens_question` ou l'`answer` — ce que la slide montre.
+**L'AXE DU CARROUSEL (impératif) — tout tourne autour de la slide 8.** `root_issue` (l'enjeu de fond) et `cta.engagement_sentence` (« La question ») sont la DESTINATION du carrousel : ils sont écrits EN PREMIER (étapes 1 et 2) — si des CONSIGNES ÉDITORIALES sont fournies en tête du contexte, elles les fixent, et elles sont suivies à la lettre —, puis tout le reste est écrit POUR Y MENER. Chaque slide est une étape vers cet enjeu et cette question, jamais un sujet à côté : l'accroche (slide 1) ouvre ce que l'enjeu nomme ; les 3 puces `essentiel` (slide 2) y conduisent pas à pas ; le `headline` du socle (slide 7) le porte ; chaque beat sélectionné donne au lecteur quelque chose face à la question ou à l'enjeu ; les présupposés sont ceux dont dépend la réponse à la question. **TEST** : pour chaque slide 1 à 7, « en quoi prépare-t-elle la slide 8 ? ». **Contrôle automatique** : l'accroche (`hook.sub_topic`), chacune des 3 puces `essentiel` et `global_analysis.headline` reprennent chacune AU MOINS UN mot-clé (même racine) de `root_issue` ou de `cta.engagement_sentence` ; de même, pour chaque beat sélectionné, la `lens_question` ou l'`answer` — ce que la slide montre.
 
 RÈGLES D'ÉCRITURE — pour TOUS les champs affichés, à chaque étape.
 Ces champs sont affichés directement sur les slides. Chaque phrase doit être percutante,

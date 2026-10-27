@@ -2,6 +2,8 @@
 
 ## Retenus
 
+Ces exemples montrent l'angle et le sens retenus par l'auteur ; la forme et la longueur suivent les règles de l'étape.
+
 Thèse de l'article : La colère lycéenne exprime des inégalités anciennes, scolaires et policières, plutôt qu'un accès ponctuel.
 - Question : Comment savoir si l'école tient sa **promesse**, au-delà de ce que chacun en croit ?
 
@@ -18,6 +20,8 @@ Thèse de l'article : Une génération connectée et sans chef fait tomber des g
 - Question : Comment redonner une place réelle aux **citoyens** dans le pouvoir ?
 
 ## Écartés (et pourquoi)
+
+Exemples d'illustration, construits sur les contre-exemples des règles (pas des décisions de l'auteur).
 
 - « Est-ce que les lycéens ont raison de descendre dans la **rue** ? » — binaire : on y répond d'un mot, le lecteur ne pèse ni degré ni condition.
 - « Faut-il condamner le recours à la **violence** des lycéens ? » — binaire et non neutre : « condamner » tranche avant le lecteur.

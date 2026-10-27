@@ -4,7 +4,7 @@ L'AXE est FIXÉ (étapes 1 à 3, fourni en contexte) : `thesis_frame`, « La que
 
 `reason` : l'`axis_link` du moment — ce qu'il donne au lecteur face à la question ou à l'enjeu (voir ci-dessous).
 
-**CHAQUE BEAT SÉLECTIONNÉ EST CHOISI POUR CE QU'IL DONNE AU LECTEUR FACE À LA QUESTION OU À L'ENJEU** — pas parce que le passage est fort. Un moment brillant qui illustre un autre axe (un coût, une loi, un précédent dont la slide 8 ne parle pas) reste dans le vivier, `selected: false`. Choisis aussi la citation sur laquelle l'étape 8 pourra écrire une réponse qui APPORTE quelque chose (voir ci-dessous) : une citation qui s'explique toute seule produit un moment trivial.
+**CHAQUE BEAT SÉLECTIONNÉ EST CHOISI POUR CE QU'IL DONNE AU LECTEUR FACE À LA QUESTION OU À L'ENJEU** — pas parce que le passage est fort. Un moment brillant qui illustre un autre axe (un coût, une loi, un précédent dont la slide 8 ne parle pas) n'est pas proposé. Choisis aussi la citation sur laquelle l'étape 8 pourra écrire une réponse qui APPORTE quelque chose (voir ci-dessous) : une citation qui s'explique toute seule produit un moment trivial.
 
 **COUVERTURE DES ÉLÉMENTS CENTRAUX (obligatoire)** : la présentation doit COUVRIR les
 `core_elements` de l'analyse (fournis en contexte), pas seulement l'angle du titre. Procède

@@ -2,6 +2,8 @@
 
 ## Retenus
 
+Ces exemples montrent l'angle et le sens retenus par l'auteur ; la forme et la longueur suivent les règles de l'étape.
+
 Thèse de l'article : La colère lycéenne exprime des inégalités anciennes, scolaires et policières, plutôt qu'un accès ponctuel.
 - L'école : L'**origine sociale** y pèse plus que dans la moyenne de l'OCDE (PISA 2022).
 - Les lycéens : **Parcoursup** et les réformes nourrissent des contestations depuis 2018.
@@ -26,5 +28,3 @@ Thèse de l'article : Une génération connectée et sans chef fait tomber des g
 - La GenZ : Nés entre 1997 et 2012, selon le **Pew Research Center**, institut américain.
 - Le Népal : La **suspension de 26 réseaux sociaux** a déclenché la révolte, début septembre 2025.
 - La source : **ARTE**, chaîne publique culturelle franco-allemande : un récit tourné vers les manifestants.
-
-## Écartés (et pourquoi)
