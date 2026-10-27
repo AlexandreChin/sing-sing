@@ -127,3 +127,26 @@ def test_default_picks_take_first_per_slot():
 ])
 def test_errors_go_to_the_step_that_owns_the_field(error, step):
     assert step_of(error) == step
+
+
+def test_assemble_leaves_the_fragments_untouched():
+    import copy
+    frags = fragments_from(json.loads(DECK.read_text(encoding="utf-8")))
+    before = copy.deepcopy(frags)
+    first = assemble(frags)
+    assert frags == before
+    assert assemble(frags) == first
+
+
+def test_writing_without_beat_copy_keeps_the_pool():
+    frags = fragments_from(json.loads(DECK.read_text(encoding="utf-8")))
+    opt = Option(id="a", slot="writing", reason="r", fields={
+        "beats": [], "why_selected": "", "selection_headline": "", "key_takeaways": [],
+        "go_further": [], "where_to_look": [], "caption": ""})
+    frags["writing"] = to_fragment(STEP_BY_NAME["writing"], [opt], ["a"], frags)
+    assert len(assemble(frags)["display"]["reading_beats"]) == len(frags["moments"]["display"]["reading_beats"])
+
+
+def test_picks_reject_duplicates():
+    opts = [Option(id=i, slot=i[0], reason="r", fields={"text": i}) for i in ("1a", "2a", "3a")]
+    assert check_picks(STEP_BY_NAME["idees"], opts, ["1a", "1a", "2a", "3a"])
