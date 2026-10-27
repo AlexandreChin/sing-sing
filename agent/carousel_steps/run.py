@@ -13,10 +13,10 @@ from pydantic import create_model
 from agent._base import _call_with_retry, _j, medium_directive
 from agent.carousel_steps.steps import (
     STEPS, Option, Step, StepName, WritingCopy, assemble, check_picks, default_picks,
-    examples_for, prompt_for, step_of, to_fragment,
+    STEP_BY_NAME, examples_for, prompt_for, step_of, to_fragment,
 )
 from agent.carousel_steps.store import (
-    StepFile, digest, load, retire, retire_legacy, save, stamp_for,
+    StepFile, digest, load, log_choice, restamp_after, retire, retire_legacy, save, stamp_for,
 )
 from agent.instagram_carousel_adapt_agent import (
     _SHARED_PROMPT, _full_analysis_context, _off_axis_errors, _validate, caption_with_sources, split_rules,
@@ -30,6 +30,10 @@ _INDEX = re.compile(r"[\w.]+\[(\d+)\]")
 # The socle's fields, by the slot that writes them: an error on one is not another slot's.
 _SOCLE_FIELDS = {"headline": "display.global_analysis.headline", "p": "display.global_analysis.core_recap",
                  "objection": "display.steel_man"}
+
+
+class ChoiceError(ValueError):
+    """A choice, a request for more options or a fix that cannot be applied."""
 
 
 class AwaitingChoice(Exception):
@@ -311,3 +315,111 @@ def adapt(full: ArticleFullAnalysis, no_api: bool = False, article_text: str | N
         print(f"Awaiting a choice at step {next(s.n for s in STEPS if s.name == e.step)} ({e.step})",
               file=sys.stderr)
         return None
+
+
+# ── Choosing, asking for more, fixing ───────────────────────────────────────
+
+def _earlier(full, steps_dir: Path, step: Step, article_text: str | None) -> tuple[dict, StepFile, str]:
+    """(fragments of the earlier steps, `step`'s file, its stamp) — refused unless
+    the file exists, was made from those very fragments, and every earlier step has picks."""
+    fragments: dict[str, dict] = {}
+    for s in STEPS:
+        if s.n >= step.n:
+            break
+        sf, _ = load(steps_dir, s)
+        if sf is None or not sf.picked:
+            raise ChoiceError(f"{s.name} has no pick: run `produce --guided` to reach step {step.n} ({step.name})")
+        fragments[s.name] = sf.fragment
+        if sf.thesis_frame:
+            fragments["question_frame"] = sf.thesis_frame.model_dump()
+    sf, saved = load(steps_dir, step)
+    stamp = stamp_for(base_inputs(full, article_text), [fragments[s.name] for s in STEPS if s.n < step.n])
+    if sf is None or saved != stamp:
+        raise ChoiceError(f"step {step.n} ({step.name}) is missing or stale: run `produce --guided` to regenerate it")
+    return fragments, sf, stamp
+
+
+def choose(full, steps_dir: Path, step: StepName, picks: list[str], edits: dict[str, str],
+           reason: str = "", article_text: str | None = None) -> list[str]:
+    """Keep `picks` at `step`, with the author's rewrites (`ID` or `ID.field` → text).
+    Only the slot rules block; hard-check failures on the result come back as warnings."""
+    st = STEP_BY_NAME[step]
+    if st.option_model is None:
+        raise ChoiceError(f"{step} offers no options to choose from")
+    fragments, sf, stamp = _earlier(full, steps_dir, st, article_text)
+    by_id = {o.id: o for o in sf.options}
+    offered = [{"id": o.id, "text": _main_text(st, o)} for o in sf.options]
+    for key, text in edits.items():
+        oid, _, field = key.partition(".")
+        if oid not in by_id:
+            raise ChoiceError(f"{step}: unknown option {oid!r}")
+        by_id[oid].fields[field or st.text_field] = text
+        by_id[oid].edited = True
+    if errors := check_picks(st, sf.options, picks):
+        raise ChoiceError("; ".join(errors))
+    _pick(st, sf, picks, fragments)
+    for oid in {k.partition(".")[0] for k in edits}:
+        by_id[oid].flags = option_flags(st, by_id[oid], sf.options, picks, fragments, article_text)
+    hard, _ = _deck_rules(assemble(fragments | {step: sf.fragment}), article_text)
+    save(steps_dir, sf, stamp)
+    log_choice(steps_dir.parent, {"step": step, "event": "pick", "offered": offered,
+                                  "picked": picks, "edits": edits, "reason": reason})
+    return [e for e in hard if step_of(e) == step]
+
+
+def more(full, steps_dir: Path, step: StepName, remark: str = "", article_text: str | None = None,
+         no_api: bool = False) -> StepFile:
+    """Set the options aside and generate others, told what was rejected and why."""
+    st = STEP_BY_NAME[step]
+    fragments, sf, stamp = _earlier(full, steps_dir, st, article_text)
+    remarks = sf.remarks + ([remark] if remark else [])
+    new = generate(st, full, fragments, article_text, no_api, rejected=sf.rejected + sf.options, remarks=remarks)
+    save(steps_dir, new, stamp)
+    log_choice(steps_dir.parent, {"step": step, "event": "more", "remark": remark})
+    return new
+
+
+def _walk(node, path: str):
+    """(container, key) of the last step of a dotted / `[i]` path; ChoiceError if it does not resolve."""
+    keys = [(int(i) if i else k) for k, i in re.findall(r"(\w+)|\[(\d+)\]", path)]
+    for k in keys[:-1]:
+        try:
+            node = node[k]
+        except (KeyError, IndexError, TypeError):
+            raise ChoiceError(f"{path!r} does not resolve") from None
+    try:
+        node[keys[-1]]
+    except (KeyError, IndexError, TypeError):
+        raise ChoiceError(f"{path!r} does not resolve") from None
+    return node, keys[-1]
+
+
+def fix(full, steps_dir: Path, field: str, text: str, article_text: str | None = None) -> StepName:
+    """Overwrite one deck field inside the fragment of the step that owns it. Nothing
+    is regenerated: the later steps are re-stamped to accept the change."""
+    owner = STEP_BY_NAME[step_of(field)]
+    files = {s.name: load(steps_dir, s)[0] for s in STEPS}
+    deck = assemble({n: f.fragment for n, f in files.items() if f and f.fragment})
+    _walk(deck, field)
+    sf = files[owner.name]
+    if sf is None or not sf.fragment:
+        raise ChoiceError(f"{owner.name} has no fragment to fix: run `produce` first")
+    target = sf.fragment
+    if owner.name == "writing" and (m := re.fullmatch(r"display\.reading_beats\[(\d+)\]\.(\w+)", field)):
+        i = int(m.group(1))
+        entry = next((c for c in sf.fragment["beat_copy"] if c["index"] == i), None)
+        if entry is None:
+            raise ChoiceError(f"{field!r}: beat {i} has no copy")
+        target, path = entry, m.group(2)
+        for c in sf.options[0].fields["beats"]:
+            if c["index"] == i:
+                c[path] = text
+    else:
+        path = field
+    node, key = _walk(target, path)
+    before, node[key] = node[key], text
+    save(steps_dir, sf, load(steps_dir, owner)[1])
+    restamp_after(steps_dir, owner, base_inputs(full, article_text))
+    log_choice(steps_dir.parent, {"step": owner.name, "event": "fix", "field": field,
+                                  "before": before, "after": text})
+    return owner.name
