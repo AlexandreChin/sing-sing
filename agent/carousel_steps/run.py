@@ -2,17 +2,18 @@
 the recommended picks (unattended) or stop for the author's (guided), and
 assemble the deck. Each step is kept in `steps_dir` and reused while the earlier
 steps' fragments are unchanged."""
+import json
 import re
 import string
 import sys
 from pathlib import Path
 from typing import Literal
 
-from pydantic import create_model
+from pydantic import ValidationError, create_model
 
 from agent._base import _call_with_retry, _j, medium_directive
 from agent.carousel_steps.steps import (
-    STEPS, Option, Step, StepName, WritingCopy, assemble, check_picks, default_picks,
+    STEPS, HookOption, MomentOption, Option, Step, StepName, WritingCopy, assemble, check_picks, default_picks,
     STEP_BY_NAME, examples_for, prompt_for, step_of, to_fragment,
 )
 from agent.carousel_steps.store import (
@@ -45,7 +46,9 @@ class AwaitingChoice(Exception):
 
 
 def base_inputs(full: ArticleFullAnalysis, article_text: str | None) -> str:
-    return digest(full.model_dump_json(), article_text or "")
+    """The stamp's base. The article is stripped: `produce` reads it stripped, the
+    format-folder commands read it as it is on disk, and both must agree."""
+    return digest(full.model_dump_json(), (article_text or "").strip())
 
 
 # ── Checks ──────────────────────────────────────────────────────────────────
@@ -182,17 +185,39 @@ def _writing_errors(data: dict, fragments: dict, article_text: str | None) -> li
     return [e for e in hard if step_of(e) == "writing"]
 
 
+def _schema_errors(exc: ValidationError) -> list[str]:
+    return [f"{'.'.join(str(x) for x in e['loc'])}: {e['msg']}" for e in exc.errors()] or [str(exc)]
+
+
+def _failed(step: Step, steps_dir: Path | None, data, errors: list[str]) -> RuntimeError:
+    """The error for an answer still invalid after the retries; the raw answer is
+    saved beside the steps for inspection when they are kept on disk."""
+    where = ""
+    if steps_dir is not None:
+        steps_dir.mkdir(parents=True, exist_ok=True)
+        path = steps_dir / f"{step.n}_{step.name}.failed.json"
+        path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        where = f" (raw answer saved to {path})"
+    return RuntimeError(f"step {step.n} ({step.name}): the model's answer is still invalid after the retries"
+                        f"{where}:\n" + "\n".join(f"- {e}" for e in errors))
+
+
 def generate(step: Step, full: ArticleFullAnalysis, fragments: dict[str, dict], article_text: str | None,
-             no_api: bool, rejected: list[Option] = [], remarks: list[str] = []) -> StepFile:
+             no_api: bool, rejected: list[Option] = [], remarks: list[str] = [],
+             steps_dir: Path | None = None) -> StepFile:
     """One model call for `step`'s options (writing: its copy), checked against the
-    deck so far. The StepFile comes back with nothing picked."""
+    deck so far. The StepFile comes back with nothing picked. An answer that still
+    breaks the schema or leaves a slot uncovered after the retries raises RuntimeError."""
     model = _response_model(step)
     message = _message(step, full, fragments, article_text, rejected, remarks)
     if step.option_model is None:
         data = _call_with_retry(message, model.model_json_schema(),
                                 validator=lambda d: _writing_errors(d, fragments, article_text),
                                 no_api=no_api, label=step.name)
-        fields = WritingCopy.model_validate(data).model_dump(mode="json")
+        try:
+            fields = WritingCopy.model_validate(data).model_dump(mode="json")
+        except ValidationError as exc:
+            raise _failed(step, steps_dir, data, _schema_errors(exc)) from None
         return StepFile(step=step.name, options=[Option(id="a", slot="writing", reason="", fields=fields)],
                         recommended=["a"], rejected=rejected, remarks=remarks)
 
@@ -216,7 +241,12 @@ def generate(step: Step, full: ArticleFullAnalysis, fragments: dict[str, dict], 
         return errors
 
     data = _call_with_retry(message, model.model_json_schema(), validator=validator, no_api=no_api, label=step.name)
-    resp, frags, options, recommended, errors = parse(data)
+    try:
+        resp, frags, options, recommended, errors = parse(data)
+    except ValidationError as exc:
+        raise _failed(step, steps_dir, data, _schema_errors(exc)) from None
+    if (uncovered := _coverage_errors(step, options)):
+        raise _failed(step, steps_dir, data, uncovered)
     if errors or check_picks(step, options, recommended):
         print("  ⚠  recommended picks invalid, taking the first per slot", file=sys.stderr)
         recommended = default_picks(step, options)
@@ -262,8 +292,8 @@ def _pick(step: Step, sf: StepFile, picks: list[str], fragments: dict) -> None:
 
 
 def _run(full, no_api, article_text, steps_dir, stop_after, guided) -> InstagramCarouselPresentation | None:
-    if steps_dir is not None:
-        retire_legacy(steps_dir)
+    if steps_dir is not None and retire_legacy(steps_dir):
+        print("old 3-stage adapt files moved to stale_legacy/; the deck is rebuilt from the 8 steps", file=sys.stderr)
     base = base_inputs(full, article_text)
     fragments: dict[str, dict] = {}
     for step in STEPS:
@@ -274,7 +304,7 @@ def _run(full, no_api, article_text, steps_dir, stop_after, guided) -> Instagram
             if sf is not None:
                 retire(steps_dir, step, saved)
             print(f"{tag}…", file=sys.stderr, flush=True)
-            sf = generate(step, full, fragments, article_text, no_api)
+            sf = generate(step, full, fragments, article_text, no_api, steps_dir=steps_dir)
             if sf.thesis_frame:
                 fragments["question_frame"] = sf.thesis_frame.model_dump()
             if not guided or step.option_model is None:   # writing offers no choice
@@ -333,6 +363,8 @@ def _earlier(full, steps_dir: Path, step: Step, article_text: str | None) -> tup
         if sf.thesis_frame:
             fragments["question_frame"] = sf.thesis_frame.model_dump()
     sf, saved = load(steps_dir, step)
+    if sf is not None and sf.thesis_frame:      # the question step's own frame, for its fragment
+        fragments["question_frame"] = sf.thesis_frame.model_dump()
     stamp = stamp_for(base_inputs(full, article_text), [fragments[s.name] for s in STEPS if s.n < step.n])
     if sf is None or saved != stamp:
         raise ChoiceError(f"step {step.n} ({step.name}) is missing or stale: run `produce --guided` to regenerate it")
@@ -349,10 +381,15 @@ def choose(full, steps_dir: Path, step: StepName, picks: list[str], edits: dict[
     fragments, sf, stamp = _earlier(full, steps_dir, st, article_text)
     by_id = {o.id: o for o in sf.options}
     offered = [{"id": o.id, "text": _main_text(st, o)} for o in sf.options]
-    for key, text in edits.items():
+    valid = list(st.option_model.model_fields)
+    for key in edits:
         oid, _, field = key.partition(".")
         if oid not in by_id:
             raise ChoiceError(f"{step}: unknown option {oid!r}")
+        if field and field not in valid:
+            raise ChoiceError(f"{step}: unknown field {field!r} — the options have {', '.join(valid)}")
+    for key, text in edits.items():
+        oid, _, field = key.partition(".")
         by_id[oid].fields[field or st.text_field] = text
         by_id[oid].edited = True
     if errors := check_picks(st, sf.options, picks):
@@ -373,7 +410,8 @@ def more(full, steps_dir: Path, step: StepName, remark: str = "", article_text: 
     st = STEP_BY_NAME[step]
     fragments, sf, stamp = _earlier(full, steps_dir, st, article_text)
     remarks = sf.remarks + ([remark] if remark else [])
-    new = generate(st, full, fragments, article_text, no_api, rejected=sf.rejected + sf.options, remarks=remarks)
+    new = generate(st, full, fragments, article_text, no_api, rejected=sf.rejected + sf.options, remarks=remarks,
+                   steps_dir=steps_dir)
     save(steps_dir, new, stamp)
     log_choice(steps_dir.parent, {"step": step, "event": "more", "remark": remark})
     return new
@@ -392,6 +430,38 @@ def _walk(node, path: str):
     except (KeyError, IndexError, TypeError):
         raise ChoiceError(f"{path!r} does not resolve") from None
     return node, keys[-1]
+
+
+_LISTED = re.compile(r"display\.(essentiel|reperes_facts|reading_beats)\[(\d+)\](?:\.(\w+))?")
+
+
+def _option_for(step: Step, sf: StepFile, field: str) -> tuple[Option, str] | None:
+    """(option, option field) a deck field of an option step was written from, so a
+    `fix` survives a later `choose`. None when no single option field holds it:
+    the thesis frame (the step's, not an option's), the socle's `core_recap` (the
+    présupposés joined into one line) and `steel_man.targets` (a position worked
+    out from `targets_slot`), a beat's `selected`/`spine_ref` (the pick and the
+    slot) and `axis_link` (the option's reason) — those stay fragment-only."""
+    kept = [o for o in sf.options if o.id in sf.picked]
+    in_slot = {o.slot: o for o in kept}
+    m = _LISTED.fullmatch(field)
+    if step.name == "question" and field == "cta.engagement_sentence":
+        return kept[0], "text"
+    if step.name == "enjeu" and field == "display.root_issue":
+        return kept[0], "text"
+    if step.name == "hook" and field.removeprefix("hook.") in HookOption.model_fields:
+        return kept[0], field.removeprefix("hook.")
+    if step.name == "socle" and field == "display.global_analysis.headline":
+        return in_slot["headline"], "text"
+    if step.name == "socle" and field in ("display.steel_man.argument", "display.steel_man.alternative"):
+        return in_slot["objection"], field.rsplit(".", 1)[1]
+    if m and step.name == "idees" and not m.group(3):
+        return sorted(kept, key=lambda o: o.slot)[int(m.group(2))], "text"
+    if m and step.name == "contexte" and m.group(3) in ("label", "text"):
+        return kept[int(m.group(2))], m.group(3)
+    if m and step.name == "moments" and m.group(3) in MomentOption.model_fields:
+        return sf.options[int(m.group(2))], m.group(3)
+    return None
 
 
 def fix(full, steps_dir: Path, field: str, text: str, article_text: str | None = None) -> StepName:
@@ -418,6 +488,10 @@ def fix(full, steps_dir: Path, field: str, text: str, article_text: str | None =
         path = field
     node, key = _walk(target, path)
     before, node[key] = node[key], text
+    if owner.option_model is not None and (found := _option_for(owner, sf, field)):
+        option, name = found
+        option.fields[name] = text
+        option.edited = True
     save(steps_dir, sf, load(steps_dir, owner)[1])
     restamp_after(steps_dir, owner, base_inputs(full, article_text))
     log_choice(steps_dir.parent, {"step": owner.name, "event": "fix", "field": field,
