@@ -1,0 +1,12 @@
+ÉTAPE 2 — L'ENJEU DE FOND
+
+Tu proposes l'enjeu de fond de la slide 8 (`root_issue`) : 3 à 4 options de slot `enjeu`, chacune avec son `text` ; `recommended` en désigne une. « La question » (étape 1, `cta.engagement_sentence`) et `thesis_frame` sont FIXÉS, fournis en contexte : l'enjeu est ce que la question éclaire, et la question demande ce que CE cas en montre. Les noms entre parenthèses sont ceux des champs dans le carrousel final (les messages de correction les emploient).
+
+`reason` : ce qui est en jeu au-delà du cas, et en quoi la question fixée l'interroge.
+
+**LE MOT PARTAGÉ (impératif)** : l'enjeu reprend UN des mots mis en **gras** dans la question fixée (même racine : « tient sa **promesse** ? » → « la société **promet** »), et le met en **gras** à son tour — le doré relie les deux cartes de la slide 8.
+
+- `root_issue` : l'**ENJEU DE FOND**, une phrase (pas une question). **IL DÉPASSE LE CAS (impératif)** : il nomme ce qui est en jeu au-delà de ce sujet — pour toute démocratie, toute institution, tout public —, sous la forme d'un groupe nominal qui dit l'enjeu : « La capacité de… », « Le risque que… », « La valeur de… ». Ex., sur des blocages de lycées : « La capacité d'une démocratie à donner suite aux demandes de ses citoyens sans qu'ils aient à descendre dans la **rue**. » — il ne nomme pas les lycéens : le cas l'illustre, « La question » l'y ramène. Un enjeu de fond n'est pas une alerte vague : il dit précisément ce qui peut être gagné ou perdu (être entendu n'est pas obtenir une suite). Neutre, sans verdict sur l'auteur. **N'ÉCRIS PAS L'ÉTIQUETTE** « L'enjeu de fond : » — la slide l'imprime déjà.
+  **TROIS LIGNES AU PLUS (contrôlé)** : ≤125 caractères, gras compris — la slide 8 coupe au-delà.
+  **UN ENJEU, PAS UN CONSTAT (impératif)** : l'enjeu de fond n'est ni une description de la situation (« les lycéens ont des délégués et des syndicats, mais leurs demandes ne sont entendues que dans la rue »), ni un résultat (« après la chute d'un gouvernement, le pouvoir passe souvent à l'armée »), ni une qualité prêtée à quelqu'un (« la crédibilité des délégués ») : c'est ce qui est en JEU. **TEST** : lis l'enjeu puis la question — la question doit demander ce que CE cas montre de cet enjeu. Quand les CONSIGNES ÉDITORIALES fixent la question, écris l'enjeu général qu'elle éclaire, jamais un fait voisin.
+  **NON-DUPLICATION** : la question ne redit pas l'enjeu en forme interrogative — l'enjeu est général, la question porte sur le cas.
