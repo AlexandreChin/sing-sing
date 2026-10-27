@@ -31,7 +31,7 @@ Show the author the options of the paused step in chat, faithfully: each option'
 
 When the author gives a reason, pass it verbatim with `--reason "…"`; it goes in the choice log. Never invent one. Relay any ⚠ warning `choose` prints.
 
-Then rerun `produce <input.txt> --guided …` (same flags) to reach the next pause. Repeat until the slides render (`produce` renders when no step is awaiting; add `--render` if it asks). `--no-api` goes on `choose --more` too.
+Then rerun `produce <input.txt> --guided …` (same flags) to reach the next pause. Repeat until no step is awaiting. `produce` renders only with `--render`: after the last pick (step 7), the final rerun is `produce <input.txt> --guided --render` (an unattended run needs `--render` too for slides). A rerun right after `choose --more` re-prints the same pending step with the new options — expected, not a loop. `--no-api` goes on `choose --more` too.
 
 ## 4. After the render
 
@@ -53,7 +53,7 @@ To change an earlier step, run a new `choose` on it (`--pick`, `--edit` or `--mo
 
 ## The log
 
-Every choice, edit and reason lands in `<fmt_dir>/choices.jsonl`. When a correction there looks reusable (a rewrite that repeats a pattern), **propose** to the author promoting it to `agent/prompts/carousel_steps/examples/`. Do it only if they agree; never automatically.
+Every choice, edit and reason lands in `<fmt_dir>/choices.jsonl`, which also holds the `more` and `fix` events (a `fix` is a promotable correction). When a correction there looks reusable (a rewrite that repeats a pattern), **propose** to the author promoting it to `agent/prompts/carousel_steps/examples/<n>_<step>.md`, in that file's format: a `## Retenus` section and a `## Écartés (et pourquoi)` section. Do it only if they agree; never automatically.
 
 ## Unattended
 
