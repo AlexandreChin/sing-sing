@@ -98,11 +98,14 @@ async def cmd_simplify(args: argparse.Namespace) -> None:
     print(f"Simplified JSON written to {out_path}", file=sys.stderr)
 
 
-def _adapt_stage_kwargs(adapt_params, kwargs: dict, steps_dir: Path, stop_after: str | None) -> bool:
-    """Pass the stage cache (and the stop point) to an adapt agent that runs in
-    stages. False when --stop-after was asked of one that does not."""
+def _adapt_stage_kwargs(adapt_params, kwargs: dict, steps_dir: Path, stop_after: str | None,
+                        guided: bool = False) -> bool:
+    """Pass the step cache (and the stop point, and guided mode) to an adapt agent
+    that runs in steps. False when --stop-after was asked of one that does not."""
     if "steps_dir" in adapt_params:
         kwargs["steps_dir"] = steps_dir
+    if guided and "guided" in adapt_params:
+        kwargs["guided"] = True
     if stop_after:
         if "stop_after" not in adapt_params:
             print(f"--stop-after is only available for {DEFAULT_FORMAT}.", file=sys.stderr)
@@ -111,10 +114,29 @@ def _adapt_stage_kwargs(adapt_params, kwargs: dict, steps_dir: Path, stop_after:
     return True
 
 
-def _report_stop(steps_dir: Path, stage: str) -> None:
-    name = {"axis": "1_axis.json", "selection": "2_selection.json"}[stage]
-    print(f"Stopped after the {stage} stage: review or edit {steps_dir / name}, then rerun "
-          f"without --stop-after — the stages after it are rebuilt from your version.", file=sys.stderr)
+def _report_stop(steps_dir: Path, stop_after: str | None, guided: bool = False) -> None:
+    """Say why adapt returned nothing: a choice is awaited (guided), or the run
+    stopped where --stop-after asked."""
+    fmt_dir = steps_dir.parent
+    if guided and not stop_after:
+        print(f"Awaiting a choice: python main.py choose {fmt_dir} <step> --pick <ids>\n"
+              "then rerun produce with --guided", file=sys.stderr)
+    else:
+        print(f"Stopped after {stop_after}: review or edit the step files in {steps_dir}, then rerun "
+              f"without --stop-after — the steps after it are rebuilt from your version.", file=sys.stderr)
+
+
+def _article_beside(analysis_path: Path) -> str | None:
+    """The article text next to an analysis: in its folder or beside it (see _base_dir)."""
+    base = analysis_path.parent
+    article = next((c for c in (base / f"{base.name}.txt", base.parent / f"{base.name}.txt")
+                    if c.exists()), None)
+    return article.read_text(encoding="utf-8") if article else None
+
+
+def _parse_edits(items: list[str]) -> dict[str, str]:
+    """`ID=TEXT` (or `ID.field=TEXT`) items → {key: text}, split on the first `=`."""
+    return dict(item.split("=", 1) for item in items)
 
 
 async def cmd_adapt(args: argparse.Namespace) -> None:
@@ -130,22 +152,60 @@ async def cmd_adapt(args: argparse.Namespace) -> None:
     if "analysis_path" in adapt_params:
         kwargs["analysis_path"] = json_path
     if "article_text" in adapt_params:
-        # The input sits in the analysis folder or beside it (see _base_dir).
-        base = json_path.parent
-        article = next((c for c in (base / f"{base.name}.txt", base.parent / f"{base.name}.txt")
-                        if c.exists()), None)
+        article = _article_beside(json_path)
         if article:
-            kwargs["article_text"] = article.read_text(encoding="utf-8")
+            kwargs["article_text"] = article
     steps_dir = json_path.parent / args.format / "adapt_steps"
-    if not _adapt_stage_kwargs(adapt_params, kwargs, steps_dir, args.stop_after):
+    if not _adapt_stage_kwargs(adapt_params, kwargs, steps_dir, args.stop_after, args.guided):
         return
     presentation = adapt_fn(full, **kwargs)
     if presentation is None:
-        _report_stop(steps_dir, args.stop_after)
+        _report_stop(steps_dir, args.stop_after, args.guided)
         return
     out_path = json_path.with_stem(json_path.stem + f"_{args.format}_adapt")
     out_path.write_text(presentation.model_dump_json(indent=2), encoding="utf-8")
     print(f"Presentation written to {out_path}", file=sys.stderr)
+
+
+def _load_fmt_dir(fmt_dir: str):
+    """(ArticleFullAnalysis, steps_dir, article text) of a format folder."""
+    from models.full_analysis import ArticleFullAnalysis
+    fmt = Path(fmt_dir)
+    analysis_path = fmt.parent / "analysis.json"
+    full = ArticleFullAnalysis.model_validate(json.loads(analysis_path.read_text(encoding="utf-8")))
+    return full, fmt / "adapt_steps", _article_beside(analysis_path)
+
+
+async def cmd_choose(args: argparse.Namespace) -> None:
+    from agent.carousel_steps import run
+    if not args.pick and not args.more:
+        print("choose needs --pick <ids> or --more", file=sys.stderr)
+        sys.exit(2)
+    full, steps_dir, article = _load_fmt_dir(args.fmt_dir)
+    try:
+        if args.more:
+            sf = run.more(full, steps_dir, args.step, args.remark, article, args.no_api)
+            print(run.format_options(args.step, sf))
+            return
+        picks = [p.strip() for p in args.pick.split(",") if p.strip()]
+        warnings = run.choose(full, steps_dir, args.step, picks, _parse_edits(args.edit), args.reason, article)
+    except run.ChoiceError as e:
+        print(e, file=sys.stderr)
+        sys.exit(1)
+    for w in warnings:
+        print(f"⚠ {w}", file=sys.stderr)
+    print(f"Kept {', '.join(picks)} at {args.step}; rerun produce to continue.", file=sys.stderr)
+
+
+async def cmd_fix(args: argparse.Namespace) -> None:
+    from agent.carousel_steps import run
+    full, steps_dir, article = _load_fmt_dir(args.fmt_dir)
+    try:
+        step = run.fix(full, steps_dir, args.field, args.text, article)
+    except run.ChoiceError as e:
+        print(e, file=sys.stderr)
+        sys.exit(1)
+    print(f"Fixed {args.field} in {step}; the later steps keep your version.", file=sys.stderr)
 
 
 async def cmd_extract(args: argparse.Namespace) -> None:
@@ -320,11 +380,11 @@ async def cmd_produce(args: argparse.Namespace) -> None:
     if "article_text" in adapt_params:
         kwargs["article_text"] = text      # lets the loop verify quotes verbatim
     steps_dir = lay["fmt_dir"] / "adapt_steps"
-    if not _adapt_stage_kwargs(adapt_params, kwargs, steps_dir, args.stop_after):
+    if not _adapt_stage_kwargs(adapt_params, kwargs, steps_dir, args.stop_after, args.guided):
         return
     presentation = adapt_fn(full, **kwargs)
     if presentation is None:
-        _report_stop(steps_dir, args.stop_after)
+        _report_stop(steps_dir, args.stop_after, args.guided)
         return
     lay["adapt"].write_text(presentation.model_dump_json(indent=2), encoding="utf-8")
     print(f"Presentation written to {lay['adapt']}", file=sys.stderr)
@@ -435,9 +495,11 @@ def _add_source_args(p: argparse.ArgumentParser) -> None:
 
 
 def _add_stop_after(p: argparse.ArgumentParser) -> None:
-    p.add_argument("--stop-after", choices=["axis", "selection"],
-                   help="stop the carousel adapt after this stage, to review or edit it "
+    p.add_argument("--stop-after", choices=["question", "enjeu", "idees", "moments", "contexte", "socle", "hook"],
+                   help="stop the carousel adapt after this step, to review or edit it "
                         "(<format>/adapt_steps/); rerun to continue from it")
+    p.add_argument("--guided", action="store_true",
+                   help="stop at each step awaiting your pick (see `choose`) instead of taking the recommended ones")
 
 
 def _add_instruction_args(p: argparse.ArgumentParser) -> None:
@@ -470,6 +532,24 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--no-api", action="store_true")
     _add_stop_after(p)
     p.set_defaults(func=cmd_adapt)
+
+    p = sub.add_parser("choose", help="keep options at a carousel adapt step (or ask for other options)")
+    p.add_argument("fmt_dir", help="format folder, e.g. samples/outputs/<stem>/instagram_carousel_optimized")
+    p.add_argument("step", choices=["question", "enjeu", "idees", "moments", "contexte", "socle", "hook"])
+    p.add_argument("--pick", help="comma-separated option ids to keep")
+    p.add_argument("--edit", action="append", default=[], metavar="ID=TEXT",
+                   help="rewrite an option's text (ID.field=TEXT for another field); repeatable")
+    p.add_argument("--reason", default="", help="why, kept in the choice log")
+    p.add_argument("--more", action="store_true", help="set the options aside and generate others")
+    p.add_argument("--remark", default="", help="with --more: what was missing from the options")
+    p.add_argument("--no-api", action="store_true")
+    p.set_defaults(func=cmd_choose)
+
+    p = sub.add_parser("fix", help="overwrite one field of a carousel adapt, without regenerating")
+    p.add_argument("fmt_dir", help="format folder")
+    p.add_argument("field", help="deck field path, e.g. hook.subtitle or display.reading_beats[0].answer")
+    p.add_argument("text")
+    p.set_defaults(func=cmd_fix)
 
     p = sub.add_parser("extract", help="trim a presentation into a render-ready document")
     p.add_argument("analysis", help="analysis.json")
