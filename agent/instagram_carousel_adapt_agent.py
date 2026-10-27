@@ -10,13 +10,13 @@ from typing import Literal
 from pydantic import BaseModel, Field
 
 from agent._base import _OUT_OF_SCOPE_CLICHES, _call_with_retry, _fold, _j, medium_directive
+from agent.carousel_steps.steps import BeatCopy
 from agent.lenses import CANONICAL_LENSES
 from models.full_analysis import ArticleFullAnalysis
 from models.instagram_carousel_presentation import (
     CarouselGoFurtherItem,
     InstagramCarouselPresentation,
     KeyTakeaway,
-    Pictogram,
     ReperesFact,
     SteelMan,
     ThesisFrame,
@@ -962,18 +962,6 @@ class SelectionStep(BaseModel):
     reading_beats: list[BeatCandidate]
     core_recap: list[str]                                     # → display.global_analysis.core_recap
     steel_man: SteelMan
-
-
-class BeatCopy(BaseModel):
-    """Stage 3's copy for one selected beat, `index` into the pool."""
-    index: int
-    lens_question: str
-    note: str
-    answer: str
-    figure: str = ""
-    figure_label: str = ""
-    figure_caption: str = ""
-    pictogram: Pictogram | None = None
 
 
 class HookCopy(BaseModel):
