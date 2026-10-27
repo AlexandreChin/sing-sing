@@ -4,6 +4,7 @@ model; this module defines the steps, checks the picks and assembles the deck.
 
 `fragments` are keyed by step name ("question", "enjeu", …); the question step's
 thesis frame travels beside them in `fragments["question_frame"]`."""
+import copy
 import re
 from dataclasses import dataclass
 from typing import Any, Literal
@@ -122,6 +123,7 @@ def check_picks(step: Step, options: list[Option], picked: list[str]) -> list[st
     """The blocking slot errors: keep counts per slot."""
     by_id = {o.id: o for o in options}
     errors = [f"{step.name}: unknown option {p!r}" for p in picked if p not in by_id]
+    errors += [f"{step.name}: option {p!r} is picked twice" for p in dict.fromkeys(picked) if picked.count(p) > 1]
     counts = {slot: 0 for slot in step.slots}
     for p in picked:
         if p in by_id:
@@ -169,7 +171,7 @@ def _presupposes(moments: dict, options: list[Option], picked: list[str]) -> lis
 
 def to_fragment(step: Step, options: list[Option], picked: list[str], fragments: dict[str, dict]) -> dict:
     """The deck fragment a step's picks make. Writing takes its single option,
-    whose fields are a `WritingCopy`."""
+    whose fields are a `WritingCopy`. Assumes `picked` passed `check_picks`."""
     kept = _picked(options, picked)
     if step.name == "question":
         return {"display": {"thesis_frame": fragments.get("question_frame", {})},
@@ -198,8 +200,8 @@ def to_fragment(step: Step, options: list[Option], picked: list[str], fragments:
     if step.name == "hook":
         return {"hook": {k: kept[0].fields[k] for k in ("topic", "sub_topic", "subtitle", "headline")}}
     w = WritingCopy.model_validate(options[0].fields)
-    return {"display": {"reading_beats": [b.model_dump() for b in w.beats],
-                        "why_selected": w.why_selected, "selection_headline": w.selection_headline,
+    return {"beat_copy": [b.model_dump() for b in w.beats],
+            "display": {"why_selected": w.why_selected, "selection_headline": w.selection_headline,
                         "key_takeaways": [t.model_dump() for t in w.key_takeaways]},
             "go_further": [g.model_dump() for g in w.go_further],
             "cta": {"where_to_look": w.where_to_look}, "caption": w.caption}
@@ -240,16 +242,10 @@ def step_of(error: str) -> StepName:
 # ── Assembly ────────────────────────────────────────────────────────────────
 
 def _merge(into: dict, frag: dict) -> None:
-    """Deep merge; lists replace, except beat copy (items carrying `index`) which
-    merges into the pool's beats by position."""
+    """Deep merge; lists replace."""
     for k, v in frag.items():
-        cur = into.get(k)
-        if isinstance(v, dict) and isinstance(cur, dict):
-            _merge(cur, v)
-        elif k == "reading_beats" and isinstance(cur, list) and v and all("index" in c for c in v):
-            for c in v:
-                if 0 <= c["index"] < len(cur):
-                    cur[c["index"]].update({f: x for f, x in c.items() if f != "index"})
+        if isinstance(v, dict) and isinstance(into.get(k), dict):
+            _merge(into[k], v)
         else:
             into[k] = v
 
@@ -261,5 +257,11 @@ def assemble(fragments: dict[str, dict]) -> dict:
                   "display": {"why_selected": "", "selection_headline": ""}}
     for step in STEPS:
         if step.name in fragments:
-            _merge(deck, fragments[step.name])
+            frag = copy.deepcopy(fragments[step.name])  # the caller's fragments stay untouched
+            # writing's beat copy merges into the pool's beats by `index`
+            beats = deck["display"].get("reading_beats", [])
+            for c in frag.pop("beat_copy", []):
+                if 0 <= c["index"] < len(beats):
+                    beats[c["index"]].update({f: x for f, x in c.items() if f != "index"})
+            _merge(deck, frag)
     return deck
