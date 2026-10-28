@@ -34,7 +34,9 @@ def option_fields(deck: dict) -> dict[str, dict]:
         "these": {"title": t["title"], "these_claim": t["these"]["claim"], "these_detail": t["these"]["detail"],
                   "solution_claim": t["solution"]["claim"], "solution_detail": t["solution"]["detail"],
                   **notes(t["notes"])},
-        "angle_mort": {k: a[k] for k in ("title", "subtitle", "claim", "detail")} | notes(a["notes"]),
+        "angle_mort": {k: a[k] for k in ("title", "claim", "detail")} | notes(a["notes"])
+        | {"second_claim": a["second"]["claim"], "second_detail": a["second"]["detail"],
+           **dict(zip(("second_note1", "second_note2"), [_note(n) for n in a["second_notes"]] + ["", ""]))},
         "depassement": {"title": d["title"], "lead": d["lead"],
                         **{f"lever{i}": f"{lv['title']} | {lv['detail']}" for i, lv in enumerate(d["levers"], 1)}},
         "boussole": {"title": b["title"],
@@ -52,7 +54,7 @@ FIELDS = option_fields(DECK)
 def test_the_deck_validates():
     pres = CadragePresentation.model_validate(DECK)
     assert [f.value for f in pres.constat.figures] == ["95%", "21%", "× 8", "0,5 Md€"]
-    assert [n.kind for n in pres.angle_mort.notes] == ["remark", "source", "source"]
+    assert [n.kind for n in pres.angle_mort.notes] == ["remark", "source"]
 
 
 def test_fragments_rebuild_the_deck():
@@ -88,6 +90,12 @@ def test_a_figure_needs_a_value_and_a_label():
 
 def test_two_figures_are_required():
     assert any("fig2 is empty" in e for e in hard("constat", fig2=""))
+
+
+def test_the_second_card_of_the_angle_mort_is_required_and_checked():
+    assert any("second_claim is empty" in e for e in hard("angle_mort", second_claim=""))
+    assert any("second_note1" in e for e in hard("angle_mort", second_note1="Boudon : les effets"))
+    assert hard("angle_mort", second_note2="") == []
 
 
 def test_a_note_names_its_kind():
@@ -189,6 +197,7 @@ def test_seven_slides_are_rendered(tmp_path):
     assert "Décryptage d'une prise de position" in texts["01_hook"]
     assert "0,5 Md€" in texts["02_constat"]
     assert texts["03_these"].count('class="src"') == 2
-    assert "Un <strong>ascenseur social</strong> qui se grippe davantage" in texts["04_angle_mort"].replace("⁠", "")
+    assert "Un <strong>destin social</strong> qui se fige davantage" in texts["04_angle_mort"].replace("⁠", "")
+    assert "Raymond Boudon" in texts["04_angle_mort"] and texts["04_angle_mort"].count('class="card"') == 2
     assert "pointer" in texts["06_boussole"] and "data-perch" not in texts["06_boussole"].split("<body>")[1]
     assert "Vous jugez." in texts["07_cta"]

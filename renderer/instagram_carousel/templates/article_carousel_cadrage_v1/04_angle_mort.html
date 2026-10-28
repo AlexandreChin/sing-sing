@@ -5,24 +5,33 @@
 <style>
 {% include 'base.css' %}
 {% include 'article_carousel_cadrage_v1/_argument.css' %}
-.q-label { line-height: 1.1; }
-.q-head { align-items: flex-start; }
-.q-head svg { margin-top: 4px; }
+/* each card opens on its icon, as the slide 3 cards do: the icon beside the claim and its detail */
+.pt { display: flex; gap: 20px; align-items: flex-start; }
+.pt > svg { width: 36px; height: 36px; flex: none; margin-top: 4px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 </style>
 </head>
 <body>
+{% macro look(items) %}{% if items %}<div class="look">{% for w in items %}<span class="src"><svg viewBox="0 0 24 24">{% if w.kind == 'remark' %}{{ ICONS.bookmark | safe }}{% else %}<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/>{% endif %}</svg><span>{{ w.text | md_bold }}</span></span>{% endfor %}</div>{% endif %}{% endmacro %}
 <div class="slide" style="justify-content: flex-start;">
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
   <div class="stage">
-    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.eye_off | safe }}</svg>L'angle mort</span>
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.eye_off | safe }}</svg>Les angles morts</span>
     <h1 class="head">{{ title | md_bold }}</h1>
     <div class="card" data-perch>{% include '_perch.html' %}
-      <div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS.hierarchy | safe }}</svg><span class="q-label">{{ subtitle | md_bold }}</span></div>
-      <div class="claim">{{ claim | md_bold }}</div>
-      {% if detail %}<div class="detail">{{ detail | md_bold }}</div>{% endif %}
-      {% if sources %}<div class="look">{% for w in sources %}<span class="src"><svg viewBox="0 0 24 24">{% if w.kind == 'remark' %}{{ ICONS.bookmark | safe }}{% else %}<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/>{% endif %}</svg><span>{{ w.text | md_bold }}</span></span>{% endfor %}</div>{% endif %}
+      <div class="pt"><svg viewBox="0 0 24 24">{{ ICONS.roots | safe }}</svg><div>
+        <div class="claim">{{ claim | md_bold }}</div>
+        {% if detail %}<div class="detail">{{ detail | md_bold }}</div>{% endif %}
+      </div></div>
+      {{ look(sources) }}
     </div>
+    {% if second %}<div class="card">
+      <div class="pt"><svg viewBox="0 0 24 24">{{ ICONS.hierarchy | safe }}</svg><div>
+        <div class="claim">{{ second.claim | md_bold }}</div>
+        {% if second.detail %}<div class="detail">{{ second.detail | md_bold }}</div>{% endif %}
+      </div></div>
+      {{ look(second_sources) }}
+    </div>{% endif %}
   </div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>

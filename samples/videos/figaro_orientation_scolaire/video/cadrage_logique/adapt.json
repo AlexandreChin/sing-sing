@@ -2,7 +2,7 @@
   "caption": "Dans une vidéo du Figaro, un intervenant soutient qu'abolir la sélection scolaire ne la supprime pas : elle se déplace vers le marché de l'emploi. Il s'appuie sur des chiffres (admission à l'université, chômage des jeunes, échecs en premier cycle) et propose un collège modulaire, avec une sélection plus précoce et une revalorisation des métiers de la main.\n\nCe carrousel suit le fil de cette prise de position : les faits sur lesquels elle repose, sa thèse, ce qu'un tri précoce peut laisser dans l'ombre pour la mobilité sociale, des leviers pour l'atténuer, puis la question qui reste ouverte : entre efficacité économique et justice sociale, où placer le curseur ?\n\nEt vous, où le placeriez-vous ? Dites-le en commentaire, avec vos arguments.\n\n#orientation #école #mobilitésociale #espritcritique",
   "hook": {
     "title": "« Abolir la sélection, c'est fabriquer des diplômés **déclassés**. »",
-    "promise": "Décryptage d'une prise de position sur l'université, l'emploi et le mérite."
+    "promise": "Décryptage d'une prise de position sur l'école et l'emploi."
   },
   "constat": {
     "title": "L'illusion de la **réussite** pour tous",
@@ -53,55 +53,64 @@
     ]
   },
   "angle_mort": {
-    "title": "Le tri précoce face à la **mobilité sociale**",
-    "subtitle": "Un **ascenseur social** qui se grippe davantage",
-    "claim": "Plus le tri est précoce, plus il suit l'**origine sociale** que le mérite individuel.",
-    "detail": "Orienter tôt vers les filières manuelles peut assigner les enfants des classes populaires aux métiers d'exécution.",
+    "title": "Un **destin social** qui se fige davantage, et **plus tôt**",
+    "claim": "Plus le tri est précoce, plus il suit l'**origine sociale**.",
+    "detail": "À **notes égales**, les familles populaires demandent moins souvent la voie générale.",
     "notes": [
       {
         "kind": "remark",
-        "text": "**Contestation** : ce risque d'enfermement du destin social nourrit la contestation dans les lycées et facultés"
-      },
-      {
-        "kind": "source",
-        "text": "**L'Insee** : mobilité sociale et origine des élèves"
+        "text": "**Raymond Boudon** : effets primaires (notes), secondaires (choix)"
       },
       {
         "kind": "source",
         "text": "**La DEPP** (ministère de l'Éducation) : parcours et origine sociale"
       }
+    ],
+    "second": {
+      "claim": "Un choix précoce **se rattrape mal**.",
+      "detail": "Plus l'orientation est précoce, plus il peut être difficile de changer de voie ensuite."
+    },
+    "second_notes": [
+      {
+        "kind": "remark",
+        "text": "**Contestation** : cet enfermement l'alimente, dans les lycées et facultés"
+      },
+      {
+        "kind": "source",
+        "text": "**La DEPP** (ministère de l'Éducation) : changements de voie"
+      }
     ]
   },
   "depassement": {
-    "title": "Sélectionner sur le **mérite** en **limitant** la reproduction sociale",
+    "title": "Sélectionner plus tôt en **limitant** la **reproduction sociale**",
     "lead": "Ces leviers peuvent **atténuer** le conflit entre besoins de l'économie et justice sociale, mais ils ont un coût.",
     "levers": [
       {
         "title": "La **mixité sociale**",
-        "detail": "Elle doit garantir une orientation indépendante de l'origine sociale et des moyens égaux pour tous."
+        "detail": "Elle doit garantir les mêmes moyens, critères et conseils, quelle que soit l'origine sociale."
       },
       {
         "title": "La **discrimination positive**",
-        "detail": "**Pour corriger la mixité sociale** : quotas de boursiers, accès garanti aux filières sélectives."
+        "detail": "Quotas de boursiers, accès garanti aux filières sélectives : ils permettent de **combler les manques** de la mixité sociale."
       },
       {
         "title": "La **valorisation** réelle",
-        "detail": "Salaires et prestige alignés (modèle dual allemand, suisse)."
+        "detail": "Salaires et prestige alignés (modèle dual), avec des passerelles vers les études longues."
       }
     ]
   },
   "boussole": {
-    "title": "Efficacité économique ou justice sociale : où placer le **curseur** ?",
+    "title": "Sélectionner à l'école ou plus tard : où placer le **curseur** ?",
     "options": [
       {
-        "question": "Faut-il prioriser une **orientation rapide**, guidée par les besoins des entreprises ?",
-        "pro": "Des **débouchés** plus proches de l'emploi, moins d'échecs en premier cycle.",
+        "question": "Faut-il sélectionner **dès l'école**, en orientant plus tôt ?",
+        "pro": "Moins d'échecs en premier cycle, des **débouchés** plus proches de l'emploi.",
         "con": "Un risque d'**assignation sociale**, à compenser."
       },
       {
-        "question": "Ou préserver un **socle commun prolongé**, quitte à en payer le coût ?",
-        "pro": "Un tri repoussé, donc moins lié à l'**origine sociale**.",
-        "con": "Un **coût collectif** et des réajustements plus tardifs sur le marché."
+        "question": "Ou **plus tard**, à l'université et sur le marché du travail ?",
+        "pro": "Un **choix ouvert** plus longtemps, moins lié à l'origine sociale.",
+        "con": "Des échecs en licence, du **déclassement** et un coût collectif."
       }
     ]
   }

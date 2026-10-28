@@ -73,12 +73,15 @@ class TheseOption(BaseModel):
 
 class AngleMortOption(BaseModel):
     title: str
-    subtitle: str
     claim: str
     detail: str
     note1: str
     note2: str
     note3: str
+    second_claim: str   # the second card: another blind spot
+    second_detail: str
+    second_note1: str
+    second_note2: str
 
 
 class DepassementOption(BaseModel):
@@ -121,7 +124,7 @@ class Step:
 STEPS: tuple[Step, ...] = (
     Step(1, "constat", ConstatOption, "title", 3),
     Step(2, "these", TheseOption, "title", 3),
-    Step(3, "angle_mort", AngleMortOption, "subtitle", 3),
+    Step(3, "angle_mort", AngleMortOption, "title", 3),
     Step(4, "depassement", DepassementOption, "title", 3),
     Step(5, "boussole", BoussoleOption, "title", 3),
     Step(6, "hook", HookOption, "title", 3),
@@ -187,8 +190,10 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("these", "title"): ("words", 12), ("these", "these_claim"): ("words", 20), ("these", "these_detail"): ("words", 30),
     ("these", "solution_claim"): ("words", 20), ("these", "solution_detail"): ("words", 30),
     ("these", "note1"): ("words", 30), ("these", "note2"): ("words", 30), ("these", "note3"): ("words", 30),
-    ("angle_mort", "title"): ("words", 12), ("angle_mort", "subtitle"): ("words", 10),
-    ("angle_mort", "claim"): ("words", 24), ("angle_mort", "detail"): ("words", 34),
+    ("angle_mort", "title"): ("words", 10),
+    ("angle_mort", "claim"): ("words", 24), ("angle_mort", "detail"): ("words", 24),
+    ("angle_mort", "second_claim"): ("words", 24), ("angle_mort", "second_detail"): ("words", 24),
+    ("angle_mort", "second_note1"): ("words", 30), ("angle_mort", "second_note2"): ("words", 30),
     ("angle_mort", "note1"): ("words", 30), ("angle_mort", "note2"): ("words", 30), ("angle_mort", "note3"): ("words", 30),
     ("depassement", "title"): ("words", 14), ("depassement", "lead"): ("words", 28),
     ("depassement", "lever1"): ("words", 30), ("depassement", "lever2"): ("words", 30), ("depassement", "lever3"): ("words", 30),
@@ -202,7 +207,7 @@ _ACCUSING = re.compile(r"\b(biais|manipulation|manipul\w+|mensonges?|trompeu\w+|
 _HASHTAG = re.compile(r"#\w+")
 _QUOTED = re.compile(r"«[^»]*»")
 _NUMBER = re.compile(r"\d+(?:[.,]\d+)?")
-_REQUIRED = {"constat": ("fig1", "fig2"), "these": ("note1",), "angle_mort": ("note1",),
+_REQUIRED = {"constat": ("fig1", "fig2"), "these": ("note1",), "angle_mort": ("note1", "second_claim", "second_detail"),
              "depassement": ("lever1", "lever2", "lever3"), "boussole": ("question1", "question2")}
 
 
@@ -249,7 +254,7 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                     and not any(n in article for n in nums):
                 flags.append(f"constat.{name}: {_parts(value, 3)[0]!r} does not appear as written in the source — check the figure")
     if step in ("these", "angle_mort"):
-        for name in ("note1", "note2", "note3"):
+        for name in ("note1", "note2", "note3", "second_note1", "second_note2"):
             value = str(fields.get(name, "")).strip()
             if value:
                 kind, _, text = value.partition("|")
@@ -273,9 +278,9 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
 
 # ── Fragments and assembly ──────────────────────────────────────────────────
 
-def _notes(f: dict) -> list[dict]:
+def _notes(f: dict, names: tuple[str, ...] = ("note1", "note2", "note3")) -> list[dict]:
     out = []
-    for name in ("note1", "note2", "note3"):
+    for name in names:
         value = str(f.get(name, "")).strip()
         if value:
             kind, _, text = value.partition("|")
@@ -300,7 +305,10 @@ def to_fragment(step: Step, option: Option) -> dict:
                           "solution": {"claim": f.get("solution_claim", ""), "detail": f.get("solution_detail", "")},
                           "notes": _notes(f)}}
     if step.name == "angle_mort":
-        return {"angle_mort": {k: f.get(k, "") for k in ("title", "subtitle", "claim", "detail")} | {"notes": _notes(f)}}
+        return {"angle_mort": {k: f.get(k, "") for k in ("title", "claim", "detail")}
+                | {"notes": _notes(f),
+                   "second": {"claim": f.get("second_claim", ""), "detail": f.get("second_detail", "")},
+                   "second_notes": _notes(f, ("second_note1", "second_note2"))}}
     if step.name == "depassement":
         levers = []
         for name in ("lever1", "lever2", "lever3"):
