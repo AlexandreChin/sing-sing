@@ -1069,10 +1069,6 @@
       },
       "second_notes": [
         {
-          "kind": "remark",
-          "text": "**Contestation** : cet enfermement l'alimente, dans les lycées et facultés"
-        },
-        {
           "kind": "source",
           "text": "**La DEPP** (ministère de l'Éducation) : changements de voie"
         }
@@ -1084,7 +1080,11 @@
       "levers": [
         {
           "title": "La **mixité sociale**",
-          "detail": "Elle doit garantir les mêmes moyens, critères et conseils, quelle que soit l'origine sociale."
+          "detail": "Elle doit garantir les mêmes moyens, critères et conseils, quelle que soit l'origine sociale.",
+          "note": {
+            "kind": "remark",
+            "text": "**Contestation** : cet enfermement en est l'un des motifs"
+          }
         },
         {
           "title": "La **discrimination positive**",

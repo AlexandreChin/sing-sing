@@ -58,6 +58,7 @@ class CadrageAngleMort(BaseModel):  # slide 4 — what the solution risks, from 
 class CadrageLever(BaseModel):
     title: str
     detail: str
+    note: CadrageNote | None = None   # an optional remark or source under the lever
 
 
 class CadrageDepassement(BaseModel):  # slide 5 — the levers that attenuate the risk, at a cost

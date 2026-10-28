@@ -90,6 +90,7 @@ class DepassementOption(BaseModel):
     lever1: str  # « titre | détail »
     lever2: str
     lever3: str
+    lever1_note: str   # optional « remarque | texte » or « source | texte » under the first lever (empty = none)
 
 
 class BoussoleOption(BaseModel):
@@ -265,6 +266,9 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
             value = str(fields.get(name, "")).strip()
             if value and not all(_parts(value, 2)):
                 hard.append(f"depassement.{name} must read « titre | détail »")
+        value = str(fields.get("lever1_note", "")).strip()
+        if value and (value.partition("|")[0].strip().lower() not in ("source", "remarque") or not value.partition("|")[2].strip()):
+            hard.append("depassement.lever1_note must read « source | texte » or « remarque | texte »")
     if step == "hook" and not fields.get("promise", "").lower().startswith("décryptage"):
         flags.append("hook.promise usually reads « Décryptage d'une prise de position sur … »")
     if step == "writing":
@@ -315,6 +319,8 @@ def to_fragment(step: Step, option: Option) -> dict:
             if str(f.get(name, "")).strip():
                 title, detail = _parts(f[name], 2)
                 levers.append({"title": title, "detail": detail})
+        if levers and (note := _notes(f, ("lever1_note",))):
+            levers[0]["note"] = note[0]
         return {"depassement": {"title": f.get("title", ""), "lead": f.get("lead", ""), "levers": levers}}
     if step.name == "boussole":
         options = [{"question": f.get(f"question{i}", ""), "pro": f.get(f"pro{i}", ""), "con": f.get(f"con{i}", "")}

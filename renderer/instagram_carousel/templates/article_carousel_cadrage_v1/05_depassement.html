@@ -8,15 +8,17 @@
 .lead { margin-top: var(--gap-title); font-size: 34px; font-weight: 500; line-height: 1.3; color: #ececec; text-wrap: pretty; }
 .lead strong { color: #d4aa00; font-weight: 700; }
 /* three horizontal blocks, as the socle's pillars turned on their side */
-.lever { display: flex; flex-direction: row; gap: 24px; align-items: baseline; padding: 26px 30px 28px; }
+.lever { display: flex; flex-direction: row; gap: 24px; align-items: baseline; padding: 18px 30px 20px; }
+.lever .look { margin-top: 12px; padding-top: 0; border-top: none; }
 .lever .n { flex: none; width: 60px; font-size: 36px; font-weight: 900; color: #d4aa00; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
 .lever .t { font-size: 40px; font-weight: 900; line-height: 1.1; letter-spacing: -0.01em; color: #fff; }
-.lever .t small { display: block; margin-top: var(--gap-claim); font-size: 30px; font-weight: 500; line-height: 1.3; color: #ececec; letter-spacing: 0; }
+.lever .t small { display: block; margin-top: 10px; font-size: 30px; font-weight: 500; line-height: 1.3; color: #ececec; letter-spacing: 0; }
 .lever .t em { font-style: normal; color: #d4aa00; }
 .lever .t small strong { color: #d4aa00; font-weight: 700; }
 </style>
 </head>
 <body>
+{% from 'article_carousel_cadrage_v1/_notes.html' import look %}
 <div class="slide" style="justify-content: flex-start;">
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
@@ -24,7 +26,7 @@
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.widen | safe }}</svg>Le dépassement</span>
     <h1 class="head">{{ title | md_bold }}</h1>
     <p class="lead">{{ lead | md_bold }}</p>
-    {% for l in levers %}<div class="card lever"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}<span class="n">{{ '%02d'|format(loop.index) }}</span><span class="t">{{ l.title | md_bold }}<small>{{ l.detail | md_bold }}</small></span></div>{% endfor %}
+    {% for l in levers %}<div class="card lever"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}<span class="n">{{ '%02d'|format(loop.index) }}</span><span class="t">{{ l.title | md_bold }}<small>{{ l.detail | md_bold }}</small>{% if l.note %}{{ look([l.note]) }}{% endif %}</span></div>{% endfor %}
   </div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
