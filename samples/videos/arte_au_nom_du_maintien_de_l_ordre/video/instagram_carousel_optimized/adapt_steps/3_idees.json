@@ -1,0 +1,105 @@
+{
+  "step": "idees",
+  "thesis_frame": null,
+  "options": [
+    {
+      "id": "1a",
+      "slot": "1",
+      "reason": "Pose la militarisation (cœur de la thèse) : de quel ordre parle-t-on, et protège-t-il ou réduit-il le droit de manifester ?",
+      "fields": {
+        "text": "Un maintien de l'ordre **militarisé** : blindés, fusils à balles en caoutchouc, grenades"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "1b",
+      "slot": "1",
+      "reason": "Angle de la proximité (nasse mobile) : où passe la frontière entre protéger et réduire le droit de manifester ?",
+      "fields": {
+        "text": "Les policiers **encadrent** les cortèges : devant, derrière, sans sortie possible"
+      },
+      "edited": false,
+      "flags": [
+        "display.essentiel[0] shares no key word with slide 8 (root_issue / cta.engagement_sentence) — « Les policiers encadrent les cortèges : devant, derrière, san » reads as a side subject; tie it to the enjeu or the question"
+      ]
+    },
+    {
+      "id": "2a",
+      "slot": "2",
+      "reason": "Relie la 2de prémisse à la 1re (policiers au plus près, armés) et donne un critère concret pour la question de la slide 8.",
+      "fields": {
+        "text": "Le **contact** blesse : depuis 2018, les blessures graves viennent du corps-à-corps"
+      },
+      "edited": false,
+      "flags": [
+        "display.essentiel[1] shares no key word with slide 8 (root_issue / cta.engagement_sentence) — « Le contact blesse : depuis 2018, les blessures graves vienne » reads as a side subject; tie it to the enjeu or the question"
+      ]
+    },
+    {
+      "id": "2b",
+      "slot": "2",
+      "reason": "Angle de l'escalade : un maintien de l'ordre peut produire le désordre qu'il combat, repère pour juger s'il protège ou réduit le droit de manifester.",
+      "fields": {
+        "text": "Une police offensive **attise** la violence : aux États-Unis, puis en France"
+      },
+      "edited": false,
+      "flags": [
+        "display.essentiel[1] shares no key word with slide 8 (root_issue / cta.engagement_sentence) — « Une police offensive attise la violence : aux États-Unis, pu » reads as a side subject; tie it to the enjeu or the question"
+      ]
+    },
+    {
+      "id": "3a",
+      "slot": "3",
+      "reason": "Conclusion directe, reprend l'enjeu (manifester, gêner ceux qui gouvernent) et ouvre la question de ce qui protège ou réduit ce droit.",
+      "fields": {
+        "text": "Le droit de manifester se **réduit** : on ne peut plus déranger le pouvoir"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "3b",
+      "slot": "3",
+      "reason": "Angle de la voix des manifestants : mène à l'enjeu du droit qui vaut parce qu'il gêne, avant la question finale.",
+      "fields": {
+        "text": "Sans pouvoir **déranger**, plus de démocratie : l'État n'autorise que l'agréable"
+      },
+      "edited": false,
+      "flags": [
+        "display.essentiel[2] shares no key word with slide 8 (root_issue / cta.engagement_sentence) — « Sans pouvoir déranger, plus de démocratie : l'État n'autoris » reads as a side subject; tie it to the enjeu or the question"
+      ]
+    },
+    {
+      "id": "3c",
+      "slot": "3",
+      "reason": "Angle du régime : place le droit de manifester comme ce que la question de la slide 8 invite à mesurer.",
+      "fields": {
+        "text": "La **démocratie** en jeu : le droit de manifester devient toléré"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "1a",
+    "2a",
+    "3a"
+  ],
+  "picked": [
+    "1a",
+    "2b",
+    "3c"
+  ],
+  "fragment": {
+    "display": {
+      "essentiel": [
+        "Un maintien de l'ordre **militarisé** : blindés, fusils à balles en caoutchouc, grenades",
+        "Une police offensive **attise** la violence : aux États-Unis, puis en France",
+        "La **démocratie** en jeu : le droit de manifester devient toléré"
+      ]
+    }
+  },
+  "remarks": []
+}

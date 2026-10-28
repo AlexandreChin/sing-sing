@@ -1,0 +1,279 @@
+{
+  "caption": "Dans une vidéo du Figaro, un intervenant relie les émeutes à l'école et propose un « collège modulaire ». 🏫\n\n🔎 Les clefs pour comprendre en une minute ce qu'il avance et comment l'examiner.\n\n🔗 Lien vers la vidéo en commentaires ↓",
+  "hook": {
+    "topic": "Sélection **précoce** à l'école",
+    "sub_topic": "Sélection **déplacée**, jeunes déclassés : orienter, mais à quel âge ?",
+    "subtitle": "Comprendre ce qui reste flou.",
+    "headline": "Sélection **déplacée**, jeunes déclassés : à quel âge orienter ?",
+    "context_line": "",
+    "sub_topic_alt": []
+  },
+  "interest": null,
+  "title_bullets": [],
+  "chapo_bullets": [],
+  "context_next_slide_hook": "",
+  "watch_out_next_slide_hook": "",
+  "forme_next_slide_hook": "",
+  "biases_next_slide_hook": "",
+  "engagement_question": "",
+  "go_further": [
+    {
+      "title": "Regards sur l'éducation",
+      "source": "OCDE, club des pays riches",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Compare les filières et les parcours scolaires entre pays.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Taux de chômage des jeunes",
+      "source": "Eurostat, office statistique européen",
+      "media_type": "other",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Donne le chômage des jeunes avec sa base de calcul.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Repères et références statistiques",
+      "source": "Ministère de l'Enseignement supérieur (SIES)",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Suit l'évolution du nombre d'étudiants et des parcours.",
+      "cta_question_index": null
+    }
+  ],
+  "cta": {
+    "title": "",
+    "engagement_sentence": "À quelles conditions orienter des élèves plus tôt ouvre des **parcours** plutôt qu'il n'en ferme ?",
+    "engagement_sentence_alt": [],
+    "where_to_look": [
+      "Les suivis de parcours d'élèves du ministère de l'Éducation",
+      "Eurostat : chômage des jeunes selon le niveau d'études",
+      "Le rapport Regards sur l'éducation des pays riches (OCDE)"
+    ],
+    "post_reading_questions": []
+  },
+  "display": {
+    "thesis_frame": {
+      "main_claim": "Abolir la sélection a produit échec, déclassement et chômage ; il faut une sélection plus précoce et valoriser les métiers manuels.",
+      "out_of_scope": [
+        "Le financement de l'université et des filières professionnelles",
+        "Le contenu des programmes enseignés au collège",
+        "Le rôle de la police dans les émeutes"
+      ]
+    },
+    "payoff": "",
+    "framing": "",
+    "why_selected": "Dans une vidéo du Figaro, un intervenant relie les **émeutes** récentes à l'école ; il défend un autre collège.\nIl avance **des chiffres** et des causes : de quoi s'exercer à chercher ce qui peut aussi les expliquer.",
+    "selection_headline": "Des émeutes à l'orientation des élèves",
+    "selection_headline_alt": [],
+    "ethics": "",
+    "pre_reading": [],
+    "watch_out": [],
+    "strengths": [],
+    "distill_points": [],
+    "after_reading": [],
+    "key_takeaways": [
+      {
+        "text": "L'intervenant attribue les émeutes à un mensonge sur la réussite pour tous.",
+        "selected": true
+      },
+      {
+        "text": "Il lie massification universitaire, échecs en licence, déclassement et chômage des jeunes.",
+        "selected": true
+      },
+      {
+        "text": "Il propose un collège modulaire avec une sélection plus précoce.",
+        "selected": true
+      },
+      {
+        "text": "Il compare la France à la Norvège, la Suède et la Suisse.",
+        "selected": false
+      },
+      {
+        "text": "Il oppose chaudronnier et diplômé pour revaloriser les métiers manuels.",
+        "selected": false
+      }
+    ],
+    "blind_spots": [],
+    "balance": [],
+    "lenses": [],
+    "reading_beats": [
+      {
+        "moment": "Les émeutes, vues comme un mensonge qui craque",
+        "quote": "un tel embrasement aujourd'hui, c'est parce que le vernis d'un mensonge […] est en train de craquer",
+        "quote_original": "",
+        "lens_ref": "cadrage",
+        "lens_question": "",
+        "note": "",
+        "answer": "",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": false,
+        "theme": "Cadrage des émeutes",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "mise en scène",
+        "spine_ref": 1,
+        "axis_link": "Montre d'où part l'intervenant : relier les émeutes à l'école, ce qui conditionne la question sur l'orientation précoce.",
+        "rationale": "Pose le lien émeutes-école, jamais étayé dans la vidéo."
+      },
+      {
+        "moment": "Abolir la sélection la déplace, plus violente ensuite",
+        "quote": "lorsqu'on prétend abolir la sélection, en réalité, on la déplace […] par une sélection autrement plus violente",
+        "quote_original": "",
+        "lens_ref": "opinion_fait",
+        "lens_question": "Un jugement : quel fait le soutient ?",
+        "note": "Devant une formule frappante, cherchez la **mesure** qui la soutient.",
+        "answer": "**Une formule, pas une mesure** : « sélection par la vie » est de Pompidou, ancien président. Voyez les suivis d'élèves du ministère de l'Éducation.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": true,
+        "theme": "Sélection déplacée",
+        "centrality": 4,
+        "kind": "enjeu",
+        "role": "appui",
+        "spine_ref": 1,
+        "axis_link": "Donne au lecteur la prémisse dont dépend la question : sélectionner plus tôt ouvre-t-il des parcours ou en ferme-t-il, alors que rien ne mesure ce déplacement ?",
+        "rationale": "Première pièce de la thèse : la sélection ne disparaît pas."
+      },
+      {
+        "moment": "Plus d'étudiants, donc des diplômés déclassés ?",
+        "quote": "toujours plus de cohortes de diplômés frustrés et déclassés dont les perspectives professionnelles […] sont totalement bouchées",
+        "quote_original": "",
+        "lens_ref": "causalite",
+        "lens_question": "Une cause avancée : quelles autres possibles ?",
+        "note": "Quand une **chaîne de causes** semble évidente, cherchez ce qui peut aussi l'expliquer.",
+        "answer": "**Plusieurs causes** jouent : conjoncture, emploi, apprentissage. Cherchez le chômage des 15-24 ans chez Eurostat, l'office statistique européen.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": true,
+        "theme": "Massification et déclassement",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "preuve",
+        "spine_ref": 2,
+        "axis_link": "Montre un lien présenté comme évident, que le lecteur peut tester avant de juger si orienter plus tôt changerait ces parcours.",
+        "rationale": "Chaîne causale posée comme évidente, sans autre cause examinée."
+      },
+      {
+        "moment": "Chômage des jeunes : 21 % en France, 3 % en Suisse",
+        "quote": "chômage des jeunes Français qui est de 21 %. On est à 3 % en Suisse",
+        "quote_original": "",
+        "lens_ref": "chiffres",
+        "lens_question": "",
+        "note": "",
+        "answer": "",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "disputed",
+        "selected": false,
+        "theme": "Comparaison internationale",
+        "centrality": 4,
+        "kind": "statistique",
+        "role": "preuve",
+        "spine_ref": 2,
+        "axis_link": "Donne un chiffre à rapporter à autre chose : la Suisse a un apprentissage développé, que la vidéo ne dit pas, ce qui pèse sur la question des parcours.",
+        "rationale": "Écart chiffré sans source, base de calcul ni contexte suisse."
+      },
+      {
+        "moment": "Collège modulaire : sélectionner plus tôt, sans détail",
+        "quote": "passer de […] collège unique à […] collège modulaire et avoir une sélection plus tôt",
+        "quote_original": "",
+        "lens_ref": "angles_morts",
+        "lens_question": "Une solution proposée : que faut-il en savoir ?",
+        "note": "Devant une **solution**, cherchez ce qui décide de son effet : qui, quand, comment.",
+        "answer": "**Âge, critères, passerelles** décident si un parcours reste ouvert. Cherchez les chiffres d'orientation après la troisième au ministère de l'Éducation.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": true,
+        "theme": "Solution proposée",
+        "centrality": 4,
+        "kind": "enjeu",
+        "role": "pivot",
+        "spine_ref": 3,
+        "axis_link": "Fait voir ce qui manque pour répondre à la question : ni l'âge, ni les critères, ni les passerelles ne sont dits, donc on ne sait pas si les parcours restent ouverts.",
+        "rationale": "La solution avancée ne précise ni âge, ni critères, ni passerelles."
+      },
+      {
+        "moment": "Les métiers de la main revalorisés par une formule",
+        "quote": "une vraie revalorisation des métiers de la main […] plus de noblesse à être chaudronnier que crétin diplômé",
+        "quote_original": "",
+        "lens_ref": "cadrage",
+        "lens_question": "",
+        "note": "",
+        "answer": "",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": false,
+        "theme": "Métiers manuels",
+        "centrality": 3,
+        "kind": "affirmation",
+        "role": "mise en scène",
+        "spine_ref": 3,
+        "axis_link": "Montre que la contrepartie promise à la sélection précoce repose sur une image, non sur des débouchés décrits, ce qui compte pour juger si elle ouvre des parcours.",
+        "rationale": "Seule justification de la revalorisation : une opposition imagée."
+      }
+    ],
+    "global_analysis": {
+      "headline": "**Orienter** plus tôt, et revaloriser les métiers manuels",
+      "headline_alt": [],
+      "core_recap": [
+        "Ses présupposés : Un élève écarté **au collège** souffre moins qu'un étudiant qui échoue plus tard ; Moins d'étudiants à l'université ferait baisser le **chômage** des jeunes ; Les élèves orientés vers les **métiers manuels** y trouveront des emplois"
+      ]
+    },
+    "open_question": "",
+    "root_issue": "La capacité d'une société à **orienter** sa jeunesse sans qu'un choix fait trop tôt ferme des **parcours** pour la vie.",
+    "steel_man": {
+      "argument": "Une sélection au collège **fige** les parcours selon l'origine sociale au lieu de les ouvrir.",
+      "alternative": "Mieux accompagner une orientation choisie ferait reculer l'échec sans fermer de parcours.",
+      "targets": 3
+    },
+    "reperes_headline": "",
+    "reperes_context": "",
+    "reperes_facts": [
+      {
+        "label": "Le collège",
+        "text": "**Collège unique** depuis 1975 : mêmes cours pour tous jusqu'à la troisième."
+      },
+      {
+        "label": "Le chômage",
+        "text": "Le chômage des jeunes se calcule sur les **actifs** de 15 à 24 ans."
+      },
+      {
+        "label": "La Suisse",
+        "text": "La Suisse a un **apprentissage en alternance** très développé, au sein d'un système différent."
+      }
+    ],
+    "bilan_headline": "",
+    "essentiel": [
+      "Une sélection **déplacée** : abolie à l'école, elle revient plus violente après",
+      "Des diplômés **déclassés** : échecs en licence, chômage des jeunes à 21 %",
+      "Un **collège modulaire** : sélectionner plus tôt, sans en préciser l'âge"
+    ],
+    "essentiel_summary": ""
+  }
+}

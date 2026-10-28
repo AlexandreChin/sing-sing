@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Le maintien de l'ordre s'est militarisé en cinquante ans : blindés, LBD, grenades, policiers au plus près des cortèges.",
+      "kind": "affirmation",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 0,
+        "excerpt": "la police s'équipe d'armes de plus en plus nombreuses et se rapproche des cortèges",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Le 8 décembre 2018 : blindés déployés, 12 manifestants blessés à la tête, quatre perdent un œil.",
+      "kind": "fait",
+      "centrality": 4,
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "environ 25 personnes ont perdu un œil",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Le droit de manifester et de déranger est présenté comme ce qui définit la démocratie, et il serait restreint.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 3,
+        "excerpt": "Pouvoir déranger dans la rue définit la démocratie.",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "statement": "Des cas étrangers (Seattle, Minneapolis, Lützerath, Cologne) sont rapprochés du cas français pour dessiner une tendance commune.",
+      "kind": "angle",
+      "centrality": 3,
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 0,
+        "excerpt": "relèvent d'une même tendance",
+        "strength": 0.7,
+        "nature": "inference"
+      }
+    },
+    {
+      "statement": "Désindustrialisation et précarité ont transformé les foules : moins de cortèges syndicaux, plus de colères solitaires et « illisibles ».",
+      "kind": "enjeu",
+      "centrality": 2,
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 0,
+        "excerpt": "Les bataillons ouvriers disciplinés ont laissé place à une foule de colères solitaires",
+        "strength": 0.5,
+        "nature": "specification"
+      }
+    }
+  ]
+}

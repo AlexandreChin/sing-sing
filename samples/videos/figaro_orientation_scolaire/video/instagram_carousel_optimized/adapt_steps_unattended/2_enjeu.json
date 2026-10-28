@@ -1,0 +1,63 @@
+{
+  "step": "enjeu",
+  "thesis_frame": null,
+  "options": [
+    {
+      "id": "a",
+      "slot": "enjeu",
+      "reason": "Enjeu général : orienter vite ou laisser ouvert. La question fixée demande à quelles conditions une orientation précoce ouvre des parcours ; le mot « parcours » relie les deux cartes.",
+      "fields": {
+        "text": "La capacité d'une société à **orienter** sa jeunesse sans qu'un choix fait trop tôt ferme des **parcours** pour la vie."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "enjeu",
+      "reason": "Reprend le « mensonge » de la vidéo (réussite pour tous contre sélection) à l'échelle de toute institution scolaire. La question demande ce que ce cas montre des conditions d'un parcours réel.",
+      "fields": {
+        "text": "Le risque qu'une promesse de réussite pour tous, ou son abandon, laisse une partie de la jeunesse sans **parcours** crédible."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "enjeu",
+      "reason": "Porte la revalorisation des métiers manuels, élément central de la vidéo. Le mot « parcours » est absent ; le lien avec la question passe par les conditions d'une orientation choisie, à vérifier.",
+      "fields": {
+        "text": "La valeur donnée aux **métiers** manuels : une voie n'est choisie que si la société la reconnaît autant que les études longues."
+      },
+      "edited": false,
+      "flags": [
+        "cta.engagement_sentence shares no **gilded** word with display.root_issue — slide 8 ties the two cards by the word they share: gild it on both sides (« la société **promet** … » / « … tient sa **promesse** ? »)"
+      ]
+    },
+    {
+      "id": "d",
+      "slot": "enjeu",
+      "reason": "Vise le point faible de la proposition : le collège modulaire sans âge, critères ni passerelles précisés. La question interroge les conditions qui rendent cette sélection ouverte plutôt que fermée.",
+      "fields": {
+        "text": "L'équilibre entre **sélectionner** tôt et garder des passerelles : un tri scolaire ne doit pas devenir un tri social définitif."
+      },
+      "edited": false,
+      "flags": [
+        "cta.engagement_sentence shares no **gilded** word with display.root_issue — slide 8 ties the two cards by the word they share: gild it on both sides (« la société **promet** … » / « … tient sa **promesse** ? »)"
+      ]
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "display": {
+      "root_issue": "La capacité d'une société à **orienter** sa jeunesse sans qu'un choix fait trop tôt ferme des **parcours** pour la vie."
+    }
+  },
+  "remarks": []
+}

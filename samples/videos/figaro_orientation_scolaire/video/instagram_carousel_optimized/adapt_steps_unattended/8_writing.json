@@ -1,0 +1,217 @@
+{
+  "step": "writing",
+  "thesis_frame": null,
+  "options": [
+    {
+      "id": "a",
+      "slot": "writing",
+      "reason": "",
+      "fields": {
+        "beats": [
+          {
+            "index": 1,
+            "lens_question": "Un jugement : quel fait le soutient ?",
+            "note": "Devant une formule frappante, cherchez la **mesure** qui la soutient.",
+            "answer": "**Une formule, pas une mesure** : « sélection par la vie » est de Pompidou, ancien président. Voyez les suivis d'élèves du ministère de l'Éducation.",
+            "figure": "",
+            "figure_label": "",
+            "figure_caption": "",
+            "pictogram": null
+          },
+          {
+            "index": 2,
+            "lens_question": "Une cause avancée : quelles autres possibles ?",
+            "note": "Quand une **chaîne de causes** semble évidente, cherchez ce qui peut aussi l'expliquer.",
+            "answer": "**Plusieurs causes** jouent : conjoncture, emploi, apprentissage. Cherchez le chômage des 15-24 ans chez Eurostat, l'office statistique européen.",
+            "figure": "",
+            "figure_label": "",
+            "figure_caption": "",
+            "pictogram": null
+          },
+          {
+            "index": 4,
+            "lens_question": "Une solution proposée : que faut-il en savoir ?",
+            "note": "Devant une **solution**, cherchez ce qui décide de son effet : qui, quand, comment.",
+            "answer": "**Âge, critères, passerelles** décident si un parcours reste ouvert. Cherchez les chiffres d'orientation après la troisième au ministère de l'Éducation.",
+            "figure": "",
+            "figure_label": "",
+            "figure_caption": "",
+            "pictogram": null
+          }
+        ],
+        "why_selected": "Dans une vidéo du Figaro, un intervenant relie les **émeutes** récentes à l'école ; il défend un autre collège.\nIl avance **des chiffres** et des causes : de quoi s'exercer à chercher ce qui peut aussi les expliquer.",
+        "selection_headline": "Des émeutes à l'orientation des élèves",
+        "key_takeaways": [
+          {
+            "text": "L'intervenant attribue les émeutes à un mensonge sur la réussite pour tous.",
+            "selected": true
+          },
+          {
+            "text": "Il lie massification universitaire, échecs en licence, déclassement et chômage des jeunes.",
+            "selected": true
+          },
+          {
+            "text": "Il propose un collège modulaire avec une sélection plus précoce.",
+            "selected": true
+          },
+          {
+            "text": "Il compare la France à la Norvège, la Suède et la Suisse.",
+            "selected": false
+          },
+          {
+            "text": "Il oppose chaudronnier et diplômé pour revaloriser les métiers manuels.",
+            "selected": false
+          }
+        ],
+        "go_further": [
+          {
+            "title": "Regards sur l'éducation",
+            "source": "OCDE, club des pays riches",
+            "media_type": "report",
+            "category": "question_answer",
+            "url": null,
+            "duration_minutes": null,
+            "why_explore": "Compare les filières et les parcours scolaires entre pays.",
+            "cta_question_index": null
+          },
+          {
+            "title": "Taux de chômage des jeunes",
+            "source": "Eurostat, office statistique européen",
+            "media_type": "other",
+            "category": "question_answer",
+            "url": null,
+            "duration_minutes": null,
+            "why_explore": "Donne le chômage des jeunes avec sa base de calcul.",
+            "cta_question_index": null
+          },
+          {
+            "title": "Repères et références statistiques",
+            "source": "Ministère de l'Enseignement supérieur (SIES)",
+            "media_type": "report",
+            "category": "deep_dive",
+            "url": null,
+            "duration_minutes": null,
+            "why_explore": "Suit l'évolution du nombre d'étudiants et des parcours.",
+            "cta_question_index": null
+          }
+        ],
+        "where_to_look": [
+          "Les suivis de parcours d'élèves du ministère de l'Éducation",
+          "Eurostat : chômage des jeunes selon le niveau d'études",
+          "Le rapport Regards sur l'éducation des pays riches (OCDE)"
+        ],
+        "caption": "Dans une vidéo du Figaro, un intervenant relie les émeutes à l'école et propose un « collège modulaire ». 🏫\n\n🔎 Les clefs pour comprendre en une minute ce qu'il avance et comment l'examiner.\n\n🔗 Lien vers la vidéo en commentaires ↓"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "beat_copy": [
+      {
+        "index": 1,
+        "lens_question": "Un jugement : quel fait le soutient ?",
+        "note": "Devant une formule frappante, cherchez la **mesure** qui la soutient.",
+        "answer": "**Une formule, pas une mesure** : « sélection par la vie » est de Pompidou, ancien président. Voyez les suivis d'élèves du ministère de l'Éducation.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null
+      },
+      {
+        "index": 2,
+        "lens_question": "Une cause avancée : quelles autres possibles ?",
+        "note": "Quand une **chaîne de causes** semble évidente, cherchez ce qui peut aussi l'expliquer.",
+        "answer": "**Plusieurs causes** jouent : conjoncture, emploi, apprentissage. Cherchez le chômage des 15-24 ans chez Eurostat, l'office statistique européen.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null
+      },
+      {
+        "index": 4,
+        "lens_question": "Une solution proposée : que faut-il en savoir ?",
+        "note": "Devant une **solution**, cherchez ce qui décide de son effet : qui, quand, comment.",
+        "answer": "**Âge, critères, passerelles** décident si un parcours reste ouvert. Cherchez les chiffres d'orientation après la troisième au ministère de l'Éducation.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null
+      }
+    ],
+    "display": {
+      "why_selected": "Dans une vidéo du Figaro, un intervenant relie les **émeutes** récentes à l'école ; il défend un autre collège.\nIl avance **des chiffres** et des causes : de quoi s'exercer à chercher ce qui peut aussi les expliquer.",
+      "selection_headline": "Des émeutes à l'orientation des élèves",
+      "key_takeaways": [
+        {
+          "text": "L'intervenant attribue les émeutes à un mensonge sur la réussite pour tous.",
+          "selected": true
+        },
+        {
+          "text": "Il lie massification universitaire, échecs en licence, déclassement et chômage des jeunes.",
+          "selected": true
+        },
+        {
+          "text": "Il propose un collège modulaire avec une sélection plus précoce.",
+          "selected": true
+        },
+        {
+          "text": "Il compare la France à la Norvège, la Suède et la Suisse.",
+          "selected": false
+        },
+        {
+          "text": "Il oppose chaudronnier et diplômé pour revaloriser les métiers manuels.",
+          "selected": false
+        }
+      ]
+    },
+    "go_further": [
+      {
+        "title": "Regards sur l'éducation",
+        "source": "OCDE, club des pays riches",
+        "media_type": "report",
+        "category": "question_answer",
+        "url": null,
+        "duration_minutes": null,
+        "why_explore": "Compare les filières et les parcours scolaires entre pays.",
+        "cta_question_index": null
+      },
+      {
+        "title": "Taux de chômage des jeunes",
+        "source": "Eurostat, office statistique européen",
+        "media_type": "other",
+        "category": "question_answer",
+        "url": null,
+        "duration_minutes": null,
+        "why_explore": "Donne le chômage des jeunes avec sa base de calcul.",
+        "cta_question_index": null
+      },
+      {
+        "title": "Repères et références statistiques",
+        "source": "Ministère de l'Enseignement supérieur (SIES)",
+        "media_type": "report",
+        "category": "deep_dive",
+        "url": null,
+        "duration_minutes": null,
+        "why_explore": "Suit l'évolution du nombre d'étudiants et des parcours.",
+        "cta_question_index": null
+      }
+    ],
+    "cta": {
+      "where_to_look": [
+        "Les suivis de parcours d'élèves du ministère de l'Éducation",
+        "Eurostat : chômage des jeunes selon le niveau d'études",
+        "Le rapport Regards sur l'éducation des pays riches (OCDE)"
+      ]
+    },
+    "caption": "Dans une vidéo du Figaro, un intervenant relie les émeutes à l'école et propose un « collège modulaire ». 🏫\n\n🔎 Les clefs pour comprendre en une minute ce qu'il avance et comment l'examiner.\n\n🔗 Lien vers la vidéo en commentaires ↓"
+  },
+  "remarks": []
+}

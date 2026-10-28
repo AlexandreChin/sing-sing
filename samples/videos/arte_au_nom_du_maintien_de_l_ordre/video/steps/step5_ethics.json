@@ -1,0 +1,38 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "e1",
+        "category": "false_statistics",
+        "label": "False Statistics",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "Un Américain sur cinq descend dans la rue.",
+        "explanation": "Le chiffre, non sourcé, triple environ les estimations disponibles (6 à 8 % de la population)."
+      },
+      {
+        "id": "e2",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Nous, ce sont des ordres qu'on a. Voilà, les gens qui sont dans le cortège, ils sortent pas. Mais je suis pas certain que ce soit légal.",
+        "explanation": "La légalité des nasses est mise en doute sans réponse sollicitée du ministère ni de la préfecture."
+      },
+      {
+        "id": "e3",
+        "category": "stereotyping",
+        "label": "Stereotyping",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Les troupes de choc des banlieues.",
+        "explanation": "La voix off réduit les brigades anti-criminalité à une étiquette martiale liée aux banlieues."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Il faut sourcer ou corriger le chiffre d'« un Américain sur cinq », puis solliciter la préfecture ou le ministère sur les nasses."
+    },
+    "summary": "La déontologie n'est pas entièrement respectée : aucune violation caractérisée, mais **trois points d'attention** : un **chiffre non sourcé et surévalué**, une **réponse absente** sur la légalité des nasses et un raccourci réducteur sur les BAC."
+  }
+}

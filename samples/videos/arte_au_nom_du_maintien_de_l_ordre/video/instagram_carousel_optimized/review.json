@@ -1,0 +1,55 @@
+{
+  "deck": "samples/videos/arte_au_nom_du_maintien_de_l_ordre/video/instagram_carousel_optimized/extract.json",
+  "generated_at": "2026-10-27T18:14:06",
+  "reader": [
+    {
+      "kind": "coherence",
+      "field": "[beat] Seattle : un ex-chef de police juge avoir attisé",
+      "our_text": "L'ordre des faits : à Paris, l'émeute du 1er décembre 2018 précède les blindés du 8.",
+      "evidence_kind": "reader",
+      "evidence": "Le moment s'ouvre sur Seattle, mais sa réponse porte sur Paris sans lien explicite. Le lecteur ne voit pas comment la chronologie parisienne répond au cas de Seattle.",
+      "severity": "advisory",
+      "suggestion": "Relier la réponse au cas de Seattle ou changer le titre du moment."
+    },
+    {
+      "kind": "comprehension",
+      "field": "[beat] Cologne : sans droit de déranger, plus de démocratie",
+      "our_text": "Le texte de la loi du Land dit ce qui est interdit.",
+      "evidence_kind": "reader",
+      "evidence": "« Land » n'est pas expliqué, et rien n'indique ce que Cologne ni la pancarte ont à voir avec le sujet.",
+      "severity": "advisory",
+      "suggestion": "« loi de l'État régional allemand » ; situer Cologne en Allemagne."
+    },
+    {
+      "kind": "comprehension",
+      "field": "03 reperes",
+      "our_text": "6 à 8 % des adultes ont manifesté après George Floyd",
+      "evidence_kind": "reader",
+      "evidence": "George Floyd n'est pas introduit et le pays de ces adultes n'est pas dit. Le chiffre n'est pas non plus repris par un moment.",
+      "severity": "advisory",
+      "suggestion": "Préciser « aux États-Unis, après la mort de George Floyd »."
+    },
+    {
+      "kind": "posture",
+      "field": "[beat] Les blindés du 8 décembre : un message politique",
+      "our_text": "L'aveu vient du décideur",
+      "evidence_kind": "reader",
+      "evidence": "« Aveu » présente la déclaration de l'ancien préfet comme une faute reconnue, alors que le moment doit équiper le lecteur, pas juger.",
+      "severity": "advisory",
+      "suggestion": "« La précision vient du décideur » ou « Le décideur l'explique »."
+    }
+  ],
+  "fidelity": [],
+  "report": {
+    "reader (model)": [
+      "[coherence] [beat] Seattle : un ex-chef de police juge avoir attisé — « L'ordre des faits : à Paris, l'émeute du 1er décembre 2018 précède les blindés du 8. » → Relier la réponse au cas de Seattle ou changer le titre du moment.  (Le moment s'ouvre sur Seattle, mais sa réponse porte sur Paris sans lien explicite. Le lec)",
+      "[comprehension] [beat] Cologne : sans droit de déranger, plus de démocratie — « Le texte de la loi du Land dit ce qui est interdit. » → « loi de l'État régional allemand » ; situer Cologne en Allemagne.  (« Land » n'est pas expliqué, et rien n'indique ce que Cologne ni la pancarte ont à voir av)",
+      "[comprehension] 03 reperes — « 6 à 8 % des adultes ont manifesté après George Floyd » → Préciser « aux États-Unis, après la mort de George Floyd ».  (George Floyd n'est pas introduit et le pays de ces adultes n'est pas dit. Le chiffre n'est)",
+      "[posture] [beat] Les blindés du 8 décembre : un message politique — « L'aveu vient du décideur » → « La précision vient du décideur » ou « Le décideur l'explique ».  (« Aveu » présente la déclaration de l'ancien préfet comme une faute reconnue, alors que le)"
+    ],
+    "fidelity (model)": [
+      "article text not found — pass it as the second argument to run the fidelity pass"
+    ],
+    "dropped (model)": []
+  }
+}

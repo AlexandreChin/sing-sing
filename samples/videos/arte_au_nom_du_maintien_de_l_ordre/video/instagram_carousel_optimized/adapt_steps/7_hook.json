@@ -1,0 +1,76 @@
+{
+  "step": "hook",
+  "thesis_frame": null,
+  "options": [
+    {
+      "id": "a",
+      "slot": "hook",
+      "reason": "Ouvre l'équipement militaire (idée 1) et la question de ce qui protège ou réduit le droit de manifester ; payé par le moment des blindés du 8 décembre et par celui de Cologne.",
+      "fields": {
+        "topic": "Maintien de l'ordre, **blindés** dans la rue",
+        "sub_topic": "Des **blindés**, des cortèges encadrés : qui protège le droit de manifester ?",
+        "subtitle": "Comprendre ce qui protège ce droit.",
+        "headline": "Blindés et cortèges encadrés : le droit de **manifester** tient-il ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "hook",
+      "reason": "Porte les trois idées dans l'ordre (rapprochement et armement, escalade, démocratie) ; payé par les blindés, Seattle puis Cologne.",
+      "fields": {
+        "topic": "Police et **manifestants**, cinquante ans",
+        "sub_topic": "Police plus proche, manifestants plus **gênés** : et la démocratie ?",
+        "subtitle": "Comprendre ce que ce droit protège.",
+        "headline": "Police au plus près des cortèges : que devient le droit de **déranger** ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "hook",
+      "reason": "Ouvre l'angle des comparaisons étrangères et l'escalade (idée 2), en laissant ouverte la question de la tendance commune ; payé par Seattle et Cologne.",
+      "fields": {
+        "topic": "Seattle, Paris, Cologne : **même** logique ?",
+        "sub_topic": "Seattle, Paris, Cologne : la police **attise**-t-elle ce qu'elle craint ?",
+        "subtitle": "Comprendre si ces cas se ressemblent.",
+        "headline": "Seattle, Paris, Cologne : un même **schéma** policier ?"
+      },
+      "edited": false,
+      "flags": [
+        "hook.sub_topic shares no key word with slide 8 (root_issue / cta.engagement_sentence) — « Seattle, Paris, Cologne : la police attise-t-elle ce qu'elle » reads as a side subject; tie it to the enjeu or the question"
+      ]
+    },
+    {
+      "id": "d",
+      "slot": "hook",
+      "reason": "Part de l'enjeu de fond (le droit qui ne vaut que s'il gêne) et de la question finale ; payé par le moment de Cologne, avec les blindés et Seattle en appui.",
+      "fields": {
+        "topic": "Le droit de **déranger**",
+        "sub_topic": "Manifester, c'est gêner le pouvoir : jusqu'où peut-on **encadrer** ?",
+        "subtitle": "Comprendre où le droit s'arrête.",
+        "headline": "Manifester, c'est **déranger** : qui fixe la limite ?"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "hook": {
+      "topic": "Maintien de l'ordre, **blindés** dans la rue",
+      "sub_topic": "Des **blindés**, des cortèges encadrés : qui protège le droit de manifester ?",
+      "subtitle": "Comprendre ce qui protège ce droit.",
+      "headline": "Blindés et cortèges encadrés : le droit de **manifester** tient-il ?"
+    }
+  },
+  "remarks": []
+}

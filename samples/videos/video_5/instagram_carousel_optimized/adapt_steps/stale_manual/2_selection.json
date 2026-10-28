@@ -1,0 +1,132 @@
+{
+  "reading_beats": [
+    {
+      "moment": "Voter ne suffit plus : inventer d'autres démocraties",
+      "quote": "Dans des pays où voter ne suffit plus, la GenZ chercher à inventer d’autres formes de démocratie",
+      "quote_original": "",
+      "lens_ref": "opinion_fait",
+      "factcheck": "",
+      "selected": false,
+      "theme": "Démocratie numérique",
+      "centrality": 4,
+      "kind": "affirmation",
+      "role": "appui",
+      "spine_ref": 2,
+      "axis_link": "",
+      "rationale": "Le constat qui fonde l'angle, posé sans preuve par la voix off"
+    },
+    {
+      "moment": "Une génération mondiale, mais pas homogène",
+      "quote": "cette génération n'est bien sûr pas homogène ni d'un pays à l'autre, ni au sein d'une même nation",
+      "quote_original": "",
+      "lens_ref": "cadrage",
+      "factcheck": "",
+      "selected": false,
+      "theme": "Unité du mouvement",
+      "centrality": 3,
+      "kind": "biais",
+      "role": "concession",
+      "spine_ref": 1,
+      "axis_link": "",
+      "rationale": "La vidéo nuance elle-même la vague mondiale qu'elle raconte"
+    },
+    {
+      "moment": "Des régimes tombés sans chef : une première ?",
+      "quote": "une sorte de première mondiale où ce type de mouvement […] arrive à […] faire tomber des gouvernements",
+      "quote_original": "",
+      "lens_ref": "opinion_fait",
+      "factcheck": "likely false",
+      "selected": true,
+      "theme": "Nouveauté du mouvement",
+      "centrality": 5,
+      "kind": "affirmation",
+      "role": "appui",
+      "spine_ref": 1,
+      "axis_link": "Les précédents du Sri Lanka et du Bangladesh, cités en passant, montrent ce que devient le pouvoir après la chute d'un gouvernement.",
+      "rationale": "Nouveauté affirmée que la vidéo contredit elle-même"
+    },
+    {
+      "moment": "Manifestations pacifiques, répression meurtrière",
+      "quote": "Un mort et plus de 100 blessés à Lima, au moins 19 morts au Népal, 22 morts à Madagascar",
+      "quote_original": "",
+      "lens_ref": "chiffres",
+      "factcheck": "true",
+      "selected": false,
+      "theme": "Répression",
+      "centrality": 3,
+      "kind": "statistique",
+      "role": "preuve",
+      "spine_ref": 0,
+      "axis_link": "",
+      "rationale": "Bilans ni datés ni sourcés, dépassés ensuite au Népal"
+    },
+    {
+      "moment": "26 réseaux coupés au Népal, la rue plus rapide",
+      "quote": "même au Népal où 26 plateformes numériques ont été suspendu, ils ont pris de vitesse les autorités",
+      "quote_original": "",
+      "lens_ref": "causalite",
+      "factcheck": "true",
+      "selected": false,
+      "theme": "Smartphone et réseaux",
+      "centrality": 3,
+      "kind": "fait",
+      "role": "preuve",
+      "spine_ref": 0,
+      "axis_link": "",
+      "rationale": "La coupure est le déclencheur, pas seulement un obstacle contourné"
+    },
+    {
+      "moment": "Sans chef, la jeunesse népalaise vote en ligne",
+      "quote": "Lorsque nous prenons une décision, nous en discutons et votons sur notre plateforme. La majorité l'emporte",
+      "quote_original": "",
+      "lens_ref": "sources",
+      "factcheck": "",
+      "selected": true,
+      "theme": "Démocratie numérique",
+      "centrality": 5,
+      "kind": "affirmation",
+      "role": "preuve",
+      "spine_ref": 2,
+      "axis_link": "Ce vote en ligne est la seule « autre démocratie » montrée : savoir combien y prennent part dit quelle place il donne aux citoyens.",
+      "rationale": "Seul exemple concret de l'autre démocratie, sans chiffre de participation"
+    },
+    {
+      "moment": "La rue gagne, d'anciennes élites attendent leur tour",
+      "quote": "le risque c'est de se faire confisquer la victoire par d'anciennes castes politiques qui attendaient justement leur tour",
+      "quote_original": "",
+      "lens_ref": "angles_morts",
+      "factcheck": "",
+      "selected": true,
+      "theme": "Issue des mobilisations",
+      "centrality": 4,
+      "kind": "enjeu",
+      "role": "pivot",
+      "spine_ref": 3,
+      "axis_link": "Ce risque, présenté comme futur, s'est déjà réalisé à Madagascar et au Pérou : il montre à qui passe le pouvoir après la rue.",
+      "rationale": "Le tournant de la vidéo, qui touche directement l'enjeu de fond"
+    },
+    {
+      "moment": "Madagascar : l'armée alliée prend la présidence",
+      "quote": "ils avaient pu compter sur le soutien de l'armée […] ont vu les militaires prendre temporairement la présidence",
+      "quote_original": "",
+      "lens_ref": "cadrage",
+      "factcheck": "",
+      "selected": false,
+      "theme": "Issue des mobilisations",
+      "centrality": 3,
+      "kind": "fait",
+      "role": "preuve",
+      "spine_ref": 3,
+      "axis_link": "",
+      "rationale": "Prise du pouvoir militaire réduite à un mot, « temporairement »"
+    }
+  ],
+  "core_recap": [
+    "Ses présupposés : qu'un renversement profite aux citoyens ; qu'un clic vaut un bulletin ; qu'une rue sans chef pèse ensuite"
+  ],
+  "steel_man": {
+    "argument": "Au Népal, le vote sur Discord n'a fait que **proposer** une Première ministre ; des élections sont prévues en mars 2026.",
+    "alternative": "Le numérique mobilise et propose ; la place des citoyens passe encore par **les urnes**.",
+    "targets": 2
+  }
+}

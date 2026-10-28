@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "Le film mobilise des figures d'autorité venues de l'institution (Laurent Bigot, Norm Stamper), mais le `focus` et `premisses` p2 montrent des affirmations portées par un seul intervenant. Le policier de terrain n'a qu'une **phrase anonyme**, et le chiffre « Un Américain sur cinq » n'a aucune source (`e1`).",
+        "lesson": "Vérifier qui parle et combien de voix distinctes étayent chaque affirmation lourde."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 2,
+        "rationale": "Le chiffre « Un Américain sur cinq descend dans la rue » est contredit par les sondages (6 à 8 %, `confidence` 15). Le bilan des yeux perdus est exact mais limité à une seule journée, et « vaincu les gilets jaunes » est une opinion présentée comme un fait.",
+        "lesson": "Comparer chaque chiffre spectaculaire avec une source indépendante et vérifier sur quelle base il est calculé."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 3,
+        "rationale": "La chaîne est lisible, des faits datés (8 décembre 2018) vers la thèse de la militarisation. Mais `lr2` étend Seattle et Minneapolis à la France sans le démontrer, et `lr4` passe d'une restriction pratique à « plus une démocratie » sur la parole d'un seul manifestant.",
+        "lesson": "Repérer les passages où un cas particulier sert de preuve pour un autre contexte."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "Le point de vue des manifestants est central, et `cadrage.body` le montre, mais il n'est pas annoncé comme tel. Les hypothèses implicites `ia1` (même tendance partout) et `ia2` (violence surtout réactive) restent non dites, et la voix off ironique oriente la lecture sans prévenir.",
+        "lesson": "Se demander quel point de vue le film adopte et s'il l'annonce lui-même."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Plusieurs éléments importants manquent : la décision du Conseil d'État de 2021 sur l'encerclement (`bs2`), le bilan des policiers blessés (`bs1`), la réponse des autorités (`bs3`) et le décès de Zineb Redouane (`bs4`). Le contexte du 16 mars 2019 est également omis.",
+        "lesson": "Chercher le contre-fait le plus fort et vérifier s'il est mentionné."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Les `emphasis` montrent une asymétrie : les manifestants et les transfuges ont de longues séquences, les policiers de terrain une phrase anonyme. La voix off ironique (`b2`) et l'étiquette « troupes de choc des banlieues » (`e3`) colorent l'équipement et les BAC avant tout exemple d'usage.",
+        "lesson": "Comparer le temps et le ton accordés à chaque camp."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "Le récit suit une progression nette sur cinquante ans, avec des comparaisons géographiques qui l'ancrent. Les exemples concrets (Alexandre Frey, blindés, Lützerath) rendent le propos accessible. Le titre, avec « Au nom de », est parlant mais ne nomme aucun pays (`title_analysis`).",
+        "lesson": "Repérer les exemples concrets qui ancrent le propos et vérifier qu'ils sont représentatifs."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 4,
+        "rationale": "La comparaison sur cinquante ans entre la France, les États-Unis et l'Allemagne, portée par d'anciens responsables critiques, donne un angle peu banal. Le montage en écho de « Il n'y a pas eu de mort » est reconnaissable, et le `steel_man` montre que l'angle appelle de vraies contre-lectures.",
+        "lesson": "Distinguer l'originalité d'un angle de sa solidité factuelle."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Lecteur ou lectrice qui s'intéresse au maintien de l'ordre et sait déjà qu'un film militant ne donne qu'une partie du dossier, par exemple un étudiant en sciences politiques ou un journaliste.",
+      "payoff": "On comprend comment une thèse s'appuie sur des images, des témoignages d'anciens responsables et des comparaisons internationales. On repart avec des pistes à vérifier : bilan complet, cadre juridique, réponse des autorités.",
+      "signature_move": "Le film monte des récits individuels et des témoignages d'anciens responsables en écho à une phrase officielle, pour installer sa thèse sans l'étayer par des données d'ensemble.",
+      "main_blind_side": "L'absence de bilan global et de réponse des autorités laisse la thèse sans contradiction, ce qui montre un choix de cadrage centré sur les manifestants.",
+      "further_resource": {
+        "title": "Un pays qui se tient sage",
+        "source": "Gabriel Le Bomin / David Dufresne (documentaire, 2020)",
+        "media_type": "documentary",
+        "why_explore": "Il aborde le même sujet avec un parti pris proche, ce qui permet de comparer les choix de cadrage.",
+        "url": null
+      },
+      "summary": "Lecture avec réserves : le film intéressera qui suit le maintien de l'ordre, mais ses chiffres et son cadrage unilatéral demandent d'être recoupés. Il aide à repérer comment une thèse se construit par le montage plus que par les données d'ensemble."
+    }
+  }
+}

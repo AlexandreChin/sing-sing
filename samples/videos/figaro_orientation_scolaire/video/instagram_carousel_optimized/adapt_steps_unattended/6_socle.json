@@ -1,0 +1,167 @@
+{
+  "step": "socle",
+  "thesis_frame": null,
+  "options": [
+    {
+      "id": "headlinea",
+      "slot": "headline",
+      "reason": "Reprend les deux propositions de l'intervenant : la sélection plus précoce et la revalorisation des métiers manuels.",
+      "fields": {
+        "text": "**Orienter** plus tôt, et revaloriser les métiers manuels",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "headlineb",
+      "slot": "headline",
+      "reason": "Met en avant le diagnostic de l'intervenant (la sélection se déplace) et la solution qu'il en tire.",
+      "fields": {
+        "text": "**Orienter** plus tôt, car la sélection revient en pire",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p1a",
+      "slot": "p1",
+      "reason": "Le moment affirme que la sélection abolie revient plus violente ; cela suppose que celle d'avant serait plus douce, ce que la vidéo ne dit pas.",
+      "fields": {
+        "text": "Un élève écarté **au collège** souffre moins qu'un étudiant qui échoue plus tard",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p1b",
+      "slot": "p1",
+      "reason": "Sous l'idée d'une sélection « déplacée » : elle tient pour acquis que la sélection est inévitable, sans l'examiner.",
+      "fields": {
+        "text": "Une société doit **toujours** sélectionner, seul le moment se choisit",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p2a",
+      "slot": "p2",
+      "reason": "Le moment relie plus d'étudiants à des diplômés déclassés ; pour que ce lien compte, il faut admettre que réduire les effectifs réduirait le chômage.",
+      "fields": {
+        "text": "Moins d'étudiants à l'université ferait baisser le **chômage** des jeunes",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p2b",
+      "slot": "p2",
+      "reason": "Écarte les autres causes du chômage des jeunes (conjoncture, marché du travail) que le moment ne regarde pas.",
+      "fields": {
+        "text": "Le nombre de diplômés pèse plus sur le chômage que le nombre d'**emplois**",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p3a",
+      "slot": "p3",
+      "reason": "Le collège modulaire n'a ni âge, ni critères, ni passerelles ; sa promesse repose sur l'existence de débouchés manuels, jamais décrits.",
+      "fields": {
+        "text": "Les élèves orientés vers les **métiers manuels** y trouveront des emplois",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p3b",
+      "slot": "p3",
+      "reason": "Une sélection plus précoce n'a de sens que si l'on sait repérer tôt la bonne orientation, ce que la vidéo ne justifie pas.",
+      "fields": {
+        "text": "Un collégien montre déjà assez clairement **la voie** qui lui convient",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "objectiona",
+      "slot": "objection",
+      "reason": "Rend douteux que la sélection précoce ouvre des parcours : elle pourrait reproduire le problème qu'elle prétend traiter.",
+      "fields": {
+        "text": "",
+        "argument": "Une sélection au collège **fige** les parcours selon l'origine sociale au lieu de les ouvrir.",
+        "alternative": "Mieux accompagner une orientation choisie ferait reculer l'échec sans fermer de parcours.",
+        "targets_slot": "p3"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "objectionb",
+      "slot": "objection",
+      "reason": "Rend douteux le lien entre le chômage des jeunes et le système éducatif : l'apprentissage et le mode de calcul peuvent expliquer l'écart.",
+      "fields": {
+        "text": "",
+        "argument": "L'écart de chômage tient à l'**apprentissage en alternance** et au mode de calcul, pas à une sélection plus précoce.",
+        "alternative": "Développer l'alternance réduirait le chômage des jeunes sans sélection plus précoce.",
+        "targets_slot": "p2"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "headlinea",
+    "p1a",
+    "p2a",
+    "p3a",
+    "objectiona"
+  ],
+  "picked": [
+    "headlinea",
+    "p1a",
+    "p2a",
+    "p3a",
+    "objectiona"
+  ],
+  "fragment": {
+    "display": {
+      "global_analysis": {
+        "headline": "**Orienter** plus tôt, et revaloriser les métiers manuels",
+        "core_recap": [
+          "Ses présupposés : Un élève écarté **au collège** souffre moins qu'un étudiant qui échoue plus tard ; Moins d'étudiants à l'université ferait baisser le **chômage** des jeunes ; Les élèves orientés vers les **métiers manuels** y trouveront des emplois"
+        ]
+      },
+      "steel_man": {
+        "argument": "Une sélection au collège **fige** les parcours selon l'origine sociale au lieu de les ouvrir.",
+        "alternative": "Mieux accompagner une orientation choisie ferait reculer l'échec sans fermer de parcours.",
+        "targets": 3
+      }
+    }
+  },
+  "remarks": []
+}

@@ -1,0 +1,268 @@
+{
+  "article_type": "investigation",
+  "key_claims": [
+    {
+      "quote": "Au soir du 8 décembre 2018, 12 manifestants ont été blessés à la tête par un tir de balle en caoutchouc. Quatre d'entre eux vont perdre un œil.",
+      "source": "Narration du documentaire",
+      "type": "statistical"
+    },
+    {
+      "quote": "Après la crise des gilets jaunes en 2020, le gouvernement français achète 90 blindés.",
+      "source": "Narration du documentaire",
+      "type": "factual"
+    },
+    {
+      "quote": "c'est le 8 décembre qu'on a vu intervenir dans les rues de Paris pour la première fois les véhicules blindés de la gendarmerie en ordre public, ça s'était jamais vu.",
+      "source": "Michel Delpuech, ancien préfet de police de Paris",
+      "type": "attributed"
+    },
+    {
+      "quote": "Il n'y a pas eu de mort. Retenez cela.",
+      "source": "Michel Delpuech, ancien préfet de police de Paris",
+      "type": "attributed"
+    },
+    {
+      "quote": "Le maintien de l'ordre à la française, c'est simple, c'est pas de contact. Et pourquoi pas de ? Parce qu'on veut pas de morts, pas de blessés graves.",
+      "source": "Intervenant non nommé des cercles dirigeants de la police",
+      "type": "attributed"
+    },
+    {
+      "quote": "Mais en vérité, la police a tiré la première.",
+      "source": "Manifestant à Seattle en 1999",
+      "type": "testimonial"
+    },
+    {
+      "quote": "Je me suis raconté un gros mensonge.",
+      "source": "Norm Stamper, ancien chef de la police de Seattle",
+      "type": "testimonial"
+    },
+    {
+      "quote": "Un Américain sur cinq descend dans la rue.",
+      "source": "Narration du documentaire",
+      "type": "statistical"
+    },
+    {
+      "quote": "Effectivement, vous avez des manifestations qui en constituent des nasses mobiles où à partir du moment où vous pénétrez dans le cortège, vous n'avez plus l'autorisation d'en sortir.",
+      "source": "Intervenant non identifié",
+      "type": "attributed"
+    },
+    {
+      "quote": "Des lieux de rassemblement qui présentent un danger important, comme c'est le cas dans la mine à ciel ouvert de Garzweiler, peuvent être interdits.",
+      "source": "Norbert Ulrich, professeur de droit public, citant la loi de Rhénanie-du-Nord-Westphalie",
+      "type": "legal"
+    },
+    {
+      "quote": "En 2018, un document confidentiel du Pentagone dessine un scénario d'insurrection mondiale pour 2025.",
+      "source": "Narration du documentaire",
+      "type": "factual"
+    },
+    {
+      "quote": "Parce que les grenades de désencerclement, c'est considéré comme des armes de guerre comme le le LBD.",
+      "source": "Intervenant non identifié",
+      "type": "attributed"
+    }
+  ],
+  "key_quotes": [
+    "En démocratie, on ne gouverne pas avec la peur.",
+    "Il n'y a pas eu de mort. Retenez cela.",
+    "Oui, il y avait bien sûr un message pour montrer qu'on changeait de dimension.",
+    "Je suis convaincu qu'il fallait donner cette démonstration de force pour bien montrer les limites et puis notre pays l'attendait.",
+    "La décision qui est prise, c'est ? C'est il faut rétablir l'ordre dans l'urgence et à ce moment-là, on nous dit \"Bah, allez-y, rentrez-leur dedans.\"",
+    "Et aujourd'hui, il faut intervenir vite, fort, de manière extrêmement ciblée, extrêmement locale sur euh les excités, les meneurs. Et ça, c'est la doctrine.",
+    "Pour ceux qui ont peur des tanks, rappelons qu'il sera toujours possible de protester en toute sécurité depuis chez soi, devant son écran.",
+    "Si on avait eu l'intention d'enflammer les passions et de provoquer des attaques contre la police et nos magasins, on aurait pas fait autrement.",
+    "Les bataillons ouvriers disciplinés ont laissé place à une foule de colères solitaires.",
+    "On est vraiment en bout de chaîne des des dégâts de d'une société.",
+    "Le préfet de police remplace donc les services d'ordre syndicaux d'antan, mais avec des militaires dont un sur cinq porte un fusil d'assaut bien visible sur le dos.",
+    "Cela fait 50 ans que la police ne cesse de se rapprocher des manifestants, de les encadrer, de les canaliser.",
+    "Nous, ce sont des ordres qu'on a. Voilà, les gens qui sont dans le cortège, ils sortent pas.",
+    "Depuis le mouvement des gilets jaunes, toutes les blessures graves, toutes les images choquantes, c'est qu'il y a du contact.",
+    "La police a fait la même chose que nous en 1999. Et on a eu les mêmes résultats.",
+    "Si on peut plus être gênant, si on a plus le droit de déranger, alors on pourra uniquement se comporter tel que l'État et le gouvernement le souhaite",
+    "Il faut qu'ils aient l'air de gardiens de la paix."
+  ],
+  "key_actors": [
+    {
+      "name": "Laurent Bigot",
+      "role": "Ancien sous-préfet et directeur de cabinet de préfet, devenu gilet jaune"
+    },
+    {
+      "name": "Michel Delpuech",
+      "role": "Préfet de police de Paris pendant le début de la crise des gilets jaunes"
+    },
+    {
+      "name": "Didier Lallement",
+      "role": "Préfet de police de Paris ayant succédé à Michel Delpuech"
+    },
+    {
+      "name": "Alexandre Frey",
+      "role": "Manifestant gilet jaune ayant perdu un œil après un tir de LBD le 8 décembre 2018"
+    },
+    {
+      "name": "Norm Stamper",
+      "role": "Ancien chef de la police de Seattle lors du sommet de l'OMC de 1999, devenu partisan d'une réforme de la police"
+    },
+    {
+      "name": "Carole Soubel",
+      "role": "Enseignante en droit des manifestants à l'université"
+    },
+    {
+      "name": "Eric Davoine",
+      "role": "Commandant de CRS, directeur du centre de formation des CRS au maintien de l'ordre"
+    },
+    {
+      "name": "Norbert Ulrich",
+      "role": "Professeur de droit public à l'École supérieure de police, conseiller pour la loi sur les rassemblements de Rhénanie-du-Nord-Westphalie"
+    },
+    {
+      "name": "Rai",
+      "role": "Militante pour le climat, liée au mouvement Ende Gelände"
+    },
+    {
+      "name": "RWE",
+      "role": "Entreprise énergétique allemande exploitant la mine de charbon de Garzweiler"
+    },
+    {
+      "name": "Gilets jaunes",
+      "role": "Mouvement de protestation français né en novembre 2018"
+    },
+    {
+      "name": "Black Bloc",
+      "role": "Mouvance de manifestants recourant à la casse, présentée comme cible des autorités"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Laurent Bigot (ancien sous-préfet)",
+      "used_for": "Légitimer la critique de la gestion du maintien de l'ordre et des charges jugées injustifiées, au nom de son expérience passée de supervision des forces de l'ordre"
+    },
+    {
+      "entity": "Michel Delpuech (ancien préfet de police)",
+      "used_for": "Attester de l'intention politique derrière le déploiement des blindés le 8 décembre 2018"
+    },
+    {
+      "entity": "Norm Stamper (ancien chef de la police de Seattle)",
+      "used_for": "Appuyer l'idée que l'escalade policière provoque la violence et que la culture policière est en cause"
+    },
+    {
+      "entity": "Eric Davoine (commandant de CRS)",
+      "used_for": "Relier l'évolution des foules manifestantes aux transformations sociales et aux choix politiques"
+    },
+    {
+      "entity": "Carole Soubel (enseignante en droit)",
+      "used_for": "Dater le début des manifestations « modernes » au sommet de l'OMC de Seattle en 1999"
+    },
+    {
+      "entity": "Document confidentiel du Pentagone (2018)",
+      "used_for": "Montrer que les autorités anticipent une insurrection de la « génération Z »"
+    },
+    {
+      "entity": "Amnesty International",
+      "used_for": "Signaler l'inquiétude face à un recul des libertés publiques avec la loi allemande sur les rassemblements"
+    }
+  ],
+  "notable_omissions": [
+    "Le documentaire ne donne **aucun bilan global** des blessés graves parmi les manifestants ni parmi les forces de l'ordre pendant le mouvement des gilets jaunes.",
+    "Le **décès de Zineb Redouane**, touchée par une grenade lacrymogène à Marseille le 1er décembre 2018, n'est pas mentionné, alors que l'absence de morts est soulignée.",
+    "Aucun représentant actuel du **ministère de l'Intérieur** ou de la préfecture de police ne répond aux critiques sur les nasses ou les charges.",
+    "Le **cadre juridique français** des nasses et des LBD (schéma national du maintien de l'ordre, décisions du Conseil d'État) n'est pas présenté.",
+    "Le document du Pentagone sur l'« insurrection de la génération Z » est cité **sans référence vérifiable** ni précision sur son statut.",
+    "Le chiffre d'« un Américain sur cinq » dans la rue après la mort de George Floyd n'est **pas sourcé**.",
+    "Les intervenants de plusieurs scènes ne sont **pas identifiés**, notamment celui qui juge les nasses mobiles peut-être illégales.",
+    "Le point de vue de **policiers de terrain** sur les violences subies est peu présent, hormis un témoignage anonyme sur l'ordre de « rentrer dedans »."
+  ],
+  "rhetorical_patterns": [
+    "**Ouverture par contraste** : images du 1er mai d'autrefois avec des policiers « débonnaires » face à des policiers « déguisés en cow-boys de l'espace ».",
+    "**Voix off ironique** : « les blindés semblent désespérément chercher un ennemi à leur mesure », « protester en toute sécurité depuis chez soi, devant son écran ».",
+    "**Figures de transfuges** mises en avant : un ancien sous-préfet devenu gilet jaune, un ancien chef de police devenu réformateur.",
+    "**Montage en écho** : la phrase « En démocratie, on ne gouverne pas avec la peur » répond à « Il n'y a pas eu de mort. Retenez cela. »",
+    "**Comparaisons internationales** en chaîne (Seattle, Minneapolis, Portland, Lützerath, Cologne) pour dessiner une tendance commune.",
+    "**Récit chronologique sur 50 ans** pour présenter un rapprochement continu de la police et des manifestants.",
+    "**Explication sociale** de l'évolution des foules : désindustrialisation, précarité, « colères solitaires ».",
+    "**Questions ouvertes** en voix off qui structurent les séquences et se terminent en suspens sur l'origine des fusils à balles en caoutchouc."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx1",
+        "text": "Le mouvement des **gilets jaunes** débute en novembre 2018 contre une hausse de la taxe sur les carburants, avec des manifestations chaque samedi à Paris."
+      },
+      {
+        "id": "ctx2",
+        "text": "Après les violences du 16 mars 2019 sur les Champs-Élysées, **Michel Delpuech est remplacé** par Didier Lallement à la préfecture de police de Paris."
+      },
+      {
+        "id": "ctx3",
+        "text": "La mort de **George Floyd** lors d'une interpellation à Minneapolis, le 25 mai 2020, déclenche une vague de manifestations aux États-Unis."
+      },
+      {
+        "id": "ctx4",
+        "text": "Le village de **Lützerath**, en Rhénanie-du-Nord-Westphalie, est évacué et détruit début 2023 pour l'extension de la mine de charbon de Garzweiler exploitée par RWE."
+      }
+    ],
+    "who_is_speaking": [
+      "**Arte** est une chaîne publique franco-allemande financée par la contribution publique des deux pays, connue pour ses documentaires et son angle européen.",
+      "Les **auteurs du documentaire** ne sont pas nommés dans la transcription ; la voix off adopte un ton souvent ironique envers les forces de l'ordre.",
+      "Le film donne une large place à des **critiques venues de l'intérieur** de l'institution (ancien sous-préfet, ancien chef de police, commandant de CRS)."
+    ],
+    "important_facts": [
+      {
+        "id": "fact1",
+        "text": "Selon le recensement du journaliste **David Dufresne**, environ **25 personnes ont perdu un œil** pendant le mouvement des gilets jaunes."
+      },
+      {
+        "id": "fact2",
+        "text": "En janvier 2019, le **Défenseur des droits** Jacques Toubon a demandé la suspension de l'usage du LBD en manifestation."
+      },
+      {
+        "id": "fact3",
+        "text": "Le **schéma national du maintien de l'ordre** est publié en septembre 2020 ; en juin 2021, le **Conseil d'État** en annule plusieurs dispositions, dont celle sur l'encerclement des manifestants."
+      },
+      {
+        "id": "fact4",
+        "text": "Les blindés achetés après la crise sont des **véhicules Centaure** de la gendarmerie, commandés à 90 exemplaires."
+      },
+      {
+        "id": "fact5",
+        "text": "Selon des sondages cités par le New York Times, **15 à 26 millions** d'Américains ont manifesté après la mort de George Floyd, soit environ **6 à 8 %** de la population adulte."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "LBD",
+        "definition": "Lanceur de balles de défense : arme qui tire des projectiles en caoutchouc, dite « moins létale »."
+      },
+      {
+        "term": "Nasse",
+        "definition": "Technique policière qui consiste à encercler un groupe de manifestants pour l'empêcher de sortir."
+      },
+      {
+        "term": "Grenade de désencerclement",
+        "definition": "Grenade qui projette des plots en caoutchouc autour d'elle pour disperser des personnes proches des policiers."
+      },
+      {
+        "term": "BAC",
+        "definition": "Brigade anti-criminalité : unité de policiers en civil, habituellement chargée de la délinquance de rue."
+      },
+      {
+        "term": "CRS",
+        "definition": "Compagnies républicaines de sécurité : unités de la police nationale spécialisées dans le maintien de l'ordre."
+      },
+      {
+        "term": "Black Bloc",
+        "definition": "Manière de manifester en groupe, vêtus de noir et masqués, en ciblant des symboles de l'État ou du capitalisme."
+      },
+      {
+        "term": "Désescalade",
+        "definition": "Stratégie policière qui cherche à réduire les tensions par le dialogue et une force proportionnée."
+      },
+      {
+        "term": "OMC",
+        "definition": "Organisation mondiale du commerce : institution internationale qui fixe les règles du commerce entre les pays."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "Titre : Au nom du maintien de l'ordre"
+  }
+}

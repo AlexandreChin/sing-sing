@@ -1,0 +1,125 @@
+{
+  "step": "idees",
+  "thesis_frame": null,
+  "options": [
+    {
+      "id": "1a",
+      "slot": "1",
+      "reason": "Pose la prémisse de départ (abolir la sélection) que « La question » reprend : orienter sans fermer de parcours.",
+      "fields": {
+        "text": "Un **mensonge** : la réussite pour tous, la sélection abolie, selon l'intervenant"
+      },
+      "edited": false,
+      "flags": [
+        "display.essentiel[0] shares no key word with slide 8 (root_issue / cta.engagement_sentence) — « Un mensonge : la réussite pour tous, la sélection abolie, se » reads as a side subject; tie it to the enjeu or the question"
+      ]
+    },
+    {
+      "id": "1b",
+      "slot": "1",
+      "reason": "Met l'accent sur l'idée que la sélection ne disparaît pas, ce qui mène à se demander quand et comment orienter.",
+      "fields": {
+        "text": "Une sélection **déplacée** : abolie à l'école, elle revient plus violente après"
+      },
+      "edited": false,
+      "flags": [
+        "display.essentiel[0] shares no key word with slide 8 (root_issue / cta.engagement_sentence) — « Une sélection déplacée : abolie à l'école, elle revient plus » reads as a side subject; tie it to the enjeu or the question"
+      ]
+    },
+    {
+      "id": "1c",
+      "slot": "1",
+      "reason": "Ouvre sur la massification, point de départ du diagnostic, avant la question de l'orientation.",
+      "fields": {
+        "text": "Trop d'**étudiants** : huit fois plus qu'en 1960, pour 95 % d'admis"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "2a",
+      "slot": "2",
+      "reason": "Donne l'effet que l'intervenant attribue à l'ouverture de l'université ; il appelle la question d'orienter autrement.",
+      "fields": {
+        "text": "Des diplômés **déclassés** : échecs en licence, chômage des jeunes à 21 %"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "2b",
+      "slot": "2",
+      "reason": "Relie l'échec scolaire à la crainte exprimée sur l'avenir des jeunes, ce qui ouvre l'enjeu des parcours.",
+      "fields": {
+        "text": "Une jeunesse sans **débouchés** : chômage de masse ou radicalité, craint-il"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "2c",
+      "slot": "2",
+      "reason": "Chiffre l'effet de la massification et justifie de chercher une autre orientation.",
+      "fields": {
+        "text": "Un gâchis : l'échec en licence coûterait un **demi-milliard** par an"
+      },
+      "edited": false,
+      "flags": [
+        "display.essentiel[1] shares no key word with slide 8 (root_issue / cta.engagement_sentence) — « Un gâchis : l'échec en licence coûterait un demi-milliard pa » reads as a side subject; tie it to the enjeu or the question"
+      ]
+    },
+    {
+      "id": "3a",
+      "slot": "3",
+      "reason": "Énonce la solution proposée, celle que « La question » interroge : à quelles conditions elle ouvre des parcours.",
+      "fields": {
+        "text": "Un **collège modulaire** : sélectionner plus tôt, sans en préciser l'âge"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "3b",
+      "slot": "3",
+      "reason": "Énonce la contrepartie annoncée, qui conditionne selon l'intervenant que l'orientation précoce ne ferme pas de parcours.",
+      "fields": {
+        "text": "Des métiers de la main **revalorisés** en contrepartie d'une sélection plus précoce"
+      },
+      "edited": false,
+      "flags": [
+        "display.essentiel[2] shares no key word with slide 8 (root_issue / cta.engagement_sentence) — « Des métiers de la main revalorisés en contrepartie d'une sél » reads as a side subject; tie it to the enjeu or the question"
+      ]
+    },
+    {
+      "id": "3c",
+      "slot": "3",
+      "reason": "Formule la conclusion comme un changement d'organisation, en lien direct avec l'enjeu d'orienter la jeunesse.",
+      "fields": {
+        "text": "Orienter plus tôt : le collège **unique** laisserait place à des voies distinctes"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "1b",
+    "2a",
+    "3a"
+  ],
+  "picked": [
+    "1b",
+    "2a",
+    "3a"
+  ],
+  "fragment": {
+    "display": {
+      "essentiel": [
+        "Une sélection **déplacée** : abolie à l'école, elle revient plus violente après",
+        "Des diplômés **déclassés** : échecs en licence, chômage des jeunes à 21 %",
+        "Un **collège modulaire** : sélectionner plus tôt, sans en préciser l'âge"
+      ]
+    }
+  },
+  "remarks": []
+}

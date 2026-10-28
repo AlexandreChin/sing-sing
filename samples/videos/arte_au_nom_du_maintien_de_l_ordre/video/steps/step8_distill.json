@@ -1,0 +1,65 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "Le film transforme **un cas unique** (quatre yeux perdus le 8 décembre) et un chiffre **surévalué** (« un Américain sur cinq » contre 6 à 8 %) en mesures d'ampleur : l'indignation s'appuie sur des chiffres qui ne disent ni le total des blessés, ni le bilan côté policiers.",
+        "references": [
+          "obs_0",
+          "bs_0",
+          "er_0",
+          "claim_0",
+          "bias_0",
+          "obs_3",
+          "claim_1"
+        ]
+      },
+      {
+        "text": "La thèse d'une **ligne droite de cinquante ans** vers la militarisation repose sur une tendance supposée commune à Seattle, Minneapolis, Paris et Cologne, et passe sous silence l'annulation par le **Conseil d'État** en 2021 de la disposition sur l'encerclement. Le contre-pouvoir juridique et la désescalade allemande « disponible » ne sont pas examinés.",
+        "references": [
+          "ia_0",
+          "lr_1",
+          "cb_1",
+          "bias_2",
+          "pr_2",
+          "bs_1",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "Les **témoignages d'anciens responsables** (Bigot, Stamper) portent la thèse sur de longues séquences, tandis que les policiers de terrain n'ont qu'une phrase anonyme et que les autorités ne sont pas sollicitées sur la légalité des nasses. Le film suppose, sans le dire, que les transfuges décrivent l'institution plus fidèlement.",
+        "references": [
+          "ia_2",
+          "pr_1",
+          "cb_0",
+          "bs_2"
+        ]
+      },
+      {
+        "text": "Le **point de vue des manifestants** n'est jamais annoncé : prémisse normative sur la démocratie, voix off ironique sur les blindés et étiquette sur les BAC installent la menace avant tout exemple d'usage. Le passage de la restriction pratique à « plus une démocratie » prolonge ce cadrage.",
+        "references": [
+          "pr_3",
+          "lr_3",
+          "er_1",
+          "ia_1",
+          "bias_1",
+          "obs_4",
+          "claim_2"
+        ]
+      },
+      {
+        "text": "Le mot « **vaincu** » pour les gilets jaunes et le silence sur les violences du 16 mars 2019 retirent le contexte qui permettrait de lire la nomination de Lallement autrement qu'en **durcissement voulu**.",
+        "references": [
+          "obs_2",
+          "claim_3",
+          "ia_1",
+          "bs_3"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quel est le bilan global des blessés graves lors des manifestations de gilets jaunes, côté manifestants comme côté policiers ?",
+      "Que disent les autorités, et sur quelle base légale, de l'usage des nasses depuis la décision de 2021 ?",
+      "Les tendances de Seattle, Minneapolis, Paris et Cologne sont-elles comparables, et sur quels critères ?"
+    ]
+  }
+}

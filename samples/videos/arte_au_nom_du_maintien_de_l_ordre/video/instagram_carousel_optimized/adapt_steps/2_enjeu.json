@@ -1,0 +1,63 @@
+{
+  "step": "enjeu",
+  "thesis_frame": null,
+  "options": [
+    {
+      "id": "a",
+      "slot": "enjeu",
+      "reason": "Enjeu général : le droit de déranger comme condition de la démocratie. La question demande à quels signes on distingue un maintien de l'ordre qui protège ce droit de celui qui le réduit. Reprend le mot en gras « droit de manifester » via « déranger » ; à ajuster si le mot partagé doit être « manifester ».",
+      "fields": {
+        "text": "La capacité d'une démocratie à laisser ses citoyens **déranger** sans que l'ordre public en fasse une menace."
+      },
+      "edited": false,
+      "flags": [
+        "cta.engagement_sentence shares no **gilded** word with display.root_issue — slide 8 ties the two cards by the word they share: gild it on both sides (« la société **promet** … » / « … tient sa **promesse** ? »)"
+      ]
+    },
+    {
+      "id": "b",
+      "slot": "enjeu",
+      "reason": "Angle du risque : la frontière entre encadrer et réduire. La question invite à chercher les signes de ce basculement dans le cas montré. Reprend « réduit » de la question.",
+      "fields": {
+        "text": "Le risque que, pour garantir l'ordre, l'État **réduise** le droit de manifester à ce qu'il autorise lui-même."
+      },
+      "edited": false,
+      "flags": [
+        "cta.engagement_sentence shares no **gilded** word with display.root_issue — slide 8 ties the two cards by the word they share: gild it on both sides (« la société **promet** … » / « … tient sa **promesse** ? »)"
+      ]
+    },
+    {
+      "id": "c",
+      "slot": "enjeu",
+      "reason": "Angle de la valeur du droit : un droit qui ne dérange pas perd son sens. La question demande à quoi on reconnaît un droit protégé ou vidé. Reprend littéralement « droit de manifester ».",
+      "fields": {
+        "text": "La valeur d'un **droit de manifester** qui ne vaut que s'il peut gêner ceux qui gouvernent."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "enjeu",
+      "reason": "Angle de l'équilibre entre sécurité et liberté, qui tient compte de la violence subie par les policiers sans la chiffrer. La question demande ce que ce cas montre de cet équilibre. Reprend littéralement « droit de manifester ».",
+      "fields": {
+        "text": "La façon de protéger citoyens et policiers sans que la force publique l'emporte sur le **droit de manifester**."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "b"
+  ],
+  "picked": [
+    "c"
+  ],
+  "fragment": {
+    "display": {
+      "root_issue": "La valeur d'un **droit de manifester** qui ne vaut que s'il peut gêner ceux qui gouvernent."
+    }
+  },
+  "remarks": []
+}
