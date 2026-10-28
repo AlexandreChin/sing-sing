@@ -38,7 +38,8 @@ def option_fields(deck: dict) -> dict[str, dict]:
         | {"second_claim": a["second"]["claim"], "second_detail": a["second"]["detail"],
            **dict(zip(("second_note1", "second_note2"), [_note(n) for n in a["second_notes"]] + ["", ""]))},
         "depassement": {"title": d["title"], "lead": d["lead"],
-                        **{f"lever{i}": f"{lv['title']} | {lv['detail']}" for i, lv in enumerate(d["levers"], 1)}},
+                        **{f"lever{i}": f"{lv['title']} | {lv['detail']}" for i, lv in enumerate(d["levers"], 1)},
+                        "lever1_note": _note(d["levers"][0]["note"]) if d["levers"][0].get("note") else ""},
         "boussole": {"title": b["title"],
                      **{f"{k}{i}": o[k] for i, o in enumerate(b["options"], 1) for k in ("question", "pro", "con")}},
         "hook": {"title": deck["hook"]["title"], "promise": deck["hook"]["promise"]},
@@ -60,7 +61,7 @@ def test_the_deck_validates():
 def test_fragments_rebuild_the_deck():
     frags = {s.name: agent.to_fragment(s, Option(id="a", slot="a", reason="", fields=FIELDS[s.name]))
              for s in agent.STEPS}
-    assert agent.assemble(frags) == CadragePresentation.model_validate(DECK).model_dump()
+    assert CadragePresentation.model_validate(agent.assemble(frags)) == CadragePresentation.model_validate(DECK)
 
 
 def test_an_empty_figure_or_note_is_left_out():
@@ -102,6 +103,11 @@ def test_a_note_names_its_kind():
     assert any("note1" in e for e in hard("these", note1="Le Céreq : l'insertion"))
     assert any("note1" in e for e in hard("angle_mort", note1="lien | "))
     assert hard("these", note1="source | **Le Céreq** : l'insertion") == []
+
+
+def test_a_lever_note_is_optional_but_typed():
+    assert hard("depassement", lever1_note="") == []
+    assert any("lever1_note" in e for e in hard("depassement", lever1_note="Contestation : un contexte"))
 
 
 def test_a_lever_needs_a_title_and_a_detail():

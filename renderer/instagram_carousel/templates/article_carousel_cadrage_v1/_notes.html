@@ -1,0 +1,1 @@
+{% macro look(items) %}{% if items %}<div class="look">{% for w in items %}<span class="src"><svg viewBox="0 0 24 24">{% if w.kind == 'remark' %}{{ ICONS.bookmark | safe }}{% else %}<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/>{% endif %}</svg><span>{{ w.text | md_bold }}</span></span>{% endfor %}</div>{% endif %}{% endmacro %}
