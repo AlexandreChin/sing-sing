@@ -1,0 +1,76 @@
+{
+  "step": "question",
+  "thesis_frame": {
+    "main_claim": "Le maintien de l'ordre s'est militarisé en cinquante ans, au point de restreindre le droit de manifester et de déranger.",
+    "out_of_scope": [
+      "Le bilan des blessés parmi les forces de l'ordre",
+      "Les conditions de travail et le moral des policiers de terrain",
+      "Le détail du cadre juridique français et des décisions de justice"
+    ]
+  },
+  "options": [
+    {
+      "id": "a",
+      "slot": "question",
+      "reason": "Ramène l'enjeu du droit de déranger au cas : l'effet concret du dispositif policier (blindés, nasses, policiers au plus près) sur ceux qui défilent.",
+      "fields": {
+        "text": "Qu'est-ce qui, dans la façon d'encadrer un cortège, change ce que les manifestants osent **déranger** ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "question",
+      "reason": "Prend le présupposé le plus décisif (violence surtout réactive, doctrine héritée) et demande ce que la mutation des foules change au dispositif, sans trancher.",
+      "fields": {
+        "text": "Dans quelle mesure une **foule** devenue solitaire et « illisible » appelle-t-elle d'autres moyens que ceux pensés pour les cortèges syndicaux ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "question",
+      "reason": "Demande au lecteur un critère concret pour juger Paris, Seattle, Lützerath ou Cologne, en gardant les deux faces ouvertes.",
+      "fields": {
+        "text": "À quoi voit-on qu'un maintien de l'ordre protège le **droit de manifester**, et à quoi voit-on qu'il le réduit ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "question",
+      "reason": "Interroge le présupposé de continuité entre cas étrangers et cas français, que la vidéo pose sans le démontrer.",
+      "fields": {
+        "text": "Jusqu'où des situations aussi différentes que Seattle, Paris et Cologne relèvent-elles d'une même **tendance** ?"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "c"
+  ],
+  "fragment": {
+    "display": {
+      "thesis_frame": {
+        "main_claim": "Le maintien de l'ordre s'est militarisé en cinquante ans, au point de restreindre le droit de manifester et de déranger.",
+        "out_of_scope": [
+          "Le bilan des blessés parmi les forces de l'ordre",
+          "Les conditions de travail et le moral des policiers de terrain",
+          "Le détail du cadre juridique français et des décisions de justice"
+        ]
+      }
+    },
+    "cta": {
+      "engagement_sentence": "À quoi voit-on qu'un maintien de l'ordre protège le **droit de manifester**, et à quoi voit-on qu'il le réduit ?"
+    }
+  },
+  "remarks": []
+}

@@ -1,0 +1,197 @@
+{
+  "main_claim": "Le maintien de l'ordre s'est **militarisé** au point de **restreindre le droit de manifester**.",
+  "premisses": [
+    {
+      "id": "p1",
+      "statement": "Depuis cinquante ans, la police s'équipe d'**armes de plus en plus nombreuses** et se **rapproche des cortèges**.",
+      "quality": "Appuyée sur des faits datés (blindés du 8 décembre 2018, achat de 90 blindés, LBD), mais le **récit sur 50 ans** repose surtout sur des images d'archives contrastées, sans série chiffrée."
+    },
+    {
+      "id": "p2",
+      "statement": "Le **contact** entre police et manifestants produit les **blessures graves**.",
+      "quality": "Assertion d'un seul intervenant, illustrée par **un cas marquant** (Alexandre Frey) et un bilan d'une seule journée ; aucun bilan global."
+    },
+    {
+      "id": "p3",
+      "statement": "L'**escalade policière** provoque la violence plus qu'elle ne la contient.",
+      "quality": "Repose sur le témoignage de **Norm Stamper** à Seattle, étendu à Minneapolis et à la France : une **analogie** entre des contextes différents."
+    },
+    {
+      "id": "p4",
+      "statement": "Pouvoir **déranger dans la rue** définit la démocratie.",
+      "quality": "**Prémisse normative** posée par des manifestants, jamais discutée."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "id": "ia1",
+      "statement": "Les **situations de Seattle, Minneapolis, Paris et Cologne** relèvent d'une même tendance.",
+      "impact": "Sans cette continuité, chaque épisode s'explique par son contexte local, et le récit d'une **dérive commune** se défait."
+    },
+    {
+      "id": "ia2",
+      "statement": "La violence des manifestants est surtout une **réponse** à la posture policière.",
+      "impact": "Si une partie de la violence était **préméditée** (1er décembre 2018), le durcissement pourrait se lire comme une réaction plutôt qu'une cause."
+    },
+    {
+      "id": "ia3",
+      "statement": "Les **anciens responsables devenus critiques** décrivent l'institution plus fidèlement que ceux en poste.",
+      "impact": "Si leur parcours colore leur regard, le poids des **témoignages de transfuges** diminue."
+    }
+  ],
+  "blind_spots": [
+    {
+      "id": "bs1",
+      "topic": "Le **bilan des blessés parmi les forces de l'ordre** pendant les gilets jaunes.",
+      "significance": "Il permettrait de mesurer la violence **des deux côtés** et de juger la proportion de la réponse."
+    },
+    {
+      "id": "bs2",
+      "topic": "Le **cadre juridique français** : schéma national du maintien de l'ordre, décision du Conseil d'État sur l'encerclement.",
+      "significance": "Il montrerait que la nasse a déjà été **limitée par un juge**, ce qui nuance l'image d'une dérive sans contre-pouvoir."
+    },
+    {
+      "id": "bs3",
+      "topic": "La **réponse des autorités actuelles** sur les nasses, les charges et le LBD.",
+      "significance": "Leur absence laisse les critiques **sans contradiction** sur les points les plus graves."
+    },
+    {
+      "id": "bs4",
+      "topic": "Le **décès de Zineb Redouane**, mentionné nulle part alors que « il n'y a pas eu de mort » est répété.",
+      "significance": "Il fragiliserait la phrase du préfet que le film met en scène, et **changerait la portée** du montage en écho."
+    }
+  ],
+  "emphasis": [
+    "Le film revient **trois fois** sur la phrase « Il n'y a pas eu de mort », alors que le bilan global des blessés n'est **jamais donné**.",
+    "Les **témoignages de transfuges** (Bigot, Stamper) occupent de longues séquences, tandis que les policiers de terrain n'ont qu'une **phrase anonyme**.",
+    "La séquence allemande détaille **banderoles, tambours et pancarte** saisie, alors que les cas de violence de manifestants sont traités en **quelques plans**."
+  ],
+  "logical_reasoning": [
+    {
+      "id": "lr1",
+      "step": "Le 8 décembre 2018, blindés et LBD sont déployés ; ce jour-là, **quatre manifestants perdent un œil**.",
+      "problem_type": null,
+      "diagnosis": null
+    },
+    {
+      "id": "lr2",
+      "step": "Seattle 1999 et Minneapolis 2020 montrent qu'une police offensive **déclenche l'escalade** ; il en irait de même en France.",
+      "problem_type": "validity",
+      "diagnosis": "Le passage d'un **contexte américain** au cas français n'est pas démontré ; les doctrines et les armes diffèrent."
+    },
+    {
+      "id": "lr3",
+      "step": "Les nasses mobiles et l'encadrement serré **intimident** les manifestants pacifiques.",
+      "problem_type": "soundness",
+      "diagnosis": "Repose sur des **témoignages de manifestants** et d'un intervenant non identifié ; la décision du Conseil d'État n'est pas citée."
+    },
+    {
+      "id": "lr4",
+      "step": "Donc l'État réduit la manifestation à ce qu'il **autorise**, ce qui n'est **plus une démocratie**.",
+      "problem_type": "validity",
+      "diagnosis": "La conclusion vient d'un manifestant de Cologne et passe d'une **restriction pratique** à une **remise en cause du régime**."
+    }
+  ],
+  "observations": [
+    {
+      "id": "o1",
+      "aspect": "Chiffrage",
+      "summary": "Le film donne le bilan d'**une seule journée** (quatre yeux perdus le 8 décembre), alors qu'un recensement indépendant en compte **environ 25** sur tout le mouvement, que le Défenseur des droits avait jugé assez grave pour demander la suspension du LBD.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "environ 25 personnes ont perdu un œil",
+        "strength": 0.9,
+        "nature": "specification"
+      },
+      "proven_by": []
+    },
+    {
+      "id": "o2",
+      "aspect": "Contexte",
+      "summary": "La nasse est présentée comme une pratique en expansion, sans dire que le **Conseil d'État** a annulé en 2021 la disposition du schéma national sur l'encerclement.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "le Conseil d'État en annule plusieurs dispositions, dont celle sur l'encerclement",
+        "strength": 0.9,
+        "nature": "contradiction"
+      },
+      "proven_by": []
+    },
+    {
+      "id": "o3",
+      "aspect": "Chronologie",
+      "summary": "Le passage de Delpuech à Lallement est raconté comme une **victoire sur les gilets jaunes**, sans mentionner qu'il suit les **violences du 16 mars 2019**, quatre mois après le début du mouvement contre la taxe carburant.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "Michel Delpuech est remplacé par Didier Lallement",
+        "strength": 0.7,
+        "nature": "specification"
+      },
+      "proven_by": []
+    },
+    {
+      "id": "o4",
+      "aspect": "Sourçage",
+      "summary": "« Un Américain sur cinq » dans la rue après la mort de George Floyd dépasse les **6 à 8 %** estimés par les sondages cités par la presse américaine.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 4,
+        "excerpt": "15 à 26 millions d'Américains, soit environ 6 à 8 %",
+        "strength": 0.9,
+        "nature": "contradiction"
+      },
+      "proven_by": []
+    },
+    {
+      "id": "o5",
+      "aspect": "Précision",
+      "summary": "Les 90 blindés achetés sont des **véhicules Centaure** de la gendarmerie ; le film les présente avec une **mitrailleuse lourde** « contre les terroristes », et passe ensuite à Lützerath, où la police allemande pratique une **désescalade** sur un site détruit en 2023.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 3,
+        "excerpt": "véhicules Centaure de la gendarmerie, commandés à 90 exemplaires",
+        "strength": 0.6,
+        "nature": "specification"
+      },
+      "proven_by": []
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "Le 1er décembre 2018 relevait de **l'émeute**, avec des tentatives de tuer des policiers : une doctrine conçue pour des cortèges syndicaux ne pouvait pas y répondre, et le durcissement a **évité des morts**.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 1,
+        "excerpt": "La violence des manifestants est surtout une réponse",
+        "strength": 0.8,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Le durcissement serait une **adaptation à des foules plus violentes et moins lisibles**, à encadrer plutôt qu'une dérive en soi."
+    },
+    {
+      "counterargument": "Les doctrines françaises, américaines et allemandes **diffèrent profondément** ; l'Allemagne pratique la désescalade, et le juge français a limité la nasse.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 0,
+        "excerpt": "relèvent d'une même tendance",
+        "strength": 0.7,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Il n'y aurait pas une militarisation commune, mais des **choix nationaux distincts**, dont certains corrigés par les contre-pouvoirs."
+    },
+    {
+      "counterargument": "Le droit de manifester reste exercé et protégé : des tribunaux ont **annulé des mesures**, des itinéraires sont négociés, et à Cologne la pancarte saisie n'a pas empêché le cortège de repartir.",
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 3,
+        "excerpt": "ce qui n'est plus une démocratie",
+        "strength": 0.6,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Les restrictions seraient des **tensions ordinaires** entre ordre public et liberté, arbitrées par le droit."
+    }
+  ]
+}

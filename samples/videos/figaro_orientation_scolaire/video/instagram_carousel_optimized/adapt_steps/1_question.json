@@ -1,0 +1,60 @@
+{
+  "step": "question",
+  "thesis_frame": {
+    "main_claim": "Promettre la réussite pour tous et abolir la sélection a créé échec de masse et chômage ; il faut sélectionner plus tôt et valoriser les métiers manuels.",
+    "out_of_scope": [
+      "Le rôle de la police et des inégalités de territoire dans les émeutes",
+      "Le financement de l'enseignement supérieur et des filières professionnelles",
+      "Le contenu des programmes scolaires et la pédagogie en classe"
+    ]
+  },
+  "options": [
+    {
+      "id": "a",
+      "slot": "question",
+      "reason": "Interroge le lien de cause central, présupposé par la vidéo, entre massification et échec ou chômage.",
+      "fields": {
+        "text": "Dans quelle mesure l'échec en licence et le **chômage** des jeunes viennent-ils de l'accès ouvert à l'université, plutôt que d'autres causes ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "question",
+      "reason": "Porte sur la solution proposée (collège modulaire), dont ni l'âge, ni les critères, ni les passerelles ne sont donnés.",
+      "fields": {
+        "text": "Qu'est-ce qui permettrait de savoir si une orientation plus **précoce** ouvre des débouchés ou ferme des parcours ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "question",
+      "reason": "Ramène le cas aux comparaisons chiffrées sans source ni définition, à vérifier dans la vidéo et autour.",
+      "fields": {
+        "text": "Que faut-il savoir sur un **chiffre** de chômage des jeunes, comme 21 % contre 3 %, pour le comparer d'un pays à l'autre ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "question",
+      "reason": "Interroge le présupposé d'ouverture : le lien entre émeutes et échec scolaire, que la vidéo pose sans le montrer.",
+      "fields": {
+        "text": "Jusqu'où le sort scolaire et professionnel des jeunes explique-t-il le recours à la **violence** dans les émeutes ?"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [],
+  "fragment": {},
+  "remarks": []
+}

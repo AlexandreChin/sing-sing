@@ -1,0 +1,110 @@
+{
+  "beats": [
+    {
+      "index": 2,
+      "lens_question": "Un mouvement dit inédit : quels précédents ?",
+      "note": "Devant une **première** annoncée, cherchez les **cas antérieurs** et ce qu'ils sont devenus.",
+      "answer": "**Remontez à 2022** : des jeunes ont fait tomber le pouvoir au Sri Lanka, puis au Bangladesh en 2024. La BBC et Reuters racontent la suite."
+    },
+    {
+      "index": 5,
+      "lens_question": "Un vote sur une plateforme : qui y prend part ?",
+      "note": "Devant une décision prise **en ligne**, demandez **combien** ont voté et qui pouvait le faire.",
+      "answer": "**Sans liste électorale** : sur Discord, messagerie de groupe, vote qui se connecte. Les citoyens népalais retournent aux urnes en mars 2026."
+    },
+    {
+      "index": 6,
+      "lens_question": "Après la chute d'un régime : qui prend la place ?",
+      "note": "Quand un gouvernement tombe, regardez **qui le remplace** et d'où vient ce **successeur**.",
+      "answer": "**L'armée et les institutions** : à Madagascar, un colonel a pris le pouvoir ; au Pérou, le chef du Parlement a remplacé la présidente destituée."
+    }
+  ],
+  "reperes_facts": [
+    {
+      "label": "La génération",
+      "text": "Le centre Pew la fait naître entre **1997 et 2012** : 13-28 ans."
+    },
+    {
+      "label": "Le Maroc",
+      "text": "Le collectif GenZ 212 oppose les **stades** du Mondial 2030 aux hôpitaux publics."
+    },
+    {
+      "label": "Le diffuseur",
+      "text": "**ARTE**, chaîne publique culturelle franco-allemande : un récit tourné vers les mobilisations."
+    }
+  ],
+  "why_selected": "Septembre 2025, du Népal au Pérou : **réseaux sociaux coupés**, coupures d'eau, hôpitaux délaissés jettent des **adolescents** dans la rue.\nLe Népal revote en **mars 2026** : premier test, dans les urnes, de ce que la rue a obtenu.",
+  "selection_headline": "Des besoins vitaux, une génération debout",
+  "key_takeaways": [
+    {
+      "text": "En 2025, des mobilisations de jeunes ont fait chuter des dirigeants au Népal, à Madagascar, au Pérou.",
+      "selected": true
+    },
+    {
+      "text": "Au Népal, le mouvement a désigné sur Discord une Première ministre d'intérim, ancienne juge suprême.",
+      "selected": true
+    },
+    {
+      "text": "À Madagascar, la chute du président a mené un colonel au pouvoir.",
+      "selected": true
+    },
+    {
+      "text": "Les revendications portent sur l'eau, l'électricité, les hôpitaux, la sécurité et la corruption.",
+      "selected": false
+    },
+    {
+      "text": "Le drapeau pirate du manga One Piece sert de signe de ralliement d'un pays à l'autre.",
+      "selected": false
+    },
+    {
+      "text": "Au Népal, la suspension de 26 réseaux sociaux a déclenché les manifestations.",
+      "selected": false
+    }
+  ],
+  "go_further": [
+    {
+      "title": "Démission de Gotabaya Rajapaksa au Sri Lanka",
+      "source": "BBC News",
+      "media_type": "article",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Un précédent de 2022 pour voir ce que devient le pouvoir après une révolte de la jeunesse."
+    },
+    {
+      "title": "Démission de Sheikh Hasina au Bangladesh",
+      "source": "Reuters",
+      "media_type": "article",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Un autre précédent, en 2024, où des étudiants ont renversé une Première ministre et vu qui lui succédait."
+    },
+    {
+      "title": "Où s'arrêtent les millennials et où commence la génération Z",
+      "source": "Pew Research Center",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "La définition la plus citée de la génération Z, pour savoir de qui l'on parle."
+    }
+  ],
+  "where_to_look": [
+    "BBC et Reuters : Sri Lanka 2022, Bangladesh 2024",
+    "Les élections annoncées au Népal pour mars 2026",
+    "Pew Research Center : qui compte dans la génération Z"
+  ],
+  "hook": {
+    "topic": "La **génération Z** dans la rue",
+    "sub_topic": "Gouvernements tombés, votes **en ligne** : à qui va le **pouvoir** ?",
+    "subtitle": "Comprendre qui le reprend.",
+    "headline": "la rue des jeunes renverse, mais **qui gouverne** ensuite ?",
+    "sub_topic_alt": [
+      "Sans chef, ils font tomber des **gouvernements** : et après ?",
+      "Des votes **en ligne**, des régimes renversés : quel **pouvoir** ensuite ?",
+      "La rue gagne : qui prend le **pouvoir** qu'elle libère ?"
+    ]
+  },
+  "caption": "Népal, Madagascar, Pérou : en 2025, des jeunes ont fait chuter des gouvernements, souvent sans chef et en votant en ligne. 🔥\n\n🔎 Les clefs pour comprendre en une minute à qui revient le pouvoir après la rue.\n\n🔗 Lien vers la vidéo en commentaires ↓"
+}

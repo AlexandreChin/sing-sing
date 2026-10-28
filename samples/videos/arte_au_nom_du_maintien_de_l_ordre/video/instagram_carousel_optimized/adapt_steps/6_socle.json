@@ -1,0 +1,354 @@
+{
+  "step": "socle",
+  "thesis_frame": null,
+  "options": [
+    {
+      "id": "headlined",
+      "slot": "headline",
+      "reason": "Affirme le moteur de la vidéo : la police qui s'approche et s'arme provoque la violence qu'elle prétend contenir (Seattle, puis la France).",
+      "fields": {
+        "text": "Un maintien de l'ordre **offensif** attise la colère",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "headlinee",
+      "slot": "headline",
+      "reason": "Affirme la conclusion de la vidéo : pouvoir gêner le pouvoir définit la démocratie, et ce droit se restreint.",
+      "fields": {
+        "text": "Sans **droit** de déranger, la démocratie s'éteint",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "headlinef",
+      "slot": "headline",
+      "reason": "Reprend la thèse centrale : cinquante ans de militarisation, avec la contestation comme victime.",
+      "fields": {
+        "text": "Le **maintien de l'ordre** s'arme, la contestation recule",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p1c",
+      "slot": "p1",
+      "reason": "Le moment des blindés repose sur l'aveu d'un ancien préfet de police, que la vidéo tient pour fidèle à ce qui s'est décidé.",
+      "fields": {
+        "text": "Les démonstrations de force policière mettent de l'huile sur le feu",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "p1d",
+      "slot": "p1",
+      "reason": "Le moment lit les blindés comme un signal politique ; la vidéo suppose que ce signal se traduit en pratique, sans le montrer.",
+      "fields": {
+        "text": "Des blindés **montrés** changent la façon dont la police agit sur le terrain",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p2c",
+      "slot": "p2",
+      "reason": "Le moment de Seattle repose sur le passage du cas américain au cas français, que la vidéo ne vérifie pas.",
+      "fields": {
+        "text": "Les polices américaine et française répondent aux foules de manière comparable",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "p2d",
+      "slot": "p2",
+      "reason": "Le moment repose sur l'autorité d'un ex-chef de police devenu critique, dont le regard actuel est tenu pour plus juste.",
+      "fields": {
+        "text": "Un ancien chef de police **repenti** juge mieux que ceux encore en poste",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p3c",
+      "slot": "p3",
+      "reason": "Le moment de Cologne passe d'un encadrement pratique à la fin de la démocratie ; il faut déjà admettre qu'encadrer neutralise la gêne.",
+      "fields": {
+        "text": "Un cortège **encadré** de près perd sa capacité à déranger le pouvoir",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p3d",
+      "slot": "p3",
+      "reason": "Le moment conclut que déranger définit la démocratie ; cela suppose que ce critère est le seul valable, ce que la vidéo ne discute pas.",
+      "fields": {
+        "text": "Seul ce qui **dérange** le pouvoir compte comme une manifestation libre",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "objectiond",
+      "slot": "objection",
+      "reason": "Apporte une perspective nouvelle sur les conséquences : l'encadrement protège aussi les manifestants pacifiques, ce que la vidéo ne retient que comme intimidation.",
+      "fields": {
+        "text": "",
+        "argument": "Non, l'encadrement policier permet de protéger les cortèges et les commerçants des casseurs.",
+        "alternative": "l'encadrement serait une protection du droit de manifester, pas une entrave",
+        "targets_slot": "p3"
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "objectione",
+      "slot": "objection",
+      "reason": "Rend douteux le regard rétrospectif d'un ancien chef de police, jugé sans la pression de l'urgence.",
+      "fields": {
+        "text": "",
+        "argument": "Non, un ancien chef de police juge **après coup** ; en pleine urgence, les choix paraissaient autres.",
+        "alternative": "les regrets d'après ne disent pas ce qui était possible sur le moment",
+        "targets_slot": "p2"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "objectionf",
+      "slot": "objection",
+      "reason": "Rend douteux le lien entre blindés et blessés : les blessures citées viennent de lanceurs de balles, pas des blindés.",
+      "fields": {
+        "text": "",
+        "argument": "Non, les blindés du 8 décembre n'ont pas tiré ; les blessures viennent d'**armes de tir** à la main.",
+        "alternative": "le danger tiendrait aux armes portées, pas aux blindés montrés",
+        "targets_slot": "p1"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [
+    {
+      "id": "headlinea",
+      "slot": "headline",
+      "reason": "Reprend la thèse centrale (militarisation, droit de manifester) avec les mots-clés de la question et de l'enjeu.",
+      "fields": {
+        "text": "Une police armée réduit le **droit** de manifester",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "headlineb",
+      "slot": "headline",
+      "reason": "Angle des méthodes concrètes (blindés, nasses) menant à la restriction du droit de déranger.",
+      "fields": {
+        "text": "Blindés, nasses : le **droit** de déranger recule",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "headlinec",
+      "slot": "headline",
+      "reason": "Formule de la causalité implicite entre armement et restriction, avec le verbe de l'enjeu.",
+      "fields": {
+        "text": "Plus la police s'arme, moins on peut **manifester**",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p1a",
+      "slot": "p1",
+      "reason": "Repose sur le beat 1 : un seul aveu d'un ancien préfet sert de preuve à une tendance de cinquante ans.",
+      "fields": {
+        "text": "Un **geste politique** de blindés vaut pour tout le maintien de l'ordre français",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p1b",
+      "slot": "p1",
+      "reason": "Repose sur le beat 1 : l'équipement est tenu pour une atteinte au droit, sans que le lien soit examiné.",
+      "fields": {
+        "text": "Armer davantage la police revient à restreindre le **droit de manifester**",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p2a",
+      "slot": "p2",
+      "reason": "Repose sur le beat 2 : le cas américain d'un témoin repenti est transposé à un autre pays, sans comparer les doctrines.",
+      "fields": {
+        "text": "Ce qu'un ancien chef de police américain a vécu à Seattle vaut pour **la France**",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": [
+        "display.global_analysis.core_recap[0] presupposé 2 opens on « Ce qu'un… » without saying what — only the quote or a later slide would tell; name the thing (« Ce que l'État exige, les lycéens le réclament » → « L'État prône la non-violence, les lycéens la réclament »)"
+      ]
+    },
+    {
+      "id": "p2b",
+      "slot": "p2",
+      "reason": "Repose sur le beat 2 : le sens de la causalité entre escalade policière et violence est posé, non démontré.",
+      "fields": {
+        "text": "La violence des manifestants **répond** surtout à la police, rarement l'inverse",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p3a",
+      "slot": "p3",
+      "reason": "Repose sur le beat 3 : la conclusion d'un témoin sert de critère pour juger un régime entier.",
+      "fields": {
+        "text": "Un seul manifestant de **Cologne** peut dire où commence la fin de la démocratie",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p3b",
+      "slot": "p3",
+      "reason": "Repose sur le beat 3 : toute règle de cortège est tenue pour une restriction, jamais pour un arbitrage possible.",
+      "fields": {
+        "text": "Un droit de manifester **encadré** n'est déjà plus un droit de manifester",
+        "argument": "",
+        "alternative": "",
+        "targets_slot": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "objectiona",
+      "slot": "objection",
+      "reason": "Rend douteux le lien entre militarisation et dérive : le durcissement serait une réponse aux émeutes du 1er décembre 2018.",
+      "fields": {
+        "text": "",
+        "argument": "Non, face à des **émeutes** où l'on a tenté de tuer des policiers, le durcissement a évité des morts.",
+        "alternative": "le durcissement serait une adaptation à des foules plus violentes",
+        "targets_slot": "p2"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "objectionb",
+      "slot": "objection",
+      "reason": "Rend douteuse la tendance commune entre pays : les doctrines diffèrent et un juge a déjà limité la nasse.",
+      "fields": {
+        "text": "",
+        "argument": "Non, les polices américaine, allemande et française suivent des **doctrines** différentes, et un juge français a déjà limité la nasse.",
+        "alternative": "chaque pays fait ses choix, corrigés par ses juges",
+        "targets_slot": "p2"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "objectionc",
+      "slot": "objection",
+      "reason": "Rend douteux le passage d'une restriction pratique à une démocratie remise en cause.",
+      "fields": {
+        "text": "",
+        "argument": "Non, à Cologne la pancarte est saisie et le cortège **repart** ; des tribunaux ont annulé des mesures.",
+        "alternative": "ces tensions seraient un arbitrage ordinaire entre ordre et liberté",
+        "targets_slot": "p3"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "recommended": [
+    "headlined",
+    "p1c",
+    "p2c",
+    "p3c",
+    "objectiond"
+  ],
+  "picked": [
+    "headlined",
+    "p1c",
+    "p2c",
+    "p3d",
+    "objectiond"
+  ],
+  "fragment": {
+    "display": {
+      "global_analysis": {
+        "headline": "Un maintien de l'ordre **offensif** attise la colère",
+        "core_recap": [
+          "Ses présupposés : Les démonstrations de force policière mettent de l'huile sur le feu ; Les polices américaine et française répondent aux foules de manière comparable ; Seul ce qui **dérange** le pouvoir compte comme une manifestation libre"
+        ]
+      },
+      "steel_man": {
+        "argument": "Non, l'encadrement policier permet de protéger les cortèges et les commerçants des casseurs.",
+        "alternative": "l'encadrement serait une protection du droit de manifester, pas une entrave",
+        "targets": 3
+      }
+    }
+  },
+  "remarks": [
+    "Ne pas utiliser « vaut pour » (pas élégant) ; écrire « est représentatif » à la place."
+  ]
+}

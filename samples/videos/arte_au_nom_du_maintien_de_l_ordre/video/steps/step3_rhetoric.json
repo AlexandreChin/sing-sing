@@ -1,0 +1,69 @@
+{
+  "emotional_register": [
+    {
+      "id": "er1",
+      "emotion": "indignation",
+      "how": "Le récit d'**Alexandre Frey**, éborgné le 8 décembre 2018, est monté juste avant la phrase répétée du préfet : « **Il n'y a pas eu de mort. Retenez cela.** »",
+      "effect": "Le lecteur est porté à juger que le bilan officiel **minimise les blessures** subies par les manifestants.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "environ 25 personnes ont perdu un œil",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "er2",
+      "emotion": "inquiétude",
+      "how": "La voix off **ironique** présente les blindés, leur **mitrailleuse lourde** et leur lance-grenades, puis conclut qu'on pourra « protester en toute sécurité depuis chez soi ».",
+      "effect": "Le lecteur est préparé à voir dans l'équipement policier une **menace pour le droit de manifester**.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 3,
+        "excerpt": "véhicules Centaure de la gendarmerie, commandés à 90 exemplaires",
+        "strength": 0.7,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "cb1",
+      "beneficiary": "Les critiques de l'usage du **LBD** et des nasses",
+      "explanation": "Le cadrage centré sur les blessures et l'encadrement des cortèges donne du poids aux demandes de **suspension ou de limitation** de ces armes et techniques. Les voix venues de l'institution renforcent cette position.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 1,
+        "excerpt": "le Défenseur des droits Jacques Toubon a demandé la suspension de l'usage du LBD",
+        "strength": 0.7,
+        "nature": "inference"
+      }
+    },
+    {
+      "id": "cb2",
+      "beneficiary": "Les partisans d'une **doctrine de désescalade**",
+      "explanation": "Le film oppose l'escalade de Seattle et de Paris à une police allemande qui maintient « un niveau d'affrontement **proportionnel** ». Ce contraste présente la désescalade comme l'alternative disponible.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "Lützerath […] évacué et détruit début 2023",
+        "strength": 0.5,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Présupposé",
+        "observation": "« **Au nom de** » présente le maintien de l'ordre comme une justification invoquée, non comme un simple constat."
+      },
+      {
+        "label": "Généralisation",
+        "observation": "Le titre ne nomme **aucun pays**, alors que le film traite la France, les États-Unis et l'Allemagne."
+      }
+    ],
+    "body": "Le film raconte le maintien de l'ordre comme une **évolution sur cinquante ans**, des cortèges syndicaux encadrés aux blindés et aux LBD. Il place au centre **le point de vue des manifestants** et celui d'anciens responsables devenus critiques, comme Laurent Bigot et Norm Stamper. Il passe de Paris à Seattle, Minneapolis et la Rhénanie pour **comparer plusieurs pays**. Le registre mêle témoignages, archives et une **voix off ironique** envers l'équipement policier."
+  }
+}

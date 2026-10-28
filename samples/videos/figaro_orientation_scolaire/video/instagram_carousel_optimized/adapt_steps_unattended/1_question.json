@@ -1,0 +1,76 @@
+{
+  "step": "question",
+  "thesis_frame": {
+    "main_claim": "Abolir la sélection a produit échec, déclassement et chômage ; il faut une sélection plus précoce et valoriser les métiers manuels.",
+    "out_of_scope": [
+      "Le financement de l'université et des filières professionnelles",
+      "Le contenu des programmes enseignés au collège",
+      "Le rôle de la police dans les émeutes"
+    ]
+  },
+  "options": [
+    {
+      "id": "a",
+      "slot": "question",
+      "reason": "Interroge le lien causal central (présupposé ia_1) entre sélection supprimée, échec et chômage, sans trancher.",
+      "fields": {
+        "text": "Dans quelle mesure l'échec des jeunes tient-il à l'absence de **sélection**, plutôt qu'à ce qui les attend après leurs études ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "question",
+      "reason": "Ramène au cas la comparaison chiffrée sans source, ni base de calcul, ni prise en compte de l'apprentissage suisse.",
+      "fields": {
+        "text": "Qu'est-ce qui, dans l'écart de chômage des jeunes entre la France et la **Suisse**, relève de l'école et qu'est-ce qui relève d'autre chose ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "question",
+      "reason": "Porte sur le collège modulaire, dont l'âge, les critères et les passerelles ne sont pas précisés (présupposé ia_2).",
+      "fields": {
+        "text": "À quelles conditions orienter des élèves plus tôt ouvre des **parcours** plutôt qu'il n'en ferme ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "question",
+      "reason": "Interroge l'ouverture de la vidéo, qui passe de l'embrasement à la politique éducative sans montrer le lien (présupposé ia_0).",
+      "fields": {
+        "text": "Qu'est-ce qui permet de relier des **émeutes** à la situation scolaire et professionnelle de ceux qui y participent ?"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "c"
+  ],
+  "picked": [
+    "c"
+  ],
+  "fragment": {
+    "display": {
+      "thesis_frame": {
+        "main_claim": "Abolir la sélection a produit échec, déclassement et chômage ; il faut une sélection plus précoce et valoriser les métiers manuels.",
+        "out_of_scope": [
+          "Le financement de l'université et des filières professionnelles",
+          "Le contenu des programmes enseignés au collège",
+          "Le rôle de la police dans les émeutes"
+        ]
+      }
+    },
+    "cta": {
+      "engagement_sentence": "À quelles conditions orienter des élèves plus tôt ouvre des **parcours** plutôt qu'il n'en ferme ?"
+    }
+  },
+  "remarks": []
+}

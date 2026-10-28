@@ -1,0 +1,217 @@
+{
+  "step": "writing",
+  "thesis_frame": null,
+  "options": [
+    {
+      "id": "a",
+      "slot": "writing",
+      "reason": "",
+      "fields": {
+        "beats": [
+          {
+            "index": 0,
+            "lens_question": "Un geste de pouvoir : protège-t-il un droit, ou le réduit ?",
+            "note": "Devant un déploiement de force, cherchez **qui l'a décidé** et ce qu'il fait au **droit de manifester**.",
+            "answer": "**L'aveu vient du décideur** : l'ancien préfet de police parle d'un message politique. Le ministère de l'Intérieur a commandé 90 blindés Centaure.",
+            "figure": "",
+            "figure_label": "",
+            "figure_caption": "",
+            "pictogram": null
+          },
+          {
+            "index": 2,
+            "lens_question": "Une escalade de violence : qui l'a déclenchée ?",
+            "note": "Devant une escalade, **remontez l'ordre des faits** avant de chercher un coupable.",
+            "answer": "**L'ordre des faits** : à Paris, l'émeute du 1er décembre 2018 précède les blindés du 8. Cherchez la chronologie à la préfecture de police.",
+            "figure": "",
+            "figure_label": "",
+            "figure_caption": "",
+            "pictogram": null
+          },
+          {
+            "index": 4,
+            "lens_question": "Un droit de manifester : comment voir s'il est réduit ?",
+            "note": "Quand un cas sert de preuve générale, demandez **ce qu'il permet de conclure** sur le droit de manifester.",
+            "answer": "**Le cortège a continué** : à Cologne, la police saisit une pancarte puis laisse repartir. Le texte de la loi du Land dit ce qui est interdit.",
+            "figure": "",
+            "figure_label": "",
+            "figure_caption": "",
+            "pictogram": null
+          }
+        ],
+        "why_selected": "Le 8 décembre 2018, la police parisienne déploie des **blindés** face aux gilets jaunes ; d'anciens responsables s'en inquiètent.\nLe film rapproche Paris, Seattle et Cologne : de quoi **comparer** des polices et des lois.",
+        "selection_headline": "Paris, Seattle, Cologne : trois polices comparées",
+        "key_takeaways": [
+          {
+            "text": "Le 8 décembre 2018, des blindés sont déployés à Paris pour la première fois.",
+            "selected": true
+          },
+          {
+            "text": "Ce soir-là, douze manifestants sont blessés à la tête et quatre perdent un œil.",
+            "selected": true
+          },
+          {
+            "text": "À Seattle, un ancien chef de police dit avoir attisé la colère.",
+            "selected": true
+          },
+          {
+            "text": "En Allemagne, une loi sur les rassemblements interdit certains uniformes et banderoles.",
+            "selected": false
+          },
+          {
+            "text": "Moins d'ouvriers dans les cortèges : le film parle de colères solitaires.",
+            "selected": false
+          }
+        ],
+        "go_further": [
+          {
+            "title": "Allô Place Beauvau : le recensement des blessés",
+            "source": "Mediapart, David Dufresne",
+            "media_type": "article",
+            "category": "question_answer",
+            "url": null,
+            "duration_minutes": null,
+            "why_explore": "Un décompte indépendant des blessés graves sur tout le mouvement des gilets jaunes.",
+            "cta_question_index": null
+          },
+          {
+            "title": "Demande de suspension du LBD en manifestation (janvier 2019)",
+            "source": "Défenseur des droits",
+            "media_type": "report",
+            "category": "deep_dive",
+            "url": null,
+            "duration_minutes": null,
+            "why_explore": "La position de l'institution chargée de veiller au respect des droits face aux forces de l'ordre.",
+            "cta_question_index": null
+          },
+          {
+            "title": "Black Lives Matter May Be the Largest Movement in U.S. History",
+            "source": "The New York Times",
+            "media_type": "article",
+            "category": "question_answer",
+            "url": null,
+            "duration_minutes": null,
+            "why_explore": "Des sondages chiffrent la participation aux manifestations de 2020 aux États-Unis.",
+            "cta_question_index": null
+          }
+        ],
+        "where_to_look": [
+          "Le recensement des blessés de David Dufresne, sur Mediapart",
+          "Le Défenseur des droits sur le LBD en manifestation (2019)",
+          "Le New York Times sur les manifestations de 2020"
+        ],
+        "caption": "Le 8 décembre 2018, des blindés roulent dans Paris face aux gilets jaunes : douze manifestants blessés à la tête, quatre yeux perdus. 🚔\n\n🔎 Les clefs pour comprendre en une minute ce que le film dit du droit de manifester.\n\n🔗 Lien vers la vidéo en commentaires ↓"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "beat_copy": [
+      {
+        "index": 0,
+        "lens_question": "Un geste de pouvoir : protège-t-il un droit, ou le réduit ?",
+        "note": "Devant un déploiement de force, cherchez **qui l'a décidé** et ce qu'il fait au **droit de manifester**.",
+        "answer": "**L'aveu vient du décideur** : l'ancien préfet de police parle d'un message politique. Le ministère de l'Intérieur a commandé 90 blindés Centaure.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null
+      },
+      {
+        "index": 2,
+        "lens_question": "Une escalade de violence : qui l'a déclenchée ?",
+        "note": "Devant une escalade, **remontez l'ordre des faits** avant de chercher un coupable.",
+        "answer": "**L'ordre des faits** : à Paris, l'émeute du 1er décembre 2018 précède les blindés du 8. Cherchez la chronologie à la préfecture de police.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null
+      },
+      {
+        "index": 4,
+        "lens_question": "Un droit de manifester : comment voir s'il est réduit ?",
+        "note": "Quand un cas sert de preuve générale, demandez **ce qu'il permet de conclure** sur le droit de manifester.",
+        "answer": "**Le cortège a continué** : à Cologne, la police saisit une pancarte puis laisse repartir. Le texte de la loi du Land dit ce qui est interdit.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null
+      }
+    ],
+    "display": {
+      "why_selected": "Le 8 décembre 2018, la police parisienne déploie des **blindés** face aux gilets jaunes ; d'anciens responsables s'en inquiètent.\nLe film rapproche Paris, Seattle et Cologne : de quoi **comparer** des polices et des lois.",
+      "selection_headline": "Paris, Seattle, Cologne : trois polices comparées",
+      "key_takeaways": [
+        {
+          "text": "Le 8 décembre 2018, des blindés sont déployés à Paris pour la première fois.",
+          "selected": true
+        },
+        {
+          "text": "Ce soir-là, douze manifestants sont blessés à la tête et quatre perdent un œil.",
+          "selected": true
+        },
+        {
+          "text": "À Seattle, un ancien chef de police dit avoir attisé la colère.",
+          "selected": true
+        },
+        {
+          "text": "En Allemagne, une loi sur les rassemblements interdit certains uniformes et banderoles.",
+          "selected": false
+        },
+        {
+          "text": "Moins d'ouvriers dans les cortèges : le film parle de colères solitaires.",
+          "selected": false
+        }
+      ]
+    },
+    "go_further": [
+      {
+        "title": "Allô Place Beauvau : le recensement des blessés",
+        "source": "Mediapart, David Dufresne",
+        "media_type": "article",
+        "category": "question_answer",
+        "url": null,
+        "duration_minutes": null,
+        "why_explore": "Un décompte indépendant des blessés graves sur tout le mouvement des gilets jaunes.",
+        "cta_question_index": null
+      },
+      {
+        "title": "Demande de suspension du LBD en manifestation (janvier 2019)",
+        "source": "Défenseur des droits",
+        "media_type": "report",
+        "category": "deep_dive",
+        "url": null,
+        "duration_minutes": null,
+        "why_explore": "La position de l'institution chargée de veiller au respect des droits face aux forces de l'ordre.",
+        "cta_question_index": null
+      },
+      {
+        "title": "Black Lives Matter May Be the Largest Movement in U.S. History",
+        "source": "The New York Times",
+        "media_type": "article",
+        "category": "question_answer",
+        "url": null,
+        "duration_minutes": null,
+        "why_explore": "Des sondages chiffrent la participation aux manifestations de 2020 aux États-Unis.",
+        "cta_question_index": null
+      }
+    ],
+    "cta": {
+      "where_to_look": [
+        "Le recensement des blessés de David Dufresne, sur Mediapart",
+        "Le Défenseur des droits sur le LBD en manifestation (2019)",
+        "Le New York Times sur les manifestations de 2020"
+      ]
+    },
+    "caption": "Le 8 décembre 2018, des blindés roulent dans Paris face aux gilets jaunes : douze manifestants blessés à la tête, quatre yeux perdus. 🚔\n\n🔎 Les clefs pour comprendre en une minute ce que le film dit du droit de manifester.\n\n🔗 Lien vers la vidéo en commentaires ↓"
+  },
+  "remarks": []
+}

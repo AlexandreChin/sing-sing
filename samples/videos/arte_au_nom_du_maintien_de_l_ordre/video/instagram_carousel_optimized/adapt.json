@@ -1,0 +1,279 @@
+{
+  "caption": "Le 8 décembre 2018, des blindés roulent dans Paris face aux gilets jaunes : douze manifestants blessés à la tête, quatre yeux perdus. 🚔\n\n🔎 Les clefs pour comprendre en une minute ce que le film dit du droit de manifester.\n\n🔗 Lien vers la vidéo en commentaires ↓",
+  "hook": {
+    "topic": "Maintien de l'ordre, **blindés** dans la rue",
+    "sub_topic": "Des **blindés**, des cortèges encadrés : qui protège le droit de manifester ?",
+    "subtitle": "Comprendre ce qui protège ce droit.",
+    "headline": "Blindés et cortèges encadrés : le droit de **manifester** tient-il ?",
+    "context_line": "",
+    "sub_topic_alt": []
+  },
+  "interest": null,
+  "title_bullets": [],
+  "chapo_bullets": [],
+  "context_next_slide_hook": "",
+  "watch_out_next_slide_hook": "",
+  "forme_next_slide_hook": "",
+  "biases_next_slide_hook": "",
+  "engagement_question": "",
+  "go_further": [
+    {
+      "title": "Allô Place Beauvau : le recensement des blessés",
+      "source": "Mediapart, David Dufresne",
+      "media_type": "article",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Un décompte indépendant des blessés graves sur tout le mouvement des gilets jaunes.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Demande de suspension du LBD en manifestation (janvier 2019)",
+      "source": "Défenseur des droits",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "La position de l'institution chargée de veiller au respect des droits face aux forces de l'ordre.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Black Lives Matter May Be the Largest Movement in U.S. History",
+      "source": "The New York Times",
+      "media_type": "article",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Des sondages chiffrent la participation aux manifestations de 2020 aux États-Unis.",
+      "cta_question_index": null
+    }
+  ],
+  "cta": {
+    "title": "",
+    "engagement_sentence": "À quoi voit-on qu'un maintien de l'ordre protège le **droit de manifester**, et à quoi voit-on qu'il le réduit ?",
+    "engagement_sentence_alt": [],
+    "where_to_look": [
+      "Le recensement des blessés de David Dufresne, sur Mediapart",
+      "Le Défenseur des droits sur le LBD en manifestation (2019)",
+      "Le New York Times sur les manifestations de 2020"
+    ],
+    "post_reading_questions": []
+  },
+  "display": {
+    "thesis_frame": {
+      "main_claim": "Le maintien de l'ordre s'est militarisé en cinquante ans, au point de restreindre le droit de manifester et de déranger.",
+      "out_of_scope": [
+        "Le bilan des blessés parmi les forces de l'ordre",
+        "Les conditions de travail et le moral des policiers de terrain",
+        "Le détail du cadre juridique français et des décisions de justice"
+      ]
+    },
+    "payoff": "",
+    "framing": "",
+    "why_selected": "Le 8 décembre 2018, la police parisienne déploie des **blindés** face aux gilets jaunes ; d'anciens responsables s'en inquiètent.\nLe film rapproche Paris, Seattle et Cologne : de quoi **comparer** des polices et des lois.",
+    "selection_headline": "Paris, Seattle, Cologne : trois polices comparées",
+    "selection_headline_alt": [],
+    "ethics": "",
+    "pre_reading": [],
+    "watch_out": [],
+    "strengths": [],
+    "distill_points": [],
+    "after_reading": [],
+    "key_takeaways": [
+      {
+        "text": "Le 8 décembre 2018, des blindés sont déployés à Paris pour la première fois.",
+        "selected": true
+      },
+      {
+        "text": "Ce soir-là, douze manifestants sont blessés à la tête et quatre perdent un œil.",
+        "selected": true
+      },
+      {
+        "text": "À Seattle, un ancien chef de police dit avoir attisé la colère.",
+        "selected": true
+      },
+      {
+        "text": "En Allemagne, une loi sur les rassemblements interdit certains uniformes et banderoles.",
+        "selected": false
+      },
+      {
+        "text": "Moins d'ouvriers dans les cortèges : le film parle de colères solitaires.",
+        "selected": false
+      }
+    ],
+    "blind_spots": [],
+    "balance": [],
+    "lenses": [],
+    "reading_beats": [
+      {
+        "moment": "Les blindés du 8 décembre : un message politique",
+        "quote": "Les blindés, c'était un geste politique […] un message pour montrer qu'on changeait de dimension",
+        "quote_original": "",
+        "lens_ref": "sources",
+        "lens_question": "Un geste de pouvoir : protège-t-il un droit, ou le réduit ?",
+        "note": "Devant un déploiement de force, cherchez **qui l'a décidé** et ce qu'il fait au **droit de manifester**.",
+        "answer": "**L'aveu vient du décideur** : l'ancien préfet de police parle d'un message politique. Le ministère de l'Intérieur a commandé 90 blindés Centaure.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": true,
+        "theme": "Militarisation : blindés déployés",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "appui",
+        "spine_ref": 1,
+        "axis_link": "Donne au lecteur un aveu venu du pouvoir : la militarisation est un choix, ce qui nourrit la question de ce qui protège ou réduit le droit de manifester.",
+        "rationale": "Le préfet de l'époque avoue l'intention politique des blindés."
+      },
+      {
+        "moment": "Une soirée, 12 blessés à la tête, quatre éborgnés",
+        "quote": "12 manifestants ont été blessés à la tête […] Quatre d'entre eux vont perdre un œil.",
+        "quote_original": "",
+        "lens_ref": "chiffres",
+        "lens_question": "",
+        "note": "",
+        "answer": "",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "likely true",
+        "selected": false,
+        "theme": "Bilan humain du 8 décembre 2018",
+        "centrality": 4,
+        "kind": "statistique",
+        "role": "preuve",
+        "spine_ref": 1,
+        "axis_link": "Montre le coût humain des armes employées et invite à demander rapporté à quoi : une journée, tout le mouvement ?",
+        "rationale": "Seul bilan chiffré du film, limité à une journée."
+      },
+      {
+        "moment": "Seattle : un ex-chef de police juge avoir attisé",
+        "quote": "Si on avait eu l'intention d'enflammer les passions […] on aurait pas fait autrement",
+        "quote_original": "",
+        "lens_ref": "causalite",
+        "lens_question": "Une escalade de violence : qui l'a déclenchée ?",
+        "note": "Devant une escalade, **remontez l'ordre des faits** avant de chercher un coupable.",
+        "answer": "**L'ordre des faits** : à Paris, l'émeute du 1er décembre 2018 précède les blindés du 8. Cherchez la chronologie à la préfecture de police.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": true,
+        "theme": "Escalade policière aux États-Unis",
+        "centrality": 4,
+        "kind": "affirmation",
+        "role": "preuve",
+        "spine_ref": 2,
+        "axis_link": "Donne au lecteur le cas à partir duquel la vidéo soutient qu'une police offensive attise la violence, et lui laisse juger si ce cas vaut pour la France.",
+        "rationale": "Témoignage d'un acteur sur l'escalade qu'il a déclenchée."
+      },
+      {
+        "moment": "Gilets jaunes : les blessés graves viennent du contact",
+        "quote": "Depuis le mouvement des gilets jaunes, toutes les blessures graves, toutes les images choquantes, c'est qu'il y a du contact.",
+        "quote_original": "",
+        "lens_ref": "sources",
+        "lens_question": "",
+        "note": "",
+        "answer": "",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": false,
+        "theme": "Contact police-manifestants en France",
+        "centrality": 3,
+        "kind": "affirmation",
+        "role": "appui",
+        "spine_ref": 2,
+        "axis_link": "Ramène l'escalade au cas français et pose la question de qui l'affirme et sur quelles données, face à la question de ce qui protège le droit de manifester.",
+        "rationale": "Lien contact-blessures posé par un seul intervenant non identifié."
+      },
+      {
+        "moment": "Cologne : sans droit de déranger, plus de démocratie",
+        "quote": "si on a plus le droit de déranger […] Et ça, c'est plus une démocratie.",
+        "quote_original": "",
+        "lens_ref": "sophismes",
+        "lens_question": "Un droit de manifester : comment voir s'il est réduit ?",
+        "note": "Quand un cas sert de preuve générale, demandez **ce qu'il permet de conclure** sur le droit de manifester.",
+        "answer": "**Le cortège a continué** : à Cologne, la police saisit une pancarte puis laisse repartir. Le texte de la loi du Land dit ce qui est interdit.",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": true,
+        "theme": "Droit de manifester et démocratie",
+        "centrality": 5,
+        "kind": "enjeu",
+        "role": "pivot",
+        "spine_ref": 3,
+        "axis_link": "Pose le jugement où la vidéo aboutit et laisse au lecteur de voir si on passe d'une restriction pratique à un régime remis en cause, ce que nomme l'enjeu de la slide 8.",
+        "rationale": "Conclusion de la vidéo : déranger définit la démocratie."
+      },
+      {
+        "moment": "Des policiers qui aient l'air de gardiens de la paix",
+        "quote": "Il faut qu'ils aient l'air de gardiens de la paix.",
+        "quote_original": "",
+        "lens_ref": "sources",
+        "lens_question": "",
+        "note": "",
+        "answer": "",
+        "figure": "",
+        "figure_label": "",
+        "figure_caption": "",
+        "pictogram": null,
+        "factcheck": "",
+        "selected": false,
+        "theme": "Ce que la vidéo préconise pour la police",
+        "centrality": 3,
+        "kind": "enjeu",
+        "role": "concession",
+        "spine_ref": 3,
+        "axis_link": "Donne au lecteur le critère visuel que la vidéo propose pour juger un maintien de l'ordre, directement utile pour répondre à la question finale.",
+        "rationale": "Seule préconisation de la fin, d'un intervenant non identifié."
+      }
+    ],
+    "global_analysis": {
+      "headline": "Un maintien de l'ordre **offensif** attise la colère",
+      "headline_alt": [],
+      "core_recap": [
+        "Ses présupposés : Les démonstrations de force policière mettent de l'huile sur le feu ; Les polices américaine et française répondent aux foules de manière comparable ; Seul ce qui **dérange** le pouvoir compte comme une manifestation libre"
+      ]
+    },
+    "open_question": "",
+    "root_issue": "La valeur d'un **droit de manifester** qui ne vaut que s'il peut gêner ceux qui gouvernent.",
+    "steel_man": {
+      "argument": "Non, l'encadrement policier permet de protéger les cortèges et les commerçants des casseurs.",
+      "alternative": "l'encadrement serait une protection du droit de manifester, pas une entrave",
+      "targets": 3
+    },
+    "reperes_headline": "",
+    "reperes_context": "",
+    "reperes_facts": [
+      {
+        "label": "Blessés",
+        "text": "**≈25 éborgnés** : recensement du journaliste David Dufresne sur tout le mouvement de 2018-2019."
+      },
+      {
+        "label": "Justice",
+        "text": "En 2021, le **Conseil d'État** annule la disposition sur l'encerclement des manifestants."
+      },
+      {
+        "label": "États-Unis",
+        "text": "**6 à 8 %** des adultes ont manifesté après George Floyd (sondages cités par le New York Times)."
+      }
+    ],
+    "bilan_headline": "",
+    "essentiel": [
+      "Un maintien de l'ordre **militarisé** : blindés, fusils à balles en caoutchouc, grenades",
+      "Une police offensive **attise** la violence : aux États-Unis, puis en France",
+      "La **démocratie** en jeu : le droit de manifester devient toléré"
+    ],
+    "essentiel_summary": ""
+  }
+}

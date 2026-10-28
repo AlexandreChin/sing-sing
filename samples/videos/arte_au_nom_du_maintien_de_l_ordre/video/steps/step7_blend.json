@@ -1,0 +1,124 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "Le chiffrage d'**une seule journée** (quatre yeux perdus le 8 décembre) sert de bilan, alors que le chiffre d'ensemble (environ 25) et le bilan des policiers blessés manquent. Le récit d'Alexandre Frey, monté avant « Il n'y a pas eu de mort », transforme ce cas unique en émotion d'indignation sans mesure globale.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "obs_0",
+          "bs_0",
+          "er_0",
+          "claim_0",
+          "bias_0"
+        ]
+      },
+      {
+        "text": "Le film suppose une **même tendance** à Seattle, Minneapolis, Paris et Cologne : cette hypothèse reste non dite, est exploitée par la comparaison « même chose que nous en 1999 » et fait passer la désescalade allemande pour l'alternative disponible. Le raisonnement n'est pas démontré, et la note sur le contexte et la structure du raisonnement reste basse.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "ia_0",
+          "lr_1",
+          "cb_1",
+          "bias_2",
+          "pr_2"
+        ]
+      },
+      {
+        "text": "Le **Conseil d'État** a annulé en 2021 la disposition sur l'encerclement, mais le film présente une ligne droite de cinquante ans. L'omission du contre-pouvoir juridique protège la thèse de la militarisation et signale aussi un manque de réponse des autorités sur les nasses.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "bs_1",
+          "bs_2",
+          "obs_1",
+          "focus"
+        ]
+      },
+      {
+        "text": "Un **chiffre surévalué** (« un Américain sur cinq » contre 6 à 8 %) amplifie l'ampleur du mouvement après George Floyd, au service du récit d'une mobilisation contre la police. Il est relevé à la fois comme observation, comme fait contredit et comme manquement déontologique, et pèse sur les notes de rigueur des sources et d'exactitude.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "obs_3",
+          "claim_1",
+          "claim_1",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "La **voix off ironique** sur les blindés Centaure, sa « mitrailleuse lourde » et les « troupes de choc des banlieues » installe la menace avant tout exemple d'usage. Le registre d'inquiétude et l'étiquette réductrice sur les BAC convergent vers un traitement inégal des camps, que confirme la note de traitement.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "er_1",
+          "bias_1",
+          "obs_4",
+          "claim_2"
+        ]
+      },
+      {
+        "text": "Les **témoignages de transfuges** (Bigot, Stamper) portent la thèse sur de longues séquences, tandis que les policiers de terrain n'ont qu'une phrase anonyme. Cette asymétrie repose sur l'hypothèse non dite que les anciens responsables décrivent l'institution plus fidèlement, et renforce l'absence de réponse sollicitée sur la légalité des nasses.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "ia_2",
+          "pr_1",
+          "cb_0",
+          "bs_2"
+        ]
+      },
+      {
+        "text": "Le point de vue des manifestants n'est **jamais annoncé** comme tel : la prémisse normative sur la démocratie, la conclusion de Cologne et la voix off l'imposent sans le dire. Le passage de la restriction pratique à « plus une démocratie » prolonge ce cadrage, et la note de transparence reste basse.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "pr_3",
+          "lr_3",
+          "er_1",
+          "ia_1"
+        ]
+      },
+      {
+        "text": "Le mot « **vaincu** » appliqué aux gilets jaunes et le silence sur les violences du 16 mars 2019 retirent le contexte qui permettrait de lire la nomination de Lallement autrement. L'omission chronologique et l'opinion présentée comme fait vont dans le même sens : la lecture militante du durcissement.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "obs_2",
+          "claim_3",
+          "ia_1",
+          "bs_3"
+        ]
+      }
+    ]
+  }
+}

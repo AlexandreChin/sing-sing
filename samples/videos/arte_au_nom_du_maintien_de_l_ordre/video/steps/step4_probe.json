@@ -1,0 +1,159 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "id": "f1",
+        "quote": "Au soir du 8 décembre 2018, 12 manifestants ont été blessés à la tête par un tir de balle en caoutchouc. Quatre d'entre eux vont perdre un œil.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Chiffrage",
+          "strength": 0.9,
+          "nature": "illustration"
+        },
+        "explanation": "Ce bilan porte sur **une seule journée**, alors que les recensements indépendants comptent **environ 25 éborgnés** sur l'ensemble du mouvement.",
+        "external_sources": [
+          {
+            "name": "Recensement « Allô Place Beauvau » (David Dufresne, Mediapart)",
+            "supports": "validates",
+            "evidence_type": "media"
+          },
+          {
+            "name": "Défenseur des droits, demande de suspension du LBD (janvier 2019)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 70
+      },
+      {
+        "id": "f2",
+        "quote": "Un Américain sur cinq descend dans la rue.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 0.9,
+          "nature": "contradiction"
+        },
+        "explanation": "Les sondages relayés par la presse américaine estiment la participation à **15 à 26 millions** de personnes, soit **6 à 8 %** de la population.",
+        "external_sources": [
+          {
+            "name": "Sondages Civis Analytics, Gallup et Pew Research (juin 2020)",
+            "supports": "contradicts",
+            "evidence_type": "academic"
+          },
+          {
+            "name": "The New York Times, « Black Lives Matter May Be the Largest Movement in U.S. History » (3 juillet 2020)",
+            "supports": "contradicts",
+            "evidence_type": "media"
+          }
+        ],
+        "confidence": 15
+      },
+      {
+        "id": "f3",
+        "quote": "Après la crise des gilets jaunes en 2020, le gouvernement français achète 90 blindés.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Précision",
+          "strength": 0.7,
+          "nature": "nuance"
+        },
+        "explanation": "Il s'agit des **véhicules Centaure** de la gendarmerie, commandés à 90 exemplaires pour remplacer d'anciens blindés.",
+        "external_sources": [
+          {
+            "name": "Ministère de l'Intérieur, commande des véhicules Centaure (2021)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Direction générale de la gendarmerie nationale",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 85
+      },
+      {
+        "id": "f4",
+        "quote": "Il avait remplacé Delpuech et vaincu les gilets jaunes.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Chronologie",
+          "strength": 0.7,
+          "nature": "illustration"
+        },
+        "explanation": "Le remplacement est daté et documenté, mais « **vaincu** » est une interprétation ; la nomination suit les **violences du 16 mars 2019**.",
+        "external_sources": [
+          {
+            "name": "Décret de nomination de Didier Lallement, Conseil des ministres (20 mars 2019)",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Le Monde, limogeage de Michel Delpuech après le 16 mars 2019",
+            "supports": "neutral",
+            "evidence_type": "media"
+          }
+        ],
+        "confidence": null
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "id": "b1",
+        "quote": "Il n'y a pas eu de mort. Retenez cela.",
+        "item_type": "bias",
+        "label": "répétition en écho",
+        "effect": "Remarquez comment la phrase, montée **juste après** le récit d'un œil perdu, prend un sens que le préfet ne lui donnait peut-être pas.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "b2",
+        "quote": "Pour ceux qui ont peur des tanks, rappelons qu'il sera toujours possible de protester en toute sécurité depuis chez soi, devant son écran.",
+        "item_type": "bias",
+        "label": "ironie de la voix off",
+        "effect": "Remarquez comment le ton **sarcastique** oriente la lecture de l'équipement avant que **le moindre usage** ne soit montré.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "inquiétude",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "id": "b3",
+        "quote": "La police a fait la même chose que nous en 1999. Et on a eu les mêmes résultats.",
+        "item_type": "fallacy",
+        "label": "comparaison entre contextes différents",
+        "effect": "Remarquez comment **Seattle 1999 et Minneapolis 2020** deviennent un même cas, puis servent de **grille** pour lire la France.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Les partisans d'une **doctrine de désescalade**",
+          "strength": 0.5,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "Cela fait 50 ans que la police ne cesse de se rapprocher des manifestants, de les encadrer, de les canaliser.",
+      "proves": {
+        "type": "observation",
+        "label": "Contexte",
+        "strength": 0.8,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase résume la thèse du film : un **resserrement continu** sur cinquante ans. Elle suppose une **ligne droite**, sans recul ni frein. Elle ne dit pas qu'en 2021 un juge a **annulé** la disposition sur l'encerclement : que devient la ligne droite quand on y ajoute ce point ?"
+    }
+  }
+}

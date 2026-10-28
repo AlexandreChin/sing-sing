@@ -1,0 +1,228 @@
+{
+  "step": "moments",
+  "thesis_frame": null,
+  "options": [
+    {
+      "id": "1a",
+      "slot": "1",
+      "reason": "Donne au lecteur un aveu venu du pouvoir : la militarisation est un choix, ce qui nourrit la question de ce qui protège ou réduit le droit de manifester.",
+      "fields": {
+        "moment": "Les blindés du 8 décembre : un message politique",
+        "quote": "Les blindés, c'était un geste politique […] un message pour montrer qu'on changeait de dimension",
+        "quote_original": "",
+        "lens_ref": "sources",
+        "factcheck": "",
+        "theme": "Militarisation : blindés déployés",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "appui",
+        "rationale": "Le préfet de l'époque avoue l'intention politique des blindés."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "1b",
+      "slot": "1",
+      "reason": "Montre le coût humain des armes employées et invite à demander rapporté à quoi : une journée, tout le mouvement ?",
+      "fields": {
+        "moment": "Une soirée, 12 blessés à la tête, quatre éborgnés",
+        "quote": "12 manifestants ont été blessés à la tête […] Quatre d'entre eux vont perdre un œil.",
+        "quote_original": "",
+        "lens_ref": "chiffres",
+        "factcheck": "likely true",
+        "theme": "Bilan humain du 8 décembre 2018",
+        "centrality": 4,
+        "kind": "statistique",
+        "role": "preuve",
+        "rationale": "Seul bilan chiffré du film, limité à une journée."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "2a",
+      "slot": "2",
+      "reason": "Donne au lecteur le cas à partir duquel la vidéo soutient qu'une police offensive attise la violence, et lui laisse juger si ce cas vaut pour la France.",
+      "fields": {
+        "moment": "Seattle : un ex-chef de police juge avoir attisé",
+        "quote": "Si on avait eu l'intention d'enflammer les passions […] on aurait pas fait autrement",
+        "quote_original": "",
+        "lens_ref": "causalite",
+        "factcheck": "",
+        "theme": "Escalade policière aux États-Unis",
+        "centrality": 4,
+        "kind": "affirmation",
+        "role": "preuve",
+        "rationale": "Témoignage d'un acteur sur l'escalade qu'il a déclenchée."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "2b",
+      "slot": "2",
+      "reason": "Ramène l'escalade au cas français et pose la question de qui l'affirme et sur quelles données, face à la question de ce qui protège le droit de manifester.",
+      "fields": {
+        "moment": "Gilets jaunes : les blessés graves viennent du contact",
+        "quote": "Depuis le mouvement des gilets jaunes, toutes les blessures graves, toutes les images choquantes, c'est qu'il y a du contact.",
+        "quote_original": "",
+        "lens_ref": "sources",
+        "factcheck": "",
+        "theme": "Contact police-manifestants en France",
+        "centrality": 3,
+        "kind": "affirmation",
+        "role": "appui",
+        "rationale": "Lien contact-blessures posé par un seul intervenant non identifié."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "3a",
+      "slot": "3",
+      "reason": "Pose le jugement où la vidéo aboutit et laisse au lecteur de voir si on passe d'une restriction pratique à un régime remis en cause, ce que nomme l'enjeu de la slide 8.",
+      "fields": {
+        "moment": "Cologne : sans droit de déranger, plus de démocratie",
+        "quote": "si on a plus le droit de déranger […] Et ça, c'est plus une démocratie.",
+        "quote_original": "",
+        "lens_ref": "sophismes",
+        "factcheck": "",
+        "theme": "Droit de manifester et démocratie",
+        "centrality": 5,
+        "kind": "enjeu",
+        "role": "pivot",
+        "rationale": "Conclusion de la vidéo : déranger définit la démocratie."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "3b",
+      "slot": "3",
+      "reason": "Donne au lecteur le critère visuel que la vidéo propose pour juger un maintien de l'ordre, directement utile pour répondre à la question finale.",
+      "fields": {
+        "moment": "Des policiers qui aient l'air de gardiens de la paix",
+        "quote": "Il faut qu'ils aient l'air de gardiens de la paix.",
+        "quote_original": "",
+        "lens_ref": "sources",
+        "factcheck": "",
+        "theme": "Ce que la vidéo préconise pour la police",
+        "centrality": 3,
+        "kind": "enjeu",
+        "role": "concession",
+        "rationale": "Seule préconisation de la fin, d'un intervenant non identifié."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "1a",
+    "2a",
+    "3a"
+  ],
+  "picked": [
+    "1a",
+    "2a",
+    "3a"
+  ],
+  "fragment": {
+    "display": {
+      "reading_beats": [
+        {
+          "moment": "Les blindés du 8 décembre : un message politique",
+          "quote": "Les blindés, c'était un geste politique […] un message pour montrer qu'on changeait de dimension",
+          "quote_original": "",
+          "lens_ref": "sources",
+          "factcheck": "",
+          "theme": "Militarisation : blindés déployés",
+          "centrality": 5,
+          "kind": "affirmation",
+          "role": "appui",
+          "rationale": "Le préfet de l'époque avoue l'intention politique des blindés.",
+          "selected": true,
+          "spine_ref": 1,
+          "axis_link": "Donne au lecteur un aveu venu du pouvoir : la militarisation est un choix, ce qui nourrit la question de ce qui protège ou réduit le droit de manifester."
+        },
+        {
+          "moment": "Une soirée, 12 blessés à la tête, quatre éborgnés",
+          "quote": "12 manifestants ont été blessés à la tête […] Quatre d'entre eux vont perdre un œil.",
+          "quote_original": "",
+          "lens_ref": "chiffres",
+          "factcheck": "likely true",
+          "theme": "Bilan humain du 8 décembre 2018",
+          "centrality": 4,
+          "kind": "statistique",
+          "role": "preuve",
+          "rationale": "Seul bilan chiffré du film, limité à une journée.",
+          "selected": false,
+          "spine_ref": 1,
+          "axis_link": "Montre le coût humain des armes employées et invite à demander rapporté à quoi : une journée, tout le mouvement ?"
+        },
+        {
+          "moment": "Seattle : un ex-chef de police juge avoir attisé",
+          "quote": "Si on avait eu l'intention d'enflammer les passions […] on aurait pas fait autrement",
+          "quote_original": "",
+          "lens_ref": "causalite",
+          "factcheck": "",
+          "theme": "Escalade policière aux États-Unis",
+          "centrality": 4,
+          "kind": "affirmation",
+          "role": "preuve",
+          "rationale": "Témoignage d'un acteur sur l'escalade qu'il a déclenchée.",
+          "selected": true,
+          "spine_ref": 2,
+          "axis_link": "Donne au lecteur le cas à partir duquel la vidéo soutient qu'une police offensive attise la violence, et lui laisse juger si ce cas vaut pour la France."
+        },
+        {
+          "moment": "Gilets jaunes : les blessés graves viennent du contact",
+          "quote": "Depuis le mouvement des gilets jaunes, toutes les blessures graves, toutes les images choquantes, c'est qu'il y a du contact.",
+          "quote_original": "",
+          "lens_ref": "sources",
+          "factcheck": "",
+          "theme": "Contact police-manifestants en France",
+          "centrality": 3,
+          "kind": "affirmation",
+          "role": "appui",
+          "rationale": "Lien contact-blessures posé par un seul intervenant non identifié.",
+          "selected": false,
+          "spine_ref": 2,
+          "axis_link": "Ramène l'escalade au cas français et pose la question de qui l'affirme et sur quelles données, face à la question de ce qui protège le droit de manifester."
+        },
+        {
+          "moment": "Cologne : sans droit de déranger, plus de démocratie",
+          "quote": "si on a plus le droit de déranger […] Et ça, c'est plus une démocratie.",
+          "quote_original": "",
+          "lens_ref": "sophismes",
+          "factcheck": "",
+          "theme": "Droit de manifester et démocratie",
+          "centrality": 5,
+          "kind": "enjeu",
+          "role": "pivot",
+          "rationale": "Conclusion de la vidéo : déranger définit la démocratie.",
+          "selected": true,
+          "spine_ref": 3,
+          "axis_link": "Pose le jugement où la vidéo aboutit et laisse au lecteur de voir si on passe d'une restriction pratique à un régime remis en cause, ce que nomme l'enjeu de la slide 8."
+        },
+        {
+          "moment": "Des policiers qui aient l'air de gardiens de la paix",
+          "quote": "Il faut qu'ils aient l'air de gardiens de la paix.",
+          "quote_original": "",
+          "lens_ref": "sources",
+          "factcheck": "",
+          "theme": "Ce que la vidéo préconise pour la police",
+          "centrality": 3,
+          "kind": "enjeu",
+          "role": "concession",
+          "rationale": "Seule préconisation de la fin, d'un intervenant non identifié.",
+          "selected": false,
+          "spine_ref": 3,
+          "axis_link": "Donne au lecteur le critère visuel que la vidéo propose pour juger un maintien de l'ordre, directement utile pour répondre à la question finale."
+        }
+      ]
+    }
+  },
+  "remarks": []
+}

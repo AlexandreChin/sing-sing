@@ -1,0 +1,113 @@
+{
+  "beats": [
+    {
+      "index": 0,
+      "lens_question": "Un prof absent : qui tient le compte des heures ?",
+      "note": "Devant un témoignage sur un lycée, cherchez **le chiffre national** qui dirait s'il est isolé ou courant.",
+      "answer": "**Un témoignage, puis un compte** : près de 10 % d'heures non assurées dans le public, selon la vidéo. La Cour des comptes chiffre les remplacements."
+    },
+    {
+      "index": 1,
+      "lens_question": "Des lycées inégaux : où va l'argent public ?",
+      "note": "Quand un groupe se dit oublié, cherchez **les moyens par élève** d'un établissement à l'autre.",
+      "answer": "**Comparez par élève** : à Saint-Denis, une infirmière à mi-temps pour 2 000 élèves. Les Repères statistiques du ministère donnent les moyennes."
+    },
+    {
+      "index": 6,
+      "lens_question": "Une position prêtée à l'État : qui la formule ?",
+      "note": "Quand on prête une intention à une autorité, cherchez **le document** où elle motive sa décision.",
+      "answer": "**Lisez les arrêtés** : interdire les rassemblements près des lycées est un acte écrit et motivé. Les recueils des actes des préfectures les publient."
+    }
+  ],
+  "reperes_facts": [
+    {
+      "label": "L'école",
+      "text": "**−21 points** en maths : PISA 2018–2022, mesuré par l'OCDE"
+    },
+    {
+      "label": "La police",
+      "text": "Les **balles en caoutchouc** : suspension demandée par le Défenseur des droits (2019)"
+    },
+    {
+      "label": "Le média",
+      "text": "**HugoDécrypte**, suivi des 15-30 ans : il reçoit directement les messages des lycéens"
+    }
+  ],
+  "why_selected": "Parti d'un lycée de **Créteil** à la rentrée, le blocage gagne 400 lycées en une semaine, à quelques mois de la **présidentielle**.\nLa vidéo donne la parole aux **lycéens**, à leurs profs, au ministre et à une avocate : chacun sa version.",
+  "selection_headline": "Une semaine de blocages, quatre versions",
+  "key_takeaways": [
+    {
+      "text": "Le blocage part de Créteil et gagne plus de 400 lycées en une semaine.",
+      "selected": true
+    },
+    {
+      "text": "Plus de 6 800 interpellations, dont 85 % de mineurs, selon le ministère de l'Intérieur.",
+      "selected": true
+    },
+    {
+      "text": "Des élèves passent le bac sans professeur de la matière toute l'année.",
+      "selected": true
+    },
+    {
+      "text": "36 enquêtes de la police des polices ouvertes pour violences sur mineurs.",
+      "selected": false
+    },
+    {
+      "text": "Plus de 700 membres des forces de l'ordre blessés, selon les autorités.",
+      "selected": false
+    },
+    {
+      "text": "Le ministre attribue les violences à des groupes extérieurs venus en découdre.",
+      "selected": false
+    }
+  ],
+  "go_further": [
+    {
+      "title": "Repères et références statistiques",
+      "source": "DEPP, ministère de l'Éducation nationale",
+      "media_type": "report",
+      "category": "question_answer",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Les effectifs par classe et les moyens des lycées publics, chiffrés chaque année.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Rapports sur la gestion des enseignants et leur remplacement",
+      "source": "Cour des comptes",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Pour mesurer les heures de cours perdues faute de remplaçant.",
+      "cta_question_index": null
+    },
+    {
+      "title": "Avis et décisions sur le maintien de l'ordre en manifestation",
+      "source": "Défenseur des droits",
+      "media_type": "report",
+      "category": "deep_dive",
+      "url": null,
+      "duration_minutes": null,
+      "why_explore": "Ce que l'autorité indépendante recommande depuis 2019 sur l'usage de la force face aux manifestants.",
+      "cta_question_index": null
+    }
+  ],
+  "where_to_look": [
+    "Les statistiques du ministère de l'Éducation (DEPP)",
+    "La Cour des comptes sur le remplacement des profs",
+    "Le Défenseur des droits sur le maintien de l'ordre"
+  ],
+  "hook": {
+    "topic": "Lycées en **colère**",
+    "sub_topic": "Profs absents, banlieue délaissée : quelle **voix** reste aux lycéens ?",
+    "subtitle": "Comprendre qui les entend.",
+    "headline": "des lycées sans **moyens**, des élèves qui cherchent à être entendus",
+    "sub_topic_alt": [
+      "Classes à 35, banlieue oubliée : et la **voix** des lycéens ?",
+      "Sans profs, sans vote : les lycéens n'ont que la **rue**",
+      "Des **moyens** inégaux, des lycéens dans la rue : qui les écoute ?"
+    ]
+  },
+  "caption": "Parti de Créteil, le blocage a gagné 400 lycées en une semaine : classes à 35, profs absents, 6 800 interpellations selon le ministère de l'Intérieur. 🏫\n\n🔎 Les clefs pour comprendre en une minute ce que réclament les lycéens et ce que l'État leur répond.\n\n🔗 Lien vers la vidéo en commentaires ↓"
+}

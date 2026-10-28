@@ -1,0 +1,91 @@
+{
+  "step": "contexte",
+  "thesis_frame": null,
+  "options": [
+    {
+      "id": "a",
+      "slot": "fact",
+      "reason": "Situe le mouvement d'où part la vidéo : son origine fiscale, avant la montée de la violence.",
+      "fields": {
+        "label": "Gilets jaunes",
+        "text": "**Novembre 2018** : manifestations chaque samedi contre une taxe sur les carburants."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "fact",
+      "reason": "Donne un repère extérieur pour rapporter le bilan d'une seule journée à l'ensemble du mouvement.",
+      "fields": {
+        "label": "Blessés",
+        "text": "**≈25 éborgnés** : recensement du journaliste David Dufresne sur tout le mouvement de 2018-2019."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "fact",
+      "reason": "Montre qu'un contre-pouvoir a déjà limité une pratique que la vidéo présente comme en expansion.",
+      "fields": {
+        "label": "Justice",
+        "text": "En 2021, le **Conseil d'État** annule la disposition sur l'encerclement des manifestants."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "fact",
+      "reason": "Permet de rapporter à une mesure extérieure le chiffre « un Américain sur cinq » avancé dans la vidéo.",
+      "fields": {
+        "label": "États-Unis",
+        "text": "**6 à 8 %** des adultes ont manifesté après George Floyd (sondages cités par le New York Times)."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "e",
+      "slot": "fact",
+      "reason": "Aide à regarder la vidéo en sachant qui parle, sans étiquette politique.",
+      "fields": {
+        "label": "La source",
+        "text": "**ARTE**, chaîne publique franco-allemande : des critiques venus de l'intérieur de l'institution."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "b",
+    "c",
+    "d"
+  ],
+  "picked": [
+    "b",
+    "c",
+    "d"
+  ],
+  "fragment": {
+    "display": {
+      "reperes_facts": [
+        {
+          "label": "Blessés",
+          "text": "**≈25 éborgnés** : recensement du journaliste David Dufresne sur tout le mouvement de 2018-2019."
+        },
+        {
+          "label": "Justice",
+          "text": "En 2021, le **Conseil d'État** annule la disposition sur l'encerclement des manifestants."
+        },
+        {
+          "label": "États-Unis",
+          "text": "**6 à 8 %** des adultes ont manifesté après George Floyd (sondages cités par le New York Times)."
+        }
+      ]
+    }
+  },
+  "remarks": []
+}

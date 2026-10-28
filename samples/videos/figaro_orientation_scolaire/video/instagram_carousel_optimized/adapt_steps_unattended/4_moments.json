@@ -1,0 +1,228 @@
+{
+  "step": "moments",
+  "thesis_frame": null,
+  "options": [
+    {
+      "id": "1a",
+      "slot": "1",
+      "reason": "Montre d'où part l'intervenant : relier les émeutes à l'école, ce qui conditionne la question sur l'orientation précoce.",
+      "fields": {
+        "moment": "Les émeutes, vues comme un mensonge qui craque",
+        "quote": "un tel embrasement aujourd'hui, c'est parce que le vernis d'un mensonge […] est en train de craquer",
+        "quote_original": "",
+        "lens_ref": "cadrage",
+        "factcheck": "",
+        "theme": "Cadrage des émeutes",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "mise en scène",
+        "rationale": "Pose le lien émeutes-école, jamais étayé dans la vidéo."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "1b",
+      "slot": "1",
+      "reason": "Donne au lecteur la prémisse dont dépend la question : sélectionner plus tôt ouvre-t-il des parcours ou en ferme-t-il, alors que rien ne mesure ce déplacement ?",
+      "fields": {
+        "moment": "Abolir la sélection la déplace, plus violente ensuite",
+        "quote": "lorsqu'on prétend abolir la sélection, en réalité, on la déplace […] par une sélection autrement plus violente",
+        "quote_original": "",
+        "lens_ref": "opinion_fait",
+        "factcheck": "",
+        "theme": "Sélection déplacée",
+        "centrality": 4,
+        "kind": "enjeu",
+        "role": "appui",
+        "rationale": "Première pièce de la thèse : la sélection ne disparaît pas."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "2a",
+      "slot": "2",
+      "reason": "Montre un lien présenté comme évident, que le lecteur peut tester avant de juger si orienter plus tôt changerait ces parcours.",
+      "fields": {
+        "moment": "Plus d'étudiants, donc des diplômés déclassés ?",
+        "quote": "toujours plus de cohortes de diplômés frustrés et déclassés dont les perspectives professionnelles […] sont totalement bouchées",
+        "quote_original": "",
+        "lens_ref": "causalite",
+        "factcheck": "",
+        "theme": "Massification et déclassement",
+        "centrality": 5,
+        "kind": "affirmation",
+        "role": "preuve",
+        "rationale": "Chaîne causale posée comme évidente, sans autre cause examinée."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "2b",
+      "slot": "2",
+      "reason": "Donne un chiffre à rapporter à autre chose : la Suisse a un apprentissage développé, que la vidéo ne dit pas, ce qui pèse sur la question des parcours.",
+      "fields": {
+        "moment": "Chômage des jeunes : 21 % en France, 3 % en Suisse",
+        "quote": "chômage des jeunes Français qui est de 21 %. On est à 3 % en Suisse",
+        "quote_original": "",
+        "lens_ref": "chiffres",
+        "factcheck": "disputed",
+        "theme": "Comparaison internationale",
+        "centrality": 4,
+        "kind": "statistique",
+        "role": "preuve",
+        "rationale": "Écart chiffré sans source, base de calcul ni contexte suisse."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "3a",
+      "slot": "3",
+      "reason": "Fait voir ce qui manque pour répondre à la question : ni l'âge, ni les critères, ni les passerelles ne sont dits, donc on ne sait pas si les parcours restent ouverts.",
+      "fields": {
+        "moment": "Collège modulaire : sélectionner plus tôt, sans détail",
+        "quote": "passer de […] collège unique à […] collège modulaire et avoir une sélection plus tôt",
+        "quote_original": "",
+        "lens_ref": "angles_morts",
+        "factcheck": "",
+        "theme": "Solution proposée",
+        "centrality": 4,
+        "kind": "enjeu",
+        "role": "pivot",
+        "rationale": "La solution avancée ne précise ni âge, ni critères, ni passerelles."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "3b",
+      "slot": "3",
+      "reason": "Montre que la contrepartie promise à la sélection précoce repose sur une image, non sur des débouchés décrits, ce qui compte pour juger si elle ouvre des parcours.",
+      "fields": {
+        "moment": "Les métiers de la main revalorisés par une formule",
+        "quote": "une vraie revalorisation des métiers de la main […] plus de noblesse à être chaudronnier que crétin diplômé",
+        "quote_original": "",
+        "lens_ref": "cadrage",
+        "factcheck": "",
+        "theme": "Métiers manuels",
+        "centrality": 3,
+        "kind": "affirmation",
+        "role": "mise en scène",
+        "rationale": "Seule justification de la revalorisation : une opposition imagée."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "1b",
+    "2a",
+    "3a"
+  ],
+  "picked": [
+    "1b",
+    "2a",
+    "3a"
+  ],
+  "fragment": {
+    "display": {
+      "reading_beats": [
+        {
+          "moment": "Les émeutes, vues comme un mensonge qui craque",
+          "quote": "un tel embrasement aujourd'hui, c'est parce que le vernis d'un mensonge […] est en train de craquer",
+          "quote_original": "",
+          "lens_ref": "cadrage",
+          "factcheck": "",
+          "theme": "Cadrage des émeutes",
+          "centrality": 5,
+          "kind": "affirmation",
+          "role": "mise en scène",
+          "rationale": "Pose le lien émeutes-école, jamais étayé dans la vidéo.",
+          "selected": false,
+          "spine_ref": 1,
+          "axis_link": "Montre d'où part l'intervenant : relier les émeutes à l'école, ce qui conditionne la question sur l'orientation précoce."
+        },
+        {
+          "moment": "Abolir la sélection la déplace, plus violente ensuite",
+          "quote": "lorsqu'on prétend abolir la sélection, en réalité, on la déplace […] par une sélection autrement plus violente",
+          "quote_original": "",
+          "lens_ref": "opinion_fait",
+          "factcheck": "",
+          "theme": "Sélection déplacée",
+          "centrality": 4,
+          "kind": "enjeu",
+          "role": "appui",
+          "rationale": "Première pièce de la thèse : la sélection ne disparaît pas.",
+          "selected": true,
+          "spine_ref": 1,
+          "axis_link": "Donne au lecteur la prémisse dont dépend la question : sélectionner plus tôt ouvre-t-il des parcours ou en ferme-t-il, alors que rien ne mesure ce déplacement ?"
+        },
+        {
+          "moment": "Plus d'étudiants, donc des diplômés déclassés ?",
+          "quote": "toujours plus de cohortes de diplômés frustrés et déclassés dont les perspectives professionnelles […] sont totalement bouchées",
+          "quote_original": "",
+          "lens_ref": "causalite",
+          "factcheck": "",
+          "theme": "Massification et déclassement",
+          "centrality": 5,
+          "kind": "affirmation",
+          "role": "preuve",
+          "rationale": "Chaîne causale posée comme évidente, sans autre cause examinée.",
+          "selected": true,
+          "spine_ref": 2,
+          "axis_link": "Montre un lien présenté comme évident, que le lecteur peut tester avant de juger si orienter plus tôt changerait ces parcours."
+        },
+        {
+          "moment": "Chômage des jeunes : 21 % en France, 3 % en Suisse",
+          "quote": "chômage des jeunes Français qui est de 21 %. On est à 3 % en Suisse",
+          "quote_original": "",
+          "lens_ref": "chiffres",
+          "factcheck": "disputed",
+          "theme": "Comparaison internationale",
+          "centrality": 4,
+          "kind": "statistique",
+          "role": "preuve",
+          "rationale": "Écart chiffré sans source, base de calcul ni contexte suisse.",
+          "selected": false,
+          "spine_ref": 2,
+          "axis_link": "Donne un chiffre à rapporter à autre chose : la Suisse a un apprentissage développé, que la vidéo ne dit pas, ce qui pèse sur la question des parcours."
+        },
+        {
+          "moment": "Collège modulaire : sélectionner plus tôt, sans détail",
+          "quote": "passer de […] collège unique à […] collège modulaire et avoir une sélection plus tôt",
+          "quote_original": "",
+          "lens_ref": "angles_morts",
+          "factcheck": "",
+          "theme": "Solution proposée",
+          "centrality": 4,
+          "kind": "enjeu",
+          "role": "pivot",
+          "rationale": "La solution avancée ne précise ni âge, ni critères, ni passerelles.",
+          "selected": true,
+          "spine_ref": 3,
+          "axis_link": "Fait voir ce qui manque pour répondre à la question : ni l'âge, ni les critères, ni les passerelles ne sont dits, donc on ne sait pas si les parcours restent ouverts."
+        },
+        {
+          "moment": "Les métiers de la main revalorisés par une formule",
+          "quote": "une vraie revalorisation des métiers de la main […] plus de noblesse à être chaudronnier que crétin diplômé",
+          "quote_original": "",
+          "lens_ref": "cadrage",
+          "factcheck": "",
+          "theme": "Métiers manuels",
+          "centrality": 3,
+          "kind": "affirmation",
+          "role": "mise en scène",
+          "rationale": "Seule justification de la revalorisation : une opposition imagée.",
+          "selected": false,
+          "spine_ref": 3,
+          "axis_link": "Montre que la contrepartie promise à la sélection précoce repose sur une image, non sur des débouchés décrits, ce qui compte pour juger si elle ouvre des parcours."
+        }
+      ]
+    }
+  },
+  "remarks": []
+}

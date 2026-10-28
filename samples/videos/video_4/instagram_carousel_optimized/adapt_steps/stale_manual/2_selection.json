@@ -1,0 +1,132 @@
+{
+  "reading_beats": [
+    {
+      "moment": "Des élèves passent le bac sans prof de la matière",
+      "quote": "Il y en a qui passent le bac de maths sans prof de maths.",
+      "quote_original": "",
+      "lens_ref": "sources",
+      "factcheck": "",
+      "selected": true,
+      "theme": "Manque de moyens",
+      "centrality": 4,
+      "kind": "fait",
+      "role": "preuve",
+      "spine_ref": 1,
+      "axis_link": "Montre ce que veut dire, pour un élève, ne pas avoir les mêmes profs selon son lycée : le premier terme de l'enjeu.",
+      "rationale": "Témoignage d'un seul lycée, généralisé ensuite par des chiffres non sourcés"
+    },
+    {
+      "moment": "Les élèves de banlieue se disent laissés à l'abandon",
+      "quote": "On est laissé à l'abandon comme si nous les enfants de banlieue on comptait pas.",
+      "quote_original": "",
+      "lens_ref": "angles_morts",
+      "factcheck": "",
+      "selected": true,
+      "theme": "Inégalités entre lycées",
+      "centrality": 4,
+      "kind": "affirmation",
+      "role": "appui",
+      "spine_ref": 2,
+      "axis_link": "Pose l'inégalité entre lycées au cœur de l'enjeu, dite par des mineurs qui n'ont pas de vote pour la faire entendre.",
+      "rationale": "Inégalité affirmée ; la répartition du budget entre lycées jamais montrée"
+    },
+    {
+      "moment": "Le niveau au plus bas, rapproché des moyens",
+      "quote": "Selon le dernier classement international PISA, le niveau scolaire des élèves français n'a jamais été aussi bas […]",
+      "quote_original": "",
+      "lens_ref": "causalite",
+      "factcheck": "true",
+      "selected": false,
+      "theme": "Niveau scolaire",
+      "centrality": 3,
+      "kind": "statistique",
+      "role": "appui",
+      "spine_ref": 1,
+      "axis_link": "",
+      "rationale": "Juxtaposition qui suggère un lien de cause jamais établi"
+    },
+    {
+      "moment": "« Apolitique », c'est-à-dire sans parti ni syndicat",
+      "quote": "Certes, c'est de la politique mais quand je dis apolitique c'est on n'est pas affilié à l'UNEF […]",
+      "quote_original": "",
+      "lens_ref": "cadrage",
+      "factcheck": "",
+      "selected": false,
+      "theme": "Cadrage politique",
+      "centrality": 2,
+      "kind": "biais",
+      "role": "concession",
+      "spine_ref": 0,
+      "axis_link": "",
+      "rationale": "Mouvement dit apolitique, relié par la vidéo à la présidentielle"
+    },
+    {
+      "moment": "Des classes à plus de 30 élèves dans 70 % des cas",
+      "quote": "On compte plus de 30 élèves par classe dans 70 % des cas.",
+      "quote_original": "",
+      "lens_ref": "chiffres",
+      "factcheck": "disputed",
+      "selected": false,
+      "theme": "Chiffres des moyens",
+      "centrality": 4,
+      "kind": "statistique",
+      "role": "preuve",
+      "spine_ref": 1,
+      "axis_link": "",
+      "rationale": "Chiffre clé donné sans source ni périmètre"
+    },
+    {
+      "moment": "Le ministre accuse des groupes venus pour en découdre",
+      "quote": "Ce ne sont pas les lycéens qui sont violents au départ. […] des groupuscules qui étaient en fait pour en découdre.",
+      "quote_original": "",
+      "lens_ref": "sources",
+      "factcheck": "",
+      "selected": false,
+      "theme": "Origine des violences",
+      "centrality": 3,
+      "kind": "affirmation",
+      "role": "concession",
+      "spine_ref": 3,
+      "axis_link": "",
+      "rationale": "Seule parole du gouvernement ; groupes jamais identifiés ni vérifiés"
+    },
+    {
+      "moment": "Une avocate prête à l'État le but de décourager",
+      "quote": "Ce que veut faire le gouvernement, c'est essayer de passer l'envie à toute cette génération de se remobiliser.",
+      "quote_original": "",
+      "lens_ref": "opinion_fait",
+      "factcheck": "unverifiable",
+      "selected": true,
+      "theme": "Réponse de l'État",
+      "centrality": 5,
+      "kind": "affirmation",
+      "role": "appui",
+      "spine_ref": 3,
+      "axis_link": "Donne la lecture à examiner quand la rue est la seule voix des mineurs : interdire les rassemblements, est-ce les faire taire ?",
+      "rationale": "Intention prêtée à l'État sans document, aucune préfecture interrogée"
+    },
+    {
+      "moment": "Deux élèves interrogés, un système déclaré inégalitaire",
+      "quote": "Fanny à Nantes et Bilel à Saint-Denis […] font le même constat. […] Celui d'un système éducatif […] devenu inégalitaire.",
+      "quote_original": "",
+      "lens_ref": "sophismes",
+      "factcheck": "",
+      "selected": false,
+      "theme": "Généralisation",
+      "centrality": 5,
+      "kind": "biais",
+      "role": "pivot",
+      "spine_ref": 2,
+      "axis_link": "",
+      "rationale": "Deux cas choisis portent la conclusion sur tout le système"
+    }
+  ],
+  "core_recap": [
+    "Ses présupposés : que les profs manquent **faute d'argent** ; que la banlieue **reçoit moins** ; qu'interdire vise à **faire taire**"
+  ],
+  "steel_man": {
+    "argument": "Avec **700 policiers blessés** et des mortiers tirés près des lycées, interdire peut répondre à **un risque réel**.",
+    "alternative": "L'État gérerait **l'ordre public**, parfois avec excès, sans viser **la voix des lycéens**.",
+    "targets": 3
+  }
+}

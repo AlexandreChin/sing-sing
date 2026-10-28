@@ -1,0 +1,61 @@
+{
+  "step": "hook",
+  "thesis_frame": null,
+  "options": [
+    {
+      "id": "a",
+      "slot": "hook",
+      "reason": "Ouvre les trois idées clés (sélection déplacée, déclassement, collège modulaire) et pose l'âge non dit comme un manque ; le moment sur le collège modulaire le paie.",
+      "fields": {
+        "topic": "Sélection **précoce** à l'école",
+        "sub_topic": "Sélection **déplacée**, jeunes déclassés : orienter, mais à quel âge ?",
+        "subtitle": "Comprendre ce qui reste flou.",
+        "headline": "Sélection **déplacée**, jeunes déclassés : à quel âge orienter ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "hook",
+      "reason": "Met en avant ce que la solution ne précise pas (critères, passerelles) ; le moment sur le collège modulaire le paie, celui sur le déclassement porte le chiffre.",
+      "fields": {
+        "topic": "Le collège **modulaire**",
+        "sub_topic": "Sélection déplacée, chômage à 21 % : orienter, sur quels **critères** ?",
+        "subtitle": "Comprendre ce qui manque.",
+        "headline": "Orienter plus tôt : quels **critères**, quelles passerelles ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "hook",
+      "reason": "Reprend le mot « parcours » de l'enjeu et de La question ; la sélection déplacée et le déclassement sont payés par les deux premiers moments, le collège modulaire par le dernier.",
+      "fields": {
+        "topic": "Orientation : trier **plus tôt**",
+        "sub_topic": "Sélection déplacée, déclassés : quels **parcours** restent ouverts ?",
+        "subtitle": "Comprendre ce qui reste ouvert.",
+        "headline": "Orienter plus tôt : quels **parcours** restent ouverts ?"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "hook": {
+      "topic": "Sélection **précoce** à l'école",
+      "sub_topic": "Sélection **déplacée**, jeunes déclassés : orienter, mais à quel âge ?",
+      "subtitle": "Comprendre ce qui reste flou.",
+      "headline": "Sélection **déplacée**, jeunes déclassés : à quel âge orienter ?"
+    }
+  },
+  "remarks": []
+}

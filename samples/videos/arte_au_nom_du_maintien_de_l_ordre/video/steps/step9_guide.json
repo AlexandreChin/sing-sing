@@ -1,0 +1,69 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Gardez en tête que ce film défend un point de vue, celui des manifestants et d'anciens responsables critiques, et qu'il ne cherche pas à présenter le dossier de façon neutre.",
+      "Repérez la thèse centrale, une militarisation progressive du maintien de l'ordre sur cinquante ans, et notez ce qui est montré comme preuve : images, témoignages ou chiffres.",
+      "Préparez-vous à recouper les chiffres cités et à chercher ce que disent les autorités, que le film pourrait ne pas solliciter."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "w1",
+          "text": "Un bilan présenté pour une seule journée peut sembler résumer tout le mouvement. Cherchez le total des blessés, côté manifestants comme côté policiers, avant d'en tirer une mesure d'ensemble.",
+          "references": [
+            "obs_0",
+            "bs_0",
+            "bs_1"
+          ]
+        },
+        {
+          "id": "w2",
+          "text": "Un chiffre sur l'ampleur d'une mobilisation aux États-Unis paraît bien supérieur aux sondages disponibles. Comparez-le avec une source indépendante et regardez sur quelle base il est calculé.",
+          "references": [
+            "obs_3",
+            "claim_1"
+          ]
+        },
+        {
+          "id": "w3",
+          "text": "La même tendance est supposée à l'œuvre à Seattle, Minneapolis, Paris et Cologne, sans que la comparaison soit démontrée. Demandez-vous si ces situations sont vraiment comparables, et si le modèle allemand est applicable ailleurs.",
+          "references": [
+            "ia_0",
+            "lr_1",
+            "cb_1"
+          ]
+        },
+        {
+          "id": "w4",
+          "text": "Les anciens responsables s'expriment longuement, alors que les policiers de terrain n'ont presque pas la parole et que les autorités ne répondent pas. Notez qui parle, combien de temps, et qui est absent.",
+          "references": [
+            "ia_2",
+            "pr_1",
+            "bs_2"
+          ]
+        },
+        {
+          "id": "w5",
+          "text": "Le ton, la voix off et certaines étiquettes installent une impression de menace avant tout exemple concret. Distinguez ce qui est montré de ce qui est suggéré par le registre.",
+          "references": [
+            "er_1",
+            "bias_1",
+            "claim_2"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Cherchez le bilan global des blessés graves et la réponse des autorités avant de vous faire une opinion sur l'ampleur du phénomène.",
+      "Vérifiez le cadre juridique actuel des nasses, notamment les décisions de justice qui ont pu le modifier depuis.",
+      "Demandez-vous quels éléments de contexte, par exemple chronologiques, auraient pu changer la lecture de certains événements.",
+      "Retenez que la force d'un angle peut tenir au montage et au choix des voix plus qu'aux données d'ensemble."
+    ],
+    "title_note": "Le titre, qui commence par « Au nom de », annonce un thème mais ne nomme aucun pays, ce qui laisse le cadre géographique ouvert avant la lecture.",
+    "perspective": {
+      "framing": "Le film adopte le point de vue des manifestants et d'anciens responsables critiques, et suit une progression sur cinquante ans entre France, États-Unis et Allemagne. Il s'exprime sur un ton d'inquiétude, avec une voix off ironique, au nom de ceux qui subissent le maintien de l'ordre.",
+      "blind_spots": "Le film ne donne pas de bilan d'ensemble des blessés, y compris côté policiers, ni la réponse des autorités sur la légalité des nasses. La décision du Conseil d'État de 2021 sur l'encerclement n'apparaît pas non plus.",
+      "balance": "Un film militant n'a pas à présenter toutes les positions, et un angle net suppose de laisser des pans de côté. Ces limites sont réelles, mais elles relèvent du genre : elles invitent à compléter la lecture plutôt qu'à écarter le film."
+    }
+  }
+}
