@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 1,
+        "rationale": "Les chiffres clés (« 95 % de d'admission », « 21 %… 3 % en Suisse », « huit fois plus d'étudiants ») sont donnés sans source ni date, comme le relève `claims_and_sources`. Seule la citation de Georges Pompidou est attribuée, et elle sert une formule, pas une donnée.",
+        "lesson": "Vérifier que chaque chiffre cité nomme sa source et sa date avant de s'y fier."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 2,
+        "rationale": "Les affirmations chiffrées sont présentées comme des faits établis (`presented_as_established_fact`), avec une confiance faible : 30 % pour la comparaison d'admission avec la Norvège et la Suède, 45 % pour le chômage. Le terme « admission » n'est pas défini, et Parcoursup classe les candidatures alors que des filières sont sélectives.",
+        "lesson": "Se demander sur quelle base deux chiffres sont comparés avant d'accepter l'écart annoncé."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "La chaîne massification → échec → déclassement → chômage ou radicalité pose chaque étape comme évidente (`logical_reasoning`, problème de validité). Le passage des émeutes à la politique éducative n'est étayé par rien sur les profils des émeutiers, et la solution tient en quelques phrases.",
+        "lesson": "Repérer les étapes d'un raisonnement qui sont affirmées plutôt que montrées."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 3,
+        "rationale": "Le propos assume une prise de position à la première personne (`cadrage.body`), ce qui rend le point de vue lisible. En revanche, les hypothèses implicites (lien émeutes-école, débouchés dans les métiers manuels) et les limites des comparaisons ne sont pas signalées.",
+        "lesson": "Distinguer ce que l'auteur dit défendre de ce qu'il suppose sans le dire."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Les `blind_spots` notent l'absence des différences entre systèmes éducatifs, dont l'apprentissage suisse, et du contenu précis du « collège modulaire ». Le texte consacre l'essentiel de son temps au diagnostic et quelques phrases à la solution.",
+        "lesson": "Chercher ce qui est absent d'une comparaison internationale avant d'en tirer une leçon."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Les voix de jeunes, d'enseignants ou de défenseurs du collège unique sont absentes. Le langage dramatique (« mensonge », « craquer ») et l'opposition « chaudronnier » / « crétin diplômé » orientent le jugement, et les jeunes sont réduits à « chômage de masse » ou « radicalité ».",
+        "lesson": "Noter qui parle et qui est absent quand un groupe est décrit à sa place."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "Le propos est direct et suit un fil lisible : diagnostic, comparaisons, solution. Les images (« chaudronnier », « sélection par la vie ») ancrent l'abstrait, mais le titre « Orientation scolaire » reste général par rapport au contenu (`title_analysis`).",
+        "lesson": "Distinguer la clarté d'un propos de la solidité de ce qu'il avance."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "La thèse d'une sélection déplacée plutôt qu'abolie, appuyée sur la formule de Pompidou, est un angle identifiable. Le débat sur le collège unique et la sélection est cependant récurrent, comme le notent les `observations`.",
+        "lesson": "Reconnaître un angle connu du débat public et chercher ce qu'il ajoute vraiment."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Lecteur qui s'intéresse au débat sur le collège unique et la sélection à l'université, et qui veut s'exercer à vérifier des chiffres comparatifs.",
+      "payoff": "Le lecteur y trouve un plaidoyer clair pour une sélection plus précoce, et de quoi s'entraîner à repérer des chiffres sans source ni base de calcul définie.",
+      "signature_move": "Le propos s'appuie sur des chiffres comparatifs sans source ni définition, présentés dans un registre dramatique qui les fait paraître indiscutables.",
+      "main_blind_side": "Le contenu du « collège modulaire » (âge, critères, passerelles) n'est pas précisé, ce qui laisse la solution proposée sans moyen de la juger.",
+      "further_resource": {
+        "title": "Regards sur l'éducation",
+        "source": "OCDE",
+        "media_type": "report",
+        "why_explore": "Il permet de comparer les systèmes éducatifs avec des définitions et des sources explicites.",
+        "url": null
+      },
+      "summary": "Lecture à faire avec réserves, pour qui suit le débat sur la sélection : le plaidoyer est clair, mais ses chiffres comparatifs sans source ni définition demandent à être vérifiés ailleurs."
+    }
+  }
+}

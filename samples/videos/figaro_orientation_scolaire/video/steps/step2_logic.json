@@ -1,0 +1,181 @@
+{
+  "main_claim": "Supprimer la sélection a produit un échec de masse ; il faut une **sélection précoce** et valoriser les métiers manuels.",
+  "premisses": [
+    {
+      "statement": "La massification universitaire a produit plus d'échecs en premier cycle et des diplômés déclassés.",
+      "quality": "Assertion étayée par des chiffres sans source ni date (95 % d'admission, un demi-milliard d'euros par an) ; le lien avec le déclassement n'est pas montré."
+    },
+    {
+      "statement": "La France compte plus d'étudiants qu'avant et l'université la plus ouverte de l'OCDE, comparée à la Norvège et à la Suède.",
+      "quality": "Données comparatives avec des pays choisis ; les définitions du « taux d'admission » ne sont pas précisées."
+    },
+    {
+      "statement": "Le chômage des jeunes français (21 %) contraste avec celui de la Suisse (3 %).",
+      "quality": "Comparaison sans source ni précision sur la base de calcul (actifs ou classe d'âge entière) ; le contexte éducatif suisse diffère."
+    },
+    {
+      "statement": "Abolir la sélection la déplace vers une « sélection par la vie » plus violente.",
+      "quality": "Assertion appuyée par une citation de Georges Pompidou, sans donnée sur ce déplacement."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "statement": "Les émeutes s'expliquent par la situation scolaire et professionnelle des jeunes qui y participent.",
+      "impact": "Si le lien est faux, l'ouverture sur l'« embrasement » ne justifie plus le diagnostic sur l'université."
+    },
+    {
+      "statement": "Le chômage des jeunes et l'échec en licence viennent de la massification plutôt que d'autres causes (conjoncture, marché du travail, discriminations).",
+      "impact": "Si d'autres causes pèsent davantage, réduire la massification ne réduirait pas le chômage."
+    },
+    {
+      "statement": "Une sélection plus précoce, au collège, produirait de meilleurs débouchés que la sélection actuelle.",
+      "impact": "Si l'orientation précoce fige les trajectoires sociales, la solution reproduit le problème qu'elle prétend traiter."
+    },
+    {
+      "statement": "Il existe assez de débouchés dans les métiers manuels et l'industrie pour absorber les élèves réorientés.",
+      "impact": "Sans ces emplois ni leur revalorisation effective, le collège modulaire ne résout pas le chômage."
+    }
+  ],
+  "blind_spots": [
+    {
+      "topic": "Aucune source ni date pour les chiffres cités.",
+      "significance": "Sans source, le lecteur ne peut pas vérifier que les écarts avec la Norvège, la Suède et la Suisse sont aussi grands."
+    },
+    {
+      "topic": "Les différences entre systèmes éducatifs, dont l'apprentissage développé en Suisse, ne sont pas évoquées.",
+      "significance": "Elles pourraient expliquer une partie de l'écart de chômage sans lien avec la sélection."
+    },
+    {
+      "topic": "Les voix de jeunes, d'enseignants ou de défenseurs du collège unique sont absentes.",
+      "significance": "Leur présence aurait montré les objections à une sélection précoce."
+    },
+    {
+      "topic": "Le contenu du « collège modulaire » reste vague : âge, critères, passerelles.",
+      "significance": "Sans ces précisions, on ne peut pas juger si la proposition évite de figer les parcours."
+    }
+  ],
+  "emphasis": [
+    "Le texte consacre l'essentiel de son temps au diagnostic (échec, chômage, déclassement) et **quelques phrases** à la solution, dont le contenu n'est pas détaillé.",
+    "Les chiffres comparatifs occupent une large part du propos alors que leurs **sources et définitions** ne sont jamais évoquées.",
+    "L'image du « chaudronnier » opposé au « crétin diplômé » est la seule justification de la revalorisation des métiers manuels."
+  ],
+  "logical_reasoning": [
+    {
+      "step": "Des émeutes récentes seraient le signe d'un « mensonge » sur la réussite pour tous.",
+      "problem_type": "validity",
+      "diagnosis": "Le passage de l'embrasement à la politique éducative n'est étayé par aucun élément sur les profils des émeutiers."
+    },
+    {
+      "step": "La massification universitaire conduit à des échecs en premier cycle, puis à des diplômés déclassés, puis au chômage ou à la radicalité.",
+      "problem_type": "validity",
+      "diagnosis": "Chaque étape est posée comme évidente ; d'autres causes possibles ne sont pas examinées."
+    },
+    {
+      "step": "Les comparaisons avec la Norvège, la Suède et la Suisse montrent que le système français est moins performant.",
+      "problem_type": "soundness",
+      "diagnosis": "Les chiffres ne sont pas sourcés et les définitions comparées ne sont pas précisées."
+    },
+    {
+      "step": "Le problème étant la sélection déplacée, le collège modulaire avec sélection plus tôt serait la solution.",
+      "problem_type": "validity",
+      "diagnosis": "Rien n'indique que la sélection précoce améliore les débouchés ; l'effet dans les pays qui la pratiquent n'est pas présenté."
+    }
+  ],
+  "observations": [
+    {
+      "aspect": "Cadrage",
+      "summary": "Le propos s'ouvre sur un **« embrasement »** de jeunes, puis relie ces émeutes à un **débat récurrent** sur la sélection, sans mentionner les positions qui s'y opposent.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "L'intervenant se réfère à un « embrasement » de jeunes",
+        "strength": 0.8,
+        "nature": "illustration"
+      },
+      "proven_by": []
+    },
+    {
+      "aspect": "Historique",
+      "summary": "Le texte vise le **collège unique** (réforme Haby, 1975) et l'échec en première année, sans décrire ni leur histoire ni **Parcoursup et la loi ORE**.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "Le « collège unique » a été instauré par la réforme Haby de 1975",
+        "strength": 0.6,
+        "nature": "specification"
+      },
+      "proven_by": []
+    },
+    {
+      "aspect": "Accès",
+      "summary": "Le texte parle d'une université **sans sélection**, alors que Parcoursup classe les candidatures et que certaines filières sont sélectives.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "Parcoursup classe les candidatures et certaines filières sont sélectives",
+        "strength": 0.8,
+        "nature": "contradiction"
+      },
+      "proven_by": []
+    },
+    {
+      "aspect": "Comparaison",
+      "summary": "Le chiffre de **21 %** ne précise pas sa base de calcul, et la Suisse est citée sans son **apprentissage en alternance**.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 1,
+        "excerpt": "le taux de chômage des jeunes se calcule sur les actifs de 15 à 24 ans",
+        "strength": 0.9,
+        "nature": "specification"
+      },
+      "proven_by": []
+    },
+    {
+      "aspect": "Sourçage",
+      "summary": "Les chiffres sont donnés **sans source ni date**, alors qu'une **part importante des jeunes** suit déjà des filières professionnelles et que l'échec en licence est débattu.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 3,
+        "excerpt": "une part importante des jeunes poursuit déjà des filières professionnelles ou en apprentissage",
+        "strength": 0.7,
+        "nature": "contradiction"
+      },
+      "proven_by": []
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "L'écart de chômage entre la France et la Suisse peut venir de l'**apprentissage en alternance** et du mode de calcul, non de la sélection ni de la massification universitaire.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 1,
+        "excerpt": "Les différences entre systèmes éducatifs, dont l'apprentissage développé en Suisse",
+        "strength": 0.8,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Développer l'alternance et l'insertion professionnelle réduirait le chômage des jeunes sans sélection plus précoce."
+    },
+    {
+      "counterargument": "Une sélection dès le collège peut figer les trajectoires selon l'origine sociale et déplacer l'échec plus tôt, au lieu de le réduire.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 2,
+        "excerpt": "Une sélection plus précoce, au collège, produirait de meilleurs débouchés",
+        "strength": 0.8,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Renforcer l'accompagnement et l'orientation choisie plutôt que précoce traiterait l'échec sans fermer de parcours."
+    },
+    {
+      "counterargument": "Les émeutes peuvent s'expliquer par d'autres facteurs que le système éducatif, comme les rapports avec la police, les inégalités territoriales ou le contexte local.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 0,
+        "excerpt": "Les émeutes s'expliquent par la situation scolaire et professionnelle des jeunes",
+        "strength": 0.7,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Le diagnostic éducatif n'explique pas les émeutes ; elles relèvent d'autres causes à examiner séparément."
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "article_type": "opinion",
+  "key_claims": [
+    {
+      "quote": "si on assiste à un tel embrasement aujourd'hui, c'est parce que le vernis d'un mensonge qu'on a construit sur plusieurs décennies est en train de craquer",
+      "source": null,
+      "type": "factual"
+    },
+    {
+      "quote": "ça a été de faire croire que la réussite pour tous était possible et qu'on pouvait abolir la sélection",
+      "source": null,
+      "type": "factual"
+    },
+    {
+      "quote": "lorsqu'on prétend abolir la sélection, en réalité, on la déplace et on la remplace par une sélection autrement plus violente",
+      "source": "Georges Pompidou (« sélection par la vie »)",
+      "type": "attributed"
+    },
+    {
+      "quote": "on a huit fois plus d'étudiants aujourd'hui que dans les années 1960",
+      "source": null,
+      "type": "statistical"
+    },
+    {
+      "quote": "On a 95 % de d'admission alors que en Norvège et en Suède, si on compare, on est à 40 %.",
+      "source": null,
+      "type": "statistical"
+    },
+    {
+      "quote": "toujours plus d'échecs en premier cycle avec un coût pour la nation de un demi-milliard d'euros annuel",
+      "source": null,
+      "type": "statistical"
+    },
+    {
+      "quote": "On a un taux de chômage des jeunes Français qui est de 21 %. On est à 3 % en Suisse.",
+      "source": null,
+      "type": "statistical"
+    },
+    {
+      "quote": "on gagnerait à passer de ce que j'appelle le du collège unique à ce que j'appelle le collège modulaire et avoir une sélection plus tôt",
+      "source": null,
+      "type": "factual"
+    },
+    {
+      "quote": "il y a plus de noblesse à être chaudronnier que crétin diplômé",
+      "source": null,
+      "type": "testimonial"
+    }
+  ],
+  "key_quotes": [
+    "le vernis d'un mensonge qu'on a construit sur plusieurs décennies est en train de craquer",
+    "on la déplace et on la remplace par une sélection autrement plus violente qui est la sélection que Georges Pompidou appelait justement la sélection par la vie",
+    "toujours plus de cohortes de diplômés frustrés et déclassés",
+    "j'aurais été ravi de d'expliquer aux casseurs, aux émeutiers comme Marcel Jouhandeau l'avait fait en mai 68, de leur dire rentrez chez vous dans 10 ans vous serez tous notaires",
+    "le seul débouché qu'on leur qu'on leur promette soit soit le chômage de masse, soit la radicalité politico-militante",
+    "il y a plus de noblesse à être chaudronnier que crétin diplômé"
+  ],
+  "key_actors": [
+    {
+      "name": "Le locuteur (intervenant non nommé dans la transcription)",
+      "role": "Auteur du propos, défend le passage du collège unique au collège modulaire"
+    },
+    {
+      "name": "Georges Pompidou",
+      "role": "Ancien président de la République, cité pour l'expression « sélection par la vie »"
+    },
+    {
+      "name": "Marcel Jouhandeau",
+      "role": "Cité pour une anecdote sur mai 68"
+    },
+    {
+      "name": "Casseurs et émeutiers",
+      "role": "Désignés comme jeunes dont la situation expliquerait l'embrasement"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Georges Pompidou",
+      "used_for": "Donner un poids historique à l'idée que supprimer la sélection la déplace vers une sélection « par la vie »"
+    },
+    {
+      "entity": "OCDE",
+      "used_for": "Appuyer la comparaison selon laquelle l'université française serait la plus ouverte"
+    },
+    {
+      "entity": "Norvège, Suède, Suisse",
+      "used_for": "Servir de points de comparaison pour le taux d'admission et le chômage des jeunes"
+    },
+    {
+      "entity": "Marcel Jouhandeau",
+      "used_for": "Illustrer l'argument par une référence à mai 68"
+    }
+  ],
+  "notable_omissions": [
+    "Aucune source précise ni date pour les chiffres cités (95 %, 40 %, 21 %, 3 %, un demi-milliard d'euros)",
+    "Les définitions comparées ne sont pas précisées : taux d'admission, chômage des jeunes (actifs ou ensemble de la classe d'âge)",
+    "Les systèmes éducatifs cités en comparaison (Norvège, Suède, Suisse) ne sont pas décrits, ni leurs différences de structure",
+    "Aucune donnée sur les débouchés réels des diplômés ni sur l'effet de la sélection précoce dans les pays où elle existe",
+    "Aucun point de vue de jeunes, d'enseignants ou de défenseurs du collège unique",
+    "Le lien de cause entre massification universitaire et émeutes n'est étayé par aucun élément",
+    "Le contenu du « collège modulaire » n'est pas détaillé (âge, critères, passerelles)"
+  ],
+  "rhetorical_patterns": [
+    "Cadrage dramatique dès l'ouverture : « embrasement », « mensonge », « vernis qui craque »",
+    "Formulation en « mensonge » collectif attribué sans désigner de responsable",
+    "Enchaînement causal présenté comme évident : massification → échecs → déclassement → radicalité",
+    "Accumulation de chiffres comparatifs avec des pays choisis, sans source",
+    "Alternative binaire pour les jeunes : « chômage de masse » ou « radicalité politico-militante »",
+    "Antithèse imagée et valorisante : « chaudronnier » opposé à « crétin diplômé »",
+    "Anecdote ironique (« vous serez tous notaires ») pour caricaturer la position adverse",
+    "Structure problème → diagnostic sombre → solution personnelle (« à mon avis », « j'appelle »)",
+    "Recours à une citation d'autorité (Pompidou) pour valider un concept"
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "",
+        "text": "Le propos s'inscrit dans un débat récurrent en France sur la sélection à l'université et l'orientation après le collège."
+      },
+      {
+        "id": "",
+        "text": "L'intervenant se réfère à un « embrasement » de jeunes, ce qui renvoie à des épisodes d'émeutes urbaines récents."
+      },
+      {
+        "id": "",
+        "text": "Le « collège unique » a été instauré par la réforme Haby de 1975, qui a mis fin à la séparation des filières après l'école primaire."
+      },
+      {
+        "id": "",
+        "text": "La question de l'accès à l'université et de l'échec en première année revient régulièrement avec Parcoursup et la loi ORE de 2018."
+      }
+    ],
+    "who_is_speaking": [
+      "Le Figaro est un quotidien national généraliste, classé à droite et plutôt libéral-conservateur sur les questions économiques et éducatives.",
+      "L'intervenant parle à la première personne (« je pense », « à mon avis ») : il s'agit d'une prise de position, non d'un reportage.",
+      "La transcription ne nomme pas l'intervenant ; son parcours et ses positions antérieures ne peuvent pas être déduits du texte."
+    ],
+    "important_facts": [
+      {
+        "id": "",
+        "text": "L'accès à la licence en France se fait sans sélection formelle à l'entrée de la plupart des filières, mais Parcoursup classe les candidatures et certaines filières sont sélectives."
+      },
+      {
+        "id": "",
+        "text": "Dans la plupart des pays, le taux de chômage des jeunes se calcule sur les actifs de 15 à 24 ans, et non sur l'ensemble de la classe d'âge, ce qui change fortement le chiffre."
+      },
+      {
+        "id": "",
+        "text": "La Suisse et plusieurs pays nordiques ont des systèmes éducatifs différents, notamment avec un apprentissage en alternance très développé en Suisse."
+      },
+      {
+        "id": "",
+        "text": "En France, une part importante des jeunes poursuit déjà des filières professionnelles ou en apprentissage, et le taux d'échec en première année de licence est un sujet de débat chiffré selon les sources."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "Collège unique",
+        "definition": "Organisation où tous les élèves suivent le même enseignement jusqu'à la fin de la troisième, sans filières séparées."
+      },
+      {
+        "term": "Massification universitaire",
+        "definition": "Forte hausse du nombre d'étudiants dans l'enseignement supérieur au fil des décennies."
+      },
+      {
+        "term": "Premier cycle",
+        "definition": "Les premières années d'études supérieures, correspondant en France à la licence."
+      },
+      {
+        "term": "OCDE",
+        "definition": "Organisation regroupant des pays développés, qui publie des comparaisons statistiques internationales."
+      },
+      {
+        "term": "Sélection par la vie",
+        "definition": "Expression attribuée à Georges Pompidou : la sélection se fait par les aléas de l'existence plutôt que par l'école."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "Titre : Orientation scolaire"
+  }
+}

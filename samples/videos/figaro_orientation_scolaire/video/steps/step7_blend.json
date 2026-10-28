@@ -1,0 +1,107 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "Les chiffres comparatifs sans source ni définition (95 % contre 40 %, 21 % contre 3 %) portent à eux seuls la thèse du texte, et ils sont dits sur un ton de **fait établi** : Probe leur donne une confiance faible (30 % et 45 %), Ethics les classe en statistiques trompeuses, Review note la rigueur des sources à 1/5. Le mécanisme : la preuve la plus fragile est celle qui est présentée avec le plus d'assurance.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "pr_1",
+          "pr_2",
+          "claim_1",
+          "claim_2",
+          "bs_0",
+          "obs_3"
+        ]
+      },
+      {
+        "text": "Le registre dramatique (« mensonge », « craquer », « embrasement ») fait le travail que la preuve ne fait pas : il crée l'urgence qui permet de passer des émeutes à la politique éducative. Le saut est déjà signalé comme non étayé en Logic, et Probe repère le langage qui l'alimente.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "ia_0",
+          "lr_0",
+          "er_0",
+          "bias_0"
+        ]
+      },
+      {
+        "text": "Le lien entre échec universitaire, chômage et massification est posé comme évident, puis enfermé dans deux issues seulement (« chômage de masse » ou « radicalité »). Cette alternative réduit l'espace des causes possibles, écarte les autres explications et fait aussi porter sur les jeunes un raccourci que l'éthique relève comme stéréotype.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "ia_1",
+          "lr_1",
+          "bias_2",
+          "obs_0"
+        ]
+      },
+      {
+        "text": "L'image du « chaudronnier » face au « crétin diplômé » rend la sélection précoce **honorable** sans dire à quelles conditions. Elle comble un vide : le contenu du collège modulaire reste vague, et l'existence de débouchés suffisants dans les métiers manuels n'est ni montrée ni examinée.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "ia_3",
+          "bs_3",
+          "er_1",
+          "bias_1"
+        ]
+      },
+      {
+        "text": "La solution est préparée par le cadrage plus qu'argumentée : le texte présente la sélection comme déjà à l'œuvre, et le collège modulaire comme réponse naturelle, au bénéfice de ses partisans. Or la sélection actuelle (Parcoursup, filières sélectives) n'est pas décrite, et rien ne montre que la sélection précoce fait mieux, d'où un diagnostic détaillé et un remède peu défini.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "lr_3",
+          "cb_0",
+          "obs_2",
+          "focus",
+          "ia_2"
+        ]
+      },
+      {
+        "text": "La comparaison avec la Suisse isole le chômage de son système d'apprentissage : le même angle mort apparaît dans le raisonnement, les observations et le contre-argument, et Ethics y voit un écart rendu artificiellement net. Une explication alternative, l'alternance, est ainsi écartée sans être discutée.",
+        "layers": [
+          "logic",
+          "ethics",
+          "probe"
+        ],
+        "references": [
+          "bs_1",
+          "obs_3",
+          "claim_2",
+          "lr_2"
+        ]
+      },
+      {
+        "text": "Les voix absentes (jeunes, enseignants, défenseurs du collège unique) et les points de vue non examinés vont dans le même sens que le cadrage à la première personne : le propos est lisible mais **unilatéral**. Review note l'équité de traitement à 2/5 alors que la transparence de position est notée plus haut, à 3/5.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "bs_2",
+          "cb_0",
+          "obs_0"
+        ]
+      }
+    ]
+  }
+}

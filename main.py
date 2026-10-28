@@ -15,6 +15,7 @@ load_dotenv()
 
 OUTPUTS_DIR = Path("samples/outputs")
 DEFAULT_FORMAT = "instagram_carousel_optimized"
+CADRAGE_FORMAT = "cadrage_logique"   # its guided cascade lives in agent/cadrage_adapt_agent.py
 
 
 def _base_dir(input_path: str | None, stem: str) -> Path:
@@ -115,7 +116,10 @@ def _adapt_stage_kwargs(adapt_params, kwargs: dict, steps_dir: Path, stop_after:
 
 
 def _pending_step(steps_dir: Path) -> str | None:
-    """The first of steps 1-7 whose file exists with no pick: the one awaiting a choice."""
+    """The first guided step whose file exists with no pick: the one awaiting a choice."""
+    if steps_dir.parent.name == CADRAGE_FORMAT:
+        from agent.cadrage_adapt_agent import pending_step
+        return pending_step(steps_dir)
     from agent.carousel_steps.steps import STEPS
     from agent.carousel_steps.store import load
     for s in STEPS[:-1]:
@@ -184,6 +188,15 @@ async def cmd_adapt(args: argparse.Namespace) -> None:
     print(f"Presentation written to {out_path}", file=sys.stderr)
 
 
+def _guided_module(fmt_dir: str):
+    """The module holding a format folder's guided steps (choose / more / fix)."""
+    if Path(fmt_dir).name == CADRAGE_FORMAT:
+        from agent import cadrage_adapt_agent
+        return cadrage_adapt_agent
+    from agent.carousel_steps import run
+    return run
+
+
 def _load_fmt_dir(fmt_dir: str):
     """(ArticleFullAnalysis, steps_dir, article text) of a format folder."""
     from models.full_analysis import ArticleFullAnalysis
@@ -197,8 +210,8 @@ def _load_fmt_dir(fmt_dir: str):
 
 
 async def cmd_choose(args: argparse.Namespace) -> None:
-    from agent.carousel_steps import run
-    from agent.carousel_steps.steps import STEP_BY_NAME
+    run = _guided_module(args.fmt_dir)
+    STEP_BY_NAME = run.STEP_BY_NAME
     if not args.pick and not args.more:
         print("choose needs --pick <ids> or --more", file=sys.stderr)
         sys.exit(2)
@@ -219,7 +232,7 @@ async def cmd_choose(args: argparse.Namespace) -> None:
 
 
 async def cmd_fix(args: argparse.Namespace) -> None:
-    from agent.carousel_steps import run
+    run = _guided_module(args.fmt_dir)
     full, steps_dir, article = _load_fmt_dir(args.fmt_dir)
     try:
         step = run.fix(full, steps_dir, args.field, args.text, article)
@@ -482,6 +495,10 @@ async def cmd_fetch(args: argparse.Namespace) -> None:
 
 
 async def cmd_check(args: argparse.Namespace) -> None:
+    if Path(args.document).parent.name == CADRAGE_FORMAT:
+        print(f"check covers the 9-slide deck; the {CADRAGE_FORMAT} rules run while it is adapted "
+              "(a pick that breaks one comes back as a warning).", file=sys.stderr)
+        return
     from tools.check_deck import check, format_report
 
     article = Path(args.article) if args.article else None
@@ -515,8 +532,13 @@ def _add_source_args(p: argparse.ArgumentParser) -> None:
                    help="listening/viewing time in minutes (default: estimated from the word count)")
 
 
+# the guided steps of the 9-slide deck, then those of the cadrage cascade
+_STEP_CHOICES = ["question", "enjeu", "idees", "moments", "contexte", "socle", "hook",
+                 "constat", "these", "angle_mort", "depassement", "boussole"]
+
+
 def _add_stop_after(p: argparse.ArgumentParser) -> None:
-    p.add_argument("--stop-after", choices=["question", "enjeu", "idees", "moments", "contexte", "socle", "hook"],
+    p.add_argument("--stop-after", choices=_STEP_CHOICES,
                    help="stop the carousel adapt after this step, to review or edit it "
                         "(<format>/adapt_steps/); rerun to continue from it")
     p.add_argument("--guided", action="store_true",
@@ -556,7 +578,7 @@ def _build_parser() -> argparse.ArgumentParser:
 
     p = sub.add_parser("choose", help="keep options at a carousel adapt step (or ask for other options)")
     p.add_argument("fmt_dir", help="format folder, e.g. samples/outputs/<stem>/instagram_carousel_optimized")
-    p.add_argument("step", choices=["question", "enjeu", "idees", "moments", "contexte", "socle", "hook"])
+    p.add_argument("step", choices=_STEP_CHOICES)
     p.add_argument("--pick", help="comma-separated option ids to keep")
     p.add_argument("--edit", action="append", default=[], metavar="ID=TEXT",
                    help="rewrite an option's text (ID.field=TEXT for another field); repeatable")
