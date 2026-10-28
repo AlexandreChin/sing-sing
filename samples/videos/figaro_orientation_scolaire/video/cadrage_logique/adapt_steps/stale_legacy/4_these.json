@@ -1,0 +1,70 @@
+{
+  "step": "these",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Met en avant la proposition de l'invité (le collège modulaire) comme question ouverte, qui laisse place à la prémisse concurrente.",
+      "fields": {
+        "title": "Et si l'on **sélectionnait** plus tôt, dès le collège ?",
+        "quote": "On gagnerait à passer de ce que j'appelle […] collège unique à ce que j'appelle le collège modulaire et avoir une sélection plus tôt",
+        "question": "Selon vous, l'école doit-elle trier tôt pour éviter l'échec, ou attendre pour laisser le mérite se révéler ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Met en avant l'argument explicite de l'invité : la sélection ne disparaît pas, elle change de forme.",
+      "fields": {
+        "title": "Abolir la sélection, c'est la **déplacer**",
+        "quote": "Lorsqu'on prétend abolir la sélection, en réalité, on la déplace et on la remplace par une sélection autrement plus violente",
+        "question": "Une sélection voulue par l'école est-elle moins dure que celle de la vie, ou liée à l'origine des familles ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Met en avant le lien que l'invité pose entre sélection précoce et revalorisation des métiers manuels.",
+      "fields": {
+        "title": "Les métiers de la main : la **contrepartie** d'une sélection ?",
+        "quote": "Une sélection plus tôt dont la contrepartie serait une vraie revalorisation des métiers de la main",
+        "question": "Pour orienter les jeunes, faites-vous plus confiance à un tri précoce ou à un parcours commun prolongé ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Ouvre sur le point de départ de l'invité, la possibilité de la réussite pour tous, et relie directement les deux prémisses.",
+      "fields": {
+        "title": "La réussite pour tous est-elle **possible** ?",
+        "quote": "Je ne pense pas que la réussite pour tous soit possible et je crois que lorsqu'on prétend abolir la sélection, en réalité, on la déplace",
+        "question": "Votre intuition repose-t-elle sur l'idée que l'école protège mieux en triant tôt, ou en repoussant le tri ?"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "b"
+  ],
+  "picked": [
+    "b"
+  ],
+  "fragment": {
+    "hook": {
+      "title": "Abolir la sélection, c'est la **déplacer**",
+      "quote": "Lorsqu'on prétend abolir la sélection, en réalité, on la déplace et on la remplace par une sélection autrement plus violente"
+    },
+    "self_eval": {
+      "question": "Une sélection voulue par l'école est-elle moins dure que celle de la vie, ou liée à l'origine des familles ?"
+    }
+  },
+  "remarks": []
+}

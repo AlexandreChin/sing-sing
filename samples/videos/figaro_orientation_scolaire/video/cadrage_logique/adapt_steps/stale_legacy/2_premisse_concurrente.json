@@ -1,0 +1,110 @@
+{
+  "step": "premisse_concurrente",
+  "options": [
+    {
+      "id": "e",
+      "slot": "a",
+      "reason": "S'appuie sur la sociologie de la reproduction (Bourdieu, Passeron) et sur les enquêtes de l'Insee sur les trajectoires scolaires, qui lient origine sociale et orientation.",
+      "fields": {
+        "text": "Plus la sélection intervient tôt dans la scolarité, plus elle reflète le capital économique et culturel des parents plutôt que le « mérite » individuel.",
+        "conclusion": "Repousser l'orientation pour que le mérite ait le temps de se révéler, quitte à garder un parcours commun long."
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "f",
+      "slot": "a",
+      "reason": "Défendu par les travaux comparatifs sur les systèmes éducatifs, qui observent des écarts sociaux plus marqués là où l'orientation est précoce.",
+      "fields": {
+        "text": "Un tri précoce juge des enfants avant que l'école ait compensé les écarts de départ ; une sélection tardive juge ce que l'école a apporté.",
+        "conclusion": "Compenser les écarts d'abord par un tronc commun exigeant, et ne sélectionner qu'ensuite sur ce que chacun a appris."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "g",
+      "slot": "a",
+      "reason": "S'appuie sur des études de l'orientation, où le milieu social influe sur les vœux et les décisions des conseils de classe à résultats comparables.",
+      "fields": {
+        "text": "À niveau égal, les familles favorisées obtiennent plus souvent les filières valorisées : l'orientation précoce traduit le milieu d'origine autant que les résultats.",
+        "conclusion": "Encadrer l'orientation par des critères communs et des droits d'appel, pour que le milieu pèse moins que les résultats."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "h",
+      "slot": "a",
+      "reason": "S'appuie sur les travaux sur la ségrégation scolaire et la carte scolaire, qui relient le lieu de vie et les ressources familiales aux parcours.",
+      "fields": {
+        "text": "Une filière choisie à douze ans suit la carte scolaire, les réseaux et les moyens de la famille, plus que le talent de l'enfant.",
+        "conclusion": "Un collège commun et mixte, avec des filières professionnelles ouvertes plus tard et valorisées par un vrai choix."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Tradition de la démocratisation scolaire : un parcours ouvert laisse du temps pour trouver sa voie, alors qu'un tri précoce enferme.",
+      "fields": {
+        "text": "Un jeune accepte mieux un échec qu'il a vécu et pu surmonter qu'un verdict prononcé à sa place avant qu'il ait essayé.",
+        "conclusion": "Ouvrir l'accès à l'université et accompagner les étudiants en difficulté, plutôt que de trier plus tôt à l'école."
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Travaux de sociologie de l'éducation : une orientation précoce suit souvent l'origine sociale, et un échec tardif peut se rattraper.",
+      "fields": {
+        "text": "Une orientation décidée tôt par l'institution est plus dure pour un jeune qu'un tri qui s'opère par l'expérience et les rattrapages, plus tard.",
+        "conclusion": "Retarder l'orientation et multiplier les passerelles, quitte à accepter des échecs en premier cycle."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Approche par les ressources et les opportunités : le même tri produit des effets opposés selon le soutien reçu et le marché du travail.",
+      "fields": {
+        "text": "Ni la sélection par l'institution ni celle par l'échec ne décident seules : l'accompagnement et les emplois disponibles fixent la trajectoire d'un jeune.",
+        "conclusion": "Investir dans l'accompagnement et l'accès à l'emploi, quel que soit le moment où l'on sélectionne."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Défense du collège unique : une étiquette scolaire précoce marque l'estime de soi et les trajectoires plus longtemps qu'un revers ultérieur.",
+      "fields": {
+        "text": "Une sélection organisée par l'institution est plus dure pour un jeune qu'un échec ou un chômage : elle l'étiquette tôt, alors que la vie laisse des secondes chances.",
+        "conclusion": "Maintenir un parcours commun long et laisser chacun tenter sa chance, y compris à l'université."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "recommended": [
+    "e"
+  ],
+  "picked": [
+    "e"
+  ],
+  "fragment": {
+    "rival": {
+      "statement": "Plus la sélection intervient tôt dans la scolarité, plus elle reflète le capital économique et culturel des parents plutôt que le « mérite » individuel.",
+      "conclusion": "Repousser l'orientation pour que le mérite ait le temps de se révéler, quitte à garder un parcours commun long."
+    }
+  },
+  "remarks": [
+    "La prémisse concurrente devrait ressembler à : « Toutes les enquêtes sociologiques et les données de l'Insee le confirment : plus la sélection intervient tôt dans la scolarité, plus elle reflète le capital économique et culturel des parents plutôt que le « mérite » individuel. » Propose des variantes de cette idée."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "step": "writing",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "",
+      "fields": {
+        "option_a": "Je pars du principe qu'une sélection organisée par l'école est moins dure que l'échec.",
+        "option_b": "Je pars du principe que plus l'orientation est précoce, plus elle reflète l'origine familiale.",
+        "cta_question": "Pour vous, à quel moment de la scolarité une orientation reste-t-elle équitable ? Dites-nous en commentaire sur quoi vous vous appuyez.",
+        "caption": "Dans cette vidéo, un invité part des émeutes récentes pour défendre une idée : abolir la sélection ne la fait pas disparaître, elle la déplace. Selon lui, elle s'opère alors par l'échec et le chômage, ce que Georges Pompidou, ancien président, appelait la « sélection par la vie ». Il propose de passer du collège unique, où tous les élèves suivent le même enseignement jusqu'à la troisième, à un collège modulaire avec une sélection plus précoce, adossée à une revalorisation des métiers de la main.\n\nCe raisonnement repose sur une idée de départ : une sélection organisée par l'école serait moins dure pour un jeune que celle qui s'opère d'elle-même. D'autres partent d'un autre principe : plus l'orientation est précoce, plus elle reflète le capital économique et culturel des parents plutôt que le mérite individuel.\n\nDeux prémisses, deux conclusions possibles. Laquelle est la vôtre, et pourquoi ? À quel âge l'orientation vous paraît-elle juste ? Quelles preuves ou quelles expériences vous font pencher d'un côté ? Racontez-nous en commentaire, avec vos arguments, et lisez ceux des autres avant de trancher.\n\n#Éducation #Sélection #Orientation #DébatPublic"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "self_eval": {
+      "option_a": "Je pars du principe qu'une sélection organisée par l'école est moins dure que l'échec.",
+      "option_b": "Je pars du principe que plus l'orientation est précoce, plus elle reflète l'origine familiale."
+    },
+    "cta_question": "Pour vous, à quel moment de la scolarité une orientation reste-t-elle équitable ? Dites-nous en commentaire sur quoi vous vous appuyez.",
+    "caption": "Dans cette vidéo, un invité part des émeutes récentes pour défendre une idée : abolir la sélection ne la fait pas disparaître, elle la déplace. Selon lui, elle s'opère alors par l'échec et le chômage, ce que Georges Pompidou, ancien président, appelait la « sélection par la vie ». Il propose de passer du collège unique, où tous les élèves suivent le même enseignement jusqu'à la troisième, à un collège modulaire avec une sélection plus précoce, adossée à une revalorisation des métiers de la main.\n\nCe raisonnement repose sur une idée de départ : une sélection organisée par l'école serait moins dure pour un jeune que celle qui s'opère d'elle-même. D'autres partent d'un autre principe : plus l'orientation est précoce, plus elle reflète le capital économique et culturel des parents plutôt que le mérite individuel.\n\nDeux prémisses, deux conclusions possibles. Laquelle est la vôtre, et pourquoi ? À quel âge l'orientation vous paraît-elle juste ? Quelles preuves ou quelles expériences vous font pencher d'un côté ? Racontez-nous en commentaire, avec vos arguments, et lisez ceux des autres avant de trancher.\n\n#Éducation #Sélection #Orientation #DébatPublic"
+  },
+  "remarks": []
+}

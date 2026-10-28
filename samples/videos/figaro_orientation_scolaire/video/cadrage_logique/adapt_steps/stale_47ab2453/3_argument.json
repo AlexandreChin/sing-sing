@@ -1,0 +1,60 @@
+{
+  "step": "argument",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "C'est le fil principal de la vidéo : le diagnostic de massification occupe l'essentiel du propos et appuie la proposition finale.",
+      "fields": {
+        "claim": "Le système a promis la réussite pour tous et aboli la sélection, ce qui a produit une massification universitaire inédite : l'université la plus ouverte de l'OCDE.",
+        "evidence": "Huit fois plus d'étudiants que dans les années 1960. 95 % d'admission en France contre 40 % en Norvège et en Suède. Un demi-milliard d'euros par an d'échecs en premier cycle.",
+        "conclusion": "Passer du collège unique à un collège modulaire, avec une sélection plus précoce."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "L'invité ancre son propos sur le sort des jeunes à la sortie du système : le chiffre du chômage est la comparaison la plus frappante de la vidéo.",
+      "fields": {
+        "claim": "Le chômage des jeunes français est élevé par comparaison avec d'autres pays, et les diplômés sortent frustrés et déclassés, avec des perspectives professionnelles bouchées.",
+        "evidence": "Un taux de chômage des jeunes de 21 % en France contre 3 % en Suisse. Toujours plus de cohortes de diplômés frustrés et déclassés.",
+        "conclusion": "Sélectionner plus tôt, en contrepartie d'une vraie revalorisation des métiers de la main."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "L'argument économique clôt la vidéo et justifie la revalorisation des métiers manuels avancée comme contrepartie de la sélection.",
+      "fields": {
+        "claim": "Les débouchés promis aux jeunes ne correspondent ni aux besoins de l'économie ni à leur avenir : former plus de diplômés ne répond pas à la demande réelle de l'industrie.",
+        "evidence": "Les métiers de la main correspondent aux besoins réels de l'économie française et de l'industrie. L'invité oppose le chaudronnier au crétin diplômé.",
+        "conclusion": "Revaloriser les métiers de la main et orienter une partie des élèves vers eux dès le collège."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "C'est le point de départ et le ressort moral de la vidéo : les émeutes ouvrent le propos et rendent la proposition urgente.",
+      "fields": {
+        "claim": "Les émeutes actuelles montrent que la promesse d'une réussite pour tous a échoué : sans débouchés, les jeunes risquent le chômage de masse ou la radicalité politique.",
+        "evidence": "L'invité cite l'embrasement actuel, l'état du système éducatif et la façon dont certains jeunes commencent dans la vie. Il craint le chômage de masse ou la radicalité politico-militante.",
+        "conclusion": "Proposer une alternative au système actuel plutôt que de rester au diagnostic sombre."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [],
+  "fragment": {},
+  "remarks": []
+}

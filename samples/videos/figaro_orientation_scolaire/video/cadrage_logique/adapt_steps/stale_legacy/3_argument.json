@@ -1,0 +1,68 @@
+{
+  "step": "argument",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "C'est l'enchaînement central du propos : la promesse d'ouverture entraîne la massification, puis l'échec, chiffres à l'appui.",
+      "fields": {
+        "claim": "Promettre la réussite pour tous et abolir la sélection a produit une massification universitaire : huit fois plus d'étudiants, l'université la plus ouverte de l'OCDE (organisation des pays développés), des échecs, des diplômés déclassés.",
+        "evidence": "L'invité cite huit fois plus d'étudiants qu'dans les années 1960, 95 % d'admission contre 40 % en Norvège et en Suède, et un demi-milliard d'euros annuel d'échecs en premier cycle.",
+        "conclusion": "Il faut passer du collège unique à un collège modulaire, avec une sélection plus précoce."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Le chômage des jeunes est le second pilier chiffré du propos, et il sert de point de départ à la solution.",
+      "fields": {
+        "claim": "Le système actuel mène les jeunes vers un chômage que la France subit plus que ses voisins : le diplôme ne garantit plus un emploi et les perspectives sont bouchées.",
+        "evidence": "L'invité compare un chômage des jeunes de 21 % en France à 3 % en Suisse, et parle de cohortes de diplômés frustrés et déclassés.",
+        "conclusion": "Une sélection plus tôt, associée à la revalorisation des métiers manuels, offrirait un meilleur débouché aux jeunes."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "C'est la lecture morale et historique : l'argument s'ouvre et se referme sur les jeunes émeutiers, avec l'autorité de Pompidou.",
+      "fields": {
+        "claim": "La sélection ne disparaît pas quand on l'abolit : elle se déplace vers une sélection par la vie, plus violente, que l'invité relie aux émeutes actuelles.",
+        "evidence": "L'invité cite Georges Pompidou, ancien président, qui parlait de sélection par la vie, et évoque les émeutiers à qui l'on ne peut plus promettre un avenir de notaires.",
+        "conclusion": "Mieux vaut assumer une sélection scolaire, adossée aux métiers de la main revalorisés, que la laisser s'opérer par l'échec."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "C'est la justification positive de la solution, plus brève dans la vidéo mais distincte du diagnostic : elle porte sur l'utilité économique et la dignité des métiers.",
+      "fields": {
+        "claim": "L'économie française a besoin de métiers manuels et d'industrie que l'orientation actuelle laisse de côté, alors que ces métiers méritent autant de considération qu'un diplôme.",
+        "evidence": "L'invité oppose le chaudronnier au crétin diplômé et affirme que cette orientation correspond aux besoins réels de l'économie française et de l'industrie.",
+        "conclusion": "Une sélection plus précoce doit s'accompagner d'une vraie revalorisation des métiers de la main."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "c"
+  ],
+  "fragment": {
+    "argument": {
+      "claim": "La sélection ne disparaît pas quand on l'abolit : elle se déplace vers une sélection par la vie, plus violente, que l'invité relie aux émeutes actuelles.",
+      "evidence": "L'invité cite Georges Pompidou, ancien président, qui parlait de sélection par la vie, et évoque les émeutiers à qui l'on ne peut plus promettre un avenir de notaires.",
+      "conclusion": "Mieux vaut assumer une sélection scolaire, adossée aux métiers de la main revalorisés, que la laisser s'opérer par l'échec."
+    }
+  },
+  "remarks": []
+}

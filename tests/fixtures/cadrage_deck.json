@@ -1,0 +1,108 @@
+{
+  "caption": "Dans une vidéo du Figaro, un intervenant soutient qu'abolir la sélection scolaire ne la supprime pas : elle se déplace vers le marché de l'emploi. Il s'appuie sur des chiffres (admission à l'université, chômage des jeunes, échecs en premier cycle) et propose un collège modulaire, avec une sélection plus précoce et une revalorisation des métiers de la main.\n\nCe carrousel suit le fil de cette prise de position : les faits sur lesquels elle repose, sa thèse, ce qu'un tri précoce peut laisser dans l'ombre pour la mobilité sociale, des leviers pour l'atténuer, puis la question qui reste ouverte : entre efficacité économique et justice sociale, où placer le curseur ?\n\nEt vous, où le placeriez-vous ? Dites-le en commentaire, avec vos arguments.\n\n#orientation #école #mobilitésociale #espritcritique",
+  "hook": {
+    "title": "« Abolir la sélection, c'est fabriquer des diplômés **déclassés**. »",
+    "promise": "Décryptage d'une prise de position sur l'université, l'emploi et le mérite."
+  },
+  "constat": {
+    "title": "L'illusion de la **réussite** pour tous",
+    "figures": [
+      {
+        "value": "95%",
+        "label": "d'admission à l'université",
+        "compare": "40 % en Norvège et Suède"
+      },
+      {
+        "value": "21%",
+        "label": "de chômage des jeunes",
+        "compare": "3 % en Suisse"
+      },
+      {
+        "value": "× 8",
+        "label": "étudiants depuis les années 1960",
+        "compare": ""
+      },
+      {
+        "value": "0,5 Md€",
+        "label": "par an d'échecs en premier cycle",
+        "compare": ""
+      }
+    ],
+    "claim": "Une université ouverte à tous forme des cohortes **sans débouchés** immédiats.",
+    "detail": "Des diplômés frustrés et déclassés, dont les filières n'ont pas de débouchés marchands."
+  },
+  "these": {
+    "title": "La sélection ne disparaît pas : elle se **déplace**",
+    "these": {
+      "claim": "Refuser de filtrer en amont ne protège personne.",
+      "detail": "La sélection passe sur le marché de l'emploi : « la sélection par la vie », plus brutale et sans filet."
+    },
+    "solution": {
+      "claim": "Un **collège modulaire**, avec une sélection plus précoce.",
+      "detail": "En contrepartie : revaloriser les métiers de la main, manuels et industriels, en tension."
+    },
+    "notes": [
+      {
+        "kind": "remark",
+        "text": "**« La sélection par la vie »** : formule de Georges Pompidou"
+      },
+      {
+        "kind": "source",
+        "text": "**Le Céreq** : l'insertion des jeunes selon leur diplôme"
+      }
+    ]
+  },
+  "angle_mort": {
+    "title": "Le tri précoce face à la **mobilité sociale**",
+    "subtitle": "Un **ascenseur social** qui se grippe davantage",
+    "claim": "Plus le tri est précoce, plus il suit l'**origine sociale** que le mérite individuel.",
+    "detail": "Orienter tôt vers les filières manuelles peut assigner les enfants des classes populaires aux métiers d'exécution.",
+    "notes": [
+      {
+        "kind": "remark",
+        "text": "**Contestation** : ce risque d'enfermement du destin social nourrit la contestation dans les lycées et facultés"
+      },
+      {
+        "kind": "source",
+        "text": "**L'Insee** : mobilité sociale et origine des élèves"
+      },
+      {
+        "kind": "source",
+        "text": "**La DEPP** (ministère de l'Éducation) : parcours et origine sociale"
+      }
+    ]
+  },
+  "depassement": {
+    "title": "Sélectionner sur le **mérite** en **limitant** la reproduction sociale",
+    "lead": "Ces leviers peuvent **atténuer** le conflit entre besoins de l'économie et justice sociale, mais ils ont un coût.",
+    "levers": [
+      {
+        "title": "La **mixité sociale**",
+        "detail": "Elle doit garantir une orientation indépendante de l'origine sociale et des moyens égaux pour tous."
+      },
+      {
+        "title": "La **discrimination positive**",
+        "detail": "**Pour corriger la mixité sociale** : quotas de boursiers, accès garanti aux filières sélectives."
+      },
+      {
+        "title": "La **valorisation** réelle",
+        "detail": "Salaires et prestige alignés (modèle dual allemand, suisse)."
+      }
+    ]
+  },
+  "boussole": {
+    "title": "Efficacité économique ou justice sociale : où placer le **curseur** ?",
+    "options": [
+      {
+        "question": "Faut-il prioriser une **orientation rapide**, guidée par les besoins des entreprises ?",
+        "pro": "Des **débouchés** plus proches de l'emploi, moins d'échecs en premier cycle.",
+        "con": "Un risque d'**assignation sociale**, à compenser."
+      },
+      {
+        "question": "Ou préserver un **socle commun prolongé**, quitte à en payer le coût ?",
+        "pro": "Un tri repoussé, donc moins lié à l'**origine sociale**.",
+        "con": "Un **coût collectif** et des réajustements plus tardifs sur le marché."
+      }
+    ]
+  }
+}

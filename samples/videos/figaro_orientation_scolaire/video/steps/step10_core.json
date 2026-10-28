@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "L'intervenant attribue les émeutes à un « mensonge » sur la réussite pour tous et sur l'abolition de la sélection.",
+      "kind": "affirmation",
+      "centrality": 5,
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 0,
+        "excerpt": "Des émeutes récentes seraient le signe d'un « mensonge » sur la réussite pour tous.",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "statement": "La massification universitaire est présentée comme cause d'échecs en premier cycle, de diplômés déclassés et de chômage des jeunes.",
+      "kind": "affirmation",
+      "centrality": 5,
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 1,
+        "excerpt": "La massification universitaire conduit à des échecs en premier cycle, puis à des diplômés déclassés",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "statement": "Des chiffres comparatifs avec la Norvège, la Suède et la Suisse sont avancés sans source, date ni définition.",
+      "kind": "fait",
+      "centrality": 4,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "Aucune source ni date pour les chiffres cités.",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "Le collège modulaire avec sélection plus précoce est proposé, sans préciser âge, critères ni passerelles.",
+      "kind": "enjeu",
+      "centrality": 3,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 3,
+        "excerpt": "Le contenu du « collège modulaire » reste vague : âge, critères, passerelles.",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "Les métiers manuels sont revalorisés par l'opposition imagée entre « chaudronnier » et « crétin diplômé ».",
+      "kind": "angle",
+      "centrality": 2,
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 3,
+        "excerpt": "Il existe assez de débouchés dans les métiers manuels et l'industrie pour absorber les élèves réorientés.",
+        "strength": 0.6,
+        "nature": "specification"
+      }
+    }
+  ]
+}

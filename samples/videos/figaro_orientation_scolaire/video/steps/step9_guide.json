@@ -1,0 +1,68 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Gardez en tête que le texte est un plaidoyer à la première personne : il défend une position plutôt qu'il n'expose un débat.",
+      "Repérez dès le départ la chaîne que l'auteur construit, de la massification de l'université jusqu'au chômage ou à la radicalité, et demandez-vous à quelle étape il montre et à quelle étape il affirme.",
+      "Préparez-vous à rencontrer des chiffres comparatifs entre pays : notez pour chacun s'il est accompagné d'une source, d'une date et d'une définition."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "w1",
+          "text": "Les chiffres comparatifs avancés comme preuves centrales ne sont accompagnés ni d'une source, ni d'une date, ni d'une définition de ce qui est mesuré. Plus ils sont énoncés avec assurance, plus il faut chercher d'où ils viennent.",
+          "references": [
+            "claim_1",
+            "claim_2",
+            "bs_0"
+          ]
+        },
+        {
+          "id": "w2",
+          "text": "Le ton dramatique crée un sentiment d'urgence qui facilite le passage d'un événement social à une politique éducative. Ce lien n'est pas appuyé par des éléments sur les personnes concernées.",
+          "references": [
+            "ia_0",
+            "lr_0",
+            "bias_0"
+          ]
+        },
+        {
+          "id": "w3",
+          "text": "La comparaison avec la Suisse met le chômage des jeunes à part, sans tenir compte de l'apprentissage et de l'alternance qui y sont très présents. Cette autre explication possible n'est pas discutée.",
+          "references": [
+            "bs_1",
+            "claim_2",
+            "lr_2"
+          ]
+        },
+        {
+          "id": "w4",
+          "text": "Les jeunes sont présentés sous deux seules issues possibles, ce qui écarte d'autres causes et simplifie leur situation. Les voix des jeunes, des enseignants ou des partisans du modèle actuel sont absentes.",
+          "references": [
+            "ia_1",
+            "bias_2",
+            "bs_2"
+          ]
+        },
+        {
+          "id": "w5",
+          "text": "Le titre est général : il annonce un sujet large, alors que le texte défend une orientation précise. Cet écart peut faire croire à un panorama plutôt qu'à une prise de position.",
+          "references": [
+            "cb_0",
+            "obs_2"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Cherchez la source et la définition exactes de chaque chiffre comparatif avant de les retenir.",
+      "Demandez-vous quelle part des écarts entre pays tient à la différence de systèmes éducatifs, notamment l'apprentissage.",
+      "Notez que le remède proposé reste peu précis : âge, critères et passerelles du dispositif ne sont pas décrits, ce qui limite la possibilité de le juger."
+    ],
+    "title_note": null,
+    "perspective": {
+      "framing": "Le texte adopte un angle de plaidoyer à la première personne, centré sur l'échec de l'université de masse et sur la sélection comme réponse. Son registre est inquiet et urgent, et il parle du point de vue de ceux qui souhaitent une orientation plus précoce.",
+      "blind_spots": "Le texte ne dit rien des différences entre systèmes éducatifs, en particulier de l'apprentissage suisse, ni du contenu précis du collège modulaire. Les points de vue de jeunes, d'enseignants et de défenseurs du collège unique n'y figurent pas.",
+      "balance": "Un texte d'opinion court n'a pas vocation à présenter toutes les positions, et son parti pris est ici assumé. Les limites relevées sont réelles, mais elles pèsent surtout sur les chiffres et sur la solution : c'est là que le lecteur peut compléter par ses propres vérifications."
+    }
+  }
+}

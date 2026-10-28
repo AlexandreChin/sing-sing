@@ -6,6 +6,11 @@ FORMATS: dict[str, tuple[str, str, str]] = {
         "extractors.instagram_carousel",
         "renderer.instagram_carousel.optimized",
     ),
+    "cadrage_logique": (
+        "agent.cadrage_adapt_agent",
+        "extractors.cadrage",
+        "renderer.instagram_carousel.cadrage",
+    ),
     "newsletter": (
         "agent.newsletter_adapt_agent",
         "extractors.newsletter",

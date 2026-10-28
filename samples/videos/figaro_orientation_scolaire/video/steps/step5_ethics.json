@@ -1,0 +1,35 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "category": "false_statistics",
+        "label": "Comparaison d'admission non définie",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "On a 95 % de d'admission alors que en Norvège et en Suède, si on compare, on est à 40 %.",
+        "explanation": "Le terme « admission » n'est pas défini et la comparaison avec deux pays choisis, sans source, peut fausser la lecture."
+      },
+      {
+        "category": "false_statistics",
+        "label": "Chômage des jeunes : bases de calcul non précisées",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "On a un taux de chômage des jeunes Français qui est de 21 %. On est à 3 % en Suisse.",
+        "explanation": "Base de calcul (actifs ou classe d'âge) non précisée et Suisse isolée de son apprentissage : l'écart paraît artificiellement net."
+      },
+      {
+        "category": "stereotyping",
+        "label": "Jeunes réduits à deux issues",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "le seul débouché qu'on leur qu'on leur promette soit soit le chômage de masse, soit la radicalité politico-militante",
+        "explanation": "Les jeunes désignés comme émeutiers sont associés à deux issues seulement, sans élément pour étayer ce raccourci."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Préciser la source, la date et la base de calcul des chiffres comparés, et nuancer l'association entre jeunes émeutiers et radicalité."
+    },
+    "summary": "Aucun manquement critique n'a été relevé, mais trois points appellent de la prudence : deux comparaisons chiffrées sans source ni définition, et un raccourci stigmatisant sur les jeunes."
+  }
+}

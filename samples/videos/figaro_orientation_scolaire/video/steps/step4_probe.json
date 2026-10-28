@@ -1,0 +1,152 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "on a huit fois plus d'étudiants aujourd'hui que dans les années 1960",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 0.6,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre est donné sans source ni date ; les données du ministère de l'Enseignement supérieur permettent de le comparer.",
+        "external_sources": [
+          {
+            "name": "Ministère de l'Enseignement supérieur et de la Recherche (SIES), Repères et références statistiques",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "INSEE, séries longues sur l'enseignement supérieur",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 60
+      },
+      {
+        "quote": "On a 95 % de d'admission alors que en Norvège et en Suède, si on compare, on est à 40 %.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Comparaison",
+          "strength": 0.7,
+          "nature": "nuance"
+        },
+        "explanation": "Le terme « admission » n'est pas défini ; Parcoursup classe les candidatures et certaines filières sont sélectives.",
+        "external_sources": [
+          {
+            "name": "OCDE, Regards sur l'éducation",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Parcoursup, bilans de la campagne (ministère de l'Enseignement supérieur)",
+            "supports": "contradicts",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 30
+      },
+      {
+        "quote": "On a un taux de chômage des jeunes Français qui est de 21 %. On est à 3 % en Suisse.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Comparaison",
+          "strength": 0.8,
+          "nature": "nuance"
+        },
+        "explanation": "Le taux dépend de la base de calcul (actifs de 15 à 24 ans ou classe d'âge entière) et la Suisse n'est pas décrite avec son apprentissage.",
+        "external_sources": [
+          {
+            "name": "Eurostat, taux de chômage des jeunes",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "INSEE, taux de chômage des 15-24 ans",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Office fédéral de la statistique suisse (OFS)",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 45
+      },
+      {
+        "quote": "la sélection que Georges Pompidou appelait justement la sélection par la vie",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Cadrage",
+          "strength": 0.4,
+          "nature": "illustration"
+        },
+        "explanation": "La formule est attribuée à Georges Pompidou ; l'intervenant l'emploie pour appuyer un déplacement de la sélection que rien ne mesure dans le propos.",
+        "external_sources": [
+          {
+            "name": "Archives de la présidence de la République, discours de Georges Pompidou",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": null
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "le vernis d'un mensonge qu'on a construit sur plusieurs décennies est en train de craquer",
+        "item_type": "bias",
+        "label": "langage dramatique",
+        "effect": "Remarquez comment les mots « mensonge » et « craquer » font paraître la situation actuelle urgente et la faute délibérée.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "inquiétude",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "il y a plus de noblesse à être chaudronnier que crétin diplômé",
+        "item_type": "bias",
+        "label": "opposition en deux images",
+        "effect": "Remarquez comment ce contraste fait paraître l'orientation vers les métiers manuels honorable, sans dire à quelles conditions.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "fierté du travail manuel",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "j'ai peur que le seul débouché qu'on leur qu'on leur promette soit soit le chômage de masse, soit la radicalité politico-militante",
+        "item_type": "fallacy",
+        "label": "deux issues seulement",
+        "effect": "Remarquez comment seules deux issues sont présentées, ce qui laisse peu de place à d'autres parcours.",
+        "proves": {
+          "type": "observation",
+          "label": "Cadrage",
+          "strength": 0.6,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "lorsqu'on prétend abolir la sélection, en réalité, on la déplace et on la remplace par une sélection autrement plus violente",
+      "proves": {
+        "type": "observation",
+        "label": "Accès",
+        "strength": 0.7,
+        "nature": "nuance"
+      },
+      "analysis": "Cette phrase pose que la sélection existe toujours, seulement sous une forme plus dure. Elle sous-entend que la sélection explicite serait plus juste, sans le démontrer. Que devient cette comparaison si la sélection précoce fige elle aussi les trajectoires ?"
+    }
+  }
+}

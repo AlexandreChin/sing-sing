@@ -1,0 +1,1106 @@
+{
+  "analysis": {
+    "article_metadata": {
+      "url": null,
+      "title": "Moi, je suis convaincu que si on assiste",
+      "source": "Le Figaro",
+      "published_at": null,
+      "type": "opinion",
+      "medium": "video",
+      "category": "Autre",
+      "reading_time_minutes": 2,
+      "chapo": null,
+      "extra_instructions": null,
+      "language": null
+    },
+    "extraction": {
+      "authority_anchors": [
+        {
+          "entity": "Georges Pompidou",
+          "used_for": "Donner un poids historique à l'idée que supprimer la sélection la déplace vers une sélection « par la vie »"
+        },
+        {
+          "entity": "OCDE",
+          "used_for": "Appuyer la comparaison selon laquelle l'université française serait la plus ouverte"
+        },
+        {
+          "entity": "Norvège, Suède, Suisse",
+          "used_for": "Servir de points de comparaison pour le taux d'admission et le chômage des jeunes"
+        },
+        {
+          "entity": "Marcel Jouhandeau",
+          "used_for": "Illustrer l'argument par une référence à mai 68"
+        }
+      ],
+      "key_quotes": [
+        "le vernis d'un mensonge qu'on a construit sur plusieurs décennies est en train de craquer",
+        "on la déplace et on la remplace par une sélection autrement plus violente qui est la sélection que Georges Pompidou appelait justement la sélection par la vie",
+        "toujours plus de cohortes de diplômés frustrés et déclassés",
+        "j'aurais été ravi de d'expliquer aux casseurs, aux émeutiers comme Marcel Jouhandeau l'avait fait en mai 68, de leur dire rentrez chez vous dans 10 ans vous serez tous notaires",
+        "le seul débouché qu'on leur qu'on leur promette soit soit le chômage de masse, soit la radicalité politico-militante",
+        "il y a plus de noblesse à être chaudronnier que crétin diplômé"
+      ],
+      "notable_omissions": [
+        "Aucune source précise ni date pour les chiffres cités (95 %, 40 %, 21 %, 3 %, un demi-milliard d'euros)",
+        "Les définitions comparées ne sont pas précisées : taux d'admission, chômage des jeunes (actifs ou ensemble de la classe d'âge)",
+        "Les systèmes éducatifs cités en comparaison (Norvège, Suède, Suisse) ne sont pas décrits, ni leurs différences de structure",
+        "Aucune donnée sur les débouchés réels des diplômés ni sur l'effet de la sélection précoce dans les pays où elle existe",
+        "Aucun point de vue de jeunes, d'enseignants ou de défenseurs du collège unique",
+        "Le lien de cause entre massification universitaire et émeutes n'est étayé par aucun élément",
+        "Le contenu du « collège modulaire » n'est pas détaillé (âge, critères, passerelles)"
+      ],
+      "rhetorical_patterns": [
+        "Cadrage dramatique dès l'ouverture : « embrasement », « mensonge », « vernis qui craque »",
+        "Formulation en « mensonge » collectif attribué sans désigner de responsable",
+        "Enchaînement causal présenté comme évident : massification → échecs → déclassement → radicalité",
+        "Accumulation de chiffres comparatifs avec des pays choisis, sans source",
+        "Alternative binaire pour les jeunes : « chômage de masse » ou « radicalité politico-militante »",
+        "Antithèse imagée et valorisante : « chaudronnier » opposé à « crétin diplômé »",
+        "Anecdote ironique (« vous serez tous notaires ») pour caricaturer la position adverse",
+        "Structure problème → diagnostic sombre → solution personnelle (« à mon avis », « j'appelle »)",
+        "Recours à une citation d'autorité (Pompidou) pour valider un concept"
+      ]
+    },
+    "context": {
+      "contexts": [
+        {
+          "id": "ctx_0",
+          "text": "Le propos s'inscrit dans un débat récurrent en France sur la sélection à l'université et l'orientation après le collège."
+        },
+        {
+          "id": "ctx_1",
+          "text": "L'intervenant se réfère à un « embrasement » de jeunes, ce qui renvoie à des épisodes d'émeutes urbaines récents."
+        },
+        {
+          "id": "ctx_2",
+          "text": "Le « collège unique » a été instauré par la réforme Haby de 1975, qui a mis fin à la séparation des filières après l'école primaire."
+        },
+        {
+          "id": "ctx_3",
+          "text": "La question de l'accès à l'université et de l'échec en première année revient régulièrement avec Parcoursup et la loi ORE de 2018."
+        }
+      ],
+      "who_is_speaking": [
+        "Le Figaro est un quotidien national généraliste, classé à droite et plutôt libéral-conservateur sur les questions économiques et éducatives.",
+        "L'intervenant parle à la première personne (« je pense », « à mon avis ») : il s'agit d'une prise de position, non d'un reportage.",
+        "La transcription ne nomme pas l'intervenant ; son parcours et ses positions antérieures ne peuvent pas être déduits du texte."
+      ],
+      "important_facts": [
+        {
+          "id": "fact_0",
+          "text": "L'accès à la licence en France se fait sans sélection formelle à l'entrée de la plupart des filières, mais Parcoursup classe les candidatures et certaines filières sont sélectives."
+        },
+        {
+          "id": "fact_1",
+          "text": "Dans la plupart des pays, le taux de chômage des jeunes se calcule sur les actifs de 15 à 24 ans, et non sur l'ensemble de la classe d'âge, ce qui change fortement le chiffre."
+        },
+        {
+          "id": "fact_2",
+          "text": "La Suisse et plusieurs pays nordiques ont des systèmes éducatifs différents, notamment avec un apprentissage en alternance très développé en Suisse."
+        },
+        {
+          "id": "fact_3",
+          "text": "En France, une part importante des jeunes poursuit déjà des filières professionnelles ou en apprentissage, et le taux d'échec en première année de licence est un sujet de débat chiffré selon les sources."
+        }
+      ],
+      "key_terms": [
+        {
+          "term": "Collège unique",
+          "definition": "Organisation où tous les élèves suivent le même enseignement jusqu'à la fin de la troisième, sans filières séparées."
+        },
+        {
+          "term": "Massification universitaire",
+          "definition": "Forte hausse du nombre d'étudiants dans l'enseignement supérieur au fil des décennies."
+        },
+        {
+          "term": "Premier cycle",
+          "definition": "Les premières années d'études supérieures, correspondant en France à la licence."
+        },
+        {
+          "term": "OCDE",
+          "definition": "Organisation regroupant des pays développés, qui publie des comparaisons statistiques internationales."
+        },
+        {
+          "term": "Sélection par la vie",
+          "definition": "Expression attribuée à Georges Pompidou : la sélection se fait par les aléas de l'existence plutôt que par l'école."
+        }
+      ]
+    },
+    "analysis": {
+      "fond": {
+        "main_claim": "Supprimer la sélection a produit un échec de masse ; il faut une **sélection précoce** et valoriser les métiers manuels.",
+        "premisses": [
+          {
+            "id": "pr_0",
+            "statement": "La massification universitaire a produit plus d'échecs en premier cycle et des diplômés déclassés.",
+            "quality": "Assertion étayée par des chiffres sans source ni date (95 % d'admission, un demi-milliard d'euros par an) ; le lien avec le déclassement n'est pas montré."
+          },
+          {
+            "id": "pr_1",
+            "statement": "La France compte plus d'étudiants qu'avant et l'université la plus ouverte de l'OCDE, comparée à la Norvège et à la Suède.",
+            "quality": "Données comparatives avec des pays choisis ; les définitions du « taux d'admission » ne sont pas précisées."
+          },
+          {
+            "id": "pr_2",
+            "statement": "Le chômage des jeunes français (21 %) contraste avec celui de la Suisse (3 %).",
+            "quality": "Comparaison sans source ni précision sur la base de calcul (actifs ou classe d'âge entière) ; le contexte éducatif suisse diffère."
+          },
+          {
+            "id": "pr_3",
+            "statement": "Abolir la sélection la déplace vers une « sélection par la vie » plus violente.",
+            "quality": "Assertion appuyée par une citation de Georges Pompidou, sans donnée sur ce déplacement."
+          }
+        ],
+        "implicit_assumptions": [
+          {
+            "id": "ia_0",
+            "statement": "Les émeutes s'expliquent par la situation scolaire et professionnelle des jeunes qui y participent.",
+            "impact": "Si le lien est faux, l'ouverture sur l'« embrasement » ne justifie plus le diagnostic sur l'université."
+          },
+          {
+            "id": "ia_1",
+            "statement": "Le chômage des jeunes et l'échec en licence viennent de la massification plutôt que d'autres causes (conjoncture, marché du travail, discriminations).",
+            "impact": "Si d'autres causes pèsent davantage, réduire la massification ne réduirait pas le chômage."
+          },
+          {
+            "id": "ia_2",
+            "statement": "Une sélection plus précoce, au collège, produirait de meilleurs débouchés que la sélection actuelle.",
+            "impact": "Si l'orientation précoce fige les trajectoires sociales, la solution reproduit le problème qu'elle prétend traiter."
+          },
+          {
+            "id": "ia_3",
+            "statement": "Il existe assez de débouchés dans les métiers manuels et l'industrie pour absorber les élèves réorientés.",
+            "impact": "Sans ces emplois ni leur revalorisation effective, le collège modulaire ne résout pas le chômage."
+          }
+        ],
+        "blind_spots": [
+          {
+            "id": "bs_0",
+            "topic": "Aucune source ni date pour les chiffres cités.",
+            "significance": "Sans source, le lecteur ne peut pas vérifier que les écarts avec la Norvège, la Suède et la Suisse sont aussi grands."
+          },
+          {
+            "id": "bs_1",
+            "topic": "Les différences entre systèmes éducatifs, dont l'apprentissage développé en Suisse, ne sont pas évoquées.",
+            "significance": "Elles pourraient expliquer une partie de l'écart de chômage sans lien avec la sélection."
+          },
+          {
+            "id": "bs_2",
+            "topic": "Les voix de jeunes, d'enseignants ou de défenseurs du collège unique sont absentes.",
+            "significance": "Leur présence aurait montré les objections à une sélection précoce."
+          },
+          {
+            "id": "bs_3",
+            "topic": "Le contenu du « collège modulaire » reste vague : âge, critères, passerelles.",
+            "significance": "Sans ces précisions, on ne peut pas juger si la proposition évite de figer les parcours."
+          }
+        ],
+        "emphasis": [
+          "Le texte consacre l'essentiel de son temps au diagnostic (échec, chômage, déclassement) et **quelques phrases** à la solution, dont le contenu n'est pas détaillé.",
+          "Les chiffres comparatifs occupent une large part du propos alors que leurs **sources et définitions** ne sont jamais évoquées.",
+          "L'image du « chaudronnier » opposé au « crétin diplômé » est la seule justification de la revalorisation des métiers manuels."
+        ],
+        "logical_reasoning": [
+          {
+            "id": "lr_0",
+            "step": "Des émeutes récentes seraient le signe d'un « mensonge » sur la réussite pour tous.",
+            "problem_type": "validity",
+            "diagnosis": "Le passage de l'embrasement à la politique éducative n'est étayé par aucun élément sur les profils des émeutiers."
+          },
+          {
+            "id": "lr_1",
+            "step": "La massification universitaire conduit à des échecs en premier cycle, puis à des diplômés déclassés, puis au chômage ou à la radicalité.",
+            "problem_type": "validity",
+            "diagnosis": "Chaque étape est posée comme évidente ; d'autres causes possibles ne sont pas examinées."
+          },
+          {
+            "id": "lr_2",
+            "step": "Les comparaisons avec la Norvège, la Suède et la Suisse montrent que le système français est moins performant.",
+            "problem_type": "soundness",
+            "diagnosis": "Les chiffres ne sont pas sourcés et les définitions comparées ne sont pas précisées."
+          },
+          {
+            "id": "lr_3",
+            "step": "Le problème étant la sélection déplacée, le collège modulaire avec sélection plus tôt serait la solution.",
+            "problem_type": "validity",
+            "diagnosis": "Rien n'indique que la sélection précoce améliore les débouchés ; l'effet dans les pays qui la pratiquent n'est pas présenté."
+          }
+        ],
+        "observations": [
+          {
+            "id": "obs_0",
+            "aspect": "Cadrage",
+            "summary": "Le propos s'ouvre sur un **« embrasement »** de jeunes, puis relie ces émeutes à un **débat récurrent** sur la sélection, sans mentionner les positions qui s'y opposent.",
+            "seeds": {
+              "source": "context",
+              "index": 1,
+              "excerpt": "L'intervenant se réfère à un « embrasement » de jeunes",
+              "strength": 0.8,
+              "nature": "illustration"
+            },
+            "proven_by": [
+              {
+                "type": "claim",
+                "index": 3
+              },
+              {
+                "type": "bias",
+                "index": 2
+              }
+            ]
+          },
+          {
+            "id": "obs_1",
+            "aspect": "Historique",
+            "summary": "Le texte vise le **collège unique** (réforme Haby, 1975) et l'échec en première année, sans décrire ni leur histoire ni **Parcoursup et la loi ORE**.",
+            "seeds": {
+              "source": "context",
+              "index": 2,
+              "excerpt": "Le « collège unique » a été instauré par la réforme Haby de 1975",
+              "strength": 0.6,
+              "nature": "specification"
+            },
+            "proven_by": []
+          },
+          {
+            "id": "obs_2",
+            "aspect": "Accès",
+            "summary": "Le texte parle d'une université **sans sélection**, alors que Parcoursup classe les candidatures et que certaines filières sont sélectives.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 0,
+              "excerpt": "Parcoursup classe les candidatures et certaines filières sont sélectives",
+              "strength": 0.8,
+              "nature": "contradiction"
+            },
+            "proven_by": [
+              {
+                "type": "focus",
+                "index": 0
+              }
+            ]
+          },
+          {
+            "id": "obs_3",
+            "aspect": "Comparaison",
+            "summary": "Le chiffre de **21 %** ne précise pas sa base de calcul, et la Suisse est citée sans son **apprentissage en alternance**.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 1,
+              "excerpt": "le taux de chômage des jeunes se calcule sur les actifs de 15 à 24 ans",
+              "strength": 0.9,
+              "nature": "specification"
+            },
+            "proven_by": [
+              {
+                "type": "claim",
+                "index": 1
+              },
+              {
+                "type": "claim",
+                "index": 2
+              }
+            ]
+          },
+          {
+            "id": "obs_4",
+            "aspect": "Sourçage",
+            "summary": "Les chiffres sont donnés **sans source ni date**, alors qu'une **part importante des jeunes** suit déjà des filières professionnelles et que l'échec en licence est débattu.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 3,
+              "excerpt": "une part importante des jeunes poursuit déjà des filières professionnelles ou en apprentissage",
+              "strength": 0.7,
+              "nature": "contradiction"
+            },
+            "proven_by": [
+              {
+                "type": "claim",
+                "index": 0
+              }
+            ]
+          }
+        ],
+        "steel_man": [
+          {
+            "counterargument": "L'écart de chômage entre la France et la Suisse peut venir de l'**apprentissage en alternance** et du mode de calcul, non de la sélection ni de la massification universitaire.",
+            "seeds": {
+              "source": "blind_spot",
+              "index": 1,
+              "excerpt": "Les différences entre systèmes éducatifs, dont l'apprentissage développé en Suisse",
+              "strength": 0.8,
+              "nature": "contradiction"
+            },
+            "alternative_conclusion": "Développer l'alternance et l'insertion professionnelle réduirait le chômage des jeunes sans sélection plus précoce."
+          },
+          {
+            "counterargument": "Une sélection dès le collège peut figer les trajectoires selon l'origine sociale et déplacer l'échec plus tôt, au lieu de le réduire.",
+            "seeds": {
+              "source": "implicit_assumption",
+              "index": 2,
+              "excerpt": "Une sélection plus précoce, au collège, produirait de meilleurs débouchés",
+              "strength": 0.8,
+              "nature": "contradiction"
+            },
+            "alternative_conclusion": "Renforcer l'accompagnement et l'orientation choisie plutôt que précoce traiterait l'échec sans fermer de parcours."
+          },
+          {
+            "counterargument": "Les émeutes peuvent s'expliquer par d'autres facteurs que le système éducatif, comme les rapports avec la police, les inégalités territoriales ou le contexte local.",
+            "seeds": {
+              "source": "implicit_assumption",
+              "index": 0,
+              "excerpt": "Les émeutes s'expliquent par la situation scolaire et professionnelle des jeunes",
+              "strength": 0.7,
+              "nature": "contradiction"
+            },
+            "alternative_conclusion": "Le diagnostic éducatif n'explique pas les émeutes ; elles relèvent d'autres causes à examiner séparément."
+          }
+        ]
+      },
+      "forme": {
+        "emotional_register": [
+          {
+            "id": "er_0",
+            "emotion": "inquiétude",
+            "how": "L'ouverture sur un **« embrasement »** et un **« mensonge »** qui **« craque »**, puis l'enchaînement échec, déclassement, **chômage de masse** ou **radicalité**, dessinent un avenir sombre pour les jeunes.",
+            "effect": "L'inquiétude prépare le lecteur à juger la situation actuelle urgente et à accueillir une **réforme de rupture**.",
+            "seeds": {
+              "source": "context",
+              "index": 1,
+              "excerpt": "L'intervenant se réfère à un « embrasement » de jeunes",
+              "strength": 0.8,
+              "nature": "illustration"
+            }
+          },
+          {
+            "id": "er_1",
+            "emotion": "fierté du travail manuel",
+            "how": "L'antithèse **« chaudronnier »** contre **« crétin diplômé »** place la noblesse du côté des métiers de la main.",
+            "effect": "Cette valorisation rend la **sélection précoce** plus acceptable, car l'orientation vers ces métiers paraît honorable.",
+            "seeds": {
+              "source": "blind_spot",
+              "index": 3,
+              "excerpt": "Le contenu du « collège modulaire » reste vague : âge, critères, passerelles.",
+              "strength": 0.5,
+              "nature": "specification"
+            }
+          }
+        ],
+        "cui_bono": [
+          {
+            "id": "cb_0",
+            "beneficiary": "Les partisans d'une sélection précoce et du collège modulaire",
+            "explanation": "Le cadrage présente le **collège unique** comme la source d'un « mensonge » et la sélection comme une réalité déjà à l'œuvre. Le **collège modulaire** apparaît alors comme la réponse à un problème déjà posé.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 0,
+              "excerpt": "Parcoursup classe les candidatures et certaines filières sont sélectives",
+              "strength": 0.6,
+              "nature": "contradiction"
+            }
+          },
+          {
+            "id": "cb_1",
+            "beneficiary": "Les défenseurs d'un lien plus étroit entre école et besoins de l'industrie",
+            "explanation": "Le propos affirme que la réorientation **correspond aux besoins réels** de l'économie et de l'industrie. Cet argument soutient les filières professionnelles et les métiers manuels.",
+            "seeds": {
+              "source": "blind_spot",
+              "index": 3,
+              "excerpt": "Le contenu du « collège modulaire » reste vague : âge, critères, passerelles.",
+              "strength": 0.4,
+              "nature": "inference"
+            }
+          }
+        ],
+        "cadrage": {
+          "title_analysis": [
+            {
+              "label": "Généralité",
+              "observation": "Le titre « Orientation scolaire » annonce un **sujet de politique éducative**, alors que le propos relie école, émeutes et chômage."
+            }
+          ],
+          "body": "Le propos adopte la forme d'une **prise de position à la première personne** : un diagnostic sombre, puis une solution personnelle. Il met au centre la **sélection** et la **massification universitaire**, lues à travers des comparaisons chiffrées avec la Norvège, la Suède et la Suisse. Le registre est **dramatique et polémique**, avec des images fortes et une anecdote ironique. Il parle depuis la position d'un intervenant qui défend le passage du **collège unique** au **collège modulaire**."
+        }
+      }
+    },
+    "annotations": {
+      "facts_vs_opinions": {
+        "claims_and_sources": [
+          {
+            "id": "claim_0",
+            "quote": "on a huit fois plus d'étudiants aujourd'hui que dans les années 1960",
+            "presentation": "presented_as_established_fact",
+            "proves": {
+              "type": "observation",
+              "label": "Sourçage",
+              "strength": 0.6,
+              "nature": "illustration"
+            },
+            "explanation": "Le chiffre est donné sans source ni date ; les données du ministère de l'Enseignement supérieur permettent de le comparer.",
+            "external_sources": [
+              {
+                "name": "Ministère de l'Enseignement supérieur et de la Recherche (SIES), Repères et références statistiques",
+                "supports": "neutral",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "INSEE, séries longues sur l'enseignement supérieur",
+                "supports": "neutral",
+                "evidence_type": "official_data"
+              }
+            ],
+            "confidence": 60,
+            "confidence_label": "disputed"
+          },
+          {
+            "id": "claim_1",
+            "quote": "On a 95 % de d'admission alors que en Norvège et en Suède, si on compare, on est à 40 %.",
+            "presentation": "presented_as_established_fact",
+            "proves": {
+              "type": "observation",
+              "label": "Comparaison",
+              "strength": 0.7,
+              "nature": "nuance"
+            },
+            "explanation": "Le terme « admission » n'est pas défini ; Parcoursup classe les candidatures et certaines filières sont sélectives.",
+            "external_sources": [
+              {
+                "name": "OCDE, Regards sur l'éducation",
+                "supports": "neutral",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "Parcoursup, bilans de la campagne (ministère de l'Enseignement supérieur)",
+                "supports": "contradicts",
+                "evidence_type": "official_data"
+              }
+            ],
+            "confidence": 30,
+            "confidence_label": "likely false"
+          },
+          {
+            "id": "claim_2",
+            "quote": "On a un taux de chômage des jeunes Français qui est de 21 %. On est à 3 % en Suisse.",
+            "presentation": "presented_as_established_fact",
+            "proves": {
+              "type": "observation",
+              "label": "Comparaison",
+              "strength": 0.8,
+              "nature": "nuance"
+            },
+            "explanation": "Le taux dépend de la base de calcul (actifs de 15 à 24 ans ou classe d'âge entière) et la Suisse n'est pas décrite avec son apprentissage.",
+            "external_sources": [
+              {
+                "name": "Eurostat, taux de chômage des jeunes",
+                "supports": "neutral",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "INSEE, taux de chômage des 15-24 ans",
+                "supports": "neutral",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "Office fédéral de la statistique suisse (OFS)",
+                "supports": "neutral",
+                "evidence_type": "official_data"
+              }
+            ],
+            "confidence": 45,
+            "confidence_label": "disputed"
+          },
+          {
+            "id": "claim_3",
+            "quote": "la sélection que Georges Pompidou appelait justement la sélection par la vie",
+            "presentation": "attributed_to_source",
+            "proves": {
+              "type": "observation",
+              "label": "Cadrage",
+              "strength": 0.4,
+              "nature": "illustration"
+            },
+            "explanation": "La formule est attribuée à Georges Pompidou ; l'intervenant l'emploie pour appuyer un déplacement de la sélection que rien ne mesure dans le propos.",
+            "external_sources": [
+              {
+                "name": "Archives de la présidence de la République, discours de Georges Pompidou",
+                "supports": "neutral",
+                "evidence_type": "official_data"
+              }
+            ],
+            "confidence": null,
+            "confidence_label": "unverifiable"
+          }
+        ]
+      },
+      "biases_and_focus": {
+        "biases_and_rhetoric": [
+          {
+            "id": "bias_0",
+            "quote": "le vernis d'un mensonge qu'on a construit sur plusieurs décennies est en train de craquer",
+            "item_type": "bias",
+            "label": "langage dramatique",
+            "effect": "Remarquez comment les mots « mensonge » et « craquer » font paraître la situation actuelle urgente et la faute délibérée.",
+            "proves": {
+              "type": "emotional_register",
+              "label": "inquiétude",
+              "strength": 0.8,
+              "nature": "illustration"
+            }
+          },
+          {
+            "id": "bias_1",
+            "quote": "il y a plus de noblesse à être chaudronnier que crétin diplômé",
+            "item_type": "bias",
+            "label": "opposition en deux images",
+            "effect": "Remarquez comment ce contraste fait paraître l'orientation vers les métiers manuels honorable, sans dire à quelles conditions.",
+            "proves": {
+              "type": "emotional_register",
+              "label": "fierté du travail manuel",
+              "strength": 0.8,
+              "nature": "illustration"
+            }
+          },
+          {
+            "id": "bias_2",
+            "quote": "j'ai peur que le seul débouché qu'on leur qu'on leur promette soit soit le chômage de masse, soit la radicalité politico-militante",
+            "item_type": "fallacy",
+            "label": "deux issues seulement",
+            "effect": "Remarquez comment seules deux issues sont présentées, ce qui laisse peu de place à d'autres parcours.",
+            "proves": {
+              "type": "observation",
+              "label": "Cadrage",
+              "strength": 0.6,
+              "nature": "illustration"
+            }
+          }
+        ],
+        "focus": {
+          "quote": "lorsqu'on prétend abolir la sélection, en réalité, on la déplace et on la remplace par une sélection autrement plus violente",
+          "proves": {
+            "type": "observation",
+            "label": "Accès",
+            "strength": 0.7,
+            "nature": "nuance"
+          },
+          "analysis": "Cette phrase pose que la sélection existe toujours, seulement sous une forme plus dure. Elle sous-entend que la sélection explicite serait plus juste, sans le démontrer. Que devient cette comparaison si la sélection précoce fige elle aussi les trajectoires ?"
+        }
+      }
+    },
+    "deontology": {
+      "violations": [
+        {
+          "id": "",
+          "category": "false_statistics",
+          "label": "Comparaison d'admission non définie",
+          "severity": "significant",
+          "status": "caution",
+          "evidence": "On a 95 % de d'admission alors que en Norvège et en Suède, si on compare, on est à 40 %.",
+          "explanation": "Le terme « admission » n'est pas défini et la comparaison avec deux pays choisis, sans source, peut fausser la lecture."
+        },
+        {
+          "id": "",
+          "category": "false_statistics",
+          "label": "Chômage des jeunes : bases de calcul non précisées",
+          "severity": "significant",
+          "status": "caution",
+          "evidence": "On a un taux de chômage des jeunes Français qui est de 21 %. On est à 3 % en Suisse.",
+          "explanation": "Base de calcul (actifs ou classe d'âge) non précisée et Suisse isolée de son apprentissage : l'écart paraît artificiellement net."
+        },
+        {
+          "id": "",
+          "category": "stereotyping",
+          "label": "Jeunes réduits à deux issues",
+          "severity": "minor",
+          "status": "caution",
+          "evidence": "le seul débouché qu'on leur qu'on leur promette soit soit le chômage de masse, soit la radicalité politico-militante",
+          "explanation": "Les jeunes désignés comme émeutiers sont associés à deux issues seulement, sans élément pour étayer ce raccourci."
+        }
+      ],
+      "verdict": {
+        "overall": "passable",
+        "editorial_note": "Préciser la source, la date et la base de calcul des chiffres comparés, et nuancer l'association entre jeunes émeutiers et radicalité."
+      },
+      "summary": "Aucun manquement critique n'a été relevé, mais trois points appellent de la prudence : deux comparaisons chiffrées sans source ni définition, et un raccourci stigmatisant sur les jeunes."
+    },
+    "review": {
+      "dimensions": [
+        {
+          "dimension": "source_rigor",
+          "label": "Source Rigor",
+          "score": 1,
+          "rationale": "Les chiffres clés (« 95 % de d'admission », « 21 %… 3 % en Suisse », « huit fois plus d'étudiants ») sont donnés sans source ni date, comme le relève `claims_and_sources`. Seule la citation de Georges Pompidou est attribuée, et elle sert une formule, pas une donnée.",
+          "lesson": "Vérifier que chaque chiffre cité nomme sa source et sa date avant de s'y fier."
+        },
+        {
+          "dimension": "factual_accuracy",
+          "label": "Factual Accuracy",
+          "score": 2,
+          "rationale": "Les affirmations chiffrées sont présentées comme des faits établis (`presented_as_established_fact`), avec une confiance faible : 30 % pour la comparaison d'admission avec la Norvège et la Suède, 45 % pour le chômage. Le terme « admission » n'est pas défini, et Parcoursup classe les candidatures alors que des filières sont sélectives.",
+          "lesson": "Se demander sur quelle base deux chiffres sont comparés avant d'accepter l'écart annoncé."
+        },
+        {
+          "dimension": "reasoning_structure",
+          "label": "Reasoning Structure",
+          "score": 2,
+          "rationale": "La chaîne massification → échec → déclassement → chômage ou radicalité pose chaque étape comme évidente (`logical_reasoning`, problème de validité). Le passage des émeutes à la politique éducative n'est étayé par rien sur les profils des émeutiers, et la solution tient en quelques phrases.",
+          "lesson": "Repérer les étapes d'un raisonnement qui sont affirmées plutôt que montrées."
+        },
+        {
+          "dimension": "approach_transparency",
+          "label": "Approach Transparency",
+          "score": 3,
+          "rationale": "Le propos assume une prise de position à la première personne (`cadrage.body`), ce qui rend le point de vue lisible. En revanche, les hypothèses implicites (lien émeutes-école, débouchés dans les métiers manuels) et les limites des comparaisons ne sont pas signalées.",
+          "lesson": "Distinguer ce que l'auteur dit défendre de ce qu'il suppose sans le dire."
+        },
+        {
+          "dimension": "context_completeness",
+          "label": "Context & Completeness",
+          "score": 2,
+          "rationale": "Les `blind_spots` notent l'absence des différences entre systèmes éducatifs, dont l'apprentissage suisse, et du contenu précis du « collège modulaire ». Le texte consacre l'essentiel de son temps au diagnostic et quelques phrases à la solution.",
+          "lesson": "Chercher ce qui est absent d'une comparaison internationale avant d'en tirer une leçon."
+        },
+        {
+          "dimension": "treatment_fairness",
+          "label": "Treatment Fairness",
+          "score": 2,
+          "rationale": "Les voix de jeunes, d'enseignants ou de défenseurs du collège unique sont absentes. Le langage dramatique (« mensonge », « craquer ») et l'opposition « chaudronnier » / « crétin diplômé » orientent le jugement, et les jeunes sont réduits à « chômage de masse » ou « radicalité ».",
+          "lesson": "Noter qui parle et qui est absent quand un groupe est décrit à sa place."
+        },
+        {
+          "dimension": "clarity",
+          "label": "Clarity",
+          "score": 4,
+          "rationale": "Le propos est direct et suit un fil lisible : diagnostic, comparaisons, solution. Les images (« chaudronnier », « sélection par la vie ») ancrent l'abstrait, mais le titre « Orientation scolaire » reste général par rapport au contenu (`title_analysis`).",
+          "lesson": "Distinguer la clarté d'un propos de la solidité de ce qu'il avance."
+        },
+        {
+          "dimension": "angle_originality",
+          "label": "Angle & Originality",
+          "score": 3,
+          "rationale": "La thèse d'une sélection déplacée plutôt qu'abolie, appuyée sur la formule de Pompidou, est un angle identifiable. Le débat sur le collège unique et la sélection est cependant récurrent, comme le notent les `observations`.",
+          "lesson": "Reconnaître un angle connu du débat public et chercher ce qu'il ajoute vraiment."
+        }
+      ],
+      "verdict": {
+        "quality": "adequate",
+        "reading_recommendation": "with_reservations",
+        "for_whom": "Lecteur qui s'intéresse au débat sur le collège unique et la sélection à l'université, et qui veut s'exercer à vérifier des chiffres comparatifs.",
+        "payoff": "Le lecteur y trouve un plaidoyer clair pour une sélection plus précoce, et de quoi s'entraîner à repérer des chiffres sans source ni base de calcul définie.",
+        "signature_move": "Le propos s'appuie sur des chiffres comparatifs sans source ni définition, présentés dans un registre dramatique qui les fait paraître indiscutables.",
+        "main_blind_side": "Le contenu du « collège modulaire » (âge, critères, passerelles) n'est pas précisé, ce qui laisse la solution proposée sans moyen de la juger.",
+        "further_resource": {
+          "title": "Regards sur l'éducation",
+          "source": "OCDE",
+          "media_type": "report",
+          "why_explore": "Il permet de comparer les systèmes éducatifs avec des définitions et des sources explicites.",
+          "url": null
+        },
+        "summary": "Lecture à faire avec réserves, pour qui suit le débat sur la sélection : le plaidoyer est clair, mais ses chiffres comparatifs sans source ni définition demandent à être vérifiés ailleurs."
+      }
+    },
+    "blend": {
+      "patterns": [
+        {
+          "text": "Les chiffres comparatifs sans source ni définition (95 % contre 40 %, 21 % contre 3 %) portent à eux seuls la thèse du texte, et ils sont dits sur un ton de **fait établi** : Probe leur donne une confiance faible (30 % et 45 %), Ethics les classe en statistiques trompeuses, Review note la rigueur des sources à 1/5. Le mécanisme : la preuve la plus fragile est celle qui est présentée avec le plus d'assurance.",
+          "layers": [
+            "logic",
+            "probe",
+            "ethics",
+            "review"
+          ],
+          "references": [
+            "pr_1",
+            "pr_2",
+            "claim_1",
+            "claim_2",
+            "bs_0",
+            "obs_3"
+          ]
+        },
+        {
+          "text": "Le registre dramatique (« mensonge », « craquer », « embrasement ») fait le travail que la preuve ne fait pas : il crée l'urgence qui permet de passer des émeutes à la politique éducative. Le saut est déjà signalé comme non étayé en Logic, et Probe repère le langage qui l'alimente.",
+          "layers": [
+            "logic",
+            "rhetoric",
+            "probe"
+          ],
+          "references": [
+            "ia_0",
+            "lr_0",
+            "er_0",
+            "bias_0"
+          ]
+        },
+        {
+          "text": "Le lien entre échec universitaire, chômage et massification est posé comme évident, puis enfermé dans deux issues seulement (« chômage de masse » ou « radicalité »). Cette alternative réduit l'espace des causes possibles, écarte les autres explications et fait aussi porter sur les jeunes un raccourci que l'éthique relève comme stéréotype.",
+          "layers": [
+            "logic",
+            "probe",
+            "ethics"
+          ],
+          "references": [
+            "ia_1",
+            "lr_1",
+            "bias_2",
+            "obs_0"
+          ]
+        },
+        {
+          "text": "L'image du « chaudronnier » face au « crétin diplômé » rend la sélection précoce **honorable** sans dire à quelles conditions. Elle comble un vide : le contenu du collège modulaire reste vague, et l'existence de débouchés suffisants dans les métiers manuels n'est ni montrée ni examinée.",
+          "layers": [
+            "logic",
+            "rhetoric",
+            "probe"
+          ],
+          "references": [
+            "ia_3",
+            "bs_3",
+            "er_1",
+            "bias_1"
+          ]
+        },
+        {
+          "text": "La solution est préparée par le cadrage plus qu'argumentée : le texte présente la sélection comme déjà à l'œuvre, et le collège modulaire comme réponse naturelle, au bénéfice de ses partisans. Or la sélection actuelle (Parcoursup, filières sélectives) n'est pas décrite, et rien ne montre que la sélection précoce fait mieux, d'où un diagnostic détaillé et un remède peu défini.",
+          "layers": [
+            "logic",
+            "rhetoric",
+            "probe"
+          ],
+          "references": [
+            "lr_3",
+            "cb_0",
+            "obs_2",
+            "focus",
+            "ia_2"
+          ]
+        },
+        {
+          "text": "La comparaison avec la Suisse isole le chômage de son système d'apprentissage : le même angle mort apparaît dans le raisonnement, les observations et le contre-argument, et Ethics y voit un écart rendu artificiellement net. Une explication alternative, l'alternance, est ainsi écartée sans être discutée.",
+          "layers": [
+            "logic",
+            "ethics",
+            "probe"
+          ],
+          "references": [
+            "bs_1",
+            "obs_3",
+            "claim_2",
+            "lr_2"
+          ]
+        },
+        {
+          "text": "Les voix absentes (jeunes, enseignants, défenseurs du collège unique) et les points de vue non examinés vont dans le même sens que le cadrage à la première personne : le propos est lisible mais **unilatéral**. Review note l'équité de traitement à 2/5 alors que la transparence de position est notée plus haut, à 3/5.",
+          "layers": [
+            "logic",
+            "rhetoric",
+            "review"
+          ],
+          "references": [
+            "bs_2",
+            "cb_0",
+            "obs_0"
+          ]
+        }
+      ]
+    },
+    "distill": {
+      "points": [
+        {
+          "text": "La thèse repose sur des **chiffres comparatifs sans source ni définition** (95 % contre 40 %, 21 % contre 3 %), énoncés comme des faits établis alors que leur fiabilité est la plus faible : plus la preuve est fragile, plus elle est affirmée avec assurance.",
+          "references": [
+            "pr_1",
+            "pr_2",
+            "claim_1",
+            "claim_2",
+            "bs_0",
+            "obs_3"
+          ]
+        },
+        {
+          "text": "Le **registre dramatique** (« mensonge », « craquer », « embrasement ») crée l'urgence qui permet de passer des émeutes à la politique éducative, un saut que le raisonnement n'étaye pas.",
+          "references": [
+            "ia_0",
+            "lr_0",
+            "er_0",
+            "bias_0"
+          ]
+        },
+        {
+          "text": "La **comparaison avec la Suisse** isole le chômage de son système d'apprentissage : l'écart paraît artificiellement net et l'alternance, explication alternative, n'est pas discutée.",
+          "references": [
+            "bs_1",
+            "obs_3",
+            "claim_2",
+            "lr_2"
+          ]
+        },
+        {
+          "text": "Le lien entre échec universitaire, chômage et massification est posé comme évident puis **réduit à deux issues** (« chômage de masse » ou « radicalité »), ce qui écarte d'autres causes et prête aux jeunes un stéréotype.",
+          "references": [
+            "ia_1",
+            "lr_1",
+            "bias_2",
+            "obs_0"
+          ]
+        },
+        {
+          "text": "Le diagnostic est détaillé, mais le remède reste **peu défini** : la sélection actuelle n'est pas décrite, rien ne montre que la sélection précoce fait mieux, et l'image du « chaudronnier » comble ce vide sans examiner les débouchés.",
+          "references": [
+            "lr_3",
+            "cb_0",
+            "obs_2",
+            "focus",
+            "ia_2",
+            "ia_3",
+            "bs_3",
+            "er_1",
+            "bias_1"
+          ]
+        }
+      ],
+      "open_questions": [
+        "Quelle est la source et la définition exacte des écarts de 95 % contre 40 % et 21 % contre 3 % ?",
+        "Quelle part de l'écart de chômage avec la Suisse tient à son système d'apprentissage ?",
+        "Les métiers manuels offrent-ils aujourd'hui assez de débouchés pour absorber une orientation plus précoce ?"
+      ]
+    },
+    "guide": {
+      "pre_reading": [
+        "Gardez en tête que le texte est un plaidoyer à la première personne : il défend une position plutôt qu'il n'expose un débat.",
+        "Repérez dès le départ la chaîne que l'auteur construit, de la massification de l'université jusqu'au chômage ou à la radicalité, et demandez-vous à quelle étape il montre et à quelle étape il affirme.",
+        "Préparez-vous à rencontrer des chiffres comparatifs entre pays : notez pour chacun s'il est accompagné d'une source, d'une date et d'une définition."
+      ],
+      "watch_out": {
+        "items": [
+          {
+            "id": "w1",
+            "text": "Les chiffres comparatifs avancés comme preuves centrales ne sont accompagnés ni d'une source, ni d'une date, ni d'une définition de ce qui est mesuré. Plus ils sont énoncés avec assurance, plus il faut chercher d'où ils viennent.",
+            "references": [
+              "claim_1",
+              "claim_2",
+              "bs_0"
+            ]
+          },
+          {
+            "id": "w2",
+            "text": "Le ton dramatique crée un sentiment d'urgence qui facilite le passage d'un événement social à une politique éducative. Ce lien n'est pas appuyé par des éléments sur les personnes concernées.",
+            "references": [
+              "ia_0",
+              "lr_0",
+              "bias_0"
+            ]
+          },
+          {
+            "id": "w3",
+            "text": "La comparaison avec la Suisse met le chômage des jeunes à part, sans tenir compte de l'apprentissage et de l'alternance qui y sont très présents. Cette autre explication possible n'est pas discutée.",
+            "references": [
+              "bs_1",
+              "claim_2",
+              "lr_2"
+            ]
+          },
+          {
+            "id": "w4",
+            "text": "Les jeunes sont présentés sous deux seules issues possibles, ce qui écarte d'autres causes et simplifie leur situation. Les voix des jeunes, des enseignants ou des partisans du modèle actuel sont absentes.",
+            "references": [
+              "ia_1",
+              "bias_2",
+              "bs_2"
+            ]
+          },
+          {
+            "id": "w5",
+            "text": "Le titre est général : il annonce un sujet large, alors que le texte défend une orientation précise. Cet écart peut faire croire à un panorama plutôt qu'à une prise de position.",
+            "references": [
+              "cb_0",
+              "obs_2"
+            ]
+          }
+        ]
+      },
+      "after_reading": [
+        "Cherchez la source et la définition exactes de chaque chiffre comparatif avant de les retenir.",
+        "Demandez-vous quelle part des écarts entre pays tient à la différence de systèmes éducatifs, notamment l'apprentissage.",
+        "Notez que le remède proposé reste peu précis : âge, critères et passerelles du dispositif ne sont pas décrits, ce qui limite la possibilité de le juger."
+      ],
+      "title_note": null,
+      "perspective": {
+        "framing": "Le texte adopte un angle de plaidoyer à la première personne, centré sur l'échec de l'université de masse et sur la sélection comme réponse. Son registre est inquiet et urgent, et il parle du point de vue de ceux qui souhaitent une orientation plus précoce.",
+        "blind_spots": "Le texte ne dit rien des différences entre systèmes éducatifs, en particulier de l'apprentissage suisse, ni du contenu précis du collège modulaire. Les points de vue de jeunes, d'enseignants et de défenseurs du collège unique n'y figurent pas.",
+        "balance": "Un texte d'opinion court n'a pas vocation à présenter toutes les positions, et son parti pris est ici assumé. Les limites relevées sont réelles, mais elles pèsent surtout sur les chiffres et sur la solution : c'est là que le lecteur peut compléter par ses propres vérifications."
+      }
+    },
+    "core_elements": {
+      "elements": [
+        {
+          "statement": "L'intervenant attribue les émeutes à un « mensonge » sur la réussite pour tous et sur l'abolition de la sélection.",
+          "kind": "affirmation",
+          "centrality": 5,
+          "seeds": {
+            "source": "logical_reasoning",
+            "index": 0,
+            "excerpt": "Des émeutes récentes seraient le signe d'un « mensonge » sur la réussite pour tous.",
+            "strength": 0.8,
+            "nature": "inference"
+          }
+        },
+        {
+          "statement": "La massification universitaire est présentée comme cause d'échecs en premier cycle, de diplômés déclassés et de chômage des jeunes.",
+          "kind": "affirmation",
+          "centrality": 5,
+          "seeds": {
+            "source": "logical_reasoning",
+            "index": 1,
+            "excerpt": "La massification universitaire conduit à des échecs en premier cycle, puis à des diplômés déclassés",
+            "strength": 0.8,
+            "nature": "inference"
+          }
+        },
+        {
+          "statement": "Des chiffres comparatifs avec la Norvège, la Suède et la Suisse sont avancés sans source, date ni définition.",
+          "kind": "fait",
+          "centrality": 4,
+          "seeds": {
+            "source": "blind_spot",
+            "index": 0,
+            "excerpt": "Aucune source ni date pour les chiffres cités.",
+            "strength": 0.9,
+            "nature": "specification"
+          }
+        },
+        {
+          "statement": "Le collège modulaire avec sélection plus précoce est proposé, sans préciser âge, critères ni passerelles.",
+          "kind": "enjeu",
+          "centrality": 3,
+          "seeds": {
+            "source": "blind_spot",
+            "index": 3,
+            "excerpt": "Le contenu du « collège modulaire » reste vague : âge, critères, passerelles.",
+            "strength": 0.8,
+            "nature": "specification"
+          }
+        },
+        {
+          "statement": "Les métiers manuels sont revalorisés par l'opposition imagée entre « chaudronnier » et « crétin diplômé ».",
+          "kind": "angle",
+          "centrality": 2,
+          "seeds": {
+            "source": "implicit_assumption",
+            "index": 3,
+            "excerpt": "Il existe assez de débouchés dans les métiers manuels et l'industrie pour absorber les élèves réorientés.",
+            "strength": 0.6,
+            "nature": "specification"
+          }
+        }
+      ]
+    }
+  },
+  "presentation": {
+    "caption": "Dans une vidéo du Figaro, un intervenant soutient qu'abolir la sélection scolaire ne la supprime pas : elle se déplace vers le marché de l'emploi. Il s'appuie sur des chiffres (admission à l'université, chômage des jeunes, échecs en premier cycle) et propose un collège modulaire, avec une sélection plus précoce et une revalorisation des métiers de la main.\n\nCe carrousel suit le fil de cette prise de position : les faits sur lesquels elle repose, sa thèse, ce qu'un tri précoce peut laisser dans l'ombre pour la mobilité sociale, des leviers pour l'atténuer, puis la question qui reste ouverte : entre efficacité économique et justice sociale, où placer le curseur ?\n\nEt vous, où le placeriez-vous ? Dites-le en commentaire, avec vos arguments.\n\n#orientation #école #mobilitésociale #espritcritique",
+    "hook": {
+      "title": "« Abolir la sélection, c'est fabriquer des diplômés **déclassés**. »",
+      "promise": "Décryptage d'une prise de position sur l'université, l'emploi et le mérite."
+    },
+    "constat": {
+      "title": "L'illusion de la **réussite** pour tous",
+      "figures": [
+        {
+          "value": "95%",
+          "label": "d'admission à l'université",
+          "compare": "40 % en Norvège et Suède"
+        },
+        {
+          "value": "21%",
+          "label": "de chômage des jeunes",
+          "compare": "3 % en Suisse"
+        },
+        {
+          "value": "× 8",
+          "label": "étudiants depuis les années 1960",
+          "compare": ""
+        },
+        {
+          "value": "0,5 Md€",
+          "label": "par an d'échecs en premier cycle",
+          "compare": ""
+        }
+      ],
+      "claim": "Une université ouverte à tous forme des cohortes **sans débouchés** immédiats.",
+      "detail": "Des diplômés frustrés et déclassés, dont les filières n'ont pas de débouchés marchands."
+    },
+    "these": {
+      "title": "La sélection ne disparaît pas : elle se **déplace**",
+      "these": {
+        "claim": "Refuser de filtrer en amont ne protège personne.",
+        "detail": "La sélection passe sur le marché de l'emploi : « la sélection par la vie », plus brutale et sans filet."
+      },
+      "solution": {
+        "claim": "Un **collège modulaire**, avec une sélection plus précoce.",
+        "detail": "En contrepartie : revaloriser les métiers de la main, manuels et industriels, en tension."
+      },
+      "notes": [
+        {
+          "kind": "remark",
+          "text": "**« La sélection par la vie »** : formule de Georges Pompidou"
+        },
+        {
+          "kind": "source",
+          "text": "**Le Céreq** : l'insertion des jeunes selon leur diplôme"
+        }
+      ]
+    },
+    "angle_mort": {
+      "title": "Le tri précoce face à la **mobilité sociale**",
+      "subtitle": "Un **ascenseur social** qui se grippe davantage",
+      "claim": "Plus le tri est précoce, plus il suit l'**origine sociale** que le mérite individuel.",
+      "detail": "Orienter tôt vers les filières manuelles peut assigner les enfants des classes populaires aux métiers d'exécution.",
+      "notes": [
+        {
+          "kind": "remark",
+          "text": "**Contestation** : ce risque d'enfermement du destin social nourrit la contestation dans les lycées et facultés"
+        },
+        {
+          "kind": "source",
+          "text": "**L'Insee** : mobilité sociale et origine des élèves"
+        },
+        {
+          "kind": "source",
+          "text": "**La DEPP** (ministère de l'Éducation) : parcours et origine sociale"
+        }
+      ]
+    },
+    "depassement": {
+      "title": "Sélectionner sur le **mérite** en **limitant** la reproduction sociale",
+      "lead": "Ces leviers peuvent **atténuer** le conflit entre besoins de l'économie et justice sociale, mais ils ont un coût.",
+      "levers": [
+        {
+          "title": "La **mixité sociale**",
+          "detail": "Elle doit garantir une orientation indépendante de l'origine sociale et des moyens égaux pour tous."
+        },
+        {
+          "title": "La **discrimination positive**",
+          "detail": "**Pour corriger la mixité sociale** : quotas de boursiers, accès garanti aux filières sélectives."
+        },
+        {
+          "title": "La **valorisation** réelle",
+          "detail": "Salaires et prestige alignés (modèle dual allemand, suisse)."
+        }
+      ]
+    },
+    "boussole": {
+      "title": "Efficacité économique ou justice sociale : où placer le **curseur** ?",
+      "options": [
+        {
+          "question": "Faut-il prioriser une **orientation rapide**, guidée par les besoins des entreprises ?",
+          "pro": "Des **débouchés** plus proches de l'emploi, moins d'échecs en premier cycle.",
+          "con": "Un risque d'**assignation sociale**, à compenser."
+        },
+        {
+          "question": "Ou préserver un **socle commun prolongé**, quitte à en payer le coût ?",
+          "pro": "Un tri repoussé, donc moins lié à l'**origine sociale**.",
+          "con": "Un **coût collectif** et des réajustements plus tardifs sur le marché."
+        }
+      ]
+    }
+  }
+}

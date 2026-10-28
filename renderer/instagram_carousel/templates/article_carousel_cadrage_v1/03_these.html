@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+{% include 'article_carousel_cadrage_v1/_argument.css' %}
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
+  {% include '_brand.html' %}
+  <div class="stage">
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>L'argument de départ</span>
+    <h1 class="head">{{ title | md_bold }}</h1>
+    <div class="card" data-perch>{% include '_perch.html' %}
+      <div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS.lightbulb | safe }}</svg><span class="q-label">La thèse</span></div>
+      <div class="claim">{{ these.claim | md_bold }}</div>
+      {% if these.detail %}<div class="detail">{{ these.detail | md_bold }}</div>{% endif %}
+      {% if sources %}<div class="look">{% for w in sources %}<span class="src"><svg viewBox="0 0 24 24">{% if w.kind == 'remark' %}{{ ICONS.bookmark | safe }}{% else %}<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/>{% endif %}</svg><span>{{ w.text | md_bold }}</span></span>{% endfor %}</div>{% endif %}
+    </div>
+    <div class="card">
+      <div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS.hierarchy | safe }}</svg><span class="q-label">La solution proposée</span></div>
+      <div class="claim">{{ solution.claim | md_bold }}</div>
+      {% if solution.detail %}<div class="detail">{{ solution.detail | md_bold }}</div>{% endif %}
+    </div>
+  </div>
+  <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
+  <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
+</div>
+</body>
+</html>

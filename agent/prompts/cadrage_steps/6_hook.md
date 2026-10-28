@@ -1,0 +1,7 @@
+ÉTAPE 6 — L'ACCROCHE (slide 1)
+
+Les étapes 1 à 5 sont FIXÉES. Tu proposes 3 ou 4 options (`title`, `promise`).
+- `title` (**≤64 caractères**) : l'affirmation centrale du média, formulée comme son auteur pourrait la dire et placée entre « », qui ouvre la thèse sans la juger. Un mot peut être mis en or. Ex. : « Le télétravail, c'est **fabriquer** de l'isolement. »
+- `promise` (≤20 mots) : « Décryptage d'une prise de position sur A, B et C. » — A, B, C sont les thèmes que les slides 2 à 6 ont abordés. (« En juger soi-même. » est ajouté par la slide : ne l'écris pas.)
+- `reason` : ce que l'option met en avant de la thèse.
+Le titre est du média ; la promesse est de nous : elle ne juge pas.

@@ -1,0 +1,63 @@
+{
+  "step": "premisse_invisible",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "S'appuie sur la proposition du « collège modulaire » avec « une sélection plus tôt », jamais justifiée par une comparaison des parcours.",
+      "fields": {
+        "text": "Un jeune réussit mieux dans un parcours choisi tôt pour lui que dans un parcours ouvert qu'il construit lui-même plus tard",
+        "why": "Sans cela, avancer l'orientation au collège ne réduirait ni l'échec ni le chômage : ce serait seulement avancer l'échéance."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "S'appuie sur la citation de Pompidou : l'invité compare deux formes de sélection sans dire pourquoi l'une serait préférable à l'autre.",
+      "fields": {
+        "text": "Une sélection organisée par l'institution est moins dure pour un jeune qu'une sélection qui s'opère d'elle-même, par l'échec et le chômage",
+        "why": "Sans cela, remplacer la sélection « par la vie » par une sélection scolaire précoce n'aurait aucun avantage pour les jeunes concernés."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "S'appuie sur « diplômés frustrés et déclassés » et sur le critère des « besoins réels de l'économie » : le but de la formation n'est jamais discuté.",
+      "fields": {
+        "text": "La valeur d'une formation se mesure à l'emploi qu'elle permet d'occuper, non à ce qu'elle apporte à la personne",
+        "why": "Sans cela, des diplômés sans débouché correspondant resteraient un acquis, et le chômage ne suffirait pas à juger l'université."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "S'appuie sur l'opposition « chaudronnier » / « crétin diplômé » : elle suppose que chacun relève d'une voie identifiable tôt.",
+      "fields": {
+        "text": "Chaque jeune a des aptitudes assez nettes pour être orienté vers la voie manuelle ou la voie universitaire dès le collège",
+        "why": "Sans cela, une sélection précoce ne pourrait pas répartir les élèves entre métiers manuels et études longues sans en écarter certains à tort."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "b"
+  ],
+  "picked": [
+    "b"
+  ],
+  "fragment": {
+    "invisible": {
+      "statement": "Une sélection organisée par l'institution est moins dure pour un jeune qu'une sélection qui s'opère d'elle-même, par l'échec et le chômage",
+      "why": "Sans cela, remplacer la sélection « par la vie » par une sélection scolaire précoce n'aurait aucun avantage pour les jeunes concernés."
+    }
+  },
+  "remarks": []
+}

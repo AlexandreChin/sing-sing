@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+{% include 'article_carousel_cadrage_v1/_argument.css' %}
+/* the figures: monospace, the number big, its comparison small and grey */
+.figs { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 30px; }
+.fig { border-left: 3px solid #d4aa00; padding-left: 22px; }
+.fig .n { font-family: 'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace; font-size: 70px; font-weight: 700; line-height: 1; color: #d4aa00; letter-spacing: -0.04em; }
+.fig .l { margin-top: 10px; font-size: 30px; line-height: 1.25; color: #fff; font-weight: 700; }
+.fig .l small { display: block; margin-top: 4px; font-size: 28px; font-weight: 500; color: #c8c8c8; }
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
+  {% include '_brand.html' %}
+  <div class="stage">
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg>L'argument de départ</span>
+    <h1 class="head">{{ title | md_bold }}</h1>
+    <div class="card" data-perch>{% include '_perch.html' %}
+      <div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS.info | safe }}</svg><span class="q-label">Le constat</span></div>
+      <div class="figs">{% for f in figures %}<div class="fig"><div class="n">{{ f.value }}</div><div class="l">{{ f.label | md_bold }}{% if f.compare %}<small>{{ f.compare | fr }}</small>{% endif %}</div></div>{% endfor %}</div>
+    </div>
+    <div class="card">
+      <div class="claim">{{ claim | md_bold }}</div>
+      {% if detail %}<div class="detail">{{ detail | md_bold }}</div>{% endif %}
+    </div>
+  </div>
+  <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
+  <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
+</div>
+</body>
+</html>

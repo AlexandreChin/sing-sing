@@ -16,6 +16,10 @@ uv sync
 # Full pipeline: analyze → adapt → extract → render
 python main.py produce <article.txt> [--format instagram_carousel_optimized] [--no-api] [--render] [--instructions-file <path>] [--stop-after <step>] [--guided]
 
+# The other carousel archetype, CADRAGE & LOGIQUE (7 slides, for opinion pieces) — same loop,
+# steps: constat these angle_mort depassement boussole hook (then `writing`, no pause)
+python main.py produce <video.txt> --format cadrage_logique --guided [--no-api] [--render] [--medium …] [--title …] [--source …]
+
 # Individual stages
 python main.py analyze <article.txt> [--instructions "..."] [--instructions-file <path>]
 python main.py adapt   <analysis.json>   [--format <fmt>] [--no-api] [--stop-after <step>] [--guided]
@@ -53,15 +57,18 @@ agent/
   instagram_carousel_adapt_agent.py    adapt(): ArticleFullAnalysis → carousel presentation, assembled from the 8 guided steps
   instagram_carousel_simplify_agent.py simplify_carousel(): shrink an existing carousel
   newsletter_adapt_agent.py            adapt(): ArticleFullAnalysis → newsletter prose
+  cadrage_adapt_agent.py               adapt() for cadrage_logique: its own guided steps (prompts/cadrage_steps/), choose/more/fix
   media_trend_agent.py
 extractors/
   registry.py                      FORMATS: format name → (adapt agent, extractor, renderer) modules
   instagram_carousel.py            extract(): trim to the 3 most-decisive review dimensions + 1 go_further (both carousel formats)
   newsletter.py                    extract(): passthrough → NewsletterDocument
+  cadrage.py                       extract(): passthrough → CadrageDocument
 renderer/
   instagram_carousel/              the carousel renderer + shared helpers:
     _shared.py                     _env / _weighted_quality / _LOGO_DATA_URL / TYPE_FR (shared)
     optimized.py                   10-slide optimized deck
+    cadrage.py                     the CADRAGE & LOGIQUE renderer (templates/article_carousel_cadrage_v1/ for slides 2–6; slides 1 and 7 are the optimized hook and CTA)
     templates/article_carousel_optimized_v0/  Jinja2 templates → PNG slides (1080×1350)
   newsletter/                      newsletter renderer → Markdown + HTML (rich + email); dark brand
   shoot.py                         Playwright HTML → PNG (carousel slides)
@@ -69,6 +76,7 @@ models/
   full_analysis.py                 ArticleFullAnalysis (analysis schema)
   instagram_carousel_presentation.py  InstagramCarouselPresentation / Document
   newsletter_presentation.py       NewsletterPresentation / NewsletterDocument
+  cadrage_presentation.py          CadragePresentation / CadrageDocument
 tools/
   scrape.py, search.py, validate.py, verify.py, graph_generator.py
   feeds.py                         curated free FR news feeds → candidates / fetch
@@ -124,6 +132,31 @@ samples/outputs/<stem>/
 **Formats:** registered in `extractors/registry.py`, all fed by the same `analyze`. The carousel has its own `adapt()` copy; the newsletter has its own prose adapt.
 - `instagram_carousel_optimized` (default) — 9-slide "lens to read with" deck on the `article_carousel_optimized_v0` templates: Hook (source pill, title, promise) → En bref (lede + the 3 numbered `essentiel` claims; the prose `essentiel_summary` is the fallback) → À savoir, à se demander (`reperes_facts`: 2–3 labelled facts chosen from the analysis's context, then the réflexes) → 3 moments (one réflexe each, its question repeated word for word) → Le socle de l'argument (thesis, présupposés, objection) → Prise de recul (enjeu de fond, « La question », and under it `cta.where_to_look`: 2–3 sources to find answers; the `go_further` items that carry a URL are appended to the post caption by `caption_with_sources()`) → CTA. The bird and the wire: the Sing Sing bird leaves the wordmark and perches on each slide's key element (marked `data-perch` in the template, fixed per slide type: the idées-clés card, the réflexes card, each moment's question, the targeted pillar, the enjeu card); `renderer/shoot.py` measures every perch and draws one gold wire through the whole deck (`wire_paths()`), level along each perch and continuous at every slide edge, so a swipe reads it unbroken. A slide without a perch is crossed along its foot. Before the perches are measured, `shoot.py` fits each slide's foot (`_FIT`): the stage marked `data-fit` is pinned at its title, and the room left above the page number (less 40 px) is shared between the blocks marked `data-gap`, +60 px each at most — spacing only, type sizes never change; question and answer get no extra gap between them. Visual layer: each réflexe wears its lens icon (`CANONICAL_LENSES[…]["icon_svg"]`) on slide 3 and on its moment; a moment may draw one sourced count as people or things (`reading_beats[].pictogram`, max one per deck, never a relative risk); slide 7 draws the présupposés as pillars under the thesis, and the bird perches on the pillar `steel_man.targets` names. On slides 1 and 9 the bird sits at home, beside the wordmark top right (the original logo), and those slides carry no wire: it runs from the first perch to the last, starting and ending at the text column's edge. The renderer builds the slide list conditionally (numbering adapts); reading beats are a candidate pool (`selected`), and the réflexe lenses are derived from the selected beats. The axis: slide 8 (`root_issue` + « La question ») is written first and the deck leads to it — each selected beat carries an `axis_link` (not rendered), and an editorial flag (advisory, not a hard check) marks the hook, an `essentiel` bullet or the slide-7 thesis that shares no key word with slide 8. Quotes from a non-French source show in French (`quote`), with the passage as written in `quote_original`, which the verbatim checks match.
   Clues: each moment's `answer` and each `cta.where_to_look` should name where to check (an institution, a document, a figure, a person quoted); `_clue_errors()` flags one that does not — an editorial flag (advisory), not a hard check.
+- `cadrage_logique` — the CADRAGE & LOGIQUE archetype (`docs/carousels_archetypes.md`): 7 slides that follow an opinion
+  piece, an essay or an expert interview, in the optimized deck's visual language — Hook (identical to the optimized one,
+  photo included; pill = medium · source · date, no length; the title is the speaker's central claim in « », the promise
+  « Décryptage d'une prise de position sur … ») → Le constat (the speaker's figures in monospace + what they establish) →
+  La thèse (thesis, solution, one remark/source line under it) → L'angle mort (what the solution risks, from outside the
+  speaker's frame: a catchy card heading, a claim, a detail, remarks and sources) → Le dépassement (a lead line, three
+  levers that attenuate the risk — « atténuer », never « sans » — and cost something) → La boussole (the arbitrage: a
+  gauge with a pointer, two questions side by side, each with a pour ✓ and a contre ✕) → CTA (identical to the optimized
+  one). Six guided steps in slide order (`agent/cadrage_adapt_agent.py`, prompts in `agent/prompts/cadrage_steps/`):
+  `constat`, `these`, `angle_mort`, `depassement`, `boussole`, `hook`; `writing` (the caption) follows without a pause.
+  Slides 2–3 stay in the speaker's frame (figures as he gives them); slides 4–6 leave it and rest on the model's general
+  knowledge — sources there are organisations and series to consult, named, never a URL or a figure, and unverified.
+  An option's fields are flat strings so `--edit ID.field=TEXT` and `fix` reach them: a figure is `valeur | libellé |
+  comparaison` (`fig1`…`fig4`), a note `source | texte` or `remarque | texte` (`note1`…`note3`, shown with a lens or a
+  bookmark icon), a lever `titre | détail` (`lever1`…`lever3`). Same semantics as the 9-slide guided run — options with a
+  reason and a ★, `choose --pick/--edit/--more`, `fix <fmt_dir> <step>.<field>` (e.g. `constat.fig1`,
+  `these.solution_claim`, `boussole.pro2`, `hook.title`) or `caption`, choice log in `choices.jsonl` — but a module of its
+  own: `agent/carousel_steps` is bound to the 9-slide deck. Hard rules (word caps, figure/note/lever format, no accusing
+  word — *biais, manipulation, mensonge, trompeur* — outside « », 4 hashtags) repair a generated option and come back as ⚠
+  on the author's pick; one advisory flag (a figure that does not appear as digits in the source — a figure spelled out
+  in words is flagged too, check it). Layout: the title sits at the same height on slides 2–6 and the gaps are fixed
+  (`_argument.css` tokens), so nothing stretches; the bird perches on slides 2–5 (the wire runs through them) and on the
+  boussole's pointer, which has no wire. Three text tiers inside a card: the heading, the claim (bold), the detail (one
+  size down); sources are the third, small and dim. `check` does not cover this format. Output folder:
+  `<stem>/cadrage_logique/`.
 - `newsletter` — prose, not slides. Own adapt agent (`newsletter_adapt_agent`) + `NewsletterPresentation`. Renders **Markdown** + a rich `newsletter.html` (dark gold-on-black, SVG radar) + email-safe HTML in two themes (table layout, inline styles, no SVG/flexbox): `newsletter.email.html` (light, default) and `newsletter.email.dark.html`. Themes live in `EMAIL_THEMES`; only chrome is themed, the semantic gauge/bar colours are fixed.
   Manual editing: the newsletter's editable source is `newsletter.md` (YAML
   front-matter + Markdown body). Edit it, then `python main.py render

@@ -1,0 +1,65 @@
+{
+  "emotional_register": [
+    {
+      "id": "",
+      "emotion": "inquiétude",
+      "how": "L'ouverture sur un **« embrasement »** et un **« mensonge »** qui **« craque »**, puis l'enchaînement échec, déclassement, **chômage de masse** ou **radicalité**, dessinent un avenir sombre pour les jeunes.",
+      "effect": "L'inquiétude prépare le lecteur à juger la situation actuelle urgente et à accueillir une **réforme de rupture**.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "L'intervenant se réfère à un « embrasement » de jeunes",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "",
+      "emotion": "fierté du travail manuel",
+      "how": "L'antithèse **« chaudronnier »** contre **« crétin diplômé »** place la noblesse du côté des métiers de la main.",
+      "effect": "Cette valorisation rend la **sélection précoce** plus acceptable, car l'orientation vers ces métiers paraît honorable.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 3,
+        "excerpt": "Le contenu du « collège modulaire » reste vague : âge, critères, passerelles.",
+        "strength": 0.5,
+        "nature": "specification"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "",
+      "beneficiary": "Les partisans d'une sélection précoce et du collège modulaire",
+      "explanation": "Le cadrage présente le **collège unique** comme la source d'un « mensonge » et la sélection comme une réalité déjà à l'œuvre. Le **collège modulaire** apparaît alors comme la réponse à un problème déjà posé.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "Parcoursup classe les candidatures et certaines filières sont sélectives",
+        "strength": 0.6,
+        "nature": "contradiction"
+      }
+    },
+    {
+      "id": "",
+      "beneficiary": "Les défenseurs d'un lien plus étroit entre école et besoins de l'industrie",
+      "explanation": "Le propos affirme que la réorientation **correspond aux besoins réels** de l'économie et de l'industrie. Cet argument soutient les filières professionnelles et les métiers manuels.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 3,
+        "excerpt": "Le contenu du « collège modulaire » reste vague : âge, critères, passerelles.",
+        "strength": 0.4,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Généralité",
+        "observation": "Le titre « Orientation scolaire » annonce un **sujet de politique éducative**, alors que le propos relie école, émeutes et chômage."
+      }
+    ],
+    "body": "Le propos adopte la forme d'une **prise de position à la première personne** : un diagnostic sombre, puis une solution personnelle. Il met au centre la **sélection** et la **massification universitaire**, lues à travers des comparaisons chiffrées avec la Norvège, la Suède et la Suisse. Le registre est **dramatique et polémique**, avec des images fortes et une anecdote ironique. Il parle depuis la position d'un intervenant qui défend le passage du **collège unique** au **collège modulaire**."
+  }
+}

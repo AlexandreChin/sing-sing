@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+{% include 'article_carousel_cadrage_v1/_argument.css' %}
+/* the gauge: two poles on a plain track, the pointer left at the centre — the reader places it.
+   The bird perches on the pointer, not on a wire: the slide carries no data-perch. */
+.head + .gauge { margin-top: 112px; }  /* room for the bird above the pointer */
+.track { position: relative; height: 12px; border-radius: 999px; background: #8c8c8c; }
+.pointer { position: absolute; left: 50%; top: 0; width: 44px; height: 34px; margin-left: -22px; transform: translateY(-100%); }
+.pointer::before { content: ''; position: absolute; inset: 0; background: #d4aa00; clip-path: polygon(0 0, 100% 0, 50% 100%); }
+.pointer .perch { right: auto; left: 50%; top: -55px; transform: translateX(-50%); }
+.opts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: var(--gap-block); }
+.opts .card { margin-top: 0; padding: 26px 24px 28px; }
+.opts .claim { font-size: 34px; }
+/* pour / contre as icons: a gold disc with a check, an outlined disc with a cross */
+.pc { margin-top: var(--gap-head); padding-top: 22px; border-top: 1px solid #2c2c2c; display: flex; flex-direction: column; gap: 20px; }
+.pc .it { display: flex; gap: 14px; align-items: flex-start; }
+.pc svg { width: 38px; height: 38px; flex: none; margin-top: 1px; }
+.pc .detail { margin-top: 0; font-size: 26px; font-weight: 400; color: #d0d0d0; }
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
+  {% include '_brand.html' %}
+  <div class="stage">
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.help | safe }}</svg>La boussole</span>
+    <h1 class="head">{{ title | md_bold }}</h1>
+    <div class="gauge">
+      <div class="track"><div class="pointer">{% include '_perch.html' %}</div></div>
+    </div>
+    <div class="opts">{% for p in options %}<div class="card">
+      <div class="claim">{{ p.question | md_bold }}</div>
+      <div class="pc">
+        <div class="it"><svg viewBox="0 0 24 24" aria-label="Pour"><circle cx="12" cy="12" r="11" fill="#d4aa00"/><path d="M6.5 12.5l4 4 7-8" fill="none" stroke="#0a0a0a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="detail">{{ p.pro | md_bold }}</div></div>
+        <div class="it"><svg viewBox="0 0 24 24" aria-label="Contre"><circle cx="12" cy="12" r="10.2" fill="none" stroke="#d4aa00" stroke-width="1.8"/><path d="M8.2 8.2l7.6 7.6M15.8 8.2l-7.6 7.6" fill="none" stroke="#d4aa00" stroke-width="2.4" stroke-linecap="round"/></svg><div class="detail">{{ p.con | md_bold }}</div></div>
+      </div>
+    </div>{% endfor %}</div>
+  </div>
+  <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
+  <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
+</div>
+</body>
+</html>

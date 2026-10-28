@@ -1,0 +1,63 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "La thèse repose sur des **chiffres comparatifs sans source ni définition** (95 % contre 40 %, 21 % contre 3 %), énoncés comme des faits établis alors que leur fiabilité est la plus faible : plus la preuve est fragile, plus elle est affirmée avec assurance.",
+        "references": [
+          "pr_1",
+          "pr_2",
+          "claim_1",
+          "claim_2",
+          "bs_0",
+          "obs_3"
+        ]
+      },
+      {
+        "text": "Le **registre dramatique** (« mensonge », « craquer », « embrasement ») crée l'urgence qui permet de passer des émeutes à la politique éducative, un saut que le raisonnement n'étaye pas.",
+        "references": [
+          "ia_0",
+          "lr_0",
+          "er_0",
+          "bias_0"
+        ]
+      },
+      {
+        "text": "La **comparaison avec la Suisse** isole le chômage de son système d'apprentissage : l'écart paraît artificiellement net et l'alternance, explication alternative, n'est pas discutée.",
+        "references": [
+          "bs_1",
+          "obs_3",
+          "claim_2",
+          "lr_2"
+        ]
+      },
+      {
+        "text": "Le lien entre échec universitaire, chômage et massification est posé comme évident puis **réduit à deux issues** (« chômage de masse » ou « radicalité »), ce qui écarte d'autres causes et prête aux jeunes un stéréotype.",
+        "references": [
+          "ia_1",
+          "lr_1",
+          "bias_2",
+          "obs_0"
+        ]
+      },
+      {
+        "text": "Le diagnostic est détaillé, mais le remède reste **peu défini** : la sélection actuelle n'est pas décrite, rien ne montre que la sélection précoce fait mieux, et l'image du « chaudronnier » comble ce vide sans examiner les débouchés.",
+        "references": [
+          "lr_3",
+          "cb_0",
+          "obs_2",
+          "focus",
+          "ia_2",
+          "ia_3",
+          "bs_3",
+          "er_1",
+          "bias_1"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quelle est la source et la définition exacte des écarts de 95 % contre 40 % et 21 % contre 3 % ?",
+      "Quelle part de l'écart de chômage avec la Suisse tient à son système d'apprentissage ?",
+      "Les métiers manuels offrent-ils aujourd'hui assez de débouchés pour absorber une orientation plus précoce ?"
+    ]
+  }
+}

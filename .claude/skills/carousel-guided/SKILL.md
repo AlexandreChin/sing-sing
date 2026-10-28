@@ -58,3 +58,7 @@ Every choice, edit and reason lands in `<fmt_dir>/choices.jsonl`, which also hol
 ## Unattended
 
 `produce <input.txt>` without `--guided` takes the ★ recommended option at every step. Use it only if the author asks for a run without choosing.
+
+## The CADRAGE & LOGIQUE archetype
+
+For an opinion piece, essay or expert interview the author may ask for the `cadrage_logique` format (`--format cadrage_logique` on `produce`). The loop is the same — relay options, map the reply, `choose`, rerun — with six steps in slide order: `constat`, `these`, `angle_mort`, `depassement`, `boussole`, `hook` (each keeps ONE option; ids `a`, `b`, …); `writing` (the caption) runs without a pause. An option shows its main text, then its other fields (`· fig1`, `· these_claim`, `· note1`, `· lever1`, `· question1`, `· pro1`…), then its reason (↳). A figure is `valeur | libellé | comparaison`, a note `source | texte` or `remarque | texte`, a lever `titre | détail`: keep that shape when the author rewrites one. `--edit` takes `ID=TEXT` or `ID.field=TEXT`. `fix` fields are `<step>.<field>` (`constat.fig1`, `these.solution_claim`, `angle_mort.subtitle`, `boussole.con2`, `hook.promise`…) and `caption`. Slides 4 to 6 rest on the model's general knowledge, not on the source: tell the author the sources there are unverified pointers. `check` does not cover this format: the ⚠ that `choose` prints are its checks (a word cap, a malformed figure, note or lever, an accusing word, a figure not found in the source) — relay them and propose a fix as usual.
