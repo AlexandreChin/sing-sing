@@ -48,7 +48,8 @@ def generate_html(doc: CadrageDocument, out_dir: Path) -> list[Path]:
         ("these", f"{TPL}/03_these.html",
          _nobreak(pres.these.model_dump(exclude={"notes"}) | {"sources": notes(pres.these.notes)})),
         ("angle_mort", f"{TPL}/04_angle_mort.html",
-         _nobreak(pres.angle_mort.model_dump(exclude={"notes"}) | {"sources": notes(pres.angle_mort.notes)})),
+         _nobreak(pres.angle_mort.model_dump(exclude={"notes", "second_notes"})
+                  | {"sources": notes(pres.angle_mort.notes), "second_sources": notes(pres.angle_mort.second_notes)})),
         ("depassement", f"{TPL}/05_depassement.html", _nobreak(pres.depassement.model_dump())),
         ("boussole", f"{TPL}/06_boussole.html", _nobreak(pres.boussole.model_dump())),
         ("cta", f"{OPT}/10_cta.html", {**cover_layers(meta, pres.hook.title), "background": background}),

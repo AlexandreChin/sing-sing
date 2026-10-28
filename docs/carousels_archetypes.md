@@ -97,7 +97,7 @@ Pour garantir la reconnaissance immédiate de singsing.media, **la première sli
 - **Slide 1 :** Hook (pastille source, titre = l'affirmation centrale du média entre « », promesse « Décryptage d'une prise de position sur … »), identique au carrousel optimisé, photo comprise.
 - **Slide 2 :** Le Constat (les chiffres du média, en monospace, et ce qu'ils établissent).
 - **Slide 3 :** La Thèse (ce que le média conclut, la solution qu'il propose, une remarque ou une source dessous).
-- **Slide 4 :** L'Angle mort (ce que la solution risque, en une formule percutante ; remarques et sources dessous).
+- **Slide 4 :** L'Angle mort (ce que la solution risque, en une formule percutante : une première carte pour la régularité, une seconde pour un autre angle mort, par exemple le temps et la possibilité de revenir en arrière ; remarques et sources dessous).
 - **Slide 5 :** Le Dépassement (trois leviers qui atténuent le risque, et ont un coût).
 - **Slide 6 :** La Boussole (l'arbitrage : jauge, deux questions, le pour et le contre de chacune).
 - **Slide 7 :** CTA invariable, identique au carrousel optimisé.

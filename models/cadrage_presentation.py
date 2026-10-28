@@ -47,11 +47,12 @@ class CadrageThese(BaseModel):  # slide 3 — what the speaker concludes and pro
 
 
 class CadrageAngleMort(BaseModel):  # slide 4 — what the solution risks, from outside the speaker's frame
-    title: str
-    subtitle: str      # the catchy heading of the card
+    title: str         # the catchy line: a headline, as a press title would put it
     claim: str
     detail: str = ""
     notes: list[CadrageNote] = Field(default_factory=list)
+    second: CadrageStatement | None = None      # a second card: a different blind spot, never a restatement of the first
+    second_notes: list[CadrageNote] = Field(default_factory=list)
 
 
 class CadrageLever(BaseModel):

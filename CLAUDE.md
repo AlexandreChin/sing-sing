@@ -137,9 +137,10 @@ samples/outputs/<stem>/
   photo included; pill = medium · source · date, no length; the title is the speaker's central claim in « », the promise
   « Décryptage d'une prise de position sur … ») → Le constat (the speaker's figures in monospace + what they establish) →
   La thèse (thesis, solution, one remark/source line under it) → L'angle mort (what the solution risks, from outside the
-  speaker's frame: a catchy card heading, a claim, a detail, remarks and sources) → Le dépassement (a lead line, three
-  levers that attenuate the risk — « atténuer », never « sans » — and cost something) → La boussole (the arbitrage: a
-  gauge with a pointer, two questions side by side, each with a pour ✓ and a contre ✕) → CTA (identical to the optimized
+  speaker's frame: a catchy title, a first card — the regularity: claim, detail, remarks and sources — and a second
+  card on a *different* blind spot, never a restatement or a description of a process: `second_claim`, `second_detail`, `second_note1`/`second_note2`) → Le dépassement (a lead line, three
+  levers that attenuate the risk — « atténuer », never « sans » — and cost something; at least one acts on the *how* of the decision: criteria, advice, passerelles) → La boussole (the arbitrage: a
+  gauge with a pointer, two questions side by side — two positions of one variable, e.g. when to select, never two values — each with a pour ✓ and a contre ✕) → CTA (identical to the optimized
   one). Six guided steps in slide order (`agent/cadrage_adapt_agent.py`, prompts in `agent/prompts/cadrage_steps/`):
   `constat`, `these`, `angle_mort`, `depassement`, `boussole`, `hook`; `writing` (the caption) follows without a pause.
   Slides 2–3 stay in the speaker's frame (figures as he gives them); slides 4–6 leave it and rest on the model's general
