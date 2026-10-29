@@ -185,15 +185,15 @@ def base_inputs(full: ArticleFullAnalysis, article_text: str | None) -> str:
 
 # (step, field) → ("words" | "chars", cap)
 _CAPS: dict[tuple[str, str], tuple[str, int]] = {
-    ("constat", "title"): ("words", 10), ("constat", "claim"): ("words", 24), ("constat", "detail"): ("words", 30),
+    ("constat", "title"): ("words", 10), ("constat", "claim"): ("chars", 80), ("constat", "detail"): ("words", 30),
     ("constat", "fig1"): ("words", 14), ("constat", "fig2"): ("words", 14),
     ("constat", "fig3"): ("words", 14), ("constat", "fig4"): ("words", 14),
-    ("these", "title"): ("words", 12), ("these", "these_claim"): ("words", 20), ("these", "these_detail"): ("words", 30),
-    ("these", "solution_claim"): ("words", 20), ("these", "solution_detail"): ("words", 30),
+    ("these", "title"): ("words", 12), ("these", "these_claim"): ("chars", 80), ("these", "these_detail"): ("words", 30),
+    ("these", "solution_claim"): ("chars", 80), ("these", "solution_detail"): ("words", 30),
     ("these", "note1"): ("words", 30), ("these", "note2"): ("words", 30), ("these", "note3"): ("words", 30),
     ("angle_mort", "title"): ("words", 10),
-    ("angle_mort", "claim"): ("words", 24), ("angle_mort", "detail"): ("words", 24),
-    ("angle_mort", "second_claim"): ("words", 24), ("angle_mort", "second_detail"): ("words", 24),
+    ("angle_mort", "claim"): ("chars", 72), ("angle_mort", "detail"): ("words", 24),
+    ("angle_mort", "second_claim"): ("chars", 72), ("angle_mort", "second_detail"): ("words", 24),
     ("angle_mort", "second_note1"): ("words", 30), ("angle_mort", "second_note2"): ("words", 30),
     ("angle_mort", "note1"): ("words", 30), ("angle_mort", "note2"): ("words", 30), ("angle_mort", "note3"): ("words", 30),
     ("depassement", "title"): ("words", 14), ("depassement", "lead"): ("words", 28),
@@ -202,12 +202,13 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("boussole", "question1"): ("words", 22), ("boussole", "question2"): ("words", 22),
     ("boussole", "pro1"): ("words", 16), ("boussole", "con1"): ("words", 16),
     ("boussole", "pro2"): ("words", 16), ("boussole", "con2"): ("words", 16),
-    ("hook", "title"): ("chars", 64), ("hook", "promise"): ("words", 20),
+    ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 100),
 }
 _ACCUSING = re.compile(r"\b(biais|manipulation|manipul\w+|mensonges?|trompeu\w+|fallacieu\w+|sophismes?)\b", re.I)
 _HASHTAG = re.compile(r"#\w+")
 _QUOTED = re.compile(r"«[^»]*»")
 _NUMBER = re.compile(r"\d+(?:[.,]\d+)?")
+_FIG_VALUE_MAX = 9  # a slot holds a figure or a short fact, drawn at 70 px in a half-width column
 _REQUIRED = {"constat": ("fig1", "fig2"), "these": ("note1",), "angle_mort": ("note1", "second_claim", "second_detail"),
              "depassement": ("lever1", "lever2", "lever3"), "boussole": ("question1", "question2")}
 
@@ -251,6 +252,8 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                 continue
             if len([p for p in _parts(value, 3)[:2] if p]) < 2:
                 hard.append(f"constat.{name} must read « valeur | libellé | comparaison » (the comparison is optional)")
+            elif len(_parts(value, 3)[0]) > _FIG_VALUE_MAX:
+                hard.append(f"constat.{name}: the value is {len(_parts(value, 3)[0])} characters (max {_FIG_VALUE_MAX}) — it is drawn big")
             elif article and (nums := _NUMBER.findall(_parts(value, 3)[0])) \
                     and not any(n in article for n in nums):
                 flags.append(f"constat.{name}: {_parts(value, 3)[0]!r} does not appear as written in the source — check the figure")

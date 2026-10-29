@@ -15,7 +15,7 @@ Deux registres, à ne pas mélanger.
 - **Slides 4 à 6 : on sort du cadre.** Tu t'appuies sur des connaissances générales, pas sur le média. Prudence : aucun chiffre, aucune date, aucun nom de loi que tu ne peux pas étayer ; formule les risques avec « peut », « risque de », jamais comme des faits établis ; seule exception, une régularité statistique largement documentée que tu peux nommer par sa source (note `source`), qui s'écrit alors au présent, sans « peut ». Une `source` est un organisme, un rapport ou une série statistique reconnus, nommés tels quels (« L'Insee : … », « La DEPP (ministère de l'Éducation) : … ») et décrits par ce qu'on y trouve ; JAMAIS d'URL, JAMAIS de chiffre. Si tu n'es pas sûr qu'un organisme publie cela, ne le cite pas.
 
 Format des champs (des chaînes simples, éditables une à une).
-- Un chiffre (`fig1`…) : `valeur | libellé | comparaison` — la valeur est courte (≤8 caractères : « 95% », « × 8 », « 0,5 Md€ »), la comparaison est facultative.
+- Un chiffre (`fig1`…) : `valeur | libellé | comparaison` — la valeur est courte (≤9 caractères : « 95% », « × 8 », « 0,5 Md€ », ou un fait non chiffré du média : « Ormuz », « 2022 »), la comparaison est facultative.
 - Une note (`note1`…) : `source | texte` ou `remarque | texte`. Une `remarque` donne une citation du média (avec son auteur, glosé) ou un contexte ; une `source` dit où vérifier. Un nom d'organisme ou de formule peut être entouré de `**`.
 - Un levier (`lever1`…) : `titre | détail`.
 - `**mot**` met UN ou DEUX mots en or dans un titre ou une phrase, pas plus. Jamais dans les notes, sauf le nom de l'organisme ou de la formule en tête.

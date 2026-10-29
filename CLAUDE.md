@@ -135,7 +135,7 @@ samples/outputs/<stem>/
 - `cadrage_logique` — the CADRAGE & LOGIQUE archetype (`docs/carousels_archetypes.md`): 7 slides that follow an opinion
   piece, an essay or an expert interview, in the optimized deck's visual language — Hook (identical to the optimized one,
   photo included; pill = medium · source · date, no length; the title is the speaker's central claim in « », the promise
-  « Décryptage d'une prise de position sur … ») → Le constat (the speaker's figures in monospace + what they establish) →
+  « Décryptage d'une prise de position sur … ») → Le constat (the speaker's figures or short facts in monospace + what they establish) →
   La thèse (thesis, solution, one remark/source line under it) → L'angle mort (what the solution risks, from outside the
   speaker's frame: a catchy title, a first card — the regularity: claim, detail, remarks and sources — and a second
   card on a *different* blind spot, never a restatement or a description of a process: `second_claim`, `second_detail`, `second_note1`/`second_note2`) → Le dépassement (a lead line, three
@@ -143,10 +143,10 @@ samples/outputs/<stem>/
   gauge with a pointer, two questions side by side — two positions of one variable, e.g. when to select, never two values — each with a pour ✓ and a contre ✕) → CTA (identical to the optimized
   one). Six guided steps in slide order (`agent/cadrage_adapt_agent.py`, prompts in `agent/prompts/cadrage_steps/`):
   `constat`, `these`, `angle_mort`, `depassement`, `boussole`, `hook`; `writing` (the caption) follows without a pause.
-  Slides 2–3 stay in the speaker's frame (figures as he gives them); slides 4–6 leave it and rest on the model's general
+  Slides 2–3 stay in the speaker's frame (figures and facts as he gives them); slides 4–6 leave it and rest on the model's general
   knowledge — sources there are organisations and series to consult, named, never a URL or a figure, and unverified.
   An option's fields are flat strings so `--edit ID.field=TEXT` and `fix` reach them: a figure is `valeur | libellé |
-  comparaison` (`fig1`…`fig4`), a note `source | texte` or `remarque | texte` (`note1`…`note3`, shown with a lens or a
+  comparaison` (value ≤9 characters) (`fig1`…`fig4`), a note `source | texte` or `remarque | texte` (`note1`…`note3`, shown with a lens or a
   bookmark icon), a lever `titre | détail` (`lever1`…`lever3`). Same semantics as the 9-slide guided run — options with a
   reason and a ★, `choose --pick/--edit/--more`, `fix <fmt_dir> <step>.<field>` (e.g. `constat.fig1`,
   `these.solution_claim`, `boussole.pro2`, `hook.title`) or `caption`, choice log in `choices.jsonl` — but a module of its
