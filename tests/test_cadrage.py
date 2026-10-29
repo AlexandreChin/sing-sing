@@ -52,6 +52,20 @@ FIELDS = option_fields(DECK)
 
 # ── model and fragments ─────────────────────────────────────────────────────
 
+AXE = {"title": "Évaluer chaque année ou plus rarement", "variable": "la fréquence de l'évaluation",
+       "position1": "évaluer chaque année", "position2": "évaluer plus rarement",
+       "thesis": "L'évaluation annuelle protège les élèves."}
+
+
+def test_a_deck_without_an_axe_still_validates():
+    assert CadragePresentation.model_validate(DECK).axe is None
+
+
+def test_a_deck_keeps_its_axe():
+    pres = CadragePresentation.model_validate(DECK | {"axe": AXE})
+    assert pres.axe.position2 == "évaluer plus rarement"
+
+
 def test_the_deck_validates():
     pres = CadragePresentation.model_validate(DECK)
     assert [f.value for f in pres.constat.figures] == ["95%", "21%", "× 8", "0,5 Md€"]
