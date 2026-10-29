@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "L'entretien s'appuie sur une seule voix, l'invité président du Shift Project, qui présente son propre plan (PREF). Les chiffres clés sont avancés sans source, par exemple « le coût du logement rapporté au revenu, il a doublé en 30 ans », et l'intervieweur n'apporte aucune voix contradictoire. Seul l'indicateur Eurostat sur les tonnes chargées est nommé.",
+        "lesson": "Vérifier qui parle, pour quelle cause, et si une voix extérieure vient tester ses chiffres."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 2,
+        "rationale": "Certains ordres de grandeur tiennent, comme les « 40 millions de véhicules particuliers » pour 70 millions d'habitants (confiance 80). D'autres restent fragiles : la baisse de la marchandise transportée « depuis 20 ans en Europe » n'obtient que 35 de confiance, et le logement 45. Un seul indicateur de transport sert à établir la baisse du PIB réel.",
+        "lesson": "Distinguer les chiffres vérifiables des chiffres affirmés, et chercher la série publique derrière chacun avant de les retenir."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "La chaîne énergie → production → emplois tertiaires est lisible, mais elle passe d'une corrélation entre pays à une prédiction pour un pays donné (logical_reasoning, validity). Des tensions d'époques et de pays différents sont rattachées à une même cause, alors que l'invité admet que mai 68 n'a rien à voir avec un manque.",
+        "lesson": "Se demander si une corrélation observée entre pays vaut aussi pour l'évolution d'un seul pays dans le temps."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 3,
+        "rationale": "L'invité signale sa part d'interprétation : « j'ai envie de lire ces manifestations comme un signe » et « personnellement, je l'associe ». Son rôle de promoteur du PREF est connu, mais le découplage partiel entre croissance et énergie est écarté en une phrase, et les limites du plan ne sont pas exposées.",
+        "lesson": "Repérer les formules personnelles (« je l'associe ») qui signalent une interprétation, et chercher ce qui n'est pas dit sur les limites."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Le texte détaille le nucléaire et le cuivre sur de nombreux paragraphes, alors que les limites des renouvelables ne reçoivent que quelques lignes (emphasis). Les causes politiques, culturelles ou institutionnelles des mobilisations et du Brexit ne sont pas discutées (blind_spots).",
+        "lesson": "Comparer l'espace donné à chaque élément avec son importance, et chercher les causes laissées de côté."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Le Brexit reçoit un seul mécanisme énergétique (« une Europe qui s'est élargie à l'est »), et l'entretien ne laisse parler aucune partie contradictoire. Les revendications des lycéens, étudiants et gilets jaunes ne sont jamais citées, au profit d'une lecture par l'énergie.",
+        "lesson": "Chercher ce que les acteurs d'un mouvement disent d'eux-mêmes avant d'accepter l'explication d'un tiers."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "Le registre oral, les exemples quotidiens (vélo, voiture du voisin) et la chaîne causale simple rendent le propos accessible à un public non spécialiste. Le titre « Les vraies raisons de la crise » promet cependant plus que le contenu et suppose que les autres explications sont superficielles (title_analysis).",
+        "lesson": "Distinguer la clarté d'un propos de sa solidité : un exemple parlant ne prouve pas la thèse qu'il illustre."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 4,
+        "rationale": "La lecture physique de l'économie, qui relie énergie par personne, emploi tertiaire et mobilisations, donne un fil explicatif peu commun dans le débat public. Il reste fragile face au contre-argument du découplage (steel_man), mais il ouvre une perspective que le lecteur peut tester.",
+        "lesson": "Apprécier un angle neuf pour ce qu'il fait voir, tout en cherchant les explications concurrentes qu'il laisse de côté."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Lecteur qui s'intéresse à la transition énergétique et connaît déjà le débat sur le lien entre énergie et PIB, et qui veut lire l'argumentaire du Shift Project dans la bouche de son président.",
+      "payoff": "Le lecteur découvre une lecture de l'économie par l'énergie disponible, avec ses chiffres et ses images, et peut la confronter aux explications politiques et au découplage.",
+      "signature_move": "L'entretien de promotion, où un même facteur énergétique relie des événements très différents sans voix contradictoire, au service du plan présenté.",
+      "main_blind_side": "Les causes politiques et institutionnelles des mobilisations et du Brexit sont absentes, ce qui révèle un entretien sans contradicteur, conçu pour accompagner la sortie du plan.",
+      "further_resource": {
+        "title": "Prosperity without Growth",
+        "source": "Tim Jackson, Routledge",
+        "media_type": "book",
+        "why_explore": "L'ouvrage discute le lien entre croissance, énergie et bien-être, et offre un regard différent sur le découplage.",
+        "url": null
+      },
+      "summary": "Lecture avec réserves, pour qui suit le débat énergétique : l'entretien offre une lecture claire de l'économie par l'énergie, mais s'appuie sur une seule voix, des chiffres peu sourcés et un fil causal unique qu'il faut confronter à d'autres explications."
+    }
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "article_type": "interview",
+  "key_claims": [
+    {
+      "quote": "Personnellement, je l'associe à la décrue énergétique de l'Europe qui rend les moyens matériels plus limités",
+      "source": "Jean-Marc Jancovici",
+      "type": "attributed"
+    },
+    {
+      "quote": "Le Brexit, c'est pour moi la conséquence d'une Europe qui a qui s'est élargie à l'est dans un contexte dans lequel l'approvisionnement énergétique européen ne permettait plus d'assurer la croissance pour tous.",
+      "source": "Jean-Marc Jancovici",
+      "type": "attributed"
+    },
+    {
+      "quote": "partout où j'ai regardé euh plus l'approvisionnement énergétique par personne augmente et plus la fraction d'emploi dans le tertier augmente. C'est vrai dans tous les pays du monde sans exception.",
+      "source": "Jean-Marc Jancovici",
+      "type": "statistical"
+    },
+    {
+      "quote": "le coût du logement rapporté au revenu, il a doublé en 30 ans.",
+      "source": "Jean-Marc Jancovici",
+      "type": "statistical"
+    },
+    {
+      "quote": "aujourd'hui le monde produit en gros 10 % de pétrole en moins que ce qui produisait avant le avant le choc.",
+      "source": "Jean-Marc Jancovici",
+      "type": "factual"
+    },
+    {
+      "quote": "on a une baisse du chaptel en France entre 2,5 et 3 % par an",
+      "source": "Jean-Marc Jancovici",
+      "type": "statistical"
+    },
+    {
+      "quote": "ça a coûté 70 milliards aux finances publiques.",
+      "source": "Jean-Marc Jancovici",
+      "type": "statistical"
+    },
+    {
+      "quote": "si on ne développe pas les renouvelables et si on ne développe pas de nouveau nucléaires, on passe de 2000 à 400.",
+      "source": "Jean-Marc Jancovici",
+      "type": "statistical"
+    },
+    {
+      "quote": "la démocratie n'y survivra pas de façon certaine.",
+      "source": "Jean-Marc Jancovici",
+      "type": "attributed"
+    },
+    {
+      "quote": "je ne pense pas que ça soit dans la rue que on va infuser un plan d'ensemble.",
+      "source": "Jean-Marc Jancovici",
+      "type": "attributed"
+    },
+    {
+      "quote": "Donc je fais partie des gens qui considèrent que de toute façon euh la baisse, le PIB est vrai, il est déjà en train de baisser.",
+      "source": "Jean-Marc Jancovici",
+      "type": "attributed"
+    },
+    {
+      "quote": "sur une centrale qui coûte 10 milliards à construire, selon que vous avez de l'argent à 2 % ou de l'argent à 10 %",
+      "source": "Jean-Marc Jancovici",
+      "type": "statistical"
+    }
+  ],
+  "key_quotes": [
+    "J'ai envie de lire ces manifestations comme un signe supplémentaire de l'essoufflement du monde dans lequel nous sommes.",
+    "Si on fait rien de particulier, bah on se prend les baffes.",
+    "l'argent ça n'est rien d'autre une revendication sur ce qui existe.",
+    "les emplois du tertiaire ne produisent rien directement.",
+    "Le diesel c'est l'indispensable.",
+    "il n'existe aucun modèle ni de climat ni énergétique dans lequel le risque de perte de démocratie soit modélisé.",
+    "Ça veut juste dire qu'on pilote la décrue de façon beaucoup plus maîtrisée que si on l'a subi",
+    "je suis ravi que le libre marché ne s'applique pas à l'hôpital français."
+  ],
+  "key_actors": [
+    {
+      "name": "Jean-Marc Jancovici",
+      "role": "Invité de l'entretien, président du Shift Project, ingénieur spécialiste énergie-climat"
+    },
+    {
+      "name": "Le Shift Project",
+      "role": "Association de réflexion auteure du PTEF et du PREF, que l'invité présente"
+    },
+    {
+      "name": "Limites (média)",
+      "role": "Média qui réalise l'entretien"
+    },
+    {
+      "name": "Jared Diamond",
+      "role": "Auteur cité pour illustrer le lien entre productivité agricole et sociétés dominantes"
+    },
+    {
+      "name": "Agence internationale de l'énergie",
+      "role": "Citée pour ses alertes sur la disponibilité future du cuivre"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Le Shift Project",
+      "used_for": "Appuyer les estimations sur la baisse de la production pétrolière d'ici 2050 et le contenu du plan PREF"
+    },
+    {
+      "entity": "Jared Diamond",
+      "used_for": "Soutenir l'idée que la production matérielle fonde la domination des sociétés"
+    },
+    {
+      "entity": "Agence internationale de l'énergie",
+      "used_for": "Soutenir que la production mondiale de cuivre atteindrait son maximum vers 2030"
+    },
+    {
+      "entity": "Eurostat",
+      "used_for": "Appuyer la baisse des tonnes de marchandises chargées dans les camions en Europe depuis 20 ans"
+    },
+    {
+      "entity": "Mitterrand",
+      "used_for": "Illustrer la promesse « tout le monde aura le droit d'aller à l'université »"
+    }
+  ],
+  "notable_omissions": [
+    "Aucune voix contradictoire : l'intervieweur relance sans objecter sur le lien énergie-manifestations.",
+    "Les causes non énergétiques des mobilisations (politiques, sociales, institutionnelles) ne sont pas discutées.",
+    "Pour le Brexit, aucune mention des autres explications avancées (souveraineté, immigration, politique intérieure).",
+    "Les chiffres (baisse de 2 à 20 fois des importations de pétrole, 2000 à 400 TWh, 90 milliards de frais financiers) ne sont pas accompagnés de sources ni d'hypothèses détaillées.",
+    "Les revendications des étudiants et lycéens ne sont pas citées : leur contenu est interprété par l'invité.",
+    "Les critiques faites au PREF et au Shift Project ne sont pas évoquées.",
+    "Le lien entre énergie et PIB est présenté sans les travaux économiques qui le discutent ou le nuancent."
+  ],
+  "rhetorical_patterns": [
+    "Une cause unique, la décrue énergétique, relie des événements très divers : gilets jaunes, Brexit, lycéens, populisme, pouvoir d'achat.",
+    "Reformulation de notions économiques en termes physiques : l'argent comme « revendication sur ce qui existe », le tertiaire comme « surplus des machines ».",
+    "Images familières : les « baffes », le bateau dont la voile se déchire, le gâteau qui ne grandit pas, les jeunes qui « mimétisent ».",
+    "Expressions de prudence (« sans être grand historien », « je ne sais pas », « c'est très subjectif ») alternent avec des affirmations générales (« sans exception », « absolument »).",
+    "Absence de modèle présentée comme un risque réel : « on sait pas modéliser mais ça veut pas dire qu'ils existent pas ».",
+    "Mise en scène d'un choix à deux branches : subir la décrue ou la piloter, avec la décarbonation comme voie « égoïste » et immédiate.",
+    "Autoréférence : le Shift Project, ses plans et ses rapports sont présentés comme réponse aux problèmes décrits.",
+    "L'interviewer reprend et valide l'argument plutôt que de le contester."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "",
+        "text": "L'entretien est réalisé autour du 22 octobre 2026, dans un contexte de mobilisations lycéennes, étudiantes et sociales en France."
+      },
+      {
+        "id": "",
+        "text": "Il accompagne la sortie du PREF, plan robuste pour l'économie française, publié par le Shift Project."
+      },
+      {
+        "id": "",
+        "text": "L'invité évoque un blocage du détroit d'Ormuz par l'Iran et une baisse de la production mondiale de pétrole d'environ 10 %."
+      },
+      {
+        "id": "",
+        "text": "Le Shift Project avait déjà publié en 2022 le PTEF, plan de transformation de l'économie française, dont le PREF est présenté comme une suite."
+      }
+    ],
+    "who_is_speaking": [
+      "Jean-Marc Jancovici est ingénieur et préside le Shift Project, association qui plaide pour la décarbonation de l'économie.",
+      "Il est connu pour défendre le lien entre énergie disponible et activité économique, et pour promouvoir le nucléaire associé aux renouvelables.",
+      "Limites se présente comme un média consacré aux limites planétaires, des ressources et humaines, et l'entretien porte sur un plan de l'invité."
+    ],
+    "important_facts": [
+      {
+        "id": "",
+        "text": "Les économistes débattent du lien entre énergie et PIB : une partie des travaux observe un découplage partiel entre croissance et consommation d'énergie dans certains pays riches."
+      },
+      {
+        "id": "",
+        "text": "Le Brexit est expliqué dans la recherche par plusieurs facteurs : souveraineté, immigration, inégalités régionales, politique intérieure britannique."
+      },
+      {
+        "id": "",
+        "text": "Les mouvements des gilets jaunes de 2018 ont été déclenchés par une hausse de la taxe sur les carburants et ont porté ensuite des revendications plus larges sur le pouvoir d'achat."
+      },
+      {
+        "id": "",
+        "text": "Le réacteur de Flamanville 3, évoqué dans l'entretien, a vu son coût officiel réévalué à environ 23,7 milliards d'euros pour un devis initial de 3,3 milliards."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "PREF",
+        "definition": "Plan robuste pour l'économie française : document du Shift Project qui détaille des chantiers pour réduire la dépendance aux énergies fossiles."
+      },
+      {
+        "term": "Décarbonation",
+        "definition": "Réduction des émissions de gaz à effet de serre, notamment en remplaçant les énergies fossiles."
+      },
+      {
+        "term": "Tertiaire",
+        "definition": "Ensemble des emplois de services : bureaux, commerce, administration, santé, enseignement."
+      },
+      {
+        "term": "Énergie finale",
+        "definition": "Énergie qui arrive chez l'utilisateur et alimente les machines, après les pertes de production et de transport."
+      },
+      {
+        "term": "Renouvelables non pilotables",
+        "definition": "Sources comme l'éolien et le solaire, dont la production dépend de la météo et ne peut pas être réglée à la demande."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "Titre : Les vraies raisons de la crise (et comment en sortir)"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "step": "constat",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Fil central : la chaîne énergie → machines → production → revenus, avec les chiffres de la décrue et de la baisse du transport.",
+      "fields": {
+        "title": "Une **décrue** énergétique derrière les tensions",
+        "fig1": "2000→400 | TWh d'énergie finale sans nouveau nucléaire ni renouvelables | ",
+        "fig2": "× 5 | moins de flux matériels et de pouvoir d'achat réel | ",
+        "fig3": "20 ans | de baisse des tonnes chargées dans les camions en Europe | ",
+        "fig4": "÷ 2 | production des exportateurs d'ici 2050 | importations ÷ 2 à 20",
+        "claim": "Moins d'énergie, c'est moins de machines, de production et de revenus.",
+        "detail": "L'intervenant relie cette décrue aux gilets jaunes, au Brexit et aux manifestations de lycéens : les moyens matériels se réduisent, les revendications ne peuvent plus toutes être satisfaites."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Angle actualité : Ormuz, la baisse de 10 % et le choc de 2022 montrent la vulnérabilité, sans passer par les manifestations.",
+      "fields": {
+        "title": "Le pétrole, une **dépendance** déjà visible",
+        "fig1": "Ormuz | détroit par où passe 20 % du pétrole, bloqué par l'Iran | ",
+        "fig2": "− 10 % | de pétrole produit dans le monde depuis le blocage | ",
+        "fig3": "97% | du pétrole que l'Europe importe | 90 % pour le gaz",
+        "fig4": "2022 | Ukraine : le gaz coûte 70 Md€ aux finances publiques | ",
+        "claim": "Le diesel fait tourner l'économie : sans pétrole, tout s'arrête.",
+        "detail": "Un choc sur l'approvisionnement se paie vite en transport, en industrie et en finances publiques ; l'intervenant juge ces chocs prévisibles et appelés à s'amplifier."
+      },
+      "edited": false,
+      "flags": [
+        "constat.claim shares no key word with the axis (« Le degré d'organisation de la baisse de l'énergie disponible : planifiée d'avance ou laissée aux chocs »)"
+      ]
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Angle emploi et études : le lien entre énergie et tertiaire, qui éclaire les mobilisations étudiantes et la promesse d'université pour tous.",
+      "fields": {
+        "title": "Moins d'énergie, moins d'**emplois de bureau**",
+        "fig1": "80% | des actifs américains dans les services | 2 fois plus d'énergie",
+        "fig2": "2000→400 | TWh d'énergie finale sans nouveau nucléaire ni renouvelables | ",
+        "fig3": "× 5 | moins de flux matériels et de pouvoir d'achat réel | ",
+        "fig4": "",
+        "claim": "Le tertiaire repose sur l'énergie : moins d'énergie, moins de bureaux.",
+        "detail": "Pour l'intervenant, promettre l'université à tous suppose un monde d'abondance énergétique ; sans lui, l'avenir de l'emploi passerait par la réparation, l'agriculture et la rénovation."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Angle pouvoir d'achat : les chiffres du quotidien (logement, transport) qui mènent à la thèse sans les chiffres énergétiques.",
+      "fields": {
+        "title": "Un pouvoir d'achat qui **s'érode**",
+        "fig1": "10-15 ans | d'érosion lente du pouvoir d'achat pour une part croissante | ",
+        "fig2": "× 2 | le coût du logement rapporté au revenu en 30 ans | ",
+        "fig3": "70 Md€ | coût du choc gazier de 2022 pour les finances publiques",
+        "fig4": "÷ 5 | pouvoir d'achat réel si l'énergie passe de 2000 à 400 TWh",
+        "claim": "Les revenus, c'est de la production redistribuée : elle baisse, ils baissent.",
+        "detail": "L'intervenant y voit l'origine du malaise des gilets jaunes : le logement pèse plus lourd que l'essence, mais on en parle beaucoup moins."
+      },
+      "edited": true,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "d"
+  ],
+  "fragment": {
+    "constat": {
+      "title": "Un pouvoir d'achat qui **s'érode**",
+      "figures": [
+        {
+          "value": "10-15 ans",
+          "label": "d'érosion lente du pouvoir d'achat pour une part croissante",
+          "compare": ""
+        },
+        {
+          "value": "× 2",
+          "label": "le coût du logement rapporté au revenu en 30 ans",
+          "compare": ""
+        },
+        {
+          "value": "70 Md€",
+          "label": "coût du choc gazier de 2022 pour les finances publiques",
+          "compare": ""
+        },
+        {
+          "value": "÷ 5",
+          "label": "pouvoir d'achat réel si l'énergie passe de 2000 à 400 TWh",
+          "compare": ""
+        }
+      ],
+      "claim": "Les revenus, c'est de la production redistribuée : elle baisse, ils baissent.",
+      "detail": "L'intervenant y voit l'origine du malaise des gilets jaunes : le logement pèse plus lourd que l'essence, mais on en parle beaucoup moins."
+    }
+  },
+  "remarks": []
+}

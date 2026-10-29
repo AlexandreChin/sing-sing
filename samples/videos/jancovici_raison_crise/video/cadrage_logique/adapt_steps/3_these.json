@@ -1,0 +1,102 @@
+{
+  "step": "these",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "S'appuie sur l'ouverture et la fin de la vidéo : « on pilote la décrue de façon beaucoup plus maîtrisée que si on l'a subie ».",
+      "fields": {
+        "title": "Piloter la décrue plutôt que la **subir**",
+        "these_claim": "La baisse de l'énergie est déjà là : on la pilote, ou on se prend les baffes.",
+        "these_detail": "Sans action, chaque choc frappe sans préparation (Ukraine en 2022, pétrole aujourd'hui).",
+        "solution_claim": "Décarboner par un plan : nucléaire, renouvelables et sobriété ensemble.",
+        "solution_detail": "Le PREF (Plan Robuste pour l'Économie Française) : feuille de route du think tank The Shift Project, présidé par Jean-Marc Jancovici.",
+        "note1": "remarque | L'intervenant : « on se prend les baffes »",
+        "note2": "",
+        "note3": ""
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "S'appuie sur le passage sur le PIB, les machines et le libre marché, avec l'indicateur Eurostat.",
+      "fields": {
+        "title": "Moins d'énergie, moins de machines, moins de **production**",
+        "these_claim": "Moins d'énergie, moins de machines : donc moins de production et de revenus.",
+        "these_detail": "L'énergie nourrit les machines, qui produisent ce que nous consommons. Pour l'intervenant, le PIB réel baisse déjà en Europe, et le plan doit éviter que cette baisse tourne au drame.",
+        "solution_claim": "Planifier la décarbonation plutôt que s'en remettre au libre marché.",
+        "solution_detail": "Il ne rejette pas le capitalisme : il demande des règles contraignantes pour les acteurs de marché, afin de gérer la baisse et de garder des marges de manœuvre.",
+        "note1": "remarque | « Pas de production, pas de consommation » : l'intervenant, Jean-Marc Jancovici (ingénieur, président du Shift Project), résume ainsi le lien qu'il pose entre énergie et revenus.",
+        "note2": "source | **Eurostat** (office statistique de l'Union européenne) : publie les tonnes de marchandises chargées dans les camions, indicateur qu'il cite.",
+        "note3": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "S'appuie sur le passage sur le bateau, la redondance et la cible société civile.",
+      "fields": {
+        "title": "Un plan **robuste** pour absorber les imprévus",
+        "these_claim": "Les chocs vont se répéter : le plan doit continuer d'avancer malgré eux.",
+        "these_detail": "Il compare le plan à un bateau dont la voile se déchire : objectifs surdimensionnés et redondance coûtent en performance, mais ajoutent de la robustesse.",
+        "solution_claim": "Un plan d'ensemble, avec marge et redondance, porté par la société civile.",
+        "solution_detail": "Le Shift Project s'adresse d'abord à la société civile, qui, selon l'intervenant, pèse sur le monde politique. Il vise l'adhésion plutôt que la rue.",
+        "note1": "remarque | « Il faut que le plan continue à flotter » : l'intervenant, Jean-Marc Jancovici, explique ainsi le mot « robuste » du PREF (plan robuste pour l'économie française).",
+        "note2": "remarque | Le PREF prolonge le PTEF, plan de transformation de l'économie française publié en 2022 par le Shift Project.",
+        "note3": ""
+      },
+      "edited": false,
+      "flags": [
+        "these.solution_claim shares no key word with the axis (« Le degré d'organisation de la baisse de l'énergie disponible : planifiée d'avance ou laissée aux chocs »)"
+      ]
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "S'appuie sur le passage sur Ormuz, le diesel et le risque pour la démocratie.",
+      "fields": {
+        "title": "Décarboner pour **protéger** la démocratie",
+        "these_claim": "Sans plan, les chocs pétroliers menacent l'économie, puis la démocratie.",
+        "these_detail": "Sans diesel, plus de camions ni d'approvisionnement : l'économie s'arrête. L'intervenant voit un risque pour la démocratie, qu'aucun modèle climatique ou énergétique ne chiffre.",
+        "solution_claim": "Décarboner pour se couvrir contre ces chocs, au-delà du seul climat.",
+        "solution_detail": "Il distingue l'argument climat, collectif, de l'argument « égoïste » : réduire sa dépendance au pétrole préserve mobilité, chauffage et production.",
+        "note1": "remarque | « Le diesel, c'est l'indispensable » : l'intervenant, Jean-Marc Jancovici (ingénieur, président du Shift Project), évoque le blocage du détroit d'Ormuz, passage maritime du pétrole.",
+        "note2": "source | **L'Agence internationale de l'énergie** : publie des analyses sur l'offre et la demande mondiales de pétrole.",
+        "note3": ""
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "these": {
+      "title": "Piloter la décrue plutôt que la **subir**",
+      "these": {
+        "claim": "La baisse de l'énergie est déjà là : on la pilote, ou on se prend les baffes.",
+        "detail": "Sans action, chaque choc frappe sans préparation (Ukraine en 2022, pétrole aujourd'hui)."
+      },
+      "solution": {
+        "claim": "Décarboner par un plan : nucléaire, renouvelables et sobriété ensemble.",
+        "detail": "Le PREF (Plan Robuste pour l'Économie Française) : feuille de route du think tank The Shift Project, présidé par Jean-Marc Jancovici."
+      },
+      "notes": [
+        {
+          "kind": "remark",
+          "text": "L'intervenant : « on se prend les baffes »"
+        }
+      ]
+    }
+  },
+  "remarks": []
+}

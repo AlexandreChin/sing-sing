@@ -1,0 +1,203 @@
+{
+  "step": "angle_mort",
+  "options": [
+    {
+      "id": "e",
+      "slot": "a",
+      "reason": "Suit la remarque de l'auteur : première carte sur le temps électoral, seconde sur le risque technocratique.",
+      "fields": {
+        "title": "Un plan long face au **cycle électoral**",
+        "claim": "Un plan contraignant long peut buter sur le cycle électoral court.",
+        "detail": "Promettre sobriété et recul des emplois de bureau peut coûter des voix : le pouvoir risque de préférer des palliatifs financiers immédiats.",
+        "note1": "source | **Le Conseil d'analyse économique** : notes sur la politique climatique, ses coûts et son acceptabilité.",
+        "note2": "remarque | L'intervenant dit que le plan vise d'abord la société civile ; il ne précise pas comment il traverserait plusieurs échéances électorales.",
+        "note3": "",
+        "second_claim": "Une **gouvernance d'experts** peut contourner le débat",
+        "second_detail": "Pour tenir des contraintes strictes (taille des véhicules, usages, élevage), l'État risque de s'en remettre à des experts plutôt qu'aux urnes.",
+        "second_note1": "remarque | Le plan prévoit des règles contraignantes pour les acteurs de marché ; reste à savoir qui les décide et qui les révise.",
+        "second_note2": ""
+      },
+      "edited": false,
+      "flags": [
+        "angle_mort.claim shares no key word with the axis (« Le degré d'organisation de la baisse de l'énergie disponible : planifiée d'avance ou laissée aux chocs »)"
+      ]
+    },
+    {
+      "id": "f",
+      "slot": "a",
+      "reason": "Même enjeu démocratique, mais la première carte porte sur l'alternance et la seconde sur la réaction des citoyens.",
+      "fields": {
+        "title": "Un plan long, un **mandat** court",
+        "claim": "Un plan de plusieurs décennies peut être défait à chaque alternance.",
+        "detail": "Si la majorité change, les règles contraignantes peuvent être assouplies ou abrogées en cours de route, laissant des chantiers à moitié engagés.",
+        "note1": "source | **La Cour des comptes** : rapports sur la continuité des politiques publiques de long terme.",
+        "note2": "",
+        "note3": "",
+        "second_claim": "Un rejet **civil** peut répondre à des contraintes imposées",
+        "second_detail": "Des règles perçues comme venues d'en haut risquent de nourrir la colère, jusqu'à des mobilisations qui bloquent le plan lui-même.",
+        "second_note1": "remarque | L'intervenant évoque lui-même des mobilisations de détresse ; un plan contraignant peut en créer de nouvelles.",
+        "second_note2": ""
+      },
+      "edited": false,
+      "flags": [
+        "angle_mort.claim shares no key word with the axis (« Le degré d'organisation de la baisse de l'énergie disponible : planifiée d'avance ou laissée aux chocs »)"
+      ]
+    },
+    {
+      "id": "g",
+      "slot": "a",
+      "reason": "Part de l'écosystème médiatique et politique évoqué par l'auteur pour le lier à la légitimité du plan.",
+      "fields": {
+        "title": "Un débat public **sous tension**",
+        "claim": "Le débat médiatique peut peiner à porter un consensus de long terme.",
+        "detail": "L'émotion immédiate et la publicité favorisent le clash plutôt que l'accord durable.",
+        "note1": "source | **L'Arcom** : travaux sur le paysage médiatique et son financement.",
+        "note2": "",
+        "note3": "",
+        "second_claim": "Un plan sans **adhésion** large risque de ne pas tenir",
+        "second_detail": "Imposées sans consensus, les contraintes peuvent être rejetées avant d'avoir agi.",
+        "second_note1": "source | **Le Cevipof** (Sciences Po) : baromètre de la confiance politique.",
+        "second_note2": ""
+      },
+      "edited": true,
+      "flags": [
+        "angle_mort.claim shares no key word with the axis (« Le degré d'organisation de la baisse de l'énergie disponible : planifiée d'avance ou laissée aux chocs »)"
+      ]
+    },
+    {
+      "id": "h",
+      "slot": "a",
+      "reason": "Entre le contournement des urnes et la tentation des palliatifs, deux versions du même paradoxe démocratique.",
+      "fields": {
+        "title": "Des contraintes **sans mandat** clair",
+        "claim": "Des limites d'usage peuvent être imposées sans choix explicite du vote.",
+        "detail": "Dimensionnement des véhicules, rationnement indirect, baisse de l'élevage : chaque mesure peut être décidée par voie réglementaire, loin du vote.",
+        "note1": "remarque | Le plan propose des règles contraignantes ; la question du vote sur chacune d'elles reste ouverte.",
+        "note2": "",
+        "note3": "",
+        "second_claim": "Des **palliatifs** financiers peuvent retarder le fond",
+        "second_detail": "Face à des électeurs inquiets, des aides immédiates risquent de remplacer les transformations de fond, plus lentes et moins populaires.",
+        "second_note1": "source | **L'Insee** : séries sur le pouvoir d'achat et les aides publiques aux ménages.",
+        "second_note2": ""
+      },
+      "edited": false,
+      "flags": [
+        "angle_mort.claim shares no key word with the axis (« Le degré d'organisation de la baisse de l'énergie disponible : planifiée d'avance ou laissée aux chocs »)"
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Part de la faisabilité matérielle (délais, métaux), puis de la répartition sociale du coût.",
+      "fields": {
+        "title": "Un plan qui **dépend** du cuivre et des délais",
+        "claim": "Un plan aussi vaste risque de buter sur ses délais et ses matériaux.",
+        "detail": "Réacteurs, réseaux et électrification mobilisent des métaux et des chantiers longs : un retard sur l'un peut décaler tout le calendrier de décarbonation.",
+        "note1": "source | **L'Agence internationale de l'énergie** : rapports sur les minerais critiques et les délais d'ouverture de mines.",
+        "note2": "remarque | L'intervenant cite lui-même le cuivre comme contrainte ; il n'aborde pas ce que devient le plan si les délais glissent.",
+        "note3": "",
+        "second_claim": "Les **ménages modestes** peuvent porter l'essentiel de l'effort",
+        "second_detail": "Changer de véhicule ou de chauffage demande une avance d'argent : sans aide ciblée, les ménages les moins aisés risquent de décarboner le plus tard.",
+        "second_note1": "source | **L'Insee** : enquêtes sur les dépenses contraintes et l'équipement des ménages selon le revenu.",
+        "second_note2": ""
+      },
+      "edited": false,
+      "flags": [
+        "angle_mort.claim shares no key word with the axis (« Le degré d'organisation de la baisse de l'énergie disponible : planifiée d'avance ou laissée aux chocs »)"
+      ]
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Part de la gouvernance (qui décide, avec quelle légitimité), puis de la réversibilité dans le temps.",
+      "fields": {
+        "title": "Un plan **décidé** d'en haut",
+        "claim": "Planifier de façon centralisée peut éloigner la décision des territoires.",
+        "detail": "Un schéma national d'implantation (éoliennes, lignes, réacteurs) peut heurter des usages locaux ; l'acceptabilité conditionne alors le rythme réel des chantiers.",
+        "note1": "remarque | L'intervenant reconnaît des conflits d'usage autour des renouvelables, sans dire qui arbitre.",
+        "note2": "",
+        "note3": "",
+        "second_claim": "Un plan fixé tôt risque de **s'enfermer** dans ses choix",
+        "second_detail": "Des investissements lourds et longs peuvent verrouiller une filière : si la technologie ou la demande évolue, revenir en arrière coûterait cher.",
+        "second_note1": "source | **La Cour des comptes** : rapports sur la politique énergétique et la gouvernance des grands projets.",
+        "second_note2": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Part du coût humain local (emplois, qualifications), puis de l'effet d'un plan national dans un cadre européen.",
+      "fields": {
+        "title": "Une transition qui **bouscule** les emplois",
+        "claim": "La bascule décarbonée peut déplacer des emplois sans les remplacer.",
+        "detail": "Les postes perdus (moteurs thermiques) et les postes créés (batteries, rénovation) ne sont pas aux mêmes endroits ni aux mêmes qualifications.",
+        "note1": "source | **France Travail** et **la Dares** (ministère du Travail) : séries sur les métiers en tension et les reconversions.",
+        "note2": "",
+        "note3": "",
+        "second_claim": "Les **voisins** peuvent ne pas suivre le même rythme",
+        "second_detail": "Si les pays proches décarbonent moins vite, des activités risquent de se déplacer vers eux, avec des emplois et des émissions simplement transférés.",
+        "second_note1": "source | **Eurostat** : statistiques sur les échanges et les émissions liées aux importations.",
+        "second_note2": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Part de l'acceptation sociale des changements d'habitudes, puis de l'inégalité d'accès entre territoires.",
+      "fields": {
+        "title": "Une **sobriété** qui se heurte aux habitudes",
+        "claim": "La sobriété peut susciter des résistances si elle est subie.",
+        "detail": "Le vélo séduit ceux qui y trouvent un bénéfice ; sans alternative proche, renoncer à la voiture peut être perçu comme une contrainte subie.",
+        "note1": "remarque | L'intervenant admet que certains cas sont un vrai renoncement ; il ne dit pas comment on les accompagne.",
+        "note2": "",
+        "note3": "",
+        "second_claim": "Les **territoires ruraux** ont moins d'alternatives à la voiture",
+        "second_detail": "Là où les transports collectifs sont rares, une politique de sobriété risque de peser davantage sur les habitants éloignés des services.",
+        "second_note1": "source | **L'Insee** : séries sur les distances domicile-travail et l'équipement automobile selon le territoire.",
+        "second_note2": ""
+      },
+      "edited": false,
+      "flags": [
+        "angle_mort.claim shares no key word with the axis (« Le degré d'organisation de la baisse de l'énergie disponible : planifiée d'avance ou laissée aux chocs »)"
+      ]
+    }
+  ],
+  "recommended": [
+    "e"
+  ],
+  "picked": [
+    "g"
+  ],
+  "fragment": {
+    "angle_mort": {
+      "title": "Un débat public **sous tension**",
+      "claim": "Le débat médiatique peut peiner à porter un consensus de long terme.",
+      "detail": "L'émotion immédiate et la publicité favorisent le clash plutôt que l'accord durable.",
+      "notes": [
+        {
+          "kind": "source",
+          "text": "**L'Arcom** : travaux sur le paysage médiatique et son financement."
+        }
+      ],
+      "second": {
+        "claim": "Un plan sans **adhésion** large risque de ne pas tenir",
+        "detail": "Imposées sans consensus, les contraintes peuvent être rejetées avant d'avoir agi."
+      },
+      "second_notes": [
+        {
+          "kind": "source",
+          "text": "**Le Cevipof** (Sciences Po) : baromètre de la confiance politique."
+        }
+      ]
+    }
+  },
+  "remarks": [
+    "L'angle mort doit porter sur le paradoxe démocratique d'un plan contraignant (la tentation technocratique). Pour imposer un dimensionnement strict des véhicules, un rationnement indirect des usages, une baisse de l'élevage et une réorientation des filières, l'État doit déployer une planification très normative et contraignante. Or cela se heurte aux logiques politiques et médiatiques : d'une part le personnel politique est pris dans le cycle électoral court, où promettre la sobriété et le déclassement du travail de bureau coûte des voix, ce qui favorise les palliatifs financiers immédiats ; d'autre part l'écosystème médiatique, dépendant de la publicité des industries de consommation et de l'émotion instantanée, privilégie le clash et la polarisation plutôt qu'un consensus sur le temps long. Question de fond : comment faire adopter ces contraintes sans contourner les urnes par une gouvernance d'experts, ou sans provoquer en retour une révolte civile ? Première carte : le cycle électoral court face à un plan de long terme et contraignant. Seconde carte (un AUTRE angle mort) : le risque d'une gouvernance d'experts qui contourne le débat, ou celui d'un rejet civil. Contraintes de ton, impératives : aucun reproche au média ni à l'intervenant (ne dis pas qu'il esquive ou qu'il réduit quoi que ce soit) ; formule tout au conditionnel (« peut », « risque de »), comme un risque à examiner et non un fait établi ; pas de « suicide électoral » ni de ton polémique."
+  ]
+}

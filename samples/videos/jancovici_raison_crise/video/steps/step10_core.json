@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "La décrue énergétique européenne est présentée comme cause de fond des tensions sociales : gilets jaunes, lycéens, Brexit, populisme, pouvoir d'achat.",
+      "kind": "affirmation",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "Les mobilisations (gilets jaunes, lycéens, Brexit, populisme) ont pour cause de fond la contraction énergétique.",
+        "strength": 0.9,
+        "nature": "inference"
+      }
+    },
+    {
+      "statement": "Le lien entre énergie disponible, production, PIB et emplois tertiaires est posé comme rigide, malgré un découplage partiel observé dans certains pays riches.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 1,
+        "excerpt": "Le lien historique entre énergie et PIB restera valable à l'avenir, sans découplage notable.",
+        "strength": 0.8,
+        "nature": "contradiction"
+      }
+    },
+    {
+      "statement": "La décarbonation planifiée, associant nucléaire, renouvelables et sobriété, est avancée pour piloter la décrue plutôt que la subir, avec le PREF du Shift Project.",
+      "kind": "angle",
+      "centrality": 4,
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "Il accompagne la sortie du PREF, plan robuste pour l'économie française",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "Le blocage d'Ormuz et la baisse d'environ 10 % du pétrole servent à illustrer la vulnérabilité pétrolière et le risque pour la démocratie.",
+      "kind": "fait",
+      "centrality": 3,
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "blocage du détroit d'Ormuz par l'Iran et une baisse de la production mondiale de pétrole d'environ 10 %",
+        "strength": 0.7,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Les chiffres clés (2000 à 400 TWh, importations divisées par 2 à 20) et les contre-arguments restent sans source ni contradiction dans l'échange.",
+      "kind": "biais",
+      "centrality": 2,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 3,
+        "excerpt": "Aucune objection n'est portée par l'intervieweur, et les critiques du PREF ne sont pas évoquées.",
+        "strength": 0.7,
+        "nature": "specification"
+      }
+    }
+  ]
+}

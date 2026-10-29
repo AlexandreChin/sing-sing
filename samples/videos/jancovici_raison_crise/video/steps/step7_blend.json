@@ -1,0 +1,80 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "Une seule cause matérielle sert à relier des événements de nature très différente (gilets jaunes, Brexit, lycéens). Cette hypothèse implicite est reprise par le cadrage de l'invité (« j'ai envie de lire »), et la sélection des cas écarte les revendications propres des acteurs ; le Brexit en est l'exemple le plus net, avec un seul mécanisme énergétique.",
+        "layers": [
+          "logic",
+          "probe",
+          "rhetoric"
+        ],
+        "references": [
+          "ia_0",
+          "bs_1",
+          "bias_1",
+          "bias_2",
+          "focus",
+          "obs_4"
+        ]
+      },
+      {
+        "text": "Le lien énergie-PIB, posé comme acquis, repose sur un seul indicateur de transport dont la confiance est faible, et le découplage observé dans certains pays est écarté en une phrase. La corrélation entre pays devient ainsi une prédiction pour un pays donné, sans que rien ne soit contesté dans l'entretien.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "pr_1",
+          "ia_1",
+          "bs_2",
+          "lr_0",
+          "claim_3",
+          "obs_3"
+        ]
+      },
+      {
+        "text": "L'entretien accompagne la sortie du PREF et ne contient aucune voix contradictoire. Ce cadre promotionnel coïncide avec la faiblesse du sourçage et avec le point de vigilance éthique sur l'absence de contradiction : les chiffres et les liens causaux ne sont jamais mis à l'épreuve.",
+        "layers": [
+          "rhetoric",
+          "logic",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "obs_1",
+          "cb_0",
+          "bs_3"
+        ]
+      },
+      {
+        "text": "L'inquiétude est nourrie par des images fortes et des chiffres sans source, alors que les limites du plan (cuivre, financement, délais) sont peu exposées. L'urgence présentée prépare à accepter la solution du PREF sans que sa faisabilité soit discutée.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "logic"
+        ],
+        "references": [
+          "er_0",
+          "bias_0",
+          "ia_3",
+          "cb_0",
+          "claim_1"
+        ]
+      },
+      {
+        "text": "Les chiffres non sourcés (logement, ordres de grandeur énergétiques) coïncident avec un point d'alerte éthique. Ils nourrissent le ton de franchise familière qui les fait passer pour des évidences de bon sens.",
+        "layers": [
+          "probe",
+          "ethics",
+          "rhetoric"
+        ],
+        "references": [
+          "claim_1",
+          "claim_0",
+          "er_1"
+        ]
+      }
+    ]
+  }
+}

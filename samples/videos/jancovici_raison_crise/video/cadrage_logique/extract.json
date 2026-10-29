@@ -1,0 +1,1095 @@
+{
+  "analysis": {
+    "article_metadata": {
+      "url": "https://www.youtube.com/watch?v=0dasPBppGQ4",
+      "title": "Les vraies raisons de la crise (et comment en sortir)",
+      "source": "Limit",
+      "published_at": "25 Oct. 2026",
+      "type": "interview",
+      "medium": "video",
+      "category": "Autre",
+      "reading_time_minutes": 76,
+      "chapo": null,
+      "extra_instructions": null,
+      "language": null
+    },
+    "extraction": {
+      "authority_anchors": [
+        {
+          "entity": "Le Shift Project",
+          "used_for": "Appuyer les estimations sur la baisse de la production pétrolière d'ici 2050 et le contenu du plan PREF"
+        },
+        {
+          "entity": "Jared Diamond",
+          "used_for": "Soutenir l'idée que la production matérielle fonde la domination des sociétés"
+        },
+        {
+          "entity": "Agence internationale de l'énergie",
+          "used_for": "Soutenir que la production mondiale de cuivre atteindrait son maximum vers 2030"
+        },
+        {
+          "entity": "Eurostat",
+          "used_for": "Appuyer la baisse des tonnes de marchandises chargées dans les camions en Europe depuis 20 ans"
+        },
+        {
+          "entity": "Mitterrand",
+          "used_for": "Illustrer la promesse « tout le monde aura le droit d'aller à l'université »"
+        }
+      ],
+      "key_quotes": [
+        "J'ai envie de lire ces manifestations comme un signe supplémentaire de l'essoufflement du monde dans lequel nous sommes.",
+        "Si on fait rien de particulier, bah on se prend les baffes.",
+        "l'argent ça n'est rien d'autre une revendication sur ce qui existe.",
+        "les emplois du tertiaire ne produisent rien directement.",
+        "Le diesel c'est l'indispensable.",
+        "il n'existe aucun modèle ni de climat ni énergétique dans lequel le risque de perte de démocratie soit modélisé.",
+        "Ça veut juste dire qu'on pilote la décrue de façon beaucoup plus maîtrisée que si on l'a subi",
+        "je suis ravi que le libre marché ne s'applique pas à l'hôpital français."
+      ],
+      "notable_omissions": [
+        "Aucune voix contradictoire : l'intervieweur relance sans objecter sur le lien énergie-manifestations.",
+        "Les causes non énergétiques des mobilisations (politiques, sociales, institutionnelles) ne sont pas discutées.",
+        "Pour le Brexit, aucune mention des autres explications avancées (souveraineté, immigration, politique intérieure).",
+        "Les chiffres (baisse de 2 à 20 fois des importations de pétrole, 2000 à 400 TWh, 90 milliards de frais financiers) ne sont pas accompagnés de sources ni d'hypothèses détaillées.",
+        "Les revendications des étudiants et lycéens ne sont pas citées : leur contenu est interprété par l'invité.",
+        "Les critiques faites au PREF et au Shift Project ne sont pas évoquées.",
+        "Le lien entre énergie et PIB est présenté sans les travaux économiques qui le discutent ou le nuancent."
+      ],
+      "rhetorical_patterns": [
+        "Une cause unique, la décrue énergétique, relie des événements très divers : gilets jaunes, Brexit, lycéens, populisme, pouvoir d'achat.",
+        "Reformulation de notions économiques en termes physiques : l'argent comme « revendication sur ce qui existe », le tertiaire comme « surplus des machines ».",
+        "Images familières : les « baffes », le bateau dont la voile se déchire, le gâteau qui ne grandit pas, les jeunes qui « mimétisent ».",
+        "Expressions de prudence (« sans être grand historien », « je ne sais pas », « c'est très subjectif ») alternent avec des affirmations générales (« sans exception », « absolument »).",
+        "Absence de modèle présentée comme un risque réel : « on sait pas modéliser mais ça veut pas dire qu'ils existent pas ».",
+        "Mise en scène d'un choix à deux branches : subir la décrue ou la piloter, avec la décarbonation comme voie « égoïste » et immédiate.",
+        "Autoréférence : le Shift Project, ses plans et ses rapports sont présentés comme réponse aux problèmes décrits.",
+        "L'interviewer reprend et valide l'argument plutôt que de le contester."
+      ]
+    },
+    "context": {
+      "contexts": [
+        {
+          "id": "ctx_0",
+          "text": "L'entretien est réalisé autour du 22 octobre 2026, dans un contexte de mobilisations lycéennes, étudiantes et sociales en France."
+        },
+        {
+          "id": "ctx_1",
+          "text": "Il accompagne la sortie du PREF, plan robuste pour l'économie française, publié par le Shift Project."
+        },
+        {
+          "id": "ctx_2",
+          "text": "L'invité évoque un blocage du détroit d'Ormuz par l'Iran et une baisse de la production mondiale de pétrole d'environ 10 %."
+        },
+        {
+          "id": "ctx_3",
+          "text": "Le Shift Project avait déjà publié en 2022 le PTEF, plan de transformation de l'économie française, dont le PREF est présenté comme une suite."
+        }
+      ],
+      "who_is_speaking": [
+        "Jean-Marc Jancovici est ingénieur et préside le Shift Project, association qui plaide pour la décarbonation de l'économie.",
+        "Il est connu pour défendre le lien entre énergie disponible et activité économique, et pour promouvoir le nucléaire associé aux renouvelables.",
+        "Limites se présente comme un média consacré aux limites planétaires, des ressources et humaines, et l'entretien porte sur un plan de l'invité."
+      ],
+      "important_facts": [
+        {
+          "id": "fact_0",
+          "text": "Les économistes débattent du lien entre énergie et PIB : une partie des travaux observe un découplage partiel entre croissance et consommation d'énergie dans certains pays riches."
+        },
+        {
+          "id": "fact_1",
+          "text": "Le Brexit est expliqué dans la recherche par plusieurs facteurs : souveraineté, immigration, inégalités régionales, politique intérieure britannique."
+        },
+        {
+          "id": "fact_2",
+          "text": "Les mouvements des gilets jaunes de 2018 ont été déclenchés par une hausse de la taxe sur les carburants et ont porté ensuite des revendications plus larges sur le pouvoir d'achat."
+        },
+        {
+          "id": "fact_3",
+          "text": "Le réacteur de Flamanville 3, évoqué dans l'entretien, a vu son coût officiel réévalué à environ 23,7 milliards d'euros pour un devis initial de 3,3 milliards."
+        }
+      ],
+      "key_terms": [
+        {
+          "term": "PREF",
+          "definition": "Plan robuste pour l'économie française : document du Shift Project qui détaille des chantiers pour réduire la dépendance aux énergies fossiles."
+        },
+        {
+          "term": "Décarbonation",
+          "definition": "Réduction des émissions de gaz à effet de serre, notamment en remplaçant les énergies fossiles."
+        },
+        {
+          "term": "Tertiaire",
+          "definition": "Ensemble des emplois de services : bureaux, commerce, administration, santé, enseignement."
+        },
+        {
+          "term": "Énergie finale",
+          "definition": "Énergie qui arrive chez l'utilisateur et alimente les machines, après les pertes de production et de transport."
+        },
+        {
+          "term": "Renouvelables non pilotables",
+          "definition": "Sources comme l'éolien et le solaire, dont la production dépend de la météo et ne peut pas être réglée à la demande."
+        }
+      ]
+    },
+    "analysis": {
+      "fond": {
+        "main_claim": "La décrue énergétique explique les tensions sociales actuelles ; la décarbonation planifiée permet de la piloter.",
+        "premisses": [
+          {
+            "id": "pr_0",
+            "statement": "L'énergie par personne détermine la production, les revenus et la part des emplois tertiaires.",
+            "quality": "Appuyée sur des corrélations observées entre pays, mais présentée comme un lien causal sans exception ; l'article ne cite ni source ni méthode."
+          },
+          {
+            "id": "pr_1",
+            "statement": "L'Europe connaît depuis une vingtaine d'années une décrue énergétique qui réduit sa production réelle.",
+            "quality": "Appuyée sur un indicateur (tonnes chargées dans les camions, Eurostat), mais **un seul indicateur** sert à établir la baisse du PIB réel."
+          },
+          {
+            "id": "pr_2",
+            "statement": "Les mobilisations (gilets jaunes, lycéens, Brexit, populisme) ont pour cause de fond la contraction énergétique.",
+            "quality": "Simple assertion interprétative : l'invité dit « personnellement, je l'associe » sans étayer le lien pour chaque cas."
+          },
+          {
+            "id": "pr_3",
+            "statement": "Le pétrole est épuisable et sa production mondiale va baisser fortement d'ici 2050.",
+            "quality": "Repose sur une analyse du Shift Project portant sur 16 pays producteurs, extrapolée au monde entier sans hypothèses détaillées."
+          }
+        ],
+        "implicit_assumptions": [
+          {
+            "id": "ia_0",
+            "statement": "Une seule cause matérielle suffit à expliquer des événements politiques de natures très différentes.",
+            "impact": "Si les causes politiques, culturelles ou institutionnelles pèsent autant, le fil explicatif entre gilets jaunes, Brexit et lycéens se défait."
+          },
+          {
+            "id": "ia_1",
+            "statement": "Le lien historique entre énergie et PIB restera valable à l'avenir, sans découplage notable.",
+            "impact": "Si croissance et énergie peuvent se dissocier, la « décrue » n'entraîne plus mécaniquement moins de production ni moins de pouvoir d'achat."
+          },
+          {
+            "id": "ia_2",
+            "statement": "Les emplois tertiaires dépendent d'un surplus produit par le primaire et le secondaire, et non l'inverse.",
+            "impact": "Si les services créent eux-mêmes de la valeur et des gains de productivité, la promesse d'études supérieures pour tous n'est pas liée à l'énergie."
+          },
+          {
+            "id": "ia_3",
+            "statement": "Le plan proposé (nucléaire, renouvelables, sobriété) est réalisable dans les délais, malgré les contraintes de cuivre, de coûts et de financement.",
+            "impact": "Si ces contraintes bloquent le plan, l'alternative « piloter plutôt que subir » perd sa crédibilité."
+          }
+        ],
+        "blind_spots": [
+          {
+            "id": "bs_0",
+            "topic": "Les causes non énergétiques des mobilisations (politiques, sociales, institutionnelles) ne sont pas discutées.",
+            "significance": "Les prendre en compte pourrait montrer que l'énergie n'est qu'un facteur parmi d'autres, et réduire la portée du schéma central."
+          },
+          {
+            "id": "bs_1",
+            "topic": "Le Brexit est expliqué par un seul mécanisme, l'élargissement à l'est et l'énergie, sans les autres explications de la recherche (souveraineté, immigration, inégalités régionales).",
+            "significance": "Un tableau multi-causal affaiblirait l'idée que « le déterminant de fond » est énergétique."
+          },
+          {
+            "id": "bs_2",
+            "topic": "Le découplage partiel entre croissance et énergie observé dans certains pays riches est écarté en une phrase sur la convention du calcul du PIB.",
+            "significance": "S'il est réel, le lien énergie-PIB qui porte tout le raisonnement serait moins rigide."
+          },
+          {
+            "id": "bs_3",
+            "topic": "Aucune objection n'est portée par l'intervieweur, et les critiques du PREF ne sont pas évoquées.",
+            "significance": "Sans contradiction, les chiffres et les liens de cause à effet ne sont pas mis à l'épreuve dans l'échange."
+          }
+        ],
+        "emphasis": [
+          "Le texte consacre de longs développements à la chaîne énergie → machines → production → emplois tertiaires, alors que les revendications concrètes des étudiants et des lycéens ne sont jamais citées.",
+          "Le texte détaille le nucléaire (eau, coût, sûreté, financement) et le cuivre sur de nombreux paragraphes, alors que les limites des renouvelables ne reçoivent que quelques lignes.",
+          "La baisse du PIB réel est affirmée à partir d'un seul indicateur de transport, alors que les travaux économiques sur le lien énergie-PIB sont mentionnés en passant."
+        ],
+        "logical_reasoning": [
+          {
+            "id": "lr_0",
+            "step": "De l'observation que les pays plus riches en énergie ont plus d'emplois tertiaires, l'invité conclut que moins d'énergie remettra en cause la promesse d'université pour tous.",
+            "problem_type": "validity",
+            "diagnosis": "Une corrélation entre pays à un moment donné ne prouve pas qu'une baisse d'énergie dans un pays donné fera reculer l'emploi tertiaire dans les mêmes proportions."
+          },
+          {
+            "id": "lr_1",
+            "step": "Des tensions sociales survenues à des époques et dans des pays différents sont rattachées à une même cause, la décrue énergétique.",
+            "problem_type": "soundness",
+            "diagnosis": "L'invité reconnaît lui-même que mai 68 n'a rien à voir avec un manque ; le lien est posé pour les cas retenus sans être démontré."
+          },
+          {
+            "id": "lr_2",
+            "step": "Si l'énergie diminue, la décarbonation planifiée permet de piloter la décrue plutôt que de la subir.",
+            "problem_type": null,
+            "diagnosis": null
+          },
+          {
+            "id": "lr_3",
+            "step": "Faute de modèle du risque de perte de démocratie, l'invité en conclut que ce risque doit être pris en compte.",
+            "problem_type": "validity",
+            "diagnosis": "L'absence de modèle ne dit rien sur la probabilité ou l'ampleur du risque ; elle empêche aussi de le comparer à d'autres."
+          }
+        ],
+        "observations": [
+          {
+            "id": "obs_0",
+            "aspect": "Cadrage",
+            "summary": "L'entretien se tient en octobre 2026, dans un contexte de mobilisations, et lit chacune d'elles à travers l'énergie. Les gilets jaunes sont reliés au pouvoir d'achat, proche de leur déclencheur initial, une taxe sur les carburants, mais ce point de départ est peu développé.",
+            "seeds": {
+              "source": "context",
+              "index": 0,
+              "excerpt": "contexte de mobilisations lycéennes, étudiantes et sociales en France",
+              "strength": 0.8,
+              "nature": "illustration"
+            },
+            "proven_by": [
+              {
+                "type": "focus",
+                "index": 0
+              }
+            ]
+          },
+          {
+            "id": "obs_1",
+            "aspect": "Promotion",
+            "summary": "L'entretien accompagne la sortie du PREF, présenté comme la réponse aux problèmes décrits. Il est donné comme l'affinement du PTEF de 2022, avec de nouveaux chapitres et une modélisation des aléas.",
+            "seeds": {
+              "source": "context",
+              "index": 1,
+              "excerpt": "Il accompagne la sortie du PREF, plan robuste pour l'économie française",
+              "strength": 0.8,
+              "nature": "specification"
+            },
+            "proven_by": []
+          },
+          {
+            "id": "obs_2",
+            "aspect": "Chiffrage",
+            "summary": "Le blocage d'Ormuz et la baisse de 10 % du pétrole illustrent la vulnérabilité décrite, avec une énigme d'effets encore invisibles dans les chiffres. Le dérapage de Flamanville, de 3,3 à 23,7 milliards d'euros, est expliqué par la sûreté et le financement.",
+            "seeds": {
+              "source": "context",
+              "index": 2,
+              "excerpt": "blocage du détroit d'Ormuz par l'Iran et une baisse de la production mondiale de pétrole d'environ 10 %",
+              "strength": 0.7,
+              "nature": "illustration"
+            },
+            "proven_by": [
+              {
+                "type": "claim",
+                "index": 1
+              },
+              {
+                "type": "claim",
+                "index": 2
+              }
+            ]
+          },
+          {
+            "id": "obs_3",
+            "aspect": "Causalité",
+            "summary": "Le lien énergie-PIB est présenté comme acquis, alors que les économistes évoquent un découplage partiel dans certains pays riches.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 0,
+              "excerpt": "découplage partiel entre croissance et consommation d'énergie dans certains pays riches",
+              "strength": 0.8,
+              "nature": "contradiction"
+            },
+            "proven_by": [
+              {
+                "type": "claim",
+                "index": 0
+              },
+              {
+                "type": "claim",
+                "index": 3
+              }
+            ]
+          },
+          {
+            "id": "obs_4",
+            "aspect": "Pluralité",
+            "summary": "Le Brexit est relié à une seule cause énergétique, alors que la recherche avance plusieurs facteurs.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 1,
+              "excerpt": "souveraineté, immigration, inégalités régionales, politique intérieure britannique",
+              "strength": 0.9,
+              "nature": "contradiction"
+            },
+            "proven_by": [
+              {
+                "type": "bias",
+                "index": 1
+              },
+              {
+                "type": "bias",
+                "index": 2
+              }
+            ]
+          }
+        ],
+        "steel_man": [
+          {
+            "counterargument": "Mobilisations, Brexit et populisme ont des causes politiques, culturelles et institutionnelles documentées. Une cause énergétique unique ne les explique pas ; elle relève d'une lecture choisie après coup.",
+            "seeds": {
+              "source": "implicit_assumption",
+              "index": 0,
+              "excerpt": "Une seule cause matérielle suffit à expliquer des événements politiques de natures très différentes.",
+              "strength": null,
+              "nature": null
+            },
+            "alternative_conclusion": "Les tensions actuelles relèvent d'abord de choix politiques et de répartition, et l'énergie n'en est qu'un facteur parmi d'autres."
+          },
+          {
+            "counterargument": "Plusieurs pays riches ont accru leur PIB tout en réduisant leur consommation d'énergie. Le lien énergie-PIB n'est donc pas rigide, et la « décrue » n'entraîne pas forcément moins de production ni moins d'emplois tertiaires.",
+            "seeds": {
+              "source": "implicit_assumption",
+              "index": 1,
+              "excerpt": "Le lien historique entre énergie et PIB restera valable à l'avenir, sans découplage notable.",
+              "strength": null,
+              "nature": null
+            },
+            "alternative_conclusion": "La transition peut se faire sans recul durable de l'activité, et la promesse d'études et d'emplois de bureau n'est pas nécessairement remise en cause."
+          },
+          {
+            "counterargument": "L'absence de modèle ou de source pour les chiffres clés (2000 à 400 TWh, importations divisées par 2 à 20) empêche de savoir si ces scénarios sont réalistes. L'avertissement repose alors sur des hypothèses non vérifiées.",
+            "seeds": {
+              "source": "premisse",
+              "index": 3,
+              "excerpt": "Le pétrole est épuisable et sa production mondiale va baisser fortement d'ici 2050.",
+              "strength": null,
+              "nature": null
+            },
+            "alternative_conclusion": "Les risques d'approvisionnement existent, mais leur ampleur et leur calendrier restent incertains ; le plan se justifie par prudence, pas par urgence démontrée."
+          }
+        ]
+      },
+      "forme": {
+        "emotional_register": [
+          {
+            "id": "er_0",
+            "emotion": "inquiétude",
+            "how": "Images imagées (« on se prend les baffes », bateau à la voile déchirée), chiffres de division par 2 à 20 des importations de pétrole, et scénario où la démocratie ne survivrait pas.",
+            "effect": "Prépare le lecteur à juger la décarbonation planifiée urgente et à accepter qu'un effort collectif devient nécessaire.",
+            "seeds": {
+              "source": "context",
+              "index": 2,
+              "excerpt": "blocage du détroit d'Ormuz par l'Iran et une baisse de la production mondiale de pétrole d'environ 10 %",
+              "strength": 0.7,
+              "nature": "illustration"
+            }
+          },
+          {
+            "id": "er_1",
+            "emotion": "lucidité partagée",
+            "how": "Le ton familier, les aveux de doute (« je ne sais pas », « j'ai rien contre les Polonais ») et les exemples quotidiens (vélo, voiture du voisin) donnent un air de franchise.",
+            "effect": "Prépare le lecteur à voir l'explication énergétique comme une évidence de bon sens plutôt qu'une hypothèse parmi d'autres.",
+            "seeds": {
+              "source": "context",
+              "index": 0,
+              "excerpt": "contexte de mobilisations lycéennes, étudiantes et sociales en France",
+              "strength": 0.6,
+              "nature": "illustration"
+            }
+          }
+        ],
+        "cui_bono": [
+          {
+            "id": "cb_0",
+            "beneficiary": "Le Shift Project et son plan PREF",
+            "explanation": "Le cadrage présente la décrue énergétique comme cause de nombreux problèmes, puis le PREF comme la réponse. L'entretien accompagne la sortie du plan.",
+            "seeds": {
+              "source": "context",
+              "index": 1,
+              "excerpt": "Il accompagne la sortie du PREF, plan robuste pour l'économie française",
+              "strength": 0.8,
+              "nature": "specification"
+            }
+          },
+          {
+            "id": "cb_1",
+            "beneficiary": "Les partisans d'une planification de l'économie et du nucléaire",
+            "explanation": "Le texte montre la planification et le nucléaire comme des conditions pour éviter la décrue subie, et le libre marché comme peu adapté à l'énergie.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 0,
+              "excerpt": "découplage partiel entre croissance et consommation d'énergie dans certains pays riches",
+              "strength": 0.4,
+              "nature": "contradiction"
+            }
+          }
+        ],
+        "cadrage": {
+          "title_analysis": [
+            {
+              "label": "Présupposé",
+              "observation": "« Les vraies raisons » suppose que d'autres explications sont fausses ou superficielles."
+            },
+            {
+              "label": "Singulier",
+              "observation": "« La crise » désigne un événement unique, alors que le contenu traite de mobilisations, d'énergie et de climat."
+            },
+            {
+              "label": "Promesse",
+              "observation": "« Comment en sortir » annonce une solution, que le corps présente comme le plan du Shift Project."
+            }
+          ],
+          "body": "L'entretien adopte une lecture physique de l'économie : l'énergie disponible par personne fixe la production, les revenus et l'emploi. Les mobilisations, le Brexit et le pouvoir d'achat sont présentés comme des manifestations d'une même contraction énergétique. L'invité parle en ingénieur président du Shift Project, à l'occasion de la sortie de son plan, dans un registre oral et familier. Le propos oppose deux voies : subir la décrue ou la piloter par la décarbonation, le nucléaire, les renouvelables et la sobriété."
+        }
+      }
+    },
+    "annotations": {
+      "facts_vs_opinions": {
+        "claims_and_sources": [
+          {
+            "id": "claim_0",
+            "quote": "Les Américains qui consomment deux fois plus d'énergie par personne que nous ont 80 % des actifs qui travaillent dans les services.",
+            "presentation": "presented_as_established_fact",
+            "proves": {
+              "type": "observation",
+              "label": "Causalité",
+              "strength": 0.6,
+              "nature": "nuance"
+            },
+            "explanation": "Le chiffre est avancé sans source ; il sert à étayer un lien entre énergie et emploi tertiaire que les données ne démontrent pas à elles seules.",
+            "external_sources": [
+              {
+                "name": "Bureau of Labor Statistics (États-Unis), emploi par secteur",
+                "supports": "validates",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "Agence internationale de l'énergie, consommation d'énergie par habitant",
+                "supports": "validates",
+                "evidence_type": "official_data"
+              }
+            ],
+            "confidence": 75,
+            "confidence_label": "likely true"
+          },
+          {
+            "id": "claim_1",
+            "quote": "le coût du logement rapporté au revenu, il a doublé en 30 ans.",
+            "presentation": "presented_as_established_fact",
+            "proves": {
+              "type": "observation",
+              "label": "Chiffrage",
+              "strength": 0.5,
+              "nature": "nuance"
+            },
+            "explanation": "Le chiffre est donné sans source ni définition du coût du logement ; les séries publiques existent mais varient selon l'indicateur choisi.",
+            "external_sources": [
+              {
+                "name": "INSEE, taux d'effort des ménages pour le logement",
+                "supports": "neutral",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "Fondation pour le logement des défavorisés, rapport annuel",
+                "supports": "neutral",
+                "evidence_type": "academic"
+              }
+            ],
+            "confidence": 45,
+            "confidence_label": "disputed"
+          },
+          {
+            "id": "claim_2",
+            "quote": "Il y a 40 millions de véhicules particuliers dans ce pays pour 70 millions d'habitants.",
+            "presentation": "presented_as_established_fact",
+            "proves": {
+              "type": "observation",
+              "label": "Chiffrage",
+              "strength": 0.4,
+              "nature": "illustration"
+            },
+            "explanation": "L'ordre de grandeur du parc automobile est proche des données publiques, mais la conclusion tirée sur le besoin réel de voiture reste une interprétation.",
+            "external_sources": [
+              {
+                "name": "Ministère de la Transition écologique, parc de véhicules (SDES)",
+                "supports": "validates",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "INSEE, population de la France",
+                "supports": "validates",
+                "evidence_type": "official_data"
+              }
+            ],
+            "confidence": 80,
+            "confidence_label": "likely true"
+          },
+          {
+            "id": "claim_3",
+            "quote": "Bon et cette quantité, elle baisse le la quantité totale de marchandise qui circule, elle baisse depuis 20 ans en Europe, depuis le maximum énergétique.",
+            "presentation": "attributed_to_source",
+            "proves": {
+              "type": "observation",
+              "label": "Causalité",
+              "strength": 0.7,
+              "nature": "nuance"
+            },
+            "explanation": "L'indicateur Eurostat est cité, mais sa lecture comme mesure du PIB réel et sa baisse continue sur 20 ans restent à vérifier.",
+            "external_sources": [
+              {
+                "name": "Eurostat, transport routier de marchandises (tonnes chargées)",
+                "supports": "neutral",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "Agence internationale de l'énergie, découplage croissance et énergie",
+                "supports": "contradicts",
+                "evidence_type": "academic"
+              }
+            ],
+            "confidence": 35,
+            "confidence_label": "likely false"
+          }
+        ]
+      },
+      "biases_and_focus": {
+        "biases_and_rhetoric": [
+          {
+            "id": "bias_0",
+            "quote": "Si on fait rien de particulier, bah on se prend les baffes.",
+            "item_type": "bias",
+            "label": "image choc",
+            "effect": "Remarquez comment cette formule familière fait paraître la crise comme certaine et l'inaction comme la seule alternative.",
+            "proves": {
+              "type": "emotional_register",
+              "label": "inquiétude",
+              "strength": 0.7,
+              "nature": "illustration"
+            }
+          },
+          {
+            "id": "bias_1",
+            "quote": "Je l'associe à la décrue énergétique de l'Europe qui rend les moyens matériels plus limités",
+            "item_type": "fallacy",
+            "label": "une seule cause pour des événements variés",
+            "effect": "Remarquez comment des mouvements d'époques et de pays différents sont rattachés à un même facteur, sans examiner les autres explications.",
+            "proves": {
+              "type": "observation",
+              "label": "Pluralité",
+              "strength": 0.8,
+              "nature": "contradiction"
+            }
+          },
+          {
+            "id": "bias_2",
+            "quote": "C'est la conséquence d'une Europe qui a qui s'est élargie à l'est dans un contexte dans lequel l'approvisionnement énergétique européen ne permettait plus d'assurer la croissance pour tous.",
+            "item_type": "fallacy",
+            "label": "explication unique du Brexit",
+            "effect": "Remarquez comment un événement aux causes multiples reçoit ici un seul mécanisme, présenté comme le fond du sujet.",
+            "proves": {
+              "type": "observation",
+              "label": "Pluralité",
+              "strength": 0.9,
+              "nature": "contradiction"
+            }
+          }
+        ],
+        "focus": {
+          "quote": "j'ai envie de lire ces manifestations comme un signe supplémentaire de l'essoufflement du monde dans lequel nous sommes.",
+          "proves": {
+            "type": "observation",
+            "label": "Cadrage",
+            "strength": 0.8,
+            "nature": "illustration"
+          },
+          "analysis": "L'invité lit les mobilisations à travers l'énergie, en le formulant comme une préférence personnelle (« j'ai envie de lire »). Cette lecture laisse de côté les revendications propres aux étudiants, aux lycéens ou aux gilets jaunes. Que resterait-il de ce fil explicatif si l'on partait de ce que les manifestants demandent eux-mêmes ?"
+        }
+      }
+    },
+    "deontology": {
+      "violations": [
+        {
+          "id": "",
+          "category": "false_statistics",
+          "label": "False Statistics",
+          "severity": "significant",
+          "status": "caution",
+          "evidence": "le coût du logement rapporté au revenu, il a doublé en 30 ans.",
+          "explanation": "Chiffre avancé sans source ni définition de l'indicateur ; les séries publiques varient selon la mesure retenue."
+        },
+        {
+          "id": "",
+          "category": "lying_by_omission",
+          "label": "Lying by Omission",
+          "severity": "significant",
+          "status": "caution",
+          "evidence": "Le Brexit, c'est pour moi la conséquence d'une Europe qui a qui s'est élargie à l'est dans un contexte dans lequel l'approvisionnement énergétique européen ne permettait plus d'assurer la croissance pour tous.",
+          "explanation": "Les autres causes du Brexit sont omises, alors que l'explication énergétique est présentée comme le fond du sujet."
+        },
+        {
+          "id": "",
+          "category": "false_balance",
+          "label": "False Balance",
+          "severity": "minor",
+          "status": "caution",
+          "evidence": "Oui, vous avez fait des consultations avec les différents parties prenantes et cetera.",
+          "explanation": "L'intervieweur valide l'invité sans objection ni voix contradictoire, et l'entretien accompagne la promotion du plan de l'invité."
+        }
+      ],
+      "verdict": {
+        "overall": "passable",
+        "editorial_note": "Signaler que l'entretien ne contient aucune voix contradictoire et que ses chiffres et explications causales sont avancés sans sources."
+      },
+      "summary": "Aucune violation caractérisée n'a été relevée, mais trois points de vigilance subsistent : un chiffre non sourcé, une explication unique du Brexit et l'absence de contradiction dans un entretien qui promeut le plan de l'invité."
+    },
+    "review": {
+      "dimensions": [
+        {
+          "dimension": "source_rigor",
+          "label": "Source Rigor",
+          "score": 2,
+          "rationale": "L'entretien s'appuie sur une seule voix, l'invité président du Shift Project, qui présente son propre plan (PREF). Les chiffres clés sont avancés sans source, par exemple « le coût du logement rapporté au revenu, il a doublé en 30 ans », et l'intervieweur n'apporte aucune voix contradictoire. Seul l'indicateur Eurostat sur les tonnes chargées est nommé.",
+          "lesson": "Vérifier qui parle, pour quelle cause, et si une voix extérieure vient tester ses chiffres."
+        },
+        {
+          "dimension": "factual_accuracy",
+          "label": "Factual Accuracy",
+          "score": 2,
+          "rationale": "Certains ordres de grandeur tiennent, comme les « 40 millions de véhicules particuliers » pour 70 millions d'habitants (confiance 80). D'autres restent fragiles : la baisse de la marchandise transportée « depuis 20 ans en Europe » n'obtient que 35 de confiance, et le logement 45. Un seul indicateur de transport sert à établir la baisse du PIB réel.",
+          "lesson": "Distinguer les chiffres vérifiables des chiffres affirmés, et chercher la série publique derrière chacun avant de les retenir."
+        },
+        {
+          "dimension": "reasoning_structure",
+          "label": "Reasoning Structure",
+          "score": 2,
+          "rationale": "La chaîne énergie → production → emplois tertiaires est lisible, mais elle passe d'une corrélation entre pays à une prédiction pour un pays donné (logical_reasoning, validity). Des tensions d'époques et de pays différents sont rattachées à une même cause, alors que l'invité admet que mai 68 n'a rien à voir avec un manque.",
+          "lesson": "Se demander si une corrélation observée entre pays vaut aussi pour l'évolution d'un seul pays dans le temps."
+        },
+        {
+          "dimension": "approach_transparency",
+          "label": "Approach Transparency",
+          "score": 3,
+          "rationale": "L'invité signale sa part d'interprétation : « j'ai envie de lire ces manifestations comme un signe » et « personnellement, je l'associe ». Son rôle de promoteur du PREF est connu, mais le découplage partiel entre croissance et énergie est écarté en une phrase, et les limites du plan ne sont pas exposées.",
+          "lesson": "Repérer les formules personnelles (« je l'associe ») qui signalent une interprétation, et chercher ce qui n'est pas dit sur les limites."
+        },
+        {
+          "dimension": "context_completeness",
+          "label": "Context & Completeness",
+          "score": 2,
+          "rationale": "Le texte détaille le nucléaire et le cuivre sur de nombreux paragraphes, alors que les limites des renouvelables ne reçoivent que quelques lignes (emphasis). Les causes politiques, culturelles ou institutionnelles des mobilisations et du Brexit ne sont pas discutées (blind_spots).",
+          "lesson": "Comparer l'espace donné à chaque élément avec son importance, et chercher les causes laissées de côté."
+        },
+        {
+          "dimension": "treatment_fairness",
+          "label": "Treatment Fairness",
+          "score": 2,
+          "rationale": "Le Brexit reçoit un seul mécanisme énergétique (« une Europe qui s'est élargie à l'est »), et l'entretien ne laisse parler aucune partie contradictoire. Les revendications des lycéens, étudiants et gilets jaunes ne sont jamais citées, au profit d'une lecture par l'énergie.",
+          "lesson": "Chercher ce que les acteurs d'un mouvement disent d'eux-mêmes avant d'accepter l'explication d'un tiers."
+        },
+        {
+          "dimension": "clarity",
+          "label": "Clarity",
+          "score": 4,
+          "rationale": "Le registre oral, les exemples quotidiens (vélo, voiture du voisin) et la chaîne causale simple rendent le propos accessible à un public non spécialiste. Le titre « Les vraies raisons de la crise » promet cependant plus que le contenu et suppose que les autres explications sont superficielles (title_analysis).",
+          "lesson": "Distinguer la clarté d'un propos de sa solidité : un exemple parlant ne prouve pas la thèse qu'il illustre."
+        },
+        {
+          "dimension": "angle_originality",
+          "label": "Angle & Originality",
+          "score": 4,
+          "rationale": "La lecture physique de l'économie, qui relie énergie par personne, emploi tertiaire et mobilisations, donne un fil explicatif peu commun dans le débat public. Il reste fragile face au contre-argument du découplage (steel_man), mais il ouvre une perspective que le lecteur peut tester.",
+          "lesson": "Apprécier un angle neuf pour ce qu'il fait voir, tout en cherchant les explications concurrentes qu'il laisse de côté."
+        }
+      ],
+      "verdict": {
+        "quality": "adequate",
+        "reading_recommendation": "with_reservations",
+        "for_whom": "Lecteur qui s'intéresse à la transition énergétique et connaît déjà le débat sur le lien entre énergie et PIB, et qui veut lire l'argumentaire du Shift Project dans la bouche de son président.",
+        "payoff": "Le lecteur découvre une lecture de l'économie par l'énergie disponible, avec ses chiffres et ses images, et peut la confronter aux explications politiques et au découplage.",
+        "signature_move": "L'entretien de promotion, où un même facteur énergétique relie des événements très différents sans voix contradictoire, au service du plan présenté.",
+        "main_blind_side": "Les causes politiques et institutionnelles des mobilisations et du Brexit sont absentes, ce qui révèle un entretien sans contradicteur, conçu pour accompagner la sortie du plan.",
+        "further_resource": {
+          "title": "Prosperity without Growth",
+          "source": "Tim Jackson, Routledge",
+          "media_type": "book",
+          "why_explore": "L'ouvrage discute le lien entre croissance, énergie et bien-être, et offre un regard différent sur le découplage.",
+          "url": null
+        },
+        "summary": "Lecture avec réserves, pour qui suit le débat énergétique : l'entretien offre une lecture claire de l'économie par l'énergie, mais s'appuie sur une seule voix, des chiffres peu sourcés et un fil causal unique qu'il faut confronter à d'autres explications."
+      }
+    },
+    "blend": {
+      "patterns": [
+        {
+          "text": "Une seule cause matérielle sert à relier des événements de nature très différente (gilets jaunes, Brexit, lycéens). Cette hypothèse implicite est reprise par le cadrage de l'invité (« j'ai envie de lire »), et la sélection des cas écarte les revendications propres des acteurs ; le Brexit en est l'exemple le plus net, avec un seul mécanisme énergétique.",
+          "layers": [
+            "logic",
+            "probe",
+            "rhetoric"
+          ],
+          "references": [
+            "ia_0",
+            "bs_1",
+            "bias_1",
+            "bias_2",
+            "focus",
+            "obs_4"
+          ]
+        },
+        {
+          "text": "Le lien énergie-PIB, posé comme acquis, repose sur un seul indicateur de transport dont la confiance est faible, et le découplage observé dans certains pays est écarté en une phrase. La corrélation entre pays devient ainsi une prédiction pour un pays donné, sans que rien ne soit contesté dans l'entretien.",
+          "layers": [
+            "logic",
+            "probe",
+            "review"
+          ],
+          "references": [
+            "pr_1",
+            "ia_1",
+            "bs_2",
+            "lr_0",
+            "claim_3",
+            "obs_3"
+          ]
+        },
+        {
+          "text": "L'entretien accompagne la sortie du PREF et ne contient aucune voix contradictoire. Ce cadre promotionnel coïncide avec la faiblesse du sourçage et avec le point de vigilance éthique sur l'absence de contradiction : les chiffres et les liens causaux ne sont jamais mis à l'épreuve.",
+          "layers": [
+            "rhetoric",
+            "logic",
+            "ethics",
+            "review"
+          ],
+          "references": [
+            "obs_1",
+            "cb_0",
+            "bs_3"
+          ]
+        },
+        {
+          "text": "L'inquiétude est nourrie par des images fortes et des chiffres sans source, alors que les limites du plan (cuivre, financement, délais) sont peu exposées. L'urgence présentée prépare à accepter la solution du PREF sans que sa faisabilité soit discutée.",
+          "layers": [
+            "rhetoric",
+            "probe",
+            "logic"
+          ],
+          "references": [
+            "er_0",
+            "bias_0",
+            "ia_3",
+            "cb_0",
+            "claim_1"
+          ]
+        },
+        {
+          "text": "Les chiffres non sourcés (logement, ordres de grandeur énergétiques) coïncident avec un point d'alerte éthique. Ils nourrissent le ton de franchise familière qui les fait passer pour des évidences de bon sens.",
+          "layers": [
+            "probe",
+            "ethics",
+            "rhetoric"
+          ],
+          "references": [
+            "claim_1",
+            "claim_0",
+            "er_1"
+          ]
+        }
+      ]
+    },
+    "distill": {
+      "points": [
+        {
+          "text": "Une **cause matérielle unique** (l'énergie) sert à relier des événements très différents (gilets jaunes, Brexit, lycéens), et l'invité cadre déjà la lecture (« j'ai envie de lire »). La sélection des cas écarte les revendications propres des acteurs, de sorte que **le cadre explicatif précède les faits**.",
+          "references": [
+            "ia_0",
+            "bs_1",
+            "bias_1",
+            "bias_2",
+            "focus",
+            "obs_4"
+          ]
+        },
+        {
+          "text": "Le lien énergie-PIB, posé comme acquis, repose sur **un seul indicateur de transport de faible confiance**, et le découplage observé dans certains pays est écarté en une phrase. Une corrélation entre pays devient ainsi **une prédiction pour un pays donné**, sans contradiction dans l'entretien.",
+          "references": [
+            "pr_1",
+            "ia_1",
+            "bs_2",
+            "lr_0",
+            "claim_3",
+            "obs_3"
+          ]
+        },
+        {
+          "text": "L'entretien accompagne la sortie du PREF et ne donne **aucune voix contradictoire**. Ce cadre promotionnel coïncide avec un sourçage faible : **chiffres et liens causaux ne sont jamais mis à l'épreuve**.",
+          "references": [
+            "obs_1",
+            "cb_0",
+            "bs_3"
+          ]
+        },
+        {
+          "text": "L'urgence est nourrie par des images fortes et des chiffres sans source, tandis que **les limites du plan** (cuivre, financement, délais) **restent peu exposées**. Le lecteur est préparé à accepter la solution du PREF sans que sa faisabilité soit discutée.",
+          "references": [
+            "er_0",
+            "bias_0",
+            "ia_3",
+            "cb_0",
+            "claim_1"
+          ]
+        }
+      ],
+      "open_questions": [
+        "Quelle part de la croissance passée s'explique réellement par l'énergie, une fois les autres facteurs pris en compte ?",
+        "Le découplage énergie-PIB observé dans certains pays est-il durable et transposable à d'autres économies ?",
+        "Le plan du PREF est-il réalisable compte tenu des contraintes en cuivre, en financement et en délais ?"
+      ]
+    },
+    "guide": {
+      "pre_reading": [
+        "Gardez en tête que l'invité préside le Shift Project et présente son propre plan : l'entretien accompagne sa sortie.",
+        "Repérez le fil unique de l'argument : l'énergie disponible par personne explique l'économie, l'emploi et les mobilisations.",
+        "Si le lien entre énergie et croissance vous est familier, notez où le propos le pose comme acquis plutôt que de le démontrer."
+      ],
+      "watch_out": {
+        "items": [
+          {
+            "id": "w1",
+            "text": "Une seule cause matérielle sert à expliquer des événements très différents, sans que les revendications des acteurs eux-mêmes soient prises en compte. Cherchez ce que ces mouvements disent d'eux-mêmes avant d'adopter cette lecture.",
+            "references": [
+              "ia_0",
+              "bias_1",
+              "obs_4"
+            ]
+          },
+          {
+            "id": "w2",
+            "text": "Le lien entre énergie et richesse repose sur un seul indicateur de transport, peu fiable, et l'idée d'une croissance qui s'en détache est écartée très vite. Une relation observée entre pays n'est pas forcément valable pour un seul pays dans le temps.",
+            "references": [
+              "pr_1",
+              "ia_1",
+              "lr_0"
+            ]
+          },
+          {
+            "id": "w3",
+            "text": "L'entretien ne comporte aucune voix contradictoire : les chiffres cités et les liens de cause à effet ne sont jamais testés. Vérifiez les données dans des séries publiques avant de les retenir.",
+            "references": [
+              "obs_1",
+              "cb_0",
+              "bs_3"
+            ]
+          },
+          {
+            "id": "w4",
+            "text": "Les images fortes et les chiffres sans source créent un sentiment d'urgence, alors que les limites du plan (cuivre, financement, délais) sont à peine abordées. La faisabilité de la solution reste donc largement non discutée.",
+            "references": [
+              "er_0",
+              "ia_3",
+              "claim_1"
+            ]
+          },
+          {
+            "id": "w5",
+            "text": "Le titre promet « les vraies raisons » de la crise, ce qui laisse entendre que les autres explications sont superficielles. Le contenu propose en réalité une lecture parmi d'autres.",
+            "references": [
+              "bias_0",
+              "claim_3"
+            ]
+          }
+        ]
+      },
+      "after_reading": [
+        "Demandez-vous quelles autres causes, politiques ou institutionnelles, pourraient expliquer les mobilisations et le Brexit.",
+        "Retenez que les chiffres sans source méritent d'être retrouvés dans une série publique avant d'être repris.",
+        "Confrontez ce récit à un point de vue sur le découplage entre croissance et énergie.",
+        "Notez les formules d'interprétation personnelle de l'invité : elles signalent une lecture, pas un fait établi."
+      ],
+      "title_note": null,
+      "perspective": {
+        "framing": "L'entretien adopte une lecture physique de l'économie : l'énergie disponible par personne est placée au centre et relie emploi, production et tensions sociales. Le registre est oral et familier, et la parole est celle du président d'un think tank qui présente son plan.",
+        "blind_spots": "Les causes politiques, culturelles et institutionnelles des mobilisations et du Brexit ne sont pas discutées. Les limites du plan (cuivre, financement, délais) et le découplage partiel entre croissance et énergie n'occupent que quelques phrases.",
+        "balance": "Un entretien de promotion assume un point de vue : il n'a pas vocation à offrir un débat contradictoire ni à épuiser le sujet. Les réserves relevées sont réelles, mais elles décrivent les limites d'un plaidoyer, pas une faute propre à ce format."
+      }
+    },
+    "core_elements": {
+      "elements": [
+        {
+          "statement": "La décrue énergétique européenne est présentée comme cause de fond des tensions sociales : gilets jaunes, lycéens, Brexit, populisme, pouvoir d'achat.",
+          "kind": "affirmation",
+          "centrality": 5,
+          "seeds": {
+            "source": "premisse",
+            "index": 2,
+            "excerpt": "Les mobilisations (gilets jaunes, lycéens, Brexit, populisme) ont pour cause de fond la contraction énergétique.",
+            "strength": 0.9,
+            "nature": "inference"
+          }
+        },
+        {
+          "statement": "Le lien entre énergie disponible, production, PIB et emplois tertiaires est posé comme rigide, malgré un découplage partiel observé dans certains pays riches.",
+          "kind": "enjeu",
+          "centrality": 4,
+          "seeds": {
+            "source": "implicit_assumption",
+            "index": 1,
+            "excerpt": "Le lien historique entre énergie et PIB restera valable à l'avenir, sans découplage notable.",
+            "strength": 0.8,
+            "nature": "contradiction"
+          }
+        },
+        {
+          "statement": "La décarbonation planifiée, associant nucléaire, renouvelables et sobriété, est avancée pour piloter la décrue plutôt que la subir, avec le PREF du Shift Project.",
+          "kind": "angle",
+          "centrality": 4,
+          "seeds": {
+            "source": "context",
+            "index": 1,
+            "excerpt": "Il accompagne la sortie du PREF, plan robuste pour l'économie française",
+            "strength": 0.8,
+            "nature": "specification"
+          }
+        },
+        {
+          "statement": "Le blocage d'Ormuz et la baisse d'environ 10 % du pétrole servent à illustrer la vulnérabilité pétrolière et le risque pour la démocratie.",
+          "kind": "fait",
+          "centrality": 3,
+          "seeds": {
+            "source": "context",
+            "index": 2,
+            "excerpt": "blocage du détroit d'Ormuz par l'Iran et une baisse de la production mondiale de pétrole d'environ 10 %",
+            "strength": 0.7,
+            "nature": "illustration"
+          }
+        },
+        {
+          "statement": "Les chiffres clés (2000 à 400 TWh, importations divisées par 2 à 20) et les contre-arguments restent sans source ni contradiction dans l'échange.",
+          "kind": "biais",
+          "centrality": 2,
+          "seeds": {
+            "source": "blind_spot",
+            "index": 3,
+            "excerpt": "Aucune objection n'est portée par l'intervieweur, et les critiques du PREF ne sont pas évoquées.",
+            "strength": 0.7,
+            "nature": "specification"
+          }
+        }
+      ]
+    }
+  },
+  "presentation": {
+    "caption": "Pétrole, électricité, pouvoir d'achat : dans cette vidéo, un ingénieur qui préside un groupe de réflexion sur la transition énergétique relie les tensions sociales actuelles à la baisse de l'énergie disponible. Sa réponse : un plan de décarbonation, mêlant nucléaire, renouvelables et sobriété, pour piloter cette baisse plutôt que la subir.\n\nUne question reste ouverte, et elle ne concerne pas que l'énergie : jusqu'où organiser ensemble la raréfaction des ressources ? Des règles communes peuvent faire peser sur chacun le coût collectif que le prix ignore, mais supposent de savoir quoi fixer et d'obtenir l'adhésion. La loi du marché agrège vite les choix de chacun et récompense l'innovation qui répond à un besoin, mais le profit n'oriente pas forcément l'innovation vers ce qui sert à tous.\n\nOù placeriez-vous le curseur ? Plutôt un cadre collectif, plutôt les choix individuels, ou un mélange selon les secteurs ? Quels arguments vous semblent les plus solides de chaque côté ?\n\nDites-nous en commentaire ce que vous en pensez, et partagez cette publication avec quelqu'un qui voudrait en discuter.\n\nVidéo : https://www.youtube.com/watch?v=0dasPBppGQ4\n\n#Énergie #Décarbonation #Planification #DébatPublic",
+    "axe": {
+      "title": "Règles communes ou loi du marché",
+      "variable": "Le degré d'organisation collective de la raréfaction des ressources : règles communes ou loi du marché",
+      "position1": "Planifier la transition par des règles communes sur les ressources",
+      "position2": "Laisser la loi du marché et les choix individuels répartir les ressources",
+      "thesis": "Sans action particulière, on se prend les baffes : décarboner permet de piloter la décrue de façon plus maîtrisée."
+    },
+    "hook": {
+      "title": "« On pilote la **décrue**, ou on la subit. »",
+      "promise": "Décryptage d'une prise de position sur l'énergie, la planification et l'adhésion à un plan commun."
+    },
+    "constat": {
+      "title": "Un pouvoir d'achat qui **s'érode**",
+      "figures": [
+        {
+          "value": "10-15 ans",
+          "label": "d'érosion lente du pouvoir d'achat pour une part croissante",
+          "compare": ""
+        },
+        {
+          "value": "× 2",
+          "label": "le coût du logement rapporté au revenu en 30 ans",
+          "compare": ""
+        },
+        {
+          "value": "70 Md€",
+          "label": "coût du choc gazier de 2022 pour les finances publiques",
+          "compare": ""
+        },
+        {
+          "value": "÷ 5",
+          "label": "pouvoir d'achat réel si l'énergie passe de 2000 à 400 TWh",
+          "compare": ""
+        }
+      ],
+      "claim": "Les revenus, c'est de la production redistribuée : elle baisse, ils baissent.",
+      "detail": "L'intervenant y voit l'origine du malaise des gilets jaunes : le logement pèse plus lourd que l'essence, mais on en parle beaucoup moins."
+    },
+    "these": {
+      "title": "Piloter la décrue plutôt que la **subir**",
+      "these": {
+        "claim": "La baisse de l'énergie est déjà là : on la pilote, ou on se prend les baffes.",
+        "detail": "Sans action, chaque choc frappe sans préparation (Ukraine en 2022, pétrole aujourd'hui)."
+      },
+      "solution": {
+        "claim": "Décarboner par un plan : nucléaire, renouvelables et sobriété ensemble.",
+        "detail": "Le PREF (Plan Robuste pour l'Économie Française) : feuille de route du think tank The Shift Project, présidé par Jean-Marc Jancovici."
+      },
+      "notes": [
+        {
+          "kind": "remark",
+          "text": "L'intervenant : « on se prend les baffes »"
+        }
+      ]
+    },
+    "angle_mort": {
+      "title": "Un débat public **sous tension**",
+      "claim": "Le débat médiatique peut peiner à porter un consensus de long terme.",
+      "detail": "L'émotion immédiate et la publicité favorisent le clash plutôt que l'accord durable.",
+      "notes": [
+        {
+          "kind": "source",
+          "text": "**L'Arcom** : travaux sur le paysage médiatique et son financement."
+        }
+      ],
+      "second": {
+        "claim": "Un plan sans **adhésion** large risque de ne pas tenir",
+        "detail": "Imposées sans consensus, les contraintes peuvent être rejetées avant d'avoir agi."
+      },
+      "second_notes": [
+        {
+          "kind": "source",
+          "text": "**Le Cevipof** (Sciences Po) : baromètre de la confiance politique."
+        }
+      ]
+    },
+    "depassement": {
+      "title": "Pour qu'un plan **tienne** : éclairer, partager, durer",
+      "lead": "Trois appuis, à combiner : chacun peut réduire le risque de rejet, aucun ne suffit seul.",
+      "levers": [
+        {
+          "title": "Éclairer d'abord",
+          "detail": "Des faits communs sur les ressources, relayés par des médias pluralistes. Cela demande du temps.",
+          "note": {
+            "kind": "remark",
+            "text": "L'intervenant : demander aux candidats ce qui les rapproche."
+          }
+        },
+        {
+          "title": "Partager l'effort",
+          "detail": "Des critères publics : aide aux plus exposés, effort des plus aisés. Cela pèse sur le budget.",
+          "note": null
+        },
+        {
+          "title": "Tenir au-delà du mandat",
+          "detail": "Un cap voté à large majorité, que l'alternance ne défait pas. Cela suppose des compromis.",
+          "note": null
+        }
+      ]
+    },
+    "boussole": {
+      "title": "Règles communes ou loi du marché : où placer le **curseur** ?",
+      "options": [
+        {
+          "question": "Répartir par des règles communes ?",
+          "pro": "Des règles communes peuvent faire peser sur chacun le **coût collectif** que le prix ignore.",
+          "con": "Elles supposent de savoir quoi fixer, et leur **rejet** ou leur contournement peut les affaiblir."
+        },
+        {
+          "question": "Ou s'en remettre à la loi du marché ?",
+          "pro": "Les prix agrègent vite les choix de chacun et récompensent l'**innovation** qui répond à un besoin.",
+          "con": "Le **profit** oriente l'innovation vers ce qui rapporte, pas forcément vers ce qui sert à tous."
+        }
+      ]
+    }
+  }
+}

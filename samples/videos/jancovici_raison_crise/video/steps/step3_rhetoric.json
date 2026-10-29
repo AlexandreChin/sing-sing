@@ -1,0 +1,69 @@
+{
+  "emotional_register": [
+    {
+      "emotion": "inquiétude",
+      "how": "Images imagées (« on se prend les baffes », bateau à la voile déchirée), chiffres de division par 2 à 20 des importations de pétrole, et scénario où la démocratie ne survivrait pas.",
+      "effect": "Prépare le lecteur à juger la décarbonation planifiée urgente et à accepter qu'un effort collectif devient nécessaire.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "blocage du détroit d'Ormuz par l'Iran et une baisse de la production mondiale de pétrole d'environ 10 %",
+        "strength": 0.7,
+        "nature": "illustration"
+      }
+    },
+    {
+      "emotion": "lucidité partagée",
+      "how": "Le ton familier, les aveux de doute (« je ne sais pas », « j'ai rien contre les Polonais ») et les exemples quotidiens (vélo, voiture du voisin) donnent un air de franchise.",
+      "effect": "Prépare le lecteur à voir l'explication énergétique comme une évidence de bon sens plutôt qu'une hypothèse parmi d'autres.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "contexte de mobilisations lycéennes, étudiantes et sociales en France",
+        "strength": 0.6,
+        "nature": "illustration"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "beneficiary": "Le Shift Project et son plan PREF",
+      "explanation": "Le cadrage présente la décrue énergétique comme cause de nombreux problèmes, puis le PREF comme la réponse. L'entretien accompagne la sortie du plan.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "Il accompagne la sortie du PREF, plan robuste pour l'économie française",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "beneficiary": "Les partisans d'une planification de l'économie et du nucléaire",
+      "explanation": "Le texte montre la planification et le nucléaire comme des conditions pour éviter la décrue subie, et le libre marché comme peu adapté à l'énergie.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "découplage partiel entre croissance et consommation d'énergie dans certains pays riches",
+        "strength": 0.4,
+        "nature": "contradiction"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Présupposé",
+        "observation": "« Les vraies raisons » suppose que d'autres explications sont fausses ou superficielles."
+      },
+      {
+        "label": "Singulier",
+        "observation": "« La crise » désigne un événement unique, alors que le contenu traite de mobilisations, d'énergie et de climat."
+      },
+      {
+        "label": "Promesse",
+        "observation": "« Comment en sortir » annonce une solution, que le corps présente comme le plan du Shift Project."
+      }
+    ],
+    "body": "L'entretien adopte une lecture physique de l'économie : l'énergie disponible par personne fixe la production, les revenus et l'emploi. Les mobilisations, le Brexit et le pouvoir d'achat sont présentés comme des manifestations d'une même contraction énergétique. L'invité parle en ingénieur président du Shift Project, à l'occasion de la sortie de son plan, dans un registre oral et familier. Le propos oppose deux voies : subir la décrue ou la piloter par la décarbonation, le nucléaire, les renouvelables et la sobriété."
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "step": "boussole",
+  "options": [
+    {
+      "id": "g",
+      "slot": "a",
+      "reason": "Oppose règles collectives et signal-prix, deux outils défendables : anticipation et équité d'un côté, liberté de choix et adaptation de l'autre.",
+      "fields": {
+        "title": "Règles communes ou loi du marché : où placer le **curseur** ?",
+        "question1": "Répartir par des règles communes ?",
+        "pro1": "Des règles communes peuvent faire peser sur chacun le **coût collectif** que le prix ignore.",
+        "con1": "Elles supposent de savoir quoi fixer, et leur **rejet** ou leur contournement peut les affaiblir.",
+        "question2": "Ou s'en remettre à la loi du marché ?",
+        "pro2": "Les prix agrègent vite les choix de chacun et récompensent l'**innovation** qui répond à un besoin.",
+        "con2": "Le **profit** oriente l'innovation vers ce qui rapporte, pas forcément vers ce qui sert à tous."
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "h",
+      "slot": "a",
+      "reason": "Met en jeu le fond du débat : visibilité et coordination contre innovation et adaptation locale, dans la conduite de la transition.",
+      "fields": {
+        "title": "Transition planifiée ou marché libre : où placer le **curseur** ?",
+        "question1": "Faut-il une transition planifiée, avec des objectifs par secteur fixés d'avance pour l'ensemble du pays ?",
+        "pro1": "Des objectifs sectoriels donnent aux entreprises et aux salariés une **visibilité** pour investir et se former.",
+        "con1": "Des objectifs fixés d'avance peuvent s'avérer mal calibrés et se corriger **lentement** quand la situation change.",
+        "question2": "Ou faut-il une transition conduite par le marché, où les prix orientent les investissements et les usages ?",
+        "pro2": "Les acteurs locaux, qui connaissent leurs contraintes, trouvent des solutions **innovantes** et ajustent vite leurs choix.",
+        "con2": "Sans visibilité commune, les investissements longs sont plus **incertains** et les écarts entre territoires se creusent."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "i",
+      "slot": "a",
+      "reason": "Porte sur le mode de répartition de l'effort : règles et aides ciblées contre prix et choix individuels, avec leurs conséquences sur équité et liberté.",
+      "fields": {
+        "title": "Encadrer la consommation ou la laisser au prix : où placer le **curseur** ?",
+        "question1": "Faut-il encadrer la consommation d'énergie par des règles, avec des aides ciblées pour les plus exposés ?",
+        "pro1": "Des aides ciblées protègent les ménages les plus **exposés** et rendent l'effort plus acceptable collectivement.",
+        "con1": "Encadrer pèse sur le budget public et limite la **liberté** de chacun de choisir où réduire.",
+        "question2": "Ou faut-il laisser le prix de l'énergie orienter la consommation, chacun choisissant où réduire ?",
+        "pro2": "Chacun réduit là où cela lui coûte le moins, ce qui préserve la **liberté** de choix.",
+        "con2": "Les ménages à faible marge de manœuvre peuvent porter un ajustement plus **lourd** que les autres."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "j",
+      "slot": "a",
+      "reason": "Interroge la durée et la légitimité de la règle : cap stable voté contre ajustement continu par les prix.",
+      "fields": {
+        "title": "Fixer un cadre ou s'appuyer sur les prix : où placer le **curseur** ?",
+        "question1": "Faut-il fixer un cadre collectif voté, qui s'impose à tous et dure au-delà d'un mandat ?",
+        "pro1": "Un cadre qui dure au-delà d'un mandat donne un cap **stable** et facilite l'anticipation des investissements.",
+        "con1": "Un cadre voté d'avance peut manquer d'**adhésion** et être contesté s'il paraît imposé.",
+        "question2": "Ou faut-il s'appuyer sur les prix, que chaque acteur interprète et auxquels il réagit à son rythme ?",
+        "pro2": "Chacun réagit à son rythme et selon ses moyens, ce qui favorise l'**adaptation** aux réalités locales.",
+        "con2": "Les réactions dispersées sont plus difficiles à coordonner et peuvent produire des effets **inégaux** selon les territoires."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Arbitrage central de l'axe : degré d'organisation de la baisse, avec ses conséquences de légitimité et d'exposition aux chocs.",
+      "fields": {
+        "title": "Planifier la baisse de l'énergie ou la laisser aux chocs : où mettre le **curseur** ?",
+        "question1": "Faut-il planifier la décarbonation pour organiser d'avance la baisse de l'énergie disponible ?",
+        "pro1": "Choisir où aller vite et où gagner du temps, plutôt que de subir un **choc**.",
+        "con1": "Un plan sans adhésion large risque d'être contourné ou rejeté avant d'avoir produit ses effets.",
+        "question2": "Ou faut-il laisser le marché et les chocs ajuster la baisse de l'énergie disponible ?",
+        "pro2": "Chaque acteur s'adapte vite à ce qu'il constate, sans cap commun à négocier ni arbitrage imposé.",
+        "con2": "Chaque choc frappe sans préparation, et l'effort peut retomber sur les ménages déjà **fragilisés**."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Met en balance l'anticipation d'un cap et la souplesse des ajustements au fil de l'eau.",
+      "fields": {
+        "title": "Planifier la baisse de l'énergie ou la laisser aux chocs : où mettre le **curseur** ?",
+        "question1": "Faut-il fixer un cap national de décarbonation, voté et suivi dans la durée, pour piloter la baisse ?",
+        "pro1": "Un cap **lisible** aide ménages, entreprises et salariés à anticiper, notamment les reconversions d'emploi.",
+        "con1": "Un cap fixé d'avance peut se tromper d'hypothèses et se révéler **rigide** quand la situation change.",
+        "question2": "Ou faut-il s'en remettre aux signaux de prix et aux réactions du marché, au fil des chocs ?",
+        "pro2": "Les prix transmettent vite l'information et laissent de la **souplesse** quand les hypothèses changent.",
+        "con2": "Sans cap commun, les ajustements arrivent dans l'urgence, quand les marges de manœuvre sont **réduites**."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Fait ressortir la question de qui décide et de qui porte l'effort dans la baisse de l'énergie.",
+      "fields": {
+        "title": "Organiser la baisse de l'énergie ou la subir : où placer le **curseur** ?",
+        "question1": "Faut-il organiser la baisse avec des règles contraignantes et un effort partagé selon des critères publics ?",
+        "pro1": "Un effort réparti selon des critères publics peut rendre la baisse plus **égalitaire** et mieux acceptée.",
+        "con1": "Ces règles pèsent sur le budget et supposent des compromis longs, avec un risque de **blocage**.",
+        "question2": "Ou faut-il laisser chaque ménage et chaque entreprise arbitrer seuls face aux prix de l'énergie ?",
+        "pro2": "Chacun garde la **liberté** de choisir où réduire sa consommation, selon sa situation propre.",
+        "con2": "Les plus exposés, qui ont peu de marge pour s'adapter, peuvent porter l'essentiel de l'**ajustement**."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Oppose anticipation et équité d'un cadre commun à l'adaptation et la liberté des choix décentralisés.",
+      "fields": {
+        "title": "Planifier la baisse de l'énergie ou la répartir par les prix : quel **curseur** ?",
+        "question1": "Faut-il planifier la décarbonation avec un cadre commun, pour organiser la baisse de l'énergie disponible ?",
+        "pro1": "Un cadre commun permet d'anticiper les reconversions et de répartir l'effort selon des critères **publics**.",
+        "con1": "Un cadre collectif peut figer des hypothèses et limiter la **liberté** de chacun d'ajuster sa consommation.",
+        "question2": "Ou faut-il laisser les prix et les choix individuels répartir la baisse de l'énergie disponible ?",
+        "pro2": "Les prix transmettent vite l'information, et chacun s'**adapte** selon sa situation et ses priorités.",
+        "con2": "Sans anticipation commune, l'**équité** de l'effort dépend des moyens de chacun."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "e",
+      "slot": "a",
+      "reason": "Met en balance lisibilité d'un cap partagé et réactivité d'ajustements décentralisés.",
+      "fields": {
+        "title": "Fixer un cap commun ou laisser chacun s'ajuster : où placer le **curseur** ?",
+        "question1": "Faut-il fixer un cap commun, voté et suivi dans la durée, pour répartir la baisse de l'énergie ?",
+        "pro1": "Un cap **lisible** aide ménages, entreprises et salariés à planifier leurs investissements et leurs formations.",
+        "con1": "Un cap voté d'avance suppose des compromis longs et peut s'ajuster **lentement** si la situation change.",
+        "question2": "Ou faut-il laisser ménages et entreprises ajuster eux-mêmes leur consommation, selon les prix de l'énergie ?",
+        "pro2": "Chaque acteur connaît sa situation et réagit **vite**, sans attendre un accord collectif.",
+        "con2": "Les ajustements dépendent des moyens de chacun, et les ménages peu **flexibles** s'adaptent plus difficilement."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "f",
+      "slot": "a",
+      "reason": "Place la question sur qui décide de l'effort : le collectif ou chaque acteur, avec leurs conséquences.",
+      "fields": {
+        "title": "Décider ensemble ou laisser chacun décider : où placer le **curseur** ?",
+        "question1": "Faut-il décider collectivement de l'effort à fournir, avec des règles communes pour tous les acteurs ?",
+        "pro1": "Des règles communes répartissent l'effort selon les **capacités** de chacun, avec des aides aux plus exposés.",
+        "con1": "Des règles communes pèsent sur le budget et peuvent sembler **imposées** à ceux qui pensent autrement.",
+        "question2": "Ou faut-il laisser chaque acteur décider de son effort, selon ses contraintes et ses préférences ?",
+        "pro2": "Chacun arbitre selon ses contraintes réelles, ce qui respecte la **diversité** des situations locales et personnelles.",
+        "con2": "Sans règles partagées, l'effort peut se concentrer sur les plus exposés et les écarts se **creuser**."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "recommended": [
+    "g"
+  ],
+  "picked": [
+    "g"
+  ],
+  "fragment": {
+    "boussole": {
+      "title": "Règles communes ou loi du marché : où placer le **curseur** ?",
+      "options": [
+        {
+          "question": "Répartir par des règles communes ?",
+          "pro": "Des règles communes peuvent faire peser sur chacun le **coût collectif** que le prix ignore.",
+          "con": "Elles supposent de savoir quoi fixer, et leur **rejet** ou leur contournement peut les affaiblir."
+        },
+        {
+          "question": "Ou s'en remettre à la loi du marché ?",
+          "pro": "Les prix agrègent vite les choix de chacun et récompensent l'**innovation** qui répond à un besoin.",
+          "con": "Le **profit** oriente l'innovation vers ce qui rapporte, pas forcément vers ce qui sert à tous."
+        }
+      ]
+    }
+  },
+  "remarks": [
+    "L'axe vient d'être reformulé : position 1 = un cadre collectif (planifier), position 2 = laisser les prix et les choix individuels répartir la baisse. Les deux positions doivent être défendables et de même poids : le pour et le contre de chacune portent de vrais arguments. Ne présente JAMAIS la seconde position comme de la négligence, de l'improvisation ou une exposition subie aux chocs ; dans le contre de la position 1 comme dans celui de la position 2, parle de conséquences (liberté, adaptation, équité, anticipation), pas d'un mauvais choix. Les deux questions ont la même forme et le même poids.",
+    "Autres options, sur l'angle RÈGLES contre PRIX : la question pose d'un côté des règles collectives pour répartir la baisse de l'énergie, de l'autre les prix comme régulateur. L'arbitrage de fond derrière cet angle est transition planifiée contre libéralisme : chaque position doit être défendue dans ses propres termes (la transition planifiée : anticipation, équité, cap lisible ; le libéralisme : signal-prix, liberté de choix, innovation, adaptation locale), avec pour et contre de même poids et des conséquences, jamais un mauvais choix. Le titre et les deux questions nomment les deux outils (règles, prix), de même forme, de même poids ; pas de « laisser faire » ni de « chocs »."
+  ]
+}

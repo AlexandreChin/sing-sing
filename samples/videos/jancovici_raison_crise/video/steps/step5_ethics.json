@@ -1,0 +1,41 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "id": "",
+        "category": "false_statistics",
+        "label": "False Statistics",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "le coût du logement rapporté au revenu, il a doublé en 30 ans.",
+        "explanation": "Chiffre avancé sans source ni définition de l'indicateur ; les séries publiques varient selon la mesure retenue.",
+        "id_note": null
+      },
+      {
+        "id": "",
+        "category": "lying_by_omission",
+        "label": "Lying by Omission",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "Le Brexit, c'est pour moi la conséquence d'une Europe qui a qui s'est élargie à l'est dans un contexte dans lequel l'approvisionnement énergétique européen ne permettait plus d'assurer la croissance pour tous.",
+        "explanation": "Les autres causes du Brexit sont omises, alors que l'explication énergétique est présentée comme le fond du sujet.",
+        "id_note": null
+      },
+      {
+        "id": "",
+        "category": "false_balance",
+        "label": "False Balance",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Oui, vous avez fait des consultations avec les différents parties prenantes et cetera.",
+        "explanation": "L'intervieweur valide l'invité sans objection ni voix contradictoire, et l'entretien accompagne la promotion du plan de l'invité.",
+        "id_note": null
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Signaler que l'entretien ne contient aucune voix contradictoire et que ses chiffres et explications causales sont avancés sans sources."
+    },
+    "summary": "Aucune violation caractérisée n'a été relevée, mais trois points de vigilance subsistent : un chiffre non sourcé, une explication unique du Brexit et l'absence de contradiction dans un entretien qui promeut le plan de l'invité."
+  }
+}

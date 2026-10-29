@@ -1,0 +1,118 @@
+{
+  "caption": "Pétrole, électricité, pouvoir d'achat : dans cette vidéo, un ingénieur qui préside un groupe de réflexion sur la transition énergétique relie les tensions sociales actuelles à la baisse de l'énergie disponible. Sa réponse : un plan de décarbonation, mêlant nucléaire, renouvelables et sobriété, pour piloter cette baisse plutôt que la subir.\n\nUne question reste ouverte, et elle ne concerne pas que l'énergie : jusqu'où organiser ensemble la raréfaction des ressources ? Des règles communes peuvent faire peser sur chacun le coût collectif que le prix ignore, mais supposent de savoir quoi fixer et d'obtenir l'adhésion. La loi du marché agrège vite les choix de chacun et récompense l'innovation qui répond à un besoin, mais le profit n'oriente pas forcément l'innovation vers ce qui sert à tous.\n\nOù placeriez-vous le curseur ? Plutôt un cadre collectif, plutôt les choix individuels, ou un mélange selon les secteurs ? Quels arguments vous semblent les plus solides de chaque côté ?\n\nDites-nous en commentaire ce que vous en pensez, et partagez cette publication avec quelqu'un qui voudrait en discuter.\n\nVidéo : https://www.youtube.com/watch?v=0dasPBppGQ4\n\n#Énergie #Décarbonation #Planification #DébatPublic",
+  "axe": {
+    "title": "Règles communes ou loi du marché",
+    "variable": "Le degré d'organisation collective de la raréfaction des ressources : règles communes ou loi du marché",
+    "position1": "Planifier la transition par des règles communes sur les ressources",
+    "position2": "Laisser la loi du marché et les choix individuels répartir les ressources",
+    "thesis": "Sans action particulière, on se prend les baffes : décarboner permet de piloter la décrue de façon plus maîtrisée."
+  },
+  "hook": {
+    "title": "« On pilote la **décrue**, ou on la subit. »",
+    "promise": "Décryptage d'une prise de position sur l'énergie, la planification et l'adhésion à un plan commun."
+  },
+  "constat": {
+    "title": "Un pouvoir d'achat qui **s'érode**",
+    "figures": [
+      {
+        "value": "10-15 ans",
+        "label": "d'érosion lente du pouvoir d'achat pour une part croissante",
+        "compare": ""
+      },
+      {
+        "value": "× 2",
+        "label": "le coût du logement rapporté au revenu en 30 ans",
+        "compare": ""
+      },
+      {
+        "value": "70 Md€",
+        "label": "coût du choc gazier de 2022 pour les finances publiques",
+        "compare": ""
+      },
+      {
+        "value": "÷ 5",
+        "label": "pouvoir d'achat réel si l'énergie passe de 2000 à 400 TWh",
+        "compare": ""
+      }
+    ],
+    "claim": "Les revenus, c'est de la production redistribuée : elle baisse, ils baissent.",
+    "detail": "L'intervenant y voit l'origine du malaise des gilets jaunes : le logement pèse plus lourd que l'essence, mais on en parle beaucoup moins."
+  },
+  "these": {
+    "title": "Piloter la décrue plutôt que la **subir**",
+    "these": {
+      "claim": "La baisse de l'énergie est déjà là : on la pilote, ou on se prend les baffes.",
+      "detail": "Sans action, chaque choc frappe sans préparation (Ukraine en 2022, pétrole aujourd'hui)."
+    },
+    "solution": {
+      "claim": "Décarboner par un plan : nucléaire, renouvelables et sobriété ensemble.",
+      "detail": "Le PREF (Plan Robuste pour l'Économie Française) : feuille de route du think tank The Shift Project, présidé par Jean-Marc Jancovici."
+    },
+    "notes": [
+      {
+        "kind": "remark",
+        "text": "L'intervenant : « on se prend les baffes »"
+      }
+    ]
+  },
+  "angle_mort": {
+    "title": "Un débat public **sous tension**",
+    "claim": "Le débat médiatique peut peiner à porter un consensus de long terme.",
+    "detail": "L'émotion immédiate et la publicité favorisent le clash plutôt que l'accord durable.",
+    "notes": [
+      {
+        "kind": "source",
+        "text": "**L'Arcom** : travaux sur le paysage médiatique et son financement."
+      }
+    ],
+    "second": {
+      "claim": "Un plan sans **adhésion** large risque de ne pas tenir",
+      "detail": "Imposées sans consensus, les contraintes peuvent être rejetées avant d'avoir agi."
+    },
+    "second_notes": [
+      {
+        "kind": "source",
+        "text": "**Le Cevipof** (Sciences Po) : baromètre de la confiance politique."
+      }
+    ]
+  },
+  "depassement": {
+    "title": "Pour qu'un plan **tienne** : éclairer, partager, durer",
+    "lead": "Trois appuis, à combiner : chacun peut réduire le risque de rejet, aucun ne suffit seul.",
+    "levers": [
+      {
+        "title": "Éclairer d'abord",
+        "detail": "Des faits communs sur les ressources, relayés par des médias pluralistes. Cela demande du temps.",
+        "note": {
+          "kind": "remark",
+          "text": "L'intervenant : demander aux candidats ce qui les rapproche."
+        }
+      },
+      {
+        "title": "Partager l'effort",
+        "detail": "Des critères publics : aide aux plus exposés, effort des plus aisés. Cela pèse sur le budget.",
+        "note": null
+      },
+      {
+        "title": "Tenir au-delà du mandat",
+        "detail": "Un cap voté à large majorité, que l'alternance ne défait pas. Cela suppose des compromis.",
+        "note": null
+      }
+    ]
+  },
+  "boussole": {
+    "title": "Règles communes ou loi du marché : où placer le **curseur** ?",
+    "options": [
+      {
+        "question": "Répartir par des règles communes ?",
+        "pro": "Des règles communes peuvent faire peser sur chacun le **coût collectif** que le prix ignore.",
+        "con": "Elles supposent de savoir quoi fixer, et leur **rejet** ou leur contournement peut les affaiblir."
+      },
+      {
+        "question": "Ou s'en remettre à la loi du marché ?",
+        "pro": "Les prix agrègent vite les choix de chacun et récompensent l'**innovation** qui répond à un besoin.",
+        "con": "Le **profit** oriente l'innovation vers ce qui rapporte, pas forcément vers ce qui sert à tous."
+      }
+    ]
+  }
+}

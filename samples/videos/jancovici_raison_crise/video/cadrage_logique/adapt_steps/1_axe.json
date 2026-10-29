@@ -1,0 +1,78 @@
+{
+  "step": "axe",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "C'est la thèse que l'intervenant répète au début et à la fin de l'entretien (« piloter la décrue » plutôt que la subir), et celle à laquelle le plan du Shift Project répond directement.",
+      "fields": {
+        "title": "Règles communes ou loi du marché",
+        "variable": "Le degré d'organisation collective de la raréfaction des ressources : règles communes ou loi du marché",
+        "position1": "Planifier la transition par des règles communes sur les ressources",
+        "position2": "Laisser la loi du marché et les choix individuels répartir les ressources",
+        "thesis": "Sans action particulière, on se prend les baffes : décarboner permet de piloter la décrue de façon plus maîtrisée."
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "L'intervenant oppose planification et « laisser-faire de libre marché », cite l'électricité et l'hôpital, et dit que le plan a fait passer l'idée de planification : c'est la variable de gouvernance.",
+      "fields": {
+        "title": "Planifier d'ensemble ou laisser le marché décider",
+        "variable": "Qui décide de l'allocation de l'énergie : une planification d'ensemble ou le libre marché",
+        "position1": "Une planification d'ensemble, avec des règles contraignantes pour les acteurs de marché",
+        "position2": "Le libre marché organise l'allocation de l'énergie et des ressources",
+        "thesis": "Sans planification ni règles contraignantes pour les acteurs de marché, la décarbonation se passera mal ; le libre marché ne vaut pas partout."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Le blocage d'Ormuz, la baisse d'environ 10 % du pétrole et la « baffe » de 2022 servent à justifier l'urgence ; le moment est la variable que ces exemples font jouer.",
+      "fields": {
+        "title": "Décarboner maintenant ou attendre les chocs",
+        "variable": "Le moment où l'on engage la décarbonation : avant les chocs pétroliers ou après leur survenue",
+        "position1": "Décarboner dès maintenant, par prévention, pour se couvrir des chocs pétroliers",
+        "position2": "Attendre les chocs et réagir quand ils arrivent",
+        "thesis": "Décarboner tout de suite est une raison égoïste et de court terme : cela protège transport, chauffage et production du pétrole."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Il est au cœur de la lecture des manifestations lycéennes et étudiantes, mais c'est une facette plus étroite de la thèse que les axes précédents.",
+      "fields": {
+        "title": "Préparer l'école à un monde décarboné ou la garder telle quelle",
+        "variable": "Ce sur quoi on règle l'orientation des études : les besoins d'un monde décarboné ou les promesses actuelles",
+        "position1": "Orienter les études selon les besoins d'un monde décarboné, métiers manuels compris",
+        "position2": "Maintenir l'orientation actuelle des études vers l'université et les emplois de bureau",
+        "thesis": "On projette le système éducatif dans un monde qui ne changera pas, alors que la décrue remet en cause l'université pour tous."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "axe": {
+      "title": "Règles communes ou loi du marché",
+      "variable": "Le degré d'organisation collective de la raréfaction des ressources : règles communes ou loi du marché",
+      "position1": "Planifier la transition par des règles communes sur les ressources",
+      "position2": "Laisser la loi du marché et les choix individuels répartir les ressources",
+      "thesis": "Sans action particulière, on se prend les baffes : décarboner permet de piloter la décrue de façon plus maîtrisée."
+    }
+  },
+  "remarks": []
+}
