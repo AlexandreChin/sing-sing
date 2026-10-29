@@ -78,9 +78,19 @@ class CadrageBoussole(BaseModel):  # slide 6 — the arbitrage: two questions, e
     options: list[CadrageOption] = Field(default_factory=list)  # 2
 
 
+class CadrageAxe(BaseModel):
+    """The arbitrage the deck leads to, fixed before any slide is written. No slide shows it."""
+    title: str       # « A ou B », in neutral words of equal weight
+    variable: str    # the one variable being set
+    position1: str   # the speaker's way
+    position2: str   # the opposite setting
+    thesis: str      # the speaker's thesis, in his frame
+
+
 class CadragePresentation(BaseModel):
     # The post's own copy, not slide content: the Instagram caption.
     caption: str = ""
+    axe: CadrageAxe | None = None   # not rendered: what every slide is written toward
     hook: CadrageHook
     constat: CadrageConstat
     these: CadrageThese
