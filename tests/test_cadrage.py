@@ -96,6 +96,31 @@ def test_the_axe_fragment():
     assert frag == {"axe": FIELDS["axe"]}
 
 
+def _axis_fragments():
+    return {"axe": {"axe": FIELDS["axe"]}}   # a step's fragment, under the step's name
+
+
+def test_an_off_axis_claim_is_flagged_not_blocked():
+    fields = {**FIELDS["constat"], "claim": "Les pandas géants mangent du bambou sauvage."}
+    hard, flags = agent.field_errors("constat", fields, _axis_fragments(), None)
+    assert hard == []
+    assert any(f.startswith("constat.claim shares no key word with the axis") for f in flags)
+
+
+def test_an_on_axis_claim_is_not_flagged():
+    fields = {**FIELDS["constat"], "claim": "Sélectionner plus tard, c'est sélectionner plus brutalement."}
+    assert [f for f in agent.field_errors("constat", fields, _axis_fragments(), None)[1] if "axis" in f] == []
+
+
+def test_no_axe_no_flag():
+    assert [f for f in agent.field_errors("constat", FIELDS["constat"], {}, None)[1] if "axis" in f] == []
+
+
+def test_the_axe_step_is_not_flagged_against_itself():
+    flags = agent.field_errors("axe", FIELDS["axe"], _axis_fragments(), None)[1]
+    assert [f for f in flags if "axis" in f] == []
+
+
 def test_the_deck_validates():
     pres = CadragePresentation.model_validate(DECK)
     assert [f.value for f in pres.constat.figures] == ["95%", "21%", "× 8", "0,5 Md€"]

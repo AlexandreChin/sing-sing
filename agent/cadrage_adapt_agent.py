@@ -32,7 +32,7 @@ from pydantic import BaseModel, Field, ValidationError, create_model
 from agent._base import _call_with_retry, _j, medium_directive
 from agent.carousel_steps.steps import Option
 from agent.carousel_steps.store import digest, log_choice, stamp_for
-from agent.instagram_carousel_adapt_agent import _full_analysis_context
+from agent.instagram_carousel_adapt_agent import _full_analysis_context, _plain, _stems
 from models.cadrage_presentation import CadragePresentation
 from models.full_analysis import ArticleFullAnalysis
 
@@ -241,6 +241,22 @@ def _parts(value: str, n: int) -> list[str]:
     return parts + [""] * (n - len(parts))
 
 
+# the lines that must lead to the axe: (step, field)
+_AXIS_FIELDS = (("constat", "claim"), ("these", "these_claim"), ("these", "solution_claim"),
+                ("angle_mort", "claim"), ("depassement", "lead"), ("boussole", "title"), ("hook", "title"))
+
+
+def _axis_flags(step: str, fields: dict[str, Any], fragments: dict[str, dict]) -> list[str]:
+    """Advisory: a line that shares no key word with the axe is written for something else."""
+    axe = fragments.get("axe", {}).get("axe")
+    if not axe:
+        return []
+    stems = set().union(*(_stems(_plain(axe.get(k, ""))) for k in ("title", "variable", "position1", "position2", "thesis")))
+    return [f"{step}.{name} shares no key word with the axis (« {axe.get('variable', '')} »)"
+            for s, name in _AXIS_FIELDS if s == step and str(fields.get(name, "")).strip()
+            and not _stems(_plain(fields[name])) & stems]
+
+
 def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                  article: str | None) -> tuple[list[str], list[str]]:
     """(hard, flags) on one step's fields, given the earlier fragments."""
@@ -295,7 +311,7 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
             hard.append(f"writing.caption has {len(tags)} hashtag(s), must have 4")
         if not 100 <= _words(fields.get("caption", "")) <= 190:
             hard.append(f"writing.caption is {_words(fields.get('caption', ''))} words (aim for about 150)")
-    return hard, flags
+    return hard, flags + _axis_flags(step, fields, fragments)
 
 
 # ── Fragments and assembly ──────────────────────────────────────────────────
