@@ -185,6 +185,21 @@ def _retire(steps_dir: Path, step: Step, stamp: str) -> None:
             p.replace(dest / p.name)
 
 
+_LEGACY = ("constat", "these", "angle_mort", "depassement", "boussole", "hook", "writing")   # numbered 1…7 before the axe
+
+
+def _retire_legacy(steps_dir: Path) -> None:
+    """Move the step files of a folder written before the axe (1_constat … 7_writing) to
+    `stale_legacy/`: their numbers now mean other steps."""
+    if not (steps_dir / "1_constat.json").exists():
+        return
+    dest = steps_dir / "stale_legacy"
+    dest.mkdir(exist_ok=True)
+    for n, name in enumerate(_LEGACY, 1):
+        for p in steps_dir.glob(f"{n}_{name}.*"):
+            p.replace(dest / p.name)
+
+
 def base_inputs(full: ArticleFullAnalysis, article_text: str | None) -> str:
     return digest(full.model_dump_json(), (article_text or "").strip())
 
@@ -514,6 +529,8 @@ def pending_step(steps_dir: Path) -> str | None:
 
 
 def _run(full, no_api, article_text, steps_dir, stop_after, guided) -> CadragePresentation | None:
+    if steps_dir is not None:
+        _retire_legacy(steps_dir)
     base = base_inputs(full, article_text)
     fragments: dict[str, dict] = {}
     for step in STEPS:
