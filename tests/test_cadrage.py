@@ -29,6 +29,7 @@ def option_fields(deck: dict) -> dict[str, dict]:
     figs += [""] * (4 - len(figs))
     notes = lambda items: dict(zip(("note1", "note2", "note3"), [_note(n) for n in items] + ["", "", ""]))  # noqa: E731
     return {
+        "axe": dict(deck["axe"]),
         "constat": {"title": c["title"], **dict(zip(("fig1", "fig2", "fig3", "fig4"), figs)),
                     "claim": c["claim"], "detail": c["detail"]},
         "these": {"title": t["title"], "these_claim": t["these"]["claim"], "these_detail": t["these"]["detail"],
@@ -58,12 +59,41 @@ AXE = {"title": "Évaluer chaque année ou plus rarement", "variable": "la fréq
 
 
 def test_a_deck_without_an_axe_still_validates():
-    assert CadragePresentation.model_validate(DECK).axe is None
+    assert CadragePresentation.model_validate({k: v for k, v in DECK.items() if k != "axe"}).axe is None
 
 
 def test_a_deck_keeps_its_axe():
     pres = CadragePresentation.model_validate(DECK | {"axe": AXE})
     assert pres.axe.position2 == "évaluer plus rarement"
+
+
+def test_the_axe_step_comes_first():
+    assert agent.STEPS[0].name == "axe"
+    assert agent.STEP_NAMES == ["axe", "constat", "these", "angle_mort", "depassement", "boussole", "hook"]
+
+
+def test_every_step_has_its_prompt():
+    for s in agent.STEPS:
+        assert Path(f"agent/prompts/cadrage_steps/{s.n}_{s.name}.md").exists(), s.name
+
+
+def test_the_axe_needs_all_five_fields_and_two_distinct_positions():
+    hard = lambda **kw: agent.field_errors("axe", {**FIELDS["axe"], **kw}, {}, None)[0]  # noqa: E731
+    assert hard() == []
+    assert any("position2" in e for e in hard(position2=FIELDS["axe"]["position1"]))
+    assert any("title" in e and "empty" in e for e in hard(title=""))
+
+
+def test_axe_caps_are_hard():
+    hard = lambda **kw: agent.field_errors("axe", {**FIELDS["axe"], **kw}, {}, None)[0]  # noqa: E731
+    long = lambda n: " ".join(["mot"] * n)  # noqa: E731
+    for name, cap in (("title", 14), ("variable", 16), ("position1", 12), ("position2", 12), ("thesis", 20)):
+        assert any(name in e for e in hard(**{name: long(cap + 1)})), name
+
+
+def test_the_axe_fragment():
+    frag = agent.to_fragment(agent.STEP_BY_NAME["axe"], Option(id="a", slot="a", reason="", fields=FIELDS["axe"]))
+    assert frag == {"axe": FIELDS["axe"]}
 
 
 def test_the_deck_validates():
@@ -171,18 +201,18 @@ def fake(monkeypatch):
     return calls
 
 
-def test_unattended_runs_seven_steps_and_rebuilds_the_deck(fake, tmp_path):
+def test_unattended_runs_eight_steps_and_rebuilds_the_deck(fake, tmp_path):
     pres = agent.adapt(full(), steps_dir=tmp_path / "adapt_steps")
     assert fake.labels == [s.name for s in agent.STEPS]
     assert all(e == [] for e in fake.errors.values())
     assert pres.model_dump() == CadragePresentation.model_validate(DECK).model_dump()
 
 
-def test_guided_pauses_at_the_first_step(fake, tmp_path, capsys):
+def test_guided_pauses_at_the_axe(fake, tmp_path, capsys):
     assert agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", guided=True) is None
-    assert fake.labels == ["constat"]
-    assert agent.pending_step(tmp_path / "adapt_steps") == "constat"
-    assert "[constat]" in capsys.readouterr().out
+    assert fake.labels == ["axe"]
+    assert agent.pending_step(tmp_path / "adapt_steps") == "axe"
+    assert "[axe]" in capsys.readouterr().out
 
 
 def test_a_pick_then_a_fix_rewrites_one_field_without_regenerating(fake, tmp_path):
@@ -194,6 +224,16 @@ def test_a_pick_then_a_fix_rewrites_one_field_without_regenerating(fake, tmp_pat
     pres = agent.adapt(full(), steps_dir=steps)
     assert fake.labels == before                      # the later steps were re-stamped, not rerun
     assert pres.constat.figures[0].value == "96%"
+
+
+def test_fix_reaches_the_axe(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    before = list(fake.labels)
+    agent.fix(full(), steps, "axe.position1", "sélectionner très tôt")
+    assert fake.labels == before
+    assert agent.adapt(full(), steps_dir=steps).axe.position1 == "sélectionner très tôt"
+    assert fake.labels == before
 
 
 def test_choose_refuses_a_step_without_options(fake, tmp_path):

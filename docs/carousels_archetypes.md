@@ -134,7 +134,7 @@ Tous les formats partent de la même `analyze` (`ArticleFullAnalysis`) ; chaque 
 - **Slide 5 :** Le dépassement — trois leviers qui atténuent le risque (« atténuer », jamais « sans ») et ont un coût ; au moins un agit sur le comment de la décision. Hors cadre.
 - **Slide 6 :** La boussole — jauge, deux questions, pour et contre de chacune.
 - **Slide 7 :** CTA.
-- **Étapes :** constat, thèse, angle mort, dépassement, boussole, hook ; légende ensuite. `check` ne couvre pas ce format.
+- **Étapes :** axe (l'arbitrage vers lequel tout est écrit, jamais affiché), constat, thèse, angle mort, dépassement, boussole, hook ; légende ensuite. `check` ne couvre pas ce format.
 - **Perchoirs :** slides 2–5 (le fil les traverse) et le curseur de la boussole (sans fil).
 
 ## 4. Arbre de décision

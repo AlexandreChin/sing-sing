@@ -534,7 +534,7 @@ def _add_source_args(p: argparse.ArgumentParser) -> None:
 
 # the guided steps of the 9-slide deck, then those of the cadrage cascade
 _STEP_CHOICES = ["question", "enjeu", "idees", "moments", "contexte", "socle", "hook",
-                 "constat", "these", "angle_mort", "depassement", "boussole"]
+                 "axe", "constat", "these", "angle_mort", "depassement", "boussole"]
 
 
 def _add_stop_after(p: argparse.ArgumentParser) -> None:
