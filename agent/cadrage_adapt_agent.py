@@ -1,6 +1,7 @@
 """Adapt agent for the CADRAGE & LOGIQUE carousel (7 slides).
 
-A guided cascade in slide order: the facts the speaker leans on (constat), his
+A guided cascade: first the axe (the arbitrage the deck leads to, never rendered),
+then in slide order the facts the speaker leans on (constat), his
 thesis and solution (these), the blind spot of that solution (angle_mort), the
 levers that answer it (depassement), the arbitrage left to the reader
 (boussole), then the hook; `writing` finishes with the caption, without
@@ -49,6 +50,14 @@ class AwaitingChoice(Exception):
 
 
 # ── Option models and the step table ────────────────────────────────────────
+
+class AxeOption(BaseModel):
+    title: str       # « A ou B »: the arbitrage, in neutral words of equal weight
+    variable: str    # the one variable being set
+    position1: str   # the speaker's way
+    position2: str   # the opposite setting
+    thesis: str      # the speaker's thesis, in his frame
+
 
 class ConstatOption(BaseModel):
     title: str
@@ -123,13 +132,14 @@ class Step:
 
 
 STEPS: tuple[Step, ...] = (
-    Step(1, "constat", ConstatOption, "title", 3),
-    Step(2, "these", TheseOption, "title", 3),
-    Step(3, "angle_mort", AngleMortOption, "title", 3),
-    Step(4, "depassement", DepassementOption, "title", 3),
-    Step(5, "boussole", BoussoleOption, "title", 3),
-    Step(6, "hook", HookOption, "title", 3),
-    Step(7, "writing", None, "", 3, (1, 1)),
+    Step(1, "axe", AxeOption, "title", 3),
+    Step(2, "constat", ConstatOption, "title", 3),
+    Step(3, "these", TheseOption, "title", 3),
+    Step(4, "angle_mort", AngleMortOption, "title", 3),
+    Step(5, "depassement", DepassementOption, "title", 3),
+    Step(6, "boussole", BoussoleOption, "title", 3),
+    Step(7, "hook", HookOption, "title", 3),
+    Step(8, "writing", None, "", 3, (1, 1)),
 )
 STEP_BY_NAME: dict[str, Step] = {s.name: s for s in STEPS}
 STEP_NAMES = [s.name for s in STEPS[:-1]]
@@ -185,6 +195,8 @@ def base_inputs(full: ArticleFullAnalysis, article_text: str | None) -> str:
 
 # (step, field) → ("words" | "chars", cap)
 _CAPS: dict[tuple[str, str], tuple[str, int]] = {
+    ("axe", "title"): ("words", 14), ("axe", "variable"): ("words", 16),
+    ("axe", "position1"): ("words", 12), ("axe", "position2"): ("words", 12), ("axe", "thesis"): ("words", 20),
     ("constat", "title"): ("words", 10), ("constat", "claim"): ("chars", 80), ("constat", "detail"): ("words", 30),
     ("constat", "fig1"): ("words", 14), ("constat", "fig2"): ("words", 14),
     ("constat", "fig3"): ("words", 14), ("constat", "fig4"): ("words", 14),
@@ -209,7 +221,8 @@ _HASHTAG = re.compile(r"#\w+")
 _QUOTED = re.compile(r"«[^»]*»")
 _NUMBER = re.compile(r"\d+(?:[.,]\d+)?")
 _FIG_VALUE_MAX = 9  # a slot holds a figure or a short fact, drawn at 70 px in a half-width column
-_REQUIRED = {"constat": ("fig1", "fig2"), "these": ("note1",), "angle_mort": ("note1", "second_claim", "second_detail"),
+_REQUIRED = {"axe": ("title", "variable", "position1", "position2", "thesis"),
+             "constat": ("fig1", "fig2"), "these": ("note1",), "angle_mort": ("note1", "second_claim", "second_detail"),
              "depassement": ("lever1", "lever2", "lever3"), "boussole": ("question1", "question2")}
 
 
@@ -245,6 +258,8 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
     for name in _REQUIRED.get(step, ()):
         if not str(fields.get(name, "")).strip():
             hard.append(f"{step}.{name} is empty")
+    if step == "axe" and fields.get("position1") and _norm(fields["position1"]) == _norm(fields.get("position2", "")):
+        hard.append("axe.position2 repeats position1 — two identical positions are no arbitrage")
     if step == "constat":
         for name in ("fig1", "fig2", "fig3", "fig4"):
             value = str(fields.get(name, "")).strip()
@@ -298,6 +313,8 @@ def _notes(f: dict, names: tuple[str, ...] = ("note1", "note2", "note3")) -> lis
 
 def to_fragment(step: Step, option: Option) -> dict:
     f = option.fields
+    if step.name == "axe":
+        return {"axe": {k: f.get(k, "") for k in ("title", "variable", "position1", "position2", "thesis")}}
     if step.name == "constat":
         figures = []
         for name in ("fig1", "fig2", "fig3", "fig4"):

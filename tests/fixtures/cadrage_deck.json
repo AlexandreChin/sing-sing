@@ -113,5 +113,12 @@
         "con": "Des échecs en licence, du **déclassement** et un coût collectif."
       }
     ]
+  },
+  "axe": {
+    "title": "Sélectionner à l'école ou plus tard",
+    "variable": "le moment où l'orientation sélectionne",
+    "position1": "sélectionner dès l'école, en orientant plus tôt",
+    "position2": "sélectionner plus tard, à l'université et sur le marché du travail",
+    "thesis": "Refuser de filtrer en amont ne protège personne : la sélection se fait plus tard, plus brutalement."
   }
 }
