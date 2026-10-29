@@ -36,24 +36,19 @@
       }
     ],
     "claim": "Les revenus, c'est de la production redistribuée : elle baisse, ils baissent.",
-    "detail": "L'intervenant y voit l'origine du malaise des gilets jaunes : le logement pèse plus lourd que l'essence, mais on en parle beaucoup moins."
+    "detail": "Moins d'énergie, c'est moins de production, donc moins à redistribuer : l'intervenant y voit l'origine du malaise des gilets jaunes."
   },
   "these": {
     "title": "Piloter la décrue plutôt que la **subir**",
     "these": {
-      "claim": "La baisse de l'énergie est déjà là : on la pilote, ou on se prend les baffes.",
+      "claim": "La baisse de l'énergie est déjà là : on la pilote, ou « on se prend les baffes ».",
       "detail": "Sans action, chaque choc frappe sans préparation (Ukraine en 2022, pétrole aujourd'hui)."
     },
     "solution": {
       "claim": "Décarboner par un plan : nucléaire, renouvelables et sobriété ensemble.",
       "detail": "Le PREF (Plan Robuste pour l'Économie Française) : feuille de route du think tank The Shift Project, présidé par Jean-Marc Jancovici."
     },
-    "notes": [
-      {
-        "kind": "remark",
-        "text": "L'intervenant : « on se prend les baffes »"
-      }
-    ]
+    "notes": []
   },
   "angle_mort": {
     "title": "Un débat public **sous tension**",
