@@ -1,6 +1,6 @@
-ÉTAPE 1 — LE CONSTAT (slide 2)
+ÉTAPE 2 — LE CONSTAT (slide 2)
 
-Tu proposes 3 ou 4 options (`title`, `fig1` à `fig4`, `claim`, `detail`). C'est une EXTRACTION fidèle : tout vient du média.
+L'étape 1 (l'axe) est FIXÉE : les faits que tu retiens sont ceux qui mènent à sa `thesis` et à la variable qu'il pose ; écarte ceux qui n'y mènent pas. Tu proposes 3 ou 4 options (`title`, `fig1` à `fig4`, `claim`, `detail`). C'est une EXTRACTION fidèle : tout vient du média.
 - `title` (≤10 mots) : l'idée que ces faits servent, nommée comme le média la poserait (une affirmation ou un groupe nominal) ; un mot peut être mis en or. Ex. (autre sujet) : « Le télétravail **fatigue** les équipes ».
 - `fig1` à `fig4` : 2 à 4 repères que le média donne — un chiffre ou un fait court (une date, un lieu, un nom, un terme), les deux se mélangent librement — au format `valeur | libellé | comparaison`. La valeur est courte (≤9 caractères) ; un fait non chiffré s'écrit tel que le média le nomme (ex. `Ormuz | le détroit par où passe 20 % du pétrole mondial | `) ; un chiffre dit en toutes lettres s'écrit en notation compacte (« huit fois plus » → `× 8`, « un demi-milliard d'euros » → `0,5 Md€`). La comparaison est le terme que le média oppose (« 40 % en Norvège et Suède »), vide s'il n'en donne pas. Ex. : `38% | des salariés en visio plus de trois heures par jour | 12 % en 2019`. `fig3` et `fig4` restent vides (`""`) si le média ne donne pas assez de repères : n'en invente JAMAIS.
 - `claim` (≤80 caractères, 2 lignes sur la slide) : ce que ces faits établissent aux yeux du média, en une phrase affirmative, sans « selon l'intervenant », « pour lui » ni « d'après lui » (le titre et la promesse de la slide 1 disent déjà que c'est une prise de position).

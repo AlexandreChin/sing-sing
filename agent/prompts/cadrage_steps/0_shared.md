@@ -1,17 +1,18 @@
 CARROUSEL « CADRAGE & LOGIQUE » — singsing.media
 
-L'analyse du média et le média lui-même sont fournis ci-dessus. Le carrousel a 7 slides et suit le fil d'une prise de position : ce sur quoi elle s'appuie, ce qu'elle conclut, ce qu'elle laisse dans l'ombre, comment on peut y répondre, puis l'arbitrage qui reste au lecteur. Sept étapes, une par appel, dans l'ordre des slides ; chacune FIXE ce que les suivantes reçoivent :
-1. **Le constat** (slide 2) — les chiffres et faits sur lesquels le média s'appuie.
-2. **La thèse** (slide 3) — ce que le média conclut et ce qu'il propose.
-3. **L'angle mort** (slide 4) — ce que sa solution risque, vu d'ailleurs.
-4. **Le dépassement** (slide 5) — les leviers qui atténuent ce risque, et leur coût.
-5. **La boussole** (slide 6) — l'arbitrage : deux questions, chacune avec son pour et son contre.
-6. **L'accroche** (slide 1) — le titre et la promesse.
-7. **La rédaction** — la légende. (La slide 7, l'appel à commenter, est fixe : tu ne l'écris pas.)
-Ce qu'une étape antérieure a fixé t'est fourni en contexte : tu ne le réécris JAMAIS, tu écris POUR lui.
+L'analyse du média et le média lui-même sont fournis ci-dessus. Le carrousel a 7 slides et suit le fil d'une prise de position : ce sur quoi elle s'appuie, ce qu'elle conclut, ce qu'elle laisse dans l'ombre, comment on peut y répondre, puis l'arbitrage qui reste au lecteur. Huit étapes, une par appel : l'axe d'abord, puis dans l'ordre des slides ; chacune FIXE ce que les suivantes reçoivent :
+1. **L'axe** (aucune slide) — l'arbitrage vers lequel tout est écrit : une variable, deux positions, la thèse du média.
+2. **Le constat** (slide 2) — les chiffres et faits sur lesquels le média s'appuie.
+3. **La thèse** (slide 3) — ce que le média conclut et ce qu'il propose.
+4. **L'angle mort** (slide 4) — ce que sa solution risque, vu d'ailleurs.
+5. **Le dépassement** (slide 5) — les leviers qui atténuent ce risque, et leur coût.
+6. **La boussole** (slide 6) — l'arbitrage : deux questions, chacune avec son pour et son contre.
+7. **L'accroche** (slide 1) — le titre et la promesse.
+8. **La rédaction** — la légende. (La slide 7, l'appel à commenter, est fixe : tu ne l'écris pas.)
+Ce qu'une étape antérieure a fixé t'est fourni en contexte : tu ne le réécris JAMAIS, tu écris POUR lui. L'axe est le but : chaque slide est écrite pour mener à lui, avec ses mots-clés, sans le nommer ni le répéter (il n'est affiché nulle part).
 
 Deux registres, à ne pas mélanger.
-- **Slides 2 et 3 : dans le cadre du média.** Tu rapportes fidèlement ce qu'il dit, sans « selon lui » : les chiffres sont ceux du média, tels qu'il les donne ; rien n'est ajouté.
+- **L'axe, et les slides 2 et 3 : dans le cadre du média.** Tu rapportes fidèlement ce qu'il dit, sans « selon lui » : les chiffres sont ceux du média, tels qu'il les donne ; rien n'est ajouté.
 - **Slides 4 à 6 : on sort du cadre.** Tu t'appuies sur des connaissances générales, pas sur le média. Prudence : aucun chiffre, aucune date, aucun nom de loi que tu ne peux pas étayer ; formule les risques avec « peut », « risque de », jamais comme des faits établis ; seule exception, une régularité statistique largement documentée que tu peux nommer par sa source (note `source`), qui s'écrit alors au présent, sans « peut ». Une `source` est un organisme, un rapport ou une série statistique reconnus, nommés tels quels (« L'Insee : … », « La DEPP (ministère de l'Éducation) : … ») et décrits par ce qu'on y trouve ; JAMAIS d'URL, JAMAIS de chiffre. Si tu n'es pas sûr qu'un organisme publie cela, ne le cite pas.
 
 Format des champs (des chaînes simples, éditables une à une).

@@ -236,6 +236,23 @@ def test_fix_reaches_the_axe(fake, tmp_path):
     assert fake.labels == before
 
 
+def test_a_later_step_receives_the_axe(fake, tmp_path, monkeypatch):
+    messages = []
+    monkeypatch.setattr(agent, "_call_with_retry",
+                        lambda msg, *a, **kw: messages.append(msg) or fake(msg, *a, **kw))
+    agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", stop_after="constat")
+    fixed = messages[1].split("CHOIX FIXÉS (ne les réécris pas) :")[1]
+    assert FIELDS["axe"]["position2"] in fixed
+
+
+def test_the_shared_prompt_lists_every_step():
+    shared = Path("agent/prompts/cadrage_steps/0_shared.md").read_text(encoding="utf-8")
+    for name in ("L'axe", "Le constat", "La thèse", "L'angle mort", "Le dépassement", "La boussole",
+                 "L'accroche", "La rédaction"):
+        assert name in shared, name
+    assert "Huit étapes" in shared
+
+
 def test_choose_refuses_a_step_without_options(fake, tmp_path):
     with pytest.raises(agent.ChoiceError):
         agent.choose(full(), tmp_path / "adapt_steps", "writing", ["a"], {})
