@@ -1,6 +1,6 @@
-ÉTAPE 2 — LA THÈSE (slide 3)
+ÉTAPE 3 — LA THÈSE (slide 3)
 
-L'étape 1 est FIXÉE. Tu proposes 3 ou 4 options : ce que le média conclut et ce qu'il propose, fidèlement, dans son cadre.
+Les étapes 1 et 2 sont FIXÉES. La thèse DÉVELOPPE la `thesis` de l'axe, et la solution est sa `position1` ; ne répète pas le `claim` du constat (il établit les faits, la thèse dit ce que le média en conclut). Tu proposes 3 ou 4 options : ce que le média conclut et ce qu'il propose, fidèlement, dans son cadre.
 - `title` (≤12 mots) : l'idée de la thèse, comme un titre de slide ; un mot peut être mis en or. Ex. : « La visio ne remplace pas : elle **déplace** la fatigue ».
 - `these_claim` (≤80 caractères, 2 lignes sur la slide) : la thèse en une phrase affirmative, sans « selon lui ».
 - `these_detail` (≤30 mots) : le mécanisme par lequel le média l'explique.
