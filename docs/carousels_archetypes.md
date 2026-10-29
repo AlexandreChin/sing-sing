@@ -1,6 +1,6 @@
 # Archétypes de carrousels — singsing.media
 
-Six archétypes, un même contrat. Le carrousel optimisé (`instagram_carousel_optimized`, le « Grand dossier ») est la référence : les autres ne diffèrent de lui que par leurs slides intermédiaires.
+Sept archétypes, un même contrat. Le carrousel optimisé (`instagram_carousel_optimized`, le « Grand dossier ») est la référence : les autres ne diffèrent de lui que par leurs slides intermédiaires.
 
 ## 1. Posture éditoriale
 
@@ -10,6 +10,8 @@ Six archétypes, un même contrat. Le carrousel optimisé (`instagram_carousel_o
 - **Sobriété.** Pas de superlatifs ni d'éloges (« cas d'école »). On décrit, les faits portent.
 - **Deck autonome.** Aucun nom nu, acronymes développés (INSEE, IFOP, GIEC…) : un lecteur qui ne connaît pas la source comprend.
 - **Indices.** Chaque réponse ou source dit où vérifier : une institution, un document, un chiffre, une personne citée.
+- **Un outil de pensée critique.** C'est ce qui distingue Sing Sing. Chaque archétype nomme la question qu'il apprend au lecteur à poser (champ « Outil de pensée critique » au §3). Test : le lecteur repart-il avec une question qu'il peut vérifier, et un endroit où le faire ? Un deck qui ne fait que replacer l'article dans un contexte, sans outil de vérification, n'est pas réussi.
+- **Une lentille, du contexte d'abord.** Chaque archétype lit l'article à travers une lentille (le temps, la mesure, le prisme disciplinaire, l'arbitrage…). Les premières slides après le hook fournissent le contexte dont la lentille a besoin (repères datés, méthode, positions) ; les slides suivantes, celles de pensée critique, s'en servent. Une slide critique ne doit jamais s'appuyer sur un élément que les slides précédentes n'ont pas posé.
 
 ## 2. Contrat commun
 
@@ -72,6 +74,9 @@ Tous les formats partent de la même `analyze` (`ArticleFullAnalysis`) ; chaque 
 ### Archétype 1 : `grand_dossier` — le carrousel optimisé (9 slides)
 
 - **Sujet :** enquêtes, documentaires, rapports de fond, dossiers complets.
+- **Lentille :** les lentilles canoniques (`CANONICAL_LENSES`).
+- **Contexte :** En bref, À savoir. **Critique :** les 3 moments, le socle, la prise de recul.
+- **Outil de pensée critique :** à travers quelle lentille chaque affirmation est-elle lue ? (les réflexes)
 - **Réalisé :** `instagram_carousel_optimized`, décrit dans le `CLAUDE.md`. Hook → En bref (chapeau et 3 idées-clés) → À savoir, à se demander (repères et réflexes) → 3 moments (un réflexe chacun) → Le socle de l'argument (thèse, présupposés, objection) → Prise de recul (enjeu de fond, « La question », où chercher) → CTA.
 - **Principe :** la slide « Prise de recul » est écrite en premier et tout y mène (rétro-ingénierie : de l'enjeu systémique vers l'accroche).
 - **Promesse :** « Comprendre … ».
@@ -80,6 +85,9 @@ Tous les formats partent de la même `analyze` (`ArticleFullAnalysis`) ; chaque 
 ### Archétype 2 : `le_dilemme` (6 slides)
 
 - **Sujet :** arbitrages où deux exigences légitimes s'opposent (liberté et sécurité…), sans thèse d'auteur.
+- **Lentille :** l'arbitrage.
+- **Contexte :** slides 2–3 (le cas de chaque exigence). **Critique :** slides 4–5.
+- **Outil de pensée critique :** quelle variable unique les deux camps règlent-ils différemment ?
 - **Slide 1 :** Hook, titre = le dilemme en une phrase. Promesse « Un arbitrage à comprendre : … ».
 - **Slide 2 :** L'exigence A — arguments et légitimité (dans le cadre si le média les expose).
 - **Slide 3 :** L'exigence B — idem.
@@ -93,6 +101,9 @@ Tous les formats partent de la même `analyze` (`ArticleFullAnalysis`) ; chaque 
 ### Archétype 3 : `anatomie_chiffre` (5 slides)
 
 - **Sujet :** sondages, statistiques, classements, pourcentages marquants.
+- **Lentille :** la mesure.
+- **Contexte :** slides 2–3 (la boîte noire, ce que le chiffre établit). **Critique :** slide 4.
+- **Outil de pensée critique :** comment ce chiffre a-t-il été mesuré, et que laisse-t-il de côté ?
 - **Slide 1 :** Hook, titre = le chiffre brut entre « ». Il ne peut pas être isolé en grand : la slide 1 reste identique pour tous.
 - **Slide 2 :** La boîte noire — méthode, échantillon, questions posées, seuils, en monospace (`valeur | libellé | comparaison`). Dans le cadre : si le texte ne le dit pas, on écrit « non précisé » plutôt que d'inventer.
 - **Slide 3 :** La zone d'éclairage — ce que le chiffre établit solidement et son utilité.
@@ -105,28 +116,36 @@ Tous les formats partent de la même `analyze` (`ArticleFullAnalysis`) ; chaque 
 ### Archétype 4 : `temps_long` (5 slides)
 
 - **Sujet :** faits divers, polémiques à chaud, déclarations politiques de la veille.
+- **Lentille :** le temps.
+- **Outil de pensée critique :** rupture, continuité ou cycle ? Une affirmation sur l'actualité (« inédit », « glissement », « dérive ») suppose une hypothèse temporelle, et chaque hypothèse prédit autre chose dans les données ; les repères datés des slides 2–3 disent où regarder pour savoir laquelle elles soutiennent.
 - **Slide 1 :** Hook, titre = le fait brut daté. L'écume (la réaction médiatique) y est absorbée : le hook la nomme déjà. Promesse « Prendre du recul sur … ».
-- **Slide 2 :** Le palier décennal — un tournant sur 10 à 15 ans, en **repères datés** (lois, ruptures, séries à consulter), jamais une tendance chiffrée. Hors cadre.
-- **Slide 3 :** La vague de fond — une mutation de 50 ans (démographique, technique, culturelle), en repères datés. Hors cadre.
-- **Slide 4 :** Le raccordement — comment l'actualité du jour découle de ces mouvements. Formulé comme une lecture possible, non comme une explication établie.
-- **Slide 5 :** CTA.
-- **Étapes :** vague de fond (noyau), palier, raccordement, hook.
-- **Visuel :** une frise verticale fine, dates en or ; l'oiseau se perche sur les dates.
-- **Risque nommé :** les chiffres de long terme sont ceux que le modèle invente le plus volontiers ; sans donnée fournie par l'auteur, on s'en tient aux repères datés.
+- **Slide 2 :** Le palier décennal — un tournant sur 10 à 15 ans, en **repères datés** (lois, ruptures, séries à consulter), jamais une tendance chiffrée. Présentés comme des épisodes candidats à la comparaison, sans affirmer qu'ils sont de même nature que l'actualité. Contexte de la slide 4. Hors cadre.
+- **Slide 3 :** La vague de fond — une mutation de 50 ans (démographique, technique, culturelle), en repères datés, même statut. Contexte de la slide 4. Hors cadre.
+- **Slide 4 :** Rupture, continuité ou cycle ? — la slide de pensée critique, qui s'appuie sur les repères des slides 2–3. Un même constat se lit de trois façons, et chacune prédit autre chose dans les séries : **rupture** (une cassure nette par rapport aux épisodes précédents sur la même mesure), **continuité** (une évolution progressive, dans le même sens, d'un repère au suivant), **cycle** (des pics à chaque mobilisation, puis un retour au niveau antérieur). Un tableau « lecture / ce qu'elle donnerait dans les séries / où regarder », la dernière colonne renvoyant aux repères des slides 2–3 et à des organismes ou séries à consulter. Une ligne place le vocabulaire du média (« inédit » suppose la rupture, « glissement » la continuité) sans le juger : les trois lectures restent à tester. Méthode générale, hors cadre ; les mots cités sont dans le cadre, entre « ». Aucun chiffre sur le cas traité. Clôture par une question neutre : quelle lecture les séries que vous trouverez soutiennent-elles ?
+- **Slide 5 :** CTA, la relance reprend cette question.
+- **Étapes :** vague de fond (noyau), palier, lecture temporelle (rupture, continuité, cycle), hook.
+- **Visuel :** une frise verticale fine, dates en or ; l'oiseau se perche sur les dates. La slide 4 est un tableau à trois lignes, une par lecture.
+- **Risques nommés :** les chiffres de long terme sont ceux que le modèle invente le plus volontiers ; sans donnée fournie par l'auteur, on s'en tient aux repères datés. Et un rapprochement n'est pas une explication : aucune formule du type « c'est la suite de … » ; le deck propose des comparaisons à vérifier, pas un récit. Si le média ne formule aucune affirmation temporelle, `temps_long` est un mauvais choix.
 
 ### Archétype 5 : `trois_regards` (6 slides)
 
 - **Sujet :** phénomènes de société globaux abordés sous un seul prisme.
+- **Lentille :** la discipline.
+- **Contexte :** le regard du média (le prisme qu'il emploie, repéré sur l'un des prismes) et la question à laquelle il répond (ouverture de la matrice). **Critique :** les prismes et la matrice.
+- **Outil de pensée critique :** la réponse change-t-elle selon la discipline qu'on convoque ?
 - **Slide 1 :** Hook, titre = l'objet d'étude en termes neutres. Promesse « Trois façons de regarder … ».
-- **Slides 2–4 :** trois prismes — économique (incitations, rareté, coûts cachés), sociologique (normes, statut, lien social), juridique ou historique (cadre légal, précédents, institutions). Chacun : ce que ce prisme éclaire (jamais « ce que l'article oublie »), avec ses sources à consulter. Hors cadre. Un prisme porte l'icône de sa lentille, sans nouvelle couleur.
-- **Slide 5 :** La matrice croisée — la réponse change selon le prisme priorisé : trois colonnes côte à côte.
+- **Slides 2–4 :** trois prismes — économique (incitations, rareté, coûts cachés), sociologique (normes, statut, lien social), juridique ou historique (cadre légal, précédents, institutions). Chacun : ce que ce prisme éclaire (jamais « ce que l'article oublie »), avec ses sources à consulter. Hors cadre. Celui que le média emploie lui-même porte un repère « Le regard du média » (une phrase, dans le cadre). Un prisme porte l'icône de sa lentille, sans nouvelle couleur.
+- **Slide 5 :** La matrice croisée — ouverte par la question à laquelle le média répond (dans le cadre) ; la réponse change selon le prisme priorisé : trois colonnes côte à côte.
 - **Slide 6 :** CTA, la relance porte sur la pondération entre les prismes.
-- **Étapes :** matrice (noyau), prismes, hook.
+- **Étapes :** matrice (noyau, avec la question à laquelle le média répond), prismes (dont le repère « Le regard du média »), hook.
 - **Perchoirs :** le titre de chaque prisme.
 
 ### Archétype 6 : `cadrage_logique` (7 slides) — réalisé
 
 - **Sujet :** tribunes, essais, éditoriaux, grands entretiens d'idées.
+- **Lentille :** le risque d'une solution.
+- **Contexte :** slides 2–3 (le constat, la thèse, dans le cadre). **Critique :** slides 4–6.
+- **Outil de pensée critique :** que risque la solution proposée, et quel arbitrage reste à faire ?
 - **Slide 1 :** Hook ; titre = l'affirmation centrale du média entre « » ; promesse « Décryptage d'une prise de position sur … ».
 - **Slide 2 :** Le constat — les chiffres ou faits courts du média, en monospace, et ce qu'ils établissent. Dans le cadre.
 - **Slide 3 :** La thèse — ce que le média conclut, la solution proposée, une remarque ou une source dessous. Dans le cadre.
@@ -136,6 +155,23 @@ Tous les formats partent de la même `analyze` (`ArticleFullAnalysis`) ; chaque 
 - **Slide 7 :** CTA.
 - **Étapes :** axe (l'arbitrage vers lequel tout est écrit, jamais affiché), constat, thèse, angle mort, dépassement, boussole, hook ; légende ensuite. `check` ne couvre pas ce format.
 - **Perchoirs :** slides 2–5 (le fil les traverse) et le curseur de la boussole (sans fil).
+
+### Archétype 7 : `la_causalite` (6 slides) — à réaliser
+
+- **Sujet :** études, enquêtes, articles de santé, d'éducation ou de société qui affirment un lien de cause à effet (« provoque », « à cause de », « responsable de », « grâce à »).
+- **Lentille :** la causalité.
+- **Contexte :** slides 2–3 (le lien affirmé, la preuve avancée, dans le cadre). **Critique :** slides 4–5.
+- **Outil de pensée critique :** corrélation ou cause ? Quelles autres explications sont possibles, dans quel sens va le lien, et qu'est-ce qui l'établirait ?
+- **Slide 1 :** Hook, titre = le lien affirmé par le média, entre « ». Promesse « Examiner un lien de cause à effet : … ».
+- **Slide 2 :** Le lien affirmé — ce que le média relie à quoi (X, Y), le mécanisme qu'il propose, les chiffres tels que donnés. Dans le cadre.
+- **Slide 3 :** La preuve avancée — ce sur quoi repose le lien : type de preuve (observation, comparaison, essai, témoignage), échantillon, groupe de comparaison, durée, en monospace (`valeur | libellé | comparaison`). Dans le cadre : si le texte ne le dit pas, on écrit « non précisé » plutôt que d'inventer.
+- **Slide 4 :** Les autres explications — trois lectures possibles d'une même corrélation : le sens inverse (Y précède X), un facteur commun (Z agit sur les deux), le hasard ou la sélection de l'échantillon. Chacune formulée comme une possibilité à écarter, jamais comme un reproche fait à l'étude ; avec, pour chacune, où regarder. Hors cadre : aucun chiffre ajouté.
+- **Slide 5 :** Ce qui établirait le lien — les preuves qui renforcent une conclusion causale (groupe témoin, avant/après une intervention, effet qui croît avec la dose, expérience naturelle, essai randomisé), avec celles que la source fournit (renvoi à la slide 3) et les organismes ou séries où les chercher. Hors cadre. Clôture par une question neutre : quelle preuve vous ferait changer d'avis, dans un sens ou dans l'autre ?
+- **Slide 6 :** CTA, la relance reprend cette question.
+- **Étapes :** autres explications (noyau), lien, preuve, ce qui établirait le lien, hook.
+- **Visuel :** un petit schéma de flèches. La slide 4 montre X → Y et, en regard, les trois lectures (Y → X, Z → X et Y, hasard) ; l'oiseau se perche sur la flèche de la lecture lue. Slide 3 en monospace, comme `anatomie_chiffre`.
+- **Distinction avec `anatomie_chiffre` :** celui-ci interroge la mesure (comment le chiffre a-t-il été obtenu ?), celui-là le lien (le chiffre prouve-t-il une cause ?).
+- **Risques nommés :** (1) jamais « l'étude est faible » ni « le média confond » : le deck dit ce qu'il faudrait pour établir le lien, pas que la source échoue ; (2) il ne conclut ni à la cause ni à son absence ; (3) le modèle invente volontiers des détails d'étude (échantillon, méthode) : sans donnée dans la source, « non précisé » ; (4) si la source est elle-même un essai randomisé, les slides 4–5 changent de ton (limites de généralisation) et le choix de l'archétype est à revoir.
 
 ## 4. Arbre de décision
 
@@ -154,6 +190,7 @@ Ne regarde pas le sujet (écologie, économie, justice) mais la nature de la mat
    ├─ Une thèse d'auteur, avec une recommandation forte ──> cadrage_logique
    ├─ Un arbitrage entre deux exigences respectables, sans thèse ──> le_dilemme
    ├─ Un phénomène de société complexe réduit à un seul prisme ──> trois_regards
+   ├─ Un lien de cause à effet affirmé (« provoque », « à cause de ») ──> la_causalite
    └─ Une enquête d'envergure, dense, multi-dimensionnelle ──> grand_dossier
 ```
 
@@ -162,12 +199,13 @@ Ne regarde pas le sujet (écologie, économie, justice) mais la nature de la mat
 | Format | Indices dans le texte | Matière première | Test mental |
 |---|---|---|---|
 | `anatomie_chiffre` | Titre contenant un pourcentage, une somme, un classement (« 64 % des Français… ») | Étude, sondage IFOP/OpinionWay, rapport de l'Insee | Sans le chiffre, l'article perd-il sa raison d'être ? |
-| `temps_long` | Vocabulaire de l'urgence ou du choc (« historique », « inédit ») ; fait divers ou déclaration de la veille | Dépêche AFP, couverture à chaud, réactions en chaîne | Aura-t-on oublié les détails dans six mois si l'on ne comprend pas la tendance de fond ? |
+| `temps_long` | Vocabulaire de l'urgence ou du choc (« historique », « inédit ») ; affirmation de nouveauté, de tendance ou de retour (« glissement », « dérive ») sans série à l'appui ; fait divers ou déclaration de la veille | Dépêche AFP, couverture à chaud, réactions en chaîne | L'article affirme-t-il une nouveauté, une tendance ou un retour sans le montrer ? |
 | `cadrage_logique` | Verbes prescriptifs (« il faut », « nous devons »), première personne, signature d'un essayiste | Tribune, billet d'opinion, éditorial, chronique, grand entretien | L'auteur recommande-t-il une solution dont on peut nommer le risque ? |
 | `le_dilemme` | « D'un côté / de l'autre », « sécurité ou liberté », controverses éthiques | Arbitrages de politique publique, bioéthique, régulation | Les deux camps ont-ils des arguments parfaitement défendables ? |
 | `trois_regards` | Sujet systémique massif (logement, IA, natalité) traité sous un angle émotionnel ou anecdotique | Témoignages, articles « tendances », dossiers généralistes | Une seule discipline est-elle convoquée pour un problème complexe ? |
+| `la_causalite` | « Provoque », « à cause de », « responsable de », « grâce à », « conduit à » ; titre qui promet un effet | Étude observationnelle, rapport, article de santé, d'éducation ou de société | Le lien de cause à effet est-il affirmé plus fort que la preuve fournie ? |
 | `grand_dossier` | Plus de 2 000 mots, multiples sources, documents, calendrier long | Enquête d'investigation, rapport de la Cour des comptes ou du GIEC, livre-enquête | Le document est-il trop dense pour tenir dans une citation ou un graphique ? |
 
 ### En cas d'hésitation
 
-Quand un article coche plusieurs cases (une tribune qui s'appuie sur une statistique) : si le chiffre n'est qu'un moyen au service d'une vision du monde, `cadrage_logique` ; si le chiffre fait lui-même débat (représentativité, mode de calcul), `anatomie_chiffre`.
+Quand un article coche plusieurs cases (une tribune qui s'appuie sur une statistique) : si le chiffre n'est qu'un moyen au service d'une vision du monde, `cadrage_logique` ; si le chiffre fait lui-même débat (représentativité, mode de calcul), `anatomie_chiffre` ; si le débat porte sur ce que le chiffre prouverait (une corrélation présentée comme une cause), `la_causalite`.
