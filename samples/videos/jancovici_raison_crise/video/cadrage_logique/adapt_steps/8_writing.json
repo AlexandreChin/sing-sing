@@ -1,0 +1,26 @@
+{
+  "step": "writing",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "",
+      "fields": {
+        "caption": "Pétrole, électricité, pouvoir d'achat : dans cette vidéo, un ingénieur qui préside un groupe de réflexion sur la transition énergétique relie les tensions sociales actuelles à la baisse de l'énergie disponible. Sa réponse : un plan de décarbonation, mêlant nucléaire, renouvelables et sobriété, pour piloter cette baisse plutôt que la subir.\n\nUne question reste ouverte, et elle ne concerne pas que l'énergie : jusqu'où organiser ensemble la raréfaction des ressources ? Des règles communes peuvent faire peser sur chacun le coût collectif que le prix ignore, mais supposent de savoir quoi fixer et d'obtenir l'adhésion. La loi du marché agrège vite les choix de chacun et récompense l'innovation qui répond à un besoin, mais le profit n'oriente pas forcément l'innovation vers ce qui sert à tous.\n\nOù placeriez-vous le curseur ? Plutôt un cadre collectif, plutôt les choix individuels, ou un mélange selon les secteurs ? Quels arguments vous semblent les plus solides de chaque côté ?\n\nDites-nous en commentaire ce que vous en pensez, et partagez cette publication avec quelqu'un qui voudrait en discuter.\n\nVidéo : https://www.youtube.com/watch?v=0dasPBppGQ4\n\n#Énergie #Décarbonation #Planification #DébatPublic"
+      },
+      "edited": true,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "caption": "Pétrole, électricité, pouvoir d'achat : dans cette vidéo, un ingénieur qui préside un groupe de réflexion sur la transition énergétique relie les tensions sociales actuelles à la baisse de l'énergie disponible. Sa réponse : un plan de décarbonation, mêlant nucléaire, renouvelables et sobriété, pour piloter cette baisse plutôt que la subir.\n\nUne question reste ouverte, et elle ne concerne pas que l'énergie : jusqu'où organiser ensemble la raréfaction des ressources ? Des règles communes peuvent faire peser sur chacun le coût collectif que le prix ignore, mais supposent de savoir quoi fixer et d'obtenir l'adhésion. La loi du marché agrège vite les choix de chacun et récompense l'innovation qui répond à un besoin, mais le profit n'oriente pas forcément l'innovation vers ce qui sert à tous.\n\nOù placeriez-vous le curseur ? Plutôt un cadre collectif, plutôt les choix individuels, ou un mélange selon les secteurs ? Quels arguments vous semblent les plus solides de chaque côté ?\n\nDites-nous en commentaire ce que vous en pensez, et partagez cette publication avec quelqu'un qui voudrait en discuter.\n\nVidéo : https://www.youtube.com/watch?v=0dasPBppGQ4\n\n#Énergie #Décarbonation #Planification #DébatPublic"
+  },
+  "remarks": []
+}

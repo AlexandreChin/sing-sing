@@ -1,0 +1,152 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "Les Américains qui consomment deux fois plus d'énergie par personne que nous ont 80 % des actifs qui travaillent dans les services.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Causalité",
+          "strength": 0.6,
+          "nature": "nuance"
+        },
+        "explanation": "Le chiffre est avancé sans source ; il sert à étayer un lien entre énergie et emploi tertiaire que les données ne démontrent pas à elles seules.",
+        "external_sources": [
+          {
+            "name": "Bureau of Labor Statistics (États-Unis), emploi par secteur",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Agence internationale de l'énergie, consommation d'énergie par habitant",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 75
+      },
+      {
+        "quote": "le coût du logement rapporté au revenu, il a doublé en 30 ans.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Chiffrage",
+          "strength": 0.5,
+          "nature": "nuance"
+        },
+        "explanation": "Le chiffre est donné sans source ni définition du coût du logement ; les séries publiques existent mais varient selon l'indicateur choisi.",
+        "external_sources": [
+          {
+            "name": "INSEE, taux d'effort des ménages pour le logement",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Fondation pour le logement des défavorisés, rapport annuel",
+            "supports": "neutral",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": 45
+      },
+      {
+        "quote": "Il y a 40 millions de véhicules particuliers dans ce pays pour 70 millions d'habitants.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Chiffrage",
+          "strength": 0.4,
+          "nature": "illustration"
+        },
+        "explanation": "L'ordre de grandeur du parc automobile est proche des données publiques, mais la conclusion tirée sur le besoin réel de voiture reste une interprétation.",
+        "external_sources": [
+          {
+            "name": "Ministère de la Transition écologique, parc de véhicules (SDES)",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "INSEE, population de la France",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 80
+      },
+      {
+        "quote": "Bon et cette quantité, elle baisse le la quantité totale de marchandise qui circule, elle baisse depuis 20 ans en Europe, depuis le maximum énergétique.",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Causalité",
+          "strength": 0.7,
+          "nature": "nuance"
+        },
+        "explanation": "L'indicateur Eurostat est cité, mais sa lecture comme mesure du PIB réel et sa baisse continue sur 20 ans restent à vérifier.",
+        "external_sources": [
+          {
+            "name": "Eurostat, transport routier de marchandises (tonnes chargées)",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Agence internationale de l'énergie, découplage croissance et énergie",
+            "supports": "contradicts",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": 35
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "Si on fait rien de particulier, bah on se prend les baffes.",
+        "item_type": "bias",
+        "label": "image choc",
+        "effect": "Remarquez comment cette formule familière fait paraître la crise comme certaine et l'inaction comme la seule alternative.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "inquiétude",
+          "strength": 0.7,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Je l'associe à la décrue énergétique de l'Europe qui rend les moyens matériels plus limités",
+        "item_type": "fallacy",
+        "label": "une seule cause pour des événements variés",
+        "effect": "Remarquez comment des mouvements d'époques et de pays différents sont rattachés à un même facteur, sans examiner les autres explications.",
+        "proves": {
+          "type": "observation",
+          "label": "Pluralité",
+          "strength": 0.8,
+          "nature": "contradiction"
+        }
+      },
+      {
+        "quote": "C'est la conséquence d'une Europe qui a qui s'est élargie à l'est dans un contexte dans lequel l'approvisionnement énergétique européen ne permettait plus d'assurer la croissance pour tous.",
+        "item_type": "fallacy",
+        "label": "explication unique du Brexit",
+        "effect": "Remarquez comment un événement aux causes multiples reçoit ici un seul mécanisme, présenté comme le fond du sujet.",
+        "proves": {
+          "type": "observation",
+          "label": "Pluralité",
+          "strength": 0.9,
+          "nature": "contradiction"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "j'ai envie de lire ces manifestations comme un signe supplémentaire de l'essoufflement du monde dans lequel nous sommes.",
+      "proves": {
+        "type": "observation",
+        "label": "Cadrage",
+        "strength": 0.8,
+        "nature": "illustration"
+      },
+      "analysis": "L'invité lit les mobilisations à travers l'énergie, en le formulant comme une préférence personnelle (« j'ai envie de lire »). Cette lecture laisse de côté les revendications propres aux étudiants, aux lycéens ou aux gilets jaunes. Que resterait-il de ce fil explicatif si l'on partait de ce que les manifestants demandent eux-mêmes ?"
+    }
+  }
+}

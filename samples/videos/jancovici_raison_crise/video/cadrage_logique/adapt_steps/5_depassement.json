@@ -1,0 +1,84 @@
+{
+  "step": "depassement",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Du plus en amont au plus tardif : construire l'adhésion, garantir l'équité des règles, puis montrer les effets et permettre de corriger.",
+      "fields": {
+        "title": "Pour qu'un plan **tienne** : éclairer, partager, durer",
+        "lead": "Trois appuis, à combiner : chacun peut réduire le risque de rejet, aucun ne suffit seul.",
+        "lever1": "Éclairer d'abord | Des faits communs sur les ressources, relayés par des médias pluralistes. Cela demande du temps.",
+        "lever2": "Partager l'effort | Des critères publics : aide aux plus exposés, effort des plus aisés. Cela pèse sur le budget.",
+        "lever3": "Tenir au-delà du mandat | Un cap voté à large majorité, que l'alternance ne défait pas. Cela suppose des compromis.",
+        "lever1_note": "remarque | L'intervenant : demander aux candidats ce qui les rapproche."
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Trois façons de réduire la charge pesant sur ceux qui subissent le plus : cibler, reconvertir, offrir des solutions avant l'obligation.",
+      "fields": {
+        "title": "Protéger les plus **fragiles** en **réduisant** le coût de la transition",
+        "lead": "Ces leviers peuvent **atténuer** le conflit entre planification collective et charge inégale des efforts, mais ils ont un coût pour les finances publiques.",
+        "lever1": "Cibler les aides | Orienter l'accompagnement vers les ménages les plus dépendants de la voiture ou du chauffage fossile, selon des critères de revenus et de territoire.",
+        "lever2": "Accompagner les métiers | Financer la formation continue et les reconversions, avec des passerelles vers les nouveaux emplois, pour limiter les ruptures de parcours.",
+        "lever3": "Alternatives d'abord | Rendre les options sobres disponibles (transports, vélo, rénovation) avant de contraindre les usages, pour que la sobriété soit praticable.",
+        "lever1_note": "source | **L'Insee** : enquêtes sur les dépenses des ménages, dont celles de carburant et de logement, selon leur niveau de vie."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Trois façons de rendre le pilotage plus fiable : le réviser, le doubler de marges, l'ouvrir à la critique.",
+      "fields": {
+        "title": "Garder le cap tout en **limitant** le risque d'**erreur**",
+        "lead": "Ces leviers peuvent **atténuer** le conflit entre agir vite et agir juste, mais ils ont un coût : de la redondance et moins de performance.",
+        "lever1": "Plans révisables | Prévoir des points d'étape où les hypothèses sont rediscutées, avec des experts extérieurs au plan, pour corriger sans tout remettre en cause.",
+        "lever2": "Marges de sécurité | Surdimensionner certains objectifs et doubler les solutions critiques, pour continuer d'avancer quand un aléa survient, au prix de moins d'efficacité.",
+        "lever3": "Chiffres ouverts | Publier hypothèses et sources, et accueillir les contre-expertises, pour que le débat porte sur des données partagées.",
+        "lever1_note": "remarque | L'intervenant dit avoir conçu le plan « robuste » pour qu'il supporte des aléas, en se donnant « un peu de marge de manœuvre »."
+      },
+      "edited": false,
+      "flags": [
+        "depassement.lead shares no key word with the axis (« Le degré d'organisation de la baisse de l'énergie disponible : planifiée d'avance ou laissée aux chocs »)"
+      ]
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "depassement": {
+      "title": "Pour qu'un plan **tienne** : éclairer, partager, durer",
+      "lead": "Trois appuis, à combiner : chacun peut réduire le risque de rejet, aucun ne suffit seul.",
+      "levers": [
+        {
+          "title": "Éclairer d'abord",
+          "detail": "Des faits communs sur les ressources, relayés par des médias pluralistes. Cela demande du temps.",
+          "note": {
+            "kind": "remark",
+            "text": "L'intervenant : demander aux candidats ce qui les rapproche."
+          }
+        },
+        {
+          "title": "Partager l'effort",
+          "detail": "Des critères publics : aide aux plus exposés, effort des plus aisés. Cela pèse sur le budget."
+        },
+        {
+          "title": "Tenir au-delà du mandat",
+          "detail": "Un cap voté à large majorité, que l'alternance ne défait pas. Cela suppose des compromis."
+        }
+      ]
+    }
+  },
+  "remarks": []
+}

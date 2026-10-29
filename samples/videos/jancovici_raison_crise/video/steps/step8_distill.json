@@ -1,0 +1,51 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "Une **cause matérielle unique** (l'énergie) sert à relier des événements très différents (gilets jaunes, Brexit, lycéens), et l'invité cadre déjà la lecture (« j'ai envie de lire »). La sélection des cas écarte les revendications propres des acteurs, de sorte que **le cadre explicatif précède les faits**.",
+        "references": [
+          "ia_0",
+          "bs_1",
+          "bias_1",
+          "bias_2",
+          "focus",
+          "obs_4"
+        ]
+      },
+      {
+        "text": "Le lien énergie-PIB, posé comme acquis, repose sur **un seul indicateur de transport de faible confiance**, et le découplage observé dans certains pays est écarté en une phrase. Une corrélation entre pays devient ainsi **une prédiction pour un pays donné**, sans contradiction dans l'entretien.",
+        "references": [
+          "pr_1",
+          "ia_1",
+          "bs_2",
+          "lr_0",
+          "claim_3",
+          "obs_3"
+        ]
+      },
+      {
+        "text": "L'entretien accompagne la sortie du PREF et ne donne **aucune voix contradictoire**. Ce cadre promotionnel coïncide avec un sourçage faible : **chiffres et liens causaux ne sont jamais mis à l'épreuve**.",
+        "references": [
+          "obs_1",
+          "cb_0",
+          "bs_3"
+        ]
+      },
+      {
+        "text": "L'urgence est nourrie par des images fortes et des chiffres sans source, tandis que **les limites du plan** (cuivre, financement, délais) **restent peu exposées**. Le lecteur est préparé à accepter la solution du PREF sans que sa faisabilité soit discutée.",
+        "references": [
+          "er_0",
+          "bias_0",
+          "ia_3",
+          "cb_0",
+          "claim_1"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quelle part de la croissance passée s'explique réellement par l'énergie, une fois les autres facteurs pris en compte ?",
+      "Le découplage énergie-PIB observé dans certains pays est-il durable et transposable à d'autres économies ?",
+      "Le plan du PREF est-il réalisable compte tenu des contraintes en cuivre, en financement et en délais ?"
+    ]
+  }
+}

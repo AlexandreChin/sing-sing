@@ -1,0 +1,69 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Gardez en tête que l'invité préside le Shift Project et présente son propre plan : l'entretien accompagne sa sortie.",
+      "Repérez le fil unique de l'argument : l'énergie disponible par personne explique l'économie, l'emploi et les mobilisations.",
+      "Si le lien entre énergie et croissance vous est familier, notez où le propos le pose comme acquis plutôt que de le démontrer."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "w1",
+          "text": "Une seule cause matérielle sert à expliquer des événements très différents, sans que les revendications des acteurs eux-mêmes soient prises en compte. Cherchez ce que ces mouvements disent d'eux-mêmes avant d'adopter cette lecture.",
+          "references": [
+            "ia_0",
+            "bias_1",
+            "obs_4"
+          ]
+        },
+        {
+          "id": "w2",
+          "text": "Le lien entre énergie et richesse repose sur un seul indicateur de transport, peu fiable, et l'idée d'une croissance qui s'en détache est écartée très vite. Une relation observée entre pays n'est pas forcément valable pour un seul pays dans le temps.",
+          "references": [
+            "pr_1",
+            "ia_1",
+            "lr_0"
+          ]
+        },
+        {
+          "id": "w3",
+          "text": "L'entretien ne comporte aucune voix contradictoire : les chiffres cités et les liens de cause à effet ne sont jamais testés. Vérifiez les données dans des séries publiques avant de les retenir.",
+          "references": [
+            "obs_1",
+            "cb_0",
+            "bs_3"
+          ]
+        },
+        {
+          "id": "w4",
+          "text": "Les images fortes et les chiffres sans source créent un sentiment d'urgence, alors que les limites du plan (cuivre, financement, délais) sont à peine abordées. La faisabilité de la solution reste donc largement non discutée.",
+          "references": [
+            "er_0",
+            "ia_3",
+            "claim_1"
+          ]
+        },
+        {
+          "id": "w5",
+          "text": "Le titre promet « les vraies raisons » de la crise, ce qui laisse entendre que les autres explications sont superficielles. Le contenu propose en réalité une lecture parmi d'autres.",
+          "references": [
+            "bias_0",
+            "claim_3"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Demandez-vous quelles autres causes, politiques ou institutionnelles, pourraient expliquer les mobilisations et le Brexit.",
+      "Retenez que les chiffres sans source méritent d'être retrouvés dans une série publique avant d'être repris.",
+      "Confrontez ce récit à un point de vue sur le découplage entre croissance et énergie.",
+      "Notez les formules d'interprétation personnelle de l'invité : elles signalent une lecture, pas un fait établi."
+    ],
+    "title_note": null,
+    "perspective": {
+      "framing": "L'entretien adopte une lecture physique de l'économie : l'énergie disponible par personne est placée au centre et relie emploi, production et tensions sociales. Le registre est oral et familier, et la parole est celle du président d'un think tank qui présente son plan.",
+      "blind_spots": "Les causes politiques, culturelles et institutionnelles des mobilisations et du Brexit ne sont pas discutées. Les limites du plan (cuivre, financement, délais) et le découplage partiel entre croissance et énergie n'occupent que quelques phrases.",
+      "balance": "Un entretien de promotion assume un point de vue : il n'a pas vocation à offrir un débat contradictoire ni à épuiser le sujet. Les réserves relevées sont réelles, mais elles décrivent les limites d'un plaidoyer, pas une faute propre à ce format."
+    }
+  }
+}
