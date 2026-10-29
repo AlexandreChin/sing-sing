@@ -278,6 +278,34 @@ def test_the_shared_prompt_lists_every_step():
     assert "Huit étapes" in shared
 
 
+def test_an_old_numbered_folder_is_moved_aside(tmp_path):
+    steps = tmp_path / "adapt_steps"
+    steps.mkdir()
+    for name in ("1_constat.json", "1_constat.sha256", "2_these.json", "7_writing.json"):
+        (steps / name).write_text("{}")
+    agent._retire_legacy(steps)
+    assert sorted(p.name for p in (steps / "stale_legacy").iterdir()) == [
+        "1_constat.json", "1_constat.sha256", "2_these.json", "7_writing.json"]
+    assert [p.name for p in steps.iterdir()] == ["stale_legacy"]
+
+
+def test_a_new_numbered_folder_is_left_alone(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    before = sorted(p.name for p in steps.iterdir())
+    agent._retire_legacy(steps)
+    assert sorted(p.name for p in steps.iterdir()) == before
+
+
+def test_an_old_numbered_folder_regenerates_from_the_axe(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    steps.mkdir()
+    (steps / "1_constat.json").write_text("{}")
+    assert agent.adapt(full(), steps_dir=steps, guided=True) is None
+    assert fake.labels == ["axe"]
+    assert (steps / "stale_legacy" / "1_constat.json").exists()
+
+
 def test_choose_refuses_a_step_without_options(fake, tmp_path):
     with pytest.raises(agent.ChoiceError):
         agent.choose(full(), tmp_path / "adapt_steps", "writing", ["a"], {})
