@@ -7,11 +7,11 @@
       "reason": "S'appuie sur l'ouverture et la fin de la vidéo : « on pilote la décrue de façon beaucoup plus maîtrisée que si on l'a subie ».",
       "fields": {
         "title": "Piloter la décrue plutôt que la **subir**",
-        "these_claim": "La baisse de l'énergie est déjà là : on la pilote, ou on se prend les baffes.",
+        "these_claim": "La baisse de l'énergie est déjà là : on la pilote, ou « on se prend les baffes ».",
         "these_detail": "Sans action, chaque choc frappe sans préparation (Ukraine en 2022, pétrole aujourd'hui).",
         "solution_claim": "Décarboner par un plan : nucléaire, renouvelables et sobriété ensemble.",
         "solution_detail": "Le PREF (Plan Robuste pour l'Économie Française) : feuille de route du think tank The Shift Project, présidé par Jean-Marc Jancovici.",
-        "note1": "remarque | L'intervenant : « on se prend les baffes »",
+        "note1": "",
         "note2": "",
         "note3": ""
       },
@@ -83,19 +83,14 @@
     "these": {
       "title": "Piloter la décrue plutôt que la **subir**",
       "these": {
-        "claim": "La baisse de l'énergie est déjà là : on la pilote, ou on se prend les baffes.",
+        "claim": "La baisse de l'énergie est déjà là : on la pilote, ou « on se prend les baffes ».",
         "detail": "Sans action, chaque choc frappe sans préparation (Ukraine en 2022, pétrole aujourd'hui)."
       },
       "solution": {
         "claim": "Décarboner par un plan : nucléaire, renouvelables et sobriété ensemble.",
         "detail": "Le PREF (Plan Robuste pour l'Économie Française) : feuille de route du think tank The Shift Project, présidé par Jean-Marc Jancovici."
       },
-      "notes": [
-        {
-          "kind": "remark",
-          "text": "L'intervenant : « on se prend les baffes »"
-        }
-      ]
+      "notes": []
     }
   },
   "remarks": []
