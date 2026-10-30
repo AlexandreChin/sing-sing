@@ -349,11 +349,13 @@ def cover_thumb(base_dir: Path) -> str:
     return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode()
 
 
-def background_image(base_dir: Path) -> str:
+def background_image(base_dir: Path, or_cover: bool = False) -> str:
     """Data URL for a full-bleed slide-1 photo (`background.*` beside the analysis),
     else "". Opt-in by file, like `cover.*`: a text-only article capture makes a poor
-    background, so only a photo someone chose (and cropped) gets the full slide."""
-    found = _find_image(base_dir, ("background",))
+    background, so only a photo someone chose (and cropped) gets the full slide.
+    With `or_cover`, a `cover.*` / `image.*` photo stands in when there is no
+    `background.*`, so one picture can open and close a deck."""
+    found = _find_image(base_dir, ("background",) + (_THUMB_STEMS if or_cover else ()))
     if not found:
         return ""
     path, mime = found

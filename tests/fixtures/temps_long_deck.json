@@ -1,0 +1,104 @@
+{
+  "caption": "Le 28 octobre 2026, quatre rapporteurs spéciaux mandatés par le Conseil des droits de l'homme de l'ONU, qui ne s'expriment pas au nom de l'organisation, se disent « consternés » par la réponse des autorités aux manifestations lycéennes et étudiantes, et Amnesty International évoque un « glissement » vers des pratiques autoritaires. Les mêmes experts condamnent aussi les violences contre des policiers et les dégâts matériels.\n\nCe carrousel ne tranche pas. Il donne des repères datés, sur une dizaine d'années puis sur un demi-siècle, et trois façons de lire le temps (rupture, continuité, cycle) pour tester les mots employés : chacune prédit autre chose dans les séries qu'on peut consulter, auprès du Défenseur des droits, de l'inspection générale de la police nationale ou du ministère de l'Intérieur.\n\nEt vous : quelle lecture les séries que vous trouverez soutiennent-elles ? Dites-le en commentaire, avec vos sources.\n\n#maintiendelordre #libertés #manifestations #espritcritique",
+  "hook": {
+    "title": "28 oct. 2026 : l'ONU « consternée » par la « répression »",
+    "promise": "Prendre du recul sur le maintien de l'ordre en manifestation."
+  },
+  "tournants": {
+    "title": "Cinquante ans de règles sur les cortèges",
+    "lead": "Amnesty cite une « surenchère sécuritaire » : plus de cinquante ans de textes.",
+    "reperes": [
+      {
+        "date": "1970",
+        "label": "Loi « anticasseurs » : répression des violences collectives",
+        "remark": "Une sanction pénale, au-delà des auteurs identifiés"
+      },
+      {
+        "date": "2020",
+        "label": "Schéma national du maintien de l'ordre",
+        "remark": "Une doctrine de la force, publiée"
+      },
+      {
+        "date": "2023",
+        "label": "Loi sur les Jeux olympiques : vidéosurveillance algorithmique",
+        "remark": "Des logiciels repèrent des mouvements de foule, à titre expérimental"
+      },
+      {
+        "date": "oct. 2026",
+        "label": "Le Sénat adopte le projet de loi « casseurs-payeurs »",
+        "remark": "Une responsabilité civile : payer les dégâts du groupe, même sans en être l'auteur"
+      }
+    ]
+  },
+  "episodes": {
+    "title": "Dix ans d'**épisodes** qu'on cite",
+    "lead": "Les experts jugent la réponse « disproportionnée » : les épisodes les plus cités.",
+    "reperes": [
+      {
+        "date": "2016",
+        "label": "Mobilisations contre la loi Travail",
+        "remark": "Lycéens et étudiants dans la rue"
+      },
+      {
+        "date": "2018–2019",
+        "label": "Gilets jaunes ; usage du lanceur de balles de défense (LBD)",
+        "remark": "Des mutilés, un débat sur la force"
+      },
+      {
+        "date": "mars 2023",
+        "label": "Sainte-Soline : heurts autour d'une retenue d'eau",
+        "remark": "Des blessés des deux côtés"
+      },
+      {
+        "date": "juin 2023",
+        "label": "Émeutes après la mort de Nahel Merzouk",
+        "remark": "Des interpellations, beaucoup de mineurs"
+      },
+      {
+        "date": "nov. 2025",
+        "label": "Sainte-Soline : Mediapart et Libération publient des vidéos",
+        "remark": "Filmées par les gendarmes avec leurs caméras"
+      }
+    ]
+  },
+  "lecture": {
+    "title": "Rupture, continuité ou **cycle** ?",
+    "lead": "Pour trancher : comparer le recours à la force d'un épisode à l'autre, sur la même mesure.",
+    "readings": [
+      {
+        "kind": "rupture",
+        "signature": "Le recours à la force dépasse nettement celui des épisodes précédents.",
+        "indicator": "Le dernier épisode contre les gilets jaunes et Sainte-Soline"
+      },
+      {
+        "kind": "continuite",
+        "signature": "Le recours à la force augmente d'un épisode au suivant, dans le même sens.",
+        "indicator": "Les textes de 1970 à 2026, dans l'ordre : même direction ?"
+      },
+      {
+        "kind": "cycle",
+        "signature": "Un pic de recours à la force à chaque mobilisation, puis un retour au niveau d'avant.",
+        "indicator": "Entre deux épisodes : le niveau retombe-t-il ?"
+      }
+    ],
+    "question": "Quelle lecture les séries que vous trouverez soutiennent-elles ?"
+  },
+  "pieges": {
+    "title": "Trois pièges d'une **série** dans le temps",
+    "lead": "Avant de comparer deux manifestations : sont-elles comparables, et comptées de la même façon ?",
+    "pieges": [
+      {
+        "title": "Le retour à la moyenne",
+        "question": "Après un pic de recours à la force, le retour au niveau antérieur est-il un cycle ?"
+      },
+      {
+        "title": "La visibilité",
+        "question": "Avec plus de caméras, le recours à la force est-il plus fréquent, ou plus visible ?"
+      },
+      {
+        "title": "Les épisodes retenus",
+        "question": "Les épisodes cités sont-ils les seuls ? Lesquels montrent moins de recours à la force ?"
+      }
+    ]
+  }
+}

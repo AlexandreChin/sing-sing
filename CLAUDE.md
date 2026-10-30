@@ -20,6 +20,9 @@ python main.py produce <article.txt> [--format instagram_carousel_optimized] [--
 # steps: constat these angle_mort depassement boussole hook (then `writing`, no pause)
 python main.py produce <video.txt> --format cadrage_logique --guided [--no-api] [--render] [--medium …] [--title …] [--source …]
 
+# The TEMPS LONG archetype (6 slides, for hot news; steps: tournants episodes lecture pieges hook, then `writing`, no pause)
+python main.py produce <article.txt> --format temps_long --guided [--no-api] [--render] [--medium …] [--title …] [--source …]
+
 # Individual stages
 python main.py analyze <article.txt> [--instructions "..."] [--instructions-file <path>]
 python main.py adapt   <analysis.json>   [--format <fmt>] [--no-api] [--stop-after <step>] [--guided]
@@ -58,17 +61,20 @@ agent/
   instagram_carousel_simplify_agent.py simplify_carousel(): shrink an existing carousel
   newsletter_adapt_agent.py            adapt(): ArticleFullAnalysis → newsletter prose
   cadrage_adapt_agent.py               adapt() for cadrage_logique: its own guided steps (prompts/cadrage_steps/), choose/more/fix
+  temps_long_adapt_agent.py            adapt() for temps_long: its own guided steps (prompts/temps_long_steps/), choose/more/fix
   media_trend_agent.py
 extractors/
   registry.py                      FORMATS: format name → (adapt agent, extractor, renderer) modules
   instagram_carousel.py            extract(): trim to the 3 most-decisive review dimensions + 1 go_further (both carousel formats)
   newsletter.py                    extract(): passthrough → NewsletterDocument
   cadrage.py                       extract(): passthrough → CadrageDocument
+  temps_long.py                    extract(): passthrough → TempsLongDocument
 renderer/
   instagram_carousel/              the carousel renderer + shared helpers:
     _shared.py                     _env / _weighted_quality / _LOGO_DATA_URL / TYPE_FR (shared)
     optimized.py                   10-slide optimized deck
     cadrage.py                     the CADRAGE & LOGIQUE renderer (templates/article_carousel_cadrage_v1/ for slides 2–6; slides 1 and 7 are the optimized hook and CTA)
+    temps_long.py                  the TEMPS LONG renderer (templates/article_carousel_temps_long_v1/ for slides 2–4; slides 1 and 5 are the optimized hook and CTA)
     templates/article_carousel_optimized_v0/  Jinja2 templates → PNG slides (1080×1350)
   newsletter/                      newsletter renderer → Markdown + HTML (rich + email); dark brand
   shoot.py                         Playwright HTML → PNG (carousel slides)
@@ -77,6 +83,7 @@ models/
   instagram_carousel_presentation.py  InstagramCarouselPresentation / Document
   newsletter_presentation.py       NewsletterPresentation / NewsletterDocument
   cadrage_presentation.py          CadragePresentation / CadrageDocument
+  temps_long_presentation.py       TempsLongPresentation / TempsLongDocument
 tools/
   scrape.py, search.py, validate.py, verify.py, graph_generator.py
   feeds.py                         curated free FR news feeds → candidates / fetch
@@ -159,6 +166,36 @@ samples/outputs/<stem>/
   boussole's pointer, which has no wire. Three text tiers inside a card: the heading, the claim (bold), the detail (one
   size down); sources are the third, small and dim. `check` does not cover this format. Output folder:
   `<stem>/cadrage_logique/`.
+- `temps_long` — the TEMPS LONG archetype (`docs/carousels_archetypes.md`): 6 slides that read a hot-news piece through the lens
+  of time, in the optimized deck's visual language — Hook (identical to the optimized one; the title is the raw dated fact, the
+  promise « Prendre du recul sur … ») → Les épisodes qu'on retient (slide 2: 4–5 events of the last ten years that people remember
+  most on the subject — wide coverage AND a documented trace — each with a one-line remark saying what happened, different on every row and never repeating the label's words; the lead
+  quotes a media word) → Les tournants (slide 3: the laws, doctrine texts and public statements that changed the rules over
+  30–50 years, reaching back at least 25, 3–4 points, the latest from the last three years — a bill under discussion included, with its status — each with a two-line remark saying what the text changed and, for a bill touching the right to demonstrate, what it could change, each thesis attributed to its camp) → La lecture du temps (slide 4, the critical-thinking slide: the lead says how to decide and on what (« Pour trancher : comparer … d'un épisode à l'autre »), on ONE
+  measure; three rows rupture / continuité / cycle, each « what it would look like in that series | what to look at, drawn from slides 2–3 (episodes named, texts in order, the gap between episodes) »;
+  the closing question is not drawn here) → Les pièges du temps (slide 5: three traps of a time series — the start date, visibility (more cameras),
+  regression to the mean, the episodes we remember… — the lead states the principle (compare like with like), each trap is a question on slide 4's measure; one is always « les épisodes retenus » (which also asks for the counter-examples),
+  since slide 2 is itself a selection) → CTA (identical to the optimized one; its « Commentez — … » line takes
+  `lecture.question`). Five guided steps (`agent/temps_long_adapt_agent.py`, prompts in `agent/prompts/temps_long_steps/`):
+  `tournants` first (the noyau, fixed context for every later step), then `episodes`, `lecture`, `pieges`, `hook`; `writing`
+  (the caption) follows without a pause. Older decks that wrote `palier` / `vague_de_fond` still load. Same semantics as the other
+  guided runs — options with a reason and a ★, `choose --pick/--edit/--more`, `fix <fmt_dir> <step>.<field>` (`episodes.rep1`,
+  `lecture.cycle`, `pieges.piege1`, `hook.title`…) or `caption`, choice log in `choices.jsonl`. Flat option strings: a reference
+  point `date | repère | remarque` (`rep1`…`rep5`, the date ≤14 characters and holding a year), a reading `signature | indicateur`,
+  a trap `titre | question` (`piege1`…`piege3`). Everything outside the quoted lead word is the model's general knowledge and
+  unverified: dates only, **never a trend figure** (a `%`, an amount or a multiple is a hard error), organisations named with
+  acronyms spelled out and never a URL, and a reference point is something to examine, never an equivalent or a cause. Hard rules:
+  every text field is capped in characters to fit its lines whatever the words (two lines at most; one for an episode's remark and for indicators, two for a turning point's remark;
+  the caps live in `agent/temps_long_adapt_agent.py`, were measured on the rendered slides with random texts, and a seeded
+  worst-case render test guards them), point, reading and trap formats, no trend figure, no accusing word outside « », the lead of
+  slides 2–3 quotes a media word found in the source, questions that end in « ? », 4 hashtags. They repair a generated option and
+  come back as ⚠ on the author's pick; advisory flags: a point with no remark, a remark that echoes the lead's quoted word, repeats another remark's or repeats its own label, an
+  indicator that shares none with the measure of slide 4's lead, an episode that looks like a point of the tournants (same event
+  listed twice — a shared year alone is not flagged), an episodes slide reaching back more than 12 years or a tournants slide that
+  does not reach 25 or has no text from the last 3 years (measured from the latest year in the source), a trap that cites nothing of slide 4's measure.
+  One picture opens and closes the deck: `background.*`, else `image.*` / `cover.*`, full-bleed on slide 1 and darkened on
+  slide 6 (the other formats still ignore `image.*` as a background; `background_image(…, or_cover=True)`). `check` does not
+  cover this format. Output folder: `<stem>/temps_long/`.
 - `newsletter` — prose, not slides. Own adapt agent (`newsletter_adapt_agent`) + `NewsletterPresentation`. Renders **Markdown** + a rich `newsletter.html` (dark gold-on-black, SVG radar) + email-safe HTML in two themes (table layout, inline styles, no SVG/flexbox): `newsletter.email.html` (light, default) and `newsletter.email.dark.html`. Themes live in `EMAIL_THEMES`; only chrome is themed, the semantic gauge/bar colours are fixed.
   Manual editing: the newsletter's editable source is `newsletter.md` (YAML
   front-matter + Markdown body). Edit it, then `python main.py render
