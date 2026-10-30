@@ -16,6 +16,9 @@ load_dotenv()
 OUTPUTS_DIR = Path("samples/outputs")
 DEFAULT_FORMAT = "instagram_carousel_optimized"
 CADRAGE_FORMAT = "cadrage_logique"   # its guided cascade lives in agent/cadrage_adapt_agent.py
+TEMPS_LONG_FORMAT = "temps_long"     # and this one's in agent/temps_long_adapt_agent.py
+# the formats with a guided cascade of their own (the 9-slide deck's lives in agent/carousel_steps)
+GUIDED_AGENTS = {CADRAGE_FORMAT: "agent.cadrage_adapt_agent", TEMPS_LONG_FORMAT: "agent.temps_long_adapt_agent"}
 
 
 def _base_dir(input_path: str | None, stem: str) -> Path:
@@ -117,9 +120,8 @@ def _adapt_stage_kwargs(adapt_params, kwargs: dict, steps_dir: Path, stop_after:
 
 def _pending_step(steps_dir: Path) -> str | None:
     """The first guided step whose file exists with no pick: the one awaiting a choice."""
-    if steps_dir.parent.name == CADRAGE_FORMAT:
-        from agent.cadrage_adapt_agent import pending_step
-        return pending_step(steps_dir)
+    if steps_dir.parent.name in GUIDED_AGENTS:
+        return _guided_module(steps_dir.parent).pending_step(steps_dir)
     from agent.carousel_steps.steps import STEPS
     from agent.carousel_steps.store import load
     for s in STEPS[:-1]:
@@ -190,9 +192,9 @@ async def cmd_adapt(args: argparse.Namespace) -> None:
 
 def _guided_module(fmt_dir: str):
     """The module holding a format folder's guided steps (choose / more / fix)."""
-    if Path(fmt_dir).name == CADRAGE_FORMAT:
-        from agent import cadrage_adapt_agent
-        return cadrage_adapt_agent
+    if Path(fmt_dir).name in GUIDED_AGENTS:
+        import importlib
+        return importlib.import_module(GUIDED_AGENTS[Path(fmt_dir).name])
     from agent.carousel_steps import run
     return run
 
@@ -495,8 +497,8 @@ async def cmd_fetch(args: argparse.Namespace) -> None:
 
 
 async def cmd_check(args: argparse.Namespace) -> None:
-    if Path(args.document).parent.name == CADRAGE_FORMAT:
-        print(f"check covers the 9-slide deck; the {CADRAGE_FORMAT} rules run while it is adapted "
+    if Path(args.document).parent.name in GUIDED_AGENTS:
+        print(f"check covers the 9-slide deck; the {Path(args.document).parent.name} rules run while it is adapted "
               "(a pick that breaks one comes back as a warning).", file=sys.stderr)
         return
     from tools.check_deck import check, format_report
@@ -532,9 +534,10 @@ def _add_source_args(p: argparse.ArgumentParser) -> None:
                    help="listening/viewing time in minutes (default: estimated from the word count)")
 
 
-# the guided steps of the 9-slide deck, then those of the cadrage cascade
+# the guided steps of the 9-slide deck, then those of the cadrage and temps_long cascades
 _STEP_CHOICES = ["question", "enjeu", "idees", "moments", "contexte", "socle", "hook",
-                 "axe", "constat", "these", "angle_mort", "depassement", "boussole"]
+                 "axe", "constat", "these", "angle_mort", "depassement", "boussole",
+                 "tournants", "episodes", "lecture", "pieges"]
 
 
 def _add_stop_after(p: argparse.ArgumentParser) -> None:
