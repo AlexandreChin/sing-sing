@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Des rapporteurs mandatés par l'ONU jugent la réponse sécuritaire aux manifestations lycéennes et étudiantes disproportionnée, avec des blessures graves chez des mineurs.",
+      "kind": "affirmation",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 1,
+        "excerpt": "Les interpellations et gardes à vue, qui touchent « plusieurs milliers » de personnes, sont disproportionnées.",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Amnesty International voit un glissement vers des pratiques autoritaires en France, qu'elle rattache à une tendance mondiale.",
+      "kind": "affirmation",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "La France glisse vers des pratiques autoritaires, dans une tendance mondiale.",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "La réponse sécuritaire aurait relégué au second plan les revendications éducatives et sociales à l'origine du mouvement.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 3,
+        "excerpt": "initiatives de dialogue … citées en une demi-phrase",
+        "strength": 0.6,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "L'article repose sur l'autorité des rapporteurs de l'ONU, qui ne parlent pas au nom de l'organisation et dont les communiqués ne sont pas contraignants.",
+      "kind": "angle",
+      "centrality": 3,
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "communiqués n'ont aucune valeur juridique contraignante pour les États",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "Ni chiffres précis, ni réponse du gouvernement, ni voix des manifestants ou des forces de l'ordre ne figurent dans l'article.",
+      "kind": "fait",
+      "centrality": 3,
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "La réponse du gouvernement et du ministère de l'Intérieur est absente.",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 3,
+        "rationale": "L'article s'appuie sur deux sources institutionnelles identifiables, les rapporteurs spéciaux de l'ONU et Amnesty, dont l'existence est vérifiable auprès du Haut-Commissariat. Mais la première premisse repose sur une **autorité institutionnelle** sans données propres, et la parole du gouvernement, de la police ou des manifestants est absente. Les accusations graves tiennent ainsi sur des sources de même camp.",
+        "lesson": "Vérifier si les sources citées sont indépendantes les unes des autres et si la partie visée est entendue."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "La date du communiqué du 28 octobre et son existence sont vérifiables (confiance 85). En revanche, « plusieurs milliers » de personnes interpellées n'est chiffré par aucune source (confiance 45), et « inacceptables et injustifiables » est un jugement présenté comme un fait. Les faits vérifiables sont solides, les chiffres centraux manquent.",
+        "lesson": "Distinguer ce qui est daté et vérifiable de ce qui est un jugement et chercher les chiffres officiels derrière chaque « ampleur »."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 3,
+        "rationale": "Le passage des blessures graves et des interpellations nombreuses au constat de « disproportion » tient, mais manque de chiffres pour l'étayer (soundness). Le saut des sept critères d'Amnesty vers un « glissement autoritaire » en France est signalé comme un problème de validité : des illustrations hétérogènes y deviennent une tendance générale.",
+        "lesson": "Repérer quand une liste d'exemples distincts est transformée en tendance unique et se demander ce que chaque exemple démontre séparément."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 3,
+        "rationale": "Le texte attribue bien les termes forts aux experts par les guillemets (« consternés », « répression »), ce qui distingue l'opinion de la voix du journal. Il ne précise pas que les rapporteurs ne parlent pas au nom de l'ONU, ni que les hypothèses implicites (fidélité du communiqué, comparabilité des pays) restent non discutées.",
+        "lesson": "Repérer les guillemets qui attribuent un jugement à une source et chercher ce que l'auteur tient pour acquis sans le dire."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Les blind_spots listent l'absence de réponse du gouvernement, de chiffres d'interpellations, de blessés et de voix des manifestants ou des forces de l'ordre. L'emphasis relève qu'Amnesty reçoit un paragraphe entier et sept critères, alors que les initiatives de dialogue tiennent en une demi-phrase. Le cadre légal des gardes à vue de mineurs et les voies d'enquête (IGPN) ne sont pas rappelés.",
+        "lesson": "Chercher le cadre légal, les chiffres officiels et la réponse de la partie visée avant de juger une affirmation d'ampleur."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Les voix critiques occupent l'essentiel de l'espace, avec de longues citations, tandis que la condamnation des violences contre les policiers tient en un seul paragraphe. Le focus relève un lien de cause à effet entre réponse sécuritaire et oubli des revendications sans critère de mesure. Les experts reconnaissent toutefois eux-mêmes des policiers blessés et des commerces vandalisés, ce qui nuance l'asymétrie.",
+        "lesson": "Comparer l'espace donné à chaque partie et la force des mots utilisés pour chacune."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "Le titre attribue clairement les termes forts aux experts par des guillemets, et la structure en deux temps (rapporteurs puis Amnesty) se suit facilement. Réserve : « experts de l'ONU » peut laisser croire qu'ils parlent au nom de l'organisation.",
+        "lesson": "Lire un titre en se demandant qui parle réellement derrière l'étiquette institutionnelle."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 2,
+        "rationale": "L'article adopte un angle de réaction internationale, sous forme de compte rendu de communiqués, avec peu de contenu propre du journaliste (cadrage). Le texte ne situe pas ce communiqué dans la pratique régulière des rapporteurs envers d'autres démocraties. Il rapproche l'actualité française d'une tendance mondiale, mais sans enquête ni donnée originale.",
+        "lesson": "Se demander ce que le journaliste apporte en propre au-delà de la reprise d'un communiqué."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Lecteur francophone qui suit le mouvement étudiant d'octobre et veut connaître la position des rapporteurs de l'ONU et d'Amnesty, à compléter par des sources officielles.",
+      "payoff": "Le lecteur découvre ce que les rapporteurs et Amnesty reprochent à la réponse sécuritaire, et repère les chiffres et réponses qu'il doit chercher ailleurs.",
+      "signature_move": "Le texte s'en remet à l'autorité des rapporteurs et d'Amnesty, reprises en longues citations, ce qui donne un compte rendu de communiqués plus qu'une enquête.",
+      "main_blind_side": "L'absence de réponse du gouvernement et de chiffres d'interpellations, de gardes à vue et de blessés laisse la « disproportion » sans mesure ni contradiction.",
+      "further_resource": {
+        "title": "Rapport annuel sur les atteintes aux droits humains en France",
+        "source": "Défenseur des droits",
+        "media_type": "report",
+        "why_explore": "Il offre une source institutionnelle française, avec données et cadre légal, pour comparer les alertes des rapporteurs et d'Amnesty.",
+        "url": null
+      },
+      "summary": "Lecture avec réserves pour qui suit le mouvement d'octobre : l'article donne bien la parole aux rapporteurs de l'ONU et à Amnesty, mais il repose sur leurs seules voix, sans chiffres ni réponse du gouvernement, et mérite d'être croisé avec d'autres sources."
+    }
+  }
+}

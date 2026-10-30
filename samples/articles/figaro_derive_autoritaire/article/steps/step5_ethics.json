@@ -1,0 +1,20 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Aucune réaction ni réponse du gouvernement français, du ministère de l'Intérieur ou de la police au communiqué et à l'article d'Amnesty",
+        "explanation": "Des accusations graves visent le gouvernement et la police sans aucune trace d'une réponse sollicitée.",
+        "id": ""
+      }
+    ],
+    "verdict": {
+      "overall": "good",
+      "editorial_note": "Ajouter la réponse du gouvernement ou du ministère de l'Intérieur, ou indiquer qu'elle a été sollicitée, avant publication."
+    },
+    "summary": "Un seul point de vigilance mineur a été relevé : l'absence de réponse du gouvernement aux accusations de « répression » et de « dérives autoritaires ». Le titre et les citations sont fidèles, et les nuances des experts sont reprises."
+  }
+}

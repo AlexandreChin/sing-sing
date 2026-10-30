@@ -1,0 +1,103 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "Le titre et l'ouverture donnent le poids de l'ONU à des rapporteurs qui ne parlent pas en son nom, et l'article ne rappelle ni la valeur non contraignante de leurs communiqués ni leur pratique régulière envers d'autres démocraties. L'autorité institutionnelle remplace ici les données : la première prémisse n'est ni étayée ni discutée.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "pr_0",
+          "obs_2",
+          "bias_0",
+          "claim_0"
+        ]
+      },
+      {
+        "text": "La « disproportion » est posée sans décompte (« plusieurs milliers », aucun chiffre sur les interpellations, gardes à vue ou blessés), alors que le registre d'indignation s'appuie sur des blessures de mineurs non chiffrées. L'émotion comble le manque de mesure : le jugement est ressenti avant d'être vérifié.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "pr_1",
+          "bs_1",
+          "er_0",
+          "claim_1",
+          "claim_2"
+        ]
+      },
+      {
+        "text": "Les sept critères d'Amnesty et les comparaisons avec les États-Unis, l'Argentine ou l'Italie transforment des sujets distincts en une « pente » unique. Le saut logique (illustrations → glissement général) est porté par l'inquiétude que suscite cette tendance mondiale, sans que la comparabilité des pays soit examinée.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "lr_2",
+          "ia_1",
+          "er_1",
+          "bias_1",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "L'absence de réponse du gouvernement est à la fois un angle mort logique, un bénéfice pour les opposants à la politique de maintien de l'ordre et un point de vigilance déontologique. Les trois findings convergent : le déséquilibre de parole n'est pas un accident mais une structure de l'article.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "ethics"
+        ],
+        "references": [
+          "bs_0",
+          "cb_0",
+          "emphasis_placeholder_removed"
+        ]
+      },
+      {
+        "text": "Le cadrage de compte rendu de communiqués, avec de longues citations et peu de contenu propre du journaliste, amplifie la visibilité des organisations émettrices. Ce choix explique la faible note d'originalité et l'asymétrie d'espace : Amnesty a un paragraphe entier, les initiatives de dialogue une demi-phrase.",
+        "layers": [
+          "rhetoric",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "cb_1",
+          "obs_1",
+          "bs_3"
+        ]
+      },
+      {
+        "text": "Le contexte légal et procédural (cadre des gardes à vue de mineurs, enquêtes de l'IGPN) manque à la fois dans les observations et dans les sources de vérification proposées. Le lecteur reçoit le jugement sans les repères institutionnels qui permettraient de le tester.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "obs_3",
+          "obs_4",
+          "claim_1",
+          "claim_2"
+        ]
+      },
+      {
+        "text": "Le texte contient pourtant un contrepoids : les experts regrettent eux-mêmes les policiers blessés et les dégradations. Ce passage nuance l'asymétrie, mais il tient en un seul paragraphe face aux longs développements sur les violences subies par les manifestants.",
+        "layers": [
+          "probe",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "claim_3",
+          "bs_2",
+          "obs_1"
+        ]
+      }
+    ]
+  }
+}

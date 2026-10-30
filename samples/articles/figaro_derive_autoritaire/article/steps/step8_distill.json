@@ -1,0 +1,59 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "Le titre et l'ouverture prêtent le poids de l'ONU à des rapporteurs qui ne parlent pas en son nom, sans rappeler que leurs communiqués ne sont pas contraignants. **L'autorité institutionnelle tient lieu de preuve** : la première prémisse n'est ni étayée ni discutée.",
+        "references": [
+          "pr_0",
+          "obs_2",
+          "bias_0",
+          "claim_0"
+        ]
+      },
+      {
+        "text": "La « disproportion » est affirmée sans aucun décompte (interpellations, gardes à vue, blessés), et l'indignation s'appuie sur des blessures de mineurs non chiffrées. **Le jugement est ressenti avant d'être vérifié**, faute de mesure pour le tester.",
+        "references": [
+          "pr_1",
+          "bs_1",
+          "er_0",
+          "claim_1",
+          "claim_2"
+        ]
+      },
+      {
+        "text": "L'absence de réponse du gouvernement est à la fois un angle mort logique, un avantage pour les critiques du maintien de l'ordre et un point de vigilance déontologique. **Le déséquilibre de parole est une structure de l'article**, pas un accident, et le bref passage sur les policiers blessés ne le corrige que partiellement.",
+        "references": [
+          "bs_0",
+          "cb_0",
+          "claim_3",
+          "bs_2",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "Sept critères d'Amnesty et des comparaisons avec les États-Unis, l'Argentine ou l'Italie font d'cas distincts une « pente » unique, sans examen de leur comparabilité. **Le saut des illustrations à la tendance mondiale** repose sur l'inquiétude plus que sur la démonstration.",
+        "references": [
+          "lr_2",
+          "ia_1",
+          "er_1",
+          "bias_1",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "Le contexte légal et procédural (cadre des gardes à vue de mineurs, enquêtes de l'IGPN) fait défaut, tant dans le texte que dans les sources proposées. **Le lecteur reçoit le constat sans les repères** qui permettraient de le tester.",
+        "references": [
+          "obs_3",
+          "obs_4",
+          "claim_1",
+          "claim_2"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quelle est l'ampleur réelle des interpellations, gardes à vue et blessures de mineurs lors de ces manifestations ?",
+      "Que prévoit précisément le cadre légal des gardes à vue de mineurs, et a-t-il été respecté ?",
+      "Quelle réponse le gouvernement apporterait-il aux critiques des rapporteurs, et sur quelles données ?"
+    ]
+  }
+}

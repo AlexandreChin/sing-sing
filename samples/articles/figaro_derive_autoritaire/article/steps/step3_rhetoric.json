@@ -1,0 +1,69 @@
+{
+  "emotional_register": [
+    {
+      "id": "",
+      "emotion": "indignation",
+      "how": "Le texte accumule des citations fortes (« inacceptables et injustifiables », « blessures graves et, dans certains cas, irréversibles ») qui touchent des **mineurs**.",
+      "effect": "Cette émotion prépare le lecteur à juger la réponse sécuritaire **illégitime** et à soutenir les critiques.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "nombreux affrontements entre forces de l'ordre et manifestants",
+        "strength": 0.6,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "",
+      "emotion": "inquiétude",
+      "how": "L'énumération de sept critères d'Amnesty et le renvoi à d'autres pays donnent l'image d'une **pente** générale.",
+      "effect": "Elle prépare le lecteur à voir les événements d'octobre comme un symptôme d'un **mouvement plus large**.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "Les revendications portent sur le système éducatif, les conditions matérielles…",
+        "strength": 0.4,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "",
+      "beneficiary": "Les opposants à la politique de maintien de l'ordre du gouvernement",
+      "explanation": "Le texte relaie presque **uniquement** des voix critiques, appuyées sur l'autorité de l'ONU et d'Amnesty. Leur lecture des événements occupe l'essentiel de l'espace.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "La réponse du gouvernement et du ministère de l'Intérieur est absente",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "id": "",
+      "beneficiary": "Les organisations qui émettent les communiqués (rapporteurs, Amnesty)",
+      "explanation": "Leur parole est reprise **telle quelle**, ce qui amplifie leur visibilité et leur cadre d'analyse.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 3,
+        "excerpt": "communiqués sur des pays très divers, y compris des démocraties",
+        "strength": 0.5,
+        "nature": "specification"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Attribution",
+        "observation": "Les guillemets autour de « consternés » et « répression » rattachent ces termes aux experts, pas au journal."
+      },
+      {
+        "label": "Autorité",
+        "observation": "Le titre met en avant « experts de l'ONU » sans préciser qu'ils ne parlent pas au nom de l'organisation."
+      }
+    ],
+    "body": "L'article adopte l'angle d'une **réaction internationale** à la gestion policière du mouvement étudiant. Il met au centre les déclarations des rapporteurs spéciaux puis d'Amnesty, reprises en longues citations. Le registre est celui du compte rendu de communiqués, sur le ton des droits humains et de l'État de droit. Le journaliste parle depuis une position de relais, avec peu de contenu propre."
+  }
+}

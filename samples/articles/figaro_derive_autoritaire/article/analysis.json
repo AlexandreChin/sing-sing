@@ -1,0 +1,951 @@
+{
+  "article_metadata": {
+    "url": "https://www.lefigaro.fr/actualite-france/des-experts-de-l-onu-se-disent-consternes-par-la-repression-des-manifestations-etudiantes-en-france-20261029",
+    "title": "Des experts de l'ONU se disent « consternés » par la « répression » des manifestations étudiantes en France",
+    "source": "Le Figaro",
+    "published_at": "29 octobre 2026",
+    "type": "news_report",
+    "medium": "article",
+    "category": "Autre",
+    "reading_time_minutes": 3,
+    "chapo": "Des experts de l'ONU se disent «consternés» par la «répression» des manifestations étudiantes en France",
+    "extra_instructions": null,
+    "language": null
+  },
+  "extraction": {
+    "authority_anchors": [
+      {
+        "entity": "Haut-Commissariat des Nations Unies aux droits de l'homme",
+        "used_for": "Donne un cadre institutionnel aux quatre rapporteurs et à leur communiqué"
+      },
+      {
+        "entity": "Conseil des droits de l'homme de l'ONU",
+        "used_for": "Mandate les rapporteurs ; précise leur légitimité tout en rappelant qu'ils ne parlent pas au nom de l'ONU"
+      },
+      {
+        "entity": "Gina Romero et Farida Shaheed",
+        "used_for": "Appuient le constat d'une réponse sécuritaire disproportionnée par leur expertise sur la réunion pacifique et le droit à l'éducation"
+      },
+      {
+        "entity": "Amnesty International",
+        "used_for": "Soutient l'idée d'un glissement autoritaire en France, inscrit dans une tendance mondiale"
+      }
+    ],
+    "key_quotes": [
+      "Recours excessif à la force, violences et interpellations massives ne sont pas des réponses appropriées à un mouvement social de contestation dans un État de droit",
+      "Les blessures graves et, dans certains cas, irréversibles subies par des manifestants mineurs dans le cadre d'opérations de maintien de l'ordre sont inacceptables et injustifiables",
+      "la priorité accordée à une réponse principalement sécuritaire aux manifestations a conduit à reléguer au second plan les causes profondes de la mobilisation",
+      "Nous regrettons que des policiers aient été blessés, de nombreux bâtiments endommagés et commerces vandalisés. Nous condamnons ces actes de violence.",
+      "l'ampleur des interpellations et des gardes à vue, qui touchent plusieurs milliers de personnes, principalement des mineurs, apparaît disproportionnée et a pour conséquence de dissuader l'exercice des libertés d'expression et de réunion pacifique des manifestants",
+      "la France n’est plus à l’abri de cette tendance mondiale."
+    ],
+    "notable_omissions": [
+      "Aucune réaction ni réponse du gouvernement français, du ministère de l'Intérieur ou de la police au communiqué et à l'article d'Amnesty",
+      "Aucun chiffre précis sur les interpellations, gardes à vue ou blessés : l'article parle de « plusieurs milliers » sans source ni décompte",
+      "Pas de détail sur les blessures graves évoquées chez les mineurs : nombre, circonstances, enquêtes en cours",
+      "Pas de voix des manifestants, des syndicats étudiants ou lycéens, ni des forces de l'ordre",
+      "Le contenu des « initiatives » du gouvernement pour le dialogue n'est pas précisé",
+      "Le communiqué intégral et l'article d'Amnesty ne sont pas liés ni cités en détail ; seuls des extraits sont repris",
+      "Pas de point de vue extérieur sur la comparaison d'Amnesty entre la France et les États-Unis, l'Argentine ou l'Italie"
+    ],
+    "rhetorical_patterns": [
+      "Titre entièrement construit sur deux mots entre guillemets (« consternés », « répression »), qui attribue clairement les termes aux experts",
+      "Article composé en grande partie de citations longues des experts et d'Amnesty, avec peu de contenu propre du journaliste",
+      "Vocabulaire fort repris tel quel : « inacceptables et injustifiables », « dérives autoritaires », « glissement autoritaire », « gouverner par la peur »",
+      "Intertitres qui reprennent les termes des sources (« Une \"disproportion\" pointée du doigt », « Un glissement autoritaire pour Amnesty »)",
+      "Mention de la nuance des experts (condamnation des violences contre les policiers, initiatives de dialogue) à côté des critiques",
+      "Mise en série de sept critères énumérés par Amnesty, qui donne une impression de liste méthodique",
+      "Appui sur l'autorité de l'ONU, tout en précisant que les experts ne s'expriment pas en son nom",
+      "Élargissement du cas français à une tendance mondiale par la citation d'autres pays"
+    ]
+  },
+  "context": {
+    "contexts": [
+      {
+        "id": "ctx_0",
+        "text": "Depuis la mi-septembre, un mouvement de lycéens puis d'étudiants a gagné en ampleur en France, avec des journées de mobilisation les 17 et 24 octobre."
+      },
+      {
+        "id": "ctx_1",
+        "text": "Les rapporteurs ont publié leur communiqué le 28 octobre, et Amnesty a publié son article le 29 octobre, jour de parution de l'article."
+      },
+      {
+        "id": "ctx_2",
+        "text": "Les manifestations ont donné lieu à de nombreux affrontements entre forces de l'ordre et manifestants, selon la légende de la photo."
+      },
+      {
+        "id": "ctx_3",
+        "text": "Les revendications portent sur le système éducatif, les conditions matérielles, les rythmes scolaires et l'égalité territoriale d'accès à l'éducation."
+      }
+    ],
+    "who_is_speaking": [
+      "Le Figaro est un quotidien national français généralement classé à droite, détenu par le groupe Dassault ; l'article est coécrit avec l'AFP, agence de presse dont le travail est surtout factuel.",
+      "L'article est signé Valentin Hermier avec l'AFP ; il s'appuie presque exclusivement sur des déclarations d'organisations critiques du gouvernement, sans prise de position explicite du journaliste.",
+      "Les rapporteurs spéciaux de l'ONU sont des experts indépendants mandatés par le Conseil des droits de l'homme ; ils ne sont pas des employés de l'ONU et leurs avis n'engagent pas l'organisation.",
+      "Amnesty International est une ONG internationale de défense des droits humains, financée par des dons de particuliers, qui publie régulièrement des rapports critiques sur les États."
+    ],
+    "important_facts": [
+      {
+        "id": "fact_0",
+        "text": "Les rapporteurs spéciaux de l'ONU sont nommés pour trois ans maximum par traité renouvelable une fois, travaillent bénévolement et leurs communiqués n'ont aucune valeur juridique contraignante pour les États."
+      },
+      {
+        "id": "fact_1",
+        "text": "En France, les gardes à vue de mineurs sont encadrées par le code de la justice pénale des mineurs, notamment avec une durée limitée et la présence obligatoire d'un avocat."
+      },
+      {
+        "id": "fact_2",
+        "text": "Le maintien de l'ordre en France est encadré par un schéma national, et les enquêtes sur d'éventuelles violences policières relèvent de l'IGPN et de l'autorité judiciaire."
+      },
+      {
+        "id": "fact_3",
+        "text": "Les rapporteurs spéciaux de l'ONU publient régulièrement des communiqués sur des pays très divers, y compris des démocraties comme les États-Unis, le Royaume-Uni ou l'Allemagne."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "Rapporteur spécial de l'ONU",
+        "definition": "Expert indépendant nommé par le Conseil des droits de l'homme pour examiner et signaler la situation des droits humains sur un thème ou un pays, sans parler au nom de l'ONU."
+      },
+      {
+        "term": "Maintien de l'ordre",
+        "definition": "Ensemble des moyens utilisés par la police et la gendarmerie pour encadrer les manifestations et éviter les troubles."
+      },
+      {
+        "term": "Garde à vue",
+        "definition": "Mesure qui permet à la police de retenir une personne pendant une durée limitée dans le cadre d'une enquête."
+      },
+      {
+        "term": "IGPN",
+        "definition": "Inspection générale de la police nationale, service chargé d'enquêter sur les ffautes éventuelles des policiers."
+      },
+      {
+        "term": "Droit de réunion pacifique",
+        "definition": "Liberté de se rassembler et de manifester sans violence, protégée par les textes internationaux."
+      }
+    ]
+  },
+  "analysis": {
+    "fond": {
+      "main_claim": "Des experts de l'ONU et Amnesty jugent la réponse sécuritaire française disproportionnée et autoritaire.",
+      "premisses": [
+        {
+          "id": "pr_0",
+          "statement": "Des rapporteurs mandatés par l'ONU sont des juges **crédibles** du maintien de l'ordre en France.",
+          "quality": "Repose sur une **autorité institutionnelle**, sans données propres : l'article ne montre ni chiffres ni enquête."
+        },
+        {
+          "id": "pr_1",
+          "statement": "Les interpellations et gardes à vue, qui touchent « plusieurs milliers » de personnes, sont **disproportionnées**.",
+          "quality": "Simple **assertion non étayée** : aucun décompte, aucune source, aucune comparaison avec d'autres mobilisations."
+        },
+        {
+          "id": "pr_2",
+          "statement": "La France glisse vers des **pratiques autoritaires**, dans une tendance mondiale.",
+          "quality": "Généralisation à partir d'**exemples hétérogènes** (presse, technologies, législation) ; l'ONG cherche des illustrations qui confirment son cadre."
+        }
+      ],
+      "implicit_assumptions": [
+        {
+          "id": "ia_0",
+          "statement": "Le communiqué des experts reflète **fidèlement les faits** sur le terrain.",
+          "impact": "Si leurs informations sont partielles ou erronées, le constat de **disproportion** perd son appui."
+        },
+        {
+          "id": "ia_1",
+          "statement": "Comparer la France aux États-Unis, à l'Argentine ou à l'Italie **éclaire** sa situation.",
+          "impact": "Si les contextes diffèrent trop, l'idée d'une **tendance commune** ne tient plus."
+        },
+        {
+          "id": "ia_2",
+          "statement": "Les interpellations **causent** l'effet dissuasif sur les libertés de manifester.",
+          "impact": "Sans lien établi, la **menace sur les libertés** reste une hypothèse."
+        }
+      ],
+      "blind_spots": [
+        {
+          "id": "bs_0",
+          "topic": "La réponse du gouvernement et du ministère de l'Intérieur est **absente**.",
+          "significance": "Une réponse sur la **doctrine d'emploi** de la force aurait pu nuancer ou confirmer les critiques."
+        },
+        {
+          "id": "bs_1",
+          "topic": "Les **chiffres** d'interpellations, de gardes à vue et de blessés ne sont pas donnés.",
+          "significance": "Sans décompte, le lecteur ne peut pas **juger l'ampleur** de la « disproportion »."
+        },
+        {
+          "id": "bs_2",
+          "topic": "Les voix des **manifestants** et des forces de l'ordre n'apparaissent pas.",
+          "significance": "Leurs récits des affrontements pourraient **modifier la lecture** des événements."
+        },
+        {
+          "id": "bs_3",
+          "topic": "Les **initiatives de dialogue** du gouvernement sont citées en une demi-phrase, sans contenu.",
+          "significance": "Leur détail aiderait à mesurer si les **causes profondes** ont été traitées."
+        }
+      ],
+      "emphasis": [
+        "Le texte reprend de **longues citations** des rapporteurs et d'Amnesty, alors que la parole du journaliste tient en quelques lignes de cadrage.",
+        "Amnesty reçoit **un paragraphe entier** et sept critères énumérés, alors que les initiatives du gouvernement ne sont évoquées qu'**une seule fois**.",
+        "La condamnation des violences contre les policiers occupe **un seul paragraphe**, face à plusieurs paragraphes sur les violences subies par les manifestants."
+      ],
+      "logical_reasoning": [
+        {
+          "id": "lr_0",
+          "step": "Des blessures graves chez des mineurs et des interpellations nombreuses mènent au constat d'une réponse **disproportionnée**.",
+          "problem_type": "soundness",
+          "diagnosis": "Le raisonnement tient, mais les **chiffres** sur les blessures et interpellations manquent pour l'étayer."
+        },
+        {
+          "id": "lr_1",
+          "step": "L'ampleur des interpellations conduit à un **effet dissuasif** sur les libertés d'expression et de réunion.",
+          "problem_type": null,
+          "diagnosis": null
+        },
+        {
+          "id": "lr_2",
+          "step": "Sept critères d'Amnesty et des exemples étrangers mènent à la conclusion d'un **glissement autoritaire** en France.",
+          "problem_type": "validity",
+          "diagnosis": "Passer d'**illustrations** (concentration des médias, vidéosurveillance) à un glissement général est un saut : chaque critère reste à démontrer pour la France."
+        }
+      ],
+      "observations": [
+        {
+          "id": "obs_0",
+          "aspect": "Chronologie",
+          "summary": "Le texte **enchaîne** les mobilisations d'octobre, le communiqué du 28 et l'article d'Amnesty du 29, publié **le jour même** : il s'appuie sur **deux déclarations** très récentes, avec un recul **limité**.",
+          "seeds": {
+            "source": "context",
+            "index": 0,
+            "excerpt": "mouvement de lycéens puis d'étudiants … journées de mobilisation les 17 et 24 octobre",
+            "strength": 0.7,
+            "nature": "illustration"
+          },
+          "proven_by": [
+            {
+              "type": "claim",
+              "index": 0
+            }
+          ]
+        },
+        {
+          "id": "obs_1",
+          "aspect": "Cadrage",
+          "summary": "Les **affrontements** ne sont décrits que par la légende de la photo, sans **bilan** ; les revendications éducatives sont **citées dans la bouche des experts**, non des manifestants.",
+          "seeds": {
+            "source": "context",
+            "index": 2,
+            "excerpt": "nombreux affrontements entre forces de l'ordre et manifestants, selon la légende de la photo",
+            "strength": 0.6,
+            "nature": "illustration"
+          },
+          "proven_by": [
+            {
+              "type": "focus",
+              "index": 0
+            }
+          ]
+        },
+        {
+          "id": "obs_2",
+          "aspect": "Autorité",
+          "summary": "Les rapporteurs sont **présentés comme institutionnels**, alors que leurs communiqués n'ont **aucune valeur contraignante** et qu'ils s'expriment **régulièrement** sur des démocraties variées ; l'article ne situe pas ce communiqué dans cette pratique.",
+          "seeds": {
+            "source": "important_fact",
+            "index": 0,
+            "excerpt": "communiqués n'ont aucune valeur juridique contraignante pour les États",
+            "strength": 0.8,
+            "nature": "specification"
+          },
+          "proven_by": [
+            {
+              "type": "bias",
+              "index": 0
+            }
+          ]
+        },
+        {
+          "id": "obs_3",
+          "aspect": "Droit",
+          "summary": "Le cadre légal des **gardes à vue de mineurs** (durée limitée, avocat obligatoire) n'est pas rappelé face au constat de « disproportion ».",
+          "seeds": {
+            "source": "important_fact",
+            "index": 1,
+            "excerpt": "gardes à vue de mineurs sont encadrées par le code de la justice pénale des mineurs",
+            "strength": 0.6,
+            "nature": "specification"
+          },
+          "proven_by": [
+            {
+              "type": "claim",
+              "index": 1
+            }
+          ]
+        },
+        {
+          "id": "obs_4",
+          "aspect": "Recours",
+          "summary": "Les **voies d'enquête** (IGPN, justice) sur d'éventuelles violences policières ne sont pas mentionnées, alors que les experts appellent à les dénoncer.",
+          "seeds": {
+            "source": "important_fact",
+            "index": 2,
+            "excerpt": "enquêtes sur d'éventuelles violences policières relèvent de l'IGPN et de l'autorité judiciaire",
+            "strength": 0.6,
+            "nature": "specification"
+          },
+          "proven_by": []
+        }
+      ],
+      "steel_man": [
+        {
+          "counterargument": "Sans chiffres ni enquête, **« disproportionnée »** reste un jugement : des interpellations nombreuses peuvent répondre à des **dégradations réelles** que les experts condamnent eux-mêmes.",
+          "seeds": {
+            "source": "premisse",
+            "index": 1,
+            "excerpt": "L'ampleur des interpellations … est disproportionnée",
+            "strength": 0.8,
+            "nature": "contradiction"
+          },
+          "alternative_conclusion": "La réponse policière peut être **proportionnée** à des violences et dégradations, tout en laissant place à des cas à examiner."
+        },
+        {
+          "counterargument": "Le gouvernement a **ouvert le dialogue** selon les experts eux-mêmes ; son silence dans l'article ne prouve pas qu'il **ignore** les causes de la mobilisation.",
+          "seeds": {
+            "source": "blind_spot",
+            "index": 3,
+            "excerpt": "initiatives de dialogue … citées en une demi-phrase",
+            "strength": 0.6,
+            "nature": "specification"
+          },
+          "alternative_conclusion": "Le gouvernement mène **deux actions à la fois** : maintien de l'ordre et dialogue sur les revendications."
+        },
+        {
+          "counterargument": "Les listes de critères d'Amnesty s'appliquent à des pays **très différents** : un cadre aussi large peut faire entrer presque toute politique sécuritaire dans un « glissement ».",
+          "seeds": {
+            "source": "logical_reasoning",
+            "index": 2,
+            "excerpt": "Sept critères d'Amnesty et exemples étrangers mènent à un glissement autoritaire",
+            "strength": 0.7,
+            "nature": "contradiction"
+          },
+          "alternative_conclusion": "Les points d'alerte relèvent de **débats distincts** (médias, technologies, législation) et ne forment pas une tendance unique."
+        }
+      ]
+    },
+    "forme": {
+      "emotional_register": [
+        {
+          "id": "er_0",
+          "emotion": "indignation",
+          "how": "Le texte accumule des citations fortes (« inacceptables et injustifiables », « blessures graves et, dans certains cas, irréversibles ») qui touchent des **mineurs**.",
+          "effect": "Cette émotion prépare le lecteur à juger la réponse sécuritaire **illégitime** et à soutenir les critiques.",
+          "seeds": {
+            "source": "context",
+            "index": 2,
+            "excerpt": "nombreux affrontements entre forces de l'ordre et manifestants",
+            "strength": 0.6,
+            "nature": "illustration"
+          }
+        },
+        {
+          "id": "er_1",
+          "emotion": "inquiétude",
+          "how": "L'énumération de sept critères d'Amnesty et le renvoi à d'autres pays donnent l'image d'une **pente** générale.",
+          "effect": "Elle prépare le lecteur à voir les événements d'octobre comme un symptôme d'un **mouvement plus large**.",
+          "seeds": {
+            "source": "context",
+            "index": 3,
+            "excerpt": "Les revendications portent sur le système éducatif, les conditions matérielles…",
+            "strength": 0.4,
+            "nature": "inference"
+          }
+        }
+      ],
+      "cui_bono": [
+        {
+          "id": "cb_0",
+          "beneficiary": "Les opposants à la politique de maintien de l'ordre du gouvernement",
+          "explanation": "Le texte relaie presque **uniquement** des voix critiques, appuyées sur l'autorité de l'ONU et d'Amnesty. Leur lecture des événements occupe l'essentiel de l'espace.",
+          "seeds": {
+            "source": "blind_spot",
+            "index": 0,
+            "excerpt": "La réponse du gouvernement et du ministère de l'Intérieur est absente",
+            "strength": 0.8,
+            "nature": "inference"
+          }
+        },
+        {
+          "id": "cb_1",
+          "beneficiary": "Les organisations qui émettent les communiqués (rapporteurs, Amnesty)",
+          "explanation": "Leur parole est reprise **telle quelle**, ce qui amplifie leur visibilité et leur cadre d'analyse.",
+          "seeds": {
+            "source": "important_fact",
+            "index": 3,
+            "excerpt": "communiqués sur des pays très divers, y compris des démocraties",
+            "strength": 0.5,
+            "nature": "specification"
+          }
+        }
+      ],
+      "cadrage": {
+        "title_analysis": [
+          {
+            "label": "Attribution",
+            "observation": "Les guillemets autour de « consternés » et « répression » rattachent ces termes aux experts, pas au journal."
+          },
+          {
+            "label": "Autorité",
+            "observation": "Le titre met en avant « experts de l'ONU » sans préciser qu'ils ne parlent pas au nom de l'organisation."
+          }
+        ],
+        "body": "L'article adopte l'angle d'une **réaction internationale** à la gestion policière du mouvement étudiant. Il met au centre les déclarations des rapporteurs spéciaux puis d'Amnesty, reprises en longues citations. Le registre est celui du compte rendu de communiqués, sur le ton des droits humains et de l'État de droit. Le journaliste parle depuis une position de relais, avec peu de contenu propre."
+      }
+    }
+  },
+  "annotations": {
+    "facts_vs_opinions": {
+      "claims_and_sources": [
+        {
+          "id": "claim_0",
+          "quote": "quatre rapporteurs spéciaux ont publié un communiqué le 28 octobre pour déplorer que la réponse sécuritaire ait pris le pas sur les causes profondes de la mobilisation",
+          "presentation": "attributed_to_source",
+          "proves": {
+            "type": "observation",
+            "label": "Chronologie",
+            "strength": 0.7,
+            "nature": "illustration"
+          },
+          "explanation": "L'existence et la date du communiqué sont vérifiables auprès du Haut-Commissariat ; le contenu reste un jugement des rapporteurs.",
+          "external_sources": [
+            {
+              "name": "Haut-Commissariat des Nations Unies aux droits de l'homme (communiqués de presse des procédures spéciales)",
+              "supports": "validates",
+              "evidence_type": "official_data"
+            },
+            {
+              "name": "AFP",
+              "supports": "neutral",
+              "evidence_type": "media"
+            }
+          ],
+          "confidence": 85,
+          "confidence_label": "true"
+        },
+        {
+          "id": "claim_1",
+          "quote": "l'ampleur des interpellations et des gardes à vue, qui touchent plusieurs milliers de personnes, principalement des mineurs, apparaît disproportionnée",
+          "presentation": "attributed_to_source",
+          "proves": {
+            "type": "observation",
+            "label": "Droit",
+            "strength": 0.6,
+            "nature": "nuance"
+          },
+          "explanation": "Le nombre de « plusieurs milliers » n'est chiffré par aucune source dans l'article, et « disproportionnée » est un jugement, non une mesure.",
+          "external_sources": [
+            {
+              "name": "Ministère de l'Intérieur (bilans d'interpellations et de gardes à vue)",
+              "supports": "neutral",
+              "evidence_type": "official_data"
+            },
+            {
+              "name": "Code de la justice pénale des mineurs",
+              "supports": "neutral",
+              "evidence_type": "official_data"
+            }
+          ],
+          "confidence": 45,
+          "confidence_label": "disputed"
+        },
+        {
+          "id": "claim_2",
+          "quote": "Les blessures graves et, dans certains cas, irréversibles subies par des manifestants mineurs dans le cadre d'opérations de maintien de l'ordre sont inacceptables et injustifiables",
+          "presentation": "opinion_stated_as_fact",
+          "proves": {
+            "type": "emotional_register",
+            "label": "indignation",
+            "strength": 0.7,
+            "nature": "illustration"
+          },
+          "explanation": "Le jugement « inacceptables et injustifiables » s'appuie sur des blessures dont l'article ne donne ni le nombre ni les circonstances.",
+          "external_sources": [
+            {
+              "name": "IGPN (enquêtes sur les violences policières)",
+              "supports": "neutral",
+              "evidence_type": "official_data"
+            },
+            {
+              "name": "Amnesty International France",
+              "supports": "validates",
+              "evidence_type": "party_statement"
+            }
+          ],
+          "confidence": null,
+          "confidence_label": "unverifiable"
+        },
+        {
+          "id": "claim_3",
+          "quote": "Nous regrettons que des policiers aient été blessés, de nombreux bâtiments endommagés et commerces vandalisés.",
+          "presentation": "attributed_to_source",
+          "proves": {
+            "type": "cui_bono",
+            "label": "Les opposants à la politique de maintien de l'ordre du gouvernement",
+            "strength": 0.5,
+            "nature": "nuance"
+          },
+          "explanation": "Les experts reconnaissent eux-mêmes des violences contre les forces de l'ordre, ce qui nuance l'idée d'un texte uniquement à charge.",
+          "external_sources": [
+            {
+              "name": "Ministère de l'Intérieur (bilan des blessés parmi les forces de l'ordre)",
+              "supports": "neutral",
+              "evidence_type": "official_data"
+            },
+            {
+              "name": "Syndicats de police",
+              "supports": "validates",
+              "evidence_type": "party_statement"
+            }
+          ],
+          "confidence": 60,
+          "confidence_label": "disputed"
+        }
+      ]
+    },
+    "biases_and_focus": {
+      "biases_and_rhetoric": [
+        {
+          "id": "bias_0",
+          "quote": "Des experts de l'ONU se sont indignés de la réponse du gouvernement français au mouvement de protestation sociale qui bouscule la France depuis plusieurs semaines.",
+          "item_type": "bias",
+          "label": "appel à l'autorité",
+          "effect": "Remarquez comment l'étiquette « experts de l'ONU » donne du poids au constat, alors que ces rapporteurs ne s'expriment pas au nom de l'organisation.",
+          "proves": {
+            "type": "observation",
+            "label": "Autorité",
+            "strength": 0.8,
+            "nature": "illustration"
+          }
+        },
+        {
+          "id": "bias_1",
+          "quote": "Elle évoque sept points d'alerte sur un «glissement vers des pratiques autoritaires».",
+          "item_type": "fallacy",
+          "label": "généralisation à partir d'exemples variés",
+          "effect": "Remarquez comment des sujets distincts (presse, technologies, législation) sont réunis sous un seul constat de glissement.",
+          "proves": {
+            "type": "emotional_register",
+            "label": "inquiétude",
+            "strength": 0.7,
+            "nature": "illustration"
+          }
+        },
+        {
+          "id": "bias_2",
+          "quote": "«la France n'est plus à l'abri de cette tendance mondiale.»",
+          "item_type": "bias",
+          "label": "mise sur le même plan de pays différents",
+          "effect": "Remarquez comment le rapprochement avec les États-Unis, l'Argentine ou l'Italie fait paraître la trajectoire française comme partagée.",
+          "proves": {
+            "type": "emotional_register",
+            "label": "inquiétude",
+            "strength": 0.6,
+            "nature": "illustration"
+          }
+        }
+      ],
+      "focus": {
+        "quote": "la priorité accordée à une réponse principalement sécuritaire aux manifestations a conduit à reléguer au second plan les causes profondes de la mobilisation",
+        "proves": {
+          "type": "observation",
+          "label": "Cadrage",
+          "strength": null,
+          "nature": null
+        },
+        "analysis": "Cette phrase affirme un lien de cause à effet entre le choix sécuritaire et l'oubli des revendications. Elle suppose que le dialogue engagé en octobre n'a pas traité ces causes, sans dire sur quels critères. Qu'est-ce qui permettrait de mesurer si les causes profondes sont réellement au second plan ?"
+      }
+    }
+  },
+  "deontology": {
+    "violations": [
+      {
+        "id": "",
+        "category": "right_of_reply",
+        "label": "Right of Reply",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Aucune réaction ni réponse du gouvernement français, du ministère de l'Intérieur ou de la police au communiqué et à l'article d'Amnesty",
+        "explanation": "Des accusations graves visent le gouvernement et la police sans aucune trace d'une réponse sollicitée."
+      }
+    ],
+    "verdict": {
+      "overall": "good",
+      "editorial_note": "Ajouter la réponse du gouvernement ou du ministère de l'Intérieur, ou indiquer qu'elle a été sollicitée, avant publication."
+    },
+    "summary": "Un seul point de vigilance mineur a été relevé : l'absence de réponse du gouvernement aux accusations de « répression » et de « dérives autoritaires ». Le titre et les citations sont fidèles, et les nuances des experts sont reprises."
+  },
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 3,
+        "rationale": "L'article s'appuie sur deux sources institutionnelles identifiables, les rapporteurs spéciaux de l'ONU et Amnesty, dont l'existence est vérifiable auprès du Haut-Commissariat. Mais la première premisse repose sur une **autorité institutionnelle** sans données propres, et la parole du gouvernement, de la police ou des manifestants est absente. Les accusations graves tiennent ainsi sur des sources de même camp.",
+        "lesson": "Vérifier si les sources citées sont indépendantes les unes des autres et si la partie visée est entendue."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "La date du communiqué du 28 octobre et son existence sont vérifiables (confiance 85). En revanche, « plusieurs milliers » de personnes interpellées n'est chiffré par aucune source (confiance 45), et « inacceptables et injustifiables » est un jugement présenté comme un fait. Les faits vérifiables sont solides, les chiffres centraux manquent.",
+        "lesson": "Distinguer ce qui est daté et vérifiable de ce qui est un jugement et chercher les chiffres officiels derrière chaque « ampleur »."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 3,
+        "rationale": "Le passage des blessures graves et des interpellations nombreuses au constat de « disproportion » tient, mais manque de chiffres pour l'étayer (soundness). Le saut des sept critères d'Amnesty vers un « glissement autoritaire » en France est signalé comme un problème de validité : des illustrations hétérogènes y deviennent une tendance générale.",
+        "lesson": "Repérer quand une liste d'exemples distincts est transformée en tendance unique et se demander ce que chaque exemple démontre séparément."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 3,
+        "rationale": "Le texte attribue bien les termes forts aux experts par les guillemets (« consternés », « répression »), ce qui distingue l'opinion de la voix du journal. Il ne précise pas que les rapporteurs ne parlent pas au nom de l'ONU, ni que les hypothèses implicites (fidélité du communiqué, comparabilité des pays) restent non discutées.",
+        "lesson": "Repérer les guillemets qui attribuent un jugement à une source et chercher ce que l'auteur tient pour acquis sans le dire."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Les blind_spots listent l'absence de réponse du gouvernement, de chiffres d'interpellations, de blessés et de voix des manifestants ou des forces de l'ordre. L'emphasis relève qu'Amnesty reçoit un paragraphe entier et sept critères, alors que les initiatives de dialogue tiennent en une demi-phrase. Le cadre légal des gardes à vue de mineurs et les voies d'enquête (IGPN) ne sont pas rappelés.",
+        "lesson": "Chercher le cadre légal, les chiffres officiels et la réponse de la partie visée avant de juger une affirmation d'ampleur."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Les voix critiques occupent l'essentiel de l'espace, avec de longues citations, tandis que la condamnation des violences contre les policiers tient en un seul paragraphe. Le focus relève un lien de cause à effet entre réponse sécuritaire et oubli des revendications sans critère de mesure. Les experts reconnaissent toutefois eux-mêmes des policiers blessés et des commerces vandalisés, ce qui nuance l'asymétrie.",
+        "lesson": "Comparer l'espace donné à chaque partie et la force des mots utilisés pour chacune."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "Le titre attribue clairement les termes forts aux experts par des guillemets, et la structure en deux temps (rapporteurs puis Amnesty) se suit facilement. Réserve : « experts de l'ONU » peut laisser croire qu'ils parlent au nom de l'organisation.",
+        "lesson": "Lire un titre en se demandant qui parle réellement derrière l'étiquette institutionnelle."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 2,
+        "rationale": "L'article adopte un angle de réaction internationale, sous forme de compte rendu de communiqués, avec peu de contenu propre du journaliste (cadrage). Le texte ne situe pas ce communiqué dans la pratique régulière des rapporteurs envers d'autres démocraties. Il rapproche l'actualité française d'une tendance mondiale, mais sans enquête ni donnée originale.",
+        "lesson": "Se demander ce que le journaliste apporte en propre au-delà de la reprise d'un communiqué."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Lecteur francophone qui suit le mouvement étudiant d'octobre et veut connaître la position des rapporteurs de l'ONU et d'Amnesty, à compléter par des sources officielles.",
+      "payoff": "Le lecteur découvre ce que les rapporteurs et Amnesty reprochent à la réponse sécuritaire, et repère les chiffres et réponses qu'il doit chercher ailleurs.",
+      "signature_move": "Le texte s'en remet à l'autorité des rapporteurs et d'Amnesty, reprises en longues citations, ce qui donne un compte rendu de communiqués plus qu'une enquête.",
+      "main_blind_side": "L'absence de réponse du gouvernement et de chiffres d'interpellations, de gardes à vue et de blessés laisse la « disproportion » sans mesure ni contradiction.",
+      "further_resource": {
+        "title": "Rapport annuel sur les atteintes aux droits humains en France",
+        "source": "Défenseur des droits",
+        "media_type": "report",
+        "why_explore": "Il offre une source institutionnelle française, avec données et cadre légal, pour comparer les alertes des rapporteurs et d'Amnesty.",
+        "url": null
+      },
+      "summary": "Lecture avec réserves pour qui suit le mouvement d'octobre : l'article donne bien la parole aux rapporteurs de l'ONU et à Amnesty, mais il repose sur leurs seules voix, sans chiffres ni réponse du gouvernement, et mérite d'être croisé avec d'autres sources."
+    }
+  },
+  "blend": {
+    "patterns": [
+      {
+        "text": "Le titre et l'ouverture donnent le poids de l'ONU à des rapporteurs qui ne parlent pas en son nom, et l'article ne rappelle ni la valeur non contraignante de leurs communiqués ni leur pratique régulière envers d'autres démocraties. L'autorité institutionnelle remplace ici les données : la première prémisse n'est ni étayée ni discutée.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "pr_0",
+          "obs_2",
+          "bias_0",
+          "claim_0"
+        ]
+      },
+      {
+        "text": "La « disproportion » est posée sans décompte (« plusieurs milliers », aucun chiffre sur les interpellations, gardes à vue ou blessés), alors que le registre d'indignation s'appuie sur des blessures de mineurs non chiffrées. L'émotion comble le manque de mesure : le jugement est ressenti avant d'être vérifié.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "pr_1",
+          "bs_1",
+          "er_0",
+          "claim_1",
+          "claim_2"
+        ]
+      },
+      {
+        "text": "Les sept critères d'Amnesty et les comparaisons avec les États-Unis, l'Argentine ou l'Italie transforment des sujets distincts en une « pente » unique. Le saut logique (illustrations → glissement général) est porté par l'inquiétude que suscite cette tendance mondiale, sans que la comparabilité des pays soit examinée.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "lr_2",
+          "ia_1",
+          "er_1",
+          "bias_1",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "L'absence de réponse du gouvernement est à la fois un angle mort logique, un bénéfice pour les opposants à la politique de maintien de l'ordre et un point de vigilance déontologique. Les trois findings convergent : le déséquilibre de parole n'est pas un accident mais une structure de l'article.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "ethics"
+        ],
+        "references": [
+          "bs_0",
+          "cb_0",
+          "emphasis_placeholder_removed"
+        ]
+      },
+      {
+        "text": "Le cadrage de compte rendu de communiqués, avec de longues citations et peu de contenu propre du journaliste, amplifie la visibilité des organisations émettrices. Ce choix explique la faible note d'originalité et l'asymétrie d'espace : Amnesty a un paragraphe entier, les initiatives de dialogue une demi-phrase.",
+        "layers": [
+          "rhetoric",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "cb_1",
+          "obs_1",
+          "bs_3"
+        ]
+      },
+      {
+        "text": "Le contexte légal et procédural (cadre des gardes à vue de mineurs, enquêtes de l'IGPN) manque à la fois dans les observations et dans les sources de vérification proposées. Le lecteur reçoit le jugement sans les repères institutionnels qui permettraient de le tester.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "obs_3",
+          "obs_4",
+          "claim_1",
+          "claim_2"
+        ]
+      },
+      {
+        "text": "Le texte contient pourtant un contrepoids : les experts regrettent eux-mêmes les policiers blessés et les dégradations. Ce passage nuance l'asymétrie, mais il tient en un seul paragraphe face aux longs développements sur les violences subies par les manifestants.",
+        "layers": [
+          "probe",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "claim_3",
+          "bs_2",
+          "obs_1"
+        ]
+      }
+    ]
+  },
+  "distill": {
+    "points": [
+      {
+        "text": "Le titre et l'ouverture prêtent le poids de l'ONU à des rapporteurs qui ne parlent pas en son nom, sans rappeler que leurs communiqués ne sont pas contraignants. **L'autorité institutionnelle tient lieu de preuve** : la première prémisse n'est ni étayée ni discutée.",
+        "references": [
+          "pr_0",
+          "obs_2",
+          "bias_0",
+          "claim_0"
+        ]
+      },
+      {
+        "text": "La « disproportion » est affirmée sans aucun décompte (interpellations, gardes à vue, blessés), et l'indignation s'appuie sur des blessures de mineurs non chiffrées. **Le jugement est ressenti avant d'être vérifié**, faute de mesure pour le tester.",
+        "references": [
+          "pr_1",
+          "bs_1",
+          "er_0",
+          "claim_1",
+          "claim_2"
+        ]
+      },
+      {
+        "text": "L'absence de réponse du gouvernement est à la fois un angle mort logique, un avantage pour les critiques du maintien de l'ordre et un point de vigilance déontologique. **Le déséquilibre de parole est une structure de l'article**, pas un accident, et le bref passage sur les policiers blessés ne le corrige que partiellement.",
+        "references": [
+          "bs_0",
+          "cb_0",
+          "claim_3",
+          "bs_2",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "Sept critères d'Amnesty et des comparaisons avec les États-Unis, l'Argentine ou l'Italie font d'cas distincts une « pente » unique, sans examen de leur comparabilité. **Le saut des illustrations à la tendance mondiale** repose sur l'inquiétude plus que sur la démonstration.",
+        "references": [
+          "lr_2",
+          "ia_1",
+          "er_1",
+          "bias_1",
+          "bias_2"
+        ]
+      },
+      {
+        "text": "Le contexte légal et procédural (cadre des gardes à vue de mineurs, enquêtes de l'IGPN) fait défaut, tant dans le texte que dans les sources proposées. **Le lecteur reçoit le constat sans les repères** qui permettraient de le tester.",
+        "references": [
+          "obs_3",
+          "obs_4",
+          "claim_1",
+          "claim_2"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quelle est l'ampleur réelle des interpellations, gardes à vue et blessures de mineurs lors de ces manifestations ?",
+      "Que prévoit précisément le cadre légal des gardes à vue de mineurs, et a-t-il été respecté ?",
+      "Quelle réponse le gouvernement apporterait-il aux critiques des rapporteurs, et sur quelles données ?"
+    ]
+  },
+  "guide": {
+    "pre_reading": [
+      "Gardez en tête que les « experts de l'ONU » sont des rapporteurs indépendants : ils ne parlent pas au nom de l'organisation et leurs avis ne sont pas contraignants.",
+      "Repérez qui s'exprime : l'article rapporte surtout des communiqués, avec peu de contenu propre du journaliste.",
+      "Notez ce qui est chiffré et ce qui ne l'est pas, car l'ampleur des faits décrits est au cœur de l'argument."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "w1",
+          "text": "L'étiquette « ONU » donne un poids institutionnel à des rapporteurs qui s'expriment à titre indépendant. L'autorité de la source tient ici lieu de preuve, sans données propres.",
+          "references": [
+            "pr_0",
+            "bias_0",
+            "obs_2"
+          ]
+        },
+        {
+          "id": "w2",
+          "text": "Le jugement de « disproportion » n'est appuyé par aucun décompte précis des interpellations, des gardes à vue ou des blessés. L'indignation avance plus vite que la mesure.",
+          "references": [
+            "pr_1",
+            "bs_1",
+            "er_0"
+          ]
+        },
+        {
+          "id": "w3",
+          "text": "Le gouvernement, la police et les manifestants n'ont pas la parole. Le déséquilibre est durable dans l'article : le passage sur les policiers blessés ne le corrige que partiellement.",
+          "references": [
+            "bs_0",
+            "cb_0",
+            "claim_3"
+          ]
+        },
+        {
+          "id": "w4",
+          "text": "Des exemples très différents sont rassemblés en une seule tendance mondiale. Rien n'indique que les pays comparés soient réellement comparables.",
+          "references": [
+            "lr_2",
+            "ia_1",
+            "bias_1"
+          ]
+        },
+        {
+          "id": "w5",
+          "text": "Le cadre légal des gardes à vue de mineurs et les voies d'enquête manquent. Sans ces repères, il est difficile de tester les accusations par soi-même.",
+          "references": [
+            "obs_3",
+            "obs_4",
+            "claim_1"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Demandez-vous quelles données officielles manquent pour mesurer l'ampleur des faits décrits.",
+      "Retenez que des communiqués d'organisations ne sont pas une enquête : cherchez la réponse de la partie visée.",
+      "Croisez l'article avec une source institutionnelle française, par exemple le rapport du Défenseur des droits, avant de vous faire une opinion."
+    ],
+    "title_note": "Les guillemets attribuent bien les termes forts aux experts, mais l'étiquette « experts de l'ONU » peut laisser croire qu'ils parlent au nom de l'organisation.",
+    "perspective": {
+      "framing": "L'article adopte l'angle d'une réaction internationale : il met au centre les voix des rapporteurs et d'Amnesty, dans un registre d'indignation, et relaie leurs communiqués par de longues citations.",
+      "blind_spots": "La réponse du gouvernement et des forces de l'ordre est absente, tout comme les chiffres officiels d'interpellations, de gardes à vue et de blessés. Le cadre légal et les enquêtes possibles ne sont pas rappelés.",
+      "balance": "Un compte rendu de communiqués est un format court qui ne vise pas l'exhaustivité, et relayer des prises de position est un geste journalistique légitime. Ces limites sont réelles, mais elles s'apprécient à l'aune de ce genre : l'article ne prétend pas mener sa propre enquête."
+    }
+  },
+  "core_elements": {
+    "elements": [
+      {
+        "statement": "Des rapporteurs mandatés par l'ONU jugent la réponse sécuritaire aux manifestations lycéennes et étudiantes disproportionnée, avec des blessures graves chez des mineurs.",
+        "kind": "affirmation",
+        "centrality": 5,
+        "seeds": {
+          "source": "premisse",
+          "index": 1,
+          "excerpt": "Les interpellations et gardes à vue, qui touchent « plusieurs milliers » de personnes, sont disproportionnées.",
+          "strength": 0.9,
+          "nature": "illustration"
+        }
+      },
+      {
+        "statement": "Amnesty International voit un glissement vers des pratiques autoritaires en France, qu'elle rattache à une tendance mondiale.",
+        "kind": "affirmation",
+        "centrality": 4,
+        "seeds": {
+          "source": "premisse",
+          "index": 2,
+          "excerpt": "La France glisse vers des pratiques autoritaires, dans une tendance mondiale.",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "statement": "La réponse sécuritaire aurait relégué au second plan les revendications éducatives et sociales à l'origine du mouvement.",
+        "kind": "enjeu",
+        "centrality": 4,
+        "seeds": {
+          "source": "blind_spot",
+          "index": 3,
+          "excerpt": "initiatives de dialogue … citées en une demi-phrase",
+          "strength": 0.6,
+          "nature": "specification"
+        }
+      },
+      {
+        "statement": "L'article repose sur l'autorité des rapporteurs de l'ONU, qui ne parlent pas au nom de l'organisation et dont les communiqués ne sont pas contraignants.",
+        "kind": "angle",
+        "centrality": 3,
+        "seeds": {
+          "source": "important_fact",
+          "index": 0,
+          "excerpt": "communiqués n'ont aucune valeur juridique contraignante pour les États",
+          "strength": 0.8,
+          "nature": "specification"
+        }
+      },
+      {
+        "statement": "Ni chiffres précis, ni réponse du gouvernement, ni voix des manifestants ou des forces de l'ordre ne figurent dans l'article.",
+        "kind": "fait",
+        "centrality": 3,
+        "seeds": {
+          "source": "blind_spot",
+          "index": 0,
+          "excerpt": "La réponse du gouvernement et du ministère de l'Intérieur est absente.",
+          "strength": 0.8,
+          "nature": "specification"
+        }
+      }
+    ]
+  }
+}
