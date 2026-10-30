@@ -167,14 +167,14 @@ samples/outputs/<stem>/
   size down); sources are the third, small and dim. `check` does not cover this format. Output folder:
   `<stem>/cadrage_logique/`.
 - `temps_long` — the TEMPS LONG archetype (`docs/carousels_archetypes.md`): 6 slides that read a hot-news piece through the lens
-  of time, in the optimized deck's visual language — Hook (identical to the optimized one; the title is the raw dated fact, the
+  of time, in the optimized deck's visual language — Hook (identical to the optimized one; the title is the raw fact, in the media's words and attributed (the pill carries the date), the
   promise « Prendre du recul sur … ») → Les épisodes qu'on retient (slide 2: 4–5 events of the last ten years that people remember
   most on the subject — wide coverage AND a documented trace — each with a one-line remark saying what happened, different on every row and never repeating the label's words; the lead
   quotes a media word) → Les tournants (slide 3: the laws, doctrine texts and public statements that changed the rules over
   30–50 years, reaching back at least 25, 3–4 points, the latest from the last three years — a bill under discussion included, with its status — each with a two-line remark saying what the text changed and, for a bill touching the right to demonstrate, what it could change, each thesis attributed to its camp) → La lecture du temps (slide 4, the critical-thinking slide: the lead says how to decide and on what (« Pour trancher : comparer … d'un épisode à l'autre »), on ONE
   measure; three rows rupture / continuité / cycle, each « what it would look like in that series | what to look at, drawn from slides 2–3 (episodes named, texts in order, the gap between episodes) »;
-  the closing question is not drawn here) → Les pièges du temps (slide 5: three traps of a time series — the start date, visibility (more cameras),
-  regression to the mean, the episodes we remember… — the lead states the principle (compare like with like), each trap is a question on slide 4's measure; one is always « les épisodes retenus » (which also asks for the counter-examples),
+  the closing question is not drawn here) → Les pièges du temps (slide 5: three traps of a time series — always the starting point first and the episodes we remember last, one free trap between (visibility (more cameras),
+  regression to the mean…) — title and lead say in plain words what the slide is for (« Pour ne pas conclure trop vite » / « Trois points à vérifier avant de dire que … a changé »), each trap is a question on slide 4's measure; the last one asks for the counter-examples (« les épisodes retenus »),
   since slide 2 is itself a selection) → CTA (identical to the optimized one; its « Commentez — … » line takes
   `lecture.question`). Five guided steps (`agent/temps_long_adapt_agent.py`, prompts in `agent/prompts/temps_long_steps/`):
   `tournants` first (the noyau, fixed context for every later step), then `episodes`, `lecture`, `pieges`, `hook`; `writing`

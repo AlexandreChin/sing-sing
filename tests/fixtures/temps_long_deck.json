@@ -1,7 +1,7 @@
 {
   "caption": "Le 28 octobre 2026, quatre rapporteurs spéciaux mandatés par le Conseil des droits de l'homme de l'ONU, qui ne s'expriment pas au nom de l'organisation, se disent « consternés » par la réponse des autorités aux manifestations lycéennes et étudiantes, et Amnesty International évoque un « glissement » vers des pratiques autoritaires. Les mêmes experts condamnent aussi les violences contre des policiers et les dégâts matériels.\n\nCe carrousel ne tranche pas. Il donne des repères datés, sur une dizaine d'années puis sur un demi-siècle, et trois façons de lire le temps (rupture, continuité, cycle) pour tester les mots employés : chacune prédit autre chose dans les séries qu'on peut consulter, auprès du Défenseur des droits, de l'inspection générale de la police nationale ou du ministère de l'Intérieur.\n\nEt vous : quelle lecture les séries que vous trouverez soutiennent-elles ? Dites-le en commentaire, avec vos sources.\n\n#maintiendelordre #libertés #manifestations #espritcritique",
   "hook": {
-    "title": "28 oct. 2026 : l'ONU « consternée » par la « répression »",
+    "title": "Des experts de l'ONU « consternés » par la « répression »",
     "promise": "Prendre du recul sur le maintien de l'ordre en manifestation."
   },
   "tournants": {
@@ -84,16 +84,16 @@
     "question": "Quelle lecture les séries que vous trouverez soutiennent-elles ?"
   },
   "pieges": {
-    "title": "Trois pièges d'une **série** dans le temps",
-    "lead": "Avant de comparer deux manifestations : sont-elles comparables, et comptées de la même façon ?",
+    "title": "Pour ne pas conclure **trop vite**",
+    "lead": "Trois points à vérifier avant de dire que la réponse a changé.",
     "pieges": [
       {
-        "title": "Le retour à la moyenne",
-        "question": "Après un pic de recours à la force, le retour au niveau antérieur est-il un cycle ?"
+        "title": "Le point de départ",
+        "question": "Selon l'année où l'on commence, le recours à la force monte-t-il ou baisse-t-il ?"
       },
       {
         "title": "La visibilité",
-        "question": "Avec plus de caméras, le recours à la force est-il plus fréquent, ou plus visible ?"
+        "question": "Avec plus de caméras et les réseaux sociaux, la force augmente-t-elle ou se voit-elle plus ?"
       },
       {
         "title": "Les épisodes retenus",
