@@ -276,10 +276,10 @@ def test_a_trap_needs_a_title_and_a_question():
     assert any("piege3 is empty" in e for e in hard("pieges", piege3=""))
 
 
-def test_the_slide_5_lead_states_a_principle_and_need_not_name_the_measure():
-    generic = "Avant de comparer deux manifestations : sont-elles comparables, et comptées de la même façon ?"
-    assert hard("pieges", lead=generic) == []
-    assert not [f for f in flags("pieges", _fragment("lecture"), lead=generic) if "pieges.lead" in f]
+def test_the_slide_5_lead_need_not_name_the_measure():
+    plain = "Trois points à vérifier avant de dire que la réponse a changé."
+    assert hard("pieges", lead=plain) == []
+    assert not [f for f in flags("pieges", _fragment("lecture"), lead=plain) if "pieges.lead" in f]
 
 
 def test_a_trap_that_cites_nothing_of_the_measure_is_flagged_not_blocked():
@@ -433,7 +433,7 @@ def test_six_slides_are_rendered(tmp_path):
     assert all(label in lecture for label in ("Rupture", "Continuité", "Cycle")) and lecture.count('class="read"') == 3
     assert "Pour trancher" in lecture and "Mesure suivie" not in lecture
     assert 'class="ask"' not in lecture and "soutiennent-elles" not in lecture and "mineurs" not in lecture
-    assert "Le retour à la moyenne" in texts["05_pieges"] and texts["05_pieges"].count('class="card piege"') == 3
+    assert "Le point de départ" in texts["05_pieges"] and texts["05_pieges"].count('class="card piege"') == 3
     assert "Vous jugez." in texts["06_cta"]
     assert "quelle lecture les séries que vous trouverez soutiennent-elles ?</span>" in texts["06_cta"]
 
