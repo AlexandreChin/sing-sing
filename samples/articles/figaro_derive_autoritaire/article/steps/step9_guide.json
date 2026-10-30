@@ -1,0 +1,69 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Gardez en tête que les « experts de l'ONU » sont des rapporteurs indépendants : ils ne parlent pas au nom de l'organisation et leurs avis ne sont pas contraignants.",
+      "Repérez qui s'exprime : l'article rapporte surtout des communiqués, avec peu de contenu propre du journaliste.",
+      "Notez ce qui est chiffré et ce qui ne l'est pas, car l'ampleur des faits décrits est au cœur de l'argument."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "w1",
+          "text": "L'étiquette « ONU » donne un poids institutionnel à des rapporteurs qui s'expriment à titre indépendant. L'autorité de la source tient ici lieu de preuve, sans données propres.",
+          "references": [
+            "pr_0",
+            "bias_0",
+            "obs_2"
+          ]
+        },
+        {
+          "id": "w2",
+          "text": "Le jugement de « disproportion » n'est appuyé par aucun décompte précis des interpellations, des gardes à vue ou des blessés. L'indignation avance plus vite que la mesure.",
+          "references": [
+            "pr_1",
+            "bs_1",
+            "er_0"
+          ]
+        },
+        {
+          "id": "w3",
+          "text": "Le gouvernement, la police et les manifestants n'ont pas la parole. Le déséquilibre est durable dans l'article : le passage sur les policiers blessés ne le corrige que partiellement.",
+          "references": [
+            "bs_0",
+            "cb_0",
+            "claim_3"
+          ]
+        },
+        {
+          "id": "w4",
+          "text": "Des exemples très différents sont rassemblés en une seule tendance mondiale. Rien n'indique que les pays comparés soient réellement comparables.",
+          "references": [
+            "lr_2",
+            "ia_1",
+            "bias_1"
+          ]
+        },
+        {
+          "id": "w5",
+          "text": "Le cadre légal des gardes à vue de mineurs et les voies d'enquête manquent. Sans ces repères, il est difficile de tester les accusations par soi-même.",
+          "references": [
+            "obs_3",
+            "obs_4",
+            "claim_1"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Demandez-vous quelles données officielles manquent pour mesurer l'ampleur des faits décrits.",
+      "Retenez que des communiqués d'organisations ne sont pas une enquête : cherchez la réponse de la partie visée.",
+      "Croisez l'article avec une source institutionnelle française, par exemple le rapport du Défenseur des droits, avant de vous faire une opinion."
+    ],
+    "title_note": "Les guillemets attribuent bien les termes forts aux experts, mais l'étiquette « experts de l'ONU » peut laisser croire qu'ils parlent au nom de l'organisation.",
+    "perspective": {
+      "framing": "L'article adopte l'angle d'une réaction internationale : il met au centre les voix des rapporteurs et d'Amnesty, dans un registre d'indignation, et relaie leurs communiqués par de longues citations.",
+      "blind_spots": "La réponse du gouvernement et des forces de l'ordre est absente, tout comme les chiffres officiels d'interpellations, de gardes à vue et de blessés. Le cadre légal et les enquêtes possibles ne sont pas rappelés.",
+      "balance": "Un compte rendu de communiqués est un format court qui ne vise pas l'exhaustivité, et relayer des prises de position est un geste journalistique légitime. Ces limites sont réelles, mais elles s'apprécient à l'aune de ce genre : l'article ne prétend pas mener sa propre enquête."
+    }
+  }
+}

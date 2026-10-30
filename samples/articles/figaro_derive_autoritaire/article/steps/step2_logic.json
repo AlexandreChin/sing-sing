@@ -1,0 +1,163 @@
+{
+  "main_claim": "Des experts de l'ONU et Amnesty jugent la réponse sécuritaire française disproportionnée et autoritaire.",
+  "premisses": [
+    {
+      "statement": "Des rapporteurs mandatés par l'ONU sont des juges **crédibles** du maintien de l'ordre en France.",
+      "quality": "Repose sur une **autorité institutionnelle**, sans données propres : l'article ne montre ni chiffres ni enquête."
+    },
+    {
+      "statement": "Les interpellations et gardes à vue, qui touchent « plusieurs milliers » de personnes, sont **disproportionnées**.",
+      "quality": "Simple **assertion non étayée** : aucun décompte, aucune source, aucune comparaison avec d'autres mobilisations."
+    },
+    {
+      "statement": "La France glisse vers des **pratiques autoritaires**, dans une tendance mondiale.",
+      "quality": "Généralisation à partir d'**exemples hétérogènes** (presse, technologies, législation) ; l'ONG cherche des illustrations qui confirment son cadre."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "statement": "Le communiqué des experts reflète **fidèlement les faits** sur le terrain.",
+      "impact": "Si leurs informations sont partielles ou erronées, le constat de **disproportion** perd son appui."
+    },
+    {
+      "statement": "Comparer la France aux États-Unis, à l'Argentine ou à l'Italie **éclaire** sa situation.",
+      "impact": "Si les contextes diffèrent trop, l'idée d'une **tendance commune** ne tient plus."
+    },
+    {
+      "statement": "Les interpellations **causent** l'effet dissuasif sur les libertés de manifester.",
+      "impact": "Sans lien établi, la **menace sur les libertés** reste une hypothèse."
+    }
+  ],
+  "blind_spots": [
+    {
+      "topic": "La réponse du gouvernement et du ministère de l'Intérieur est **absente**.",
+      "significance": "Une réponse sur la **doctrine d'emploi** de la force aurait pu nuancer ou confirmer les critiques."
+    },
+    {
+      "topic": "Les **chiffres** d'interpellations, de gardes à vue et de blessés ne sont pas donnés.",
+      "significance": "Sans décompte, le lecteur ne peut pas **juger l'ampleur** de la « disproportion »."
+    },
+    {
+      "topic": "Les voix des **manifestants** et des forces de l'ordre n'apparaissent pas.",
+      "significance": "Leurs récits des affrontements pourraient **modifier la lecture** des événements."
+    },
+    {
+      "topic": "Les **initiatives de dialogue** du gouvernement sont citées en une demi-phrase, sans contenu.",
+      "significance": "Leur détail aiderait à mesurer si les **causes profondes** ont été traitées."
+    }
+  ],
+  "emphasis": [
+    "Le texte reprend de **longues citations** des rapporteurs et d'Amnesty, alors que la parole du journaliste tient en quelques lignes de cadrage.",
+    "Amnesty reçoit **un paragraphe entier** et sept critères énumérés, alors que les initiatives du gouvernement ne sont évoquées qu'**une seule fois**.",
+    "La condamnation des violences contre les policiers occupe **un seul paragraphe**, face à plusieurs paragraphes sur les violences subies par les manifestants."
+  ],
+  "logical_reasoning": [
+    {
+      "step": "Des blessures graves chez des mineurs et des interpellations nombreuses mènent au constat d'une réponse **disproportionnée**.",
+      "problem_type": "soundness",
+      "diagnosis": "Le raisonnement tient, mais les **chiffres** sur les blessures et interpellations manquent pour l'étayer."
+    },
+    {
+      "step": "L'ampleur des interpellations conduit à un **effet dissuasif** sur les libertés d'expression et de réunion.",
+      "problem_type": null,
+      "diagnosis": null
+    },
+    {
+      "step": "Sept critères d'Amnesty et des exemples étrangers mènent à la conclusion d'un **glissement autoritaire** en France.",
+      "problem_type": "validity",
+      "diagnosis": "Passer d'**illustrations** (concentration des médias, vidéosurveillance) à un glissement général est un saut : chaque critère reste à démontrer pour la France."
+    }
+  ],
+  "observations": [
+    {
+      "aspect": "Chronologie",
+      "summary": "Le texte **enchaîne** les mobilisations d'octobre, le communiqué du 28 et l'article d'Amnesty du 29, publié **le jour même** : il s'appuie sur **deux déclarations** très récentes, avec un recul **limité**.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "mouvement de lycéens puis d'étudiants … journées de mobilisation les 17 et 24 octobre",
+        "strength": 0.7,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Cadrage",
+      "summary": "Les **affrontements** ne sont décrits que par la légende de la photo, sans **bilan** ; les revendications éducatives sont **citées dans la bouche des experts**, non des manifestants.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "nombreux affrontements entre forces de l'ordre et manifestants, selon la légende de la photo",
+        "strength": 0.6,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Autorité",
+      "summary": "Les rapporteurs sont **présentés comme institutionnels**, alors que leurs communiqués n'ont **aucune valeur contraignante** et qu'ils s'expriment **régulièrement** sur des démocraties variées ; l'article ne situe pas ce communiqué dans cette pratique.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "communiqués n'ont aucune valeur juridique contraignante pour les États",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Droit",
+      "summary": "Le cadre légal des **gardes à vue de mineurs** (durée limitée, avocat obligatoire) n'est pas rappelé face au constat de « disproportion ».",
+      "seeds": {
+        "source": "important_fact",
+        "index": 1,
+        "excerpt": "gardes à vue de mineurs sont encadrées par le code de la justice pénale des mineurs",
+        "strength": 0.6,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Recours",
+      "summary": "Les **voies d'enquête** (IGPN, justice) sur d'éventuelles violences policières ne sont pas mentionnées, alors que les experts appellent à les dénoncer.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "enquêtes sur d'éventuelles violences policières relèvent de l'IGPN et de l'autorité judiciaire",
+        "strength": 0.6,
+        "nature": "specification"
+      }
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "Sans chiffres ni enquête, **« disproportionnée »** reste un jugement : des interpellations nombreuses peuvent répondre à des **dégradations réelles** que les experts condamnent eux-mêmes.",
+      "seeds": {
+        "source": "premisse",
+        "index": 1,
+        "excerpt": "L'ampleur des interpellations … est disproportionnée",
+        "strength": 0.8,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "La réponse policière peut être **proportionnée** à des violences et dégradations, tout en laissant place à des cas à examiner."
+    },
+    {
+      "counterargument": "Le gouvernement a **ouvert le dialogue** selon les experts eux-mêmes ; son silence dans l'article ne prouve pas qu'il **ignore** les causes de la mobilisation.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 3,
+        "excerpt": "initiatives de dialogue … citées en une demi-phrase",
+        "strength": 0.6,
+        "nature": "specification"
+      },
+      "alternative_conclusion": "Le gouvernement mène **deux actions à la fois** : maintien de l'ordre et dialogue sur les revendications."
+    },
+    {
+      "counterargument": "Les listes de critères d'Amnesty s'appliquent à des pays **très différents** : un cadre aussi large peut faire entrer presque toute politique sécuritaire dans un « glissement ».",
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 2,
+        "excerpt": "Sept critères d'Amnesty et exemples étrangers mènent à un glissement autoritaire",
+        "strength": 0.7,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Les points d'alerte relèvent de **débats distincts** (médias, technologies, législation) et ne forment pas une tendance unique."
+    }
+  ]
+}
