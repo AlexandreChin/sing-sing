@@ -6,7 +6,7 @@
       "slot": "a",
       "reason": "Oppose règles collectives et signal-prix, deux outils défendables : anticipation et équité d'un côté, liberté de choix et adaptation de l'autre.",
       "fields": {
-        "title": "Règles communes ou loi du marché : où placer le **curseur** ?",
+        "title": "Reste à **trancher** : règles communes ou loi du marché ?",
         "question1": "Répartir par des règles communes ?",
         "pro1": "Des règles communes peuvent faire peser sur chacun le **coût collectif** que le prix ignore.",
         "con1": "Elles supposent de savoir quoi fixer, et leur **rejet** ou leur contournement peut les affaiblir.",
@@ -172,7 +172,7 @@
   ],
   "fragment": {
     "boussole": {
-      "title": "Règles communes ou loi du marché : où placer le **curseur** ?",
+      "title": "Reste à **trancher** : règles communes ou loi du marché ?",
       "options": [
         {
           "question": "Répartir par des règles communes ?",
