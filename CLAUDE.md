@@ -23,6 +23,9 @@ python main.py produce <video.txt> --format cadrage_logique --guided [--no-api] 
 # The TEMPS LONG archetype (6 slides, for hot news; steps: tournants episodes lecture pieges hook, then `writing`, no pause)
 python main.py produce <article.txt> --format temps_long --guided [--no-api] [--render] [--medium …] [--title …] [--source …]
 
+# The ANATOMIE D'UN CHIFFRE archetype (6 slides, for a statistic, a poll, a ranking; steps: variable boite_noire eclairage perimetre hook, then `writing`, no pause)
+python main.py produce <article.txt> --format anatomie_chiffre --guided [--no-api] [--render] [--medium …] [--title …] [--source …]
+
 # Individual stages
 python main.py analyze <article.txt> [--instructions "..."] [--instructions-file <path>]
 python main.py adapt   <analysis.json>   [--format <fmt>] [--no-api] [--stop-after <step>] [--guided]
@@ -62,6 +65,7 @@ agent/
   newsletter_adapt_agent.py            adapt(): ArticleFullAnalysis → newsletter prose
   cadrage_adapt_agent.py               adapt() for cadrage_logique: its own guided steps (prompts/cadrage_steps/), choose/more/fix
   temps_long_adapt_agent.py            adapt() for temps_long: its own guided steps (prompts/temps_long_steps/), choose/more/fix
+  anatomie_chiffre_adapt_agent.py      adapt() for anatomie_chiffre: its own guided steps (prompts/anatomie_chiffre_steps/), choose/more/fix
   media_trend_agent.py
 extractors/
   registry.py                      FORMATS: format name → (adapt agent, extractor, renderer) modules
@@ -69,12 +73,14 @@ extractors/
   newsletter.py                    extract(): passthrough → NewsletterDocument
   cadrage.py                       extract(): passthrough → CadrageDocument
   temps_long.py                    extract(): passthrough → TempsLongDocument
+  anatomie_chiffre.py              extract(): passthrough → AnatomieChiffreDocument
 renderer/
   instagram_carousel/              the carousel renderer + shared helpers:
     _shared.py                     _env / _weighted_quality / _LOGO_DATA_URL / TYPE_FR (shared)
     optimized.py                   10-slide optimized deck
     cadrage.py                     the CADRAGE & LOGIQUE renderer (templates/article_carousel_cadrage_v1/ for slides 2–6; slides 1 and 7 are the optimized hook and CTA)
     temps_long.py                  the TEMPS LONG renderer (templates/article_carousel_temps_long_v1/ for slides 2–4; slides 1 and 5 are the optimized hook and CTA)
+    anatomie_chiffre.py            the ANATOMIE D'UN CHIFFRE renderer (templates/article_carousel_anatomie_chiffre_v1/ for slides 2–5, reusing the cadrage `_argument.css` and notes macro; slides 1 and 6 are the optimized hook and CTA)
     templates/article_carousel_optimized_v0/  Jinja2 templates → PNG slides (1080×1350)
   newsletter/                      newsletter renderer → Markdown + HTML (rich + email); dark brand
   shoot.py                         Playwright HTML → PNG (carousel slides)
@@ -84,6 +90,7 @@ models/
   newsletter_presentation.py       NewsletterPresentation / NewsletterDocument
   cadrage_presentation.py          CadragePresentation / CadrageDocument
   temps_long_presentation.py       TempsLongPresentation / TempsLongDocument
+  anatomie_chiffre_presentation.py AnatomieChiffrePresentation / AnatomieChiffreDocument
 tools/
   scrape.py, search.py, validate.py, verify.py, graph_generator.py
   feeds.py                         curated free FR news feeds → candidates / fetch
@@ -197,6 +204,28 @@ samples/<medium>/<stem>/     (medium = articles | podcasts | videos)
   One picture opens and closes the deck: `background.*`, else `image.*` / `cover.*`, full-bleed on slide 1 and darkened on
   slide 6 (the other formats still ignore `image.*` as a background; `background_image(…, or_cover=True)`). `check` does not
   cover this format. Output folder: `<stem>/temps_long/`.
+- `anatomie_chiffre` — the ANATOMIE D'UN CHIFFRE archetype (`docs/carousels_archetypes.md`): 6 slides that dissect a striking figure
+  (a statistic, a poll, a ranking), in the optimized deck's visual language — Hook (identical to the optimized one; the title is the raw figure
+  in « », the promise « <sujet> : comment il se mesure, et la question qu'il pose ») → La boîte noire (slide 2, in the source's frame: 2–4 monospace figure
+  cards `valeur | libellé | comparaison` — period, reference figure, unit, sample, thresholds; « non précisé » when the source is silent, the
+  value then being `?` — plus a fixed card for the primary source and the relay chain `Fed → WSJ → BFM`) → La zone d'éclairage (slide 3, in frame: what the figure
+  establishes and its decomposition into two quantities as the source gives them, drawn as two bars in the proportion of the ratio; a recomputed
+  figure must say « calculé ») → Le périmètre exclu (slide 4, out of frame, **no digit at all**: two cards, la statistique — what a mean or median hides — and la période,
+  each with a source to consult) → La question derrière le chiffre (slide 5, out of frame: two columns « Ce que la source énonce » — 2–3 facts, quotes verified word for word —
+  / « Ce que nous en tirons » — the question and the proxy reading — then the variable as a two-pole bar with a cursor, the implication as a consequence to examine
+  (never « donc », « prouve »), where to look) → CTA (identical to the optimized one; its « Commentez — … » line takes `variable.question`). Five guided steps
+  (`agent/anatomie_chiffre_adapt_agent.py`, prompts in `agent/prompts/anatomie_chiffre_steps/`): `variable` first — the question behind the figure, rendered only on
+  slide 5 and the fixed context of every later step, which an advisory flag checks (slides 2–4 claims share a key word with it; named `variable`, not `question`, which is
+  a step of the 9-slide deck) — then in slide order `boite_noire`, `eclairage`, `perimetre`, `hook`; `writing` (the caption) follows without a pause. Same guided semantics as the
+  other archetypes (options with a reason and a ★, `choose --pick/--edit/--more`, `fix <fmt_dir> <step>.<field>` or `caption`, choice log in `choices.jsonl`). Flat option strings:
+  a figure `valeur | libellé | comparaison` (`fig1`…`fig4`, value ≤9 characters), `source_card` `chaîne | libellé | précision` (chain ≤24), a part `valeur | libellé`
+  (`part1`, `part2`, `ratio`), a note `source | texte` or `remarque | texte` (`note1`, `look1`…), the variable's `fact1`…`fact3`. Hard rules (repair a generated option, ⚠ on the
+  author's pick): every rendered field is capped in characters (`_CAPS`, and `_PART_CAPS` per part of a figure), measured on the rendered slides and guarded by a
+  seeded worst-case render test; figure, source-card, part and note formats; no accusing word outside « »; no digit on slide 4, none on slide 5 outside its facts
+  (« à 35 ans » names a group and is allowed); a concluding word refused on slide 5; the question ends with « ? »; 4 hashtags. Advisory flags: a figure not found as written in
+  the source (a recomputed one must say « calculé »), a quoted fact not in the source, a variable with no fact to join, a question that reads as a choice, a slide 2–4 claim that
+  shares no key word with the variable, a hook title that is not a figure in « ». The bird perches on the figure card (slide 2), the bars card (slide 3, the wire runs through 2–3) and the
+  cursor of slide 5 (no wire); slide 4 has no perch. `check` does not cover this format. Output folder: `<stem>/anatomie_chiffre/`.
 - `newsletter` — prose, not slides. Own adapt agent (`newsletter_adapt_agent`) + `NewsletterPresentation`. Renders **Markdown** + a rich `newsletter.html` (dark gold-on-black, SVG radar) + email-safe HTML in two themes (table layout, inline styles, no SVG/flexbox): `newsletter.email.html` (light, default) and `newsletter.email.dark.html`. Themes live in `EMAIL_THEMES`; only chrome is themed, the semantic gauge/bar colours are fixed.
   Manual editing: the newsletter's editable source is `newsletter.md` (YAML
   front-matter + Markdown body). Edit it, then `python main.py render
