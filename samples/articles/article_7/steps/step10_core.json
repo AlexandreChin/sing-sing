@@ -1,61 +1,61 @@
 {
   "elements": [
     {
-      "statement": "L'exécutif a répondu à l'été caniculaire par des mesures d'urgence sans commune mesure avec les dégâts.",
-      "kind": "affirmation",
+      "statement": "L'article recense les dégâts de l'été 2026 : surmortalité, forêts brûlées, nappes, récoltes, réacteurs.",
+      "kind": "fait",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 0,
+        "excerpt": "Les dégâts de l'été 2026 dépassent les précédents épisodes de référence, chiffres à l'appui.",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Il oppose l'ampleur du choc à des réponses publiques qualifiées de minimalistes et budgétairement contraintes.",
+      "kind": "angle",
       "centrality": 5,
       "seeds": {
         "source": "premisse",
         "index": 2,
-        "excerpt": "les mesures annoncées par l'État sont sans commune mesure avec les dégâts constatés",
-        "strength": 0.95,
+        "excerpt": "Les mesures annoncées par l'exécutif sont sans commune mesure avec l'ampleur constatée.",
+        "strength": 0.9,
         "nature": "illustration"
       }
     },
     {
-      "statement": "La sécheresse a frappé l'agriculture : fourrage, maïs, lait, volailles, avec restrictions de prélèvements dans 74 départements.",
-      "kind": "fait",
-      "centrality": 5,
-      "seeds": {
-        "source": "context",
-        "index": 0,
-        "excerpt": "cinq vagues de chaleur, juin puis juillet records",
-        "strength": 0.8,
-        "nature": "illustration"
-      }
-    },
-    {
-      "statement": "Le modèle agricole irrigant, où l'irrigation pèse 60 % de la consommation d'eau, reste inchangé.",
+      "statement": "L'eau agricole est posée en enjeu structurel : irrigation, maïs, élevage, modèle alimentaire à revoir.",
       "kind": "enjeu",
       "centrality": 4,
       "seeds": {
-        "source": "premisse",
+        "source": "blind_spot",
         "index": 3,
-        "excerpt": "des mesures structurelles efficaces sont connues et recommandées de longue date",
-        "strength": 0.85,
+        "excerpt": "Les objections agricoles et sociales à la rupture du modèle irrigué sont absentes.",
+        "strength": 0.8,
         "nature": "specification"
       }
     },
     {
-      "statement": "La prévention des feux repose sur des règles peu appliquées : débroussaillage à 30 %, PPRIF rares.",
-      "kind": "fait",
+      "statement": "La prévention forestière est détaillée : débroussaillage appliqué à 30 %, PPRIF rares, urbanisme d'interface.",
+      "kind": "enjeu",
       "centrality": 4,
       "seeds": {
-        "source": "important_fact",
-        "index": 4,
-        "excerpt": "les PPRIF relèvent du préfet, qui les prescrit et les approuve",
-        "strength": 0.75,
-        "nature": "specification"
+        "source": "context",
+        "index": 1,
+        "excerpt": "Un incendie parti de Saumos, en Gironde, a détruit 37 000 hectares",
+        "strength": 0.7,
+        "nature": "inference"
       }
     },
     {
-      "statement": "Les inégalités face à la chaleur restent hors du débat : logements bouilloires, locataires oubliés, rénovation en recul.",
+      "statement": "Les inégalités face à la chaleur apparaissent : logements bouilloires, locataires oubliés, aides à la rénovation en recul.",
       "kind": "enjeu",
       "centrality": 3,
       "seeds": {
-        "source": "blind_spot",
-        "index": 1,
-        "excerpt": "aucune parole du gouvernement ni des acteurs mis en cause",
+        "source": "context",
+        "index": 3,
+        "excerpt": "Un débat budgétaire s'ouvre début octobre 2026 sur un cadrage de 30 à 50 milliards",
         "strength": 0.5,
         "nature": "inference"
       }

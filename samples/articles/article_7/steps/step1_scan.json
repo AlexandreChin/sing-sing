@@ -2,11 +2,11 @@
   "article_type": "opinion",
   "key_claims": [
     {
-      "quote": "les premiers bilans font état d'une surmortalité importante : près de 6 000 décès de plus pour la seule période du 17 juin au 2 juillet toutes causes confondues",
+      "quote": "les premiers bilans font état d’une surmortalité importante : près de 6 000 décès de plus pour la seule période du 17 juin au 2 juillet toutes causes confondues",
       "type": "statistical"
     },
     {
-      "quote": "un déficit de précipitations sur l'Hexagone de 47 % en juin, de 70 % en juillet",
+      "quote": "un déficit de précipitations sur l’Hexagone de 47 % en juin, de 70 % en juillet",
       "type": "statistical"
     },
     {
@@ -14,258 +14,272 @@
       "type": "statistical"
     },
     {
+      "quote": "Plus de 1 300 cours d’eau ont connu des ruptures d’écoulement ou des assecs.",
+      "type": "statistical"
+    },
+    {
       "quote": "elle avait déjà perdu un peu plus de 93 700 hectares de forêt à la mi-août1, dont 65 100 depuis le 1er juillet et 37 000 pour le seul feu parti de Saumos, en Gironde",
       "type": "statistical"
     },
     {
-      "quote": "Les rendements de maïs, culture très gourmande en eau l'été et destinée à l'alimentation animale, ont chuté cette année de 19 %.",
+      "quote": "Les rendements de maïs, culture très gourmande en eau l’été et destinée à l’alimentation animale, ont chuté cette année de 19 %.",
       "type": "statistical"
     },
     {
-      "quote": "Pour le seul mois de juin, l'interprofession volaillère a évalué entre 2,5 et 3 millions le nombre d'animaux perdus.",
+      "quote": "Pour le seul mois de juin, l’interprofession volaillère a évalué entre 2,5 et 3 millions le nombre d’animaux perdus.",
       "type": "attributed"
     },
     {
-      "quote": "La ministre de l'Ecologie a avancé le 12 août le chiffre de 10 à 15 milliards d'euros.",
+      "quote": "La ministre de l’Ecologie a avancé le 12 août le chiffre de 10 à 15 milliards d’euros.",
       "type": "attributed"
     },
     {
-      "quote": "Il ne s'agit donc pas d'une « période totalement inédite », comme l'a déclaré Emmanuel Macron le 25 juin à Antibes.",
-      "type": "attributed"
-    },
-    {
-      "quote": "Avec un réchauffement global de 2 °C – nous en sommes à 1,4 °C et ce niveau risque d'être atteint au mitan du siècle –, Paris pourrait connaître des températures proches de 50 °C",
+      "quote": "Avec un réchauffement global de 2 °C – nous en sommes à 1,4 °C et ce niveau risque d’être atteint au mitan du siècle –, Paris pourrait connaître des températures proches de 50 °C",
       "type": "factual"
     },
     {
-      "quote": "le respect de l'obligation légale de débroussaillage, dont on estime qu'elle est appliquée à 30 % seulement",
-      "type": "legal"
+      "quote": "Il ne s’agit donc pas d’une « période totalement inédite », comme l’a déclaré Emmanuel Macron le 25 juin à Antibes.",
+      "type": "attributed"
     },
     {
-      "quote": "trop rares sont les communes à s'en être dotées (13 pour 159 classées « particulièrement sensibles » en Gironde)",
+      "quote": "le respect de l’obligation légale de débroussaillage, dont on estime qu’elle est appliquée à 30 % seulement",
       "type": "statistical"
     },
     {
-      "quote": "Alors que l'irrigation représente 60 % de la consommation d'eau en France, l'analyse prospective montre que seules des politiques de rupture avec le modèle agricole et alimentaire actuel permettraient de contenir l'accroissement des besoins d'eau agricole",
-      "type": "factual"
+      "quote": "trop rares sont les communes à s’en être dotées (13 pour 159 classées « particulièrement sensibles » en Gironde)",
+      "type": "statistical"
+    },
+    {
+      "quote": "Alors que l’irrigation représente 60 % de la consommation d’eau en France",
+      "type": "statistical"
     },
     {
       "quote": "Le maïs, destiné à nourrir le bétail, représente par exemple à lui tout seul près de 40 % des surfaces irriguées.",
       "type": "statistical"
     },
     {
-      "quote": "En témoigne la loi d'urgence agricole adoptée le 21 juillet, entre autres destinée à protéger les intérêts des agriculteurs irrigants et qui reste sourde à l'aggravation des pressions sur l'eau.",
-      "type": "legal"
-    },
-    {
       "quote": "le texte voté par le Sénat le 8 juillet en première lecture ne prévoit rien pour les locataires, pourtant concernés au premier chef, dénonce la Fondation pour le logement",
       "type": "attributed"
     },
     {
-      "quote": "le Haut Conseil pour le climat a souligné la nécessité d'une « adaptation transformationnelle » pour que la société tienne face à des événements climatiques comme celui de cet été",
+      "quote": "le Haut Conseil pour le climat a souligné la nécessité d’une « adaptation transformationnelle » pour que la société tienne face à des événements climatiques comme celui de cet été",
       "type": "attributed"
     },
     {
-      "quote": "Pour le débat budgétaire qui s'ouvrira début octobre, le Premier ministre n'est pas revenu sur le cap fixé avant l'été : pas de hausses d'impôt et 30 à 50 milliards d'économies.",
+      "quote": "l’Etat a annoncé une rallonge de 20 millions d’euros pour l’Office national des forêts (ONF), de quoi restaurer au mieux 4 000 hectares",
       "type": "factual"
     },
     {
-      "quote": "l'Etat a annoncé une rallonge de 20 millions d'euros pour l'Office national des forêts (ONF), de quoi restaurer au mieux 4 000 hectares",
+      "quote": "la loi d’urgence agricole adoptée le 21 juillet, entre autres destinée à protéger les intérêts des agriculteurs irrigants et qui reste sourde à l’aggravation des pressions sur l’eau",
+      "type": "legal"
+    },
+    {
+      "quote": "le Premier ministre n’est pas revenu sur le cap fixé avant l’été : pas de hausses d’impôt et 30 à 50 milliards d’économies",
+      "type": "factual"
+    },
+    {
+      "quote": "la plupart des départements ont été déclarés en crise (74 au 18 août)",
       "type": "factual"
     }
   ],
   "key_quotes": [
-    "Pourtant, jusqu'à présent, l'exécutif s'en tient à des réponses cosmétiques.",
-    "Il ne s'agit donc pas d'une « période totalement inédite », comme l'a déclaré Emmanuel Macron le 25 juin à Antibes.",
-    "Le choc de l'été est au contraire de nature systémique mais ce fait et les conclusions qu'il emporte ont été remarquablement absents des déclarations politiques pendant l'été, et singulièrement du bloc gouvernemental.",
-    "Le débat de l'été s'est au contraire englué dans de fausses controverses propulsées par l'extrême droite et nourries par la gauche (faut-il ou non des climatiseurs ?), égaré dans la recherche de coupables sur des sujets de second rang (le manque de canadairs) ou dans des propositions politiciennes opportunistes",
-    "Esquivant les enjeux structurels – dont la prise en compte est synonyme de coûts publics et de réglementations qui font des mécontents –, la réponse de l'exécutif, les yeux rivés sur le déficit budgétaire, a traité l'urgence estivale à la sauce minimaliste.",
+    "Pourtant, jusqu'à présent, l’exécutif s’en tient à des réponses cosmétiques.",
+    "après le record de juin, juillet avait été le mois le plus chaud jamais enregistré en France",
+    "Quant à la nature, elle est sans défense.",
+    "Une certitude cependant : ce nouveau choc n’est pas vraiment une surprise.",
+    "Le choc de l’été est au contraire de nature systémique mais ce fait et les conclusions qu’il emporte ont été remarquablement absents des déclarations politiques pendant l’été",
+    "Le débat de l’été s’est au contraire englué dans de fausses controverses propulsées par l’extrême droite et nourries par la gauche (faut-il ou non des climatiseurs ?)",
+    "Esquivant les enjeux structurels – dont la prise en compte est synonyme de coûts publics et de réglementations qui font des mécontents –, la réponse de l’exécutif, les yeux rivés sur le déficit budgétaire, a traité l’urgence estivale à la sauce minimaliste.",
     "Sur leurs propositions, le silence a au contraire été assourdissant.",
-    "La sécheresse agricole a, quant à elle, fait l'objet d'un traitement schizophrène.",
-    "le Haut Conseil pour le climat a souligné la nécessité d'une « adaptation transformationnelle »",
-    "La maison a beau brûler, les chefs regardent ailleurs.",
-    "Derrière les incendies, il y a le serpent de mer de la difficile valorisation de la forêt française, d'autant plus qu'elle est morcelée entre plus de 3 millions de propriétaires."
+    "La sécheresse agricole a, quant à elle, fait l’objet d’un traitement schizophrène.",
+    "seules des politiques de rupture avec le modèle agricole et alimentaire actuel permettraient de contenir l’accroissement des besoins d’eau agricole",
+    "Il a déploré non seulement l’absence de financements à la hauteur du sujet mais aussi la « stabilisation » des engagements publics dans ce domaine pour les prochaines années.",
+    "La maison a beau brûler, les chefs regardent ailleurs."
   ],
   "key_actors": [
     {
+      "name": "Antoine de Ravignan",
+      "role": "Auteur de l'article, qui construit la démonstration d'un décalage entre l'ampleur des dégâts et la réponse publique"
+    },
+    {
       "name": "Emmanuel Macron",
-      "role": "Président de la République, cité pour sa déclaration du 25 juin qualifiant la période de « totalement inédite »"
-    },
-    {
-      "name": "Le Premier ministre",
-      "role": "Fixe le cap budgétaire — pas de hausses d'impôt, 30 à 50 milliards d'économies — maintenu avant le débat d'octobre"
-    },
-    {
-      "name": "La ministre de l'Ecologie",
-      "role": "Avance le 12 août une estimation de 10 à 15 milliards d'euros de coût de la catastrophe"
+      "role": "Président cité pour une déclaration (« période totalement inédite ») que l'article oppose aux données de tendance"
     },
     {
       "name": "Haut Conseil pour le climat",
-      "role": "Instance qui, dans son rapport du 10 juillet, appelle à une « adaptation transformationnelle » et déplore la stabilisation des engagements publics"
+      "role": "Instance citée pour son rapport du 10 juillet appelant à une « adaptation transformationnelle »"
     },
     {
       "name": "Météo France",
-      "role": "Fournit le bilan mensuel du 4 août et les anticipations de températures pour septembre-octobre"
+      "role": "Source des données de température et des prévisions saisonnières"
+    },
+    {
+      "name": "Le Premier ministre",
+      "role": "Cité pour le cadrage budgétaire maintenu (pas de hausses d'impôt, 30 à 50 milliards d'économies)"
+    },
+    {
+      "name": "La ministre de l'Ecologie",
+      "role": "Source du chiffrage provisoire du coût de l'été (10 à 15 milliards d'euros)"
     },
     {
       "name": "Fondation pour le logement",
-      "role": "Association ayant alerté en juin sur les « logements bouilloires » et dénonçant l'absence de mesures pour les locataires dans la loi Relance logement"
+      "role": "Association citée sur les « logements bouilloires » et les manques du texte voté au Sénat"
     },
     {
       "name": "Marine Tondelier",
-      "role": "Responsable politique dont la proposition de « congé climatique » est rangée parmi les propositions opportunistes"
+      "role": "Citée comme exemple de proposition jugée opportuniste (congé climatique)"
     },
     {
       "name": "Rassemblement national",
-      "role": "Parti dont le « plan clim » est cité comme proposition opportuniste ; l'extrême droite est désignée comme propulsant de fausses controverses"
+      "role": "Cité comme exemple de proposition jugée opportuniste (plan clim) et comme moteur de fausses controverses"
     },
     {
       "name": "Office national des forêts (ONF)",
-      "role": "Bénéficiaire d'une rallonge de 20 millions d'euros"
+      "role": "Opérateur public destinataire de la rallonge de 20 millions d'euros"
     },
     {
       "name": "Interprofession volaillère",
-      "role": "Source de l'estimation de 2,5 à 3 millions d'animaux perdus en juin"
+      "role": "Source du chiffrage des pertes animales de juin"
     },
     {
-      "name": "Sénat",
-      "role": "A voté le 8 juillet en première lecture le projet de loi Relance logement"
+      "name": "Agriculteurs irrigants",
+      "role": "Intérêts que la loi d'urgence agricole du 21 juillet est présentée comme protégeant"
     }
   ],
   "authority_anchors": [
     {
       "entity": "Météo France",
-      "used_for": "Établir que juillet 2026 a été le mois le plus chaud jamais enregistré et qu'un automne plus chaud que la normale est attendu"
+      "used_for": "Établir que juillet 2026 a été le mois le plus chaud jamais enregistré en France et qu'un automne plus chaud que la normale est probable"
     },
     {
       "entity": "Haut Conseil pour le climat",
-      "used_for": "Légitimer l'exigence d'une « adaptation transformationnelle » et le constat d'un financement public insuffisant"
+      "used_for": "Légitimer l'idée qu'une « adaptation transformationnelle » et des financements accrus sont nécessaires"
     },
     {
-      "entity": "Les scientifiques (collectif non nommé)",
-      "used_for": "Établir que la hausse de fréquence et d'intensité des canicules européennes est documentée et liée aux gaz à effet de serre"
+      "entity": "Les scientifiques (collectif, non nommés)",
+      "used_for": "Affirmer que la fréquence et l'intensité des chaleurs extrêmes en Europe augmentent sous l'effet des gaz à effet de serre"
     },
     {
       "entity": "Fondation pour le logement",
-      "used_for": "Étayer la critique du projet de loi Relance logement, muet sur les locataires"
-    },
-    {
-      "entity": "Interprofession volaillère",
-      "used_for": "Chiffrer les pertes animales en élevage de volailles en juin"
+      "used_for": "Soutenir que le projet de loi Relance logement ne protège pas les locataires"
     },
     {
       "entity": "La ministre de l'Ecologie",
       "used_for": "Donner un ordre de grandeur officiel au coût de l'été (10 à 15 milliards d'euros)"
     },
     {
-      "entity": "L'analyse prospective (non sourcée)",
-      "used_for": "Affirmer que seules des politiques de rupture agricole contiendraient les besoins en eau"
+      "entity": "Interprofession volaillère",
+      "used_for": "Chiffrer les pertes animales en élevage de volailles pour juin"
+    },
+    {
+      "entity": "L'analyse prospective (non attribuée)",
+      "used_for": "Affirmer que seules des politiques de rupture agricole contiendraient les besoins d'eau"
     }
   ],
   "notable_omissions": [
-    "Aucune parole donnée à un membre du gouvernement pour répondre à l'accusation de réponses « cosmétiques ».",
+    "Aucun représentant de l'exécutif n'est interrogé pour justifier les arbitrages décrits comme minimalistes.",
     "Le coût budgétaire des mesures structurelles préconisées n'est jamais chiffré, alors que la contrainte budgétaire est présentée comme le motif de l'inaction.",
-    "Aucun porte-parole du monde agricole irrigant n'est cité, alors que le modèle agricole est au cœur de la critique.",
-    "Les mesures déjà engagées les années précédentes (plan national d'adaptation, moyens de la sécurité civile) ne sont pas rappelées pour situer la comparaison.",
-    "L'article ne précise pas les sources ni la méthodologie des chiffres de surmortalité, dont l'attribution à la chaleur n'est pas établie dans le texte.",
-    "Aucun contre-argument sur l'efficacité des mesures proposées (débroussaillage, feuillus, réduction de la consommation de viande) n'est examiné."
+    "Les organisations agricoles majoritaires ne sont pas entendues sur la remise en cause du modèle irrigué.",
+    "Les sources précises des chiffres (surmortalité, hectares brûlés, nappes) ne sont pas nommées, hors une note de bas de page.",
+    "Aucun contre-argument économique ou social à la réduction de la consommation de viande n'est présenté.",
+    "Les effets d'atténuation déjà obtenus (baisse des émissions françaises, plans d'adaptation existants) ne sont pas discutés."
   ],
   "rhetorical_patterns": [
-    "Accumulation d'impacts sectoriels — santé, forêt, agriculture, nucléaire, navigation, tourisme, bâti — qui construit un effet de saturation avant que la critique politique n'arrive.",
-    "Chiffres denses et datés à chaque paragraphe, qui installent un registre de constat vérifiable plutôt que d'opinion.",
-    "Opposition structurante entre « enjeux structurels » et « réponses cosmétiques », reprise du chapô à la conclusion.",
-    "Mise en cause symétrique des camps politiques (extrême droite, gauche, exécutif) qui positionne l'auteur au-dessus du débat partisan.",
-    "Vocabulaire évaluatif appliqué à l'action publique : « schizophrène », « laxisme », « assourdissant », « à la sauce minimaliste ».",
-    "Chute par formule allusive — « La maison a beau brûler, les chefs regardent ailleurs » — qui référence une phrase politique connue sans la citer.",
-    "Titres de section qui annoncent un mouvement en trois temps : les dégâts, l'esquive, ce qu'il faudrait faire."
+    "Accumulation d'impacts : une longue énumération de dégâts (santé, eau, forêt, agriculture, nucléaire, tourisme, bâti) installe l'ampleur avant tout argument politique.",
+    "Structure en deux temps : d'abord le constat chiffré, ensuite le contraste avec des réponses publiques présentées comme faibles.",
+    "Champ lexical de l'écart : « cosmétiques », « minimaliste », « schizophrène », « silence assourdissant » qualifient la réponse publique plutôt que de la décrire.",
+    "Recours systématique au chiffre daté et précis (74 départements au 18 août, 93 700 hectares) comme socle de crédibilité.",
+    "Renvoi dos à dos des camps politiques (extrême droite, gauche, gouvernement) avant de placer l'auteur du côté des chercheurs et associations.",
+    "Clôture par une formule frappante détournée d'une phrase présidentielle connue : « La maison a beau brûler, les chefs regardent ailleurs. »",
+    "Comparaisons avec des années repères (2003, 2022) pour situer la gravité de l'été 2026."
   ],
   "context": {
     "contexts": [
       {
         "id": "ctx1",
-        "text": "L'été 2026 a enchaîné **cinq vagues de chaleur** en France, avec juin puis juillet successivement records de température."
+        "text": "L'article paraît le 18 août 2026, pendant une série de vagues de chaleur qui se succèdent en France depuis mi-mai."
       },
       {
         "id": "ctx2",
-        "text": "Les incendies de l'été, dont celui de **Saumos en Gironde** (37 000 hectares), ont dépassé le bilan de 2022, jusqu'ici référence des étés extrêmes."
+        "text": "Un incendie parti de Saumos, en Gironde, a détruit 37 000 hectares en juillet et provoqué des évacuations sur le bassin d'Arcachon."
       },
       {
         "id": "ctx3",
-        "text": "L'article paraît à six semaines de l'ouverture du **débat budgétaire d'octobre**, dans un contexte de recherche de 30 à 50 milliards d'économies."
+        "text": "Le Haut Conseil pour le climat a publié son rapport annuel le 10 juillet 2026, quelques semaines avant l'article."
       },
       {
         "id": "ctx4",
-        "text": "Le Haut Conseil pour le climat avait publié son **rapport annuel le 10 juillet**, en plein épisode caniculaire."
+        "text": "Un débat budgétaire s'ouvre début octobre 2026 sur un cadrage de 30 à 50 milliards d'euros d'économies."
       }
     ],
     "who_is_speaking": [
-      "Article signé Antoine de Ravignan, journaliste spécialisé sur les questions écologiques et économiques, auteur régulier sur les politiques climatiques françaises.",
-      "Le texte relève de l'article d'analyse engagée : il énonce un jugement sur l'action publique dès le chapô (« réponses cosmétiques ») et se conclut sur une charge.",
-      "La grille de lecture mobilisée — critique du modèle agricole irrigant, inégalités face à la chaleur, insuffisance des financements publics d'adaptation — recoupe celle des associations environnementales et du Haut Conseil pour le climat, cités en appui.",
-      "Aucune mention du média de publication ni de son financement dans le texte fourni."
+      "L'article est signé Antoine de Ravignan, journaliste spécialisé sur les questions écologiques et économiques.",
+      "Le format — constat chiffré puis critique de l'action publique — relève de la tribune analytique, pas du reportage neutre.",
+      "Le texte se place explicitement du côté des chercheurs, des associations et du Haut Conseil pour le climat, et à distance des partis cités.",
+      "La source de publication n'est pas nommée dans le texte fourni ; le lecteur ne peut donc pas vérifier la ligne éditoriale du média."
     ],
     "important_facts": [
       {
-        "id": "fact1",
-        "text": "La canicule de **2003 avait causé environ 15 000 décès excédentaires** en France, chiffre auquel les bilans récents sont implicitement comparés."
+        "id": "if1",
+        "text": "La canicule de 2003 avait causé environ 15 000 décès excédentaires en France, référence implicite du texte jamais chiffrée."
       },
       {
-        "id": "fact2",
-        "text": "Santé publique France calcule la **surmortalité « toutes causes confondues »** par écart à une mortalité attendue : ce total ne mesure pas les décès directement causés par la chaleur."
+        "id": "if2",
+        "text": "La forêt française couvre environ 17 millions d'hectares, ce qui permet de rapporter les 93 700 hectares brûlés à l'ensemble."
       },
       {
-        "id": "fact3",
-        "text": "La forêt française couvre environ **17 millions d'hectares**, soit près de 31 % du territoire métropolitain — de quoi rapporter les 93 700 hectares brûlés."
+        "id": "if3",
+        "text": "L'Accord de Paris vise à contenir le réchauffement bien en dessous de 2 °C, cadre dont l'article ne rappelle pas les engagements."
       },
       {
-        "id": "fact4",
-        "text": "L'Accord de Paris vise à contenir le réchauffement **bien en dessous de 2 °C**, seuil que l'article présente comme atteignable au milieu du siècle."
+        "id": "if4",
+        "text": "Le déficit public français dépassait 5 % du PIB en 2025, ce qui éclaire la contrainte budgétaire évoquée sans être explicitée."
       },
       {
-        "id": "fact5",
-        "text": "Les **PPRIF relèvent du préfet**, qui les prescrit et les approuve, alors que l'urbanisme quotidien reste une compétence communale."
+        "id": "if5",
+        "text": "Les surfaces agricoles irriguées représentent environ 6 à 7 % de la surface agricole utile française, ordre de grandeur absent du texte."
       }
     ],
     "key_terms": [
       {
         "term": "Surmortalité",
-        "definition": "Nombre de décès en plus par rapport à ce qu'on attendait normalement sur la même période."
+        "definition": "Nombre de décès supérieur à celui attendu pour une période donnée, toutes causes confondues."
       },
       {
         "term": "Assec",
-        "definition": "Assèchement total d'un cours d'eau, dont le lit se retrouve à sec."
+        "definition": "Assèchement complet d'un cours d'eau, dont le lit se retrouve sans eau."
       },
       {
         "term": "Nappe souterraine",
-        "definition": "Réserve d'eau stockée dans le sous-sol, qui alimente puits, sources et rivières."
+        "definition": "Réserve d'eau stockée dans le sous-sol, qui alimente les puits, les sources et une partie de l'eau potable."
       },
       {
         "term": "PPRIF",
-        "definition": "Plan de prévention du risque incendie de forêt : document qui encadre les constructions et les usages dans les zones exposées au feu."
+        "definition": "Plan de prévention du risque incendie de forêt : document communal qui encadre les constructions et l'entretien dans les zones exposées au feu."
       },
       {
-        "term": "Débroussaillage",
-        "definition": "Obligation d'éliminer la végétation basse autour des habitations pour ralentir la propagation d'un feu."
+        "term": "Obligation légale de débroussaillage",
+        "definition": "Devoir imposé aux propriétaires de nettoyer la végétation autour des bâtiments pour freiner la propagation d'un incendie."
       },
       {
         "term": "Retrait-gonflement des argiles",
-        "definition": "Mouvement du sol argileux qui se rétracte en période sèche et gonfle avec la pluie, ce qui fissure les maisons."
+        "definition": "Mouvement du sol argileux qui se rétracte en période sèche et gonfle avec la pluie, provoquant des fissures dans les maisons."
       },
       {
         "term": "Adaptation transformationnelle",
-        "definition": "Changements profonds d'organisation et d'aménagement, par opposition à de simples ajustements aux effets du climat."
+        "definition": "Adaptation qui change en profondeur les façons de produire, de bâtir et de vivre, au lieu d'ajuster l'existant à la marge."
+      },
+      {
+        "term": "Zone d'interface forêt-habitat",
+        "definition": "Bande où les maisons jouxtent la forêt, endroit où naissent la plupart des départs de feu."
       },
       {
         "term": "Trouée antifeu",
-        "definition": "Bande de terrain dégagée dans une forêt destinée à couper la progression des flammes."
+        "definition": "Bande de terrain dégagée dans un massif forestier destinée à stopper la progression des flammes."
       },
       {
-        "term": "Interface forêt-habitat",
-        "definition": "Zone où les maisons jouxtent directement la forêt, particulièrement exposée aux départs et aux propagations de feu."
-      },
-      {
-        "term": "Prêt relais",
-        "definition": "Crédit de court terme accordé pour passer un moment de trésorerie difficile en attendant des rentrées d'argent."
+        "term": "Indice d'humidité des sols",
+        "definition": "Mesure de l'eau contenue dans les sols, utilisée pour suivre l'intensité d'une sécheresse."
       }
     ]
   },

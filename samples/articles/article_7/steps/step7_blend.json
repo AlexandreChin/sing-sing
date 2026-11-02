@@ -2,112 +2,113 @@
   "blend": {
     "patterns": [
       {
-        "text": "L'accumulation chiffrée des dégâts installe une échelle d'accablement qui sert ensuite d'unité de mesure aux annonces publiques, alors que le terme de comparaison — le coût des mesures structurelles — n'est jamais chiffré. Le registre émotionnel fournit ainsi le dénominateur que l'analyse ne fournit pas.",
-        "layers": [
-          "rhetoric",
-          "logic",
-          "review"
-        ],
-        "references": [
-          "er_0",
-          "bs_0",
-          "bias_0",
-          "pr_2"
-        ]
-      },
-      {
-        "text": "Le motif prêté à l'exécutif — éviter les mécontents — est classé opinion présentée comme fait, coïncide avec l'absence de réponse sollicitée et avec un vocabulaire évaluatif réservé à un seul camp. Trois couches convergent sur le même geste : l'intention est imputée là où l'arbitrage n'est pas documenté.",
-        "layers": [
-          "probe",
-          "ethics",
-          "logic",
-          "review"
-        ],
-        "references": [
-          "claim_3",
-          "lr_2",
-          "er_1",
-          "bs_1"
-        ]
-      },
-      {
-        "text": "Le cap budgétaire global d'octobre est lu comme le sort réservé aux crédits d'adaptation, et cette lecture est aussi ce qui donne au bilan estival sa portée d'argument dans la négociation à venir. Le saut logique et la fonction rhétorique du texte sont le même mouvement.",
+        "text": "L'hypothèse jamais posée — l'ampleur des dégâts fixe à elle seule la réponse attendue — est d'abord installée émotionnellement par l'inventaire ininterrompu de pertes, puis convertie en preuve par la mise en regard de deux montants hétérogènes. Le barème est construit avant que la première décision publique ne soit examinée.",
         "layers": [
           "logic",
           "rhetoric",
           "probe"
         ],
         "references": [
-          "lr_3",
-          "cb_1",
-          "bias_2",
-          "obs_1"
+          "ia_0",
+          "er_0",
+          "bias_1",
+          "lr_2"
         ]
       },
       {
-        "text": "La surmortalité toutes causes ouvre l'article comme un coût de la chaleur, sans source nommée ni méthode explicitée, et ce glissement d'attribution est retenu comme point de vigilance déontologique. Le chiffre le plus frappant du texte est aussi celui dont la portée est la moins établie.",
+        "text": "Le motif prêté à l'exécutif — esquiver coûts et réglementations — est déduit d'un silence, énoncé comme un constat, et coïncide avec l'absence de toute réponse gouvernementale sollicitée. Trois couches convergent sur le même maillon : l'intention est inférée là où la partie visée n'a pas la parole.",
         "layers": [
           "logic",
           "probe",
           "ethics"
         ],
         "references": [
-          "claim_0",
-          "obs_4",
+          "lr_3",
+          "claim_3",
+          "ia_3",
+          "bs_1"
+        ]
+      },
+      {
+        "text": "L'exigence de chiffrage s'applique à sens unique : les dispositifs publics sont pesés au million près, tandis que le coût des mesures préconisées reste hors du texte. Cette asymétrie profite précisément à la position qui les porte, protégée de la contrainte budgétaire qui disqualifie tout le reste.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "bs_0",
+          "pr_3",
+          "cb_0",
+          "pr_2"
+        ]
+      },
+      {
+        "text": "Renvoyer dos à dos extrême droite, gauche et gouvernement ne laisse qu'un espace de parole légitime, celui des chercheurs et des associations — d'où le texte s'exprime. Le tri des positions adverses et la position d'énonciation forment un seul mouvement.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "cb_1",
+          "bias_2",
           "bs_3"
         ]
       },
       {
-        "text": "L'expertise mobilisée vient d'un seul côté : le rapport du Haut Conseil pour le climat fournit à la fois le diagnostic et le remède, et l'accumulation des dégâts qui le précède le valide sans qu'une lecture concurrente l'éprouve. L'angle épouse les limites du document qui le structure.",
-        "layers": [
-          "rhetoric",
-          "logic",
-          "review"
-        ],
-        "references": [
-          "cb_0",
-          "obs_0",
-          "pr_1",
-          "pr_3"
-        ]
-      },
-      {
-        "text": "Deux présupposés se relaient sans être signalés : prévisible y vaut évitable, et le silence estival vaut état de l'action publique. Leur combinaison suffit à faire de l'écart entre dégâts et annonces la mesure d'une défaillance, alors que le point de vue affiché du texte, lui, est explicite.",
-        "layers": [
-          "logic",
-          "review",
-          "rhetoric"
-        ],
-        "references": [
-          "ia_0",
-          "ia_1",
-          "obs_0"
-        ]
-      },
-      {
-        "text": "L'adaptation déjà engagée n'apparaît qu'en incise — l'été moins meurtrier qu'en 2003, attribué aux climatiseurs ensuite critiqués — et le chiffrage manquant des mesures préconisées empêche de trancher entre retard et renoncement. Ce qui a fonctionné n'est jamais inventorié.",
-        "layers": [
-          "logic",
-          "review",
-          "probe"
-        ],
-        "references": [
-          "bs_2",
-          "ia_3",
-          "obs_4"
-        ]
-      },
-      {
-        "text": "Les grandeurs sont livrées en valeur absolue sans dénominateurs, et la seule proportion présente — 0,5 % de forêt brûlée — est mentionnée une fois ; la note de bas de page atteste la source mais pas l'ordre de grandeur relatif. La vérifiabilité et la mise en perspective sont deux choses distinctes.",
+        "text": "Une seule source est nommée, datée et documentée, et c'est celle dont les préconisations servent de solution implicite ; les chiffres les plus lourds circulent sans opérateur de mesure. La rigueur du sourçage se concentre là où elle appuie la conclusion.",
         "layers": [
           "logic",
           "probe",
           "review"
         ],
         "references": [
+          "obs_2",
+          "claim_2",
+          "claim_0",
+          "claim_1"
+        ]
+      },
+      {
+        "text": "Le texte reconnaît lui-même qu'une adaptation non planifiée — pompes à chaleur, climatiseurs — a rendu l'été moins meurtrier qu'en 2003, mais les politiques d'adaptation déjà engagées ne sont pas versées au bilan. L'aveu contredit le point de départ à partir duquel l'insuffisance est mesurée.",
+        "layers": [
+          "logic",
+          "review"
+        ],
+        "references": [
+          "ia_1",
+          "bs_2",
+          "pr_2"
+        ]
+      },
+      {
+        "text": "La disproportion de l'espace redouble celle des ordres de grandeur : les incendies, sur 0,5 % de la forêt, occupent plus de place que la sécheresse qui touche presque tout le territoire, et un feu unique sert de fil conducteur. Les repères qui situeraient ces chiffres restent hors du texte.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "obs_1",
+          "obs_4",
+          "er_0",
+          "claim_1"
+        ]
+      },
+      {
+        "text": "Titre non étiqueté comme opinion, formule retournée qui installe le cadrage en une phrase, lexique de l'écart répété à chaque section : le registre du procès s'impose sans jamais être annoncé comme tel. Le lecteur aborde une tribune avec la vigilance d'un compte rendu.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
           "obs_3",
-          "claim_1",
-          "obs_2"
+          "er_1",
+          "focus",
+          "claim_3"
         ]
       }
     ]

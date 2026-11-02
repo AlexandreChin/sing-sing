@@ -1,176 +1,176 @@
 {
-  "main_claim": "Un choc climatique prévisible reçoit de l'exécutif des réponses d'urgence minimalistes.",
+  "main_claim": "Un été climatique historique n'a produit qu'une réponse publique minimale.",
   "premisses": [
     {
-      "statement": "L'été 2026 a produit des dégâts humains, agricoles, forestiers et matériels d'une ampleur inédite depuis 2022.",
-      "quality": "Solidement étayée par des séries chiffrées datées et attribuées (Météo France, interprofession volaillère, ministère), même si l'attribution des 6 000 décès à la chaleur n'est pas démontrée."
+      "statement": "Les dégâts de l'été 2026 dépassent les précédents épisodes de référence, chiffres à l'appui.",
+      "quality": "Repose sur des **données quantifiées et datées** (hectares brûlés, nappes, surmortalité), dont les **sources ne sont pas nommées** dans le texte."
     },
     {
-      "statement": "Ces épisodes s'inscrivent dans une tendance documentée d'intensification des chaleurs extrêmes en Europe.",
-      "quality": "Repose sur un consensus scientifique établi, mais invoqué ici par un collectif non nommé (« les scientifiques ») sans référence précise."
+      "statement": "Ces épisodes s'inscrivent dans une tendance documentée, pas dans un événement isolé.",
+      "quality": "Appuyée sur un **consensus scientifique** invoqué de façon collective, sans référence précise citée."
     },
     {
-      "statement": "Les mesures annoncées par l'État sont sans commune mesure avec les dégâts constatés.",
-      "quality": "Étayée par une comparaison d'ordres de grandeur (20 millions pour l'ONF face à 10-15 milliards de dégâts), mais les seules mesures estivales sont retenues comme périmètre."
+      "statement": "Les mesures annoncées par l'exécutif sont sans commune mesure avec l'ampleur constatée.",
+      "quality": "Étayée par une **comparaison d'ordres de grandeur** (20 millions pour l'ONF face à 93 700 hectares brûlés), mais construite sur des postes choisis par l'auteur."
     },
     {
-      "statement": "Des mesures structurelles efficaces sont connues et recommandées de longue date.",
-      "quality": "Assertion appuyée sur des recommandations citées (Haut Conseil pour le climat, chercheurs) mais dont l'efficacité n'est jamais chiffrée ni discutée."
+      "statement": "Des mesures structurelles efficaces sont déjà identifiées par les chercheurs et les praticiens.",
+      "quality": "**Assertion largement non étayée** : les propositions sont listées, leur efficacité chiffrée n'est pas démontrée."
     }
   ],
   "implicit_assumptions": [
     {
-      "statement": "Le fait qu'un phénomène soit **prévisible** implique qu'il était **évitable** par la politique publique.",
-      "impact": "Si une part des dégâts était inévitable à court terme quelles que soient les décisions, l'écart entre les dégâts et la réponse cesse de mesurer une défaillance."
+      "statement": "L'ampleur des dégâts détermine à elle seule le niveau de réponse publique attendu.",
+      "impact": "Si d'autres arbitrages (budget, faisabilité, calendrier parlementaire) pèsent légitimement, la réponse cesse d'être **minimaliste par choix** et devient contrainte."
     },
     {
-      "statement": "L'absence des enjeux structurels dans les **déclarations politiques** de l'été traduit leur absence dans l'**action publique**.",
-      "impact": "Si des politiques structurelles se poursuivent hors du cycle médiatique estival, le silence observé ne documente qu'un défaut de communication."
+      "statement": "Les mesures structurelles citées auraient réduit les dégâts de cet été-là.",
+      "impact": "Sans cette hypothèse, le contraste entre l'**inaction** et les **solutions disponibles** perd son ressort."
     },
     {
-      "statement": "La contrainte budgétaire invoquée par l'exécutif est un **prétexte** plutôt qu'une contrainte réelle.",
-      "impact": "Si les 30 à 50 milliards d'économies sont une nécessité de financement public, l'arbitrage devient un conflit d'objectifs et non un renoncement."
+      "statement": "Les propositions des chercheurs et des associations forment un ensemble cohérent et applicable.",
+      "impact": "Si ces propositions se contredisent ou butent sur des blocages pratiques, le **« silence assourdissant »** devient un désaccord de fond plutôt qu'une esquive."
     },
     {
-      "statement": "Les mesures préconisées par les chercheurs et associations produiraient les **effets attendus** si elles étaient appliquées.",
-      "impact": "Si leur efficacité est incertaine ou lente, l'inaction reprochée perd son caractère de faute évidente."
+      "statement": "L'absence du sujet dans les déclarations politiques équivaut à une absence d'action.",
+      "impact": "Si des politiques d'adaptation avancent sans communication, le **décalage constaté** porte sur le discours, pas sur les actes."
     }
   ],
   "blind_spots": [
     {
-      "topic": "Le coût et le calendrier des mesures structurelles préconisées ne sont jamais chiffrés.",
-      "significance": "Sans ce chiffrage, l'opposition entre « réponses cosmétiques » et action résolue reste une comparaison entre un montant connu et un montant inconnu."
+      "topic": "Le coût des mesures structurelles préconisées n'est jamais chiffré.",
+      "significance": "La **contrainte budgétaire** étant présentée comme le motif de l'inaction, un chiffrage permettrait de juger si le reproche tient."
     },
     {
-      "topic": "Aucune parole du gouvernement ni des agriculteurs irrigants n'est rapportée en réponse aux critiques.",
-      "significance": "Les arbitrages invoqués par les acteurs mis en cause resteraient à examiner avant de conclure à l'esquive."
+      "topic": "Aucun responsable public ne s'exprime sur ses arbitrages.",
+      "significance": "Une justification de l'exécutif pourrait faire apparaître des **contraintes** que le texte lit comme un renoncement."
     },
     {
-      "topic": "L'adaptation déjà engagée — plans nationaux, moyens de sécurité civile, essor des climatiseurs — n'apparaît qu'en incise.",
-      "significance": "Le texte note que l'été fut moins meurtrier qu'en 2003 sans en tirer d'inventaire de ce qui a fonctionné."
+      "topic": "Les politiques d'adaptation déjà engagées ne sont pas discutées.",
+      "significance": "Leur bilan modifierait le **point de départ** à partir duquel l'insuffisance est mesurée."
     },
     {
-      "topic": "La méthodologie de la surmortalité « toutes causes confondues » n'est pas explicitée.",
-      "significance": "Le chiffre de 6 000 décès ouvre l'article comme un coût de la chaleur alors qu'il mesure un écart à une mortalité attendue."
+      "topic": "Les objections agricoles et sociales à la rupture du modèle irrigué sont absentes.",
+      "significance": "Le passage de la **baisse de consommation de viande** au consensus supposé repose sur cette absence de contradiction."
     }
   ],
   "emphasis": [
-    "Le texte consacre **huit paragraphes chiffrés** au recensement des dégâts avant d'aborder la réponse publique, qui occupe deux paragraphes de description factuelle.",
-    "Les **20 millions d'euros** accordés à l'ONF sont rapportés à leur rendement en hectares, tandis que le coût des mesures structurelles préconisées n'est rapporté à aucun montant.",
-    "Les **fausses controverses** de l'été — climatiseurs, canadairs, congé climatique — sont énumérées en un paragraphe, alors qu'aucune n'est examinée sur le fond."
+    "Le texte consacre une dizaine de paragraphes à l'inventaire des dégâts avant que la première mesure publique ne soit examinée.",
+    "Les incendies, qui ont touché 0,5 % de la forêt française, occupent plus de place que la sécheresse agricole, dont le texte note pourtant qu'elle frappe la quasi-totalité du territoire.",
+    "La qualification de la réponse publique (« cosmétiques », « minimaliste », « schizophrène », « assourdissant ») revient à chaque section, alors que le contenu précis des dispositifs est décrit en quelques lignes."
   ],
   "logical_reasoning": [
     {
-      "step": "Des dégâts massifs et documentés sont établis, puis rattachés à une tendance climatique de fond.",
+      "step": "Des chiffres records de dégâts établissent la gravité de l'été 2026.",
       "problem_type": null,
       "diagnosis": null
     },
     {
-      "step": "Du caractère **systémique** du choc, le texte déduit que la réponse appropriée relève nécessairement de mesures structurelles.",
-      "problem_type": "validity",
-      "diagnosis": "Un phénomène de fond peut appeler des réponses d'adaptation immédiate en parallèle ; la nature du problème ne fixe pas à elle seule la nature de la réponse."
-    },
-    {
-      "step": "Le silence sur les enjeux structurels est interprété comme une **esquive délibérée** motivée par le coût politique.",
+      "step": "La comparaison avec 2003 et 2022 fait passer l'événement du statut d'accident à celui de tendance.",
       "problem_type": "soundness",
-      "diagnosis": "L'intention prêtée à l'exécutif — éviter les mécontents — est posée entre tirets, sans déclaration ni arbitrage documenté à l'appui."
+      "diagnosis": "Trois années de référence suffisent à suggérer une progression, mais la tendance invoquée s'appuie sur un consensus scientifique cité sans source précise."
     },
     {
-      "step": "Le maintien du cap budgétaire d'octobre est présenté comme la confirmation du renoncement climatique.",
+      "step": "L'écart entre le coût estimé de l'été (10 à 15 milliards) et les crédits annoncés (20 millions à l'ONF) sert de preuve du caractère cosmétique de la réponse.",
       "problem_type": "validity",
-      "diagnosis": "L'absence de hausse d'impôt ne détermine pas la répartition interne des dépenses, donc pas le sort des crédits d'adaptation."
+      "diagnosis": "Les deux montants ne portent pas sur le même objet : un coût total de catastrophe et une ligne de restauration forestière ne sont pas comparables terme à terme."
+    },
+    {
+      "step": "L'absence du sujet structurel dans les déclarations politiques est lue comme un évitement délibéré des coûts et des réglementations.",
+      "problem_type": "validity",
+      "diagnosis": "L'intention d'esquive est déduite du silence, sans élément établissant le motif de ce silence."
     }
   ],
   "observations": [
     {
-      "aspect": "Cadrage",
-      "summary": "L'accumulation de **cinq vagues de chaleur** et de deux mois records installe l'exceptionnalité de l'été avant que la question politique ne soit posée. L'année **2022 sert de référence unique** pour en mesurer l'ampleur, hectares brûlés comme coût.",
+      "aspect": "Temporalité",
+      "summary": "L'article est écrit **au cœur de la séquence** qu'il analyse, avant tout bilan consolidé. Il le signale lui-même en qualifiant les chiffres de provisoires.",
       "seeds": {
         "source": "context",
         "index": 0,
-        "excerpt": "cinq vagues de chaleur, juin puis juillet records",
+        "excerpt": "L'article paraît le 18 août 2026, pendant une série de vagues de chaleur",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    },
+    {
+      "aspect": "Échelle",
+      "summary": "Un événement local devient le **fil conducteur** du texte : le feu de Saumos ouvre l'illustration, revient dans le bilan forestier et dans les pertes touristiques.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "Un incendie parti de Saumos, en Gironde, a détruit 37 000 hectares",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "aspect": "Sourçage",
+      "summary": "Le rapport du Haut Conseil pour le climat sert d'**appui institutionnel** au diagnostic et à la conclusion. Il est la seule source dont la date et la nature sont précisées.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "Le Haut Conseil pour le climat a publié son rapport annuel le 10 juillet 2026",
         "strength": 0.9,
         "nature": "illustration"
       }
     },
     {
-      "aspect": "Temporalité",
-      "summary": "Le texte se referme sur le **débat budgétaire d'octobre**, ce qui transforme un bilan estival en argument pour un arbitrage à venir. Le **rapport du Haut Conseil pour le climat**, publié en pleine canicule, fournit le mot d'ordre sans qu'une autre expertise vienne le discuter.",
+      "aspect": "Cadrage",
+      "summary": "Le texte se referme sur le **calendrier budgétaire** d'octobre, qui transforme le constat estival en **enjeu d'arbitrage** à venir.",
       "seeds": {
         "source": "context",
-        "index": 2,
-        "excerpt": "à six semaines du débat budgétaire d'octobre",
+        "index": 3,
+        "excerpt": "Un débat budgétaire s'ouvre début octobre 2026 sur un cadrage de 30 à 50 milliards",
         "strength": 0.9,
         "nature": "inference"
       }
     },
     {
-      "aspect": "Comparaison",
-      "summary": "Le dépassement du **bilan de 2022** par l'incendie de Saumos est donné en écart d'hectares, sans la méthode ni le périmètre de la comparaison.",
-      "seeds": {
-        "source": "context",
-        "index": 1,
-        "excerpt": "Saumos (37 000 ha) a dépassé le bilan de 2022",
-        "strength": 0.8,
-        "nature": "specification"
-      }
-    },
-    {
-      "aspect": "Quantification",
-      "summary": "Les grandeurs sont données en **valeur absolue** — 6 000 décès, 93 700 hectares, 3 millions d'animaux — sans les dénominateurs qui permettraient de les situer, hormis les 0,5 % de forêt brûlée mentionnés une fois. Les **2 °C** servent d'horizon illustré par un Paris à 50 °C, sans que leur statut de plafond conventionnel soit rappelé.",
+      "aspect": "Proportions",
+      "summary": "Plusieurs **ordres de grandeur** qui situeraient les chiffres cités restent hors du texte : bilan de 2003, surface totale de la forêt, part des surfaces irriguées, niveau du déficit public, objectifs de l'Accord de Paris.",
       "seeds": {
         "source": "important_fact",
-        "index": 2,
-        "excerpt": "la forêt française couvre environ 17 millions d'hectares",
-        "strength": 0.8,
+        "index": 1,
+        "excerpt": "La forêt française couvre environ 17 millions d'hectares",
+        "strength": 0.7,
         "nature": "contradiction"
-      }
-    },
-    {
-      "aspect": "Attribution",
-      "summary": "La **surmortalité toutes causes** ouvre le bilan humain comme un coût de la chaleur, alors qu'elle mesure un écart à une mortalité attendue ; la comparaison avec **2003** reste implicite et son écart est attribué en incise aux climatiseurs, ensuite critiqués. Le **laxisme communal** est désigné pour les PPRIF, que le préfet prescrit et approuve.",
-      "seeds": {
-        "source": "important_fact",
-        "index": 1,
-        "excerpt": "la surmortalité toutes causes ne mesure pas les décès causés par la chaleur",
-        "strength": 0.9,
-        "nature": "specification"
       }
     }
   ],
   "steel_man": [
     {
-      "counterargument": "L'été a été **moins meurtrier qu'en 2003** pour une surmortalité de départ comparable en intensité de chaleur : équipement des logements, alertes sanitaires et moyens de secours ont absorbé une part du choc, ce qui documente une adaptation réelle, seulement plus lente que le rythme du réchauffement.",
-      "seeds": {
-        "source": "blind_spot",
-        "index": 2,
-        "excerpt": "l'adaptation déjà engagée n'apparaît qu'en incise",
-        "strength": 0.85,
-        "nature": "contradiction"
-      },
-      "alternative_conclusion": "L'enjeu ne serait pas l'absence de politique d'adaptation mais son **retard sur la courbe** des impacts, ce qui appelle une accélération plutôt qu'un changement de nature."
-    },
-    {
-      "counterargument": "Les mesures préconisées — débroussaillage, feuillus, baisse de la consommation de viande, rétention d'eau — supposent des **délais de dix à trente ans** et une adhésion sociale que le texte n'examine pas ; leur absence des annonces de l'été peut relever du calendrier plutôt que du renoncement.",
-      "seeds": {
-        "source": "implicit_assumption",
-        "index": 3,
-        "excerpt": "les mesures préconisées produiraient les effets attendus",
-        "strength": 0.8,
-        "nature": "inference"
-      },
-      "alternative_conclusion": "L'opposition entre réponses **cosmétiques** et structurelles se dissoudrait dans une question de séquence : que faire dans l'été même, et que financer sur la décennie."
-    },
-    {
-      "counterargument": "Le coût des mesures structurelles n'étant jamais chiffré, la **contrainte budgétaire** invoquée par l'exécutif reste un arbitrage possible et non un prétexte : sans les deux montants, l'écart entre 20 millions et 15 milliards ne mesure pas une volonté politique.",
+      "counterargument": "Une réponse publique proportionnée à la crise supposerait des dépenses que le texte ne chiffre jamais ; avec un déficit au-delà de 5 % du PIB, l'arbitrage décrit comme un renoncement peut être un choix contraint entre priorités.",
       "seeds": {
         "source": "blind_spot",
         "index": 0,
-        "excerpt": "le coût des mesures structurelles n'est jamais chiffré",
+        "excerpt": "Le coût des mesures structurelles préconisées n'est jamais chiffré.",
         "strength": 0.9,
         "nature": "inference"
       },
-      "alternative_conclusion": "Le désaccord porterait sur la **hiérarchie des dépenses publiques**, un débat d'arbitrage démocratique, et non sur une esquive du caractère systémique de la crise."
+      "alternative_conclusion": "Le décalage constaté relèverait moins de l'aveuglement que d'une hiérarchie budgétaire assumée, qu'il faudrait alors discuter en termes de priorités."
+    },
+    {
+      "counterargument": "Plusieurs mesures citées — débroussaillage, PPRIF, urbanisme d'interface — relèvent des communes et des propriétaires privés, pas de l'exécutif ; l'article agrège des niveaux de décision distincts sous une seule responsabilité.",
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 3,
+        "excerpt": "L'absence du sujet structurel dans les déclarations politiques est lue comme un évitement délibéré",
+        "strength": 0.8,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "L'inaction serait moins un choix gouvernemental qu'un blocage réparti entre échelons, ce qui déplace le levier d'action et les remèdes proposés."
+    },
+    {
+      "counterargument": "Le texte note lui-même que l'essor des pompes à chaleur et des climatiseurs a rendu l'été moins meurtrier qu'en 2003 : une adaptation, même non planifiée, produit des effets mesurables.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 1,
+        "excerpt": "Les mesures structurelles citées auraient réduit les dégâts de cet été-là.",
+        "strength": 0.7,
+        "nature": "contradiction"
+      },
+      "alternative_conclusion": "Le débat porterait alors sur le coût et l'équité des voies d'adaptation, plutôt que sur leur présence ou leur absence."
     }
   ]
 }
