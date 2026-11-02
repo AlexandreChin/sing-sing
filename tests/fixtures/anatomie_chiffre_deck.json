@@ -5,16 +5,16 @@
     "variable": "ce qui détermine le patrimoine qu'on a à 35 ans",
     "pole_a": "Le moment où l'on entre sur les marchés",
     "pole_b": "Ce que l'on gagne et épargne",
-    "proxy": "L'écart entre classes d'âge reflète aussi l'écart de moment d'entrée sur les marchés : c'est notre lecture, pas celle de la source.",
+    "proxy": "L'écart entre âges reflète aussi l'écart de moment d'entrée sur les marchés : c'est notre lecture, pas celle de la source.",
     "question": "De quoi dépend, selon vous, le patrimoine qu'on a à 35 ans ?",
     "facts": [
-      "Les plus de 75 ans ont profité d'un portefeuille constitué de longue date et de l'immobilier.",
+      "Les plus âgés ont un portefeuille constitué de longue date, et de l'immobilier.",
       "La part des moins de 35 ans propriétaires a reculé entre 2022 et 2025.",
       "Un économiste cité parle d'une économie « en G », pour « générationnelle »."
     ],
-    "implication": "Si le moment d'entrée pèse plus que le revenu, l'écart entre générations se reproduirait à chaque cycle d'actifs, indépendamment de l'effort.",
+    "implication": "Si le moment d'entrée pèse plus que le revenu, l'écart se reproduirait à chaque cycle d'actifs.",
     "looks": [
-      {"kind": "source", "text": "**Fed** : Survey of Consumer Finances, patrimoine par classe d'âge et par statut d'occupation"},
+      {"kind": "source", "text": "**Fed** : Survey of Consumer Finances, patrimoine par classe d'âge"},
       {"kind": "source", "text": "**Census Bureau** : taux de propriétaires par âge du chef de ménage"}
     ]
   },
@@ -25,17 +25,17 @@
   "boite_noire": {
     "figures": [
       {"value": "2022-2025", "label": "période observée", "compare": "enquête tous les trois ans"},
-      {"value": "215.900 $", "label": "patrimoine net médian, 2025", "compare": "la moitié des ménages a plus"},
+      {"value": "215.900 $", "label": "patrimoine net médian, 2025", "compare": "la moitié a plus"},
       {"value": "?", "label": "taille de l'échantillon", "compare": "non précisé"},
-      {"value": "ménages", "label": "unité mesurée", "compare": "le titre dit « Américains »"}
+      {"value": "ménages", "label": "unité mesurée", "compare": "titre : « Américains »"}
     ],
     "source_card": {"value": "Fed → WSJ → BFM", "label": "source primaire citée ?", "compare": "la Fed est nommée, sans lien vers l'enquête"},
     "claim": "Un patrimoine médian de ménages, pas de personnes",
-    "detail": "Les plus jeunes sont les familles dont la personne de référence a moins de 35 ans ; les plus âgés, les foyers comptant au moins une personne de plus de 75 ans. Deux définitions différentes."
+    "detail": "Jeunes : personne de référence de moins de 35 ans. Âgés : au moins un membre de plus de 75 ans. Deux définitions."
   },
   "eclairage": {
     "claim": "Le rapport entre les deux groupes est passé de 9 à 15",
-    "detail": "Il bouge quand l'un ou l'autre bouge : les plus jeunes perdent 23 % après une hausse de 140 % entre 2019 et 2022, un point de départ exceptionnel.",
+    "detail": "Il bouge avec chaque terme : les plus jeunes perdent 23 % après +140 % entre 2019 et 2022, un départ exceptionnel.",
     "part1": {"value": "505.000 $", "label": "plus de 75 ans"},
     "part2": {"value": "33.000 $", "label": "moins de 35 ans"},
     "ratio": {"value": "× 15", "label": "contre × 9 en 2022"},
@@ -45,12 +45,12 @@
     "title": "Ce que cette mesure ne montre pas",
     "statistique": {
       "claim": "Une médiane ne dit ni les dettes ni la dispersion",
-      "detail": "Elle place le ménage du milieu ; elle ne dit rien des prêts étudiants, de la liquidité, ni des écarts à l'intérieur de chaque âge.",
+      "detail": "Elle ignore les prêts étudiants, la liquidité et les écarts à l'intérieur d'un même âge.",
       "notes": [{"kind": "source", "text": "**Fed** : Survey of Consumer Finances, moyenne et distribution du patrimoine"}]
     },
     "periode": {
       "claim": "Le patrimoine de deux groupes, comparé à une même date",
-      "detail": "Cela ne suit pas une génération dans le temps, et le point de départ des plus jeunes était élevé.",
+      "detail": "Cela ne suit pas une génération ; le point de départ des plus jeunes était élevé.",
       "notes": [{"kind": "source", "text": "**Fed** : séries du patrimoine par génération, sur plusieurs enquêtes"}]
     }
   }

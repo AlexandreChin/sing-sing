@@ -67,9 +67,9 @@ def option_fields(deck: dict) -> dict[str, dict]:
                       "note1": _note(e["note"]) if e["note"] else ""},
         "perimetre": {"title": p["title"],
                       "claim1": p["statistique"]["claim"], "detail1": p["statistique"]["detail"],
-                      **dict(zip(("note1_1", "note1_2"), pad([_note(n) for n in p["statistique"]["notes"]], 2))),
+                      "note1": _note(p["statistique"]["notes"][0]),
                       "claim2": p["periode"]["claim"], "detail2": p["periode"]["detail"],
-                      **dict(zip(("note2_1", "note2_2"), pad([_note(n) for n in p["periode"]["notes"]], 2)))},
+                      "note2": _note(p["periode"]["notes"][0])},
         "hook": {"title": deck["hook"]["title"], "promise": deck["hook"]["promise"]},
         "writing": {"caption": deck["caption"]},
     }
@@ -128,7 +128,7 @@ def test_a_figure_needs_a_value_and_a_label_and_a_short_value():
 
 def test_the_source_card_names_a_chain():
     assert any("source_card is empty" in e for e in hard("boite_noire", source_card=""))
-    assert any("chain" in e for e in hard("boite_noire", source_card="Fed → WSJ → BFM → Reuters → X | source ?"))
+    assert any("source_card" in e and "max 24" in e for e in hard("boite_noire", source_card="Fed → WSJ → BFM → Reuters → X | source ?"))
 
 
 def test_two_figures_are_required():
@@ -141,7 +141,7 @@ def test_the_parts_and_the_ratio_are_typed():
 
 
 def test_notes_name_their_kind():
-    assert any("note1_1" in e for e in hard("perimetre", note1_1="Fed : séries"))
+    assert any("note1" in e for e in hard("perimetre", note1="Fed : séries"))
     assert any("look1" in e for e in hard("variable", look1="Fed : séries"))
     assert any("note1" in e for e in hard("eclairage", note1="lien | "))
     assert hard("eclairage", note1="") == []
@@ -149,7 +149,7 @@ def test_notes_name_their_kind():
 
 def test_slide_4_adds_no_digit():
     assert any("perimetre.detail1" in e and "digit" in e for e in hard("perimetre", detail1="Une médiane de 2025 ne dit rien."))
-    assert any("perimetre.note1_1" in e for e in hard("perimetre", note1_1="source | Fed : enquête de 2025"))
+    assert any("perimetre.note1" in e for e in hard("perimetre", note1="source | Fed : enquête de 2025"))
 
 
 def test_slide_5_adds_no_digit_outside_the_source_column():
@@ -362,3 +362,132 @@ def test_the_cli_knows_the_format_and_its_steps():
     assert main.GUIDED_AGENTS["anatomie_chiffre"] == "agent.anatomie_chiffre_adapt_agent"
     assert len(main._STEP_CHOICES) == len(set(main._STEP_CHOICES))
     assert set(agent.STEP_NAMES) <= set(main._STEP_CHOICES)
+
+
+# ── the layout: every field at its cap still fits its lines and the slide ───
+
+import random  # noqa: E402
+
+from playwright.sync_api import sync_playwright  # noqa: E402
+
+from renderer.instagram_carousel import anatomie_chiffre as renderer  # noqa: E402
+
+_POOL = ("le la les de des du un une et ou à au en par sur pour dans avec sans plus que qui ne pas "
+         "l'État patrimoine médiane médian ménages générations générationnelle l'échantillon représentatif "
+         "indépendamment propriétaires immobilier portefeuille financiers distribution liquidité remboursements "
+         "enquête classes d'âge Réserve fédérale statistiques consommation comparaison variable décomposition").split()
+
+
+def _chars(rng: random.Random, n: int) -> str:
+    """Random French-looking text of at most `n` characters, long words included."""
+    out = ""
+    while True:
+        w = rng.choice(_POOL)
+        if len((out + " " + w).strip()) > n:
+            return out
+        out = (out + " " + w).strip()
+
+
+def _wordn(rng: random.Random, n: int) -> str:
+    """Exactly `n` words, drawn from the pool."""
+    return " ".join(rng.choice(_POOL) for _ in range(n))
+
+
+def _fit(rng, step: str, field: str) -> str:
+    kind, cap = agent._CAPS[(step, field)]
+    return _chars(rng, cap) if kind == "chars" else _wordn(rng, cap)
+
+
+def worst_case_fields(seed: int = 0) -> dict[str, dict]:
+    """Every step's fields at their caps."""
+    rng = random.Random(seed)
+    f = lambda step, name: _fit(rng, step, name)   # noqa: E731
+    cap = lambda step, name: agent._CAPS[(step, name)][1]   # noqa: E731
+    parts = lambda step, name, value: " | ".join([value] + [_chars(rng, c) for c in agent._PART_CAPS[(step, name)][1:]])  # noqa: E731
+    note = lambda step, name: "source | **Fed** : " + _chars(rng, cap(step, name) - 19)   # noqa: E731
+    v = {k: f("variable", k) for k in ("title", "variable", "pole_a", "pole_b", "proxy", "implication",
+                                       "fact1", "fact2", "fact3")}
+    v["question"] = _chars(rng, cap("variable", "question") - 2) + " ?"
+    v["look1"], v["look2"] = note("variable", "look1"), note("variable", "look2")
+    b = {f"fig{i}": parts("boite_noire", f"fig{i}", "WWWWWWWWW") for i in range(1, 5)}
+    b |= {"source_card": parts("boite_noire", "source_card", "WWWWWWWWWWWWWWWWWWWWWWWW"),
+          "claim": f("boite_noire", "claim"), "detail": f("boite_noire", "detail")}
+    e = {"claim": f("eclairage", "claim"), "detail": f("eclairage", "detail"),
+         "part1": parts("eclairage", "part1", "WWWWWWWWW"), "part2": parts("eclairage", "part2", "WWWWWWWWW"),
+         "ratio": parts("eclairage", "ratio", "× 15"), "note1": note("eclairage", "note1")}
+    p = {k: f("perimetre", k) for k in ("title", "claim1", "detail1", "claim2", "detail2")}
+    p |= {k: note("perimetre", k) for k in ("note1", "note2")}
+    return {"variable": v, "boite_noire": b, "eclairage": e, "perimetre": p,
+            "hook": {"title": f("hook", "title"), "promise": f("hook", "promise")}, "writing": FIELDS["writing"]}
+
+
+def worst_case_deck(seed: int = 0) -> dict:
+    fields = worst_case_fields(seed)
+    frags = {s.name: agent.to_fragment(s, Option(id="a", slot="a", reason="", fields=fields[s.name])) for s in agent.STEPS}
+    return agent.assemble(frags)
+
+
+def test_the_worst_case_deck_breaks_no_hard_rule():
+    for name, fields in worst_case_fields().items():
+        if name != "writing":
+            hard_ = [e for e in agent.field_errors(name, fields, {}, None)[0] if "digit" not in e]
+            assert hard_ == [], (name, hard_)
+
+
+_LINES = """() => { const n = (sel) => [...document.querySelectorAll(sel)].map(e =>
+    Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight)));
+  const bottom = Math.max(0, ...[...document.querySelectorAll('.stage *')].map(e => e.getBoundingClientRect().bottom));
+  const cut = [...document.querySelectorAll('.fig .n, .chain .n, .bar .row, .ratio, .poles')]
+    .filter(e => e.scrollWidth > e.clientWidth + 1).map(e => e.className);
+  return {subtitle: n('.subtitle'), head: n('.head'), bottom, cut, page: document.documentElement.scrollWidth}; }"""
+
+
+@pytest.mark.parametrize("seed", range(4))
+def test_every_field_at_its_cap_fits_on_the_slide(tmp_path, seed):
+    doc = extract(full(), AnatomieChiffrePresentation.model_validate(worst_case_deck(seed)))
+    renderer.generate_html(doc, tmp_path)
+    measured = {}
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page(viewport={"width": 1080, "height": 1350})
+        for f in sorted(tmp_path.glob("*.html")):
+            page.set_content(f.read_text(encoding="utf-8"), wait_until="load")
+            page.evaluate("document.fonts.ready")          # the web fonts change the line breaks
+            measured[f.stem] = page.evaluate(_LINES)
+        browser.close()
+    # the promise takes three lines at its 100-character cap, then « En juger soi-même. »
+    assert all(n <= 4 for n in measured["01_hook"]["subtitle"]), measured["01_hook"]["subtitle"]
+    for slide in ("02_boite_noire", "03_eclairage", "04_perimetre", "05_variable"):
+        m = measured[slide]
+        assert m["page"] <= 1080, (slide, "horizontal overflow", m["page"])
+        assert m["cut"] == [], (slide, "a nowrap value is cut", m["cut"])
+        assert m["bottom"] <= 1255, (slide, m["bottom"])
+
+
+# ── the render ──────────────────────────────────────────────────────────────
+
+def test_six_slides_are_rendered(tmp_path):
+    import html
+    doc = extract(full(), AnatomieChiffrePresentation.model_validate(DECK))
+    paths = renderer.generate_html(doc, tmp_path / "html")
+    assert [p.stem for p in paths] == ["01_hook", "02_boite_noire", "03_eclairage", "04_perimetre", "05_variable", "06_cta"]
+    texts = {p.stem: html.unescape(p.read_text(encoding="utf-8")) for p in paths}
+    assert "comment il se mesure" in texts["01_hook"]
+    assert "215.900 $" in texts["02_boite_noire"] and "Fed → WSJ → BFM" in texts["02_boite_noire"]
+    assert 'style="width: 7%;"' in texts["03_eclairage"] and "× 15" in texts["03_eclairage"]
+    assert texts["04_perimetre"].count('class="card"') == 2
+    assert "pointer" in texts["05_variable"] and "data-perch" not in texts["05_variable"].split("<body>")[1]
+    assert "Ce que la source énonce" in texts["05_variable"] and "Ce que nous en tirons" in texts["05_variable"]
+    assert "de quoi dépend, selon vous, le patrimoine qu'on a à 35 ans ?" in texts["06_cta"]
+
+
+def test_the_bars_follow_the_ratio_or_stay_unfilled():
+    assert renderer.bar_widths("× 15") == (100, 7)
+    assert renderer.bar_widths("× 0,5") == (50, 100)
+    assert renderer.bar_widths("+37%") is None and renderer.bar_widths("") is None
+
+
+def test_a_deck_without_a_variable_cannot_be_drawn(tmp_path):
+    doc = extract(full(), AnatomieChiffrePresentation.model_validate({k: v for k, v in DECK.items() if k != "variable"}))
+    with pytest.raises(ValueError):
+        renderer.generate_html(doc, tmp_path)

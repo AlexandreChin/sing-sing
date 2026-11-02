@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+{% include 'article_carousel_cadrage_v1/_argument.css' %}
+/* each card opens on its icon: the icon beside the claim and its detail */
+:root { --gap-block: 28px; }
+.card { padding: 22px 30px 24px; }
+.tag { margin-bottom: 10px; }
+.detail { font-size: 30px; }
+.pt { display: flex; gap: 20px; align-items: flex-start; }
+.pt > svg { width: 36px; height: 36px; flex: none; margin-top: 4px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+</head>
+<body>
+{% from 'article_carousel_cadrage_v1/_notes.html' import look %}
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
+  {% include '_brand.html' %}
+  <div class="stage">
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.eye_off | safe }}</svg>Le périmètre exclu</span>
+    <h1 class="head">{{ title | md_bold }}</h1>
+    {% for c in cards %}<div class="card">
+      <div class="tag">{{ 'La statistique' if loop.first else 'La période' }}</div>
+      <div class="pt"><svg viewBox="0 0 24 24">{{ ICONS[c.icon] | safe }}</svg><div>
+        <div class="claim">{{ c.claim | md_bold }}</div>
+        {% if c.detail %}<div class="detail">{{ c.detail | md_bold }}</div>{% endif %}
+      </div></div>
+      {{ look(c.sources) }}
+    </div>{% endfor %}
+  </div>
+  <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
+  <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
+</div>
+</body>
+</html>
