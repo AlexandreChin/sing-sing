@@ -88,12 +88,10 @@ class PerimetreOption(BaseModel):
     title: str
     claim1: str   # card 1 — la statistique
     detail1: str
-    note1_1: str  # « source | texte »
-    note1_2: str
+    note1: str    # « source | texte » : where to look for a complementary measure
     claim2: str   # card 2 — la période
     detail2: str
-    note2_1: str
-    note2_2: str
+    note2: str
 
 
 class HookOption(BaseModel):
@@ -175,27 +173,29 @@ def base_inputs(full: ArticleFullAnalysis, article_text: str | None) -> str:
 # Hard: a generated option repairs itself; on the author's own pick they come
 # back as warnings. Flags are advisory.
 
-# (step, field) → ("words" | "chars", cap). The caps were set on the rendered slides.
+# (step, field) → ("words" | "chars", cap). Characters wherever the text is drawn: the caps
+# were measured on the rendered slides (a seeded worst-case render test guards them).
 _CAPS: dict[tuple[str, str], tuple[str, int]] = {
-    ("variable", "title"): ("words", 14), ("variable", "variable"): ("words", 16),
-    ("variable", "pole_a"): ("words", 10), ("variable", "pole_b"): ("words", 10),
-    ("variable", "proxy"): ("words", 32), ("variable", "question"): ("words", 20),
-    ("variable", "fact1"): ("words", 24), ("variable", "fact2"): ("words", 24), ("variable", "fact3"): ("words", 24),
-    ("variable", "implication"): ("words", 32), ("variable", "look1"): ("words", 24), ("variable", "look2"): ("words", 24),
-    ("boite_noire", "claim"): ("chars", 64), ("boite_noire", "detail"): ("words", 36),
-    ("boite_noire", "fig1"): ("words", 14), ("boite_noire", "fig2"): ("words", 14),
-    ("boite_noire", "fig3"): ("words", 14), ("boite_noire", "fig4"): ("words", 14),
-    ("boite_noire", "source_card"): ("words", 20),
-    ("eclairage", "claim"): ("chars", 72), ("eclairage", "detail"): ("words", 30),
-    ("eclairage", "part1"): ("words", 8), ("eclairage", "part2"): ("words", 8), ("eclairage", "ratio"): ("words", 8),
-    ("eclairage", "note1"): ("words", 24),
-    ("perimetre", "title"): ("words", 10),
-    ("perimetre", "claim1"): ("chars", 64), ("perimetre", "detail1"): ("words", 28),
-    ("perimetre", "claim2"): ("chars", 64), ("perimetre", "detail2"): ("words", 28),
-    ("perimetre", "note1_1"): ("words", 24), ("perimetre", "note1_2"): ("words", 24),
-    ("perimetre", "note2_1"): ("words", 24), ("perimetre", "note2_2"): ("words", 24),
+    ("variable", "title"): ("chars", 64), ("variable", "variable"): ("words", 16),
+    ("variable", "pole_a"): ("chars", 44), ("variable", "pole_b"): ("chars", 44),
+    ("variable", "proxy"): ("chars", 130), ("variable", "question"): ("chars", 64),
+    ("variable", "fact1"): ("chars", 90), ("variable", "fact2"): ("chars", 90), ("variable", "fact3"): ("chars", 90),
+    ("variable", "implication"): ("chars", 130), ("variable", "look1"): ("chars", 100), ("variable", "look2"): ("chars", 100),
+    ("boite_noire", "claim"): ("chars", 54), ("boite_noire", "detail"): ("chars", 130),
+    ("eclairage", "claim"): ("chars", 60), ("eclairage", "detail"): ("chars", 130), ("eclairage", "note1"): ("chars", 100),
+    ("perimetre", "title"): ("chars", 40),
+    ("perimetre", "claim1"): ("chars", 56), ("perimetre", "detail1"): ("chars", 90),
+    ("perimetre", "claim2"): ("chars", 56), ("perimetre", "detail2"): ("chars", 90),
+    ("perimetre", "note1"): ("chars", 90), ("perimetre", "note2"): ("chars", 90),
     ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 100),
 }
+# a « a | b | c » field: the characters each part may take (value, label, comparison)
+_PART_CAPS: dict[tuple[str, str], tuple[int, ...]] = {
+    **{("boite_noire", f"fig{i}"): (9, 30, 26) for i in range(1, 5)},
+    ("boite_noire", "source_card"): (24, 36, 44),
+    ("eclairage", "part1"): (9, 28), ("eclairage", "part2"): (9, 28), ("eclairage", "ratio"): (9, 40),
+}
+_PART_NAMES = ("value", "label", "comparison")
 _ACCUSING = re.compile(r"\b(biais|manipulation|manipul\w+|mensonges?|trompeu\w+|fallacieu\w+|sophismes?)\b", re.I)
 # slide 5 offers a reading to examine, never a conclusion
 _CONCLUDING = re.compile(r"\b(donc|prouve[nt]?|prouvent|démontre[nt]?|démontrent|par conséquent|en conclusion|c'est la preuve)\b", re.I)
@@ -204,12 +204,10 @@ _QUOTED = re.compile(r"«[^»]*»")
 _DIGIT = re.compile(r"\d")
 _AGE = re.compile(r"\b\d{1,3} ans\b")   # « à 35 ans » names a group, it adds no figure
 _NUMBER = re.compile(r"\d+(?:[.,]\d+)?")
-_FIG_VALUE_MAX = 9      # a figure card draws its value at 70 px in a half-width column
-_CHAIN_MAX = 24         # the source card's chain (« Fed → WSJ → BFM »), on a full-width card
 _REQUIRED = {"variable": ("title", "variable", "pole_a", "pole_b", "proxy", "question", "implication", "look1"),
              "boite_noire": ("fig1", "fig2", "source_card", "claim"),
              "eclairage": ("claim", "part1", "part2", "ratio"),
-             "perimetre": ("title", "claim1", "claim2", "note1_1", "note2_1")}
+             "perimetre": ("title", "claim1", "claim2", "note1", "note2")}
 # slides 4 and 5 (outside the source's frame) add no figure; slide 5's « source » column (facts) may carry digits
 _NO_DIGIT = {"perimetre": None,
              "variable": ("title", "variable", "pole_a", "pole_b", "proxy", "question", "implication", "look1", "look2")}
@@ -276,6 +274,13 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
         if step == "variable" and name in ("proxy", "implication", "question", "title") \
                 and (m := _CONCLUDING.search(value)):
             hard.append(f"variable.{name} concludes with « {m.group(0)} » — slide 5 offers a reading to examine, never a conclusion")
+    for (st, name), caps in _PART_CAPS.items():
+        if st == step and str(fields.get(name, "")).strip():
+            for part_name, part, cap in zip(_PART_NAMES, _parts(fields[name], len(caps)), caps):
+                if len(re.sub(r"\*\*", "", part)) > cap:
+                    hard.append(f"{step}.{name}: the {part_name} is {len(part)} characters (max {cap})"
+                                + (" — it is drawn big; for a gap write « ? » and put « non précisé » in the comparison"
+                                   if part_name == "value" else ""))
     for name in _REQUIRED.get(step, ()):
         if not str(fields.get(name, "")).strip():
             hard.append(f"{step}.{name} is empty")
@@ -304,9 +309,6 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                 continue
             if len([p for p in _parts(value, 3)[:2] if p]) < 2:
                 hard.append(f"boite_noire.{name} must read « valeur | libellé | comparaison » (the comparison is optional)")
-            elif len(_parts(value, 3)[0]) > _FIG_VALUE_MAX:
-                hard.append(f"boite_noire.{name}: the value is {len(_parts(value, 3)[0])} characters (max {_FIG_VALUE_MAX}) — "
-                            "it is drawn big; for a gap write « ? » and put « non précisé » in the comparison")
             elif article and (nums := _NUMBER.findall(_parts(value, 3)[0])) \
                     and not all(_in_source(n, article) for n in nums):
                 flags.append(f"boite_noire.{name}: {_parts(value, 3)[0]!r} does not appear as written in the source — check the figure")
@@ -315,8 +317,6 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
             chain = _parts(value, 3)
             if not chain[0] or not chain[1]:
                 hard.append("boite_noire.source_card must read « chaîne | libellé | précision » (the precision is optional)")
-            elif len(chain[0]) > _CHAIN_MAX:
-                hard.append(f"boite_noire.source_card: the chain is {len(chain[0])} characters (max {_CHAIN_MAX})")
     if step == "eclairage":
         for name in ("part1", "part2", "ratio"):
             value = str(fields.get(name, "")).strip()
@@ -325,8 +325,6 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
             value_, label = _parts(value, 2)
             if not value_ or not label:
                 hard.append(f"eclairage.{name} must read « valeur | libellé »")
-            elif len(value_) > _FIG_VALUE_MAX:
-                hard.append(f"eclairage.{name}: the value is {len(value_)} characters (max {_FIG_VALUE_MAX})")
             elif article:
                 nums = _NUMBER.findall(value_)
                 if not nums:
@@ -337,7 +335,7 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
         if value and _bad_note(value):
             hard.append("eclairage.note1 must read « source | texte » or « remarque | texte »")
     if step == "perimetre":
-        for name in ("note1_1", "note1_2", "note2_1", "note2_2"):
+        for name in ("note1", "note2"):
             value = str(fields.get(name, "")).strip()
             if value and _bad_note(value):
                 hard.append(f"perimetre.{name} must read « source | texte » or « remarque | texte »")
@@ -400,9 +398,9 @@ def to_fragment(step: Step, option: Option) -> dict:
     if step.name == "perimetre":
         return {"perimetre": {"title": f.get("title", ""),
                               "statistique": {"claim": f.get("claim1", ""), "detail": f.get("detail1", ""),
-                                              "notes": _notes(f, ("note1_1", "note1_2"))},
+                                              "notes": _notes(f, ("note1",))},
                               "periode": {"claim": f.get("claim2", ""), "detail": f.get("detail2", ""),
-                                          "notes": _notes(f, ("note2_1", "note2_2"))}}}
+                                          "notes": _notes(f, ("note2",))}}}
     if step.name == "hook":
         return {"hook": {"title": f.get("title", ""), "promise": f.get("promise", "")}}
     return {"caption": f.get("caption", "")}
