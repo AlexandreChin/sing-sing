@@ -98,20 +98,23 @@ Tous les formats partent de la même `analyze` (`ArticleFullAnalysis`) ; chaque 
 - **Perchoirs :** le point de tension du nœud, le curseur de la boussole (sans fil).
 - **Distinction avec Cadrage :** pas de thèse portée par un auteur, une tension symétrique.
 
-### Archétype 3 : `anatomie_chiffre` (5 slides)
+### Archétype 3 : `anatomie_chiffre` (6 slides) — à réaliser
 
 - **Sujet :** sondages, statistiques, classements, pourcentages marquants.
-- **Lentille :** la mesure.
-- **Contexte :** slides 2–3 (la boîte noire, ce que le chiffre établit). **Critique :** slide 4.
-- **Outil de pensée critique :** comment ce chiffre a-t-il été mesuré, et que laisse-t-il de côté ?
-- **Slide 1 :** Hook, titre = le chiffre brut entre « ». Il ne peut pas être isolé en grand : la slide 1 reste identique pour tous.
-- **Slide 2 :** La boîte noire — méthode, échantillon, questions posées, seuils, en monospace (`valeur | libellé | comparaison`). Dans le cadre : si le texte ne le dit pas, on écrit « non précisé » plutôt que d'inventer.
-- **Slide 3 :** La zone d'éclairage — ce que le chiffre établit solidement et son utilité.
-- **Slide 4 :** Le périmètre exclu — ce que cette mesure ne peut pas capter (effet de moyenne, déclaratif…), avec les organismes ou séries à consulter pour une mesure complémentaire. Hors cadre : aucun chiffre ajouté.
-- **Slide 5 :** CTA.
-- **Étapes :** périmètre exclu (noyau), boîte noire, zone d'éclairage, hook.
-- **Signal :** un chiffre cité qui n'apparaît pas en chiffres dans la source est signalé.
-- **Lentille :** l'exigence quantitative de `CANONICAL_LENSES` ; perchoir : la carte du chiffre.
+- **Lentille :** la mesure, puis la question qu'elle sert.
+- **Contexte :** slides 2–3 (la boîte noire, ce que le chiffre établit). **Critique :** slides 4–5.
+- **Outil de pensée critique :** comment ce chiffre a-t-il été mesuré, que laisse-t-il de côté, et de quelle question plus large est-il le symptôme ?
+- **Slide 1 :** Hook, titre = le chiffre brut entre « ». Il ne peut pas être isolé en grand : la slide 1 reste identique pour tous. Promesse propre au chiffre traité : le sujet du chiffre en mots neutres, puis « comment il se mesure, et la question qu'il pose » (ex. « Un écart de patrimoine entre générations : comment il se mesure, et la question qu'il pose »). Elle couvre les deux moitiés du deck (mesure : slides 2–4 ; question : slide 5) sans dire quelle est la question.
+- **Slide 2 :** La boîte noire — méthode, échantillon, questions posées, seuils, en monospace (`valeur | libellé | comparaison`). Dans le cadre : si le texte ne le dit pas, on écrit « non précisé » plutôt que d'inventer. Si le texte définit deux groupes de façons différentes (« personne de référence » d'un côté, « au moins un membre » de l'autre), ou nomme autre chose que ce que le titre annonce (ménages pour « Américains »), la boîte noire le dit. Une carte fixe nomme **la source primaire et la chaîne** (ex. `Fed → WSJ → BFM`) et dit si le texte cite la source primaire ou seulement un relais : « non précisé » sinon.
+- **Slide 3 :** La zone d'éclairage — ce que le chiffre établit solidement et son utilité, puis **comment il se décompose** : quand le titre est un ratio ou une variation, les deux grandeurs qui le composent (numérateur et dénominateur, ou point de départ et d'arrivée), telles que la source les donne, et le fait que le ratio bouge quand l'une ou l'autre bouge (un point de départ exceptionnel que la source mentionne s'y place). Petit visuel : deux barres et le rapport entre elles. Dans le cadre : les ventilations que la source donne et qui vont dans le même sens y figurent ; aucun écart recalculé sans être signalé comme tel.
+- **Slide 4 :** Le périmètre exclu — ce que cette mesure ne peut pas capter, en deux cartes sur deux limites différentes : **la statistique** (ce qu'une moyenne ou une médiane ne montre pas : dettes, liquidité, dispersion à l'intérieur des groupes, déclaratif) et **la période** (deux dates seulement, point de départ, groupes comparés à une même date plutôt qu'une génération suivie dans le temps). Chaque carte donne les organismes ou séries à consulter pour une mesure complémentaire. La lecture du chiffre comme substitut d'une autre grandeur n'est pas ici : elle est la slide 5. Hors cadre : aucun chiffre ajouté.
+- **Slide 5 :** La question derrière le chiffre — ce dont le chiffre est le symptôme. Quatre éléments : la **variable** (A contre B, une seule), pourquoi le chiffre en est un **substitut** (ce que la source dit et ce qui est notre lecture, nommé comme tel), ce qu'un **déplacement** de la variable impliquerait (formulé comme une conséquence à examiner, jamais comme une conclusion), et où **la regarder directement** (organismes ou séries à consulter, non vérifiés, sans chiffre). La slide joint des faits que la source énonce séparément ; elle ne lui prête aucune thèse. Elle est en deux colonnes : « Ce que la source énonce » (deux ou trois faits, cités ou rapportés tels quels, vérifiés au mot près quand ils sont entre « ») et « Ce que nous en tirons » (la question), pour que le lecteur voie où finit la source et où commence notre lecture. Hors cadre.
+- **Slide 6 :** CTA, la relance ouvre la question de la slide 5, ni binaire ni normative.
+- **Étapes :** question sous-jacente (noyau, écrite en premier, contexte fixe des suivantes ; plusieurs options avec ★ : la variable, le substitut), boîte noire, zone d'éclairage, périmètre exclu, hook ; légende ensuite. Un signal éditorial (conseil) vérifie que chacune des slides 2–4 se rattache à la question. `check` ne couvre pas ce format.
+- **Signaux :** un chiffre cité qui n'apparaît pas en chiffres dans la source est signalé ; une question sous-jacente que la source n'étaie par aucun fait (rien à mettre dans la colonne « ce que la source énonce ») aussi.
+- **Visuel :** chiffres en monospace sur la slide 2 ; la slide 3 montre la décomposition en deux barres et leur rapport ; la slide 5 met en regard les deux colonnes (source / lecture) et, dessous, la variable comme une barre à deux pôles (« A ⟷ B ») avec un curseur, sans pour/contre. Lentille : l'exigence quantitative de `CANONICAL_LENSES` ; perchoirs : la carte du chiffre (slide 2), les deux barres (slide 3) et le curseur de la variable (slide 5).
+- **Distinction avec les voisins :** `la_causalite` interroge le lien (le chiffre prouve-t-il une cause ?), `cadrage_logique` le risque d'une solution ; ici la question sous-jacente n'est ni une cause ni une solution, c'est la variable que le chiffre approche.
+- **Risques nommés :** (1) la question sous-jacente est notre lecture, pas celle du média : la slide 5 dit ce que la source énonce et ce qu'elle ne dit pas, et propose une question, jamais un verdict ; (2) elle ne convient pas à tout chiffre (pour un sondage : la confiance ; pour un classement : le critère) : d'où plusieurs options à l'étape noyau, et la possibilité de n'en retenir aucune ; (3) un ratio monte quand son dénominateur baisse : la boîte noire ou le périmètre exclu le dit quand le titre est un ratio ; (4) un chiffre dérivé (un écart absolu recalculé) n'est jamais ajouté sans être signalé comme tel.
 
 ### Archétype 4 : `temps_long` (6 slides) — réalisé
 
@@ -210,4 +213,4 @@ Ne regarde pas le sujet (écologie, économie, justice) mais la nature de la mat
 
 ### En cas d'hésitation
 
-Quand un article coche plusieurs cases (une tribune qui s'appuie sur une statistique) : si le chiffre n'est qu'un moyen au service d'une vision du monde, `cadrage_logique` ; si le chiffre fait lui-même débat (représentativité, mode de calcul), `anatomie_chiffre` ; si le débat porte sur ce que le chiffre prouverait (une corrélation présentée comme une cause), `la_causalite`.
+Quand un article coche plusieurs cases (une tribune qui s'appuie sur une statistique) : si le chiffre n'est qu'un moyen au service d'une vision du monde, `cadrage_logique` ; si le chiffre fait lui-même débat (représentativité, mode de calcul, ce qu'il approche), `anatomie_chiffre` ; si le débat porte sur ce que le chiffre prouverait (une corrélation présentée comme une cause), `la_causalite`.
