@@ -1,0 +1,9 @@
+ÉTAPE 2 — LA BOÎTE NOIRE (slide 2)
+
+L'étape 1 (la variable) est FIXÉE : retiens, parmi les éléments de méthode, ceux qui éclairent la lecture du chiffre vers elle. Tu proposes 3 ou 4 options (`fig1` à `fig4`, `source_card`, `claim`, `detail`). C'est une EXTRACTION fidèle : tout vient de la source ; ce qu'elle ne dit pas s'écrit « non précisé ».
+- `fig1` à `fig4` : 2 à 4 éléments de méthode, au format `valeur | libellé | comparaison` : la période observée, le chiffre de référence (médiane, moyenne, part) et ce qu'il signifie, l'unité mesurée (ménages, personnes, établissements) quand elle diffère de ce que le titre annonce, l'échantillon, les seuils. La valeur (≤9 caractères) est un chiffre ou un mot court (« 2022-2025 », « 215.900 $ », « ménages ») ; pour une information que la source ne donne pas, écris `? | taille de l'échantillon | non précisé` (le « ? » en valeur, « non précisé » en comparaison). N'invente rien.
+  Si la source définit les deux groupes comparés de façons différentes (« personne de référence » d'un côté, « au moins un membre » de l'autre) ou nomme autre chose que ce que le titre annonce (ménages pour « Américains »), un des éléments le dit. Chaque option choisit des éléments différents.
+- `source_card` : `chaîne | libellé | précision` — la source primaire et la chaîne de relais (ex. `Fed → WSJ → BFM | source primaire citée ? | la Fed est nommée, sans lien vers l'enquête`). La chaîne ≤24 caractères ; le libellé dit si le texte cite la source primaire ou seulement un relais ; si le texte ne le dit pas, « non précisé ». Cette carte est présente dans toutes les options.
+- `claim` (≤64 caractères) : ce que la boîte noire montre en une phrase, sans verdict (« Un patrimoine médian de ménages, pas de personnes »).
+- `detail` (≤36 mots) : l'explication, au plus près de ce que la source dit.
+- `reason` : quels éléments l'option met en avant et pourquoi.
