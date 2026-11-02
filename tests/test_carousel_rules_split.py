@@ -3,7 +3,7 @@ import pytest
 from agent.instagram_carousel_adapt_agent import split_rules
 from tools.check_deck import check
 
-DECK = "samples/articles/article_15/article/instagram_carousel_optimized/extract.json"
+DECK = "samples/articles/article_15/instagram_carousel_optimized/extract.json"
 
 
 @pytest.mark.parametrize("msg, kind", [

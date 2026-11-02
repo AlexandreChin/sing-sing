@@ -6,7 +6,7 @@ from models.newsletter_presentation import (
     NewsletterPresentation, NewsletterDocument, DecryptageItem,
 )
 
-_ANALYSIS = Path(__file__).resolve().parent.parent / "samples/outputs/article_1/analysis.json"
+_ANALYSIS = Path(__file__).resolve().parent.parent / "samples/articles/article_1/analysis.json"
 
 
 def sample_doc() -> NewsletterDocument:

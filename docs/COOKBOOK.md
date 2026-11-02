@@ -26,7 +26,7 @@ provider is `duckduckgo`, which needs no key.
 per-article folder. Add `--render` to also generate the PNG slides.
 
 ```bash
-uv run python main.py produce samples/articles/article_2.txt \
+uv run python main.py produce samples/articles/article_2/article_2.txt \
     --format instagram_carousel_optimized \
     --render
 ```
@@ -34,7 +34,7 @@ uv run python main.py produce samples/articles/article_2.txt \
 **Result:**
 
 ```
-samples/outputs/article_2/
+samples/articles/article_2/
   analysis.json                                  # the full analysis
   steps/                                         # step1…step9 cache
   instagram_carousel_optimized/
@@ -44,7 +44,7 @@ samples/outputs/article_2/
     slides/  01_hook.png … 10_cta.png            # ← your deliverable
 ```
 
-Open `samples/outputs/article_2/instagram_carousel_optimized/slides/` to see the 10 PNGs.
+Open `samples/articles/article_2/instagram_carousel_optimized/slides/` to see the 10 PNGs.
 
 ---
 
@@ -54,7 +54,7 @@ Open `samples/outputs/article_2/instagram_carousel_optimized/slides/` to see the
 to `claude -p`). Everything else is identical.
 
 ```bash
-uv run python main.py produce samples/articles/article_2.txt --no-api --render
+uv run python main.py produce samples/articles/article_2/article_2.txt --no-api --render
 ```
 
 The CLI occasionally returns an empty response; the pipeline retries automatically, so a
@@ -70,24 +70,24 @@ inspecting intermediate output or re-doing just one stage.
 
 ```bash
 # 1) analyze — 9-step analysis (writes analysis.json + steps/ cache)
-uv run python main.py analyze samples/articles/article_2.txt
-#   → samples/outputs/article_2/analysis.json
+uv run python main.py analyze samples/articles/article_2/article_2.txt
+#   → samples/articles/article_2/analysis.json
 
 # 2) adapt — analysis → carousel presentation copy
-uv run python main.py adapt samples/outputs/article_2/analysis.json \
+uv run python main.py adapt samples/articles/article_2/analysis.json \
     --format instagram_carousel_optimized
-#   → samples/outputs/article_2/analysis_instagram_carousel_optimized_adapt.json
+#   → samples/articles/article_2/analysis_instagram_carousel_optimized_adapt.json
 
 # 3) extract — trim the presentation into a render-ready document
 uv run python main.py extract \
-    samples/outputs/article_2/analysis.json \
-    samples/outputs/article_2/analysis_instagram_carousel_optimized_adapt.json \
+    samples/articles/article_2/analysis.json \
+    samples/articles/article_2/analysis_instagram_carousel_optimized_adapt.json \
     --format instagram_carousel_optimized
-#   → samples/outputs/article_2/analysis_instagram_carousel_optimized_extract.json
+#   → samples/articles/article_2/analysis_instagram_carousel_optimized_extract.json
 
 # 4) render — HTML + PNG (writes html/ and slides/ next to the extract file)
 uv run python main.py render \
-    samples/outputs/article_2/analysis_instagram_carousel_optimized_extract.json \
+    samples/articles/article_2/analysis_instagram_carousel_optimized_extract.json \
     --format instagram_carousel_optimized
 ```
 
@@ -108,10 +108,10 @@ PNGs without re-running any Claude calls, **edit the field in `extract.json`, th
 
 ```bash
 # edit e.g. presentation.hook.headline (or display.why_selected, …) in:
-#   samples/outputs/article_2/instagram_carousel_optimized/extract.json
+#   samples/articles/article_2/instagram_carousel_optimized/extract.json
 
 uv run python main.py render \
-    samples/outputs/article_2/instagram_carousel_optimized/extract.json \
+    samples/articles/article_2/instagram_carousel_optimized/extract.json \
     --format instagram_carousel_optimized
 #   → regenerates that folder's html/ + slides/
 ```
@@ -144,17 +144,17 @@ uv run python main.py shoot myslides      # PNGs land next to the HTML
 
 ```bash
 # Node-graph integrity checks on an analysis
-uv run python main.py validate samples/outputs/article_2/analysis.json
+uv run python main.py validate samples/articles/article_2/analysis.json
 
 # Find corroborating / contradicting sources for the article's claims
-uv run python main.py verify samples/outputs/article_2/analysis.json
-uv run python main.py verify samples/outputs/article_2/analysis.json --claim 0 --claim 3
+uv run python main.py verify samples/articles/article_2/analysis.json
+uv run python main.py verify samples/articles/article_2/analysis.json --claim 0 --claim 3
 
 # Render the analysis node-graph to an interactive HTML page
-uv run python main.py graph samples/outputs/article_2/analysis.json graph.html
+uv run python main.py graph samples/articles/article_2/analysis.json graph.html
 
 # Shrink an existing analysis for readability
-uv run python main.py simplify samples/outputs/article_2/analysis.json
+uv run python main.py simplify samples/articles/article_2/analysis.json
 ```
 
 ---
@@ -167,7 +167,7 @@ Any UTF-8 `.txt` works. For scraped articles, keep the **title on the first line
 ```bash
 uv run python main.py produce path/to/my_article.txt \
     --format instagram_carousel_optimized --render
-# → samples/outputs/my_article/instagram_carousel_optimized/slides/
+# → path/to/my_article/instagram_carousel_optimized/slides/
 ```
 
 You can also pipe text via stdin to `analyze`:
@@ -184,14 +184,14 @@ The `newsletter` format is fed by the same analysis, but produces prose instead 
 `--pdf` adds a PDF (dark gold-on-black, via Chromium); without it you get `.md` + `.html`.
 
 ```bash
-uv run python main.py produce samples/articles/article_2.txt \
+uv run python main.py produce samples/articles/article_2/article_2.txt \
     --format newsletter --render --pdf
 ```
 
 **Result:**
 
 ```
-samples/outputs/article_2/newsletter/
+samples/articles/article_2/newsletter/
   adapt.json         newsletter prose (structured)
   extract.json       render input
   newsletter.md      ← paste into Substack/Beehiiv/Ghost/…
@@ -206,8 +206,8 @@ Two ways to hand-tune before the final PDF:
 **A. Edit the prose (`newsletter.md`)** → regenerate the PDF straight from the markdown:
 
 ```bash
-# edit samples/outputs/article_2/newsletter/newsletter.md
-uv run python main.py pdf samples/outputs/article_2/newsletter/newsletter.md
+# edit samples/articles/article_2/newsletter/newsletter.md
+uv run python main.py pdf samples/articles/article_2/newsletter/newsletter.md
 #   → newsletter.pdf (markdown → branded shell → PDF)
 ```
 
@@ -215,7 +215,7 @@ uv run python main.py pdf samples/outputs/article_2/newsletter/newsletter.md
 
 ```bash
 # edit e.g. presentation.subject / presentation.decryptage[].body in extract.json
-uv run python main.py render samples/outputs/article_2/newsletter/extract.json \
+uv run python main.py render samples/articles/article_2/newsletter/extract.json \
     --format newsletter --pdf
 ```
 

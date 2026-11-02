@@ -27,9 +27,9 @@ import renderer.instagram_carousel.optimized as opt
 
 def _doc(beats, core_recap=("Le fil : a", "À questionner : b ?")):
     full = ArticleFullAnalysis.model_validate(
-        json.loads(Path("samples/outputs/article_3/analysis.json").read_text(encoding="utf-8")))
+        json.loads(Path("samples/articles/article_3/analysis.json").read_text(encoding="utf-8")))
     pres = InstagramCarouselPresentation.model_validate(
-        json.loads(Path("samples/outputs/article_3/instagram_carousel_optimized/adapt.json").read_text(encoding="utf-8")))
+        json.loads(Path("samples/articles/article_3/instagram_carousel_optimized/adapt.json").read_text(encoding="utf-8")))
     pres = pres.model_copy(update={"display": pres.display.model_copy(update={
         "lenses": [Lens(id="chiffres", name="Chiffres", question="Rapporté à quoi ?")],
         "reading_beats": beats,

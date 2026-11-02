@@ -15,7 +15,7 @@ article.txt ──▶ analyze ──▶ adapt ──▶ extract ──▶ render
 - **extract** — no LLM; selects/trims the presentation into a render-ready document.
 - **render** — Jinja2 templates → HTML → Playwright screenshots → PNG slides.
 
-> New here? The **[COOKBOOK](COOKBOOK.md)** walks through running a pipeline end to end
+> New here? The **[COOKBOOK](docs/COOKBOOK.md)** walks through running a pipeline end to end
 > with copy-paste examples.
 
 ## Requirements
@@ -52,16 +52,16 @@ The Claude model is set in `config.py` (`MODEL = "claude-opus-4-8"`).
 
 ```bash
 # Full pipeline + render, on a bundled sample article:
-uv run python main.py produce samples/articles/article_2.txt \
+uv run python main.py produce samples/articles/article_2/article_2.txt \
     --format instagram_carousel_optimized --render
 ```
 
-Slides land in `samples/outputs/article_2/instagram_carousel_optimized/slides/`.
+Slides land in `samples/articles/article_2/instagram_carousel_optimized/slides/`.
 
 No API key? Use the local Claude CLI instead:
 
 ```bash
-uv run python main.py produce samples/articles/article_2.txt --no-api --render
+uv run python main.py produce samples/articles/article_2/article_2.txt --no-api --render
 ```
 
 ## Commands
@@ -99,15 +99,16 @@ the newsletter has its own prose adapt. Registered in `extractors/registry.py`.
 
 ```bash
 # Newsletter (Markdown + HTML, plus PDF with --pdf):
-uv run python main.py produce samples/articles/article_2.txt --format newsletter --render --pdf
+uv run python main.py produce samples/articles/article_2/article_2.txt --format newsletter --render --pdf
 ```
 
 ## Output layout
 
-One folder per article under `samples/outputs/`:
+One folder per input under `samples/{articles,podcasts,videos}/`, named after the input file:
 
 ```
-samples/outputs/<article-stem>/
+samples/<medium>/<stem>/
+  <stem>.txt                    the input (image.png, background.png beside it)
   analysis.json                 ArticleFullAnalysis
   steps/                        step1…step9 cache (re-used on re-runs)
   <format>/

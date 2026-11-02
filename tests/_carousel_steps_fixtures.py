@@ -7,8 +7,8 @@ from pathlib import Path
 
 from models.full_analysis import ArticleFullAnalysis
 
-DECK = Path("samples/articles/article_15/article/instagram_carousel_optimized/adapt.json")
-ANALYSIS = Path("samples/articles/article_15/article/analysis.json")
+DECK = Path("samples/articles/article_15/instagram_carousel_optimized/adapt.json")
+ANALYSIS = Path("samples/articles/article_15/analysis.json")
 
 _CAND = ("moment", "quote", "quote_original", "lens_ref", "factcheck", "theme", "centrality", "kind", "role", "rationale")
 _COPY = ("lens_question", "note", "answer", "figure", "figure_label", "figure_caption", "pictogram")

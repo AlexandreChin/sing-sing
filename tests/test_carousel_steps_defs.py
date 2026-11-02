@@ -7,7 +7,7 @@ import pytest
 from agent.carousel_steps.steps import STEP_BY_NAME, STEPS, Option, assemble, check_picks, default_picks, step_of, to_fragment
 from models.instagram_carousel_presentation import InstagramCarouselPresentation
 
-DECK = Path("samples/articles/article_15/article/instagram_carousel_optimized/adapt.json")
+DECK = Path("samples/articles/article_15/instagram_carousel_optimized/adapt.json")
 
 
 def test_steps_in_order():

@@ -19,7 +19,7 @@ from renderer.instagram_carousel.procart import cover_art
 
 TEMPLATES_DIR = Path(__file__).parent / "templates"
 
-_LOGO_PATH = Path(__file__).parent.parent.parent / "src" / "assets" / "images" / "logo" / "logo.png"
+_LOGO_PATH = Path(__file__).parent.parent.parent / "assets" / "images" / "logo" / "logo.png"
 
 # Importance weights for the global quality score (Σ = 15). Factual accuracy and
 # reasoning structure are the epistemic core and weigh most; craft axes least.

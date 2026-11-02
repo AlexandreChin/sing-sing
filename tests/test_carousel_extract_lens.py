@@ -8,10 +8,10 @@ from models.instagram_carousel_presentation import (
 )
 
 _ANALYSIS = ArticleFullAnalysis.model_validate(
-    json.loads(Path("samples/outputs/article_3/analysis.json").read_text(encoding="utf-8"))
+    json.loads(Path("samples/articles/article_3/analysis.json").read_text(encoding="utf-8"))
 )
 _PRES = InstagramCarouselPresentation.model_validate(
-    json.loads(Path("samples/outputs/article_3/instagram_carousel_optimized/adapt.json").read_text(encoding="utf-8"))
+    json.loads(Path("samples/articles/article_3/instagram_carousel_optimized/adapt.json").read_text(encoding="utf-8"))
 )
 
 

@@ -125,7 +125,8 @@ and every step reruns.
 
 **Output layout:** one folder per analysis (see `_layout()` in `main.py`):
 ```
-samples/outputs/<stem>/
+samples/<medium>/<stem>/     (medium = articles | podcasts | videos)
+  <stem>.txt               the input (image.png, background.png, instructions.txt beside it)
   analysis.json            ArticleFullAnalysis
   steps/                   step1…step9 cache
   <format>/                e.g. instagram_carousel_optimized/

@@ -122,7 +122,7 @@ def test_context_includes_core_elements():
     from agent.instagram_carousel_adapt_agent import _full_analysis_context
     from models.full_analysis import ArticleFullAnalysis, CoreElements, CoreElement
     a = ArticleFullAnalysis.model_validate(
-        json.loads(Path("samples/outputs/article_3/analysis.json").read_text(encoding="utf-8")))
+        json.loads(Path("samples/articles/article_3/analysis.json").read_text(encoding="utf-8")))
     a = a.model_copy(update={"core_elements": CoreElements(elements=[
         CoreElement(statement="La faune est concurrencée par les touristes", kind="enjeu", centrality=5),
         CoreElement(statement="Le bilan carbone par passager est élevé", kind="fait", centrality=4),

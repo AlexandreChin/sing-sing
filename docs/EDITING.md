@@ -22,11 +22,11 @@ by hand — no LLM calls.
 The renderer reads **`extract.json`**, not `adapt.json`. So:
 
 1. Edit the text in
-   `samples/outputs/<article>/instagram_carousel_optimized/extract.json`
+   `samples/articles/<article>/instagram_carousel_optimized/extract.json`
 2. Re-shoot every slide:
    ```bash
    python main.py render \
-     samples/outputs/<article>/instagram_carousel_optimized/extract.json \
+     samples/articles/<article>/instagram_carousel_optimized/extract.json \
      --format instagram_carousel_optimized
    ```
 3. Updated PNGs land in `.../slides/`, the HTML in `.../html/`.
@@ -150,11 +150,11 @@ Markdown; the HTML and email files are **generated from it**.
 ## TL;DR
 
 1. Edit
-   `samples/outputs/<article>/newsletter/newsletter.md`
+   `samples/articles/<article>/newsletter/newsletter.md`
 2. Rebuild the HTML + email from it:
    ```bash
    python main.py render \
-     samples/outputs/<article>/newsletter/newsletter.md \
+     samples/articles/<article>/newsletter/newsletter.md \
      --format newsletter
    ```
 3. This rewrites three files next to it and **never touches your `.md`**:

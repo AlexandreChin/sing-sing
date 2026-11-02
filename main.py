@@ -13,7 +13,7 @@ from models import FullAnalysisInput
 
 load_dotenv()
 
-OUTPUTS_DIR = Path("samples/outputs")
+OUTPUTS_DIR = Path("samples/articles")
 DEFAULT_FORMAT = "instagram_carousel_optimized"
 CADRAGE_FORMAT = "cadrage_logique"   # its guided cascade lives in agent/cadrage_adapt_agent.py
 TEMPS_LONG_FORMAT = "temps_long"     # and this one's in agent/temps_long_adapt_agent.py
@@ -580,7 +580,7 @@ def _build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_adapt)
 
     p = sub.add_parser("choose", help="keep options at a carousel adapt step (or ask for other options)")
-    p.add_argument("fmt_dir", help="format folder, e.g. samples/outputs/<stem>/instagram_carousel_optimized")
+    p.add_argument("fmt_dir", help="format folder, e.g. samples/articles/<stem>/instagram_carousel_optimized")
     p.add_argument("step", choices=_STEP_CHOICES)
     p.add_argument("--pick", help="comma-separated option ids to keep")
     p.add_argument("--edit", action="append", default=[], metavar="ID=TEXT",

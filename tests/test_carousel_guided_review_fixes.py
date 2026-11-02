@@ -15,7 +15,7 @@ from agent.carousel_steps.steps import STEP_BY_NAME
 from agent.carousel_steps.store import load
 from tests._carousel_steps_fixtures import FakeCalls, full as _full, load_deck, responses
 
-ARTICLE = Path("samples/articles/article_15/article.txt")
+ARTICLE = Path("samples/articles/article_15/article_15.txt")
 
 
 @pytest.fixture
@@ -212,7 +212,7 @@ def test_fix_idees_reaches_the_option_of_its_position(fake, steps_dir):
 
 def test_headline_overlap_is_advisory(tmp_path):
     from tools.check_deck import check
-    src = Path("samples/articles/article_15/article/instagram_carousel_optimized/extract.json")
+    src = Path("samples/articles/article_15/instagram_carousel_optimized/extract.json")
     doc = json.loads(src.read_text(encoding="utf-8"))
     doc["presentation"]["display"]["selection_headline"] = "Les **girafes** du désert"
     deck = tmp_path / "a" / "fmt" / "extract.json"
