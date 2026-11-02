@@ -76,7 +76,7 @@ def option_fields(deck: dict) -> dict[str, dict]:
 
 
 FIELDS = option_fields(DECK)
-ARTICLE = Path("samples/articles/bfm_americains/article.txt")
+ARTICLE = Path("samples/articles/bfm_americains/bfm_americains.txt")
 
 
 def _opt(step):
