@@ -353,3 +353,12 @@ def test_a_later_step_receives_the_variable_the_article_and_only_its_slice(fake,
     assert "ÉTAPE 2 — LA BOÎTE NOIRE" in second and "ÉTAPE 1 — LA VARIABLE" not in second
     for private in ("review", "ethics", "blend", "distill", "guide"):
         assert f'"{private}"' not in second
+
+
+# ── CLI wiring ──────────────────────────────────────────────────────────────
+
+def test_the_cli_knows_the_format_and_its_steps():
+    import main
+    assert main.GUIDED_AGENTS["anatomie_chiffre"] == "agent.anatomie_chiffre_adapt_agent"
+    assert len(main._STEP_CHOICES) == len(set(main._STEP_CHOICES))
+    assert set(agent.STEP_NAMES) <= set(main._STEP_CHOICES)

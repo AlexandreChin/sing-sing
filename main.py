@@ -17,8 +17,10 @@ OUTPUTS_DIR = Path("samples/articles")
 DEFAULT_FORMAT = "instagram_carousel_optimized"
 CADRAGE_FORMAT = "cadrage_logique"   # its guided cascade lives in agent/cadrage_adapt_agent.py
 TEMPS_LONG_FORMAT = "temps_long"     # and this one's in agent/temps_long_adapt_agent.py
+ANATOMIE_FORMAT = "anatomie_chiffre"  # and this one's in agent/anatomie_chiffre_adapt_agent.py
 # the formats with a guided cascade of their own (the 9-slide deck's lives in agent/carousel_steps)
-GUIDED_AGENTS = {CADRAGE_FORMAT: "agent.cadrage_adapt_agent", TEMPS_LONG_FORMAT: "agent.temps_long_adapt_agent"}
+GUIDED_AGENTS = {CADRAGE_FORMAT: "agent.cadrage_adapt_agent", TEMPS_LONG_FORMAT: "agent.temps_long_adapt_agent",
+                 ANATOMIE_FORMAT: "agent.anatomie_chiffre_adapt_agent"}
 
 
 def _base_dir(input_path: str | None, stem: str) -> Path:
@@ -534,10 +536,11 @@ def _add_source_args(p: argparse.ArgumentParser) -> None:
                    help="listening/viewing time in minutes (default: estimated from the word count)")
 
 
-# the guided steps of the 9-slide deck, then those of the cadrage and temps_long cascades
+# the guided steps of the 9-slide deck, then those of the cadrage, temps_long and anatomie_chiffre cascades
 _STEP_CHOICES = ["question", "enjeu", "idees", "moments", "contexte", "socle", "hook",
                  "axe", "constat", "these", "angle_mort", "depassement", "boussole",
-                 "tournants", "episodes", "lecture", "pieges"]
+                 "tournants", "episodes", "lecture", "pieges",
+                 "variable", "boite_noire", "eclairage", "perimetre"]
 
 
 def _add_stop_after(p: argparse.ArgumentParser) -> None:
