@@ -61,7 +61,7 @@ class AnatomieRecit(BaseModel):  # slide 3 — the logical thread, from the meas
 class AnatomieAngleMortCard(BaseModel):
     claim: str         # the blind spot, as a question ending in « ? »
     detail: str = ""   # no longer produced (older decks load)
-    notes: list[AnatomieNote] = Field(default_factory=list)   # [0] how to validate or invalidate the assumption, [1] where to look (organisations, series)
+    notes: list[AnatomieNote] = Field(default_factory=list)   # one: how to validate or invalidate the assumption (older decks may carry a second, a source)
     opens: list[int] = Field(default_factory=list)   # the two readings (1-based) this blind spot leaves undecided
 
 

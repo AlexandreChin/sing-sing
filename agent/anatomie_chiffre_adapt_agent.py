@@ -75,15 +75,12 @@ class AngleMortOption(BaseModel):
     title: str
     claim1: str      # card 1 — a blind spot of these figures, as a question ending in « ? »
     verifier1: str   # how to validate or invalidate the assumption it questions (an infinitive sentence)
-    sources1: str    # where to look: organisations and series, named, no URL, no digit
     ouvre1: str      # the two readings it leaves undecided, e.g. « 1,3 » (not drawn)
     claim2: str      # card 2 — another blind spot, as a question
     verifier2: str
-    sources2: str
     ouvre2: str
     claim3: str      # card 3 — a third blind spot
     verifier3: str
-    sources3: str
     ouvre3: str
 
 
@@ -183,7 +180,6 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("angle_mort", "title"): ("chars", 40),
     **{("angle_mort", f"claim{i}"): ("chars", 52) for i in (1, 2, 3)},
     **{("angle_mort", f"verifier{i}"): ("chars", 76) for i in (1, 2, 3)},
-    **{("angle_mort", f"sources{i}"): ("chars", 56) for i in (1, 2, 3)},
     ("lectures", "title"): ("chars", 40),
     ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 100),
 }
@@ -205,11 +201,10 @@ _KINDS = ("explication", "interpretation", "consequence")
 _REQUIRED = {"axe": ("fait", "lecture1", "lecture2", "lecture3"),
              "chiffres": ("claim", "fig1", "fig2", "fig3"),
              "recit": ("title", "row1", "row2"),
-             "angle_mort": ("title", *(f"{n}{i}" for i in (1, 2, 3) for n in ("claim", "verifier", "sources", "ouvre"))),
+             "angle_mort": ("title", *(f"{n}{i}" for i in (1, 2, 3) for n in ("claim", "verifier", "ouvre"))),
              "lectures": ("title", "lecture1", "lecture2", "lecture3")}
 # slides 4 and 5 are outside the article's frame and add no figure (the `ouvre` pair is a reference, not a figure)
-_URL = re.compile(r"https?://|www\.", re.I)
-_NO_DIGIT = {"angle_mort": {"title", *(f"{n}{i}" for i in (1, 2, 3) for n in ("claim", "verifier", "sources"))},
+_NO_DIGIT = {"angle_mort": {"title", *(f"{n}{i}" for i in (1, 2, 3) for n in ("claim", "verifier"))},
              "lectures": {"title", "lecture1", "lecture2", "lecture3"}}
 # a statistical term the reader may not know: `chiffres.note1` must gloss it in plain words
 _JARGON = re.compile(r"\b(médian\w*|écart[- ]type|percentiles?|quantiles?|décile\w*|quartile\w*|corrélation)\b", re.I)
@@ -338,8 +333,6 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
             value = str(fields.get(f"claim{i}", "")).strip()
             if value and not value.endswith("?"):
                 hard.append(f"angle_mort.claim{i} must be a question ending in « ? »")
-            if _URL.search(str(fields.get(f"sources{i}", ""))):
-                hard.append(f"angle_mort.sources{i} names organisations and series, never a URL")
         pairs = []
         for i in (1, 2, 3):
             name = f"ouvre{i}"
@@ -416,8 +409,8 @@ def to_fragment(step: Step, option: Option) -> dict:
         cards = []
         for i in (1, 2, 3):
             opens = _ouvre(str(f.get(f"ouvre{i}", ""))) or []
-            notes = [{"kind": "source", "text": str(f.get(f"{n}{i}", "")).strip()} for n in ("verifier", "sources")
-                     if str(f.get(f"{n}{i}", "")).strip()]
+            clue = str(f.get(f"verifier{i}", "")).strip()
+            notes = [{"kind": "source", "text": clue}] if clue else []
             cards.append({"claim": f.get(f"claim{i}", ""), "notes": notes, "opens": opens})
         return {"angle_mort": {"title": f.get("title", ""), "cards": cards}}
     if step.name == "lectures":

@@ -28,7 +28,6 @@
       </div></div>
       {% if c.sources %}<div class="look">
         <span class="src"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg><span>{{ c.sources[0].text | md_bold }}</span></span>
-        {% if c.sources|length > 1 %}<span class="src"><svg viewBox="0 0 24 24">{{ ICONS.book | safe }}</svg><span>{{ c.sources[1].text | md_bold }}</span></span>{% endif %}
       </div>{% endif %}
     </div>{% endfor %}
   </div>

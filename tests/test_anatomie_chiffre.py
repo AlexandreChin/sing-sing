@@ -69,8 +69,7 @@ def option_fields(deck: dict) -> dict[str, dict]:
                              pad([f"{x['kind']} | {x['text']} | {x['remark']}" for x in r["rows"]], 3)))},
         "angle_mort": {"title": a["title"],
                        **{f"{n}{i}": v for i, c in enumerate(a["cards"], 1)
-                          for n, v in (("claim", c["claim"]), ("verifier", c["notes"][0]["text"]),
-                                       ("sources", c["notes"][1]["text"]), ("ouvre", ",".join(map(str, c["opens"]))))}},
+                          for n, v in (("claim", c["claim"]), ("verifier", c["notes"][0]["text"]), ("ouvre", ",".join(map(str, c["opens"]))))}},
         "lectures": {"title": lc["title"],
                      **{f"lecture{i}": f"{x['nom']} | {x['voir']} | {x['sens']}" for i, x in enumerate(lc["rows"], 1)}},
         "hook": {"title": deck["hook"]["title"], "promise": deck["hook"]["promise"]},
@@ -179,8 +178,6 @@ def test_notes_name_their_kind():
 
 def test_a_blind_spot_is_a_question_with_a_clue():
     assert any("claim1 must be a question" in e for e in hard("angle_mort", claim1="Une photo à une date."))
-    assert any("sources2" in e and "URL" in e for e in hard("angle_mort", sources2="Fed : https://x.org"))
-    assert any("sources3" in e and "digit" in e for e in hard("angle_mort", sources3="Fed : série de 2025"))
     assert any("verifier3 is empty" in e for e in hard("angle_mort", verifier3=""))
     assert any("verifier1 is empty" in e for e in hard("angle_mort", verifier1=""))
 
@@ -406,7 +403,8 @@ def test_six_slides_are_rendered(tmp_path):
     for label in ("Explication", "Interprétation", "Conséquence"):
         assert label in texts["03_recit"], label
     assert texts["04_angle_mort"].count('class="card"') == 3
-    assert "Pour vérifier" not in texts["04_angle_mort"] and texts["04_angle_mort"].count("Réserve fédérale") == 3
+    assert "Pour vérifier" not in texts["04_angle_mort"] and "Réserve fédérale" not in texts["04_angle_mort"]
+    assert texts["04_angle_mort"].count("Comparer") == 2
     assert "Laisse ouvert" not in texts["04_angle_mort"] and "On verrait" not in texts["05_lectures"]
     assert texts["05_lectures"].count("Alors ") == 3
     assert "quelle lecture les séries que vous trouverez soutiennent-elles ?" in texts["06_cta"]
@@ -458,8 +456,7 @@ def worst_case_fields(seed: int = 0) -> dict[str, dict]:
              "row2": parts("recit", "row2", "interpretation"), "row3": parts("recit", "row3", "consequence")}
     angle = {"title": text("angle_mort", "title"), "ouvre1": "1,2", "ouvre2": "2,3", "ouvre3": "1,3"}
     for i in (1, 2, 3):
-        angle |= {f"claim{i}": text("angle_mort", f"claim{i}")[:-1] + "?", f"verifier{i}": text("angle_mort", f"verifier{i}"),
-                  f"sources{i}": text("angle_mort", f"sources{i}")}
+        angle |= {f"claim{i}": text("angle_mort", f"claim{i}")[:-1] + "?", f"verifier{i}": text("angle_mort", f"verifier{i}")}
     lectures = {"title": text("lectures", "title"),                 **{f"lecture{i}": f"{names[i - 1]} | {_chars(rng, 60)} | Alors {_chars(rng, 74)}"
                    for i in (1, 2, 3)}}
     return {"axe": axe, "chiffres": chiffres, "recit": recit, "angle_mort": angle, "lectures": lectures,
