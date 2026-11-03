@@ -194,7 +194,7 @@ _PART_CAPS: dict[tuple[str, str], tuple[tuple[str, int], ...]] = {
     ("chiffres", "fig1"): (("value", 9), ("label", 64), ("comparison", 52)),
     **{("chiffres", f"fig{i}"): (("value", 9), ("label", 34), ("comparison", 26)) for i in (2, 3)},
     **{("recit", f"row{i}"): (("type", 16), ("text", 84), ("remark", 80)) for i in (1, 2, 3)},
-    **{("lectures", f"lecture{i}"): (("name", 28), ("hypothesis", 70), ("number to follow", 100)) for i in (1, 2, 3)},
+    **{("lectures", f"lecture{i}"): (("name", 28), ("hypothesis", 70), ("number to follow", 90)) for i in (1, 2, 3)},
 }
 _ACCUSING = re.compile(r"\b(biais|manipulation|manipul\w+|mensonges?|trompeu\w+|fallacieu\w+|sophismes?)\b", re.I)
 _HASHTAG = re.compile(r"#\w+")
@@ -356,8 +356,9 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
             value = str(fields.get(f"lecture{i}", "")).strip()
             if value and len(names) == 3 and _norm(_parts(value, 3)[0]) != _norm(names[i - 1]):
                 hard.append(f"lectures.lecture{i} is named « {_parts(value, 3)[0]} » but the axe's reading {i} is « {names[i - 1]} »")
-            if value and not _parts(value, 3)[2].startswith("Chiffre à suivre"):
-                hard.append(f"lectures.lecture{i}: the last part names the number to follow and starts with « Chiffre à suivre : »")
+            last = _parts(value, 3)[2] if value else ""
+            if value and not (re.match(r"\*\*[^*]+\*\*", last) and "validé" in last):
+                hard.append(f"lectures.lecture{i}: the last part starts with the measure in bold (**…**) and says « validé si … »")
         title = str(fields.get("title", "")).strip()
         if title and not title.endswith("?"):
             hard.append("lectures.title must be a question ending in « ? »")

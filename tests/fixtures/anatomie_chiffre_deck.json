@@ -138,17 +138,17 @@
       {
         "nom": "Une fracture de patrimoine",
         "voir": "L'écart suit la détention d'actifs, quel que soit l'âge.",
-        "sens": "Chiffre à suivre : l'écart propriétaires-locataires à âge égal, validé s'il égale celui entre âges."
+        "sens": "**L'écart propriétaires-locataires** à âge égal, validé s'il égale celui entre âges."
       },
       {
         "nom": "Un retour à la normale",
         "voir": "Les jeunes revenaient d'un sommet : le point de départ était flatteur.",
-        "sens": "Chiffre à suivre : le rapport sur une période plus longue, validé si la hausse s'atténue."
+        "sens": "**Le rapport** sur une période plus longue, validé si la hausse s'atténue."
       },
       {
         "nom": "Un cycle de marché",
         "voir": "Le gain suit les marchés et peut s'inverser avec eux.",
-        "sens": "Chiffre à suivre : le rapport comparé aux indices de Bourse, validé s'il baisse quand ils baissent."
+        "sens": "**Le rapport** comparé aux indices de Bourse, validé s'il baisse quand ils baissent."
       }
     ]
   }

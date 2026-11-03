@@ -165,10 +165,10 @@ def test_slides_4_and_5_hold_no_digit():
 def test_lecture_names_must_equal_the_axe_names():
     frags = _frags("axe")
     assert hard("lectures", frags) == []
-    bad = "Un effet de cohorte | Chaque génération s'enrichit | Chiffre à suivre : x"
+    bad = "Un effet de cohorte | Chaque génération s'enrichit | **Le rapport**, validé si x"
     assert any("lecture1" in e and "axe's reading 1" in e for e in hard("lectures", frags, lecture1=bad))
     assert hard("lectures", {}, lecture1=bad) == []     # no axe, nothing to compare
-    assert any("lecture1" in e and "Chiffre à suivre" in e for e in hard("lectures", lecture1="Un effet de marché | Un écart stable | Fed"))
+    assert any("lecture1" in e and "validé" in e for e in hard("lectures", lecture1="Un effet de marché | Un écart stable | Fed"))
     assert any("title must be a question" in e for e in hard("lectures", title="Pourquoi cette hausse."))
 
 
@@ -407,7 +407,7 @@ def test_six_slides_are_rendered(tmp_path):
     assert "Pour vérifier" not in texts["04_angle_mort"] and "Réserve fédérale" not in texts["04_angle_mort"]
     assert texts["04_angle_mort"].count("Comparer") == 3
     assert "Laisse ouvert" not in texts["04_angle_mort"] and "On verrait" not in texts["05_lectures"]
-    assert texts["05_lectures"].count("Chiffre à suivre") == 3
+    assert texts["05_lectures"].count("validé") == 3 and "Chiffre à suivre" not in texts["05_lectures"]
     assert "quelle lecture les séries que vous trouverez soutiennent-elles ?" in texts["06_cta"]
 
 
@@ -459,7 +459,7 @@ def worst_case_fields(seed: int = 0) -> dict[str, dict]:
     angle = {"title": text("angle_mort", "title"), "ouvre1": "1,2", "ouvre2": "2,3", "ouvre3": "1,3", "ouvre4": "1,2"}
     for i in (1, 2, 3, 4):
         angle |= {f"claim{i}": text("angle_mort", f"claim{i}")[:-1] + "?", f"verifier{i}": text("angle_mort", f"verifier{i}")}
-    lectures = {"title": text("lectures", "title")[:-1] + "?",                 **{f"lecture{i}": f"{names[i - 1]} | {_chars(rng, 70)} | Chiffre à suivre : {_chars(rng, 81)}"
+    lectures = {"title": text("lectures", "title")[:-1] + "?",                 **{f"lecture{i}": f"{names[i - 1]} | {_chars(rng, 70)} | **Le rapport** {_chars(rng, 56)}, validé si {_chars(rng, 10)}"
                    for i in (1, 2, 3)}}
     return {"axe": axe, "chiffres": chiffres, "recit": recit, "angle_mort": angle, "lectures": lectures,
             "hook": {"title": text("hook", "title"), "promise": text("hook", "promise")}, "writing": FIELDS["writing"]}

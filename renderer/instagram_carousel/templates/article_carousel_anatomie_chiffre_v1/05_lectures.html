@@ -15,6 +15,7 @@
 .read .tag { margin: 12px 0 2px; font-size: 21px; letter-spacing: .1em; }
 .read .see { font-size: 29px; font-weight: 500; line-height: 1.28; color: #ececec; text-wrap: pretty; hyphens: none; }
 .read .where { margin-top: 12px; display: flex; gap: 12px; align-items: flex-start; font-size: 26px; font-weight: 500; line-height: 1.3; color: #a0a0a0; }
+.read .where strong { color: #d0d0d0; font-weight: 700; }
 .read .where svg { width: 24px; height: 24px; flex: none; margin-top: 4px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 </style>
 </head>
@@ -30,7 +31,7 @@
       <div class="pt"><svg viewBox="0 0 24 24">{{ ICONS[icons[loop.index0]] | safe }}</svg><div>
       <div class="nm">{{ r.nom | md_bold }}</div>
       <div class="see">{{ r.voir | md_bold }}</div></div></div>
-      <div class="where"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg><span>{{ r.sens | md_bold }}</span></div>
+      <div class="where"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg><span>{{ r.sens | md_bold }}</span></div>
     </div>{% endfor %}
   </div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
