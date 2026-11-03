@@ -33,8 +33,10 @@ class AnatomieReading(BaseModel):
 
 class AnatomieAxe(BaseModel):
     """The fact to explain and the three competing readings, fixed before any slide is
-    written. No slide shows it as such. The third reading is the article's own."""
+    written. No slide shows it as such. `readings` are three alternatives to the article's own
+    reading (`article`); older decks carry the article's reading as the third of `readings`."""
     fait: str
+    article: AnatomieReading | None = None
     readings: list[AnatomieReading] = Field(default_factory=list)   # 3
 
 
@@ -72,8 +74,8 @@ class AnatomieAngleMort(BaseModel):  # slide 4 — what these figures do not cou
 
 class AnatomieLectureRow(BaseModel):
     nom: str    # equals the axe's reading name
-    voir: str   # what we would see if this reading held
-    # what it would mean for the figure (« Alors … »); older decks called it `ou`
+    voir: str   # the alternative, as a hypothesis
+    # « Chiffre à suivre : … » — the number that would validate it; older decks called it `ou`
     sens: str = Field("", validation_alias=AliasChoices("sens", "ou"))
 
 

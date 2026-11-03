@@ -50,9 +50,10 @@ class AwaitingChoice(Exception):
 
 class AxeOption(BaseModel):
     fait: str        # the movement to explain, in neutral words
-    lecture1: str    # « nom | formule »
+    article: str     # « nom | formule » — the article's own reading (not drawn on slide 5)
+    lecture1: str    # « nom | formule » — three alternatives to the article's reading, each explaining the rise
     lecture2: str
-    lecture3: str    # the article's own reading
+    lecture3: str
 
 
 class ChiffresOption(BaseModel):
@@ -188,12 +189,12 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
 }
 # a « a | b | c » field: the name and character cap of each part
 _PART_CAPS: dict[tuple[str, str], tuple[tuple[str, int], ...]] = {
-    **{("axe", f"lecture{i}"): (("name", 28), ("formula", 90)) for i in (1, 2, 3)},
+    **{("axe", name): (("name", 28), ("formula", 90)) for name in ("article", "lecture1", "lecture2", "lecture3")},
     # fig1 is the key figure, drawn big and alone on its line: a plain sentence, its comparison glosses the term
     ("chiffres", "fig1"): (("value", 9), ("label", 64), ("comparison", 52)),
     **{("chiffres", f"fig{i}"): (("value", 9), ("label", 34), ("comparison", 26)) for i in (2, 3)},
     **{("recit", f"row{i}"): (("type", 16), ("text", 84), ("remark", 80)) for i in (1, 2, 3)},
-    **{("lectures", f"lecture{i}"): (("name", 28), ("what we would see", 60), ("what it would mean", 80)) for i in (1, 2, 3)},
+    **{("lectures", f"lecture{i}"): (("name", 28), ("hypothesis", 70), ("number to follow", 100)) for i in (1, 2, 3)},
 }
 _ACCUSING = re.compile(r"\b(biais|manipulation|manipul\w+|mensonges?|trompeu\w+|fallacieu\w+|sophismes?)\b", re.I)
 _HASHTAG = re.compile(r"#\w+")
@@ -201,7 +202,7 @@ _QUOTED = re.compile(r"«[^»]*»")
 _DIGIT = re.compile(r"\d")
 _NUMBER = re.compile(r"\d+(?:[.,]\d+)?")
 _KINDS = ("explication", "interpretation", "consequence")
-_REQUIRED = {"axe": ("fait", "lecture1", "lecture2", "lecture3"),
+_REQUIRED = {"axe": ("fait", "article", "lecture1", "lecture2", "lecture3"),
              "chiffres": ("claim", "fig1", "fig2", "fig3"),
              "recit": ("title", "row1", "row2"),
              "angle_mort": ("title", *(f"{n}{i}" for i in (1, 2, 3, 4) for n in ("claim", "verifier", "ouvre"))),
@@ -282,9 +283,9 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
             hard.append(f"{step}.{name} is empty")
 
     if step == "axe":
-        names = [_parts(str(fields.get(f"lecture{i}", "")), 2)[0] for i in (1, 2, 3)]
+        names = [_parts(str(fields.get(n, "")), 2)[0] for n in ("article", "lecture1", "lecture2", "lecture3")]
         if len({_norm(n) for n in names if n}) < len([n for n in names if n]):
-            hard.append("axe: two readings share a name — the three readings must differ")
+            hard.append("axe: two readings share a name — the article's reading and the three alternatives must differ")
     if step == "chiffres":
         for name in ("fig1", "fig2", "fig3"):
             value = str(fields.get(name, "")).strip()
@@ -323,14 +324,14 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
         if len(set(kinds)) < len(kinds):
             hard.append("recit: each row has its own type — explication, interpretation, consequence")
         axe = fragments.get("axe", {}).get("axe")
-        if axe and len(axe.get("readings", [])) == 3:
-            third = axe["readings"][2]
+        if axe and axe.get("article", {}).get("nom"):
+            third = axe["article"]
             stems = _stems(_plain(third.get("nom", "") + " " + third.get("formule", "")))
             told = [_parts(str(fields.get(n, "")), 3)[1] for n in ("row1", "row2", "row3")
                     if _parts(str(fields.get(n, "")), 3)[0] in ("explication", "interpretation")]
             if told and not any(_stems(_plain(t)) & stems for t in told):
                 flags.append("recit: no explanation or interpretation shares a key word with the article's reading "
-                             f"(axe reading 3, « {third.get('nom', '')} »)")
+                             f"(axe article reading, « {third.get('nom', '')} »)")
     if step == "angle_mort":
         for i in (1, 2, 3, 4):
             value = str(fields.get(f"claim{i}", "")).strip()
@@ -355,8 +356,11 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
             value = str(fields.get(f"lecture{i}", "")).strip()
             if value and len(names) == 3 and _norm(_parts(value, 3)[0]) != _norm(names[i - 1]):
                 hard.append(f"lectures.lecture{i} is named « {_parts(value, 3)[0]} » but the axe's reading {i} is « {names[i - 1]} »")
-            if value and not _parts(value, 3)[2].startswith("Alors"):
-                hard.append(f"lectures.lecture{i}: the last part is a remark that starts with « Alors »")
+            if value and not _parts(value, 3)[2].startswith("Chiffre à suivre"):
+                hard.append(f"lectures.lecture{i}: the last part names the number to follow and starts with « Chiffre à suivre : »")
+        title = str(fields.get("title", "")).strip()
+        if title and not title.endswith("?"):
+            hard.append("lectures.title must be a question ending in « ? »")
     if step == "hook":
         if not fields.get("title", "").strip().startswith("«"):
             flags.append("hook.title is usually the raw figure, in « »")
@@ -391,7 +395,8 @@ def to_fragment(step: Step, option: Option) -> dict:
         for i in (1, 2, 3):
             nom, formule = _parts(str(f.get(f"lecture{i}", "")), 2)
             readings.append({"nom": nom, "formule": formule})
-        return {"axe": {"fait": f.get("fait", ""), "readings": readings}}
+        nom, formule = _parts(str(f.get("article", "")), 2)
+        return {"axe": {"fait": f.get("fait", ""), "article": {"nom": nom, "formule": formule}, "readings": readings}}
     if step.name == "chiffres":
         figures = []
         for n in ("fig1", "fig2", "fig3"):

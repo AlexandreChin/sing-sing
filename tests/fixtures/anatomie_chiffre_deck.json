@@ -1,21 +1,25 @@
 {
-  "caption": "Les Américains de plus de 75 ans seraient 15 fois plus fortunés que les moins de 35 ans, selon l'enquête triennale de la Fed relayée par BFM Business. Que dit le chiffre, et que raconte l'article ? Les médianes sont mesurées ; le reste, une économie « en G », des gains venus des actifs, une concentration à venir, est avancé par des économistes. Ce que ces chiffres ne comptent pas : l'écart à l'intérieur de chaque groupe, un même groupe suivi dans le temps, ce qui vient du travail et ce qui vient des actifs. Trois lectures restent donc possibles : des groupes qui changent, un effet de période, une fracture de génération. Quelle lecture les séries que vous trouverez soutiennent-elles ?\n\n#espritcritique #patrimoine #statistiques #lectureactive",
+  "caption": "Les Américains de plus de 75 ans seraient 15 fois plus fortunés que les moins de 35 ans, selon l'enquête triennale de la Fed relayée par BFM Business. Que dit le chiffre, et que raconte l'article ? Les médianes sont mesurées ; le reste, une économie « en G », des gains venus des actifs, une concentration à venir, est avancé par des économistes. Ce que ces chiffres ne comptent pas : l'écart à l'intérieur de chaque groupe, un même groupe suivi dans le temps, ce qui vient du travail et ce qui vient des actifs. Trois lectures restent donc possibles : un effet de marché, un choc sur les jeunes, un écart de propriétaires. Quelle lecture les séries que vous trouverez soutiennent-elles ?\n\n#espritcritique #patrimoine #statistiques #lectureactive",
   "axe": {
     "fait": "pourquoi le rapport de patrimoine entre les plus âgés et les plus jeunes est passé de 9 à 15",
     "readings": [
       {
-        "nom": "Des groupes qui changent",
-        "formule": "Ce ne sont plus les mêmes ménages dans chaque tranche d'âge."
+        "nom": "Un effet de marché",
+        "formule": "La hausse des actifs profite à ceux qui en détiennent, à tout âge."
       },
       {
-        "nom": "Un effet de période",
-        "formule": "Trois ans de marchés hauts avantagent ceux qui détiennent des actifs."
+        "nom": "Un choc sur les jeunes",
+        "formule": "Dettes et taux ont fait reculer le patrimoine des jeunes."
       },
       {
-        "nom": "Une fracture de génération",
-        "formule": "Un écart qui se creuse entre des générations aux conditions différentes."
+        "nom": "Un écart de propriétaires",
+        "formule": "L'écart sépare propriétaires et locataires, plus que les âges."
       }
-    ]
+    ],
+    "article": {
+      "nom": "Une fracture de génération",
+      "formule": "Un écart qui se creuse entre des générations aux conditions différentes."
+    }
   },
   "hook": {
     "title": "« Les plus de 75 ans, 15 fois plus fortunés que les jeunes »",
@@ -87,7 +91,7 @@
         "claim": "L'âge est-il le seul clivage ?",
         "detail": "",
         "opens": [
-          2,
+          1,
           3
         ],
         "notes": [
@@ -101,7 +105,7 @@
         "claim": "Compare-t-on les mêmes ménages dans le temps ?",
         "detail": "",
         "opens": [
-          1,
+          2,
           3
         ],
         "notes": [
@@ -115,7 +119,7 @@
         "claim": "L'écart est-il le même au sein de chaque groupe ?",
         "detail": "",
         "opens": [
-          2,
+          1,
           3
         ],
         "notes": [
@@ -128,23 +132,23 @@
     ]
   },
   "lectures": {
-    "title": "Qu'est-ce qui explique cette hausse ?",
+    "title": "Et si ce n'était pas une affaire d'âge ?",
     "lead": "",
     "rows": [
       {
-        "nom": "Des groupes qui changent",
-        "voir": "Un écart stable chez les mêmes ménages suivis",
-        "sens": "Alors la hausse viendrait du renouvellement des groupes, pas des ménages."
+        "nom": "Un effet de marché",
+        "voir": "Les prix des actifs ont monté, au profit de ceux qui en détiennent.",
+        "sens": "Chiffre à suivre : le rapport, validé s'il évolue avec les indices de Bourse et d'immobilier."
       },
       {
-        "nom": "Un effet de période",
-        "voir": "L'écart se réduit si marchés et immobilier reculent",
-        "sens": "Alors la hausse suivrait les marchés plus que les générations."
+        "nom": "Un choc sur les jeunes",
+        "voir": "Dettes et taux ont fait reculer le patrimoine des jeunes.",
+        "sens": "Chiffre à suivre : la dette des jeunes sur leur patrimoine, validé si elle a progressé."
       },
       {
-        "nom": "Une fracture de génération",
-        "voir": "À âge égal, les récents ont moins que leurs aînés",
-        "sens": "Alors l'écart durerait au-delà d'un cycle de marché."
+        "nom": "Un écart de propriétaires",
+        "voir": "Les aînés sont surtout propriétaires, les jeunes surtout locataires.",
+        "sens": "Chiffre à suivre : l'écart propriétaires-locataires à âge égal, validé s'il égale celui entre âges."
       }
     ]
   }

@@ -38,7 +38,7 @@ def _nobreak(value):
 
 
 _KIND_ICONS = {"donnee": "info", "explication": "link", "interpretation": "eye", "consequence": "widen", "prevision": "widen"}
-_READING_ICONS = ["hierarchy", "flame", "anchor"]   # one per reading of the axe, in order
+_READING_ICONS = ["flame", "shield", "bag"]   # one per alternative of the axe, in order
 _KIND_LABELS = {"donnee": "Donnée", "explication": "Explication", "interpretation": "Interprétation", "consequence": "Conséquence", "prevision": "Prévision"}
 
 
