@@ -5,19 +5,10 @@
 <style>
 {% include 'base.css' %}
 {% include 'article_carousel_cadrage_v1/_argument.css' %}
-/* the title states the measured fact; each step of the story is a card of the same kind:
-   icon and type, the statement (two lines at most), then a remark on the weight it can bear */
-:root { --gap-block: 20px; --gap-foot: 14px; }
-.card { padding: 18px 30px 20px; }
-.look { padding-top: 12px; font-size: 24px; }
-.pt { display: flex; gap: 20px; align-items: flex-start; }
-.pt > svg { width: 36px; height: 36px; flex: none; margin-top: 2px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.kind { font-size: 22px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #d4aa00; }
-.t { margin-top: 4px; font-size: 30px; font-weight: 700; line-height: 1.25; color: #fff; hyphens: none; text-wrap: pretty; }
+{% include 'article_carousel_anatomie_chiffre_v1/_cards.css' %}
 </style>
 </head>
 <body>
-{% from 'article_carousel_cadrage_v1/_notes.html' import look %}
 <div class="slide" style="justify-content: flex-start;">
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
@@ -26,10 +17,10 @@
     <h1 class="head">{{ title | md_bold }}</h1>
     {% for r in rows %}<div class="card"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}
       <div class="pt"><svg viewBox="0 0 24 24">{{ ICONS[icons[r.kind]] | safe }}</svg><div>
-        <span class="kind">{{ labels[r.kind] }}</span>
-        <div class="t">{{ r.text | md_bold }}</div>
+        <span class="tagk">{{ labels[r.kind] }}</span>
+        <div class="nm">{{ r.text | md_bold }}</div>
       </div></div>
-      {{ look(r.sources) }}
+      {% if r.sources %}<div class="foot"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg><span>{{ r.sources[0].text | md_bold }}</span></div>{% endif %}
     </div>{% endfor %}
   </div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>

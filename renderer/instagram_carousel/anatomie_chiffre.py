@@ -38,7 +38,7 @@ def _nobreak(value):
 
 
 _KIND_ICONS = {"donnee": "info", "explication": "link", "interpretation": "eye", "consequence": "widen", "prevision": "widen"}
-_READING_ICONS = ["flame", "shield", "bag"]   # one per alternative of the axe, in order
+_READING_ICONS = ["lightbulb"] * 3   # an alternative is a hypothesis: one icon for the three
 _KIND_LABELS = {"donnee": "Donnée", "explication": "Explication", "interpretation": "Interprétation", "consequence": "Conséquence", "prevision": "Prévision"}
 
 
@@ -67,7 +67,7 @@ def generate_html(doc: AnatomieChiffreDocument, out_dir: Path) -> list[Path]:
         ("angle_mort", f"{TPL}/04_angle_mort.html",
          _nobreak({"title": pres.angle_mort.title,
                    "cards": [{**c.model_dump(exclude={"notes", "opens", "detail"}), "sources": notes(c.notes), "icon": icon}
-                             for c, icon in zip(pres.angle_mort.cards, ("frame", "eye_off", "hierarchy", "pushpin"))]})),
+                             for c, icon in zip(pres.angle_mort.cards, ("help",) * 4)]})),
         ("lectures", f"{TPL}/05_lectures.html", _nobreak(pres.lectures.model_dump() | {"icons": _READING_ICONS})),
         ("cta", f"{OPT}/10_cta.html", {**cover_layers(meta, pres.hook.title), "background": background,
                                        "L": medium_labels(meta.medium) | {"cta_comment": CTA_COMMENT}}),

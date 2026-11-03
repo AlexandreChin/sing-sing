@@ -183,8 +183,8 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("chiffres", "claim"): ("chars", 54), ("chiffres", "note1"): ("chars", 110),
     ("recit", "title"): ("chars", 46),
     ("angle_mort", "title"): ("chars", 40),
-    **{("angle_mort", f"claim{i}"): ("chars", 50) for i in (1, 2, 3, 4)},
-    **{("angle_mort", f"verifier{i}"): ("chars", 72) for i in (1, 2, 3, 4)},
+    **{("angle_mort", f"claim{i}"): ("chars", 46) for i in (1, 2, 3, 4)},
+    **{("angle_mort", f"verifier{i}"): ("chars", 66) for i in (1, 2, 3, 4)},
     ("lectures", "title"): ("chars", 40),
     ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 100),
 }

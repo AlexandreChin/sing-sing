@@ -1,5 +1,5 @@
 {
-  "caption": "Les Américains de plus de 75 ans seraient 15 fois plus fortunés que les moins de 35 ans, selon l'enquête triennale de la Fed relayée par BFM Business. Que dit le chiffre, et que raconte l'article ? Les médianes sont mesurées ; le reste, une économie « en G », des gains venus des actifs, une concentration à venir, est avancé par des économistes. Ce que ces chiffres ne comptent pas : l'écart à l'intérieur de chaque groupe, un même groupe suivi dans le temps, ce qui vient du travail et ce qui vient des actifs. Trois lectures restent donc possibles : une fracture de patrimoine, un retour à la normale, un cycle de marché. Quelle lecture les séries que vous trouverez soutiennent-elles ?\n\n#espritcritique #patrimoine #statistiques #lectureactive",
+  "caption": "Les Américains de plus de 75 ans seraient 15 fois plus fortunés que les moins de 35 ans, selon l'enquête triennale de la Fed relayée par BFM Business. Que dit le chiffre, et que raconte l'article ? Les médianes sont mesurées ; le reste, une économie « en G », des gains venus des actifs, une concentration à venir, est avancé par des économistes. Ce que ces chiffres ne comptent pas : la part des actifs et celle du reste, l'âge comme seul clivage, les mêmes ménages suivis dans le temps, l'écart à l'intérieur de chaque groupe. Trois lectures restent donc possibles : une fracture de patrimoine, un retour à la normale, un cycle de marché. Quelle lecture les séries que vous trouverez soutiennent-elles ?\n\n#espritcritique #patrimoine #statistiques #lectureactive",
   "axe": {
     "fait": "pourquoi le rapport de patrimoine entre les plus âgés et les plus jeunes est passé de 9 à 15",
     "readings": [
@@ -79,7 +79,7 @@
     "title": "La génération, une piste parmi d'autres",
     "cards": [
       {
-        "claim": "Quelle part vient des actifs, quelle du reste ?",
+        "claim": "Quelle part des actifs, quelle part du reste ?",
         "detail": "",
         "opens": [
           1,
@@ -88,7 +88,7 @@
         "notes": [
           {
             "kind": "source",
-            "text": "Comparer la répartition du patrimoine par type d'actif, âge par âge."
+            "text": "Comparer la répartition du patrimoine par type d'actif."
           }
         ]
       },
@@ -102,7 +102,7 @@
         "notes": [
           {
             "kind": "source",
-            "text": "Comparer les mêmes écarts selon le logement et le revenu, à âge égal."
+            "text": "Comparer les écarts selon le logement et le revenu, à âge égal."
           }
         ]
       },
@@ -116,12 +116,12 @@
         "notes": [
           {
             "kind": "source",
-            "text": "Suivre les mêmes ménages dans le temps plutôt que des groupes d'âge."
+            "text": "Suivre les mêmes ménages plutôt que des groupes d'âge."
           }
         ]
       },
       {
-        "claim": "L'écart est-il le même au sein de chaque groupe ?",
+        "claim": "L'écart est-il le même dans chaque groupe ?",
         "detail": "",
         "opens": [
           1,
@@ -130,7 +130,7 @@
         "notes": [
           {
             "kind": "source",
-            "text": "Comparer la dispersion du patrimoine au sein de chaque tranche d'âge."
+            "text": "Comparer la dispersion du patrimoine dans chaque tranche d'âge."
           }
         ]
       }

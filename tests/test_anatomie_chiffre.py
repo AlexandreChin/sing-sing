@@ -485,7 +485,7 @@ _LINES = """() => { const n = (sel) => [...document.querySelectorAll(sel)].map(e
   const bottom = Math.max(0, ...[...document.querySelectorAll('.stage *')].map(e => e.getBoundingClientRect().bottom));
   const cut = [...document.querySelectorAll('.fig .n')]
     .filter(e => e.scrollWidth > e.clientWidth + 1).map(e => e.className);
-  return {subtitle: n('.subtitle'), head: n('.head'), told: n('.t'), bottom, cut, page: document.documentElement.scrollWidth}; }"""
+  return {subtitle: n('.subtitle'), head: n('.head'), told: n('.nm'), bottom, cut, page: document.documentElement.scrollWidth}; }"""
 
 
 @pytest.mark.parametrize("seed", range(4))
