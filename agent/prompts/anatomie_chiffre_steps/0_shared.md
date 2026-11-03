@@ -17,7 +17,7 @@ Deux registres, à ne pas mélanger.
 Format des champs (des chaînes simples, éditables une à une).
 - Un chiffre (`fig1`…) : `valeur | libellé | comparaison` — la valeur est courte (≤9 caractères : « 505.000 $ », « × 15 »), la comparaison facultative. `fig1` est LE chiffre clé, affiché en très gros : son libellé (≤64 caractères) est une phrase simple qui se comprend seule, sans lire le reste de la slide.
 - Une lecture de l'axe (`article`, `lecture1`…) : `nom | formule` — le nom (≤28 caractères) est une étiquette neutre et courte (« Un effet d'âge »), la formule (≤90 caractères) une phrase.
-- Une ligne du fil logique (`row1`…) : `type | texte | remarque` — le type est `explication`, `interpretation` ou `consequence` ; la remarque (≤80 caractères) dit quel poids l'énoncé peut porter.
+- Une ligne du fil logique (`row1`…) : `type | texte | remarque` — le type est `explication`, `interpretation` ou `consequence` ; la remarque (≤76 caractères) dit quel poids l'énoncé peut porter.
 - Une note (`note1` de la slide 2) : `remarque | texte` ou `source | texte`.
 - `**mot**` met UN ou DEUX mots en or dans un titre ou une phrase, pas plus. Jamais dans les notes, sauf le nom de l'organisme en tête.
 - **Les notions de maths ou de statistique** (médiane, moyenne, rapport, écart-type…) s'expliquent en mots simples, là où le lecteur les rencontre en premier : « médian » se dit « le ménage au milieu : autant en ont moins, autant en ont plus ». Pas de jargon sans explication.

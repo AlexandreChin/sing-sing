@@ -231,7 +231,7 @@ def _parts(value: str, n: int) -> list[str]:
 
 
 def _in_source(number: str, article: str) -> bool:
-    return re.search(rf"(?<![\d.,]){re.escape(number)}(?![\d])", article) is not None
+    return re.search(rf"(?<![\d.,]){re.escape(number)}(?!\d|[.,]\d)", article) is not None
 
 
 def _bad_note(value: str) -> bool:
@@ -274,7 +274,7 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
         if st == step and str(fields.get(name, "")).strip():
             for (part_name, cap), part in zip(caps, _parts(fields[name], len(caps))):
                 if len(re.sub(r"\*\*", "", part)) > cap:
-                    hard.append(f"{step}.{name}: the {part_name} is {len(part)} characters (max {cap})"
+                    hard.append(f"{step}.{name}: the {part_name} is {len(re.sub(r"\*\*", "", part))} characters (max {cap})"
                                 + (" — it is drawn big; for a gap write « ? » and put « non précisé » in the comparison"
                                    if part_name == "value" else ""))
             if not all(_parts(fields[name], len(caps))[:2]) and not name.startswith("fig"):
@@ -701,10 +701,12 @@ _FIELD_OWNER = {f"{st.name}.{name}": (st.name, name)
 _FIELD_OWNER["caption"] = ("writing", "caption")
 
 
-def fix(full, steps_dir: Path, field: str, text: str, article_text: str | None = None) -> str:
+def fix(full, steps_dir: Path, field: str, text: str, article_text: str | None = None) -> tuple[str, list[str]]:
     """Overwrite one field of the picked option of the step that owns it (« <step>.<field> »,
     or `caption`), and rebuild that step's fragment. Nothing is regenerated: the later
-    steps are re-stamped."""
+    steps are re-stamped. Returns the owner step and the hard-rule failures of the rewritten
+    field and of every later step (a renamed reading, a figure over its cap…), as warnings:
+    like `choose`, `fix` leaves the last word to the author."""
     if field not in _FIELD_OWNER:
         raise ChoiceError(f"{field!r} is not a deck field — fields: {', '.join(_FIELD_OWNER)}")
     owner_name, option_field = _FIELD_OWNER[field]
@@ -718,13 +720,21 @@ def fix(full, steps_dir: Path, field: str, text: str, article_text: str | None =
     sf.fragment = to_fragment(owner, picked)
     _save(steps_dir, sf, stamp)
     base = base_inputs(full, article_text)
-    fragments = [_load(steps_dir, s)[0].fragment if _load(steps_dir, s)[0] else None for s in STEPS]
+    fragments: dict[str, dict] = {}
+    warnings: list[str] = []
     for s in STEPS:
-        if s.n > owner.n and _path(steps_dir, s).exists():
-            before_frags = fragments[:s.n - 1]
-            if None in before_frags:
-                break
-            _path(steps_dir, s).with_suffix(".sha256").write_text(stamp_for(base, before_frags))
+        current, saved = _load(steps_dir, s)
+        if current is None or not current.picked:
+            break                                  # nothing later can be re-stamped
+        if s.n > owner.n:
+            saved = stamp_for(base, [fragments[t.name] for t in STEPS if t.n < s.n])
+        fragments[s.name] = current.fragment
+        if s.n >= owner.n:
+            chosen = next(o for o in current.options if o.id == current.picked[0])
+            hard, chosen.flags = field_errors(s.name, chosen.fields, {k: v for k, v in fragments.items() if k != s.name},
+                                              article_text)
+            warnings += hard
+            _save(steps_dir, current, saved)
     log_choice(steps_dir.parent, {"step": owner_name, "event": "fix", "field": field,
                                   "before": before, "after": text})
-    return owner_name
+    return owner_name, warnings

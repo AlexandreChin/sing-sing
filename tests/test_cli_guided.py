@@ -99,6 +99,14 @@ def test_fix_calls_run_fix(monkeypatch, tmp_path, capsys, stub_full):
     assert "hook" in capsys.readouterr().err
 
 
+def test_fix_prints_the_warnings_a_fix_returns(monkeypatch, tmp_path, capsys, stub_full):
+    fmt = _fmt_dir(tmp_path)
+    monkeypatch.setattr(run, "fix", lambda full, steps_dir, field, text, article_text: ("hook", ["hook.title is 65 chars (max 64)"]))
+    asyncio.run(main.cmd_fix(build_parser().parse_args(["fix", str(fmt), "hook.title", "Hi"])))
+    err = capsys.readouterr().err
+    assert "⚠ hook.title is 65" in err and "Fixed hook.title in hook" in err
+
+
 def test_fix_error_exits_1(monkeypatch, tmp_path, stub_full):
     fmt = _fmt_dir(tmp_path)
 

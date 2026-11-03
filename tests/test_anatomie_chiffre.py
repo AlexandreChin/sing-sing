@@ -214,6 +214,20 @@ def test_a_figure_missing_from_the_source_is_flagged_not_blocked():
     assert hard("chiffres", fig1="999.999 $ | plus de 75 ans | +37 % depuis 2022") == []
 
 
+def test_a_figure_is_not_found_inside_a_longer_number():
+    assert agent._in_source("15", "15 fois plus riches")
+    assert not agent._in_source("15", "une hausse de 15,5 %")
+    assert not agent._in_source("15", "soit 15.000 dollars")
+    assert not agent._in_source("5", "en 2025")
+
+
+def test_a_part_cap_message_counts_the_visible_characters():
+    errors = hard("axe", lecture1="**" + "x" * 28 + "** | formule")      # 28 visible characters: within the cap
+    assert not any("lecture1" in e for e in errors)
+    errors = hard("axe", lecture1="**" + "x" * 29 + "** | formule")
+    assert any("the name is 29 characters" in e for e in errors)
+
+
 def test_a_derived_figure_must_say_calcule():
     article = ARTICLE.read_text(encoding="utf-8")
     assert any("999.999" in f for f in flags("chiffres", article, fig3="999.999 $ | gain des plus de 75 ans | gain estimé"))
@@ -353,6 +367,24 @@ def test_fix_reaches_the_axe_and_the_caption(fake, tmp_path):
     assert pres.axe.readings[0].nom == "Un effet de cycle de vie" and pres.caption.endswith("Merci.")
 
 
+def test_a_fix_over_a_cap_comes_back_as_a_warning(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    step, warnings = agent.fix(full(), steps, "hook.title", "x" * 65)
+    assert step == "hook" and any("hook.title is 65" in w for w in warnings)
+    assert agent.fix(full(), steps, "hook.title", "« Un titre court »")[1] == []      # a clean rewrite warns of nothing
+
+
+def test_a_fix_checks_the_later_steps_too(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    name = DECK["axe"]["readings"][0]["nom"]
+    _, warnings = agent.fix(full(), steps, "axe.lecture1", "Un autre nom | Une autre formule.")
+    assert any(w.startswith("lectures.lecture1 is named") and name in w for w in warnings)
+    _, warnings = agent.fix(full(), steps, "axe.lecture1", f"{name} | La formule d'origine.")
+    assert warnings == []                                    # renamed back: the mismatch is gone
+
+
 def test_fix_names_a_known_field(fake, tmp_path):
     with pytest.raises(agent.ChoiceError):
         agent.fix(full(), tmp_path / "adapt_steps", "invisible.statement", "x")
@@ -418,10 +450,18 @@ def test_six_slides_are_rendered(tmp_path):
     assert "quelle lecture les séries que vous trouverez soutiennent-elles ?" in texts["06_cta"]
 
 
-def test_a_deck_without_an_axe_cannot_be_drawn(tmp_path):
+def test_a_deck_without_an_axe_is_still_drawn(tmp_path):
+    # no slide reads the axe: a deck that lacks it (an older one, a hand edit) renders all the same
     doc = extract(full(), AnatomieChiffrePresentation.model_validate({k: v for k, v in DECK.items() if k != "axe"}))
-    with pytest.raises(ValueError):
-        renderer.generate_html(doc, tmp_path)
+    assert len(renderer.generate_html(doc, tmp_path)) == 6
+
+
+def test_every_blind_spot_card_is_drawn(tmp_path):
+    deck = copy.deepcopy(DECK)
+    deck["angle_mort"]["cards"].append(copy.deepcopy(deck["angle_mort"]["cards"][0]))
+    doc = extract(full(), AnatomieChiffrePresentation.model_validate(deck))
+    paths = renderer.generate_html(doc, tmp_path)
+    assert next(p for p in paths if "angle_mort" in p.name).read_text(encoding="utf-8").count('class="card"') == 5
 
 
 # ── the layout: every field at its cap still fits its lines and the slide ───

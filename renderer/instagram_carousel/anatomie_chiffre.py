@@ -38,7 +38,8 @@ def _nobreak(value):
 
 
 _KIND_ICONS = {"donnee": "info", "explication": "link", "interpretation": "eye", "consequence": "widen", "prevision": "widen"}
-_READING_ICONS = ["lightbulb"] * 3   # an alternative is a hypothesis: one icon for the three
+_BLIND_SPOT_ICON = "help"                # a blind spot is a question: one icon for every card
+_READING_ICON = "lightbulb"            # an alternative is a hypothesis: one icon for every card
 _KIND_LABELS = {"donnee": "Donnée", "explication": "Explication", "interpretation": "Interprétation", "consequence": "Conséquence", "prevision": "Prévision"}
 
 
@@ -54,8 +55,6 @@ def generate_html(doc: AnatomieChiffreDocument, out_dir: Path) -> list[Path]:
             "headline": pres.hook.title, "background": background, "thumb": cover_thumb(base),
             **hook_metrics(cover_dims(base), pres.hook.title), **cover_layers(meta, pres.hook.title)}
     notes = lambda items: [n.model_dump() for n in items]          # noqa: E731
-    if pres.axe is None or len(pres.axe.readings) != 3:
-        raise ValueError("the deck has no `axe` with three readings: slides 4 and 5 cannot be drawn")
     specs = [
         ("hook", f"{OPT}/01_hook.html", hook),
         ("chiffres", f"{TPL}/02_chiffres.html",
@@ -66,9 +65,9 @@ def generate_html(doc: AnatomieChiffreDocument, out_dir: Path) -> list[Path]:
                                                                for r in pres.recit.rows]})),
         ("angle_mort", f"{TPL}/04_angle_mort.html",
          _nobreak({"title": pres.angle_mort.title,
-                   "cards": [{**c.model_dump(exclude={"notes", "opens", "detail"}), "sources": notes(c.notes), "icon": icon}
-                             for c, icon in zip(pres.angle_mort.cards, ("help",) * 4)]})),
-        ("lectures", f"{TPL}/05_lectures.html", _nobreak(pres.lectures.model_dump() | {"icons": _READING_ICONS})),
+                   "cards": [{**c.model_dump(exclude={"notes", "opens", "detail"}), "sources": notes(c.notes), "icon": _BLIND_SPOT_ICON}
+                             for c in pres.angle_mort.cards]})),
+        ("lectures", f"{TPL}/05_lectures.html", _nobreak(pres.lectures.model_dump() | {"icons": [_READING_ICON] * len(pres.lectures.rows)})),
         ("cta", f"{OPT}/10_cta.html", {**cover_layers(meta, pres.hook.title), "background": background,
                                        "L": medium_labels(meta.medium) | {"cta_comment": CTA_COMMENT}}),
     ]

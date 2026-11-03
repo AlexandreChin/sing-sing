@@ -240,9 +240,13 @@ async def cmd_fix(args: argparse.Namespace) -> None:
     full, steps_dir, article = _load_fmt_dir(args.fmt_dir)
     try:
         step = run.fix(full, steps_dir, args.field, args.text, article)
+        # the anatomie_chiffre fix also returns the hard-rule failures of the rewritten field and of the later steps
+        step, warnings = step if isinstance(step, tuple) else (step, [])
     except run.ChoiceError as e:
         print(e, file=sys.stderr)
         sys.exit(1)
+    for w in warnings:
+        print(f"⚠ {w}", file=sys.stderr)
     print(f"Fixed {args.field} in {step}; the later steps keep your version.", file=sys.stderr)
 
 
