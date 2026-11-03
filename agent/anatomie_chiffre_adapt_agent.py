@@ -65,10 +65,10 @@ class ChiffresOption(BaseModel):
 
 class RecitOption(BaseModel):
     title: str
-    row1: str        # « type | texte | base » — type: donnee, explication, interpretation, prevision
+    # title: the measured fact, in a sentence that describes the key figure
+    row1: str        # « type | texte | remarque » — type: explication, interpretation, consequence
     row2: str
-    row3: str
-    row4: str        # optional
+    row3: str        # optional
 
 
 class AngleMortOption(BaseModel):
@@ -173,7 +173,7 @@ def base_inputs(full: ArticleFullAnalysis, article_text: str | None) -> str:
 _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("axe", "fait"): ("words", 20),
     ("chiffres", "claim"): ("chars", 54), ("chiffres", "note1"): ("chars", 110),
-    ("recit", "title"): ("chars", 40),
+    ("recit", "title"): ("chars", 52),
     ("angle_mort", "title"): ("chars", 40),
     ("angle_mort", "claim1"): ("chars", 60), ("angle_mort", "claim2"): ("chars", 60),
     ("angle_mort", "verifier1"): ("chars", 90), ("angle_mort", "verifier2"): ("chars", 90),
@@ -186,7 +186,7 @@ _PART_CAPS: dict[tuple[str, str], tuple[tuple[str, int], ...]] = {
     # fig1 is the key figure, drawn big and alone on its line: a plain sentence, its comparison glosses the term
     ("chiffres", "fig1"): (("value", 9), ("label", 64), ("comparison", 52)),
     **{("chiffres", f"fig{i}"): (("value", 9), ("label", 34), ("comparison", 26)) for i in (2, 3)},
-    **{("recit", f"row{i}"): (("type", 16), ("text", 84), ("basis", 40)) for i in (1, 2, 3, 4)},
+    **{("recit", f"row{i}"): (("type", 16), ("text", 84), ("remark", 80)) for i in (1, 2, 3)},
     **{("lectures", f"lecture{i}"): (("name", 28), ("what we would see", 60), ("what it would mean", 80)) for i in (1, 2, 3)},
 }
 _ACCUSING = re.compile(r"\b(biais|manipulation|manipul\w+|mensonges?|trompeu\w+|fallacieu\w+|sophismes?)\b", re.I)
@@ -194,10 +194,10 @@ _HASHTAG = re.compile(r"#\w+")
 _QUOTED = re.compile(r"«[^»]*»")
 _DIGIT = re.compile(r"\d")
 _NUMBER = re.compile(r"\d+(?:[.,]\d+)?")
-_KINDS = ("donnee", "explication", "interpretation", "prevision")
+_KINDS = ("explication", "interpretation", "consequence")
 _REQUIRED = {"axe": ("fait", "lecture1", "lecture2", "lecture3"),
              "chiffres": ("claim", "fig1", "fig2", "fig3"),
-             "recit": ("title", "row1", "row2", "row3"),
+             "recit": ("title", "row1", "row2"),
              "angle_mort": ("title", "claim1", "claim2", "verifier1", "verifier2", "ouvre1", "ouvre2"),
              "lectures": ("title", "lecture1", "lecture2", "lecture3")}
 # slides 4 and 5 are outside the article's frame and add no figure (the `ouvre` pair is a reference, not a figure)
@@ -300,27 +300,27 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
             flags.append(f"chiffres: « {term} » is a statistical term — gloss it in plain words in note1 (« remarque | … »)")
     if step == "recit":
         kinds = []
-        for name in ("row1", "row2", "row3", "row4"):
+        for name in ("row1", "row2", "row3"):
             value = str(fields.get(name, "")).strip()
             if not value:
                 continue
-            kind, text, _ = _parts(value, 3)
+            kind, text, remark = _parts(value, 3)
             kinds.append(kind)
             if kind not in _KINDS:
                 hard.append(f"recit.{name}: the type must be one of {', '.join(_KINDS)}")
+            if not remark:
+                hard.append(f"recit.{name} needs a remark (third part): how much weight this statement can bear")
             if article:
                 for q in _QUOTED.findall(text):
                     if _norm(q.strip("«» ")) not in _norm(article):
                         flags.append(f"recit.{name}: {q} does not appear word for word in the source")
-        if kinds and kinds[0] != "donnee":
-            hard.append("recit.row1 must be a « donnee » — the story starts from what is measured")
-        if kinds and all(k == "donnee" for k in kinds):
-            flags.append("recit holds only data — the article offers no explanation to set against the figures")
+        if len(set(kinds)) < len(kinds):
+            hard.append("recit: each row has its own type — explication, interpretation, consequence")
         axe = fragments.get("axe", {}).get("axe")
         if axe and len(axe.get("readings", [])) == 3:
             third = axe["readings"][2]
             stems = _stems(_plain(third.get("nom", "") + " " + third.get("formule", "")))
-            told = [_parts(str(fields.get(n, "")), 3)[1] for n in ("row1", "row2", "row3", "row4")
+            told = [_parts(str(fields.get(n, "")), 3)[1] for n in ("row1", "row2", "row3")
                     if _parts(str(fields.get(n, "")), 3)[0] in ("explication", "interpretation")]
             if told and not any(_stems(_plain(t)) & stems for t in told):
                 flags.append("recit: no explanation or interpretation shares a key word with the article's reading "
@@ -399,10 +399,10 @@ def to_fragment(step: Step, option: Option) -> dict:
                              "figures": figures, "note": note[0] if note else None}}
     if step.name == "recit":
         rows = []
-        for n in ("row1", "row2", "row3", "row4"):
+        for n in ("row1", "row2", "row3"):
             if str(f.get(n, "")).strip():
-                kind, text, basis = _parts(f[n], 3)
-                rows.append({"kind": kind, "text": text, "basis": basis})
+                kind, text, remark = _parts(f[n], 3)
+                rows.append({"kind": kind, "text": text, "remark": remark})
         return {"recit": {"title": f.get("title", ""), "rows": rows}}
     if step.name == "angle_mort":
         cards = []

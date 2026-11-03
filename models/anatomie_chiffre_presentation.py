@@ -46,14 +46,16 @@ class AnatomieChiffres(BaseModel):  # slide 2 — the figures the article gives
 
 
 class AnatomieRecitRow(BaseModel):
-    kind: Literal["donnee", "explication", "interpretation", "prevision"]
+    # `donnee` and `prevision` belong to older decks; the story now tells explication → interpretation → consequence
+    kind: Literal["donnee", "explication", "interpretation", "consequence", "prevision"]
     text: str
-    basis: str = ""    # who says it, measured or not
+    remark: str = ""   # how much weight this statement can bear (a question or a limit)
+    basis: str = ""    # no longer produced (older decks load)
 
 
-class AnatomieRecit(BaseModel):  # slide 3 — from the figure to the story
-    title: str
-    rows: list[AnatomieRecitRow] = Field(default_factory=list)      # 3 to 4, the first a donnee
+class AnatomieRecit(BaseModel):  # slide 3 — the logical thread, from the measured fact to the story
+    title: str   # the measured fact, describing the key figure
+    rows: list[AnatomieRecitRow] = Field(default_factory=list)      # 2 to 3: explication, interpretation, consequence
 
 
 class AnatomieAngleMortCard(BaseModel):

@@ -47,27 +47,22 @@
     }
   },
   "recit": {
-    "title": "Du chiffre mesuré au récit",
+    "title": "Le rapport entre les patrimoines est passé de 9 à 15",
     "rows": [
-      {
-        "kind": "donnee",
-        "text": "Le rapport des patrimoines médians a augmenté, sans que ses causes soient mesurées.",
-        "basis": "mesuré par la Fed"
-      },
       {
         "kind": "explication",
         "text": "« Leurs gains patrimoniaux proviennent de l'appréciation de leurs actifs. »",
-        "basis": "un économiste cité, non mesuré ici"
+        "remark": "La cause est avancée, pas mesurée : sur quelle donnée repose-t-elle ?"
       },
       {
         "kind": "interpretation",
         "text": "Une économie « en G », pour « générationnelle », plutôt que « en forme de K ».",
-        "basis": "cadrage d'un économiste"
+        "remark": "Nommer ne démontre pas : ce cadrage retient l'âge, pas d'autres clivages."
       },
       {
-        "kind": "prevision",
+        "kind": "consequence",
         "text": "« Une concentration croissante des richesses chez les plus âgés. »",
-        "basis": "avis d'un professeur, sans donnée"
+        "remark": "Elle suppose que l'explication tienne et que la tendance dure : deux paris."
       }
     ]
   },

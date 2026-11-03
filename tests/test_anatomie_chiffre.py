@@ -18,7 +18,7 @@ DECK = json.loads(Path("tests/fixtures/anatomie_chiffre_deck.json").read_text(en
 def test_the_deck_validates():
     pres = AnatomieChiffrePresentation.model_validate(DECK)
     assert [f.value for f in pres.chiffres.figures] == ["× 15", "505.000 $", "33.000 $"]
-    assert pres.recit.rows[0].kind == "donnee"
+    assert [r.kind for r in pres.recit.rows] == ["explication", "interpretation", "consequence"]
     assert len(pres.axe.readings) == 3
     assert pres.angle_mort.cards[0].opens == [1, 2]
 
@@ -66,8 +66,8 @@ def option_fields(deck: dict) -> dict[str, dict]:
                      **dict(zip(("fig1", "fig2", "fig3"), pad([_fig(f) for f in c["figures"]], 3))),
                      "note1": _note(c["note"]) if c["note"] else ""},
         "recit": {"title": r["title"],
-                  **dict(zip(("row1", "row2", "row3", "row4"),
-                             pad([f"{x['kind']} | {x['text']} | {x['basis']}" for x in r["rows"]], 4)))},
+                  **dict(zip(("row1", "row2", "row3"),
+                             pad([f"{x['kind']} | {x['text']} | {x['remark']}" for x in r["rows"]], 3)))},
         "angle_mort": {"title": a["title"],
                        "claim1": c1["claim"], "verifier1": c1["notes"][0]["text"],
                        "ouvre1": ",".join(map(str, c1["opens"])),
@@ -107,8 +107,8 @@ def test_empty_figures_rows_and_notes_are_left_out():
                           Option(id="a", slot="a", reason="", fields={**FIELDS["chiffres"], "note1": ""}))
     assert len(f["chiffres"]["figures"]) == 3 and f["chiffres"]["note"] is None
     f = agent.to_fragment(agent.STEP_BY_NAME["recit"],
-                          Option(id="a", slot="a", reason="", fields={**FIELDS["recit"], "row4": ""}))
-    assert len(f["recit"]["rows"]) == 3
+                          Option(id="a", slot="a", reason="", fields={**FIELDS["recit"], "row3": ""}))
+    assert len(f["recit"]["rows"]) == 2
 
 
 # ── rules ───────────────────────────────────────────────────────────────────
@@ -143,11 +143,12 @@ def test_a_figure_needs_a_value_and_a_label_and_a_short_value():
     assert any("fig3 is empty" in e for e in hard("chiffres", fig3=""))
 
 
-def test_a_recit_row_has_a_known_type_and_row1_is_data():
-    assert any("row2" in e and "type" in e for e in hard("recit", row2="opinion | texte | base"))
-    assert any("row1 must be a « donnee »" in e for e in hard("recit", row1="explication | « x » | y"))
-    assert any("row3 is empty" in e for e in hard("recit", row3=""))
-    assert hard("recit", row4="") == []
+def test_a_recit_row_has_its_own_known_type_and_a_remark():
+    assert any("row2" in e and "type" in e for e in hard("recit", row2="opinion | texte | remarque"))
+    assert any("own type" in e for e in hard("recit", row2=FIELDS["recit"]["row1"]))
+    assert any("row1 needs a remark" in e for e in hard("recit", row1="explication | un texte |"))
+    assert any("row2 is empty" in e for e in hard("recit", row2=""))
+    assert hard("recit", row3="") == []
 
 
 def test_ouvre_must_cover_every_reading():
@@ -197,7 +198,7 @@ def test_accusing_words_are_hard_unless_quoted():
 
 def test_caps_are_hard():
     assert any("hook.title" in e for e in hard("hook", title="x" * 65))
-    assert any("recit.row2: the text" in e for e in hard("recit", row2="explication | " + "x" * 111 + " | base"))
+    assert any("recit.row2: the text" in e for e in hard("recit", row2="explication | " + "x" * 85 + " | remarque"))
 
 
 def test_a_figure_missing_from_the_source_is_flagged_not_blocked():
@@ -218,13 +219,6 @@ def test_a_quoted_passage_must_be_in_the_source():
     article = ARTICLE.read_text(encoding="utf-8")
     assert not any("word for word" in f for f in flags("recit", article))
     assert any("word for word" in f for f in flags("recit", article, row2="explication | « le ciel est bleu » | un économiste"))
-
-
-def test_a_recit_with_only_data_is_flagged_not_blocked():
-    only = {"row2": "donnee | Le rapport est de × 15. | Fed", "row3": "donnee | Le total est de 215.900 $. | Fed", "row4": ""}
-    assert any("only data" in f for f in flags("recit", **only))
-    assert hard("recit", **only) == []
-    assert not any("only data" in f for f in flags("recit"))
 
 
 def test_the_article_reading_should_share_a_word_with_the_story():
@@ -257,7 +251,7 @@ def test_every_step_has_its_prompt():
 
 def test_the_shared_prompt_lists_every_step():
     shared = Path("agent/prompts/anatomie_chiffre_steps/0_shared.md").read_text(encoding="utf-8")
-    for name in ("L'axe", "Les chiffres", "Du chiffre au récit", "Ce que ces chiffres ne comptent pas",
+    for name in ("L'axe", "Les chiffres", "Le fil logique", "Ce que ces chiffres ne comptent pas",
                  "Les lectures", "L'accroche", "La rédaction"):
         assert name in shared, name
     assert "Sept étapes" in shared
@@ -408,7 +402,8 @@ def test_six_slides_are_rendered(tmp_path):
     texts = {p.stem: html.unescape(p.read_text(encoding="utf-8")).replace("\u00a0", " ") for p in paths}
     assert "ce que le chiffre dit" in texts["01_hook"]
     assert "505.000 $" in texts["02_chiffres"] and "× 15" in texts["02_chiffres"]
-    for label in ("Donnée", "Explication", "Interprétation", "Prévision"):
+    assert "Le fil logique" in texts["03_recit"]
+    for label in ("Explication", "Interprétation", "Conséquence"):
         assert label in texts["03_recit"], label
     assert texts["04_angle_mort"].count('class="card"') == 2
     assert texts["04_angle_mort"].count("Pour vérifier :") == 2
@@ -459,8 +454,8 @@ def worst_case_fields(seed: int = 0) -> dict[str, dict]:
     chiffres = {"claim": text("chiffres", "claim"),
                 **{f"fig{i}": parts("chiffres", f"fig{i}", "WWWWWWWWW") for i in (1, 2, 3)},
                 "note1": note("chiffres", "note1")}
-    recit = {"title": text("recit", "title"), "row1": parts("recit", "row1", "donnee"),
-             **{f"row{i}": parts("recit", f"row{i}", "interpretation") for i in (2, 3, 4)}}
+    recit = {"title": text("recit", "title"), "row1": parts("recit", "row1", "explication"),
+             "row2": parts("recit", "row2", "interpretation"), "row3": parts("recit", "row3", "consequence")}
     angle = {"title": text("angle_mort", "title"), "ouvre1": "1,3", "ouvre2": "2,3"}
     for i in (1, 2):
         angle |= {f"claim{i}": text("angle_mort", f"claim{i}")[:-1] + "?", f"verifier{i}": text("angle_mort", f"verifier{i}")}
@@ -488,9 +483,9 @@ def test_the_worst_case_deck_breaks_no_hard_rule():
 _LINES = """() => { const n = (sel) => [...document.querySelectorAll(sel)].map(e =>
     Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight)));
   const bottom = Math.max(0, ...[...document.querySelectorAll('.stage *')].map(e => e.getBoundingClientRect().bottom));
-  const cut = [...document.querySelectorAll('.fig .n, .row .kind')]
+  const cut = [...document.querySelectorAll('.fig .n')]
     .filter(e => e.scrollWidth > e.clientWidth + 1).map(e => e.className);
-  return {subtitle: n('.subtitle'), head: n('.head'), bottom, cut, page: document.documentElement.scrollWidth}; }"""
+  return {subtitle: n('.subtitle'), head: n('.head'), told: n('.t'), bottom, cut, page: document.documentElement.scrollWidth}; }"""
 
 
 @pytest.mark.parametrize("seed", range(4))
@@ -513,6 +508,8 @@ def test_every_field_at_its_cap_fits_on_the_slide(tmp_path, seed):
         assert m["page"] <= 1080, (slide, "horizontal overflow", m["page"])
         assert m["cut"] == [], (slide, "a nowrap value is cut", m["cut"])
         assert m["bottom"] <= 1255, (slide, m["bottom"])
+    assert all(n <= 2 for n in measured["03_recit"]["head"]), ("the title takes more than two lines", measured["03_recit"]["head"])
+    assert all(n <= 2 for n in measured["03_recit"]["told"]), ("a statement takes more than two lines", measured["03_recit"]["told"])
 
 
 def test_a_number_never_parts_from_its_unit():

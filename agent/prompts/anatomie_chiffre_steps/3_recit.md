@@ -1,12 +1,12 @@
-ÉTAPE 3 — DU CHIFFRE AU RÉCIT (slide 3)
+ÉTAPE 3 — LE FIL LOGIQUE (slide 3)
 
-Les étapes 1 (axe) et 2 (chiffres) sont FIXÉES. La slide montre le chemin du média, du chiffre mesuré au récit qu'il en tire, en 3 ou 4 lignes de types différents. Tu proposes 3 ou 4 options (`title`, `row1` à `row4`). Tout reste dans le cadre du média.
-- `row1` à `row4` : `type | texte | base`.
-  - `donnee` — ce qui est mesuré : les chiffres de la slide 2, résumés en une phrase. **`row1` est TOUJOURS une `donnee`.**
+Les étapes 1 (axe) et 2 (chiffres) sont FIXÉES. La slide suit le fil du média : le titre énonce le fait mesuré, puis 2 ou 3 cartes disent ce que le média en tire (explication → interprétation → conséquence), chacune avec une remarque d'esprit critique. Tu proposes 3 ou 4 options (`title`, `row1` à `row3`). Tout reste dans le cadre du média.
+- `title` (≤52 caractères) : le fait mesuré, en une phrase simple qui décrit le chiffre clé de la slide 2, sans cause ni verdict (« Le rapport entre les patrimoines est passé de 9 à 15 »). Les chiffres sont ceux du média.
+- `row1` à `row3` : `type | texte | remarque`.
   - `explication` — la cause que le média ou un intervenant avance pour ces chiffres.
   - `interpretation` — un cadrage, une étiquette, une façon de nommer le phénomène.
-  - `prevision` — un avis sur la suite, sans donnée à l'appui dans le média.
-  Le texte (≤110 caractères) reprend le média : un passage entre « » est copié au mot près, tel qu'il figure dans le texte ; sinon il le rapporte sans y ajouter. La base (≤50 caractères) dit qui l'avance et si c'est mesuré (« mesuré par la Fed », « un économiste cité, non mesuré ici », « avis d'un professeur, sans donnée »). `row4` reste vide (`""`) si le média n'offre que trois lignes ; n'invente JAMAIS une explication ou une prévision que le média n'avance pas. Si le média n'en avance aucune, les lignes sont des données et tu le dis dans `reason`.
-- `title` (≤40 caractères) : « Du chiffre mesuré au récit » ou une variante sobre.
-- `reason` : quelles lignes l'option retient et ce qu'elles montrent du passage du mesuré au raconté.
+  - `consequence` — ce que le média ou un intervenant en déduit pour la suite, sans donnée à l'appui dans le média.
+  Chaque ligne a un type différent. Le texte (≤84 caractères, DEUX LIGNES AU PLUS) reprend le média : un passage entre « » est copié au mot près, tel qu'il figure dans le texte ; sinon il le rapporte sans y ajouter. `row3` reste vide (`""`) si le média n'avance que deux de ces trois choses ; n'invente JAMAIS une explication, un cadrage ou une conséquence que le média n'avance pas.
+  - La **remarque** (≤80 caractères) dit quel poids l'énoncé peut porter, sans verdict : une question (« La cause est avancée, pas mesurée : sur quelle donnée repose-t-elle ? »), une limite (« Nommer le phénomène ne le démontre pas : ce cadrage retient l'âge, pas d'autres clivages. ») ou une condition (« Elle suppose que l'explication tienne et que la tendance se poursuive : deux paris. »). Elle est propre à CET énoncé, en mots simples, sans chiffre, et ne dit pas où vérifier (c'est la slide 4).
+- `reason` : quelles lignes l'option retient et ce que les remarques font voir du passage du mesuré au raconté.
 La lecture 3 de l'axe (celle du média) doit se retrouver dans une ligne `explication` ou `interpretation`, avec ses mots-clés. Chaque option retient des lignes différentes.

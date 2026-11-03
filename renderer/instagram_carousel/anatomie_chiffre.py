@@ -6,7 +6,7 @@ import json
 import re
 from pathlib import Path
 
-from models.anatomie_chiffre_presentation import AnatomieChiffreDocument
+from models.anatomie_chiffre_presentation import AnatomieChiffreDocument, AnatomieNote
 from ._shared import (
     _env, _LOGO_DATA_URL, _LOGO_TIGHT_DATA_URL, background_image, cover_dims, cover_layers,
     cover_thumb, duration_label, hook_metrics, medium_labels, pill_parts,
@@ -37,9 +37,9 @@ def _nobreak(value):
     return value
 
 
-_KIND_ICONS = {"donnee": "info", "explication": "link", "interpretation": "eye", "prevision": "widen"}
+_KIND_ICONS = {"donnee": "info", "explication": "link", "interpretation": "eye", "consequence": "widen", "prevision": "widen"}
 _READING_ICONS = ["hierarchy", "flame", "anchor"]   # one per reading of the axe, in order
-_KIND_LABELS = {"donnee": "Donnée", "explication": "Explication", "interpretation": "Interprétation", "prevision": "Prévision"}
+_KIND_LABELS = {"donnee": "Donnée", "explication": "Explication", "interpretation": "Interprétation", "consequence": "Conséquence", "prevision": "Prévision"}
 
 
 def generate_html(doc: AnatomieChiffreDocument, out_dir: Path) -> list[Path]:
@@ -60,7 +60,10 @@ def generate_html(doc: AnatomieChiffreDocument, out_dir: Path) -> list[Path]:
         ("hook", f"{OPT}/01_hook.html", hook),
         ("chiffres", f"{TPL}/02_chiffres.html",
          _nobreak(pres.chiffres.model_dump(exclude={"note"}) | {"sources": notes([pres.chiffres.note] if pres.chiffres.note else [])})),
-        ("recit", f"{TPL}/03_recit.html", _nobreak(pres.recit.model_dump() | {"labels": _KIND_LABELS, "icons": _KIND_ICONS})),
+        ("recit", f"{TPL}/03_recit.html", _nobreak({"title": pres.recit.title, "labels": _KIND_LABELS, "icons": _KIND_ICONS,
+                                                      "rows": [{**r.model_dump(exclude={"remark", "basis"}),
+                                                                "sources": notes([AnatomieNote(kind="remark", text=r.remark)] if r.remark else [])}
+                                                               for r in pres.recit.rows]})),
         ("angle_mort", f"{TPL}/04_angle_mort.html",
          _nobreak({"title": pres.angle_mort.title,
                    "cards": [{**c.model_dump(exclude={"notes", "opens", "detail"}), "sources": notes(c.notes), "icon": icon}
