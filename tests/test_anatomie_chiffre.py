@@ -20,7 +20,7 @@ def test_the_deck_validates():
     assert [f.value for f in pres.chiffres.figures] == ["× 15", "505.000 $", "33.000 $"]
     assert [r.kind for r in pres.recit.rows] == ["explication", "interpretation", "consequence"]
     assert len(pres.axe.readings) == 3
-    assert pres.angle_mort.cards[0].opens == [1, 2]
+    assert pres.angle_mort.cards[0].opens == [1, 3]
 
 
 def test_a_deck_without_an_axe_still_validates():

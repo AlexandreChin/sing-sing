@@ -1,19 +1,19 @@
 {
-  "caption": "Les Américains de plus de 75 ans seraient 15 fois plus fortunés que les moins de 35 ans, selon l'enquête triennale de la Fed relayée par BFM Business. Que dit le chiffre, et que raconte l'article ? Les médianes sont mesurées ; le reste, une économie « en G », des gains venus des actifs, une concentration à venir, est avancé par des économistes. Ce que ces chiffres ne comptent pas : l'écart à l'intérieur de chaque groupe, un même groupe suivi dans le temps, ce qui vient du travail et ce qui vient des actifs. Trois lectures restent donc possibles : un effet de marché, un choc sur les jeunes, un écart de propriétaires. Quelle lecture les séries que vous trouverez soutiennent-elles ?\n\n#espritcritique #patrimoine #statistiques #lectureactive",
+  "caption": "Les Américains de plus de 75 ans seraient 15 fois plus fortunés que les moins de 35 ans, selon l'enquête triennale de la Fed relayée par BFM Business. Que dit le chiffre, et que raconte l'article ? Les médianes sont mesurées ; le reste, une économie « en G », des gains venus des actifs, une concentration à venir, est avancé par des économistes. Ce que ces chiffres ne comptent pas : l'écart à l'intérieur de chaque groupe, un même groupe suivi dans le temps, ce qui vient du travail et ce qui vient des actifs. Trois lectures restent donc possibles : une fracture de patrimoine, un retour à la normale, un cycle de marché. Quelle lecture les séries que vous trouverez soutiennent-elles ?\n\n#espritcritique #patrimoine #statistiques #lectureactive",
   "axe": {
     "fait": "pourquoi le rapport de patrimoine entre les plus âgés et les plus jeunes est passé de 9 à 15",
     "readings": [
       {
-        "nom": "Un effet de marché",
-        "formule": "La hausse des actifs profite à ceux qui en détiennent, à tout âge."
+        "nom": "Une fracture de patrimoine",
+        "formule": "L'écart suit la détention d'actifs, pas l'âge."
       },
       {
-        "nom": "Un choc sur les jeunes",
-        "formule": "Dettes et taux ont fait reculer le patrimoine des jeunes."
+        "nom": "Un retour à la normale",
+        "formule": "Le point de départ de 2022 était flatteur pour les jeunes."
       },
       {
-        "nom": "Un écart de propriétaires",
-        "formule": "L'écart sépare propriétaires et locataires, plus que les âges."
+        "nom": "Un cycle de marché",
+        "formule": "Le gain suit les marchés et peut s'inverser avec eux."
       }
     ],
     "article": {
@@ -71,14 +71,14 @@
     ]
   },
   "angle_mort": {
-    "title": "L'âge, une interprétation parmi d'autres",
+    "title": "La génération, une piste parmi d'autres",
     "cards": [
       {
         "claim": "Quelle part vient des actifs, quelle du reste ?",
         "detail": "",
         "opens": [
           1,
-          2
+          3
         ],
         "notes": [
           {
@@ -92,7 +92,7 @@
         "detail": "",
         "opens": [
           1,
-          3
+          2
         ],
         "notes": [
           {
@@ -132,23 +132,23 @@
     ]
   },
   "lectures": {
-    "title": "Et si ce n'était pas une affaire d'âge ?",
+    "title": "Génération, ou autre chose ?",
     "lead": "",
     "rows": [
       {
-        "nom": "Un effet de marché",
-        "voir": "Les prix des actifs ont monté, au profit de ceux qui en détiennent.",
-        "sens": "Chiffre à suivre : le rapport, validé s'il évolue avec les indices de Bourse et d'immobilier."
-      },
-      {
-        "nom": "Un choc sur les jeunes",
-        "voir": "Dettes et taux ont fait reculer le patrimoine des jeunes.",
-        "sens": "Chiffre à suivre : la dette des jeunes sur leur patrimoine, validé si elle a progressé."
-      },
-      {
-        "nom": "Un écart de propriétaires",
-        "voir": "Les aînés sont surtout propriétaires, les jeunes surtout locataires.",
+        "nom": "Une fracture de patrimoine",
+        "voir": "L'écart suit la détention d'actifs, quel que soit l'âge.",
         "sens": "Chiffre à suivre : l'écart propriétaires-locataires à âge égal, validé s'il égale celui entre âges."
+      },
+      {
+        "nom": "Un retour à la normale",
+        "voir": "Les jeunes revenaient d'un sommet : le point de départ était flatteur.",
+        "sens": "Chiffre à suivre : le rapport sur une période plus longue, validé si la hausse s'atténue."
+      },
+      {
+        "nom": "Un cycle de marché",
+        "voir": "Le gain suit les marchés et peut s'inverser avec eux.",
+        "sens": "Chiffre à suivre : le rapport comparé aux indices de Bourse, validé s'il baisse quand ils baissent."
       }
     ]
   }
