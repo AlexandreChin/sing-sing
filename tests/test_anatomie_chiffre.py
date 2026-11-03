@@ -233,3 +233,147 @@ def test_the_hook_flags_a_missing_promise_form():
 def test_the_caption_needs_four_hashtags():
     assert hard("writing") == []
     assert any("hashtag" in e for e in hard("writing", caption=DECK["caption"].replace("#espritcritique", "")))
+
+
+# ── prompts ─────────────────────────────────────────────────────────────────
+
+def test_every_step_has_its_prompt():
+    for s in agent.STEPS:
+        assert Path(f"agent/prompts/anatomie_chiffre_steps/{s.n}_{s.name}.md").exists(), s.name
+    assert Path("agent/prompts/anatomie_chiffre_steps/0_shared.md").exists()
+
+
+def test_the_shared_prompt_lists_every_step():
+    shared = Path("agent/prompts/anatomie_chiffre_steps/0_shared.md").read_text(encoding="utf-8")
+    for name in ("L'axe", "Les chiffres", "Du chiffre au récit", "Ce que ces chiffres ne comptent pas",
+                 "Les lectures", "L'accroche", "La rédaction"):
+        assert name in shared, name
+    assert "Sept étapes" in shared
+
+
+# ── the cascade, the model call faked ───────────────────────────────────────
+
+class FakeCalls:
+    def __init__(self):
+        self.labels, self.errors, self.messages = [], {}, []
+
+    def __call__(self, user_message, schema, validator, no_api=False, label="", system=None):
+        self.labels.append(label)
+        self.messages.append(user_message)
+        fields = copy.deepcopy(FIELDS[label])
+        data = ({"options": [{**fields, "reason": "r"}, {**fields, "reason": "r2"}, {**fields, "reason": "r3"}],
+                 "recommended": [0]} if label != "writing" else fields)
+        self.errors[label] = validator(data)
+        return data
+
+
+@pytest.fixture
+def fake(monkeypatch):
+    calls = FakeCalls()
+    monkeypatch.setattr(agent, "_call_with_retry", calls)
+    return calls
+
+
+def test_unattended_runs_seven_steps_and_rebuilds_the_deck(fake, tmp_path):
+    pres = agent.adapt(full(), steps_dir=tmp_path / "adapt_steps")
+    assert fake.labels == [s.name for s in agent.STEPS]
+    assert all(e == [] for e in fake.errors.values())
+    assert pres.model_dump() == AnatomieChiffrePresentation.model_validate(DECK).model_dump()
+
+
+def test_guided_pauses_at_the_axe(fake, tmp_path, capsys):
+    assert agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", guided=True) is None
+    assert fake.labels == ["axe"]
+    assert agent.pending_step(tmp_path / "adapt_steps") == "axe"
+    assert "[axe]" in capsys.readouterr().out
+
+
+def test_choose_picks_and_the_run_goes_on(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps, guided=True)
+    edit = {"b.lecture2": "Un cycle d'actifs | Trois ans de marchés hauts séparent détenteurs et autres."}
+    assert agent.choose(full(), steps, "axe", ["b"], edit) == []
+    assert agent.adapt(full(), steps_dir=steps, guided=True) is None
+    assert fake.labels == ["axe", "chiffres"] and agent.pending_step(steps) == "chiffres"
+
+
+def test_choose_returns_hard_failures_as_warnings(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)           # unattended: every step holds its options
+    warnings = agent.choose(full(), steps, "angle_mort", ["a"], {"a.ouvre1": "1,1"})
+    assert any("ouvre1" in w for w in warnings)
+
+
+def test_choose_refuses_unknown_options_fields_and_steps(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps, guided=True)
+    with pytest.raises(agent.ChoiceError):
+        agent.choose(full(), steps, "writing", ["a"], {})
+    with pytest.raises(agent.ChoiceError):
+        agent.choose(full(), steps, "axe", ["a"], {"a.nope": "x"})
+    with pytest.raises(agent.ChoiceError):
+        agent.choose(full(), steps, "axe", ["z"], {})
+
+
+def test_more_sets_the_options_aside(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps, guided=True)
+    new = agent.more(full(), steps, "axe", remark="un autre fait")
+    assert len(new.rejected) == 3 and {o.id for o in new.options}.isdisjoint({o.id for o in new.rejected})
+    assert "un autre fait" in fake.messages[-1] and "DÉJÀ PROPOSÉES ET ÉCARTÉES" in fake.messages[-1]
+
+
+def test_a_fix_rewrites_one_field_without_regenerating(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    before = list(fake.labels)
+    agent.fix(full(), steps, "chiffres.fig2", "34.000 $ | moins de 35 ans | −23 % depuis 2022")
+    pres = agent.adapt(full(), steps_dir=steps)
+    assert fake.labels == before                      # the later steps were re-stamped, not rerun
+    assert pres.chiffres.figures[1].value == "34.000 $"
+
+
+def test_fix_reaches_the_axe_and_the_caption(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    agent.fix(full(), steps, "axe.lecture1", "Un effet de cycle de vie | Les plus âgés ont eu plus de temps pour accumuler.")
+    agent.fix(full(), steps, "caption", DECK["caption"] + " Merci.")
+    pres = agent.adapt(full(), steps_dir=steps)
+    assert pres.axe.readings[0].nom == "Un effet de cycle de vie" and pres.caption.endswith("Merci.")
+
+
+def test_fix_names_a_known_field(fake, tmp_path):
+    with pytest.raises(agent.ChoiceError):
+        agent.fix(full(), tmp_path / "adapt_steps", "invisible.statement", "x")
+
+
+def test_a_later_step_receives_the_axe_the_article_and_only_its_slice(fake, tmp_path):
+    agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", article_text="TEXTE-DE-L-ARTICLE", stop_after="chiffres")
+    first, second = fake.messages
+    assert "CHOIX FIXÉS" not in first
+    fixed = second.split("CHOIX FIXÉS (ne les réécris pas) :")[1]
+    assert FIELDS["axe"]["lecture3"].split(" | ")[0] in fixed
+    assert "TEXTE-DE-L-ARTICLE" in first and "TEXTE-DE-L-ARTICLE" in second
+    assert "ÉTAPE 2 — LES CHIFFRES" in second and "ÉTAPE 1 — L'AXE" not in second
+    for private in ("review", "ethics", "blend", "distill", "guide"):
+        assert f'"{private}"' not in second
+
+
+def test_old_first_design_files_are_ignored(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    steps.mkdir()
+    for name in ("1_variable.json", "2_boite_noire.json", "3_eclairage.json", "4_perimetre.json"):
+        (steps / name).write_text("{}")
+    assert agent.adapt(full(), steps_dir=steps, guided=True) is None
+    assert fake.labels == ["axe"] and agent.pending_step(steps) == "axe"
+    assert (steps / "1_variable.json").read_text() == "{}"
+
+
+# ── CLI wiring ──────────────────────────────────────────────────────────────
+
+def test_the_cli_knows_the_format_and_its_steps():
+    import main
+    assert main.GUIDED_AGENTS["anatomie_chiffre"] == "agent.anatomie_chiffre_adapt_agent"
+    assert len(main._STEP_CHOICES) == len(set(main._STEP_CHOICES))
+    assert set(agent.STEP_NAMES) <= set(main._STEP_CHOICES)
+    assert not {"variable", "boite_noire", "eclairage", "perimetre"} & set(main._STEP_CHOICES)
