@@ -98,7 +98,7 @@ Tous les formats partent de la même `analyze` (`ArticleFullAnalysis`) ; chaque 
 - **Perchoirs :** le point de tension du nœud, le curseur de la boussole (sans fil).
 - **Distinction avec Cadrage :** pas de thèse portée par un auteur, une tension symétrique.
 
-### Archétype 3 : `anatomie_chiffre` (6 slides) — à réaliser (conception révisée le 2026-11-03)
+### Archétype 3 : `anatomie_chiffre` (6 slides) — réalisé
 
 - **Sujet :** sondages, statistiques, classements, pourcentages marquants, et le récit que le média bâtit dessus.
 - **Lentille :** du chiffre au récit : ce que le chiffre mesure, ce qu'on en raconte, ce qu'il ne permet pas de trancher.
