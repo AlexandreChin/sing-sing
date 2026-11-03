@@ -1,0 +1,65 @@
+{
+  "emotional_register": [
+    {
+      "emotion": "inquiétude",
+      "how": "Le contraste entre « bondi de 37% » et « chuté de 23% », puis la formule « 15 fois plus fortunée (contre 9 fois en 2022) », oppose deux trajectoires et montre un écart qui s'aggrave.",
+      "effect": "Le lecteur est préparé à voir dans l'écart un déséquilibre croissant entre générations, plutôt qu'une différence liée à l'âge.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "alors que l'inflation reste un sujet central aux États-Unis",
+        "strength": 0.5,
+        "nature": "specification"
+      }
+    },
+    {
+      "emotion": "sentiment d'injustice",
+      "how": "Le vocabulaire de l'opposition (« fracture générationnelle », « deux vitesses », « ont eu la chance ») est associé à des jeunes qui « peinent » et à des aînés qui « continuent de s'enrichir ».",
+      "effect": "Le lecteur est amené à lire l'écart comme un avantage de position plutôt que comme le résultat d'un parcours de vie.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 2,
+        "excerpt": "les plus de 75 ans sont une génération née avant 1950, les moins de 35 ans sont nés après 1990",
+        "strength": 0.6,
+        "nature": "specification"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "beneficiary": "Le média, par un titre à chiffre frappant",
+      "explanation": "Le ratio de « **15 fois** » attire l'attention et se partage facilement. Un chiffre simple porte mieux qu'une comparaison de médianes avec ses précautions.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "L'article paraît quelques jours après la publication des résultats de l'enquête",
+        "strength": 0.6,
+        "nature": "illustration"
+      }
+    },
+    {
+      "beneficiary": "Le cadrage « en G » d'Edward Yardeni",
+      "explanation": "L'article termine sur ce concept et le présente sans en discuter les limites. Le cadrage générationnel devient alors la grille de lecture proposée, à côté de l'image « en K ».",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "croissance tirée par les ménages aisés, décrite comme « en forme de K »",
+        "strength": 0.5,
+        "nature": "specification"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Généralisation",
+        "observation": "Le titre écrit « jeunes générations » alors que le chiffre de 15 fois compare aux seuls moins de 35 ans."
+      },
+      {
+        "label": "Vocabulaire",
+        "observation": "« Désormais » et « sont devenus » présentent l'écart comme une situation nouvelle, que le titre ne compare pas à l'écart habituel."
+      }
+    ],
+    "body": "L'article adopte un angle **générationnel** : il présente les données de la Fed comme l'illustration d'une économie américaine à deux vitesses. Il met au centre l'opposition entre les plus de 75 ans et les moins de 35 ans, expliquée surtout par les revenus financiers et immobiliers des aînés. Le registre est celui d'une information économique grand public, qui s'appuie sur des médias et des experts américains cités de seconde main."
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "Le titre « 15 fois » compare des médianes d'âges différents et suppose que l'âge équivaut à la génération. Ce présupposé **tacite** n'est ni relevé ni vérifié, et le titre **généralise** au-delà des seuls moins de 35 ans : un même cadrage traverse quatre couches.",
+        "references": [
+          "ia_0",
+          "cb_0",
+          "bias_0",
+          "claim_1",
+          "ia_2",
+          "bias_1",
+          "obs_4"
+        ]
+      },
+      {
+        "text": "Le récit de rupture (« totalement inversée ») repose sur **trois ans de données** et une période de départ exceptionnelle, sans série longue ni effet de cycle de vie. La rupture est posée comme un fait, alors qu'elle n'est pas testée.",
+        "references": [
+          "lr_1",
+          "bs_1",
+          "claim_3",
+          "focus"
+        ]
+      },
+      {
+        "text": "Le ratio de médianes **ne dit rien de la dispersion** interne, et la médiane n'est définie qu'en parenthèse. Ce silence est relevé en logique, en vérification et en éthique : le chiffre le plus marquant est aussi le moins précisé.",
+        "references": [
+          "ia_1",
+          "bs_0",
+          "obs_3",
+          "bias_0"
+        ]
+      },
+      {
+        "text": "La causalité est **assertée plutôt que démontrée** : « les raisons sont connues » s'appuie sur des experts de seconde main, et l'économie « en G » avance sans chiffre de consommation. L'autorité des sources tient lieu de preuve.",
+        "references": [
+          "pr_2",
+          "lr_2",
+          "claim_2",
+          "obs_0",
+          "cb_1",
+          "obs_2"
+        ]
+      },
+      {
+        "text": "Le registre d'inquiétude et d'injustice (« peinent » contre « continuent de s'enrichir ») renforce l'idée d'un écart qui s'aggrave. La hausse de **140 %** des jeunes en 2019-2022, citée en une phrase, la nuancerait.",
+        "references": [
+          "er_0",
+          "er_1",
+          "bs_3",
+          "obs_1"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quelle part de l'écart de patrimoine entre âges relève du cycle de vie plutôt que d'un effet de génération ?",
+      "Que montre la dispersion du patrimoine à l'intérieur de chaque tranche d'âge, au-delà des médianes ?",
+      "Une série longue confirmerait-elle la rupture observée sur trois ans, ou la ramènerait-elle à un cycle ?"
+    ]
+  }
+}

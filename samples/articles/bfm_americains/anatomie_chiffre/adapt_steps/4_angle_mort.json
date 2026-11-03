@@ -1,0 +1,197 @@
+{
+  "step": "angle_mort",
+  "options": [
+    {
+      "id": "e",
+      "slot": "a",
+      "reason": "Retient le renouvellement de la tranche (lecture des groupes qui changent contre fracture de génération) et le croisement âge × détention d'actifs (effet de période contre fracture de génération). Les deux paires couvrent les trois lectures.",
+      "fields": {
+        "title": "La génération, une piste parmi d'autres",
+        "claim1": "Quelle part des actifs, quelle part du reste ?",
+        "verifier1": "Comparer la répartition du patrimoine par type d'actif.",
+        "ouvre1": "1,3",
+        "claim2": "L'âge est-il le seul clivage ?",
+        "verifier2": "Comparer les écarts selon le logement et le revenu, à âge égal.",
+        "ouvre2": "1,2",
+        "claim3": "Compare-t-on les mêmes ménages dans le temps ?",
+        "verifier3": "Suivre les mêmes ménages plutôt que des groupes d'âge.",
+        "ouvre3": "2,3",
+        "claim4": "L'écart est-il le même dans chaque groupe ?",
+        "verifier4": "Comparer la dispersion du patrimoine dans chaque tranche d'âge.",
+        "ouvre4": "1,3"
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "f",
+      "slot": "a",
+      "reason": "Retient la composition du groupe des jeunes (groupes qui changent contre effet de période) et la non-décomposition du rapport en hausse d'un côté et baisse de l'autre (effet de période contre fracture de génération). Couvre les trois lectures.",
+      "fields": {
+        "title": "Ce que le rapport ne sépare pas",
+        "claim1": "Un jeune chez ses parents n'est pas un ménage",
+        "ouvre1": "1,2",
+        "claim2": "Le rapport ne dit pas qui a bougé, haut ou bas",
+        "ouvre2": "2,3"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "g",
+      "slot": "a",
+      "reason": "Retient ce que la mesure exclut (droits à la retraite, qui brouillent effet de période et fracture de génération) et la définition de la tranche par un seul membre du foyer (groupes qui changent contre fracture de génération). Couvre les trois lectures.",
+      "fields": {
+        "title": "Ce que le patrimoine laisse de côté",
+        "claim1": "Les droits à la retraite ne sont pas du patrimoine",
+        "ouvre1": "2,3",
+        "claim2": "Un foyer compte dès qu'un membre a passé l'âge",
+        "ouvre2": "1,3"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Retient l'écart interne aux groupes (une médiane) et l'absence de suivi des mêmes ménages. Laisse ouvertes période/génération d'un côté, groupes qui changent/génération de l'autre.",
+      "fields": {
+        "title": "Un rapport entre deux médianes",
+        "claim1": "Une médiane cache l'écart au sein d'un groupe",
+        "detail1": "Un groupe peut être très inégal : la médiane en cache la répartition.",
+        "note1": "source | **La Fed** : Survey of Consumer Finances, par âge",
+        "ouvre1": "2,3",
+        "claim2": "Un groupe d'âge n'est pas suivi dans le temps",
+        "detail2": "Les ménages changent de tranche : on compare des groupes, pas des personnes.",
+        "note2": "source | **PSID** (Michigan) : mêmes ménages suivis dans le temps",
+        "ouvre2": "1,3"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Retient la composition du patrimoine et la durée d'observation. Laisse ouvertes période/génération, puis groupes qui changent/période.",
+      "fields": {
+        "title": "Ce qui entre dans le patrimoine",
+        "claim1": "Le patrimoine net mêle logement, actions et dettes",
+        "detail1": "Logement et actions suivent les marchés ; les dettes viennent en déduction.",
+        "note1": "source | **La Fed** : Financial Accounts, bilans des ménages",
+        "ouvre1": "2,3",
+        "claim2": "La période observée est courte",
+        "detail2": "Sur une autre durée, l'écart peut se lire comme un épisode ou une tendance.",
+        "note2": "source | **La Fed** : Survey of Consumer Finances, séries longues",
+        "ouvre2": "1,2"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Retient le mélange âge/génération et la sensibilité d'un rapport à sa base. Laisse ouvertes période/génération, puis groupes qui changent/période.",
+      "fields": {
+        "title": "Âge, génération, période",
+        "claim1": "L'âge et la génération sont mêlés",
+        "detail1": "À date égale, l'écart peut venir de l'étape de vie ou de l'époque de naissance.",
+        "note1": "source | **Census Bureau** : SIPP, patrimoine des ménages par âge",
+        "ouvre1": "2,3",
+        "claim2": "Un rapport réagit fort quand le bas est faible",
+        "detail2": "Si la base est petite, un léger écart change beaucoup le rapport.",
+        "note2": "source | **La Fed** : Distributional Financial Accounts",
+        "ouvre2": "1,2"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Retient la transmission future et l'unité de mesure. Laisse ouvertes période/génération, puis groupes qui changent/période.",
+      "fields": {
+        "title": "Ce qui se transmet, ce qui se mesure",
+        "claim1": "Les héritages et donations ne sont pas comptés",
+        "detail1": "Ce qui passera d'une génération à l'autre peut changer l'écart à venir.",
+        "note1": "source | **La Fed** : Survey of Consumer Finances, héritages reçus",
+        "ouvre1": "2,3",
+        "claim2": "Le ménage, pas la personne, est l'unité mesurée",
+        "detail2": "Taille et composition du ménage peuvent varier d'un groupe d'âge à l'autre.",
+        "note2": "source | **Census Bureau** : Current Population Survey, ménages",
+        "ouvre2": "1,2"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "recommended": [
+    "e"
+  ],
+  "picked": [
+    "e"
+  ],
+  "fragment": {
+    "angle_mort": {
+      "title": "La génération, une piste parmi d'autres",
+      "cards": [
+        {
+          "claim": "Quelle part des actifs, quelle part du reste ?",
+          "notes": [
+            {
+              "kind": "source",
+              "text": "Comparer la répartition du patrimoine par type d'actif."
+            }
+          ],
+          "opens": [
+            1,
+            3
+          ]
+        },
+        {
+          "claim": "L'âge est-il le seul clivage ?",
+          "notes": [
+            {
+              "kind": "source",
+              "text": "Comparer les écarts selon le logement et le revenu, à âge égal."
+            }
+          ],
+          "opens": [
+            1,
+            2
+          ]
+        },
+        {
+          "claim": "Compare-t-on les mêmes ménages dans le temps ?",
+          "notes": [
+            {
+              "kind": "source",
+              "text": "Suivre les mêmes ménages plutôt que des groupes d'âge."
+            }
+          ],
+          "opens": [
+            2,
+            3
+          ]
+        },
+        {
+          "claim": "L'écart est-il le même dans chaque groupe ?",
+          "notes": [
+            {
+              "kind": "source",
+              "text": "Comparer la dispersion du patrimoine dans chaque tranche d'âge."
+            }
+          ],
+          "opens": [
+            1,
+            3
+          ]
+        }
+      ]
+    }
+  },
+  "remarks": [
+    "Chaque angle mort doit concerner l'explication du chiffre clé de l'axe (un nombre, un pourcentage, un rapport, la hausse de l'un d'eux), pas une limite générale de la statistique. Chaque paire ouvre doit nommer deux lectures que ce défaut empêche réellement de départager, et les mots de la carte doivent correspondre à ces deux lectures."
+  ]
+}

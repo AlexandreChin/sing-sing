@@ -1,0 +1,104 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "Le titre à chiffre frappant (« 15 fois ») s'appuie sur une comparaison de médianes entre âges différents, qui suppose que l'âge équivaut à la génération. Ce présupposé reste tacite chez l'article, n'est pas relevé comme tel dans la vérification des faits, et se retrouve dans la mention d'un titre généralisant côté éthique : un même choix de cadrage traverse quatre couches.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "ia_0",
+          "cb_0",
+          "bias_0",
+          "claim_1"
+        ]
+      },
+      {
+        "text": "Le cadrage « jeunes générations » généralise les seuls moins de 35 ans, alors que les 35-44 ans bougent peu. L'effet est double : l'écart paraît plus large et le titre est jugé trompeur sur le périmètre.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "ia_2",
+          "bias_1",
+          "obs_4"
+        ]
+      },
+      {
+        "text": "Le récit de rupture (« totalement inversée », « tranche avec le passé ») repose sur trois ans de données et une période de départ exceptionnelle, sans série longue ni effet de cycle de vie. Les affirmations de rupture sont donc posées comme faits alors que les angles morts de logique montrent qu'elles ne sont pas testées.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "lr_1",
+          "bs_1",
+          "claim_3",
+          "focus"
+        ]
+      },
+      {
+        "text": "Le registre d'inquiétude et d'injustice (« peinent » contre « continuent de s'enrichir ») renforce la lecture d'un écart qui s'aggrave. Or la hausse de 140 % des jeunes en 2019-2022, mentionnée en une phrase, la nuancerait : l'émotion occupe la place que la donnée longue laisserait à la nuance.",
+        "layers": [
+          "rhetoric",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "er_0",
+          "er_1",
+          "bs_3",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "La causalité est assertée plutôt que démontrée : « les raisons sont connues » repose sur des citations d'experts de seconde main, et l'économie « en G » avance sans chiffre de consommation. Les trois couches (logique, sondage, revue) convergent sur le même défaut : l'autorité des sources tient lieu de preuve.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "pr_2",
+          "lr_2",
+          "claim_2",
+          "obs_0"
+        ]
+      },
+      {
+        "text": "Le cadrage « en G » d'Yardeni clôt l'article sans discussion de ses limites, et le média gagne à un angle facile à partager. L'intérêt éditorial du titre et du concept converge vers une grille de lecture adoptée plutôt qu'examinée.",
+        "layers": [
+          "rhetoric",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "cb_1",
+          "cb_0",
+          "obs_2",
+          "lr_2"
+        ]
+      },
+      {
+        "text": "Le ratio de médianes ne dit rien de la dispersion interne, et la médiane n'est définie qu'en parenthèse. Ce silence est relevé en logique, repris comme biais de titre en vérification, et signalé comme ratio non précisé en éthique.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics"
+        ],
+        "references": [
+          "ia_1",
+          "bs_0",
+          "obs_3",
+          "bias_0"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "le patrimoine net médian aux États-Unis s'élevait à 215.900 dollars en 2025 (la moitié des ménages a plus, l'autre moitié moins), soit une légère hausse de 2% par rapport à 2022, après prise en compte de l'inflation.",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Sourçage",
+          "strength": 0.7,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre est attribué à l'enquête triennale de la Fed, mais l'article ne renvoie pas au rapport original.",
+        "external_sources": [
+          {
+            "name": "Federal Reserve, Survey of Consumer Finances 2025",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 88
+      },
+      {
+        "quote": "celui des foyers occupés par au moins une personne de plus de 75 ans a bondi sur la même période de 37%, à près de 505.000 dollars.",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Définition",
+          "strength": 0.6,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre vient de l'enquête de la Fed, mais il porte sur des médianes de ménages et non sur la richesse de chaque personne.",
+        "external_sources": [
+          {
+            "name": "Federal Reserve, Survey of Consumer Finances 2025",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Wall Street Journal",
+            "supports": "neutral",
+            "evidence_type": "media"
+          }
+        ],
+        "confidence": 85
+      },
+      {
+        "quote": "Les raisons de cette nouvelle fracture générationnelle sont connues.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Période",
+          "strength": 0.5,
+          "nature": "nuance"
+        },
+        "explanation": "L'affirmation est posée sans attribution, puis appuyée par des citations d'experts qui n'en testent pas chaque cause.",
+        "external_sources": [
+          {
+            "name": "Federal Reserve, Survey of Consumer Finances 2025",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Edward Wolff, New York University",
+            "supports": "validates",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": 55
+      },
+      {
+        "quote": "Il n'en demeure pas moins que cette tendance tranche avec la situation observée dans le passé.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "sentiment d'injustice"
+        },
+        "explanation": "La rupture avec le passé est posée comme acquise, sans comparer avec l'écart d'âge habituel dans les enquêtes précédentes.",
+        "external_sources": [
+          {
+            "name": "Federal Reserve, Survey of Consumer Finances (séries historiques)",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Edward Wolff, New York University",
+            "supports": "validates",
+            "evidence_type": "academic"
+          }
+        ],
+        "confidence": 60
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "Les Américains de plus de 75 ans sont désormais 15 fois plus riches que les jeunes générations",
+        "item_type": "bias",
+        "label": "chiffre frappant en titre",
+        "effect": "Remarquez comment un seul ratio de médianes résume l'écart et passe sous silence la dispersion au sein de chaque tranche d'âge.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Le média, par un titre à chiffre frappant"
+        }
+      },
+      {
+        "quote": "Les 55-64 ans, les 45-54 ans et les 35-44 ans ayant quant à eux vu leur richesse légèrement augmenter ou reculer.",
+        "item_type": "bias",
+        "label": "sélection des comparaisons",
+        "effect": "Remarquez comment « jeunes générations » désigne les seuls moins de 35 ans, alors que les 35-44 ans voient peu de variation.",
+        "proves": {
+          "type": "observation",
+          "label": "Composition"
+        }
+      },
+      {
+        "quote": "Les raisons de cette nouvelle fracture générationnelle sont connues.",
+        "item_type": "fallacy",
+        "label": "conclusion tirée de trois ans de données",
+        "effect": "Remarquez comment un écart observé entre deux âges en 2025 est présenté comme une fracture nouvelle, sans le comparer à l'effet de l'âge.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "inquiétude"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "La situation est aujourd'hui totalement inversée",
+      "proves": {
+        "type": "observation",
+        "label": "Cadrage"
+      },
+      "analysis": "Cette phrase d'Edward Wolff oppose le passé, où les aînés s'appauvrissaient, au présent, où ils s'enrichissent. Elle laisse entendre que l'écart actuel est un renversement, sans dire sur quelle durée ni pour quels ménages. Que montrerait la même comparaison sur vingt ou trente ans ?"
+    }
+  }
+}

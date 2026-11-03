@@ -1,0 +1,76 @@
+{
+  "step": "axe",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Le média chiffre ce passage de 9 à 15 fois (2022 à 2025). Il parle d'une « nouvelle fracture générationnelle » et d'une économie « en G », d'où la lecture 3. Les chiffres montrent directement ce mouvement.",
+      "fields": {
+        "fait": "pourquoi le rapport de patrimoine entre les plus âgés et les plus jeunes est passé de 9 à 15",
+        "lecture1": "Une fracture de patrimoine | L'écart suit la détention d'actifs, pas l'âge.",
+        "lecture2": "Un retour à la normale | Le point de départ de 2022 était flatteur pour les jeunes.",
+        "lecture3": "Un cycle de marché | Le gain suit les marchés et peut s'inverser avec eux.",
+        "article": "Une fracture de génération | Un écart qui se creuse entre des générations aux conditions différentes."
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Les deux trajectoires opposées sont au cœur des chiffres. Le média attribue le contraste à des marchés et un immobilier favorables aux aînés, et cadre le tout comme une économie « générationnelle ».",
+      "fields": {
+        "fait": "pourquoi le patrimoine des plus de 75 ans progresse de 37 % quand celui des moins de 35 ans recule de 23 %",
+        "lecture1": "Une détention d'actifs | Les gains suivent la possession d'actions et de logements, quel que soit l'âge.",
+        "lecture2": "Un retour à la normale | Les jeunes retombent après une hausse exceptionnelle des années précédentes.",
+        "lecture3": "Une fracture de génération | Les plus âgés ont su saisir des occasions que les plus jeunes n'auront peut-être plus."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Le média relie la baisse de la part de propriétaires de moins de 35 ans à un logement devenu inaccessible, puis à l'idée d'une économie « en G ». Le fait est montré par un seul chiffre, donc moins central.",
+      "fields": {
+        "fait": "pourquoi la part de propriétaires de moins de 35 ans recule alors que le patrimoine des plus âgés progresse",
+        "lecture1": "Un effet de cycle de vie | Les jeunes achètent plus tard : l'accès à la propriété suit l'âge et les revenus.",
+        "lecture2": "Un effet de conjoncture | Des prix élevés et des crédits plus chers freinent les achats en ce moment.",
+        "lecture3": "Une économie en G | Un écart de génération s'installe, les aînés propriétaires portant la consommation."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "axe": {
+      "fait": "pourquoi le rapport de patrimoine entre les plus âgés et les plus jeunes est passé de 9 à 15",
+      "article": {
+        "nom": "Une fracture de génération",
+        "formule": "Un écart qui se creuse entre des générations aux conditions différentes."
+      },
+      "readings": [
+        {
+          "nom": "Une fracture de patrimoine",
+          "formule": "L'écart suit la détention d'actifs, pas l'âge."
+        },
+        {
+          "nom": "Un retour à la normale",
+          "formule": "Le point de départ de 2022 était flatteur pour les jeunes."
+        },
+        {
+          "nom": "Un cycle de marché",
+          "formule": "Le gain suit les marchés et peut s'inverser avec eux."
+        }
+      ]
+    }
+  },
+  "remarks": []
+}

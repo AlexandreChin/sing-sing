@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Le patrimoine net médian des plus de 75 ans a bondi de 37 % entre 2022 et 2025, celui des moins de 35 ans a chuté de 23 %.",
+      "kind": "fait",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 1,
+        "excerpt": "Le patrimoine médian des plus de 75 ans a progressé de 37 % et celui des moins de 35 ans a reculé de 23 % entre 2022 et 2025.",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Les causes avancées de l'écart sont la hausse des marchés actions, la flambée immobilière et les crédits à faible taux des aînés.",
+      "kind": "affirmation",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "Les raisons de l'écart sont connues : marché actions, immobilier et crédits à faible taux.",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "statement": "L'article décrit une fracture générationnelle et une économie « en G », où la consommation reposerait sur les plus âgés.",
+      "kind": "angle",
+      "centrality": 4,
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 2,
+        "excerpt": "Des économistes cités, le texte déduit que la consommation américaine repose sur les plus âgés (économie « en G »).",
+        "strength": 0.7,
+        "nature": "inference"
+      }
+    },
+    {
+      "statement": "L'accès à la propriété recule chez les moins de 35 ans, avec le remboursement des prêts étudiants et la fin des aides Covid.",
+      "kind": "enjeu",
+      "centrality": 3,
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "les aides publiques liées à la crise Covid et la hausse des marchés ont gonflé le patrimoine",
+        "strength": 0.5,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "Le ratio de 15 fois compare des médianes de tranches d'âge différentes, sans mesurer la dispersion ni l'effet du cycle de vie.",
+      "kind": "biais",
+      "centrality": 2,
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 1,
+        "excerpt": "Le ratio de médianes (15 fois) résume bien l'écart entre jeunes et aînés.",
+        "strength": 0.7,
+        "nature": "specification"
+      }
+    }
+  ]
+}

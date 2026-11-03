@@ -1,0 +1,63 @@
+{
+  "step": "hook",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Reprend le ratio brut du média et ouvre sur l'écart entre âges, sans le juger.",
+      "fields": {
+        "title": "« Les plus de 75 ans, **15 fois** plus fortunés que les jeunes »",
+        "promise": "Un écart de patrimoine entre générations : ce que le chiffre dit, et ce qu'on en conclut"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Met en avant les deux médianes en dollars plutôt que le ratio, plus concret et moins frappant.",
+      "fields": {
+        "title": "« Patrimoine médian : **505.000 $** contre 33.000 $ »",
+        "promise": "La richesse des ménages américains selon l'âge : ce que le chiffre dit, et ce qu'on en conclut"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Met en avant l'évolution du ratio, qui est le fait à expliquer de l'axe.",
+      "fields": {
+        "title": "« De **9 à 15** : l'écart de patrimoine entre âges »",
+        "promise": "Un écart de patrimoine entre âges : ce que le chiffre dit, et ce qu'on en conclut"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Reprend le contraste des trajectoires, formulé comme dans le titre du média.",
+      "fields": {
+        "title": "« +37 % pour les plus de 75 ans, **-23 %** pour les moins de 35 »",
+        "promise": "L'évolution du patrimoine des ménages américains : ce que le chiffre dit, et ce qu'on en conclut"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "hook": {
+      "title": "« Les plus de 75 ans, **15 fois** plus fortunés que les jeunes »",
+      "promise": "Un écart de patrimoine entre générations : ce que le chiffre dit, et ce qu'on en conclut"
+    }
+  },
+  "remarks": []
+}

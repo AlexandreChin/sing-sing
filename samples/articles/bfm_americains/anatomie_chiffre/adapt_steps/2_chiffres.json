@@ -1,0 +1,101 @@
+{
+  "step": "chiffres",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Le cœur du chiffre : le ratio, ses deux termes et leur évolution entre 2022 et 2025, sans rien d'autre.",
+      "fields": {
+        "claim": "Le patrimoine des Américains selon l'âge, 2022-2025",
+        "fig1": "9 → 15 | Les plus de 75 ans ont 15 fois le patrimoine des moins de 35 ans | Contre 9 fois en 2022 · ménage « médian » par groupe",
+        "fig2": "505.000 $ | Patrimoine médian, plus de 75 ans | +37 % depuis 2022",
+        "fig3": "33.000 $ | Patrimoine médian, moins de 35 ans | −23 % depuis 2022",
+        "note1": "remarque | Médian : autant de ménages du groupe possèdent moins que ce montant, qu'en possèdent plus.",
+        "fig4": "215.900 $ | Patrimoine médian, tous âges | +2 % depuis 2022"
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Replace le ratio dans l'ensemble : médiane nationale et tranche voisine montrent que l'évolution n'est pas uniforme selon l'âge.",
+      "fields": {
+        "claim": "Un écart qui se creuse entre âges, pas pour tous",
+        "fig1": "× 15 | Écart 75 ans et + / moins de 35",
+        "fig2": "215.900 $ | Médiane, tous ménages | +2 % depuis 2022",
+        "fig3": "432.000 $ | Médiane des 65-74 ans | -4 % depuis 2022",
+        "note1": "source | Enquête triennale de la Fed, après prise en compte de l'inflation, citée par BFM Business"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Met en avant les évolutions plutôt que les niveaux, et ajoute le statut de propriétaire, que le média relie à l'écart.",
+      "fields": {
+        "claim": "Des trajectoires opposées selon l'âge et le statut",
+        "fig1": "+37 % | Médiane des plus de 75 ans | 505.000 $ en 2025",
+        "fig2": "-23 % | Médiane des moins de 35 ans | 33.000 $ en 2025",
+        "fig3": "+6 % | Médiane des propriétaires | -7 % pour les locataires",
+        "note1": "source | Enquête de la Fed, reprise par BFM Business ; chiffres de propriété cités par le média"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Élargit la période : replace la baisse récente après la hausse précédente, ce qui nourrit la lecture « effet de période ».",
+      "fields": {
+        "claim": "Des évolutions que le média rapproche d'avant 2022",
+        "fig1": "+140 % | Moins de 35 ans, 2019-22 | -23 % en 2022-2025",
+        "fig2": "+37 % | Médiane nationale, 2019-2022 | +2 % en 2022-2025",
+        "fig3": "× 9 | Écart 75 ans et +, 2022 | × 15 en 2025",
+        "note1": "source | Enquête triennale de la Fed, citée par BFM Business ; comparaison 2019-22 donnée par le média"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "chiffres": {
+      "claim": "Le patrimoine des Américains selon l'âge, 2022-2025",
+      "figures": [
+        {
+          "value": "9 → 15",
+          "label": "Les plus de 75 ans ont 15 fois le patrimoine des moins de 35 ans",
+          "compare": "Contre 9 fois en 2022 · ménage « médian » par groupe"
+        },
+        {
+          "value": "505.000 $",
+          "label": "Patrimoine médian, plus de 75 ans",
+          "compare": "+37 % depuis 2022"
+        },
+        {
+          "value": "33.000 $",
+          "label": "Patrimoine médian, moins de 35 ans",
+          "compare": "−23 % depuis 2022"
+        },
+        {
+          "value": "215.900 $",
+          "label": "Patrimoine médian, tous âges",
+          "compare": "+2 % depuis 2022"
+        }
+      ],
+      "note": {
+        "kind": "remark",
+        "text": "Médian : autant de ménages du groupe possèdent moins que ce montant, qu'en possèdent plus."
+      }
+    }
+  },
+  "remarks": []
+}

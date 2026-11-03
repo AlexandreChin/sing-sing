@@ -1,0 +1,200 @@
+{
+  "article_type": "news_report",
+  "key_claims": [
+    {
+      "quote": "Les Américains de plus de 75 ans sont désormais 15 fois plus riches que les jeunes générations",
+      "source": "BFM Business",
+      "type": "statistical"
+    },
+    {
+      "quote": "le patrimoine net médian aux États-Unis s'élevait à 215.900 dollars en 2025 (la moitié des ménages a plus, l'autre moitié moins), soit une légère hausse de 2% par rapport à 2022, après prise en compte de l'inflation",
+      "source": "Fed (enquête triennale)",
+      "type": "statistical"
+    },
+    {
+      "quote": "celui des foyers occupés par au moins une personne de plus de 75 ans a bondi sur la même période de 37%, à près de 505.000 dollars",
+      "source": "Fed (enquête triennale)",
+      "type": "statistical"
+    },
+    {
+      "quote": "le patrimoine net médian des familles les plus jeunes a chuté de 23% entre 2022 et 2025 (33.000 dollars pour les familles dont la personne de référence a moins de 35 ans)",
+      "source": "Fed (enquête triennale)",
+      "type": "statistical"
+    },
+    {
+      "quote": "Désormais 15 fois plus fortunée que les familles les plus jeunes (contre 9 fois en 2022)",
+      "source": "BFM Business",
+      "type": "statistical"
+    },
+    {
+      "quote": "l'indice S&P 500 a notamment progressé de 78% entre fin 2022 et fin 2025",
+      "source": "Wall Street Journal",
+      "type": "statistical"
+    },
+    {
+      "quote": "la part des ménages de moins de 35 ans propriétaires de leur logement aux États-Unis a reculé, passant de 38,5% en 2022 à 35,6% en 2025",
+      "source": "BFM Business",
+      "type": "statistical"
+    },
+    {
+      "quote": "Les raisons de cette nouvelle fracture générationnelle sont connues.",
+      "source": "BFM Business",
+      "type": "factual"
+    },
+    {
+      "quote": "\"La situation est aujourd'hui totalement inversée\"",
+      "source": "Edward Wolff, université de New York",
+      "type": "attributed"
+    },
+    {
+      "quote": "L'économiste Edward Yardeni préfère lui parler d'économie \"en G\" pour \"générationnelle\".",
+      "source": "Edward Yardeni",
+      "type": "attributed"
+    }
+  ],
+  "key_quotes": [
+    "Les Américains de plus de 75 ans sont désormais 15 fois plus riches que les jeunes générations",
+    "Par tranches d'âge, les disparités sont encore plus criantes",
+    "\"La situation est aujourd'hui totalement inversée\"",
+    "Les personnes de plus de 75 ans \"ont su saisir les opportunités au bon moment\"",
+    "\"Il n'y a rien de mal à cela. Mais de nombreux ménages plus jeunes n'auront peut-être pas la possibilité de se constituer un patrimoine de cette manière\"",
+    "\"ont eu la chance d'acquérir beaucoup de patrimoine tôt et de profiter de plusieurs bulles spéculatives au fil du temps\"",
+    "\"la retraite signifie plus de temps pour consommer des biens et des services.\"",
+    "Ces données viennent confirmer un constat établi depuis quelque temps maintenant"
+  ],
+  "key_actors": [
+    {
+      "name": "Fed (Réserve fédérale américaine)",
+      "role": "Auteur de l'enquête triennale sur les finances des ménages, source des chiffres"
+    },
+    {
+      "name": "Edward Wolff",
+      "role": "Professeur d'économie à l'université de New York, cité via le Wall Street Journal"
+    },
+    {
+      "name": "Nick Maggiulli",
+      "role": "Directeur des données chez Ritholtz Wealth Management, cité via Fortune"
+    },
+    {
+      "name": "Samuel Moyn",
+      "role": "Professeur à Yale, cité par le Wall Street Journal"
+    },
+    {
+      "name": "Edward Yardeni",
+      "role": "Économiste, auteur du concept d'économie « en G », cité via CNBC"
+    },
+    {
+      "name": "Paul Louis",
+      "role": "Journaliste, auteur de l'article pour BFM Business"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Fed (enquête triennale)",
+      "used_for": "Établir les chiffres de patrimoine médian par tranche d'âge, présentés comme une enquête de référence"
+    },
+    {
+      "entity": "Wall Street Journal",
+      "used_for": "Source du chiffre sur le S&P 500 et des analyses d'universitaires sur le renversement historique"
+    },
+    {
+      "entity": "Edward Wolff (université de New York)",
+      "used_for": "Attester que la situation des personnes âgées s'est inversée et qu'elles ont su saisir les opportunités"
+    },
+    {
+      "entity": "Nick Maggiulli (Ritholtz Wealth Management)",
+      "used_for": "Soutenir que les jeunes ménages n'auront peut-être pas la même possibilité de se constituer un patrimoine"
+    },
+    {
+      "entity": "Samuel Moyn (Yale)",
+      "used_for": "Confirmer que les plus âgés ont profité de la chance et des bulles spéculatives, et que la concentration devrait se renforcer"
+    },
+    {
+      "entity": "Edward Yardeni",
+      "used_for": "Soutenir le cadrage d'une économie « en G » portée par la consommation des baby-boomers"
+    }
+  ],
+  "notable_omissions": [
+    "Aucune donnée sur la dispersion à l'intérieur de chaque tranche d'âge : la médiane ne dit rien des inégalités au sein des plus de 75 ans",
+    "Pas de mention de l'effet de cycle de vie : un patrimoine plus élevé avec l'âge est attendu, la comparaison porte sur des âges différents à une même date",
+    "Aucune explication de la différence de composition des ménages (taille, nombre de personnes de référence) entre les tranches d'âge",
+    "Pas de point de vue de jeunes ménages ni d'économistes critiques du cadrage générationnel",
+    "Aucune mention des transmissions futures (héritages, donations) qui pourraient modifier l'écart",
+    "Pas de précision sur ce que recouvre le patrimoine net (retraites, assurance, actifs professionnels)",
+    "Le chiffre « 15 fois » est un ratio de médianes, ce que le texte ne précise pas comme tel",
+    "Le passage de +140 % (2019-2022) à −23 % pour les jeunes n'est pas rapproché de l'écart de long terme"
+  ],
+  "rhetorical_patterns": [
+    "Titre à chiffre frappant (« 15 fois plus riches ») qui généralise à « jeunes générations » alors que la donnée porte sur les moins de 35 ans",
+    "Accumulation de pourcentages d'évolution sur des périodes courtes (2022-2025) sans comparaison de long terme",
+    "Recours à des experts américains cités de seconde main (WSJ, Fortune, CNBC), sans accès direct",
+    "Opposition binaire entre deux groupes (plus âgés / plus jeunes) avec le vocabulaire « fracture générationnelle », « deux vitesses »",
+    "Formules présentant l'explication comme acquise (« Les raisons ... sont connues », « constat établi »)",
+    "Reprise d'un cadrage conceptuel (« en K », puis « en G ») qui nomme la lecture avant de la discuter",
+    "Mise en contraste de trajectoires (« bondi de 37% » / « chuté de 23% »)"
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "",
+        "text": "La Fed publie tous les trois ans son enquête sur les finances des consommateurs, ce qui explique la comparaison entre 2022 et 2025."
+      },
+      {
+        "id": "",
+        "text": "Entre 2020 et 2022, les aides publiques liées à la crise Covid et la hausse des marchés ont gonflé le patrimoine de nombreux ménages américains."
+      },
+      {
+        "id": "",
+        "text": "Depuis plusieurs mois, le débat économique américain porte sur une croissance tirée par les ménages aisés, décrite comme « en forme de K »."
+      },
+      {
+        "id": "",
+        "text": "L'article paraît quelques jours après la publication des résultats de l'enquête, alors que l'inflation reste un sujet central aux États-Unis."
+      }
+    ],
+    "who_is_speaking": [
+      "BFM Business est la chaîne d'information économique du groupe privé BFM, financée par la publicité et l'audience.",
+      "L'article est signé Paul Louis et repose largement sur des articles de médias anglophones (WSJ, Fortune, CNBC) plutôt que sur des entretiens directs.",
+      "La ligne éditoriale de BFM Business est celle d'une information économique grand public, avec des titres souvent construits autour d'un chiffre frappant."
+    ],
+    "important_facts": [
+      {
+        "id": "",
+        "text": "Le patrimoine net est la valeur de tout ce qu'un ménage possède moins ses dettes, et il augmente en général avec l'âge, jusqu'à la retraite."
+      },
+      {
+        "id": "",
+        "text": "La médiane partage les ménages en deux moitiés égales ; elle ne dit rien de la répartition à l'intérieur de chaque tranche d'âge."
+      },
+      {
+        "id": "",
+        "text": "L'écart entre jeunes et aînés dépend aussi de la composition des tranches : les plus de 75 ans sont une génération née avant 1950, les moins de 35 ans sont nés après 1990."
+      },
+      {
+        "id": "",
+        "text": "Le patrimoine des ménages âgés est détenu en partie sous forme de logement, dont la valeur dépend du marché immobilier local."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "Patrimoine net médian",
+        "definition": "Valeur de ce que possède un ménage, moins ses dettes, telle que la moitié des ménages en a davantage et l'autre moitié moins."
+      },
+      {
+        "term": "Fed",
+        "definition": "La banque centrale des États-Unis, qui publie aussi des enquêtes statistiques sur les finances des ménages."
+      },
+      {
+        "term": "Économie en K",
+        "definition": "Image d'une économie où les ménages aisés s'enrichissent pendant que les plus modestes s'appauvrissent, comme les deux branches de la lettre K."
+      },
+      {
+        "term": "S&P 500",
+        "definition": "Indice boursier qui suit la performance de 500 grandes entreprises cotées aux États-Unis."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "Titre : Les Américains de plus de 75 ans sont désormais 15 fois plus riches que les jeunes générations"
+  }
+}

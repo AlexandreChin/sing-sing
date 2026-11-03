@@ -1,0 +1,70 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Repérez dès le départ ce que mesure le chiffre du titre : un rapport entre deux médianes, pas une moyenne ni une situation individuelle.",
+      "Gardez en tête que comparer des tranches d'âge à une même date ne dit pas, à lui seul, si l'écart est propre à une génération ou à une étape de la vie.",
+      "Notez si l'article cite l'enquête de la Fed elle-même ou s'il relaie des médias américains qui la commentent."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "w1",
+          "text": "Le titre parle des « jeunes générations » mais le chiffre ne couvre que les moins de 35 ans, et il présente l'écart comme nouveau. Vérifiez qui est réellement inclus dans chaque catégorie et ce qui permet de dire que c'est inédit.",
+          "references": [
+            "ia_0",
+            "bias_1",
+            "obs_4"
+          ]
+        },
+        {
+          "id": "w2",
+          "text": "L'idée d'une rupture avec le passé repose sur trois ans de données, après une période de départ marquée par des aides exceptionnelles. Sans série plus longue, on ne peut pas savoir si l'écart est nouveau ou s'il suit un cycle.",
+          "references": [
+            "lr_1",
+            "bs_1",
+            "claim_3"
+          ]
+        },
+        {
+          "id": "w3",
+          "text": "Un ratio de médianes résume un écart mais ne montre pas la dispersion à l'intérieur de chaque groupe. La médiane n'est expliquée qu'en passant, et les héritages ne sont pas évoqués.",
+          "references": [
+            "ia_1",
+            "bs_0",
+            "obs_3"
+          ]
+        },
+        {
+          "id": "w4",
+          "text": "Les causes de l'écart sont présentées comme évidentes, mais elles s'appuient surtout sur des avis d'experts relayés par d'autres médias. Cherchez ce qui les prouve réellement, par exemple des chiffres de consommation par âge.",
+          "references": [
+            "pr_2",
+            "lr_2",
+            "claim_2"
+          ]
+        },
+        {
+          "id": "w5",
+          "text": "Le vocabulaire oppose des jeunes en difficulté à des aînés qui s'enrichissent, ce qui renforce l'impression d'un écart qui s'aggrave. La forte hausse du patrimoine des jeunes sur la période récente ne tient qu'en une phrase.",
+          "references": [
+            "er_0",
+            "bs_3",
+            "obs_1"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Demandez-vous quelle part de l'écart relève de l'âge et quelle part relève d'un véritable effet de génération.",
+      "Retenez que les chiffres de la Fed sont sourcés, alors que les explications causales reposent sur des avis d'experts.",
+      "Pour juger la rupture, consultez les séries historiques de l'enquête de la Fed par tranche d'âge et comparez l'écart actuel à celui des enquêtes précédentes.",
+      "Avant de partager le chiffre du titre, vérifiez s'il décrit bien la population dont on parle."
+    ],
+    "title_note": null,
+    "perspective": {
+      "framing": "L'article place au centre un écart de patrimoine entre générations, résumé par un ratio de médianes et prolongé par l'image d'une économie « en G ». Il adopte un registre d'inquiétude et d'injustice, en reprenant l'angle de médias économiques américains.",
+      "blind_spots": "L'article ne compare pas l'écart actuel à l'écart habituel entre âges, ni à une période plus longue que trois ans. La dispersion à l'intérieur de chaque tranche d'âge et les voix de jeunes ménages n'apparaissent pas.",
+      "balance": "Un article court qui reprend une enquête officielle peut difficilement détailler séries longues et dispersion, et un cadrage générationnel assumé n'a pas à présenter toutes les lectures. Les chiffres de la Fed restent solides ; les réserves portent sur l'interprétation et sur le cadrage du titre."
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "step": "recit",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Retient les quatre registres : le mesuré, la cause posée comme connue, le cadrage « en G » (lecture 3) et l'avis sur la suite. Montre le passage de la mesure à l'étiquette puis à la prévision.",
+      "fields": {
+        "title": "Le rapport des patrimoines est passé de 9 à 15",
+        "row1": "explication | « Leurs gains patrimoniaux proviennent de l'appréciation de leurs actifs. » | Une explication plausible, à situer parmi les données par type d'actif.",
+        "row2": "interpretation | Une économie « en G », pour « générationnelle », plutôt qu'« en forme de K ». | Un cadrage centré sur l'âge ; d'autres décrivent les mêmes chiffres.",
+        "row3": "consequence | « une concentration croissante des richesses chez les plus âgés » | Une projection : elle dépend de l'explication et de la durée de la tendance."
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Se concentre sur les explications par la chance et le bon moment, avancées par deux universitaires cités. Montre que le récit repose sur des avis, non sur une mesure des causes. Pas de ligne d'interprétation ni de prévision.",
+      "fields": {
+        "title": "Du chiffre mesuré au récit",
+        "row1": "donnee | Écart de 15 fois entre plus de 75 ans et moins de 35 ans, contre 9 fois en 2022.",
+        "row2": "explication | « ont su saisir les opportunités au bon moment »",
+        "row3": "explication | « ont eu la chance d'acquérir beaucoup de patrimoine tôt et de profiter de plusieurs bulles spéculatives »",
+        "row4": ""
+      },
+      "edited": false,
+      "flags": [
+        "recit: no explanation or interpretation shares a key word with the article's reading (axe reading 3, « Une fracture de génération »)"
+      ]
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Part des trois causes avancées (actions, immobilier, crédits) et aboutit aux étiquettes « deux vitesses » et « en G » (lecture 3). Montre comment une série de causes devient un cadrage.",
+      "fields": {
+        "title": "Des causes avancées au cadrage",
+        "row1": "donnee | Plus de 75 ans : +37 % depuis 2022 ; moins de 35 ans : -23 % ; ensemble des ménages : +2 %.",
+        "row2": "explication | Marchés d'actions en hausse, logements achetés à crédit à faible taux puis très valorisés.",
+        "row3": "interpretation | Une économie « à deux vitesses », puis « en G » pour « générationnelle ».",
+        "row4": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Relie la mesure à la cause, au cadrage de deux vitesses puis à l'avis d'un économiste sur la consommation. Montre un récit qui va du patrimoine mesuré à la consommation, non mesurée ici.",
+      "fields": {
+        "title": "Du chiffre mesuré au récit",
+        "row1": "donnee | Médianes de la Fed : 505.000 $ pour les plus de 75 ans, 33.000 $ pour les moins de 35 ans.",
+        "row2": "explication | Actions en hausse, immobilier valorisé : les aînés en ont profité, selon l'article.",
+        "row3": "interpretation | « Une économie à deux vitesses » : les aînés consomment, les jeunes peinent face à l'inflation.",
+        "row4": "prevision | Les baby-boomers seraient « un moteur essentiel de la croissance de la consommation »."
+      },
+      "edited": false,
+      "flags": [
+        "recit.row3: « Une économie à deux vitesses » does not appear word for word in the source",
+        "recit: no explanation or interpretation shares a key word with the article's reading (axe reading 3, « Une fracture de génération »)"
+      ]
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "recit": {
+      "title": "Le rapport des patrimoines est passé de 9 à 15",
+      "rows": [
+        {
+          "kind": "explication",
+          "text": "« Leurs gains patrimoniaux proviennent de l'appréciation de leurs actifs. »",
+          "remark": "Une explication plausible, à situer parmi les données par type d'actif."
+        },
+        {
+          "kind": "interpretation",
+          "text": "Une économie « en G », pour « générationnelle », plutôt qu'« en forme de K ».",
+          "remark": "Un cadrage centré sur l'âge ; d'autres décrivent les mêmes chiffres."
+        },
+        {
+          "kind": "consequence",
+          "text": "« une concentration croissante des richesses chez les plus âgés »",
+          "remark": "Une projection : elle dépend de l'explication et de la durée de la tendance."
+        }
+      ]
+    }
+  },
+  "remarks": []
+}

@@ -1,0 +1,74 @@
+{
+  "step": "lectures",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Chaque observation porte sur un point différent : composition des groupes, conjoncture, comparaison à âge égal. C'est ce qui départage le mieux les trois lectures.",
+      "fields": {
+        "title": "Génération, ou autre chose ?",
+        "lecture1": "Une fracture de patrimoine | L'écart suit la détention d'actifs, quel que soit l'âge. | **L'écart propriétaires-locataires** à âge égal, validé s'il égale celui entre âges.",
+        "lecture2": "Un retour à la normale | Les jeunes revenaient d'un sommet : le point de départ était flatteur. | **Le rapport** sur une période plus longue, validé si la hausse s'atténue.",
+        "lecture3": "Un cycle de marché | Le gain suit les marchés et peut s'inverser avec eux. | **Le rapport** comparé aux indices de Bourse, validé s'il baisse quand ils baissent."
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Elle mise sur les profils de ménages et la durée, deux angles distincts des séries de la première option.",
+      "fields": {
+        "title": "Qu'est-ce qui explique l'écart ?",
+        "lecture1": "Des groupes qui changent | Les écarts varient selon qui entre dans chaque tranche | La Fed : Survey of Consumer Finances",
+        "lecture2": "Un effet de période | Les ménages sans actifs suivent la même évolution | La Fed : Distributional Financial Accounts",
+        "lecture3": "Une fracture de génération | L'écart persiste d'un cycle de marché à l'autre | La Fed : Survey of Consumer Finances"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Version plus compacte, centrée sur ce qui varierait dans le temps, avec une source externe à la Fed pour la première lecture.",
+      "fields": {
+        "title": "Que verrait-on selon chaque lecture ?",
+        "lecture1": "Des groupes qui changent | L'écart recule si l'on compare les mêmes ménages | Le Census Bureau : séries sur les ménages",
+        "lecture2": "Un effet de période | L'écart suit le cycle des marchés et de l'immobilier | La Fed : Distributional Financial Accounts",
+        "lecture3": "Une fracture de génération | Les jeunes d'aujourd'hui sont en retrait des précédents | La Fed : Survey of Consumer Finances"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "lectures": {
+      "title": "Génération, ou autre chose ?",
+      "rows": [
+        {
+          "nom": "Une fracture de patrimoine",
+          "voir": "L'écart suit la détention d'actifs, quel que soit l'âge.",
+          "sens": "**L'écart propriétaires-locataires** à âge égal, validé s'il égale celui entre âges."
+        },
+        {
+          "nom": "Un retour à la normale",
+          "voir": "Les jeunes revenaient d'un sommet : le point de départ était flatteur.",
+          "sens": "**Le rapport** sur une période plus longue, validé si la hausse s'atténue."
+        },
+        {
+          "nom": "Un cycle de marché",
+          "voir": "Le gain suit les marchés et peut s'inverser avec eux.",
+          "sens": "**Le rapport** comparé aux indices de Bourse, validé s'il baisse quand ils baissent."
+        }
+      ]
+    }
+  },
+  "remarks": []
+}

@@ -1,0 +1,27 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "category": "misleading_title",
+        "label": "Titre généralisant",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "Les Américains de plus de 75 ans sont désormais 15 fois plus riches que les jeunes générations",
+        "explanation": "Le titre généralise à « jeunes générations » un ratio de médianes qui ne porte que sur les moins de 35 ans."
+      },
+      {
+        "category": "false_statistics",
+        "label": "Ratio de médianes non précisé",
+        "severity": "significant",
+        "status": "caution",
+        "evidence": "Désormais 15 fois plus fortunée que les familles les plus jeunes (contre 9 fois en 2022)",
+        "explanation": "Le ratio compare des médianes de ménages d'âges différents sans signaler l'effet du cycle de vie ni la dispersion."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Préciser dans le titre que le ratio compare des patrimoines médians de ménages de plus de 75 ans et de moins de 35 ans."
+    },
+    "summary": "Aucun manquement grave n'a été relevé, mais deux points de vigilance subsistent : un titre généralisant et un ratio de médianes présenté sans précision. Les citations et les chiffres sont fidèlement attribués."
+  }
+}

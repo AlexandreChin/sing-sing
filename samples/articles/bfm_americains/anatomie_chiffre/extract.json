@@ -1,0 +1,1134 @@
+{
+  "analysis": {
+    "article_metadata": {
+      "url": null,
+      "title": "Les Américains de plus de 75 ans sont désormais 15 fois plus riches que les jeunes générations",
+      "source": "BFM Business",
+      "published_at": "1er nov. 2026",
+      "type": "news_report",
+      "medium": "article",
+      "category": "Autre",
+      "reading_time_minutes": 5,
+      "chapo": "Si le patrimoine net médian des Américains a progressé de 2% entre 2022 et 2025, celui des plus de 75 ans s'est envolé de 37%, à 505.000 dollars, principalement porté par leurs revenus financiers et immobiliers.",
+      "extra_instructions": null,
+      "language": null
+    },
+    "extraction": {
+      "authority_anchors": [
+        {
+          "entity": "Fed (enquête triennale)",
+          "used_for": "Établir les chiffres de patrimoine médian par tranche d'âge, présentés comme une enquête de référence"
+        },
+        {
+          "entity": "Wall Street Journal",
+          "used_for": "Source du chiffre sur le S&P 500 et des analyses d'universitaires sur le renversement historique"
+        },
+        {
+          "entity": "Edward Wolff (université de New York)",
+          "used_for": "Attester que la situation des personnes âgées s'est inversée et qu'elles ont su saisir les opportunités"
+        },
+        {
+          "entity": "Nick Maggiulli (Ritholtz Wealth Management)",
+          "used_for": "Soutenir que les jeunes ménages n'auront peut-être pas la même possibilité de se constituer un patrimoine"
+        },
+        {
+          "entity": "Samuel Moyn (Yale)",
+          "used_for": "Confirmer que les plus âgés ont profité de la chance et des bulles spéculatives, et que la concentration devrait se renforcer"
+        },
+        {
+          "entity": "Edward Yardeni",
+          "used_for": "Soutenir le cadrage d'une économie « en G » portée par la consommation des baby-boomers"
+        }
+      ],
+      "key_quotes": [
+        "Les Américains de plus de 75 ans sont désormais 15 fois plus riches que les jeunes générations",
+        "Par tranches d'âge, les disparités sont encore plus criantes",
+        "\"La situation est aujourd'hui totalement inversée\"",
+        "Les personnes de plus de 75 ans \"ont su saisir les opportunités au bon moment\"",
+        "\"Il n'y a rien de mal à cela. Mais de nombreux ménages plus jeunes n'auront peut-être pas la possibilité de se constituer un patrimoine de cette manière\"",
+        "\"ont eu la chance d'acquérir beaucoup de patrimoine tôt et de profiter de plusieurs bulles spéculatives au fil du temps\"",
+        "\"la retraite signifie plus de temps pour consommer des biens et des services.\"",
+        "Ces données viennent confirmer un constat établi depuis quelque temps maintenant"
+      ],
+      "notable_omissions": [
+        "Aucune donnée sur la dispersion à l'intérieur de chaque tranche d'âge : la médiane ne dit rien des inégalités au sein des plus de 75 ans",
+        "Pas de mention de l'effet de cycle de vie : un patrimoine plus élevé avec l'âge est attendu, la comparaison porte sur des âges différents à une même date",
+        "Aucune explication de la différence de composition des ménages (taille, nombre de personnes de référence) entre les tranches d'âge",
+        "Pas de point de vue de jeunes ménages ni d'économistes critiques du cadrage générationnel",
+        "Aucune mention des transmissions futures (héritages, donations) qui pourraient modifier l'écart",
+        "Pas de précision sur ce que recouvre le patrimoine net (retraites, assurance, actifs professionnels)",
+        "Le chiffre « 15 fois » est un ratio de médianes, ce que le texte ne précise pas comme tel",
+        "Le passage de +140 % (2019-2022) à −23 % pour les jeunes n'est pas rapproché de l'écart de long terme"
+      ],
+      "rhetorical_patterns": [
+        "Titre à chiffre frappant (« 15 fois plus riches ») qui généralise à « jeunes générations » alors que la donnée porte sur les moins de 35 ans",
+        "Accumulation de pourcentages d'évolution sur des périodes courtes (2022-2025) sans comparaison de long terme",
+        "Recours à des experts américains cités de seconde main (WSJ, Fortune, CNBC), sans accès direct",
+        "Opposition binaire entre deux groupes (plus âgés / plus jeunes) avec le vocabulaire « fracture générationnelle », « deux vitesses »",
+        "Formules présentant l'explication comme acquise (« Les raisons ... sont connues », « constat établi »)",
+        "Reprise d'un cadrage conceptuel (« en K », puis « en G ») qui nomme la lecture avant de la discuter",
+        "Mise en contraste de trajectoires (« bondi de 37% » / « chuté de 23% »)"
+      ]
+    },
+    "context": {
+      "contexts": [
+        {
+          "id": "ctx_0",
+          "text": "La Fed publie tous les trois ans son enquête sur les finances des consommateurs, ce qui explique la comparaison entre 2022 et 2025."
+        },
+        {
+          "id": "ctx_1",
+          "text": "Entre 2020 et 2022, les aides publiques liées à la crise Covid et la hausse des marchés ont gonflé le patrimoine de nombreux ménages américains."
+        },
+        {
+          "id": "ctx_2",
+          "text": "Depuis plusieurs mois, le débat économique américain porte sur une croissance tirée par les ménages aisés, décrite comme « en forme de K »."
+        },
+        {
+          "id": "ctx_3",
+          "text": "L'article paraît quelques jours après la publication des résultats de l'enquête, alors que l'inflation reste un sujet central aux États-Unis."
+        }
+      ],
+      "who_is_speaking": [
+        "BFM Business est la chaîne d'information économique du groupe privé BFM, financée par la publicité et l'audience.",
+        "L'article est signé Paul Louis et repose largement sur des articles de médias anglophones (WSJ, Fortune, CNBC) plutôt que sur des entretiens directs.",
+        "La ligne éditoriale de BFM Business est celle d'une information économique grand public, avec des titres souvent construits autour d'un chiffre frappant."
+      ],
+      "important_facts": [
+        {
+          "id": "fact_0",
+          "text": "Le patrimoine net est la valeur de tout ce qu'un ménage possède moins ses dettes, et il augmente en général avec l'âge, jusqu'à la retraite."
+        },
+        {
+          "id": "fact_1",
+          "text": "La médiane partage les ménages en deux moitiés égales ; elle ne dit rien de la répartition à l'intérieur de chaque tranche d'âge."
+        },
+        {
+          "id": "fact_2",
+          "text": "L'écart entre jeunes et aînés dépend aussi de la composition des tranches : les plus de 75 ans sont une génération née avant 1950, les moins de 35 ans sont nés après 1990."
+        },
+        {
+          "id": "fact_3",
+          "text": "Le patrimoine des ménages âgés est détenu en partie sous forme de logement, dont la valeur dépend du marché immobilier local."
+        }
+      ],
+      "key_terms": [
+        {
+          "term": "Patrimoine net médian",
+          "definition": "Valeur de ce que possède un ménage, moins ses dettes, telle que la moitié des ménages en a davantage et l'autre moitié moins."
+        },
+        {
+          "term": "Fed",
+          "definition": "La banque centrale des États-Unis, qui publie aussi des enquêtes statistiques sur les finances des ménages."
+        },
+        {
+          "term": "Économie en K",
+          "definition": "Image d'une économie où les ménages aisés s'enrichissent pendant que les plus modestes s'appauvrissent, comme les deux branches de la lettre K."
+        },
+        {
+          "term": "S&P 500",
+          "definition": "Indice boursier qui suit la performance de 500 grandes entreprises cotées aux États-Unis."
+        }
+      ]
+    },
+    "analysis": {
+      "fond": {
+        "main_claim": "Les Américains de plus de 75 ans sont devenus bien plus riches que les jeunes, une fracture générationnelle.",
+        "premisses": [
+          {
+            "id": "pr_0",
+            "statement": "L'enquête triennale de la Fed fournit des chiffres de patrimoine médian fiables par tranche d'âge.",
+            "quality": "Repose sur des données solides : une enquête de référence, citée avec ses chiffres précis."
+          },
+          {
+            "id": "pr_1",
+            "statement": "Le patrimoine médian des plus de 75 ans a progressé de 37 % et celui des moins de 35 ans a reculé de 23 % entre 2022 et 2025.",
+            "quality": "Repose sur des données solides, mais sur une période courte de trois ans."
+          },
+          {
+            "id": "pr_2",
+            "statement": "Les raisons de l'écart sont connues : marché actions, immobilier et crédits à faible taux.",
+            "quality": "Simple assertion présentée comme acquise (« Les raisons ... sont connues »), appuyée par quelques citations d'experts."
+          }
+        ],
+        "implicit_assumptions": [
+          {
+            "id": "ia_0",
+            "statement": "Comparer des tranches d'âge à une même date revient à comparer des générations.",
+            "impact": "Si la différence tient surtout au cycle de vie, l'écart n'a rien de nouveau et la « fracture » perd son sens."
+          },
+          {
+            "id": "ia_1",
+            "statement": "Le ratio de médianes (15 fois) résume bien l'écart entre jeunes et aînés.",
+            "impact": "Si la dispersion au sein de chaque tranche est forte, le ratio dit peu sur la situation de la plupart des ménages."
+          },
+          {
+            "id": "ia_2",
+            "statement": "Les moins de 35 ans représentent « les jeunes générations » du titre.",
+            "impact": "Si l'on élargit aux 35-44 ans, dont la richesse a peu bougé, l'écart annoncé se réduit nettement."
+          }
+        ],
+        "blind_spots": [
+          {
+            "id": "bs_0",
+            "topic": "Aucune donnée sur la dispersion à l'intérieur de chaque tranche d'âge.",
+            "significance": "Une médiane masque les inégalités internes ; la conclusion pourrait varier selon les ménages concernés."
+          },
+          {
+            "id": "bs_1",
+            "topic": "L'effet de cycle de vie, évoqué seulement par un rappel historique.",
+            "significance": "Un patrimoine plus élevé avec l'âge est attendu ; sans cette référence, le chiffre de 15 fois paraît plus inédit."
+          },
+          {
+            "id": "bs_2",
+            "topic": "Les transmissions futures (héritages, donations) ne sont pas mentionnées.",
+            "significance": "Elles pourraient réduire l'écart entre générations à plus long terme."
+          },
+          {
+            "id": "bs_3",
+            "topic": "La chute de 23 % est rapprochée d'une hausse de 140 % en 2019-2022, mentionnée en une phrase.",
+            "significance": "Sur cinq ans, la trajectoire des jeunes apparaît moins défavorable que sur trois."
+          }
+        ],
+        "emphasis": [
+          "Le titre met en avant le ratio de « 15 fois », alors que la nuance sur la hausse de 140 % des jeunes en 2019-2022 tient en une seule phrase.",
+          "Plusieurs paragraphes détaillent les causes du côté des aînés (marché actions, immobilier), tandis que la situation des jeunes occupe un paragraphe, sans voix de jeunes ménages.",
+          "Le cadrage « en G » de Yardeni occupe la fin du texte alors que les limites de ce cadrage ne sont pas discutées."
+        ],
+        "logical_reasoning": [
+          {
+            "id": "lr_0",
+            "step": "Des médianes par âge en 2025 montrent un écart de 15 fois entre plus de 75 ans et moins de 35 ans.",
+            "problem_type": null,
+            "diagnosis": null
+          },
+          {
+            "id": "lr_1",
+            "step": "De l'évolution 2022-2025, le texte conclut à une « nouvelle fracture générationnelle » aux causes connues.",
+            "problem_type": "validity",
+            "diagnosis": "Trois ans de données et une comparaison entre âges différents ne distinguent pas une fracture nouvelle d'un effet d'âge habituel."
+          },
+          {
+            "id": "lr_2",
+            "step": "Des économistes cités, le texte déduit que la consommation américaine repose sur les plus âgés (économie « en G »).",
+            "problem_type": "soundness",
+            "diagnosis": "Le texte ne donne ni part de consommation par âge ni chiffre à l'appui, hors citation d'un économiste."
+          }
+        ],
+        "observations": [
+          {
+            "id": "obs_0",
+            "aspect": "Sourçage",
+            "summary": "Les chiffres viennent de la Fed, mais les avis d'experts sont repris de seconde main (WSJ, Fortune, CNBC) par un média qui construit ses titres autour d'un chiffre frappant.",
+            "seeds": {
+              "source": "context",
+              "index": 0,
+              "excerpt": "La Fed publie tous les trois ans son enquête sur les finances des consommateurs",
+              "strength": 0.7,
+              "nature": "illustration"
+            },
+            "proven_by": [
+              {
+                "type": "claim",
+                "index": 0
+              }
+            ]
+          },
+          {
+            "id": "obs_1",
+            "aspect": "Période",
+            "summary": "La comparaison 2022-2025 suit une période exceptionnelle (aides Covid, hausse des marchés) qui sert de point de départ.",
+            "seeds": {
+              "source": "context",
+              "index": 1,
+              "excerpt": "les aides publiques liées à la crise Covid et la hausse des marchés ont gonflé le patrimoine",
+              "strength": 0.7,
+              "nature": "specification"
+            },
+            "proven_by": [
+              {
+                "type": "claim",
+                "index": 2
+              }
+            ]
+          },
+          {
+            "id": "obs_2",
+            "aspect": "Cadrage",
+            "summary": "Le texte reprend l'image de l'économie « en K » puis propose « en G », en nommant la lecture avant de la discuter. Il paraît juste après l'enquête, quand l'inflation reste centrale.",
+            "seeds": {
+              "source": "context",
+              "index": 2,
+              "excerpt": "croissance tirée par les ménages aisés, décrite comme « en forme de K »",
+              "strength": 0.8,
+              "nature": "illustration"
+            },
+            "proven_by": [
+              {
+                "type": "focus",
+                "index": 0
+              }
+            ]
+          },
+          {
+            "id": "obs_3",
+            "aspect": "Définition",
+            "summary": "La médiane partage les ménages en deux moitiés égales et ne dit rien de la répartition interne, ce que le texte ne précise pas.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 1,
+              "excerpt": "La médiane partage les ménages en deux moitiés égales",
+              "strength": 0.9,
+              "nature": "illustration"
+            },
+            "proven_by": [
+              {
+                "type": "claim",
+                "index": 1
+              }
+            ]
+          },
+          {
+            "id": "obs_4",
+            "aspect": "Composition",
+            "summary": "Les plus de 75 ans sont nés avant 1950 et les moins de 35 ans après 1990 ; le patrimoine des aînés est en partie immobilier, dont la valeur varie selon les marchés locaux.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 2,
+              "excerpt": "les plus de 75 ans sont une génération née avant 1950, les moins de 35 ans sont nés après 1990",
+              "strength": 0.8,
+              "nature": "specification"
+            },
+            "proven_by": [
+              {
+                "type": "bias",
+                "index": 1
+              }
+            ]
+          }
+        ],
+        "steel_man": [
+          {
+            "counterargument": "Un patrimoine plus élevé avec l'âge est normal : les plus de 75 ans ont toujours été plus riches que les moins de 35 ans, et le ratio de 15 fois peut refléter surtout l'accumulation d'une vie.",
+            "seeds": {
+              "source": "implicit_assumption",
+              "index": 0,
+              "excerpt": "Comparer des tranches d'âge à une même date revient à comparer des générations.",
+              "strength": null,
+              "nature": null
+            },
+            "alternative_conclusion": "L'écart est surtout un effet d'âge, et seule sa hausse de 9 à 15 fois mérite l'attention."
+          },
+          {
+            "counterargument": "La baisse de 23 % suit une hausse de 140 % : sur cinq ans, les jeunes ont gagné, et la période 2022-2025 est un retour à la normale.",
+            "seeds": {
+              "source": "blind_spot",
+              "index": 3,
+              "excerpt": "La chute de 23 % est rapprochée d'une hausse de 140 % en 2019-2022",
+              "strength": null,
+              "nature": null
+            },
+            "alternative_conclusion": "Sur cinq ans, la situation des jeunes s'est améliorée, et l'écart actuel reste peu lisible."
+          },
+          {
+            "counterargument": "Les héritages et donations à venir transféreront une part du patrimoine des aînés vers les plus jeunes, ce qui réduira l'écart.",
+            "seeds": {
+              "source": "blind_spot",
+              "index": 2,
+              "excerpt": "Les transmissions futures (héritages, donations) ne sont pas mentionnées.",
+              "strength": null,
+              "nature": null
+            },
+            "alternative_conclusion": "L'écart est temporaire et se réduira avec les transmissions."
+          }
+        ]
+      },
+      "forme": {
+        "emotional_register": [
+          {
+            "id": "er_0",
+            "emotion": "inquiétude",
+            "how": "Le contraste entre « bondi de 37% » et « chuté de 23% », puis la formule « 15 fois plus fortunée (contre 9 fois en 2022) », oppose deux trajectoires et montre un écart qui s'aggrave.",
+            "effect": "Le lecteur est préparé à voir dans l'écart un déséquilibre croissant entre générations, plutôt qu'une différence liée à l'âge.",
+            "seeds": {
+              "source": "context",
+              "index": 3,
+              "excerpt": "alors que l'inflation reste un sujet central aux États-Unis",
+              "strength": 0.5,
+              "nature": "specification"
+            }
+          },
+          {
+            "id": "er_1",
+            "emotion": "sentiment d'injustice",
+            "how": "Le vocabulaire de l'opposition (« fracture générationnelle », « deux vitesses », « ont eu la chance ») est associé à des jeunes qui « peinent » et à des aînés qui « continuent de s'enrichir ».",
+            "effect": "Le lecteur est amené à lire l'écart comme un avantage de position plutôt que comme le résultat d'un parcours de vie.",
+            "seeds": {
+              "source": "important_fact",
+              "index": 2,
+              "excerpt": "les plus de 75 ans sont une génération née avant 1950, les moins de 35 ans sont nés après 1990",
+              "strength": 0.6,
+              "nature": "specification"
+            }
+          }
+        ],
+        "cui_bono": [
+          {
+            "id": "cb_0",
+            "beneficiary": "Le média, par un titre à chiffre frappant",
+            "explanation": "Le ratio de « **15 fois** » attire l'attention et se partage facilement. Un chiffre simple porte mieux qu'une comparaison de médianes avec ses précautions.",
+            "seeds": {
+              "source": "context",
+              "index": 3,
+              "excerpt": "L'article paraît quelques jours après la publication des résultats de l'enquête",
+              "strength": 0.6,
+              "nature": "illustration"
+            }
+          },
+          {
+            "id": "cb_1",
+            "beneficiary": "Le cadrage « en G » d'Edward Yardeni",
+            "explanation": "L'article termine sur ce concept et le présente sans en discuter les limites. Le cadrage générationnel devient alors la grille de lecture proposée, à côté de l'image « en K ».",
+            "seeds": {
+              "source": "context",
+              "index": 2,
+              "excerpt": "croissance tirée par les ménages aisés, décrite comme « en forme de K »",
+              "strength": 0.5,
+              "nature": "specification"
+            }
+          }
+        ],
+        "cadrage": {
+          "title_analysis": [
+            {
+              "label": "Généralisation",
+              "observation": "Le titre écrit « jeunes générations » alors que le chiffre de 15 fois compare aux seuls moins de 35 ans."
+            },
+            {
+              "label": "Vocabulaire",
+              "observation": "« Désormais » et « sont devenus » présentent l'écart comme une situation nouvelle, que le titre ne compare pas à l'écart habituel."
+            }
+          ],
+          "body": "L'article adopte un angle **générationnel** : il présente les données de la Fed comme l'illustration d'une économie américaine à deux vitesses. Il met au centre l'opposition entre les plus de 75 ans et les moins de 35 ans, expliquée surtout par les revenus financiers et immobiliers des aînés. Le registre est celui d'une information économique grand public, qui s'appuie sur des médias et des experts américains cités de seconde main."
+        }
+      }
+    },
+    "annotations": {
+      "facts_vs_opinions": {
+        "claims_and_sources": [
+          {
+            "id": "claim_0",
+            "quote": "le patrimoine net médian aux États-Unis s'élevait à 215.900 dollars en 2025 (la moitié des ménages a plus, l'autre moitié moins), soit une légère hausse de 2% par rapport à 2022, après prise en compte de l'inflation.",
+            "presentation": "attributed_to_source",
+            "proves": {
+              "type": "observation",
+              "label": "Sourçage",
+              "strength": 0.7,
+              "nature": "illustration"
+            },
+            "explanation": "Le chiffre est attribué à l'enquête triennale de la Fed, mais l'article ne renvoie pas au rapport original.",
+            "external_sources": [
+              {
+                "name": "Federal Reserve, Survey of Consumer Finances 2025",
+                "supports": "validates",
+                "evidence_type": "official_data"
+              }
+            ],
+            "confidence": 88,
+            "confidence_label": "true"
+          },
+          {
+            "id": "claim_1",
+            "quote": "celui des foyers occupés par au moins une personne de plus de 75 ans a bondi sur la même période de 37%, à près de 505.000 dollars.",
+            "presentation": "attributed_to_source",
+            "proves": {
+              "type": "observation",
+              "label": "Définition",
+              "strength": 0.6,
+              "nature": "illustration"
+            },
+            "explanation": "Le chiffre vient de l'enquête de la Fed, mais il porte sur des médianes de ménages et non sur la richesse de chaque personne.",
+            "external_sources": [
+              {
+                "name": "Federal Reserve, Survey of Consumer Finances 2025",
+                "supports": "validates",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "Wall Street Journal",
+                "supports": "neutral",
+                "evidence_type": "media"
+              }
+            ],
+            "confidence": 85,
+            "confidence_label": "true"
+          },
+          {
+            "id": "claim_2",
+            "quote": "Les raisons de cette nouvelle fracture générationnelle sont connues.",
+            "presentation": "presented_as_established_fact",
+            "proves": {
+              "type": "observation",
+              "label": "Période",
+              "strength": 0.5,
+              "nature": "nuance"
+            },
+            "explanation": "L'affirmation est posée sans attribution, puis appuyée par des citations d'experts qui n'en testent pas chaque cause.",
+            "external_sources": [
+              {
+                "name": "Federal Reserve, Survey of Consumer Finances 2025",
+                "supports": "neutral",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "Edward Wolff, New York University",
+                "supports": "validates",
+                "evidence_type": "academic"
+              }
+            ],
+            "confidence": 55,
+            "confidence_label": "disputed"
+          },
+          {
+            "id": "claim_3",
+            "quote": "Il n'en demeure pas moins que cette tendance tranche avec la situation observée dans le passé.",
+            "presentation": "opinion_stated_as_fact",
+            "proves": {
+              "type": "emotional_register",
+              "label": "sentiment d'injustice",
+              "strength": null,
+              "nature": null
+            },
+            "explanation": "La rupture avec le passé est posée comme acquise, sans comparer avec l'écart d'âge habituel dans les enquêtes précédentes.",
+            "external_sources": [
+              {
+                "name": "Federal Reserve, Survey of Consumer Finances (séries historiques)",
+                "supports": "neutral",
+                "evidence_type": "official_data"
+              },
+              {
+                "name": "Edward Wolff, New York University",
+                "supports": "validates",
+                "evidence_type": "academic"
+              }
+            ],
+            "confidence": 60,
+            "confidence_label": "disputed"
+          }
+        ]
+      },
+      "biases_and_focus": {
+        "biases_and_rhetoric": [
+          {
+            "id": "bias_0",
+            "quote": "Les Américains de plus de 75 ans sont désormais 15 fois plus riches que les jeunes générations",
+            "item_type": "bias",
+            "label": "chiffre frappant en titre",
+            "effect": "Remarquez comment un seul ratio de médianes résume l'écart et passe sous silence la dispersion au sein de chaque tranche d'âge.",
+            "proves": {
+              "type": "cui_bono",
+              "label": "Le média, par un titre à chiffre frappant",
+              "strength": null,
+              "nature": null
+            }
+          },
+          {
+            "id": "bias_1",
+            "quote": "Les 55-64 ans, les 45-54 ans et les 35-44 ans ayant quant à eux vu leur richesse légèrement augmenter ou reculer.",
+            "item_type": "bias",
+            "label": "sélection des comparaisons",
+            "effect": "Remarquez comment « jeunes générations » désigne les seuls moins de 35 ans, alors que les 35-44 ans voient peu de variation.",
+            "proves": {
+              "type": "observation",
+              "label": "Composition",
+              "strength": null,
+              "nature": null
+            }
+          },
+          {
+            "id": "bias_2",
+            "quote": "Les raisons de cette nouvelle fracture générationnelle sont connues.",
+            "item_type": "fallacy",
+            "label": "conclusion tirée de trois ans de données",
+            "effect": "Remarquez comment un écart observé entre deux âges en 2025 est présenté comme une fracture nouvelle, sans le comparer à l'effet de l'âge.",
+            "proves": {
+              "type": "emotional_register",
+              "label": "inquiétude",
+              "strength": null,
+              "nature": null
+            }
+          }
+        ],
+        "focus": {
+          "quote": "La situation est aujourd'hui totalement inversée",
+          "proves": {
+            "type": "observation",
+            "label": "Cadrage",
+            "strength": null,
+            "nature": null
+          },
+          "analysis": "Cette phrase d'Edward Wolff oppose le passé, où les aînés s'appauvrissaient, au présent, où ils s'enrichissent. Elle laisse entendre que l'écart actuel est un renversement, sans dire sur quelle durée ni pour quels ménages. Que montrerait la même comparaison sur vingt ou trente ans ?"
+        }
+      }
+    },
+    "deontology": {
+      "violations": [
+        {
+          "id": "",
+          "category": "misleading_title",
+          "label": "Titre généralisant",
+          "severity": "significant",
+          "status": "caution",
+          "evidence": "Les Américains de plus de 75 ans sont désormais 15 fois plus riches que les jeunes générations",
+          "explanation": "Le titre généralise à « jeunes générations » un ratio de médianes qui ne porte que sur les moins de 35 ans."
+        },
+        {
+          "id": "",
+          "category": "false_statistics",
+          "label": "Ratio de médianes non précisé",
+          "severity": "significant",
+          "status": "caution",
+          "evidence": "Désormais 15 fois plus fortunée que les familles les plus jeunes (contre 9 fois en 2022)",
+          "explanation": "Le ratio compare des médianes de ménages d'âges différents sans signaler l'effet du cycle de vie ni la dispersion."
+        }
+      ],
+      "verdict": {
+        "overall": "passable",
+        "editorial_note": "Préciser dans le titre que le ratio compare des patrimoines médians de ménages de plus de 75 ans et de moins de 35 ans."
+      },
+      "summary": "Aucun manquement grave n'a été relevé, mais deux points de vigilance subsistent : un titre généralisant et un ratio de médianes présenté sans précision. Les citations et les chiffres sont fidèlement attribués."
+    },
+    "review": {
+      "dimensions": [
+        {
+          "dimension": "source_rigor",
+          "label": "Source Rigor",
+          "score": 3,
+          "rationale": "Les chiffres centraux viennent de l'enquête triennale de la Fed, une source primaire de référence (`claims_and_sources`, confiance 85-88). Mais l'article ne renvoie pas au rapport original et reprend les avis d'experts de seconde main (WSJ, Fortune, CNBC), ce qui limite la vérification directe.",
+          "lesson": "Vérifier si l'article renvoie à la source primaire ou s'il relaie des médias qui citent eux-mêmes l'étude."
+        },
+        {
+          "dimension": "factual_accuracy",
+          "label": "Factual Accuracy",
+          "score": 3,
+          "rationale": "Les chiffres de la Fed sont attribués et validés par des sources officielles (« 215.900 dollars en 2025 », hausse de 37 %). En revanche, « Les raisons de cette nouvelle fracture générationnelle sont connues » est présenté comme un fait établi, avec une confiance de 55 %, et la rupture avec le passé est posée sans série historique (confiance 60).",
+          "lesson": "Distinguer les chiffres sourcés des affirmations causales présentées comme évidentes, qui demandent leur propre preuve."
+        },
+        {
+          "dimension": "reasoning_structure",
+          "label": "Reasoning Structure",
+          "score": 2,
+          "rationale": "Le passage des médianes par âge à une « nouvelle fracture générationnelle » est relevé dans `logical_reasoning` : trois ans de données et une comparaison entre âges différents ne distinguent pas une fracture nouvelle d'un effet d'âge. L'économie « en G » est aussi avancée sans chiffre de consommation par âge.",
+          "lesson": "Se demander si une comparaison entre tranches d'âge à une même date mesure une génération ou simplement une étape de vie."
+        },
+        {
+          "dimension": "approach_transparency",
+          "label": "Approach Transparency",
+          "score": 2,
+          "rationale": "La médiane est définie dans une parenthèse (« la moitié des ménages a plus, l'autre moitié moins »), ce qui est utile. Mais les présupposés restent tacites (`implicit_assumptions` : âge pris pour génération, ratio de médianes jugé représentatif) et la dispersion comme les héritages ne sont pas mentionnés.",
+          "lesson": "Repérer ce que l'article tient pour acquis sans le dire, comme le choix de comparer des médianes ou des tranches d'âge."
+        },
+        {
+          "dimension": "context_completeness",
+          "label": "Context & Completeness",
+          "score": 2,
+          "rationale": "La hausse de 140 % des jeunes en 2019-2022 tient en une phrase alors que le titre met en avant le ratio de « 15 fois » (`emphasis`). L'effet de cycle de vie, la dispersion interne et les transmissions futures sont absents, et la période de départ suit une phase exceptionnelle (aides Covid).",
+          "lesson": "Chercher la période de référence choisie et ce que donnerait la même comparaison sur une durée plus longue."
+        },
+        {
+          "dimension": "treatment_fairness",
+          "label": "Treatment Fairness",
+          "score": 2,
+          "rationale": "Le vocabulaire oppose des jeunes qui « peinent » à des aînés qui « continuent de s'enrichir » (`emotional_register`, sentiment d'injustice). Les causes côté aînés occupent plusieurs paragraphes, la situation des jeunes un seul, sans aucune voix de jeunes ménages.",
+          "lesson": "Noter qui s'exprime dans le texte et si chaque groupe concerné y a une voix."
+        },
+        {
+          "dimension": "clarity",
+          "label": "Clarity",
+          "score": 3,
+          "rationale": "Le texte est lisible et la médiane est expliquée en parenthèse, ce qui aide un lecteur non spécialiste. Le titre généralise toutefois « jeunes générations » pour les seuls moins de 35 ans et présente l'écart comme nouveau (« désormais »), ce que relève `title_analysis`.",
+          "lesson": "Comparer le titre à ce que mesure réellement le chiffre, en vérifiant qui est inclus dans chaque catégorie."
+        },
+        {
+          "dimension": "angle_originality",
+          "label": "Angle & Originality",
+          "score": 3,
+          "rationale": "Le cadrage générationnel, prolongé par l'image de l'économie « en G » d'Yardeni, donne une grille de lecture lisible face au schéma « en K » plus courant (`observations`, Cadrage). L'angle reste cependant celui d'une reprise de médias américains, sans éclairage propre ni discussion des limites du cadrage.",
+          "lesson": "Se demander si un cadrage nouveau est discuté ou seulement adopté parce qu'il se retient bien."
+        }
+      ],
+      "verdict": {
+        "quality": "adequate",
+        "reading_recommendation": "with_reservations",
+        "for_whom": "Lecteur suivant l'actualité économique, intéressé par les inégalités de patrimoine, qui veut un point d'entrée sur l'enquête de la Fed et est prêt à la recouper.",
+        "payoff": "Le lecteur retient des chiffres précis issus d'une source officielle et découvre le cadrage « en G ». Il repère aussi comment un ratio de médianes peut résumer un écart sans en montrer la dispersion.",
+        "signature_move": "Le titre à chiffre frappant, un ratio de « 15 fois », fait porter tout l'article sur un écart générationnel que le texte ne compare ni à l'effet d'âge habituel ni à une période plus longue.",
+        "main_blind_side": "L'absence de comparaison avec l'écart d'âge habituel et avec la trajectoire sur cinq ans laisse le chiffre paraître plus inédit qu'il ne l'est, ce qui reflète le choix d'un angle qui se partage facilement.",
+        "further_resource": {
+          "title": "Survey of Consumer Finances",
+          "source": "Federal Reserve Board",
+          "media_type": "report",
+          "why_explore": "Les séries historiques par tranche d'âge permettent de comparer l'écart actuel à celui des enquêtes précédentes.",
+          "url": "https://www.federalreserve.gov/econres/scfindex.htm"
+        },
+        "summary": "Lecture avec réserves pour qui suit l'économie américaine : l'article apporte des chiffres solides de la Fed, mais le ratio de « 15 fois » en titre mérite d'être replacé face à l'effet d'âge et à une période plus longue."
+      }
+    },
+    "blend": {
+      "patterns": [
+        {
+          "text": "Le titre à chiffre frappant (« 15 fois ») s'appuie sur une comparaison de médianes entre âges différents, qui suppose que l'âge équivaut à la génération. Ce présupposé reste tacite chez l'article, n'est pas relevé comme tel dans la vérification des faits, et se retrouve dans la mention d'un titre généralisant côté éthique : un même choix de cadrage traverse quatre couches.",
+          "layers": [
+            "logic",
+            "rhetoric",
+            "probe",
+            "ethics"
+          ],
+          "references": [
+            "ia_0",
+            "cb_0",
+            "bias_0",
+            "claim_1"
+          ]
+        },
+        {
+          "text": "Le cadrage « jeunes générations » généralise les seuls moins de 35 ans, alors que les 35-44 ans bougent peu. L'effet est double : l'écart paraît plus large et le titre est jugé trompeur sur le périmètre.",
+          "layers": [
+            "logic",
+            "probe",
+            "ethics"
+          ],
+          "references": [
+            "ia_2",
+            "bias_1",
+            "obs_4"
+          ]
+        },
+        {
+          "text": "Le récit de rupture (« totalement inversée », « tranche avec le passé ») repose sur trois ans de données et une période de départ exceptionnelle, sans série longue ni effet de cycle de vie. Les affirmations de rupture sont donc posées comme faits alors que les angles morts de logique montrent qu'elles ne sont pas testées.",
+          "layers": [
+            "logic",
+            "probe",
+            "review"
+          ],
+          "references": [
+            "lr_1",
+            "bs_1",
+            "claim_3",
+            "focus"
+          ]
+        },
+        {
+          "text": "Le registre d'inquiétude et d'injustice (« peinent » contre « continuent de s'enrichir ») renforce la lecture d'un écart qui s'aggrave. Or la hausse de 140 % des jeunes en 2019-2022, mentionnée en une phrase, la nuancerait : l'émotion occupe la place que la donnée longue laisserait à la nuance.",
+          "layers": [
+            "rhetoric",
+            "logic",
+            "review"
+          ],
+          "references": [
+            "er_0",
+            "er_1",
+            "bs_3",
+            "obs_1"
+          ]
+        },
+        {
+          "text": "La causalité est assertée plutôt que démontrée : « les raisons sont connues » repose sur des citations d'experts de seconde main, et l'économie « en G » avance sans chiffre de consommation. Les trois couches (logique, sondage, revue) convergent sur le même défaut : l'autorité des sources tient lieu de preuve.",
+          "layers": [
+            "logic",
+            "probe",
+            "review"
+          ],
+          "references": [
+            "pr_2",
+            "lr_2",
+            "claim_2",
+            "obs_0"
+          ]
+        },
+        {
+          "text": "Le cadrage « en G » d'Yardeni clôt l'article sans discussion de ses limites, et le média gagne à un angle facile à partager. L'intérêt éditorial du titre et du concept converge vers une grille de lecture adoptée plutôt qu'examinée.",
+          "layers": [
+            "rhetoric",
+            "logic",
+            "review"
+          ],
+          "references": [
+            "cb_1",
+            "cb_0",
+            "obs_2",
+            "lr_2"
+          ]
+        },
+        {
+          "text": "Le ratio de médianes ne dit rien de la dispersion interne, et la médiane n'est définie qu'en parenthèse. Ce silence est relevé en logique, repris comme biais de titre en vérification, et signalé comme ratio non précisé en éthique.",
+          "layers": [
+            "logic",
+            "probe",
+            "ethics"
+          ],
+          "references": [
+            "ia_1",
+            "bs_0",
+            "obs_3",
+            "bias_0"
+          ]
+        }
+      ]
+    },
+    "distill": {
+      "points": [
+        {
+          "text": "Le titre « 15 fois » compare des médianes d'âges différents et suppose que l'âge équivaut à la génération. Ce présupposé **tacite** n'est ni relevé ni vérifié, et le titre **généralise** au-delà des seuls moins de 35 ans : un même cadrage traverse quatre couches.",
+          "references": [
+            "ia_0",
+            "cb_0",
+            "bias_0",
+            "claim_1",
+            "ia_2",
+            "bias_1",
+            "obs_4"
+          ]
+        },
+        {
+          "text": "Le récit de rupture (« totalement inversée ») repose sur **trois ans de données** et une période de départ exceptionnelle, sans série longue ni effet de cycle de vie. La rupture est posée comme un fait, alors qu'elle n'est pas testée.",
+          "references": [
+            "lr_1",
+            "bs_1",
+            "claim_3",
+            "focus"
+          ]
+        },
+        {
+          "text": "Le ratio de médianes **ne dit rien de la dispersion** interne, et la médiane n'est définie qu'en parenthèse. Ce silence est relevé en logique, en vérification et en éthique : le chiffre le plus marquant est aussi le moins précisé.",
+          "references": [
+            "ia_1",
+            "bs_0",
+            "obs_3",
+            "bias_0"
+          ]
+        },
+        {
+          "text": "La causalité est **assertée plutôt que démontrée** : « les raisons sont connues » s'appuie sur des experts de seconde main, et l'économie « en G » avance sans chiffre de consommation. L'autorité des sources tient lieu de preuve.",
+          "references": [
+            "pr_2",
+            "lr_2",
+            "claim_2",
+            "obs_0",
+            "cb_1",
+            "obs_2"
+          ]
+        },
+        {
+          "text": "Le registre d'inquiétude et d'injustice (« peinent » contre « continuent de s'enrichir ») renforce l'idée d'un écart qui s'aggrave. La hausse de **140 %** des jeunes en 2019-2022, citée en une phrase, la nuancerait.",
+          "references": [
+            "er_0",
+            "er_1",
+            "bs_3",
+            "obs_1"
+          ]
+        }
+      ],
+      "open_questions": [
+        "Quelle part de l'écart de patrimoine entre âges relève du cycle de vie plutôt que d'un effet de génération ?",
+        "Que montre la dispersion du patrimoine à l'intérieur de chaque tranche d'âge, au-delà des médianes ?",
+        "Une série longue confirmerait-elle la rupture observée sur trois ans, ou la ramènerait-elle à un cycle ?"
+      ]
+    },
+    "guide": {
+      "pre_reading": [
+        "Repérez dès le départ ce que mesure le chiffre du titre : un rapport entre deux médianes, pas une moyenne ni une situation individuelle.",
+        "Gardez en tête que comparer des tranches d'âge à une même date ne dit pas, à lui seul, si l'écart est propre à une génération ou à une étape de la vie.",
+        "Notez si l'article cite l'enquête de la Fed elle-même ou s'il relaie des médias américains qui la commentent."
+      ],
+      "watch_out": {
+        "items": [
+          {
+            "id": "w1",
+            "text": "Le titre parle des « jeunes générations » mais le chiffre ne couvre que les moins de 35 ans, et il présente l'écart comme nouveau. Vérifiez qui est réellement inclus dans chaque catégorie et ce qui permet de dire que c'est inédit.",
+            "references": [
+              "ia_0",
+              "bias_1",
+              "obs_4"
+            ]
+          },
+          {
+            "id": "w2",
+            "text": "L'idée d'une rupture avec le passé repose sur trois ans de données, après une période de départ marquée par des aides exceptionnelles. Sans série plus longue, on ne peut pas savoir si l'écart est nouveau ou s'il suit un cycle.",
+            "references": [
+              "lr_1",
+              "bs_1",
+              "claim_3"
+            ]
+          },
+          {
+            "id": "w3",
+            "text": "Un ratio de médianes résume un écart mais ne montre pas la dispersion à l'intérieur de chaque groupe. La médiane n'est expliquée qu'en passant, et les héritages ne sont pas évoqués.",
+            "references": [
+              "ia_1",
+              "bs_0",
+              "obs_3"
+            ]
+          },
+          {
+            "id": "w4",
+            "text": "Les causes de l'écart sont présentées comme évidentes, mais elles s'appuient surtout sur des avis d'experts relayés par d'autres médias. Cherchez ce qui les prouve réellement, par exemple des chiffres de consommation par âge.",
+            "references": [
+              "pr_2",
+              "lr_2",
+              "claim_2"
+            ]
+          },
+          {
+            "id": "w5",
+            "text": "Le vocabulaire oppose des jeunes en difficulté à des aînés qui s'enrichissent, ce qui renforce l'impression d'un écart qui s'aggrave. La forte hausse du patrimoine des jeunes sur la période récente ne tient qu'en une phrase.",
+            "references": [
+              "er_0",
+              "bs_3",
+              "obs_1"
+            ]
+          }
+        ]
+      },
+      "after_reading": [
+        "Demandez-vous quelle part de l'écart relève de l'âge et quelle part relève d'un véritable effet de génération.",
+        "Retenez que les chiffres de la Fed sont sourcés, alors que les explications causales reposent sur des avis d'experts.",
+        "Pour juger la rupture, consultez les séries historiques de l'enquête de la Fed par tranche d'âge et comparez l'écart actuel à celui des enquêtes précédentes.",
+        "Avant de partager le chiffre du titre, vérifiez s'il décrit bien la population dont on parle."
+      ],
+      "title_note": null,
+      "perspective": {
+        "framing": "L'article place au centre un écart de patrimoine entre générations, résumé par un ratio de médianes et prolongé par l'image d'une économie « en G ». Il adopte un registre d'inquiétude et d'injustice, en reprenant l'angle de médias économiques américains.",
+        "blind_spots": "L'article ne compare pas l'écart actuel à l'écart habituel entre âges, ni à une période plus longue que trois ans. La dispersion à l'intérieur de chaque tranche d'âge et les voix de jeunes ménages n'apparaissent pas.",
+        "balance": "Un article court qui reprend une enquête officielle peut difficilement détailler séries longues et dispersion, et un cadrage générationnel assumé n'a pas à présenter toutes les lectures. Les chiffres de la Fed restent solides ; les réserves portent sur l'interprétation et sur le cadrage du titre."
+      }
+    },
+    "core_elements": {
+      "elements": [
+        {
+          "statement": "Le patrimoine net médian des plus de 75 ans a bondi de 37 % entre 2022 et 2025, celui des moins de 35 ans a chuté de 23 %.",
+          "kind": "fait",
+          "centrality": 5,
+          "seeds": {
+            "source": "premisse",
+            "index": 1,
+            "excerpt": "Le patrimoine médian des plus de 75 ans a progressé de 37 % et celui des moins de 35 ans a reculé de 23 % entre 2022 et 2025.",
+            "strength": 0.9,
+            "nature": "illustration"
+          }
+        },
+        {
+          "statement": "Les causes avancées de l'écart sont la hausse des marchés actions, la flambée immobilière et les crédits à faible taux des aînés.",
+          "kind": "affirmation",
+          "centrality": 4,
+          "seeds": {
+            "source": "premisse",
+            "index": 2,
+            "excerpt": "Les raisons de l'écart sont connues : marché actions, immobilier et crédits à faible taux.",
+            "strength": 0.8,
+            "nature": "inference"
+          }
+        },
+        {
+          "statement": "L'article décrit une fracture générationnelle et une économie « en G », où la consommation reposerait sur les plus âgés.",
+          "kind": "angle",
+          "centrality": 4,
+          "seeds": {
+            "source": "logical_reasoning",
+            "index": 2,
+            "excerpt": "Des économistes cités, le texte déduit que la consommation américaine repose sur les plus âgés (économie « en G »).",
+            "strength": 0.7,
+            "nature": "inference"
+          }
+        },
+        {
+          "statement": "L'accès à la propriété recule chez les moins de 35 ans, avec le remboursement des prêts étudiants et la fin des aides Covid.",
+          "kind": "enjeu",
+          "centrality": 3,
+          "seeds": {
+            "source": "context",
+            "index": 1,
+            "excerpt": "les aides publiques liées à la crise Covid et la hausse des marchés ont gonflé le patrimoine",
+            "strength": 0.5,
+            "nature": "specification"
+          }
+        },
+        {
+          "statement": "Le ratio de 15 fois compare des médianes de tranches d'âge différentes, sans mesurer la dispersion ni l'effet du cycle de vie.",
+          "kind": "biais",
+          "centrality": 2,
+          "seeds": {
+            "source": "implicit_assumption",
+            "index": 1,
+            "excerpt": "Le ratio de médianes (15 fois) résume bien l'écart entre jeunes et aînés.",
+            "strength": 0.7,
+            "nature": "specification"
+          }
+        }
+      ]
+    }
+  },
+  "presentation": {
+    "caption": "Les Américains de plus de 75 ans seraient 15 fois plus fortunés que les moins de 35 ans, selon l'enquête triennale de la Fed relayée par BFM Business. Que dit le chiffre, et que raconte l'article ? Les médianes sont mesurées ; le reste, une économie « en G », des gains venus des actifs, une concentration à venir, est avancé par des économistes. Ce que ces chiffres ne comptent pas : la part des actifs et celle du reste, l'âge comme seul clivage, les mêmes ménages suivis dans le temps, l'écart à l'intérieur de chaque groupe. Trois lectures restent donc possibles : une fracture de patrimoine, un retour à la normale, un cycle de marché. Quelle lecture les séries que vous trouverez soutiennent-elles ?\n\n#espritcritique #patrimoine #statistiques #lectureactive",
+    "axe": {
+      "fait": "pourquoi le rapport de patrimoine entre les plus âgés et les plus jeunes est passé de 9 à 15",
+      "article": {
+        "nom": "Une fracture de génération",
+        "formule": "Un écart qui se creuse entre des générations aux conditions différentes."
+      },
+      "readings": [
+        {
+          "nom": "Une fracture de patrimoine",
+          "formule": "L'écart suit la détention d'actifs, pas l'âge."
+        },
+        {
+          "nom": "Un retour à la normale",
+          "formule": "Le point de départ de 2022 était flatteur pour les jeunes."
+        },
+        {
+          "nom": "Un cycle de marché",
+          "formule": "Le gain suit les marchés et peut s'inverser avec eux."
+        }
+      ]
+    },
+    "hook": {
+      "title": "« Les plus de 75 ans, **15 fois** plus fortunés que les jeunes »",
+      "promise": "Un écart de patrimoine entre générations : ce que le chiffre dit, et ce qu'on en conclut"
+    },
+    "chiffres": {
+      "claim": "Le patrimoine des Américains selon l'âge, 2022-2025",
+      "detail": "",
+      "figures": [
+        {
+          "value": "9 → 15",
+          "label": "Les plus de 75 ans ont 15 fois le patrimoine des moins de 35 ans",
+          "compare": "Contre 9 fois en 2022 · ménage « médian » par groupe"
+        },
+        {
+          "value": "505.000 $",
+          "label": "Patrimoine médian, plus de 75 ans",
+          "compare": "+37 % depuis 2022"
+        },
+        {
+          "value": "33.000 $",
+          "label": "Patrimoine médian, moins de 35 ans",
+          "compare": "−23 % depuis 2022"
+        },
+        {
+          "value": "215.900 $",
+          "label": "Patrimoine médian, tous âges",
+          "compare": "+2 % depuis 2022"
+        }
+      ],
+      "note": {
+        "kind": "remark",
+        "text": "Médian : autant de ménages du groupe possèdent moins que ce montant, qu'en possèdent plus."
+      }
+    },
+    "recit": {
+      "title": "Le rapport des patrimoines est passé de 9 à 15",
+      "rows": [
+        {
+          "kind": "explication",
+          "text": "« Leurs gains patrimoniaux proviennent de l'appréciation de leurs actifs. »",
+          "remark": "Une explication plausible, à situer parmi les données par type d'actif.",
+          "basis": ""
+        },
+        {
+          "kind": "interpretation",
+          "text": "Une économie « en G », pour « générationnelle », plutôt qu'« en forme de K ».",
+          "remark": "Un cadrage centré sur l'âge ; d'autres décrivent les mêmes chiffres.",
+          "basis": ""
+        },
+        {
+          "kind": "consequence",
+          "text": "« une concentration croissante des richesses chez les plus âgés »",
+          "remark": "Une projection : elle dépend de l'explication et de la durée de la tendance.",
+          "basis": ""
+        }
+      ]
+    },
+    "angle_mort": {
+      "title": "La génération, une piste parmi d'autres",
+      "cards": [
+        {
+          "claim": "Quelle part des actifs, quelle part du reste ?",
+          "detail": "",
+          "notes": [
+            {
+              "kind": "source",
+              "text": "Comparer la répartition du patrimoine par type d'actif."
+            }
+          ],
+          "opens": [
+            1,
+            3
+          ]
+        },
+        {
+          "claim": "L'âge est-il le seul clivage ?",
+          "detail": "",
+          "notes": [
+            {
+              "kind": "source",
+              "text": "Comparer les écarts selon le logement et le revenu, à âge égal."
+            }
+          ],
+          "opens": [
+            1,
+            2
+          ]
+        },
+        {
+          "claim": "Compare-t-on les mêmes ménages dans le temps ?",
+          "detail": "",
+          "notes": [
+            {
+              "kind": "source",
+              "text": "Suivre les mêmes ménages plutôt que des groupes d'âge."
+            }
+          ],
+          "opens": [
+            2,
+            3
+          ]
+        },
+        {
+          "claim": "L'écart est-il le même dans chaque groupe ?",
+          "detail": "",
+          "notes": [
+            {
+              "kind": "source",
+              "text": "Comparer la dispersion du patrimoine dans chaque tranche d'âge."
+            }
+          ],
+          "opens": [
+            1,
+            3
+          ]
+        }
+      ]
+    },
+    "lectures": {
+      "title": "Génération, ou autre chose ?",
+      "lead": "",
+      "rows": [
+        {
+          "nom": "Une fracture de patrimoine",
+          "voir": "L'écart suit la détention d'actifs, quel que soit l'âge.",
+          "sens": "**L'écart propriétaires-locataires** à âge égal, validé s'il égale celui entre âges."
+        },
+        {
+          "nom": "Un retour à la normale",
+          "voir": "Les jeunes revenaient d'un sommet : le point de départ était flatteur.",
+          "sens": "**Le rapport** sur une période plus longue, validé si la hausse s'atténue."
+        },
+        {
+          "nom": "Un cycle de marché",
+          "voir": "Le gain suit les marchés et peut s'inverser avec eux.",
+          "sens": "**Le rapport** comparé aux indices de Bourse, validé s'il baisse quand ils baissent."
+        }
+      ]
+    }
+  }
+}

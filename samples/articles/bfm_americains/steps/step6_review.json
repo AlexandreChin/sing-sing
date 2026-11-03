@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 3,
+        "rationale": "Les chiffres centraux viennent de l'enquête triennale de la Fed, une source primaire de référence (`claims_and_sources`, confiance 85-88). Mais l'article ne renvoie pas au rapport original et reprend les avis d'experts de seconde main (WSJ, Fortune, CNBC), ce qui limite la vérification directe.",
+        "lesson": "Vérifier si l'article renvoie à la source primaire ou s'il relaie des médias qui citent eux-mêmes l'étude."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "Les chiffres de la Fed sont attribués et validés par des sources officielles (« 215.900 dollars en 2025 », hausse de 37 %). En revanche, « Les raisons de cette nouvelle fracture générationnelle sont connues » est présenté comme un fait établi, avec une confiance de 55 %, et la rupture avec le passé est posée sans série historique (confiance 60).",
+        "lesson": "Distinguer les chiffres sourcés des affirmations causales présentées comme évidentes, qui demandent leur propre preuve."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 2,
+        "rationale": "Le passage des médianes par âge à une « nouvelle fracture générationnelle » est relevé dans `logical_reasoning` : trois ans de données et une comparaison entre âges différents ne distinguent pas une fracture nouvelle d'un effet d'âge. L'économie « en G » est aussi avancée sans chiffre de consommation par âge.",
+        "lesson": "Se demander si une comparaison entre tranches d'âge à une même date mesure une génération ou simplement une étape de vie."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 2,
+        "rationale": "La médiane est définie dans une parenthèse (« la moitié des ménages a plus, l'autre moitié moins »), ce qui est utile. Mais les présupposés restent tacites (`implicit_assumptions` : âge pris pour génération, ratio de médianes jugé représentatif) et la dispersion comme les héritages ne sont pas mentionnés.",
+        "lesson": "Repérer ce que l'article tient pour acquis sans le dire, comme le choix de comparer des médianes ou des tranches d'âge."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "La hausse de 140 % des jeunes en 2019-2022 tient en une phrase alors que le titre met en avant le ratio de « 15 fois » (`emphasis`). L'effet de cycle de vie, la dispersion interne et les transmissions futures sont absents, et la période de départ suit une phase exceptionnelle (aides Covid).",
+        "lesson": "Chercher la période de référence choisie et ce que donnerait la même comparaison sur une durée plus longue."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "Le vocabulaire oppose des jeunes qui « peinent » à des aînés qui « continuent de s'enrichir » (`emotional_register`, sentiment d'injustice). Les causes côté aînés occupent plusieurs paragraphes, la situation des jeunes un seul, sans aucune voix de jeunes ménages.",
+        "lesson": "Noter qui s'exprime dans le texte et si chaque groupe concerné y a une voix."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 3,
+        "rationale": "Le texte est lisible et la médiane est expliquée en parenthèse, ce qui aide un lecteur non spécialiste. Le titre généralise toutefois « jeunes générations » pour les seuls moins de 35 ans et présente l'écart comme nouveau (« désormais »), ce que relève `title_analysis`.",
+        "lesson": "Comparer le titre à ce que mesure réellement le chiffre, en vérifiant qui est inclus dans chaque catégorie."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "Le cadrage générationnel, prolongé par l'image de l'économie « en G » d'Yardeni, donne une grille de lecture lisible face au schéma « en K » plus courant (`observations`, Cadrage). L'angle reste cependant celui d'une reprise de médias américains, sans éclairage propre ni discussion des limites du cadrage.",
+        "lesson": "Se demander si un cadrage nouveau est discuté ou seulement adopté parce qu'il se retient bien."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Lecteur suivant l'actualité économique, intéressé par les inégalités de patrimoine, qui veut un point d'entrée sur l'enquête de la Fed et est prêt à la recouper.",
+      "payoff": "Le lecteur retient des chiffres précis issus d'une source officielle et découvre le cadrage « en G ». Il repère aussi comment un ratio de médianes peut résumer un écart sans en montrer la dispersion.",
+      "signature_move": "Le titre à chiffre frappant, un ratio de « 15 fois », fait porter tout l'article sur un écart générationnel que le texte ne compare ni à l'effet d'âge habituel ni à une période plus longue.",
+      "main_blind_side": "L'absence de comparaison avec l'écart d'âge habituel et avec la trajectoire sur cinq ans laisse le chiffre paraître plus inédit qu'il ne l'est, ce qui reflète le choix d'un angle qui se partage facilement.",
+      "further_resource": {
+        "title": "Survey of Consumer Finances",
+        "source": "Federal Reserve Board",
+        "media_type": "report",
+        "why_explore": "Les séries historiques par tranche d'âge permettent de comparer l'écart actuel à celui des enquêtes précédentes.",
+        "url": "https://www.federalreserve.gov/econres/scfindex.htm"
+      },
+      "summary": "Lecture avec réserves pour qui suit l'économie américaine : l'article apporte des chiffres solides de la Fed, mais le ratio de « 15 fois » en titre mérite d'être replacé face à l'effet d'âge et à une période plus longue."
+    }
+  }
+}
