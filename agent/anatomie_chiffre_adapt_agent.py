@@ -180,10 +180,10 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("chiffres", "claim"): ("chars", 54), ("chiffres", "detail"): ("chars", 110), ("chiffres", "note1"): ("chars", 100),
     ("recit", "title"): ("chars", 40),
     ("angle_mort", "title"): ("chars", 40),
-    ("angle_mort", "claim1"): ("chars", 56), ("angle_mort", "detail1"): ("chars", 90),
-    ("angle_mort", "claim2"): ("chars", 56), ("angle_mort", "detail2"): ("chars", 90),
-    ("angle_mort", "note1"): ("chars", 90), ("angle_mort", "note2"): ("chars", 90),
-    ("lectures", "title"): ("chars", 40), ("lectures", "lead"): ("chars", 90),
+    ("angle_mort", "claim1"): ("chars", 50), ("angle_mort", "detail1"): ("chars", 80),
+    ("angle_mort", "claim2"): ("chars", 50), ("angle_mort", "detail2"): ("chars", 80),
+    ("angle_mort", "note1"): ("chars", 70), ("angle_mort", "note2"): ("chars", 70),
+    ("lectures", "title"): ("chars", 40), ("lectures", "lead"): ("chars", 80),
     ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 100),
 }
 # a « a | b | c » field: the name and character cap of each part
@@ -191,7 +191,7 @@ _PART_CAPS: dict[tuple[str, str], tuple[tuple[str, int], ...]] = {
     **{("axe", f"lecture{i}"): (("name", 28), ("formula", 90)) for i in (1, 2, 3)},
     **{("chiffres", f"fig{i}"): (("value", 9), ("label", 30), ("comparison", 26)) for i in (1, 2, 3, 4)},
     **{("recit", f"row{i}"): (("type", 16), ("text", 110), ("basis", 50)) for i in (1, 2, 3, 4)},
-    **{("lectures", f"lecture{i}"): (("name", 28), ("what we would see", 70), ("where to look", 50)) for i in (1, 2, 3)},
+    **{("lectures", f"lecture{i}"): (("name", 28), ("what we would see", 60), ("where to look", 42)) for i in (1, 2, 3)},
 }
 _ACCUSING = re.compile(r"\b(biais|manipulation|manipul\w+|mensonges?|trompeu\w+|fallacieu\w+|sophismes?)\b", re.I)
 _HASHTAG = re.compile(r"#\w+")

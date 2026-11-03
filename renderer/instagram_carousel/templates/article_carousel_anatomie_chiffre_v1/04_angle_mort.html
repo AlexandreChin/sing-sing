@@ -10,6 +10,7 @@
 .card { padding: 22px 30px 24px; }
 .tag { margin-bottom: 10px; }
 .detail { font-size: 30px; }
+.open { margin-top: 18px; font-size: 26px; font-weight: 800; color: #d4aa00; }
 .pt { display: flex; gap: 20px; align-items: flex-start; }
 .pt > svg { width: 36px; height: 36px; flex: none; margin-top: 4px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 </style>
@@ -20,15 +21,15 @@
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
   <div class="stage">
-    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.eye_off | safe }}</svg>Le périmètre exclu</span>
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.eye_off | safe }}</svg>Les angles morts</span>
     <h1 class="head">{{ title | md_bold }}</h1>
-    {% for c in cards %}<div class="card">
-      <div class="tag">{{ 'La statistique' if loop.first else 'La période' }}</div>
+    {% for c in cards %}<div class="card"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}
       <div class="pt"><svg viewBox="0 0 24 24">{{ ICONS[c.icon] | safe }}</svg><div>
         <div class="claim">{{ c.claim | md_bold }}</div>
         {% if c.detail %}<div class="detail">{{ c.detail | md_bold }}</div>{% endif %}
       </div></div>
       {{ look(c.sources) }}
+      {% if c.open_line %}<div class="open">{{ c.open_line }}</div>{% endif %}
     </div>{% endfor %}
   </div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>

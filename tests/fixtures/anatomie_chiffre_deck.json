@@ -36,22 +36,22 @@
     "title": "Un écart mesuré, pas expliqué",
     "cards": [
       {"claim": "Une photo à une date, pas un parcours",
-       "detail": "Deux groupes comparés au même moment : l'écart tient-il à l'âge ou à la génération ?",
+       "detail": "Deux groupes comparés au même moment : âge ou génération ?",
        "notes": [{"kind": "source", "text": "**Fed** : Survey of Consumer Finances, patrimoine par âge"}],
        "opens": [1, 3]},
       {"claim": "Trois ans, après une hausse exceptionnelle",
        "detail": "Le rapport a bougé vite : rien ne dit s'il suit les marchés ou s'il dure.",
-       "notes": [{"kind": "source", "text": "**Fed** : Distributional Financial Accounts, patrimoine par génération"}],
+       "notes": [{"kind": "source", "text": "**Fed** : Distributional Financial Accounts, par génération"}],
        "opens": [2, 3]}
     ]
   },
   "lectures": {
     "title": "Pourquoi l'écart s'est-il creusé ?",
-    "lead": "Les chiffres ne départagent pas ces lectures. Voici ce qu'on verrait dans chaque cas.",
+    "lead": "Les chiffres ne départagent pas ces lectures. Voici ce qu'on verrait.",
     "rows": [
-      {"nom": "Un effet d'âge", "voir": "Chaque génération s'enrichit en vieillissant.", "ou": "Fed, patrimoine par âge, enquête après enquête"},
-      {"nom": "Un cycle d'actifs", "voir": "L'écart se réduit quand marchés et immobilier reculent.", "ou": "Fed, patrimoine par génération, et indice boursier"},
-      {"nom": "Une fracture de génération", "voir": "L'écart persiste à travers plusieurs cycles.", "ou": "Fed, patrimoine par génération, plusieurs enquêtes"}
+      {"nom": "Un effet d'âge", "voir": "Chaque génération s'enrichit en vieillissant.", "ou": "Fed, patrimoine par âge, série longue"},
+      {"nom": "Un cycle d'actifs", "voir": "L'écart se réduit quand marchés et immobilier reculent.", "ou": "Fed par génération, avec indice boursier"},
+      {"nom": "Une fracture de génération", "voir": "L'écart persiste à travers plusieurs cycles.", "ou": "Fed, patrimoine par génération, séries"}
     ]
   }
 }

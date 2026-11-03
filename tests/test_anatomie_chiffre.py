@@ -377,3 +377,128 @@ def test_the_cli_knows_the_format_and_its_steps():
     assert len(main._STEP_CHOICES) == len(set(main._STEP_CHOICES))
     assert set(agent.STEP_NAMES) <= set(main._STEP_CHOICES)
     assert not {"variable", "boite_noire", "eclairage", "perimetre"} & set(main._STEP_CHOICES)
+
+
+# ── the render ──────────────────────────────────────────────────────────────
+
+import html  # noqa: E402
+import random  # noqa: E402
+
+from playwright.sync_api import sync_playwright  # noqa: E402
+
+from renderer.instagram_carousel import anatomie_chiffre as renderer  # noqa: E402
+
+
+def test_six_slides_are_rendered(tmp_path):
+    doc = extract(full(), AnatomieChiffrePresentation.model_validate(DECK))
+    paths = renderer.generate_html(doc, tmp_path / "html")
+    assert [p.stem for p in paths] == ["01_hook", "02_chiffres", "03_recit", "04_angle_mort", "05_lectures", "06_cta"]
+    texts = {p.stem: html.unescape(p.read_text(encoding="utf-8")) for p in paths}
+    assert "ce que le chiffre dit" in texts["01_hook"]
+    assert "505.000 $" in texts["02_chiffres"] and "× 15" in texts["02_chiffres"]
+    for label in ("Donnée", "Explication", "Interprétation", "Prévision"):
+        assert label in texts["03_recit"], label
+    assert texts["04_angle_mort"].count('class="card"') == 2
+    assert "Laisse ouvert : un effet d'âge ou une fracture de génération" in texts["04_angle_mort"].replace("⁠", "")
+    assert "Laisse ouvert : un cycle d'actifs ou une fracture de génération" in texts["04_angle_mort"].replace("⁠", "")
+    assert texts["05_lectures"].count("On verrait") == 3
+    assert "quelle lecture les séries que vous trouverez soutiennent-elles ?" in texts["06_cta"]
+
+
+def test_a_deck_without_an_axe_cannot_be_drawn(tmp_path):
+    doc = extract(full(), AnatomieChiffrePresentation.model_validate({k: v for k, v in DECK.items() if k != "axe"}))
+    with pytest.raises(ValueError):
+        renderer.generate_html(doc, tmp_path)
+
+
+# ── the layout: every field at its cap still fits its lines and the slide ───
+
+_POOL = ("le la les de des du un une et ou à au en par sur pour dans avec sans plus que qui ne pas "
+         "l'État patrimoine médiane médian ménages générations générationnelle l'échantillon représentatif "
+         "indépendamment propriétaires immobilier portefeuille financiers distribution liquidité remboursements "
+         "enquête classes d'âge Réserve fédérale statistiques consommation comparaison variable décomposition").split()
+
+
+def _chars(rng: random.Random, n: int) -> str:
+    """Random French-looking text of at most `n` characters, long words included."""
+    out = ""
+    while True:
+        w = rng.choice(_POOL)
+        if len((out + " " + w).strip()) > n:
+            return out
+        out = (out + " " + w).strip()
+
+
+def _wordn(rng: random.Random, n: int) -> str:
+    return " ".join(rng.choice(_POOL) for _ in range(n))
+
+
+def worst_case_fields(seed: int = 0) -> dict[str, dict]:
+    """Every step's fields at their caps; a « a | b | c » field takes each part at its cap."""
+    rng = random.Random(seed)
+    cap = lambda step, name: agent._CAPS[(step, name)][1]   # noqa: E731
+    text = lambda step, name: (_wordn(rng, cap(step, name)) if agent._CAPS[(step, name)][0] == "words"   # noqa: E731
+                               else _chars(rng, cap(step, name)))
+    parts = lambda step, name, *first: " | ".join(list(first) + [_chars(rng, c) for _, c in   # noqa: E731
+                                                                  agent._PART_CAPS[(step, name)][len(first):]])
+    note = lambda step, name: "source | **Fed** : " + _chars(rng, cap(step, name) - 19)   # noqa: E731
+    names = ["Wxxxxxxxxxxxxxxxxxxxxxxxxxxx", "Mxxxxxxxxxxxxxxxxxxxxxxxxxxx", "Gxxxxxxxxxxxxxxxxxxxxxxxxxxx"]   # 28 characters
+    axe = {"fait": text("axe", "fait")} | {f"lecture{i}": f"{names[i - 1]} | " + _chars(rng, 90) for i in (1, 2, 3)}
+    chiffres = {"claim": text("chiffres", "claim"), "detail": text("chiffres", "detail"),
+                **{f"fig{i}": parts("chiffres", f"fig{i}", "WWWWWWWWW") for i in (1, 2, 3, 4)},
+                "note1": note("chiffres", "note1")}
+    recit = {"title": text("recit", "title"), "row1": parts("recit", "row1", "donnee"),
+             **{f"row{i}": parts("recit", f"row{i}", "interpretation") for i in (2, 3, 4)}}
+    angle = {"title": text("angle_mort", "title"), "ouvre1": "1,3", "ouvre2": "2,3"}
+    for i in (1, 2):
+        angle |= {f"claim{i}": text("angle_mort", f"claim{i}"), f"detail{i}": text("angle_mort", f"detail{i}"),
+                  f"note{i}": note("angle_mort", f"note{i}")}
+    lectures = {"title": text("lectures", "title"), "lead": text("lectures", "lead"),
+                **{f"lecture{i}": parts("lectures", f"lecture{i}", names[i - 1]) for i in (1, 2, 3)}}
+    return {"axe": axe, "chiffres": chiffres, "recit": recit, "angle_mort": angle, "lectures": lectures,
+            "hook": {"title": text("hook", "title"), "promise": text("hook", "promise")}, "writing": FIELDS["writing"]}
+
+
+def worst_case_deck(seed: int = 0) -> dict:
+    fields = worst_case_fields(seed)
+    frags = {s.name: agent.to_fragment(s, Option(id="a", slot="a", reason="", fields=fields[s.name])) for s in agent.STEPS}
+    return agent.assemble(frags)
+
+
+def test_the_worst_case_deck_breaks_no_hard_rule():
+    fields = worst_case_fields()
+    frags = {s: agent.to_fragment(agent.STEP_BY_NAME[s], Option(id="a", slot="a", reason="", fields=fields[s]))
+             for s in ("axe",)}
+    for name, f in fields.items():
+        if name != "writing":
+            assert agent.field_errors(name, f, frags, None)[0] == [], name
+
+
+_LINES = """() => { const n = (sel) => [...document.querySelectorAll(sel)].map(e =>
+    Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight)));
+  const bottom = Math.max(0, ...[...document.querySelectorAll('.stage *')].map(e => e.getBoundingClientRect().bottom));
+  const cut = [...document.querySelectorAll('.fig .n, .row .kind')]
+    .filter(e => e.scrollWidth > e.clientWidth + 1).map(e => e.className);
+  return {subtitle: n('.subtitle'), head: n('.head'), bottom, cut, page: document.documentElement.scrollWidth}; }"""
+
+
+@pytest.mark.parametrize("seed", range(4))
+def test_every_field_at_its_cap_fits_on_the_slide(tmp_path, seed):
+    doc = extract(full(), AnatomieChiffrePresentation.model_validate(worst_case_deck(seed)))
+    renderer.generate_html(doc, tmp_path)
+    measured = {}
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page(viewport={"width": 1080, "height": 1350})
+        for f in sorted(tmp_path.glob("*.html")):
+            page.set_content(f.read_text(encoding="utf-8"), wait_until="load")
+            page.evaluate("document.fonts.ready")          # the web fonts change the line breaks
+            measured[f.stem] = page.evaluate(_LINES)
+        browser.close()
+    # the promise takes three lines at its 100-character cap, then « En juger soi-même. »
+    assert all(n <= 4 for n in measured["01_hook"]["subtitle"]), measured["01_hook"]["subtitle"]
+    for slide in ("02_chiffres", "03_recit", "04_angle_mort", "05_lectures"):
+        m = measured[slide]
+        assert m["page"] <= 1080, (slide, "horizontal overflow", m["page"])
+        assert m["cut"] == [], (slide, "a nowrap value is cut", m["cut"])
+        assert m["bottom"] <= 1255, (slide, m["bottom"])

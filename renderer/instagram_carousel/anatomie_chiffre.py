@@ -17,9 +17,7 @@ OPT = "article_carousel_optimized_v0"
 _HYPHEN = re.compile(r"(?<=\w)-(?=\w)")
 
 
-def _relance(question: str) -> str:
-    """The sign-off's « Commentez — … » line: the variable's question, lowercased to follow the dash."""
-    return question[:1].lower() + question[1:]
+CTA_COMMENT = "quelle lecture les séries que vous trouverez soutiennent-elles ?"
 
 
 def _nobreak(value):
@@ -35,18 +33,13 @@ def _nobreak(value):
     return value
 
 
-_RATIO = re.compile(r"^\s*[×x]\s*(\d+(?:[.,]\d+)?)\s*$")
+_KIND_LABELS = {"donnee": "Donnée", "explication": "Explication", "interpretation": "Interprétation", "prevision": "Prévision"}
 
 
-def bar_widths(ratio_value: str) -> tuple[int, int] | None:
-    """The two bars' widths (%), in the ratio the slide states (« × 15 » → 100 and 7), the
-    longer one full. None when the ratio is not a plain multiple: the bars are then drawn equal
-    and unfilled, so no proportion is suggested."""
-    m = _RATIO.match(ratio_value or "")
-    r = float(m.group(1).replace(",", ".")) if m else 0
-    if r <= 0:
-        return None
-    return (100, max(1, round(100 / r))) if r >= 1 else (max(1, round(100 * r)), 100)
+def _open_line(opens: list[int], names: list[str]) -> str:
+    """« Laisse ouvert : <lecture> ou <lecture> », from the axe's reading names."""
+    picked = [names[n - 1] for n in opens if 1 <= n <= len(names)]
+    return f"Laisse ouvert : {' ou '.join(n[:1].lower() + n[1:] for n in picked)}" if len(picked) == 2 else ""
 
 
 def generate_html(doc: AnatomieChiffreDocument, out_dir: Path) -> list[Path]:
@@ -61,22 +54,22 @@ def generate_html(doc: AnatomieChiffreDocument, out_dir: Path) -> list[Path]:
             "headline": pres.hook.title, "background": background, "thumb": cover_thumb(base),
             **hook_metrics(cover_dims(base), pres.hook.title), **cover_layers(meta, pres.hook.title)}
     notes = lambda items: [n.model_dump() for n in items]          # noqa: E731
-    var = pres.variable
-    if var is None:
-        raise ValueError("the deck has no `variable`: slide 5 cannot be drawn")
+    if pres.axe is None or len(pres.axe.readings) != 3:
+        raise ValueError("the deck has no `axe` with three readings: slides 4 and 5 cannot be drawn")
+    names = [r.nom for r in pres.axe.readings]
     specs = [
         ("hook", f"{OPT}/01_hook.html", hook),
-        ("boite_noire", f"{TPL}/02_boite_noire.html", _nobreak(pres.boite_noire.model_dump())),
-        ("eclairage", f"{TPL}/03_eclairage.html",
-         _nobreak(pres.eclairage.model_dump() | {"bars": bar_widths(pres.eclairage.ratio.value) if pres.eclairage.ratio else None})),
-        ("perimetre", f"{TPL}/04_perimetre.html",
-         _nobreak({"title": pres.perimetre.title,
-                   "cards": [{**c.model_dump(exclude={"notes"}), "sources": notes(c.notes), "icon": icon}
-                             for c, icon in ((pres.perimetre.statistique, "eye_off"), (pres.perimetre.periode, "frame"))]})),
-        ("variable", f"{TPL}/05_variable.html",
-         _nobreak(var.model_dump(exclude={"looks"}) | {"sources": notes(var.looks)})),
+        ("chiffres", f"{TPL}/02_chiffres.html",
+         _nobreak(pres.chiffres.model_dump(exclude={"note"}) | {"sources": notes([pres.chiffres.note] if pres.chiffres.note else [])})),
+        ("recit", f"{TPL}/03_recit.html", _nobreak(pres.recit.model_dump() | {"labels": _KIND_LABELS})),
+        ("angle_mort", f"{TPL}/04_angle_mort.html",
+         _nobreak({"title": pres.angle_mort.title,
+                   "cards": [{**c.model_dump(exclude={"notes", "opens"}), "sources": notes(c.notes), "icon": icon,
+                              "open_line": _open_line(c.opens, names)}
+                             for c, icon in zip(pres.angle_mort.cards, ("frame", "eye_off"))]})),
+        ("lectures", f"{TPL}/05_lectures.html", _nobreak(pres.lectures.model_dump())),
         ("cta", f"{OPT}/10_cta.html", {**cover_layers(meta, pres.hook.title), "background": background,
-                                       "L": medium_labels(meta.medium) | {"cta_comment": _relance(var.question)}}),
+                                       "L": medium_labels(meta.medium) | {"cta_comment": CTA_COMMENT}}),
     ]
     env = _env()
     paths = []
