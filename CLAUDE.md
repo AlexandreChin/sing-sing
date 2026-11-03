@@ -23,7 +23,7 @@ python main.py produce <video.txt> --format cadrage_logique --guided [--no-api] 
 # The TEMPS LONG archetype (6 slides, for hot news; steps: tournants episodes lecture pieges hook, then `writing`, no pause)
 python main.py produce <article.txt> --format temps_long --guided [--no-api] [--render] [--medium …] [--title …] [--source …]
 
-# The ANATOMIE D'UN CHIFFRE archetype (6 slides, for a statistic, a poll, a ranking; steps: variable boite_noire eclairage perimetre hook, then `writing`, no pause)
+# The ANATOMIE D'UN CHIFFRE archetype (6 slides, for a statistic, a poll, a ranking; steps: axe chiffres recit angle_mort lectures hook, then `writing`, no pause)
 python main.py produce <article.txt> --format anatomie_chiffre --guided [--no-api] [--render] [--medium …] [--title …] [--source …]
 
 # Individual stages
@@ -204,28 +204,26 @@ samples/<medium>/<stem>/     (medium = articles | podcasts | videos)
   One picture opens and closes the deck: `background.*`, else `image.*` / `cover.*`, full-bleed on slide 1 and darkened on
   slide 6 (the other formats still ignore `image.*` as a background; `background_image(…, or_cover=True)`). `check` does not
   cover this format. Output folder: `<stem>/temps_long/`.
-- `anatomie_chiffre` — the ANATOMIE D'UN CHIFFRE archetype (`docs/carousels_archetypes.md`): 6 slides that dissect a striking figure
-  (a statistic, a poll, a ranking), in the optimized deck's visual language — Hook (identical to the optimized one; the title is the raw figure
-  in « », the promise « <sujet> : comment il se mesure, et la question qu'il pose ») → La boîte noire (slide 2, in the source's frame: 2–4 monospace figure
-  cards `valeur | libellé | comparaison` — period, reference figure, unit, sample, thresholds; « non précisé » when the source is silent, the
-  value then being `?` — plus a fixed card for the primary source and the relay chain `Fed → WSJ → BFM`) → La zone d'éclairage (slide 3, in frame: what the figure
-  establishes and its decomposition into two quantities as the source gives them, drawn as two bars in the proportion of the ratio; a recomputed
-  figure must say « calculé ») → Le périmètre exclu (slide 4, out of frame, **no digit at all**: two cards, la statistique — what a mean or median hides — and la période,
-  each with a source to consult) → La question derrière le chiffre (slide 5, out of frame: two columns « Ce que la source énonce » — 2–3 facts, quotes verified word for word —
-  / « Ce que nous en tirons » — the question and the proxy reading — then the variable as a two-pole bar with a cursor, the implication as a consequence to examine
-  (never « donc », « prouve »), where to look) → CTA (identical to the optimized one; its « Commentez — … » line takes `variable.question`). Five guided steps
-  (`agent/anatomie_chiffre_adapt_agent.py`, prompts in `agent/prompts/anatomie_chiffre_steps/`): `variable` first — the question behind the figure, rendered only on
-  slide 5 and the fixed context of every later step, which an advisory flag checks (slides 2–4 claims share a key word with it; named `variable`, not `question`, which is
-  a step of the 9-slide deck) — then in slide order `boite_noire`, `eclairage`, `perimetre`, `hook`; `writing` (the caption) follows without a pause. Same guided semantics as the
-  other archetypes (options with a reason and a ★, `choose --pick/--edit/--more`, `fix <fmt_dir> <step>.<field>` or `caption`, choice log in `choices.jsonl`). Flat option strings:
-  a figure `valeur | libellé | comparaison` (`fig1`…`fig4`, value ≤9 characters), `source_card` `chaîne | libellé | précision` (chain ≤24), a part `valeur | libellé`
-  (`part1`, `part2`, `ratio`), a note `source | texte` or `remarque | texte` (`note1`, `look1`…), the variable's `fact1`…`fact3`. Hard rules (repair a generated option, ⚠ on the
-  author's pick): every rendered field is capped in characters (`_CAPS`, and `_PART_CAPS` per part of a figure), measured on the rendered slides and guarded by a
-  seeded worst-case render test; figure, source-card, part and note formats; no accusing word outside « »; no digit on slide 4, none on slide 5 outside its facts
-  (« à 35 ans » names a group and is allowed); a concluding word refused on slide 5; the question ends with « ? »; 4 hashtags. Advisory flags: a figure not found as written in
-  the source (a recomputed one must say « calculé »), a quoted fact not in the source, a variable with no fact to join, a question that reads as a choice, a slide 2–4 claim that
-  shares no key word with the variable, a hook title that is not a figure in « ». The bird perches on the figure card (slide 2), the bars card (slide 3, the wire runs through 2–3) and the
-  cursor of slide 5 (no wire); slide 4 has no perch. `check` does not cover this format. Output folder: `<stem>/anatomie_chiffre/`.
+- `anatomie_chiffre` — the ANATOMIE D'UN CHIFFRE archetype (`docs/carousels_archetypes.md`): 6 slides that follow a striking figure
+  (a statistic, a poll, a ranking) and the story the article builds on it, in the optimized deck's visual language — Hook (identical to the optimized one; the title is the raw figure
+  in « », the promise « <sujet> : ce que le chiffre dit, et ce qu'on en conclut ») → Les chiffres (slide 2, in the article's frame: 3–4 monospace figure cards
+  `valeur | libellé | comparaison` as the article gives them, one optional source line; a recomputed figure must say « calculé ») → Du chiffre au récit (slide 3, in frame: 3–4 rows
+  `type | texte | base`, type `donnee` / `explication` / `interpretation` / `prevision`, the first always a `donnee`; quoted passages verified word for word) → Ce que ces chiffres
+  ne comptent pas (slide 4, out of frame, **no digit**: two blind spots of *these* figures — how they are computed, what is missing — each with a source to consult and a
+  line « Laisse ouvert : <lecture> ou <lecture> » built from its `ouvre` pair) → Les lectures (slide 5, out of frame, no digit: the fact to explain as a question, then three rows
+  `nom | on verrait | où regarder`, one per reading of the axe) → CTA (identical to the optimized one; its « Commentez — … » line is fixed: « quelle lecture les séries que vous trouverez
+  soutiennent-elles ? »). Six guided steps (`agent/anatomie_chiffre_adapt_agent.py`, prompts in `agent/prompts/anatomie_chiffre_steps/`): `axe` first — never rendered as such, the fact to
+  explain and three competing readings (`lecture1`…`lecture3` = `nom | formule`, the third being the article's own), the fixed context of every later step — then in slide order
+  `chiffres`, `recit`, `angle_mort`, `lectures`, `hook`; `writing` (the caption) follows without a pause. Same guided semantics as the other archetypes (options with a reason and a ★,
+  `choose --pick/--edit/--more`, `fix <fmt_dir> <step>.<field>` or `caption`, choice log in `choices.jsonl`). Flat option strings: a figure `fig1`…`fig4`, a row `row1`…`row4`,
+  a reading `lecture1`…`lecture3`, a note `source | texte` or `remarque | texte` (`note1`, `note2`), `ouvre1`/`ouvre2` = two reading numbers (`1,3`). Hard rules (repair a generated option,
+  ⚠ on the author's pick): every rendered field is capped in characters (`_CAPS`, and `_PART_CAPS` per part of a « a | b | c » field), measured on the rendered slides and guarded by a
+  seeded worst-case render test; figure, row, reading and note formats; `recit.row1` is a `donnee`; the two `ouvre` pairs are two distinct readings each and **together cover the three
+  readings** (the link between slides 4 and 5); the reading names of `lectures` equal the axe's; no digit on slides 4 and 5; no accusing word outside « »; 4 hashtags. Advisory flags: a figure
+  not found as written in the source (a recomputed one must say « calculé »), a quoted passage not in the source, a story made only of data, an article reading (axe reading 3) sharing no
+  key word with an explanation or interpretation row, a hook title that is not a figure in « ». Slides 4–5 rest on the model's general knowledge: the sources there are unverified pointers.
+  The bird perches on the figure card (slide 2), the story card (slide 3) and the first blind-spot card (slide 4); the wire runs through them and slide 5 has none. `check` does not cover
+  this format. Output folder: `<stem>/anatomie_chiffre/`.
 - `newsletter` — prose, not slides. Own adapt agent (`newsletter_adapt_agent`) + `NewsletterPresentation`. Renders **Markdown** + a rich `newsletter.html` (dark gold-on-black, SVG radar) + email-safe HTML in two themes (table layout, inline styles, no SVG/flexbox): `newsletter.email.html` (light, default) and `newsletter.email.dark.html`. Themes live in `EMAIL_THEMES`; only chrome is themed, the semantic gauge/bar colours are fixed.
   Manual editing: the newsletter's editable source is `newsletter.md` (YAML
   front-matter + Markdown body). Edit it, then `python main.py render
