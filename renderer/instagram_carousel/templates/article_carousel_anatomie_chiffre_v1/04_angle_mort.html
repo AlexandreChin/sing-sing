@@ -5,14 +5,13 @@
 <style>
 {% include 'base.css' %}
 {% include 'article_carousel_cadrage_v1/_argument.css' %}
-/* each card opens on its icon: the icon beside the claim and its detail */
-:root { --gap-block: 22px; --gap-foot: 14px; }
-.card { padding: 18px 30px 20px; }
-.claim { font-size: 32px; }
-.look { padding-top: 12px; font-size: 24px; }
-.tag { margin-bottom: 10px; }
+/* the same card as slide 5: icon, bold name, then one line of body */
+:root { --gap-block: 22px; }
+.card { padding: 20px 30px 22px; }
 .pt { display: flex; gap: 20px; align-items: flex-start; }
-.pt > svg { width: 36px; height: 36px; flex: none; margin-top: 4px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pt > svg { width: 36px; height: 36px; flex: none; margin-top: 0; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.nm { font-size: 32px; font-weight: 800; line-height: 1.2; color: #fff; hyphens: none; text-wrap: pretty; }
+.see { margin-top: 8px; font-size: 27px; font-weight: 500; line-height: 1.28; color: #ececec; text-wrap: pretty; hyphens: none; }
 </style>
 </head>
 <body>
@@ -24,11 +23,9 @@
     <h1 class="head">{{ title | md_bold }}</h1>
     {% for c in cards %}<div class="card"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}
       <div class="pt"><svg viewBox="0 0 24 24">{{ ICONS[c.icon] | safe }}</svg><div>
-        <div class="claim">{{ c.claim | md_bold }}</div>
+        <div class="nm">{{ c.claim | md_bold }}</div>
+        {% if c.sources %}<div class="see">{{ c.sources[0].text | md_bold }}</div>{% endif %}
       </div></div>
-      {% if c.sources %}<div class="look">
-        <span class="src"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg><span>{{ c.sources[0].text | md_bold }}</span></span>
-      </div>{% endif %}
     </div>{% endfor %}
   </div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>

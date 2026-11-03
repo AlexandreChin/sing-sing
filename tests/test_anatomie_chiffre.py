@@ -150,10 +150,10 @@ def test_a_recit_row_has_its_own_known_type_and_a_remark():
 
 def test_ouvre_must_cover_every_reading():
     assert hard("angle_mort") == []
-    assert any("cover the three" in e for e in hard("angle_mort", ouvre1="1,2", ouvre2="1,2", ouvre3="1,2"))
+    assert any("cover the three" in e for e in hard("angle_mort", ouvre1="1,2", ouvre2="1,2", ouvre3="1,2", ouvre4="1,2"))
     for bad in ("1,1", "1,4", "1", "a,b", "0,1"):
         assert any("ouvre1" in e for e in hard("angle_mort", ouvre1=bad)), bad
-    assert any("ouvre3 is empty" in e for e in hard("angle_mort", ouvre3=""))
+    assert any("ouvre4 is empty" in e for e in hard("angle_mort", ouvre4=""))
 
 
 def test_slides_4_and_5_hold_no_digit():
@@ -178,7 +178,7 @@ def test_notes_name_their_kind():
 
 def test_a_blind_spot_is_a_question_with_a_clue():
     assert any("claim1 must be a question" in e for e in hard("angle_mort", claim1="Une photo à une date."))
-    assert any("verifier3 is empty" in e for e in hard("angle_mort", verifier3=""))
+    assert any("verifier4 is empty" in e for e in hard("angle_mort", verifier4=""))
     assert any("verifier1 is empty" in e for e in hard("angle_mort", verifier1=""))
 
 
@@ -402,9 +402,9 @@ def test_six_slides_are_rendered(tmp_path):
     assert "Le fil logique" in texts["03_recit"]
     for label in ("Explication", "Interprétation", "Conséquence"):
         assert label in texts["03_recit"], label
-    assert texts["04_angle_mort"].count('class="card"') == 3
+    assert texts["04_angle_mort"].count('class="card"') == 4
     assert "Pour vérifier" not in texts["04_angle_mort"] and "Réserve fédérale" not in texts["04_angle_mort"]
-    assert texts["04_angle_mort"].count("Comparer") == 2
+    assert texts["04_angle_mort"].count("Comparer") == 3
     assert "Laisse ouvert" not in texts["04_angle_mort"] and "On verrait" not in texts["05_lectures"]
     assert texts["05_lectures"].count("Alors ") == 3
     assert "quelle lecture les séries que vous trouverez soutiennent-elles ?" in texts["06_cta"]
@@ -454,8 +454,8 @@ def worst_case_fields(seed: int = 0) -> dict[str, dict]:
                 "note1": note("chiffres", "note1")}
     recit = {"title": text("recit", "title"), "row1": parts("recit", "row1", "explication"),
              "row2": parts("recit", "row2", "interpretation"), "row3": parts("recit", "row3", "consequence")}
-    angle = {"title": text("angle_mort", "title"), "ouvre1": "1,2", "ouvre2": "2,3", "ouvre3": "1,3"}
-    for i in (1, 2, 3):
+    angle = {"title": text("angle_mort", "title"), "ouvre1": "1,2", "ouvre2": "2,3", "ouvre3": "1,3", "ouvre4": "1,2"}
+    for i in (1, 2, 3, 4):
         angle |= {f"claim{i}": text("angle_mort", f"claim{i}")[:-1] + "?", f"verifier{i}": text("angle_mort", f"verifier{i}")}
     lectures = {"title": text("lectures", "title"),                 **{f"lecture{i}": f"{names[i - 1]} | {_chars(rng, 60)} | Alors {_chars(rng, 74)}"
                    for i in (1, 2, 3)}}
