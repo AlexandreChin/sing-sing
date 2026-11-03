@@ -1,18 +1,16 @@
 """Adapt agent for the ANATOMIE D'UN CHIFFRE carousel (6 slides).
 
-A guided cascade: first the variable (the question behind the figure: the one variable
-the figure approaches, two poles, the facts the source states, where to look; slide 5
-shows it, and it is the fixed context of the steps before it), then in slide order the
-black box (how the figure was measured), the zone of light (what it establishes and how
-it decomposes), the excluded perimeter (what the measure cannot capture), then the
-hook; `writing` finishes with the caption, without pausing. Each step proposes
-options with a reason and a ★, the author picks, edits or asks for others (`choose`),
-and a pick feeds the later steps. Steps are cached in `<format>/adapt_steps/` with a
-stamp of the inputs and the earlier picks.
+A guided cascade: first the axe (the fact to explain and three competing readings,
+never rendered as such), then in slide order the figures the article gives (chiffres),
+the story it builds on them (recit), what those figures cannot decide (angle_mort),
+what would decide it (lectures), then the hook; `writing` finishes with the caption,
+without pausing. Each step proposes options with a reason and a ★, the author picks,
+edits or asks for others (`choose`), and a pick feeds the later steps. Steps are cached
+in `<format>/adapt_steps/` with a stamp of the inputs and the earlier picks.
 
-An option's fields are flat strings so that `choose --edit ID.field=TEXT` and
-`fix` can rewrite any of them: a figure, a part, a note are one line each, their
-parts separated by « | » (see `to_fragment`).
+An option's fields are flat strings so that `choose --edit ID.field=TEXT` and `fix`
+can rewrite any of them: a figure, a reading, a row are one line each, their parts
+separated by « | » (see `to_fragment`).
 
 Same guided semantics as `agent/cadrage_adapt_agent.py`, kept as a module of its own.
 """
@@ -50,48 +48,49 @@ class AwaitingChoice(Exception):
 
 # ── Option models and the step table ────────────────────────────────────────
 
-class VariableOption(BaseModel):
-    title: str       # « A ou B », in neutral words of equal weight
-    variable: str    # the one variable the figure approaches
-    pole_a: str
-    pole_b: str
-    proxy: str       # why the figure stands for it — our reading, named as such
-    question: str    # the open question, neither binary nor normative; the CTA opens it
-    fact1: str       # what the source states: slide 5's left column
-    fact2: str
-    fact3: str
-    implication: str  # what a move of the variable would imply, as a consequence to examine
-    look1: str       # « source | texte » : where to look at the variable directly
-    look2: str
+class AxeOption(BaseModel):
+    fait: str        # the movement to explain, in neutral words
+    lecture1: str    # « nom | formule »
+    lecture2: str
+    lecture3: str    # the article's own reading
 
 
-class BoiteNoireOption(BaseModel):
-    fig1: str          # « valeur | libellé | comparaison »
+class ChiffresOption(BaseModel):
+    claim: str
+    detail: str
+    fig1: str        # « valeur | libellé | comparaison »
     fig2: str
-    fig3: str          # empty when the source gives only two
-    fig4: str
-    source_card: str   # « chaîne | libellé | précision » : the primary source and the chain
-    claim: str
-    detail: str
+    fig3: str
+    fig4: str        # empty when the article gives only three
+    note1: str       # optional « source | texte » or « remarque | texte »
 
 
-class EclairageOption(BaseModel):
-    claim: str
-    detail: str
-    part1: str    # « valeur | libellé » : the first quantity, as the source gives it
-    part2: str
-    ratio: str    # « valeur | libellé »
-    note1: str    # optional « source | texte » or « remarque | texte »
-
-
-class PerimetreOption(BaseModel):
+class RecitOption(BaseModel):
     title: str
-    claim1: str   # card 1 — la statistique
+    row1: str        # « type | texte | base » — type: donnee, explication, interpretation, prevision
+    row2: str
+    row3: str
+    row4: str        # optional
+
+
+class AngleMortOption(BaseModel):
+    title: str
+    claim1: str      # card 1 — a blind spot of these figures
     detail1: str
-    note1: str    # « source | texte » : where to look for a complementary measure
-    claim2: str   # card 2 — la période
+    note1: str       # « source | texte »
+    ouvre1: str      # the two readings it leaves undecided, e.g. « 1,3 »
+    claim2: str      # card 2 — another blind spot
     detail2: str
     note2: str
+    ouvre2: str
+
+
+class LecturesOption(BaseModel):
+    title: str
+    lead: str
+    lecture1: str    # « nom | on verrait | où regarder » — names equal the axe's
+    lecture2: str
+    lecture3: str
 
 
 class HookOption(BaseModel):
@@ -114,12 +113,13 @@ class Step:
 
 
 STEPS: tuple[Step, ...] = (
-    Step(1, "variable", VariableOption, "title", 3),
-    Step(2, "boite_noire", BoiteNoireOption, "claim", 3),
-    Step(3, "eclairage", EclairageOption, "claim", 3),
-    Step(4, "perimetre", PerimetreOption, "title", 3),
-    Step(5, "hook", HookOption, "title", 3),
-    Step(6, "writing", None, "", 3, (1, 1)),
+    Step(1, "axe", AxeOption, "fait", 3),
+    Step(2, "chiffres", ChiffresOption, "claim", 3),
+    Step(3, "recit", RecitOption, "title", 3),
+    Step(4, "angle_mort", AngleMortOption, "title", 3),
+    Step(5, "lectures", LecturesOption, "title", 3),
+    Step(6, "hook", HookOption, "title", 3),
+    Step(7, "writing", None, "", 3, (1, 1)),
 )
 STEP_BY_NAME: dict[str, Step] = {s.name: s for s in STEPS}
 STEP_NAMES = [s.name for s in STEPS[:-1]]
@@ -176,41 +176,37 @@ def base_inputs(full: ArticleFullAnalysis, article_text: str | None) -> str:
 # (step, field) → ("words" | "chars", cap). Characters wherever the text is drawn: the caps
 # were measured on the rendered slides (a seeded worst-case render test guards them).
 _CAPS: dict[tuple[str, str], tuple[str, int]] = {
-    ("variable", "title"): ("chars", 64), ("variable", "variable"): ("words", 16),
-    ("variable", "pole_a"): ("chars", 44), ("variable", "pole_b"): ("chars", 44),
-    ("variable", "proxy"): ("chars", 130), ("variable", "question"): ("chars", 64),
-    ("variable", "fact1"): ("chars", 90), ("variable", "fact2"): ("chars", 90), ("variable", "fact3"): ("chars", 90),
-    ("variable", "implication"): ("chars", 130), ("variable", "look1"): ("chars", 100), ("variable", "look2"): ("chars", 100),
-    ("boite_noire", "claim"): ("chars", 54), ("boite_noire", "detail"): ("chars", 130),
-    ("eclairage", "claim"): ("chars", 60), ("eclairage", "detail"): ("chars", 130), ("eclairage", "note1"): ("chars", 100),
-    ("perimetre", "title"): ("chars", 40),
-    ("perimetre", "claim1"): ("chars", 56), ("perimetre", "detail1"): ("chars", 90),
-    ("perimetre", "claim2"): ("chars", 56), ("perimetre", "detail2"): ("chars", 90),
-    ("perimetre", "note1"): ("chars", 90), ("perimetre", "note2"): ("chars", 90),
+    ("axe", "fait"): ("words", 20),
+    ("chiffres", "claim"): ("chars", 54), ("chiffres", "detail"): ("chars", 110), ("chiffres", "note1"): ("chars", 100),
+    ("recit", "title"): ("chars", 40),
+    ("angle_mort", "title"): ("chars", 40),
+    ("angle_mort", "claim1"): ("chars", 56), ("angle_mort", "detail1"): ("chars", 90),
+    ("angle_mort", "claim2"): ("chars", 56), ("angle_mort", "detail2"): ("chars", 90),
+    ("angle_mort", "note1"): ("chars", 90), ("angle_mort", "note2"): ("chars", 90),
+    ("lectures", "title"): ("chars", 40), ("lectures", "lead"): ("chars", 90),
     ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 100),
 }
-# a « a | b | c » field: the characters each part may take (value, label, comparison)
-_PART_CAPS: dict[tuple[str, str], tuple[int, ...]] = {
-    **{("boite_noire", f"fig{i}"): (9, 30, 26) for i in range(1, 5)},
-    ("boite_noire", "source_card"): (24, 36, 44),
-    ("eclairage", "part1"): (9, 28), ("eclairage", "part2"): (9, 28), ("eclairage", "ratio"): (9, 40),
+# a « a | b | c » field: the name and character cap of each part
+_PART_CAPS: dict[tuple[str, str], tuple[tuple[str, int], ...]] = {
+    **{("axe", f"lecture{i}"): (("name", 28), ("formula", 90)) for i in (1, 2, 3)},
+    **{("chiffres", f"fig{i}"): (("value", 9), ("label", 30), ("comparison", 26)) for i in (1, 2, 3, 4)},
+    **{("recit", f"row{i}"): (("type", 16), ("text", 110), ("basis", 50)) for i in (1, 2, 3, 4)},
+    **{("lectures", f"lecture{i}"): (("name", 28), ("what we would see", 70), ("where to look", 50)) for i in (1, 2, 3)},
 }
-_PART_NAMES = ("value", "label", "comparison")
 _ACCUSING = re.compile(r"\b(biais|manipulation|manipul\w+|mensonges?|trompeu\w+|fallacieu\w+|sophismes?)\b", re.I)
-# slide 5 offers a reading to examine, never a conclusion
-_CONCLUDING = re.compile(r"\b(donc|prouve[nt]?|prouvent|démontre[nt]?|démontrent|par conséquent|en conclusion|c'est la preuve)\b", re.I)
 _HASHTAG = re.compile(r"#\w+")
 _QUOTED = re.compile(r"«[^»]*»")
 _DIGIT = re.compile(r"\d")
-_AGE = re.compile(r"\b\d{1,3} ans\b")   # « à 35 ans » names a group, it adds no figure
 _NUMBER = re.compile(r"\d+(?:[.,]\d+)?")
-_REQUIRED = {"variable": ("title", "variable", "pole_a", "pole_b", "proxy", "question", "implication", "look1"),
-             "boite_noire": ("fig1", "fig2", "source_card", "claim"),
-             "eclairage": ("claim", "part1", "part2", "ratio"),
-             "perimetre": ("title", "claim1", "claim2", "note1", "note2")}
-# slides 4 and 5 (outside the source's frame) add no figure; slide 5's « source » column (facts) may carry digits
-_NO_DIGIT = {"perimetre": None,
-             "variable": ("title", "variable", "pole_a", "pole_b", "proxy", "question", "implication", "look1", "look2")}
+_KINDS = ("donnee", "explication", "interpretation", "prevision")
+_REQUIRED = {"axe": ("fait", "lecture1", "lecture2", "lecture3"),
+             "chiffres": ("claim", "fig1", "fig2", "fig3"),
+             "recit": ("title", "row1", "row2", "row3"),
+             "angle_mort": ("title", "claim1", "claim2", "note1", "note2", "ouvre1", "ouvre2"),
+             "lectures": ("title", "lecture1", "lecture2", "lecture3")}
+# slides 4 and 5 are outside the article's frame and add no figure (the `ouvre` pair is a reference, not a figure)
+_NO_DIGIT = {"angle_mort": {"title", "claim1", "detail1", "note1", "claim2", "detail2", "note2"},
+             "lectures": {"title", "lead", "lecture1", "lecture2", "lecture3"}}
 
 
 def _norm(s: str) -> str:
@@ -237,27 +233,25 @@ def _bad_note(value: str) -> bool:
     return kind.strip().lower() not in ("source", "remarque") or not text.strip()
 
 
-# the lines of slides 2–4 that must tie back to the variable: (step, field)
-_VARIABLE_FIELDS = (("boite_noire", "claim"), ("eclairage", "claim"),
-                    ("perimetre", "claim1"), ("perimetre", "claim2"))
+def _ouvre(value: str) -> list[int] | None:
+    """« 1,3 » → [1, 3]; None when it is not two distinct readings numbered 1 to 3."""
+    try:
+        nums = [int(x) for x in value.split(",")]
+    except ValueError:
+        return None
+    return nums if len(nums) == 2 and len(set(nums)) == 2 and all(1 <= n <= 3 for n in nums) else None
 
 
-def _variable_flags(step: str, fields: dict[str, Any], fragments: dict[str, dict]) -> list[str]:
-    """Advisory: a line that shares no key word with the variable is written for something else."""
-    var = fragments.get("variable", {}).get("variable")
-    if not var:
-        return []
-    stems = set().union(*(_stems(_plain(var.get(k, ""))) for k in ("title", "variable", "pole_a", "pole_b", "proxy")))
-    return [f"{step}.{name} shares no key word with the variable (« {var.get('variable', '')} »)"
-            for s, name in _VARIABLE_FIELDS if s == step and str(fields.get(name, "")).strip()
-            and not _stems(_plain(fields[name])) & stems]
+def _axe_names(fragments: dict[str, dict]) -> list[str]:
+    axe = fragments.get("axe", {}).get("axe")
+    return [r.get("nom", "") for r in axe.get("readings", [])] if axe else []
 
 
 def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                  article: str | None) -> tuple[list[str], list[str]]:
     """(hard, flags) on one step's fields, given the earlier fragments."""
     hard, flags = [], []
-    free = _NO_DIGIT.get(step, False)
+    no_digit = _NO_DIGIT.get(step, ())
     for name, value in fields.items():
         if not isinstance(value, str):
             continue
@@ -268,89 +262,102 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                 hard.append(f"{step}.{name} is {n} {kind} (max {cap})")
         if (m := _ACCUSING.search(_QUOTED.sub("", value))):
             hard.append(f"{step}.{name} uses an accusing word « {m.group(0)} » — the carousel gives tools, not verdicts")
-        if free is None or (free and name in free):
-            if _DIGIT.search(_AGE.sub("", value) if step == "variable" else value):
-                hard.append(f"{step}.{name} holds a digit — this slide is outside the source's frame and adds no figure")
-        if step == "variable" and name in ("proxy", "implication", "question", "title") \
-                and (m := _CONCLUDING.search(value)):
-            hard.append(f"variable.{name} concludes with « {m.group(0)} » — slide 5 offers a reading to examine, never a conclusion")
+        if name in no_digit and _DIGIT.search(value):
+            hard.append(f"{step}.{name} holds a digit — this slide is outside the article's frame and adds no figure")
     for (st, name), caps in _PART_CAPS.items():
         if st == step and str(fields.get(name, "")).strip():
-            for part_name, part, cap in zip(_PART_NAMES, _parts(fields[name], len(caps)), caps):
+            for (part_name, cap), part in zip(caps, _parts(fields[name], len(caps))):
                 if len(re.sub(r"\*\*", "", part)) > cap:
                     hard.append(f"{step}.{name}: the {part_name} is {len(part)} characters (max {cap})"
                                 + (" — it is drawn big; for a gap write « ? » and put « non précisé » in the comparison"
                                    if part_name == "value" else ""))
+            if not all(_parts(fields[name], len(caps))[:2]) and not name.startswith("fig"):
+                hard.append(f"{step}.{name} must read « {' | '.join(n for n, _ in caps)} »")
     for name in _REQUIRED.get(step, ()):
         if not str(fields.get(name, "")).strip():
             hard.append(f"{step}.{name} is empty")
-    if step == "variable":
-        if fields.get("pole_a") and _norm(fields["pole_a"]) == _norm(fields.get("pole_b", "")):
-            hard.append("variable.pole_b repeats pole_a — two identical poles are no variable")
-        if fields.get("question") and not fields["question"].strip().endswith("?"):
-            hard.append("variable.question must end with « ? »")
-        if fields.get("question") and re.search(r"\bou\b", fields["question"]):
-            flags.append("variable.question reads as a choice between two answers — keep it open")
-        if not str(fields.get("fact1", "")).strip():
-            flags.append("variable has no fact from the source to join — the left column of slide 5 would be empty")
-        for name in ("look1", "look2"):
-            value = str(fields.get(name, "")).strip()
-            if value and _bad_note(value):
-                hard.append(f"variable.{name} must read « source | texte »")
-        if article:
-            for name in ("fact1", "fact2", "fact3"):
-                for q in _QUOTED.findall(str(fields.get(name, ""))):
-                    if _norm(q.strip("«» ")) not in _norm(article):
-                        flags.append(f"variable.{name}: {q} does not appear word for word in the source")
-    if step == "boite_noire":
+
+    if step == "axe":
+        names = [_parts(str(fields.get(f"lecture{i}", "")), 2)[0] for i in (1, 2, 3)]
+        if len({_norm(n) for n in names if n}) < len([n for n in names if n]):
+            hard.append("axe: two readings share a name — the three readings must differ")
+    if step == "chiffres":
         for name in ("fig1", "fig2", "fig3", "fig4"):
             value = str(fields.get(name, "")).strip()
             if not value:
                 continue
-            if len([p for p in _parts(value, 3)[:2] if p]) < 2:
-                hard.append(f"boite_noire.{name} must read « valeur | libellé | comparaison » (the comparison is optional)")
-            elif article and (nums := _NUMBER.findall(_parts(value, 3)[0])) \
-                    and not all(_in_source(n, article) for n in nums):
-                flags.append(f"boite_noire.{name}: {_parts(value, 3)[0]!r} does not appear as written in the source — check the figure")
-        value = str(fields.get("source_card", "")).strip()
-        if value:
-            chain = _parts(value, 3)
-            if not chain[0] or not chain[1]:
-                hard.append("boite_noire.source_card must read « chaîne | libellé | précision » (the precision is optional)")
-    if step == "eclairage":
-        for name in ("part1", "part2", "ratio"):
+            value_, label, compare = _parts(value, 3)
+            if not value_ or not label:
+                hard.append(f"chiffres.{name} must read « valeur | libellé | comparaison » (the comparison is optional)")
+            elif article and (nums := _NUMBER.findall(value_)) and not all(_in_source(n, article) for n in nums) \
+                    and "calcul" not in compare.lower():
+                flags.append(f"chiffres.{name}: {value_!r} does not appear as written in the source — "
+                             "check it; if recomputed, say « calculé » in the comparison")
+        value = str(fields.get("note1", "")).strip()
+        if value and _bad_note(value):
+            hard.append("chiffres.note1 must read « source | texte » or « remarque | texte »")
+    if step == "recit":
+        kinds = []
+        for name in ("row1", "row2", "row3", "row4"):
             value = str(fields.get(name, "")).strip()
             if not value:
                 continue
-            value_, label = _parts(value, 2)
-            if not value_ or not label:
-                hard.append(f"eclairage.{name} must read « valeur | libellé »")
-            elif article:
-                nums = _NUMBER.findall(value_)
-                if not nums:
-                    flags.append(f"eclairage.{name}: {value_!r} is not written in digits — check it against the source")
-                elif not all(_in_source(n, article) for n in nums) and "calcul" not in label.lower():
-                    flags.append(f"eclairage.{name}: {value_!r} is not in the source — if recomputed, say so in the label (« calculé »)")
-        value = str(fields.get("note1", "")).strip()
-        if value and _bad_note(value):
-            hard.append("eclairage.note1 must read « source | texte » or « remarque | texte »")
-    if step == "perimetre":
+            kind, text, _ = _parts(value, 3)
+            kinds.append(kind)
+            if kind not in _KINDS:
+                hard.append(f"recit.{name}: the type must be one of {', '.join(_KINDS)}")
+            if article:
+                for q in _QUOTED.findall(text):
+                    if _norm(q.strip("«» ")) not in _norm(article):
+                        flags.append(f"recit.{name}: {q} does not appear word for word in the source")
+        if kinds and kinds[0] != "donnee":
+            hard.append("recit.row1 must be a « donnee » — the story starts from what is measured")
+        if kinds and all(k == "donnee" for k in kinds):
+            flags.append("recit holds only data — the article offers no explanation to set against the figures")
+        axe = fragments.get("axe", {}).get("axe")
+        if axe and len(axe.get("readings", [])) == 3:
+            third = axe["readings"][2]
+            stems = _stems(_plain(third.get("nom", "") + " " + third.get("formule", "")))
+            told = [_parts(str(fields.get(n, "")), 3)[1] for n in ("row1", "row2", "row3", "row4")
+                    if _parts(str(fields.get(n, "")), 3)[0] in ("explication", "interpretation")]
+            if told and not any(_stems(_plain(t)) & stems for t in told):
+                flags.append("recit: no explanation or interpretation shares a key word with the article's reading "
+                             f"(axe reading 3, « {third.get('nom', '')} »)")
+    if step == "angle_mort":
         for name in ("note1", "note2"):
             value = str(fields.get(name, "")).strip()
             if value and _bad_note(value):
-                hard.append(f"perimetre.{name} must read « source | texte » or « remarque | texte »")
+                hard.append(f"angle_mort.{name} must read « source | texte » or « remarque | texte »")
+        pairs = []
+        for name in ("ouvre1", "ouvre2"):
+            value = str(fields.get(name, "")).strip()
+            if not value:
+                continue
+            pair = _ouvre(value)
+            if pair is None:
+                hard.append(f"angle_mort.{name} must be two different readings numbered 1 to 3, e.g. « 1,3 »")
+            else:
+                pairs.append(pair)
+        if len(pairs) == 2 and set(pairs[0]) | set(pairs[1]) != {1, 2, 3}:
+            hard.append("angle_mort: the two « ouvre » pairs must together cover the three readings")
+    if step == "lectures":
+        names = _axe_names(fragments)
+        for i in (1, 2, 3):
+            value = str(fields.get(f"lecture{i}", "")).strip()
+            if value and len(names) == 3 and _norm(_parts(value, 3)[0]) != _norm(names[i - 1]):
+                hard.append(f"lectures.lecture{i} is named « {_parts(value, 3)[0]} » but the axe's reading {i} is « {names[i - 1]} »")
     if step == "hook":
         if not fields.get("title", "").strip().startswith("«"):
             flags.append("hook.title is usually the raw figure, in « »")
-        if "comment il se mesure" not in fields.get("promise", "").lower():
-            flags.append("hook.promise usually reads « <sujet> : comment il se mesure, et la question qu'il pose »")
+        if "ce que le chiffre dit" not in fields.get("promise", "").lower():
+            flags.append("hook.promise usually reads « <sujet> : ce que le chiffre dit, et ce qu'on en conclut »")
     if step == "writing":
         tags = _HASHTAG.findall(fields.get("caption", ""))
         if len(tags) != 4:
             hard.append(f"writing.caption has {len(tags)} hashtag(s), must have 4")
         if not 100 <= _words(fields.get("caption", "")) <= 190:
             hard.append(f"writing.caption is {_words(fields.get('caption', ''))} words (aim for about 150)")
-    return hard, flags + _variable_flags(step, fields, fragments)
+    return hard, flags
 
 
 # ── Fragments and assembly ──────────────────────────────────────────────────
@@ -366,41 +373,43 @@ def _notes(f: dict, names: tuple[str, ...]) -> list[dict]:
     return out
 
 
-def _figure(value: str) -> dict:
-    v, label, compare = _parts(value, 3)
-    return {"value": v, "label": label, "compare": compare}
-
-
-def _part(value: str) -> dict | None:
-    if not str(value).strip():
-        return None
-    v, label = _parts(value, 2)
-    return {"value": v, "label": label}
-
-
 def to_fragment(step: Step, option: Option) -> dict:
     f = option.fields
-    if step.name == "variable":
-        keys = ("title", "variable", "pole_a", "pole_b", "proxy", "question", "implication")
-        return {"variable": {k: f.get(k, "") for k in keys}
-                | {"facts": [f[n].strip() for n in ("fact1", "fact2", "fact3") if str(f.get(n, "")).strip()],
-                   "looks": _notes(f, ("look1", "look2"))}}
-    if step.name == "boite_noire":
-        figures = [_figure(f[n]) for n in ("fig1", "fig2", "fig3", "fig4") if str(f.get(n, "")).strip()]
-        card = _figure(f["source_card"]) if str(f.get("source_card", "")).strip() else None
-        return {"boite_noire": {"figures": figures, "source_card": card,
-                                "claim": f.get("claim", ""), "detail": f.get("detail", "")}}
-    if step.name == "eclairage":
+    if step.name == "axe":
+        readings = []
+        for i in (1, 2, 3):
+            nom, formule = _parts(str(f.get(f"lecture{i}", "")), 2)
+            readings.append({"nom": nom, "formule": formule})
+        return {"axe": {"fait": f.get("fait", ""), "readings": readings}}
+    if step.name == "chiffres":
+        figures = []
+        for n in ("fig1", "fig2", "fig3", "fig4"):
+            if str(f.get(n, "")).strip():
+                value, label, compare = _parts(f[n], 3)
+                figures.append({"value": value, "label": label, "compare": compare})
         note = _notes(f, ("note1",))
-        return {"eclairage": {"claim": f.get("claim", ""), "detail": f.get("detail", ""),
-                              "part1": _part(f.get("part1", "")), "part2": _part(f.get("part2", "")),
-                              "ratio": _part(f.get("ratio", "")), "note": note[0] if note else None}}
-    if step.name == "perimetre":
-        return {"perimetre": {"title": f.get("title", ""),
-                              "statistique": {"claim": f.get("claim1", ""), "detail": f.get("detail1", ""),
-                                              "notes": _notes(f, ("note1",))},
-                              "periode": {"claim": f.get("claim2", ""), "detail": f.get("detail2", ""),
-                                          "notes": _notes(f, ("note2",))}}}
+        return {"chiffres": {"claim": f.get("claim", ""), "detail": f.get("detail", ""),
+                             "figures": figures, "note": note[0] if note else None}}
+    if step.name == "recit":
+        rows = []
+        for n in ("row1", "row2", "row3", "row4"):
+            if str(f.get(n, "")).strip():
+                kind, text, basis = _parts(f[n], 3)
+                rows.append({"kind": kind, "text": text, "basis": basis})
+        return {"recit": {"title": f.get("title", ""), "rows": rows}}
+    if step.name == "angle_mort":
+        cards = []
+        for i in (1, 2):
+            opens = _ouvre(str(f.get(f"ouvre{i}", ""))) or []
+            cards.append({"claim": f.get(f"claim{i}", ""), "detail": f.get(f"detail{i}", ""),
+                          "notes": _notes(f, (f"note{i}",)), "opens": opens})
+        return {"angle_mort": {"title": f.get("title", ""), "cards": cards}}
+    if step.name == "lectures":
+        rows = []
+        for i in (1, 2, 3):
+            nom, voir, ou = _parts(str(f.get(f"lecture{i}", "")), 3)
+            rows.append({"nom": nom, "voir": voir, "ou": ou})
+        return {"lectures": {"title": f.get("title", ""), "lead": f.get("lead", ""), "rows": rows}}
     if step.name == "hook":
         return {"hook": {"title": f.get("title", ""), "promise": f.get("promise", "")}}
     return {"caption": f.get("caption", "")}
