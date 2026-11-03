@@ -17,10 +17,10 @@ DECK = json.loads(Path("tests/fixtures/anatomie_chiffre_deck.json").read_text(en
 
 def test_the_deck_validates():
     pres = AnatomieChiffrePresentation.model_validate(DECK)
-    assert [f.value for f in pres.chiffres.figures] == ["505.000 $", "33.000 $", "× 15", "215.900 $"]
+    assert [f.value for f in pres.chiffres.figures] == ["× 15", "505.000 $", "33.000 $"]
     assert pres.recit.rows[0].kind == "donnee"
     assert len(pres.axe.readings) == 3
-    assert pres.angle_mort.cards[0].opens == [1, 3]
+    assert pres.angle_mort.cards[0].opens == [1, 2]
 
 
 def test_a_deck_without_an_axe_still_validates():
@@ -62,19 +62,19 @@ def option_fields(deck: dict) -> dict[str, dict]:
     c1, c2 = a["cards"]
     return {
         "axe": {"fait": ax["fait"], **{f"lecture{i}": f"{x['nom']} | {x['formule']}" for i, x in enumerate(ax["readings"], 1)}},
-        "chiffres": {"claim": c["claim"], "detail": c["detail"],
-                     **dict(zip(("fig1", "fig2", "fig3", "fig4"), pad([_fig(f) for f in c["figures"]], 4))),
+        "chiffres": {"claim": c["claim"],
+                     **dict(zip(("fig1", "fig2", "fig3"), pad([_fig(f) for f in c["figures"]], 3))),
                      "note1": _note(c["note"]) if c["note"] else ""},
         "recit": {"title": r["title"],
                   **dict(zip(("row1", "row2", "row3", "row4"),
                              pad([f"{x['kind']} | {x['text']} | {x['basis']}" for x in r["rows"]], 4)))},
         "angle_mort": {"title": a["title"],
-                       "claim1": c1["claim"], "detail1": c1["detail"], "note1": _note(c1["notes"][0]),
+                       "claim1": c1["claim"], "verifier1": c1["notes"][0]["text"],
                        "ouvre1": ",".join(map(str, c1["opens"])),
-                       "claim2": c2["claim"], "detail2": c2["detail"], "note2": _note(c2["notes"][0]),
+                       "claim2": c2["claim"], "verifier2": c2["notes"][0]["text"],
                        "ouvre2": ",".join(map(str, c2["opens"]))},
-        "lectures": {"title": lc["title"], "lead": lc["lead"],
-                     **{f"lecture{i}": f"{x['nom']} | {x['voir']} | {x['ou']}" for i, x in enumerate(lc["rows"], 1)}},
+        "lectures": {"title": lc["title"],
+                     **{f"lecture{i}": f"{x['nom']} | {x['voir']} | {x['sens']}" for i, x in enumerate(lc["rows"], 1)}},
         "hook": {"title": deck["hook"]["title"], "promise": deck["hook"]["promise"]},
         "writing": {"caption": deck["caption"]},
     }
@@ -104,7 +104,7 @@ def test_the_fragments_rebuild_the_deck():
 
 def test_empty_figures_rows_and_notes_are_left_out():
     f = agent.to_fragment(agent.STEP_BY_NAME["chiffres"],
-                          Option(id="a", slot="a", reason="", fields={**FIELDS["chiffres"], "fig4": "", "note1": ""}))
+                          Option(id="a", slot="a", reason="", fields={**FIELDS["chiffres"], "note1": ""}))
     assert len(f["chiffres"]["figures"]) == 3 and f["chiffres"]["note"] is None
     f = agent.to_fragment(agent.STEP_BY_NAME["recit"],
                           Option(id="a", slot="a", reason="", fields={**FIELDS["recit"], "row4": ""}))
@@ -136,8 +136,10 @@ def test_the_axe_needs_three_named_distinct_readings():
 
 def test_a_figure_needs_a_value_and_a_label_and_a_short_value():
     assert any("fig1" in e for e in hard("chiffres", fig1="2022"))
+    assert any("fig1" in e and "label is 65" in e for e in hard("chiffres", fig1="× 15 | " + "x" * 65))
+    assert any("fig2" in e and "label is 35" in e for e in hard("chiffres", fig2="1 $ | " + "x" * 35))
     assert any("fig1" in e and "value is 10" in e for e in hard("chiffres", fig1="1234567890 | période"))
-    assert hard("chiffres", fig4="? | taille de l'échantillon | non précisé") == []
+    assert hard("chiffres", fig3="? | taille de l'échantillon | non précisé") == []
     assert any("fig3 is empty" in e for e in hard("chiffres", fig3=""))
 
 
@@ -157,35 +159,45 @@ def test_ouvre_must_cover_every_reading():
 
 
 def test_slides_4_and_5_hold_no_digit():
-    assert any("angle_mort.detail1" in e and "digit" in e for e in hard("angle_mort", detail1="Une médiane de 2025 ne dit rien."))
-    assert any("angle_mort.note1" in e for e in hard("angle_mort", note1="source | Fed : enquête de 2025"))
-    assert any("lectures.lead" in e and "digit" in e for e in hard("lectures", lead="Un écart de 15 fois."))
+    assert any("angle_mort.verifier1" in e and "digit" in e for e in hard("angle_mort", verifier1="Les séries de 2025."))
+    assert any("lectures.lecture1" in e and "digit" in e for e in hard("lectures", lecture1="Des groupes qui changent | 15 fois | Alors x"))
     assert any("lectures.lecture1" in e and "digit" in e for e in hard("lectures", lecture1="Un effet d'âge | voir en 2025 | Fed"))
 
 
 def test_lecture_names_must_equal_the_axe_names():
     frags = _frags("axe")
     assert hard("lectures", frags) == []
-    bad = "Un effet de cohorte | Chaque génération s'enrichit | Fed"
+    bad = "Un effet de cohorte | Chaque génération s'enrichit | Alors x"
     assert any("lecture1" in e and "axe's reading 1" in e for e in hard("lectures", frags, lecture1=bad))
     assert hard("lectures", {}, lecture1=bad) == []     # no axe, nothing to compare
+    assert any("lecture1" in e and "Alors" in e for e in hard("lectures", lecture1="Des groupes qui changent | Un écart stable | Fed"))
 
 
 def test_notes_name_their_kind():
-    assert any("note1" in e for e in hard("angle_mort", note1="Fed : séries"))
     assert any("note1" in e for e in hard("chiffres", note1="lien | "))
     assert hard("chiffres", note1="") == []
 
 
+def test_a_blind_spot_is_a_question_with_a_clue():
+    assert any("claim1 must be a question" in e for e in hard("angle_mort", claim1="Une photo à une date."))
+    assert any("verifier2" in e and "Pour vérifier" in e for e in hard("angle_mort", verifier2="Pour vérifier : les séries."))
+    assert any("verifier1 is empty" in e for e in hard("angle_mort", verifier1=""))
+
+
+def test_a_statistical_term_must_be_glossed():
+    f = flags("chiffres", note1="")
+    assert any("médian" in x and "gloss" in x for x in f)
+    assert not any("gloss" in x for x in flags("chiffres"))
+
+
 def test_accusing_words_are_hard_unless_quoted():
-    assert any("accusing" in e for e in hard("angle_mort", claim1="Une médiane trompeuse."))
-    assert hard("angle_mort", claim1="Le patrimoine selon un « biais » cité.") == []
+    assert any("accusing" in e for e in hard("angle_mort", claim1="Une médiane trompeuse ?"))
+    assert hard("angle_mort", claim1="Le patrimoine selon un « biais » cité ?") == []
 
 
 def test_caps_are_hard():
     assert any("hook.title" in e for e in hard("hook", title="x" * 65))
     assert any("recit.row2: the text" in e for e in hard("recit", row2="explication | " + "x" * 111 + " | base"))
-    assert any("lectures.lead" in e for e in hard("lectures", lead="x" * 91))
 
 
 def test_a_figure_missing_from_the_source_is_flagged_not_blocked():
@@ -198,8 +210,8 @@ def test_a_figure_missing_from_the_source_is_flagged_not_blocked():
 
 def test_a_derived_figure_must_say_calcule():
     article = ARTICLE.read_text(encoding="utf-8")
-    assert any("999.999" in f for f in flags("chiffres", article, fig4="999.999 $ | gain des plus de 75 ans | gain estimé"))
-    assert not any("999.999" in f for f in flags("chiffres", article, fig4="999.999 $ | gain des plus de 75 ans | calculé"))
+    assert any("999.999" in f for f in flags("chiffres", article, fig3="999.999 $ | gain des plus de 75 ans | gain estimé"))
+    assert not any("999.999" in f for f in flags("chiffres", article, fig3="999.999 $ | gain des plus de 75 ans | calculé"))
 
 
 def test_a_quoted_passage_must_be_in_the_source():
@@ -399,9 +411,9 @@ def test_six_slides_are_rendered(tmp_path):
     for label in ("Donnée", "Explication", "Interprétation", "Prévision"):
         assert label in texts["03_recit"], label
     assert texts["04_angle_mort"].count('class="card"') == 2
-    assert "Laisse ouvert : un effet d'âge ou une fracture de génération" in texts["04_angle_mort"].replace("⁠", "")
-    assert "Laisse ouvert : un cycle d'actifs ou une fracture de génération" in texts["04_angle_mort"].replace("⁠", "")
-    assert texts["05_lectures"].count("On verrait") == 3
+    assert texts["04_angle_mort"].count("Pour vérifier :") == 2
+    assert "Laisse ouvert" not in texts["04_angle_mort"] and "On verrait" not in texts["05_lectures"]
+    assert texts["05_lectures"].count("Alors ") == 3
     assert "quelle lecture les séries que vous trouverez soutiennent-elles ?" in texts["06_cta"]
 
 
@@ -444,17 +456,16 @@ def worst_case_fields(seed: int = 0) -> dict[str, dict]:
     note = lambda step, name: "source | **Fed** : " + _chars(rng, cap(step, name) - 19)   # noqa: E731
     names = ["Wxxxxxxxxxxxxxxxxxxxxxxxxxxx", "Mxxxxxxxxxxxxxxxxxxxxxxxxxxx", "Gxxxxxxxxxxxxxxxxxxxxxxxxxxx"]   # 28 characters
     axe = {"fait": text("axe", "fait")} | {f"lecture{i}": f"{names[i - 1]} | " + _chars(rng, 90) for i in (1, 2, 3)}
-    chiffres = {"claim": text("chiffres", "claim"), "detail": text("chiffres", "detail"),
-                **{f"fig{i}": parts("chiffres", f"fig{i}", "WWWWWWWWW") for i in (1, 2, 3, 4)},
+    chiffres = {"claim": text("chiffres", "claim"),
+                **{f"fig{i}": parts("chiffres", f"fig{i}", "WWWWWWWWW") for i in (1, 2, 3)},
                 "note1": note("chiffres", "note1")}
     recit = {"title": text("recit", "title"), "row1": parts("recit", "row1", "donnee"),
              **{f"row{i}": parts("recit", f"row{i}", "interpretation") for i in (2, 3, 4)}}
     angle = {"title": text("angle_mort", "title"), "ouvre1": "1,3", "ouvre2": "2,3"}
     for i in (1, 2):
-        angle |= {f"claim{i}": text("angle_mort", f"claim{i}"), f"detail{i}": text("angle_mort", f"detail{i}"),
-                  f"note{i}": note("angle_mort", f"note{i}")}
-    lectures = {"title": text("lectures", "title"), "lead": text("lectures", "lead"),
-                **{f"lecture{i}": parts("lectures", f"lecture{i}", names[i - 1]) for i in (1, 2, 3)}}
+        angle |= {f"claim{i}": text("angle_mort", f"claim{i}")[:-1] + "?", f"verifier{i}": text("angle_mort", f"verifier{i}")}
+    lectures = {"title": text("lectures", "title"),                 **{f"lecture{i}": f"{names[i - 1]} | {_chars(rng, 60)} | Alors {_chars(rng, 74)}"
+                   for i in (1, 2, 3)}}
     return {"axe": axe, "chiffres": chiffres, "recit": recit, "angle_mort": angle, "lectures": lectures,
             "hook": {"title": text("hook", "title"), "promise": text("hook", "promise")}, "writing": FIELDS["writing"]}
 

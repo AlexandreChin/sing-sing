@@ -206,22 +206,21 @@ samples/<medium>/<stem>/     (medium = articles | podcasts | videos)
   cover this format. Output folder: `<stem>/temps_long/`.
 - `anatomie_chiffre` — the ANATOMIE D'UN CHIFFRE archetype (`docs/carousels_archetypes.md`): 6 slides that follow a striking figure
   (a statistic, a poll, a ranking) and the story the article builds on it, in the optimized deck's visual language — Hook (identical to the optimized one; the title is the raw figure
-  in « », the promise « <sujet> : ce que le chiffre dit, et ce qu'on en conclut ») → Les chiffres (slide 2, in the article's frame: 3–4 monospace figure cards
-  `valeur | libellé | comparaison` as the article gives them, one optional source line; a recomputed figure must say « calculé ») → Du chiffre au récit (slide 3, in frame: 3–4 rows
+  in « », the promise « <sujet> : ce que le chiffre dit, et ce qu'on en conclut ») → Les chiffres (slide 2, in the article's frame: 3 monospace figure cards
+  `valeur | libellé | comparaison` as the article gives them, the first the key figure drawn big with a plain-sentence label, one remark line glossing the statistical term (« médian : … »); a recomputed figure must say « calculé ») → Du chiffre au récit (slide 3, in frame: 3–4 rows
   `type | texte | base`, type `donnee` / `explication` / `interpretation` / `prevision`, the first always a `donnee`; quoted passages verified word for word) → Ce que ces chiffres
-  ne comptent pas (slide 4, out of frame, **no digit**: two blind spots of *these* figures — how they are computed, what is missing — each with a source to consult and a
-  line « Laisse ouvert : <lecture> ou <lecture> » built from its `ouvre` pair) → Les lectures (slide 5, out of frame, no digit: the fact to explain as a question, then three rows
-  `nom | on verrait | où regarder`, one per reading of the axe) → CTA (identical to the optimized one; its « Commentez — … » line is fixed: « quelle lecture les séries que vous trouverez
+  ne comptent pas (slide 4, out of frame, **no digit**: two blind spots of *these* figures — how they are computed, what is missing — each a question ending in « ? » with a « Pour vérifier : … » clue to validate or invalidate its assumption; its `ouvre` pair is not drawn) → Les lectures (slide 5, out of frame, no digit: the fact to explain as a question, then three icon cards
+  `nom | on verrait | alors …`, one per reading of the axe) → CTA (identical to the optimized one; its « Commentez — … » line is fixed: « quelle lecture les séries que vous trouverez
   soutiennent-elles ? »). Six guided steps (`agent/anatomie_chiffre_adapt_agent.py`, prompts in `agent/prompts/anatomie_chiffre_steps/`): `axe` first — never rendered as such, the fact to
   explain and three competing readings (`lecture1`…`lecture3` = `nom | formule`, the third being the article's own), the fixed context of every later step — then in slide order
   `chiffres`, `recit`, `angle_mort`, `lectures`, `hook`; `writing` (the caption) follows without a pause. Same guided semantics as the other archetypes (options with a reason and a ★,
-  `choose --pick/--edit/--more`, `fix <fmt_dir> <step>.<field>` or `caption`, choice log in `choices.jsonl`). Flat option strings: a figure `fig1`…`fig4`, a row `row1`…`row4`,
-  a reading `lecture1`…`lecture3`, a note `source | texte` or `remarque | texte` (`note1`, `note2`), `ouvre1`/`ouvre2` = two reading numbers (`1,3`). Hard rules (repair a generated option,
+  `choose --pick/--edit/--more`, `fix <fmt_dir> <step>.<field>` or `caption`, choice log in `choices.jsonl`). Flat option strings: a figure `fig1`…`fig3` (`fig1` the key figure), a row `row1`…`row4`,
+  a reading `lecture1`…`lecture3` (`nom | on verrait | alors …`), the slide 2 note `note1` (`remarque | texte`), a blind spot `claim1`/`verifier1`, `claim2`/`verifier2`, `ouvre1`/`ouvre2` = two reading numbers (`1,3`, not drawn). Hard rules (repair a generated option,
   ⚠ on the author's pick): every rendered field is capped in characters (`_CAPS`, and `_PART_CAPS` per part of a « a | b | c » field), measured on the rendered slides and guarded by a
-  seeded worst-case render test; figure, row, reading and note formats; `recit.row1` is a `donnee`; the two `ouvre` pairs are two distinct readings each and **together cover the three
+  seeded worst-case render test; figure, row, reading and note formats; `recit.row1` is a `donnee`; each blind-spot claim ends in « ? » and its clue never starts with « Pour vérifier » (the slide adds it); each reading's last part starts with « Alors »; the two `ouvre` pairs are two distinct readings each and **together cover the three
   readings** (the link between slides 4 and 5); the reading names of `lectures` equal the axe's; no digit on slides 4 and 5; no accusing word outside « »; 4 hashtags. Advisory flags: a figure
   not found as written in the source (a recomputed one must say « calculé »), a quoted passage not in the source, a story made only of data, an article reading (axe reading 3) sharing no
-  key word with an explanation or interpretation row, a hook title that is not a figure in « ». Slides 4–5 rest on the model's general knowledge: the sources there are unverified pointers.
+  key word with an explanation or interpretation row, a hook title that is not a figure in « », a statistical term (« médian »…) in a figure that `note1` does not gloss. Slides 4–5 rest on the model's general knowledge: the clues there are unverified pointers.
   The bird perches on the figure card (slide 2), the story card (slide 3) and the first blind-spot card (slide 4); the wire runs through them and slide 5 has none. `check` does not cover
   this format. Output folder: `<stem>/anatomie_chiffre/`.
 - `newsletter` — prose, not slides. Own adapt agent (`newsletter_adapt_agent`) + `NewsletterPresentation`. Renders **Markdown** + a rich `newsletter.html` (dark gold-on-black, SVG radar) + email-safe HTML in two themes (table layout, inline styles, no SVG/flexbox): `newsletter.email.html` (light, default) and `newsletter.email.dark.html`. Themes live in `EMAIL_THEMES`; only chrome is themed, the semantic gauge/bar colours are fixed.

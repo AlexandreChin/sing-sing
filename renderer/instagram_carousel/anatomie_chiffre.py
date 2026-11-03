@@ -37,13 +37,9 @@ def _nobreak(value):
     return value
 
 
+_KIND_ICONS = {"donnee": "info", "explication": "link", "interpretation": "eye", "prevision": "widen"}
+_READING_ICONS = ["hierarchy", "flame", "anchor"]   # one per reading of the axe, in order
 _KIND_LABELS = {"donnee": "Donnée", "explication": "Explication", "interpretation": "Interprétation", "prevision": "Prévision"}
-
-
-def _open_line(opens: list[int], names: list[str]) -> str:
-    """« Laisse ouvert : <lecture> ou <lecture> », from the axe's reading names."""
-    picked = [names[n - 1] for n in opens if 1 <= n <= len(names)]
-    return f"Laisse ouvert : {' ou '.join(n[:1].lower() + n[1:] for n in picked)}" if len(picked) == 2 else ""
 
 
 def generate_html(doc: AnatomieChiffreDocument, out_dir: Path) -> list[Path]:
@@ -60,18 +56,16 @@ def generate_html(doc: AnatomieChiffreDocument, out_dir: Path) -> list[Path]:
     notes = lambda items: [n.model_dump() for n in items]          # noqa: E731
     if pres.axe is None or len(pres.axe.readings) != 3:
         raise ValueError("the deck has no `axe` with three readings: slides 4 and 5 cannot be drawn")
-    names = [r.nom for r in pres.axe.readings]
     specs = [
         ("hook", f"{OPT}/01_hook.html", hook),
         ("chiffres", f"{TPL}/02_chiffres.html",
          _nobreak(pres.chiffres.model_dump(exclude={"note"}) | {"sources": notes([pres.chiffres.note] if pres.chiffres.note else [])})),
-        ("recit", f"{TPL}/03_recit.html", _nobreak(pres.recit.model_dump() | {"labels": _KIND_LABELS})),
+        ("recit", f"{TPL}/03_recit.html", _nobreak(pres.recit.model_dump() | {"labels": _KIND_LABELS, "icons": _KIND_ICONS})),
         ("angle_mort", f"{TPL}/04_angle_mort.html",
          _nobreak({"title": pres.angle_mort.title,
-                   "cards": [{**c.model_dump(exclude={"notes", "opens"}), "sources": notes(c.notes), "icon": icon,
-                              "open_line": _open_line(c.opens, names)}
+                   "cards": [{**c.model_dump(exclude={"notes", "opens", "detail"}), "sources": notes(c.notes), "icon": icon}
                              for c, icon in zip(pres.angle_mort.cards, ("frame", "eye_off"))]})),
-        ("lectures", f"{TPL}/05_lectures.html", _nobreak(pres.lectures.model_dump())),
+        ("lectures", f"{TPL}/05_lectures.html", _nobreak(pres.lectures.model_dump() | {"icons": _READING_ICONS})),
         ("cta", f"{OPT}/10_cta.html", {**cover_layers(meta, pres.hook.title), "background": background,
                                        "L": medium_labels(meta.medium) | {"cta_comment": CTA_COMMENT}}),
     ]

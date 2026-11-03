@@ -8,7 +8,10 @@
 .lead { margin-top: var(--gap-head); font-size: 30px; font-weight: 500; line-height: 1.3; color: #ececec; text-wrap: pretty; hyphens: none; }
 :root { --gap-block: 26px; }
 .card.read { padding: 22px 30px 24px; }
+.read .pt { display: flex; gap: 20px; align-items: flex-start; }
+.read .pt > svg { width: 36px; height: 36px; flex: none; margin-top: 2px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .read .nm { font-size: 36px; font-weight: 800; line-height: 1.2; color: #fff; }
+.read .see { margin-top: 8px; }
 .read .tag { margin: 12px 0 2px; font-size: 21px; letter-spacing: .1em; }
 .read .see { font-size: 29px; font-weight: 500; line-height: 1.28; color: #ececec; text-wrap: pretty; hyphens: none; }
 .read .where { margin-top: 12px; display: flex; gap: 12px; align-items: flex-start; font-size: 26px; font-weight: 500; line-height: 1.3; color: #a0a0a0; }
@@ -24,10 +27,10 @@
     <h1 class="head">{{ title | md_bold }}</h1>
     {% if lead %}<div class="lead">{{ lead | md_bold }}</div>{% endif %}
     {% for r in rows %}<div class="card read">
+      <div class="pt"><svg viewBox="0 0 24 24">{{ ICONS[icons[loop.index0]] | safe }}</svg><div>
       <div class="nm">{{ r.nom | md_bold }}</div>
-      <div class="tag">On verrait</div>
-      <div class="see">{{ r.voir | md_bold }}</div>
-      <div class="where"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg><span>{{ r.ou | md_bold }}</span></div>
+      <div class="see">{{ r.voir | md_bold }}</div></div></div>
+      <div class="where"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg><span>{{ r.sens | md_bold }}</span></div>
     </div>{% endfor %}
   </div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>

@@ -57,12 +57,10 @@ class AxeOption(BaseModel):
 
 class ChiffresOption(BaseModel):
     claim: str
-    detail: str
-    fig1: str        # « valeur | libellé | comparaison »
+    fig1: str        # « valeur | libellé | comparaison » — the key figure, drawn big: its label is a plain sentence
     fig2: str
     fig3: str
-    fig4: str        # empty when the article gives only three
-    note1: str       # optional « source | texte » or « remarque | texte »
+    note1: str       # « remarque | texte » glossing the statistical term, or « source | texte »
 
 
 class RecitOption(BaseModel):
@@ -75,20 +73,17 @@ class RecitOption(BaseModel):
 
 class AngleMortOption(BaseModel):
     title: str
-    claim1: str      # card 1 — a blind spot of these figures
-    detail1: str
-    note1: str       # « source | texte »
-    ouvre1: str      # the two readings it leaves undecided, e.g. « 1,3 »
-    claim2: str      # card 2 — another blind spot
-    detail2: str
-    note2: str
+    claim1: str      # card 1 — a blind spot of these figures, as a question ending in « ? »
+    verifier1: str   # how to validate or invalidate the assumption it questions (« Pour vérifier : » is added)
+    ouvre1: str      # the two readings it leaves undecided, e.g. « 1,3 » (not drawn)
+    claim2: str      # card 2 — another blind spot, as a question
+    verifier2: str
     ouvre2: str
 
 
 class LecturesOption(BaseModel):
     title: str
-    lead: str
-    lecture1: str    # « nom | on verrait | où regarder » — names equal the axe's
+    lecture1: str    # « nom | on verrait | alors … » — names equal the axe's
     lecture2: str
     lecture3: str
 
@@ -177,21 +172,22 @@ def base_inputs(full: ArticleFullAnalysis, article_text: str | None) -> str:
 # were measured on the rendered slides (a seeded worst-case render test guards them).
 _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("axe", "fait"): ("words", 20),
-    ("chiffres", "claim"): ("chars", 54), ("chiffres", "detail"): ("chars", 110), ("chiffres", "note1"): ("chars", 100),
+    ("chiffres", "claim"): ("chars", 54), ("chiffres", "note1"): ("chars", 110),
     ("recit", "title"): ("chars", 40),
     ("angle_mort", "title"): ("chars", 40),
-    ("angle_mort", "claim1"): ("chars", 50), ("angle_mort", "detail1"): ("chars", 80),
-    ("angle_mort", "claim2"): ("chars", 50), ("angle_mort", "detail2"): ("chars", 80),
-    ("angle_mort", "note1"): ("chars", 70), ("angle_mort", "note2"): ("chars", 70),
-    ("lectures", "title"): ("chars", 40), ("lectures", "lead"): ("chars", 80),
+    ("angle_mort", "claim1"): ("chars", 60), ("angle_mort", "claim2"): ("chars", 60),
+    ("angle_mort", "verifier1"): ("chars", 90), ("angle_mort", "verifier2"): ("chars", 90),
+    ("lectures", "title"): ("chars", 40),
     ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 100),
 }
 # a « a | b | c » field: the name and character cap of each part
 _PART_CAPS: dict[tuple[str, str], tuple[tuple[str, int], ...]] = {
     **{("axe", f"lecture{i}"): (("name", 28), ("formula", 90)) for i in (1, 2, 3)},
-    **{("chiffres", f"fig{i}"): (("value", 9), ("label", 30), ("comparison", 26)) for i in (1, 2, 3, 4)},
-    **{("recit", f"row{i}"): (("type", 16), ("text", 110), ("basis", 50)) for i in (1, 2, 3, 4)},
-    **{("lectures", f"lecture{i}"): (("name", 28), ("what we would see", 60), ("where to look", 42)) for i in (1, 2, 3)},
+    # fig1 is the key figure, drawn big and alone on its line: a plain sentence, its comparison glosses the term
+    ("chiffres", "fig1"): (("value", 9), ("label", 64), ("comparison", 52)),
+    **{("chiffres", f"fig{i}"): (("value", 9), ("label", 34), ("comparison", 26)) for i in (2, 3)},
+    **{("recit", f"row{i}"): (("type", 16), ("text", 84), ("basis", 40)) for i in (1, 2, 3, 4)},
+    **{("lectures", f"lecture{i}"): (("name", 28), ("what we would see", 60), ("what it would mean", 80)) for i in (1, 2, 3)},
 }
 _ACCUSING = re.compile(r"\b(biais|manipulation|manipul\w+|mensonges?|trompeu\w+|fallacieu\w+|sophismes?)\b", re.I)
 _HASHTAG = re.compile(r"#\w+")
@@ -202,11 +198,13 @@ _KINDS = ("donnee", "explication", "interpretation", "prevision")
 _REQUIRED = {"axe": ("fait", "lecture1", "lecture2", "lecture3"),
              "chiffres": ("claim", "fig1", "fig2", "fig3"),
              "recit": ("title", "row1", "row2", "row3"),
-             "angle_mort": ("title", "claim1", "claim2", "note1", "note2", "ouvre1", "ouvre2"),
+             "angle_mort": ("title", "claim1", "claim2", "verifier1", "verifier2", "ouvre1", "ouvre2"),
              "lectures": ("title", "lecture1", "lecture2", "lecture3")}
 # slides 4 and 5 are outside the article's frame and add no figure (the `ouvre` pair is a reference, not a figure)
-_NO_DIGIT = {"angle_mort": {"title", "claim1", "detail1", "note1", "claim2", "detail2", "note2"},
-             "lectures": {"title", "lead", "lecture1", "lecture2", "lecture3"}}
+_NO_DIGIT = {"angle_mort": {"title", "claim1", "verifier1", "claim2", "verifier2"},
+             "lectures": {"title", "lecture1", "lecture2", "lecture3"}}
+# a statistical term the reader may not know: `chiffres.note1` must gloss it in plain words
+_JARGON = re.compile(r"\b(médian\w*|écart[- ]type|percentiles?|quantiles?|décile\w*|quartile\w*|corrélation)\b", re.I)
 
 
 def _norm(s: str) -> str:
@@ -282,7 +280,7 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
         if len({_norm(n) for n in names if n}) < len([n for n in names if n]):
             hard.append("axe: two readings share a name — the three readings must differ")
     if step == "chiffres":
-        for name in ("fig1", "fig2", "fig3", "fig4"):
+        for name in ("fig1", "fig2", "fig3"):
             value = str(fields.get(name, "")).strip()
             if not value:
                 continue
@@ -296,6 +294,10 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
         value = str(fields.get("note1", "")).strip()
         if value and _bad_note(value):
             hard.append("chiffres.note1 must read « source | texte » or « remarque | texte »")
+        if (term := next((m.group(0).lower() for n in ("fig1", "fig2", "fig3")
+                          if (m := _JARGON.search(str(fields.get(n, "")))) ), None)) \
+                and term[:5] not in _parts(str(fields.get("note1", "")), 2)[1].lower():
+            flags.append(f"chiffres: « {term} » is a statistical term — gloss it in plain words in note1 (« remarque | … »)")
     if step == "recit":
         kinds = []
         for name in ("row1", "row2", "row3", "row4"):
@@ -324,10 +326,13 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                 flags.append("recit: no explanation or interpretation shares a key word with the article's reading "
                              f"(axe reading 3, « {third.get('nom', '')} »)")
     if step == "angle_mort":
-        for name in ("note1", "note2"):
+        for name in ("claim1", "claim2"):
             value = str(fields.get(name, "")).strip()
-            if value and _bad_note(value):
-                hard.append(f"angle_mort.{name} must read « source | texte » or « remarque | texte »")
+            if value and not value.endswith("?"):
+                hard.append(f"angle_mort.{name} must be a question ending in « ? »")
+        for name in ("verifier1", "verifier2"):
+            if str(fields.get(name, "")).strip().lower().startswith("pour vérifier"):
+                hard.append(f"angle_mort.{name} must not start with « Pour vérifier » — the slide adds it")
         pairs = []
         for name in ("ouvre1", "ouvre2"):
             value = str(fields.get(name, "")).strip()
@@ -346,6 +351,8 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
             value = str(fields.get(f"lecture{i}", "")).strip()
             if value and len(names) == 3 and _norm(_parts(value, 3)[0]) != _norm(names[i - 1]):
                 hard.append(f"lectures.lecture{i} is named « {_parts(value, 3)[0]} » but the axe's reading {i} is « {names[i - 1]} »")
+            if value and not _parts(value, 3)[2].startswith("Alors"):
+                hard.append(f"lectures.lecture{i}: the last part is a remark that starts with « Alors »")
     if step == "hook":
         if not fields.get("title", "").strip().startswith("«"):
             flags.append("hook.title is usually the raw figure, in « »")
@@ -383,12 +390,12 @@ def to_fragment(step: Step, option: Option) -> dict:
         return {"axe": {"fait": f.get("fait", ""), "readings": readings}}
     if step.name == "chiffres":
         figures = []
-        for n in ("fig1", "fig2", "fig3", "fig4"):
+        for n in ("fig1", "fig2", "fig3"):
             if str(f.get(n, "")).strip():
                 value, label, compare = _parts(f[n], 3)
                 figures.append({"value": value, "label": label, "compare": compare})
         note = _notes(f, ("note1",))
-        return {"chiffres": {"claim": f.get("claim", ""), "detail": f.get("detail", ""),
+        return {"chiffres": {"claim": f.get("claim", ""),
                              "figures": figures, "note": note[0] if note else None}}
     if step.name == "recit":
         rows = []
@@ -401,15 +408,16 @@ def to_fragment(step: Step, option: Option) -> dict:
         cards = []
         for i in (1, 2):
             opens = _ouvre(str(f.get(f"ouvre{i}", ""))) or []
-            cards.append({"claim": f.get(f"claim{i}", ""), "detail": f.get(f"detail{i}", ""),
-                          "notes": _notes(f, (f"note{i}",)), "opens": opens})
+            clue = str(f.get(f"verifier{i}", "")).strip()
+            cards.append({"claim": f.get(f"claim{i}", ""),
+                          "notes": [{"kind": "source", "text": clue}] if clue else [], "opens": opens})
         return {"angle_mort": {"title": f.get("title", ""), "cards": cards}}
     if step.name == "lectures":
         rows = []
         for i in (1, 2, 3):
-            nom, voir, ou = _parts(str(f.get(f"lecture{i}", "")), 3)
-            rows.append({"nom": nom, "voir": voir, "ou": ou})
-        return {"lectures": {"title": f.get("title", ""), "lead": f.get("lead", ""), "rows": rows}}
+            nom, voir, sens = _parts(str(f.get(f"lecture{i}", "")), 3)
+            rows.append({"nom": nom, "voir": voir, "sens": sens})
+        return {"lectures": {"title": f.get("title", ""), "rows": rows}}
     if step.name == "hook":
         return {"hook": {"title": f.get("title", ""), "promise": f.get("promise", "")}}
     return {"caption": f.get("caption", "")}

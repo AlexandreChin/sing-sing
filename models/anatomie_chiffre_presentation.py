@@ -6,7 +6,7 @@ that would decide it. Separate from the format-agnostic ArticleFullAnalysis.
 """
 from __future__ import annotations
 from typing import Literal
-from pydantic import BaseModel, Field
+from pydantic import AliasChoices, BaseModel, Field
 
 
 class AnatomieHook(BaseModel):
@@ -40,7 +40,7 @@ class AnatomieAxe(BaseModel):
 
 class AnatomieChiffres(BaseModel):  # slide 2 — the figures the article gives
     claim: str
-    detail: str = ""
+    detail: str = ""   # no longer produced (older decks load)
     figures: list[AnatomieFigure] = Field(default_factory=list)     # 3 to 4
     note: AnatomieNote | None = None
 
@@ -57,9 +57,9 @@ class AnatomieRecit(BaseModel):  # slide 3 — from the figure to the story
 
 
 class AnatomieAngleMortCard(BaseModel):
-    claim: str
-    detail: str = ""
-    notes: list[AnatomieNote] = Field(default_factory=list)
+    claim: str         # the blind spot, as a question ending in « ? »
+    detail: str = ""   # no longer produced (older decks load)
+    notes: list[AnatomieNote] = Field(default_factory=list)   # one: the clue to validate or invalidate the assumption
     opens: list[int] = Field(default_factory=list)   # the two readings (1-based) this blind spot leaves undecided
 
 
@@ -71,12 +71,13 @@ class AnatomieAngleMort(BaseModel):  # slide 4 — what these figures do not cou
 class AnatomieLectureRow(BaseModel):
     nom: str    # equals the axe's reading name
     voir: str   # what we would see if this reading held
-    ou: str     # where to look
+    # what it would mean for the figure (« Alors … »); older decks called it `ou`
+    sens: str = Field("", validation_alias=AliasChoices("sens", "ou"))
 
 
 class AnatomieLectures(BaseModel):  # slide 5 — what would separate the readings
     title: str
-    lead: str = ""
+    lead: str = ""   # no longer produced (older decks load)
     rows: list[AnatomieLectureRow] = Field(default_factory=list)    # 3
 
 
