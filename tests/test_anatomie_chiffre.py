@@ -140,6 +140,13 @@ def test_a_figure_needs_a_value_and_a_label_and_a_short_value():
     assert any("fig3 is empty" in e for e in hard("chiffres", fig3=""))
 
 
+def test_a_remark_that_names_a_shortfall_is_flagged_not_blocked():
+    bad = "explication | « Leurs gains viennent des actifs. » | La cause est avancée, pas mesurée."
+    assert any("shortfall" in f for f in flags("recit", row1=bad))
+    assert hard("recit", row1=bad) == []
+    assert not any("shortfall" in f for f in flags("recit"))
+
+
 def test_a_recit_row_has_its_own_known_type_and_a_remark():
     assert any("row2" in e and "type" in e for e in hard("recit", row2="opinion | texte | remarque"))
     assert any("own type" in e for e in hard("recit", row2=FIELDS["recit"]["row1"]))

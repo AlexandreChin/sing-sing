@@ -317,7 +317,9 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
             if kind not in _KINDS:
                 hard.append(f"recit.{name}: the type must be one of {', '.join(_KINDS)}")
             if not remark:
-                hard.append(f"recit.{name} needs a remark (third part): how much weight this statement can bear")
+                hard.append(f"recit.{name} needs a remark (third part): the statement's status and what it depends on")
+            elif re.search(r"\b(pas|sans)\b", remark, re.I):
+                flags.append(f"recit.{name}: the remark names a shortfall (« pas », « sans ») — say the statement's status, not what it lacks")
             if article:
                 for q in _QUOTED.findall(text):
                     if _norm(q.strip("«» ")) not in _norm(article):
