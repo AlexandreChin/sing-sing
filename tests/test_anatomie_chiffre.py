@@ -59,7 +59,6 @@ def _fig(f: dict) -> str:
 def option_fields(deck: dict) -> dict[str, dict]:
     pad = lambda items, n: list(items) + [""] * (n - len(items))  # noqa: E731
     ax, c, r, a, lc = deck["axe"], deck["chiffres"], deck["recit"], deck["angle_mort"], deck["lectures"]
-    c1, c2 = a["cards"]
     return {
         "axe": {"fait": ax["fait"], **{f"lecture{i}": f"{x['nom']} | {x['formule']}" for i, x in enumerate(ax["readings"], 1)}},
         "chiffres": {"claim": c["claim"],
@@ -69,10 +68,9 @@ def option_fields(deck: dict) -> dict[str, dict]:
                   **dict(zip(("row1", "row2", "row3"),
                              pad([f"{x['kind']} | {x['text']} | {x['remark']}" for x in r["rows"]], 3)))},
         "angle_mort": {"title": a["title"],
-                       "claim1": c1["claim"], "verifier1": c1["notes"][0]["text"],
-                       "ouvre1": ",".join(map(str, c1["opens"])),
-                       "claim2": c2["claim"], "verifier2": c2["notes"][0]["text"],
-                       "ouvre2": ",".join(map(str, c2["opens"]))},
+                       **{f"{n}{i}": v for i, c in enumerate(a["cards"], 1)
+                          for n, v in (("claim", c["claim"]), ("verifier", c["notes"][0]["text"]),
+                                       ("sources", c["notes"][1]["text"]), ("ouvre", ",".join(map(str, c["opens"]))))}},
         "lectures": {"title": lc["title"],
                      **{f"lecture{i}": f"{x['nom']} | {x['voir']} | {x['sens']}" for i, x in enumerate(lc["rows"], 1)}},
         "hook": {"title": deck["hook"]["title"], "promise": deck["hook"]["promise"]},
@@ -153,10 +151,10 @@ def test_a_recit_row_has_its_own_known_type_and_a_remark():
 
 def test_ouvre_must_cover_every_reading():
     assert hard("angle_mort") == []
-    assert any("cover the three" in e for e in hard("angle_mort", ouvre1="1,2", ouvre2="1,2"))
+    assert any("cover the three" in e for e in hard("angle_mort", ouvre1="1,2", ouvre2="1,2", ouvre3="1,2"))
     for bad in ("1,1", "1,4", "1", "a,b", "0,1"):
         assert any("ouvre1" in e for e in hard("angle_mort", ouvre1=bad)), bad
-    assert any("ouvre2 is empty" in e for e in hard("angle_mort", ouvre2=""))
+    assert any("ouvre3 is empty" in e for e in hard("angle_mort", ouvre3=""))
 
 
 def test_slides_4_and_5_hold_no_digit():
@@ -181,7 +179,9 @@ def test_notes_name_their_kind():
 
 def test_a_blind_spot_is_a_question_with_a_clue():
     assert any("claim1 must be a question" in e for e in hard("angle_mort", claim1="Une photo à une date."))
-    assert any("verifier2" in e and "Pour vérifier" in e for e in hard("angle_mort", verifier2="Pour vérifier : les séries."))
+    assert any("sources2" in e and "URL" in e for e in hard("angle_mort", sources2="Fed : https://x.org"))
+    assert any("sources3" in e and "digit" in e for e in hard("angle_mort", sources3="Fed : série de 2025"))
+    assert any("verifier3 is empty" in e for e in hard("angle_mort", verifier3=""))
     assert any("verifier1 is empty" in e for e in hard("angle_mort", verifier1=""))
 
 
@@ -405,8 +405,8 @@ def test_six_slides_are_rendered(tmp_path):
     assert "Le fil logique" in texts["03_recit"]
     for label in ("Explication", "Interprétation", "Conséquence"):
         assert label in texts["03_recit"], label
-    assert texts["04_angle_mort"].count('class="card"') == 2
-    assert texts["04_angle_mort"].count("Pour vérifier :") == 2
+    assert texts["04_angle_mort"].count('class="card"') == 3
+    assert "Pour vérifier" not in texts["04_angle_mort"] and texts["04_angle_mort"].count("Réserve fédérale") == 3
     assert "Laisse ouvert" not in texts["04_angle_mort"] and "On verrait" not in texts["05_lectures"]
     assert texts["05_lectures"].count("Alors ") == 3
     assert "quelle lecture les séries que vous trouverez soutiennent-elles ?" in texts["06_cta"]
@@ -456,9 +456,10 @@ def worst_case_fields(seed: int = 0) -> dict[str, dict]:
                 "note1": note("chiffres", "note1")}
     recit = {"title": text("recit", "title"), "row1": parts("recit", "row1", "explication"),
              "row2": parts("recit", "row2", "interpretation"), "row3": parts("recit", "row3", "consequence")}
-    angle = {"title": text("angle_mort", "title"), "ouvre1": "1,3", "ouvre2": "2,3"}
-    for i in (1, 2):
-        angle |= {f"claim{i}": text("angle_mort", f"claim{i}")[:-1] + "?", f"verifier{i}": text("angle_mort", f"verifier{i}")}
+    angle = {"title": text("angle_mort", "title"), "ouvre1": "1,2", "ouvre2": "2,3", "ouvre3": "1,3"}
+    for i in (1, 2, 3):
+        angle |= {f"claim{i}": text("angle_mort", f"claim{i}")[:-1] + "?", f"verifier{i}": text("angle_mort", f"verifier{i}"),
+                  f"sources{i}": text("angle_mort", f"sources{i}")}
     lectures = {"title": text("lectures", "title"),                 **{f"lecture{i}": f"{names[i - 1]} | {_chars(rng, 60)} | Alors {_chars(rng, 74)}"
                    for i in (1, 2, 3)}}
     return {"axe": axe, "chiffres": chiffres, "recit": recit, "angle_mort": angle, "lectures": lectures,

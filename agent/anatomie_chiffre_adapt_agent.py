@@ -74,11 +74,17 @@ class RecitOption(BaseModel):
 class AngleMortOption(BaseModel):
     title: str
     claim1: str      # card 1 — a blind spot of these figures, as a question ending in « ? »
-    verifier1: str   # how to validate or invalidate the assumption it questions (« Pour vérifier : » is added)
+    verifier1: str   # how to validate or invalidate the assumption it questions (an infinitive sentence)
+    sources1: str    # where to look: organisations and series, named, no URL, no digit
     ouvre1: str      # the two readings it leaves undecided, e.g. « 1,3 » (not drawn)
     claim2: str      # card 2 — another blind spot, as a question
     verifier2: str
+    sources2: str
     ouvre2: str
+    claim3: str      # card 3 — a third blind spot
+    verifier3: str
+    sources3: str
+    ouvre3: str
 
 
 class LecturesOption(BaseModel):
@@ -175,8 +181,9 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("chiffres", "claim"): ("chars", 54), ("chiffres", "note1"): ("chars", 110),
     ("recit", "title"): ("chars", 52),
     ("angle_mort", "title"): ("chars", 40),
-    ("angle_mort", "claim1"): ("chars", 60), ("angle_mort", "claim2"): ("chars", 60),
-    ("angle_mort", "verifier1"): ("chars", 90), ("angle_mort", "verifier2"): ("chars", 90),
+    **{("angle_mort", f"claim{i}"): ("chars", 52) for i in (1, 2, 3)},
+    **{("angle_mort", f"verifier{i}"): ("chars", 76) for i in (1, 2, 3)},
+    **{("angle_mort", f"sources{i}"): ("chars", 56) for i in (1, 2, 3)},
     ("lectures", "title"): ("chars", 40),
     ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 100),
 }
@@ -198,10 +205,11 @@ _KINDS = ("explication", "interpretation", "consequence")
 _REQUIRED = {"axe": ("fait", "lecture1", "lecture2", "lecture3"),
              "chiffres": ("claim", "fig1", "fig2", "fig3"),
              "recit": ("title", "row1", "row2"),
-             "angle_mort": ("title", "claim1", "claim2", "verifier1", "verifier2", "ouvre1", "ouvre2"),
+             "angle_mort": ("title", *(f"{n}{i}" for i in (1, 2, 3) for n in ("claim", "verifier", "sources", "ouvre"))),
              "lectures": ("title", "lecture1", "lecture2", "lecture3")}
 # slides 4 and 5 are outside the article's frame and add no figure (the `ouvre` pair is a reference, not a figure)
-_NO_DIGIT = {"angle_mort": {"title", "claim1", "verifier1", "claim2", "verifier2"},
+_URL = re.compile(r"https?://|www\.", re.I)
+_NO_DIGIT = {"angle_mort": {"title", *(f"{n}{i}" for i in (1, 2, 3) for n in ("claim", "verifier", "sources"))},
              "lectures": {"title", "lecture1", "lecture2", "lecture3"}}
 # a statistical term the reader may not know: `chiffres.note1` must gloss it in plain words
 _JARGON = re.compile(r"\b(médian\w*|écart[- ]type|percentiles?|quantiles?|décile\w*|quartile\w*|corrélation)\b", re.I)
@@ -326,15 +334,15 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                 flags.append("recit: no explanation or interpretation shares a key word with the article's reading "
                              f"(axe reading 3, « {third.get('nom', '')} »)")
     if step == "angle_mort":
-        for name in ("claim1", "claim2"):
-            value = str(fields.get(name, "")).strip()
+        for i in (1, 2, 3):
+            value = str(fields.get(f"claim{i}", "")).strip()
             if value and not value.endswith("?"):
-                hard.append(f"angle_mort.{name} must be a question ending in « ? »")
-        for name in ("verifier1", "verifier2"):
-            if str(fields.get(name, "")).strip().lower().startswith("pour vérifier"):
-                hard.append(f"angle_mort.{name} must not start with « Pour vérifier » — the slide adds it")
+                hard.append(f"angle_mort.claim{i} must be a question ending in « ? »")
+            if _URL.search(str(fields.get(f"sources{i}", ""))):
+                hard.append(f"angle_mort.sources{i} names organisations and series, never a URL")
         pairs = []
-        for name in ("ouvre1", "ouvre2"):
+        for i in (1, 2, 3):
+            name = f"ouvre{i}"
             value = str(fields.get(name, "")).strip()
             if not value:
                 continue
@@ -343,8 +351,8 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                 hard.append(f"angle_mort.{name} must be two different readings numbered 1 to 3, e.g. « 1,3 »")
             else:
                 pairs.append(pair)
-        if len(pairs) == 2 and set(pairs[0]) | set(pairs[1]) != {1, 2, 3}:
-            hard.append("angle_mort: the two « ouvre » pairs must together cover the three readings")
+        if len(pairs) == 3 and set().union(*map(set, pairs)) != {1, 2, 3}:
+            hard.append("angle_mort: the three « ouvre » pairs must together cover the three readings")
     if step == "lectures":
         names = _axe_names(fragments)
         for i in (1, 2, 3):
@@ -406,11 +414,11 @@ def to_fragment(step: Step, option: Option) -> dict:
         return {"recit": {"title": f.get("title", ""), "rows": rows}}
     if step.name == "angle_mort":
         cards = []
-        for i in (1, 2):
+        for i in (1, 2, 3):
             opens = _ouvre(str(f.get(f"ouvre{i}", ""))) or []
-            clue = str(f.get(f"verifier{i}", "")).strip()
-            cards.append({"claim": f.get(f"claim{i}", ""),
-                          "notes": [{"kind": "source", "text": clue}] if clue else [], "opens": opens})
+            notes = [{"kind": "source", "text": str(f.get(f"{n}{i}", "")).strip()} for n in ("verifier", "sources")
+                     if str(f.get(f"{n}{i}", "")).strip()]
+            cards.append({"claim": f.get(f"claim{i}", ""), "notes": notes, "opens": opens})
         return {"angle_mort": {"title": f.get("title", ""), "cards": cards}}
     if step.name == "lectures":
         rows = []

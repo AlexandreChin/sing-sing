@@ -4,7 +4,7 @@ L'analyse du média et le média lui-même sont fournis ci-dessus. Le carrousel 
 1. **L'axe** (aucune slide) — le fait à expliquer et trois lectures concurrentes, la troisième étant celle du média.
 2. **Les chiffres** (slide 2) — les chiffres que le média donne, tels qu'il les donne.
 3. **Le fil logique** (slide 3) — le fait mesuré (le titre), puis ce qu'on en explique, en interprète, en conclut, chacun avec une remarque d'esprit critique.
-4. **Ce que ces chiffres ne comptent pas** (slide 4) — deux angles morts de CES chiffres, chacun posé en question avec une piste pour le vérifier ; chacun laisse ouverte une paire de lectures (non affichée).
+4. **Ce que ces chiffres ne comptent pas** (slide 4) — trois angles morts de CES chiffres, chacun posé en question avec une piste pour le vérifier et des sources ; chacun laisse ouverte une paire de lectures (non affichée).
 5. **Les lectures** (slide 5) — pour chaque lecture, ce qu'on verrait si elle tenait et ce que cela voudrait dire.
 6. **L'accroche** (slide 1) — le titre (le chiffre brut) et la promesse.
 7. **La rédaction** — la légende. (La slide 6, l'appel à commenter, est fixe : tu ne l'écris pas.)

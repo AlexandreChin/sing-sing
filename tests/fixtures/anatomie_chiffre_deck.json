@@ -67,34 +67,60 @@
     ]
   },
   "angle_mort": {
-    "title": "Une explication, pas une preuve",
+    "title": "L'âge, une interprétation parmi d'autres",
     "cards": [
       {
         "claim": "Quelle part vient des actifs, quelle part du reste ?",
         "detail": "",
-        "notes": [
-          {
-            "kind": "source",
-            "text": "la répartition du patrimoine par type d'actif, tranche d'âge par tranche d'âge."
-          }
-        ],
         "opens": [
           1,
           2
+        ],
+        "notes": [
+          {
+            "kind": "source",
+            "text": "Comparer la répartition du patrimoine par type d'actif, âge par âge."
+          },
+          {
+            "kind": "source",
+            "text": "**Réserve fédérale** : enquête sur les finances des ménages"
+          }
         ]
       },
       {
         "claim": "L'âge est-il le seul clivage ?",
         "detail": "",
-        "notes": [
-          {
-            "kind": "source",
-            "text": "les mêmes écarts selon le logement et le revenu, à âge égal."
-          }
-        ],
         "opens": [
           2,
           3
+        ],
+        "notes": [
+          {
+            "kind": "source",
+            "text": "Comparer les mêmes écarts selon le logement et le revenu, à âge égal."
+          },
+          {
+            "kind": "source",
+            "text": "**Réserve fédérale** : patrimoine par groupe de revenu"
+          }
+        ]
+      },
+      {
+        "claim": "Compare-t-on les mêmes ménages dans le temps ?",
+        "detail": "",
+        "opens": [
+          1,
+          3
+        ],
+        "notes": [
+          {
+            "kind": "source",
+            "text": "Suivre les mêmes ménages dans le temps plutôt que des groupes d'âge."
+          },
+          {
+            "kind": "source",
+            "text": "**Réserve fédérale** : comptes de patrimoine par génération"
+          }
         ]
       }
     ]
