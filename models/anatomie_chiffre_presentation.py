@@ -1,9 +1,8 @@
 """Models for the ANATOMIE D'UN CHIFFRE carousel (6 slides).
 
-The archetype for a statistic, a poll, a ranking: how the figure was measured
-(the black box, what it establishes and how it decomposes), what that measure
-leaves out, and the question the figure is a symptom of. Separate from the
-format-agnostic ArticleFullAnalysis.
+The archetype for a statistic, a poll, a ranking: the figures the article gives,
+the story it builds on them, what those figures cannot decide, and the readings
+that would decide it. Separate from the format-agnostic ArticleFullAnalysis.
 """
 from __future__ import annotations
 from typing import Literal
@@ -12,7 +11,7 @@ from pydantic import BaseModel, Field
 
 class AnatomieHook(BaseModel):
     title: str    # slide 1 — the raw figure in « », ≤64 characters
-    promise: str  # slide 1 — « <subject> : comment il se mesure, et la question qu'il pose » (« En juger soi-même. » is added by the template)
+    promise: str  # slide 1 — « <sujet> : ce que le chiffre dit, et ce qu'on en conclut » (« En juger soi-même. » is added by the template)
 
 
 class AnatomieNote(BaseModel):
@@ -22,66 +21,74 @@ class AnatomieNote(BaseModel):
 
 
 class AnatomieFigure(BaseModel):
-    value: str         # « 15 fois », « non précisé »
+    value: str         # « 505.000 $ », « × 15 »
     label: str
     compare: str = ""  # the term of comparison, when the source gives one
 
 
-class AnatomieBoiteNoire(BaseModel):  # slide 2 — how the figure was measured
-    figures: list[AnatomieFigure] = Field(default_factory=list)  # 2 to 4
-    source_card: AnatomieFigure | None = None   # the primary source and the chain (« Fed → WSJ → BFM »)
-    claim: str = ""
-    detail: str = ""
+class AnatomieReading(BaseModel):
+    nom: str       # the reading's short name, shown on slides 4 and 5
+    formule: str   # the reading in one neutral sentence
 
 
-class AnatomiePart(BaseModel):
-    value: str
-    label: str
+class AnatomieAxe(BaseModel):
+    """The fact to explain and the three competing readings, fixed before any slide is
+    written. No slide shows it as such. The third reading is the article's own."""
+    fait: str
+    readings: list[AnatomieReading] = Field(default_factory=list)   # 3
 
 
-class AnatomieEclairage(BaseModel):  # slide 3 — what the figure establishes, and how it decomposes
+class AnatomieChiffres(BaseModel):  # slide 2 — the figures the article gives
     claim: str
     detail: str = ""
-    part1: AnatomiePart | None = None   # the first quantity (numerator, starting point), as the source gives it
-    part2: AnatomiePart | None = None   # the second one (denominator, end point)
-    ratio: AnatomiePart | None = None   # the ratio between them
+    figures: list[AnatomieFigure] = Field(default_factory=list)     # 3 to 4
     note: AnatomieNote | None = None
 
 
-class AnatomieLimite(BaseModel):
+class AnatomieRecitRow(BaseModel):
+    kind: Literal["donnee", "explication", "interpretation", "prevision"]
+    text: str
+    basis: str = ""    # who says it, measured or not
+
+
+class AnatomieRecit(BaseModel):  # slide 3 — from the figure to the story
+    title: str
+    rows: list[AnatomieRecitRow] = Field(default_factory=list)      # 3 to 4, the first a donnee
+
+
+class AnatomieAngleMortCard(BaseModel):
     claim: str
     detail: str = ""
-    notes: list[AnatomieNote] = Field(default_factory=list)  # series or organisations to consult
+    notes: list[AnatomieNote] = Field(default_factory=list)
+    opens: list[int] = Field(default_factory=list)   # the two readings (1-based) this blind spot leaves undecided
 
 
-class AnatomiePerimetre(BaseModel):  # slide 4 — what the measure cannot capture; no figure added
+class AnatomieAngleMort(BaseModel):  # slide 4 — what these figures do not count
     title: str
-    statistique: AnatomieLimite   # what a mean or a median hides
-    periode: AnatomieLimite       # the dates, the starting point, a date against a generation followed
+    cards: list[AnatomieAngleMortCard] = Field(default_factory=list)  # 2
 
 
-class AnatomieVariable(BaseModel):
-    """The question behind the figure, fixed before any slide is written. Slide 5 shows it
-    (facts left, question right, the variable as a two-pole bar); slides 2–4 are written toward it."""
-    title: str            # « A ou B », in neutral words of equal weight
-    variable: str         # the one variable the figure approaches
-    pole_a: str
-    pole_b: str
-    proxy: str            # why the figure stands for the variable — our reading, named as such
-    question: str         # the open question, neither binary nor normative — the CTA opens it
-    facts: list[str] = Field(default_factory=list)   # what the source states (2–3), to join
-    implication: str = ""  # what a move of the variable would imply, as a consequence to examine
-    looks: list[AnatomieNote] = Field(default_factory=list)  # where to look at the variable directly
+class AnatomieLectureRow(BaseModel):
+    nom: str    # equals the axe's reading name
+    voir: str   # what we would see if this reading held
+    ou: str     # where to look
+
+
+class AnatomieLectures(BaseModel):  # slide 5 — what would separate the readings
+    title: str
+    lead: str = ""
+    rows: list[AnatomieLectureRow] = Field(default_factory=list)    # 3
 
 
 class AnatomieChiffrePresentation(BaseModel):
     # The post's own copy, not slide content: the Instagram caption.
     caption: str = ""
-    variable: AnatomieVariable | None = None   # slide 5; fixed context of the earlier steps
+    axe: AnatomieAxe | None = None   # not rendered as such: what every slide is written toward
     hook: AnatomieHook
-    boite_noire: AnatomieBoiteNoire
-    eclairage: AnatomieEclairage
-    perimetre: AnatomiePerimetre
+    chiffres: AnatomieChiffres
+    recit: AnatomieRecit
+    angle_mort: AnatomieAngleMort
+    lectures: AnatomieLectures
 
 
 class AnatomieChiffreDocument(BaseModel):

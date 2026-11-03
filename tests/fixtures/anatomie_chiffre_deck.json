@@ -1,57 +1,57 @@
 {
-  "caption": "Les Américains de plus de 75 ans seraient 15 fois plus riches que les moins de 35 ans, selon l'enquête triennale de la Fed relayée par le Wall Street Journal puis BFM Business. Avant de retenir le chiffre, trois questions. Comment est-il mesuré : des ménages, un patrimoine médian, des groupes définis différemment ? Que laisse-t-il de côté : les dettes, la dispersion dans chaque âge, la période observée ? Et de quelle question est-il le symptôme : le patrimoine à 35 ans dépend-il du moment où l'on entre sur les marchés, ou de ce que l'on gagne et épargne ? La source énonce des faits, la question est notre lecture. Et vous, de quoi dépend, selon vous, le patrimoine qu'on a à 35 ans ?\n\n#espritcritique #statistiques #patrimoine #lectureactive",
-  "variable": {
-    "title": "Date d'entrée sur les marchés ou capacité d'épargne",
-    "variable": "ce qui détermine le patrimoine qu'on a à 35 ans",
-    "pole_a": "Le moment où l'on entre sur les marchés",
-    "pole_b": "Ce que l'on gagne et épargne",
-    "proxy": "L'écart entre âges reflète aussi l'écart de moment d'entrée sur les marchés : c'est notre lecture, pas celle de la source.",
-    "question": "De quoi dépend, selon vous, le patrimoine qu'on a à 35 ans ?",
-    "facts": [
-      "Les plus âgés ont un portefeuille constitué de longue date, et de l'immobilier.",
-      "La part des moins de 35 ans propriétaires a reculé entre 2022 et 2025.",
-      "Un économiste cité parle d'une économie « en G », pour « générationnelle »."
-    ],
-    "implication": "Si le moment d'entrée pèse plus que le revenu, l'écart se reproduirait à chaque cycle d'actifs.",
-    "looks": [
-      {"kind": "source", "text": "**Fed** : Survey of Consumer Finances, patrimoine par classe d'âge"},
-      {"kind": "source", "text": "**Census Bureau** : taux de propriétaires par âge du chef de ménage"}
+  "caption": "Les Américains de plus de 75 ans seraient 15 fois plus fortunés que les moins de 35 ans, selon l'enquête triennale de la Fed relayée par BFM Business. Que dit le chiffre, et que raconte l'article ? Les médianes sont mesurées ; le reste, une économie « en G », des gains venus des actifs, une concentration à venir, est avancé par des économistes. Ce que ces chiffres ne comptent pas : l'écart à l'intérieur de chaque groupe, un même groupe suivi dans le temps, ce qui vient du travail et ce qui vient des actifs. Trois lectures restent donc possibles : un effet d'âge, un cycle d'actifs, une fracture de génération. Quelle lecture les séries que vous trouverez soutiennent-elles ?\n\n#espritcritique #patrimoine #statistiques #lectureactive",
+  "axe": {
+    "fait": "pourquoi le rapport de patrimoine entre les plus âgés et les plus jeunes est passé de 9 à 15",
+    "readings": [
+      {"nom": "Un effet d'âge", "formule": "Les plus âgés ont eu plus de temps pour accumuler."},
+      {"nom": "Un cycle d'actifs", "formule": "Trois ans de marchés hauts séparent ceux qui détiennent des actifs des autres."},
+      {"nom": "Une fracture de génération", "formule": "Un écart durable entre des générations qui n'ont pas eu les mêmes conditions."}
     ]
   },
   "hook": {
-    "title": "« 15 fois plus riches que les jeunes générations »",
-    "promise": "Un écart de patrimoine entre générations : comment il se mesure, et la question qu'il pose"
+    "title": "« Les plus de 75 ans, 15 fois plus fortunés que les jeunes »",
+    "promise": "Un écart de richesse entre générations : ce que le chiffre dit, et ce qu'on en conclut"
   },
-  "boite_noire": {
+  "chiffres": {
+    "claim": "Un écart qui s'est creusé en trois ans",
+    "detail": "Patrimoine net médian des ménages américains, selon l'enquête de la Fed.",
     "figures": [
-      {"value": "2022-2025", "label": "période observée", "compare": "enquête tous les trois ans"},
-      {"value": "215.900 $", "label": "patrimoine net médian, 2025", "compare": "la moitié a plus"},
-      {"value": "?", "label": "taille de l'échantillon", "compare": "non précisé"},
-      {"value": "ménages", "label": "unité mesurée", "compare": "titre : « Américains »"}
+      {"value": "505.000 $", "label": "plus de 75 ans", "compare": "+37 % depuis 2022"},
+      {"value": "33.000 $", "label": "moins de 35 ans", "compare": "−23 % depuis 2022"},
+      {"value": "× 15", "label": "rapport entre les deux", "compare": "× 9 en 2022"},
+      {"value": "215.900 $", "label": "tous âges, 2025", "compare": "+2 % depuis 2022"}
     ],
-    "source_card": {"value": "Fed → WSJ → BFM", "label": "source primaire citée ?", "compare": "la Fed est nommée, sans lien vers l'enquête"},
-    "claim": "Un patrimoine médian de ménages, pas de personnes",
-    "detail": "Jeunes : personne de référence de moins de 35 ans. Âgés : au moins un membre de plus de 75 ans. Deux définitions."
+    "note": {"kind": "source", "text": "**Fed** : enquête triennale, relayée par le WSJ puis BFM"}
   },
-  "eclairage": {
-    "claim": "Le rapport entre les deux groupes est passé de 9 à 15",
-    "detail": "Il bouge avec chaque terme : les plus jeunes perdent 23 % après +140 % entre 2019 et 2022, un départ exceptionnel.",
-    "part1": {"value": "505.000 $", "label": "plus de 75 ans"},
-    "part2": {"value": "33.000 $", "label": "moins de 35 ans"},
-    "ratio": {"value": "× 15", "label": "contre × 9 en 2022"},
-    "note": {"kind": "remark", "text": "Dans le même sens, selon la source : propriétaires +6 %, locataires -7 %."}
+  "recit": {
+    "title": "Du chiffre mesuré au récit",
+    "rows": [
+      {"kind": "donnee", "text": "Patrimoine médian : +37 % pour les plus de 75 ans, −23 % pour les moins de 35 ans.", "basis": "mesuré par la Fed"},
+      {"kind": "explication", "text": "« Leurs gains patrimoniaux proviennent de l'appréciation de leurs actifs. »", "basis": "un économiste cité, non mesuré ici"},
+      {"kind": "interpretation", "text": "Une économie « en G », « bien plus liée à l'âge » que l'économie « en K ».", "basis": "cadrage d'un économiste"},
+      {"kind": "prevision", "text": "« Une concentration croissante des richesses chez les plus âgés. »", "basis": "avis d'un professeur, sans donnée"}
+    ]
   },
-  "perimetre": {
-    "title": "Ce que cette mesure ne montre pas",
-    "statistique": {
-      "claim": "Une médiane ne dit ni les dettes ni la dispersion",
-      "detail": "Elle ignore les prêts étudiants, la liquidité et les écarts à l'intérieur d'un même âge.",
-      "notes": [{"kind": "source", "text": "**Fed** : Survey of Consumer Finances, moyenne et distribution du patrimoine"}]
-    },
-    "periode": {
-      "claim": "Le patrimoine de deux groupes, comparé à une même date",
-      "detail": "Cela ne suit pas une génération ; le point de départ des plus jeunes était élevé.",
-      "notes": [{"kind": "source", "text": "**Fed** : séries du patrimoine par génération, sur plusieurs enquêtes"}]
-    }
+  "angle_mort": {
+    "title": "Un écart mesuré, pas expliqué",
+    "cards": [
+      {"claim": "Une photo à une date, pas un parcours",
+       "detail": "Deux groupes comparés au même moment : rien ne dit si l'écart tient à l'âge ou à la génération.",
+       "notes": [{"kind": "source", "text": "**Fed** : Survey of Consumer Finances, patrimoine par âge"}],
+       "opens": [1, 3]},
+      {"claim": "Trois ans, après une hausse exceptionnelle",
+       "detail": "Le rapport a bougé vite : rien ne dit s'il suit les marchés ou s'il dure.",
+       "notes": [{"kind": "source", "text": "**Fed** : Distributional Financial Accounts, patrimoine par génération"}],
+       "opens": [2, 3]}
+    ]
+  },
+  "lectures": {
+    "title": "Pourquoi l'écart s'est-il creusé ?",
+    "lead": "Les chiffres ne départagent pas ces trois lectures. Voici ce qu'on verrait dans chaque cas.",
+    "rows": [
+      {"nom": "Un effet d'âge", "voir": "Chaque génération s'enrichit en vieillissant.", "ou": "Fed, patrimoine par âge, enquête après enquête"},
+      {"nom": "Un cycle d'actifs", "voir": "L'écart se réduit quand marchés et immobilier reculent.", "ou": "Fed, patrimoine par génération, avec l'indice boursier"},
+      {"nom": "Une fracture de génération", "voir": "L'écart persiste à travers plusieurs cycles.", "ou": "Fed, patrimoine par génération, sur plusieurs enquêtes"}
+    ]
   }
 }
