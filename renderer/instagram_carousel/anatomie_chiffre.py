@@ -15,6 +15,9 @@ from ._shared import (
 TPL = "article_carousel_anatomie_chiffre_v1"
 OPT = "article_carousel_optimized_v0"
 _HYPHEN = re.compile(r"(?<=\w)-(?=\w)")
+# a number stays with its unit (« +37 % », « 505.000 $ », « 75 ans »), and « × » with its number:
+# the shared French spacing does not cover them, and a line must not end on « 75 » or « + 37 »
+_UNIT = re.compile(r"(?<=\d) (?=%|\$|ans\b|fois\b)|(?<=×) (?=\d)")
 
 
 CTA_COMMENT = "quelle lecture les séries que vous trouverez soutiennent-elles ?"
@@ -22,10 +25,11 @@ CTA_COMMENT = "quelle lecture les séries que vous trouverez soutiennent-elles ?
 
 def _nobreak(value):
     """A hyphen inside a word is no line-break opportunity (« aide-t-il » must not
-    end a line on « aide- »): word joiners on both sides, invisible and zero-width.
+    end a line on « aide- »): word joiners on both sides, invisible and zero-width;
+    a number is bound to its unit the same way.
     Applied to every string of a slide's context, however nested."""
     if isinstance(value, str):
-        return _HYPHEN.sub("⁠-⁠", value)
+        return _UNIT.sub("\u00a0", _HYPHEN.sub("⁠-⁠", value))
     if isinstance(value, list):
         return [_nobreak(v) for v in value]
     if isinstance(value, dict):

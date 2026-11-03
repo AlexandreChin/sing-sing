@@ -393,7 +393,7 @@ def test_six_slides_are_rendered(tmp_path):
     doc = extract(full(), AnatomieChiffrePresentation.model_validate(DECK))
     paths = renderer.generate_html(doc, tmp_path / "html")
     assert [p.stem for p in paths] == ["01_hook", "02_chiffres", "03_recit", "04_angle_mort", "05_lectures", "06_cta"]
-    texts = {p.stem: html.unescape(p.read_text(encoding="utf-8")) for p in paths}
+    texts = {p.stem: html.unescape(p.read_text(encoding="utf-8")).replace("\u00a0", " ") for p in paths}
     assert "ce que le chiffre dit" in texts["01_hook"]
     assert "505.000 $" in texts["02_chiffres"] and "× 15" in texts["02_chiffres"]
     for label in ("Donnée", "Explication", "Interprétation", "Prévision"):
@@ -502,3 +502,11 @@ def test_every_field_at_its_cap_fits_on_the_slide(tmp_path, seed):
         assert m["page"] <= 1080, (slide, "horizontal overflow", m["page"])
         assert m["cut"] == [], (slide, "a nowrap value is cut", m["cut"])
         assert m["bottom"] <= 1255, (slide, m["bottom"])
+
+
+def test_a_number_never_parts_from_its_unit():
+    nb = " "
+    assert renderer._nobreak("+37 % depuis 2022, 505.000 $, 75 ans, 15 fois, × 15") == \
+        f"+37{nb}% depuis 2022, 505.000{nb}$, 75{nb}ans, 15{nb}fois, ×{nb}15"
+    assert renderer._nobreak("trois ans de marchés") == "trois ans de marchés"      # no digit, no binding
+    assert renderer._nobreak({"a": ["35 ans"]}) == {"a": [f"35{nb}ans"]}
