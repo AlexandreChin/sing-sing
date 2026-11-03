@@ -26,13 +26,13 @@
     "promise": "Un écart de richesse entre générations : ce que le chiffre dit, et ce qu'on en conclut"
   },
   "chiffres": {
-    "claim": "Un écart qui s'est creusé en trois ans",
+    "claim": "Le patrimoine des Américains selon l'âge, 2022-2025",
     "detail": "",
     "figures": [
       {
-        "value": "× 15",
+        "value": "9 → 15",
         "label": "Les plus de 75 ans ont 15 fois le patrimoine des moins de 35 ans",
-        "compare": "Ménage « médian » de chaque groupe · × 9 en 2022"
+        "compare": "Contre 9 fois en 2022 · ménage « médian » par groupe"
       },
       {
         "value": "505.000 $",
@@ -43,6 +43,11 @@
         "value": "33.000 $",
         "label": "Patrimoine médian, moins de 35 ans",
         "compare": "−23 % depuis 2022"
+      },
+      {
+        "value": "215.900 $",
+        "label": "Patrimoine médian, tous âges",
+        "compare": "+2 % depuis 2022"
       }
     ],
     "note": {
@@ -51,7 +56,7 @@
     }
   },
   "recit": {
-    "title": "Le rapport entre les patrimoines est passé de 9 à 15",
+    "title": "Le rapport des patrimoines est passé de 9 à 15",
     "rows": [
       {
         "kind": "explication",

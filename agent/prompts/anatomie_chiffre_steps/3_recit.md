@@ -1,7 +1,7 @@
 ÉTAPE 3 — LE FIL LOGIQUE (slide 3)
 
 Les étapes 1 (axe) et 2 (chiffres) sont FIXÉES. La slide suit le fil du média : le titre énonce le fait mesuré, puis 2 ou 3 cartes disent ce que le média en tire (explication → interprétation → conséquence), chacune avec une remarque d'esprit critique. Tu proposes 3 ou 4 options (`title`, `row1` à `row3`). Tout reste dans le cadre du média.
-- `title` (≤52 caractères) : le fait mesuré, en une phrase simple qui décrit le chiffre clé de la slide 2, sans cause ni verdict (« Le rapport entre les patrimoines est passé de 9 à 15 »). Les chiffres sont ceux du média.
+- `title` (≤46 caractères) : le fait mesuré, en une phrase simple qui décrit le chiffre clé de la slide 2, sans cause ni verdict (« Le rapport des patrimoines est passé de 9 à 15 »). Les chiffres sont ceux du média.
 - `row1` à `row3` : `type | texte | remarque`.
   - `explication` — la cause que le média ou un intervenant avance pour ces chiffres.
   - `interpretation` — un cadrage, une étiquette, une façon de nommer le phénomène.

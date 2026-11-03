@@ -58,9 +58,10 @@ class AxeOption(BaseModel):
 
 class ChiffresOption(BaseModel):
     claim: str
-    fig1: str        # « valeur | libellé | comparaison » — the key figure, drawn big: its label is a plain sentence
+    fig1: str        # « valeur | libellé | comparaison » — the key figure, drawn big (« 9 → 15 »): its label is a plain sentence
     fig2: str
     fig3: str
+    fig4: str        # optional reference figure (the overall figure), drawn small; empty when none
     note1: str       # « remarque | texte » glossing the statistical term, or « source | texte »
 
 
@@ -180,7 +181,7 @@ def base_inputs(full: ArticleFullAnalysis, article_text: str | None) -> str:
 _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("axe", "fait"): ("words", 20),
     ("chiffres", "claim"): ("chars", 54), ("chiffres", "note1"): ("chars", 110),
-    ("recit", "title"): ("chars", 52),
+    ("recit", "title"): ("chars", 46),
     ("angle_mort", "title"): ("chars", 40),
     **{("angle_mort", f"claim{i}"): ("chars", 50) for i in (1, 2, 3, 4)},
     **{("angle_mort", f"verifier{i}"): ("chars", 72) for i in (1, 2, 3, 4)},
@@ -191,9 +192,9 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
 _PART_CAPS: dict[tuple[str, str], tuple[tuple[str, int], ...]] = {
     **{("axe", name): (("name", 28), ("formula", 90)) for name in ("article", "lecture1", "lecture2", "lecture3")},
     # fig1 is the key figure, drawn big and alone on its line: a plain sentence, its comparison glosses the term
-    ("chiffres", "fig1"): (("value", 9), ("label", 64), ("comparison", 52)),
-    **{("chiffres", f"fig{i}"): (("value", 9), ("label", 34), ("comparison", 26)) for i in (2, 3)},
-    **{("recit", f"row{i}"): (("type", 16), ("text", 84), ("remark", 80)) for i in (1, 2, 3)},
+    ("chiffres", "fig1"): (("value", 9), ("label", 64), ("comparison", 54)),
+    **{("chiffres", f"fig{i}"): (("value", 9), ("label", 34), ("comparison", 26)) for i in (2, 3, 4)},
+    **{("recit", f"row{i}"): (("type", 16), ("text", 80), ("remark", 76)) for i in (1, 2, 3)},
     **{("lectures", f"lecture{i}"): (("name", 28), ("hypothesis", 70), ("number to follow", 90)) for i in (1, 2, 3)},
 }
 _ACCUSING = re.compile(r"\b(biais|manipulation|manipul\w+|mensonges?|trompeu\w+|fallacieu\w+|sophismes?)\b", re.I)
@@ -287,7 +288,7 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
         if len({_norm(n) for n in names if n}) < len([n for n in names if n]):
             hard.append("axe: two readings share a name — the article's reading and the three alternatives must differ")
     if step == "chiffres":
-        for name in ("fig1", "fig2", "fig3"):
+        for name in ("fig1", "fig2", "fig3", "fig4"):
             value = str(fields.get(name, "")).strip()
             if not value:
                 continue
@@ -301,7 +302,7 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
         value = str(fields.get("note1", "")).strip()
         if value and _bad_note(value):
             hard.append("chiffres.note1 must read « source | texte » or « remarque | texte »")
-        if (term := next((m.group(0).lower() for n in ("fig1", "fig2", "fig3")
+        if (term := next((m.group(0).lower() for n in ("fig1", "fig2", "fig3", "fig4")
                           if (m := _JARGON.search(str(fields.get(n, "")))) ), None)) \
                 and term[:5] not in _parts(str(fields.get("note1", "")), 2)[1].lower():
             flags.append(f"chiffres: « {term} » is a statistical term — gloss it in plain words in note1 (« remarque | … »)")
@@ -400,7 +401,7 @@ def to_fragment(step: Step, option: Option) -> dict:
         return {"axe": {"fait": f.get("fait", ""), "article": {"nom": nom, "formule": formule}, "readings": readings}}
     if step.name == "chiffres":
         figures = []
-        for n in ("fig1", "fig2", "fig3"):
+        for n in ("fig1", "fig2", "fig3", "fig4"):
             if str(f.get(n, "")).strip():
                 value, label, compare = _parts(f[n], 3)
                 figures.append({"value": value, "label": label, "compare": compare})

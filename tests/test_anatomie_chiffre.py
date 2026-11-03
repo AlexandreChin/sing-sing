@@ -17,7 +17,7 @@ DECK = json.loads(Path("tests/fixtures/anatomie_chiffre_deck.json").read_text(en
 
 def test_the_deck_validates():
     pres = AnatomieChiffrePresentation.model_validate(DECK)
-    assert [f.value for f in pres.chiffres.figures] == ["× 15", "505.000 $", "33.000 $"]
+    assert [f.value for f in pres.chiffres.figures] == ["9 → 15", "505.000 $", "33.000 $", "215.900 $"]
     assert [r.kind for r in pres.recit.rows] == ["explication", "interpretation", "consequence"]
     assert len(pres.axe.readings) == 3
     assert pres.angle_mort.cards[0].opens == [1, 3]
@@ -62,7 +62,7 @@ def option_fields(deck: dict) -> dict[str, dict]:
     return {
         "axe": {"fait": ax["fait"], "article": f"{ax['article']['nom']} | {ax['article']['formule']}", **{f"lecture{i}": f"{x['nom']} | {x['formule']}" for i, x in enumerate(ax["readings"], 1)}},
         "chiffres": {"claim": c["claim"],
-                     **dict(zip(("fig1", "fig2", "fig3"), pad([_fig(f) for f in c["figures"]], 3))),
+                     **dict(zip(("fig1", "fig2", "fig3", "fig4"), pad([_fig(f) for f in c["figures"]], 4))),
                      "note1": _note(c["note"]) if c["note"] else ""},
         "recit": {"title": r["title"],
                   **dict(zip(("row1", "row2", "row3"),
@@ -101,7 +101,7 @@ def test_the_fragments_rebuild_the_deck():
 
 def test_empty_figures_rows_and_notes_are_left_out():
     f = agent.to_fragment(agent.STEP_BY_NAME["chiffres"],
-                          Option(id="a", slot="a", reason="", fields={**FIELDS["chiffres"], "note1": ""}))
+                          Option(id="a", slot="a", reason="", fields={**FIELDS["chiffres"], "fig4": "", "note1": ""}))
     assert len(f["chiffres"]["figures"]) == 3 and f["chiffres"]["note"] is None
     f = agent.to_fragment(agent.STEP_BY_NAME["recit"],
                           Option(id="a", slot="a", reason="", fields={**FIELDS["recit"], "row3": ""}))
@@ -399,7 +399,7 @@ def test_six_slides_are_rendered(tmp_path):
     assert [p.stem for p in paths] == ["01_hook", "02_chiffres", "03_recit", "04_angle_mort", "05_lectures", "06_cta"]
     texts = {p.stem: html.unescape(p.read_text(encoding="utf-8")).replace("\u00a0", " ") for p in paths}
     assert "ce que le chiffre dit" in texts["01_hook"]
-    assert "505.000 $" in texts["02_chiffres"] and "× 15" in texts["02_chiffres"]
+    assert "505.000 $" in texts["02_chiffres"] and "9 → 15" in texts["02_chiffres"] and "215.900 $" in texts["02_chiffres"]
     assert "Le fil logique" in texts["03_recit"]
     for label in ("Explication", "Interprétation", "Conséquence"):
         assert label in texts["03_recit"], label
@@ -452,7 +452,7 @@ def worst_case_fields(seed: int = 0) -> dict[str, dict]:
     axe = {"fait": text("axe", "fait"), "article": "Axxxxxxxxxxxxxxxxxxxxxxxxxxx | " + _chars(rng, 90)} | {
         f"lecture{i}": f"{names[i - 1]} | " + _chars(rng, 90) for i in (1, 2, 3)}
     chiffres = {"claim": text("chiffres", "claim"),
-                **{f"fig{i}": parts("chiffres", f"fig{i}", "WWWWWWWWW") for i in (1, 2, 3)},
+                **{f"fig{i}": parts("chiffres", f"fig{i}", "WWWWWWWWW") for i in (1, 2, 3, 4)},
                 "note1": note("chiffres", "note1")}
     recit = {"title": text("recit", "title"), "row1": parts("recit", "row1", "explication"),
              "row2": parts("recit", "row2", "interpretation"), "row3": parts("recit", "row3", "consequence")}
