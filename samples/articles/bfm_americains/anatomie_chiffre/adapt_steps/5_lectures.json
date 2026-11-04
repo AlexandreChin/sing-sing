@@ -7,9 +7,10 @@
       "reason": "Chaque observation porte sur un point différent : composition des groupes, conjoncture, comparaison à âge égal. C'est ce qui départage le mieux les trois lectures.",
       "fields": {
         "title": "Génération, ou autre chose ?",
-        "lecture1": "Une fracture de patrimoine | L'écart suit la détention d'actifs, quel que soit l'âge. | **L'écart propriétaires-locataires** à âge égal, validé s'il égale celui entre âges.",
-        "lecture2": "Un retour à la normale | Les jeunes revenaient d'un sommet : le point de départ était flatteur. | **Le rapport** sur une période plus longue, validé si la hausse s'atténue.",
-        "lecture3": "Un cycle de marché | Le gain suit les marchés et peut s'inverser avec eux. | **Le rapport** comparé aux indices de Bourse, validé s'il baisse quand ils baissent."
+        "lecture1": "Plus riches, plus pauvres | Les plus riches s'enrichissent, les plus pauvres s'appauvrissent. | **L'écart haut-bas** à âge égal : il grandirait aussi chez les jeunes.",
+        "lecture2": "Un retour à la normale | Les jeunes revenaient d'un sommet : le point de départ était flatteur. | **Le rapport** sur plus longtemps : il retomberait vers son niveau d'avant.",
+        "lecture3": "Un cycle de marché | Le gain suit les marchés et peut s'inverser avec eux. | **Le rapport** comparé à la Bourse : il suivrait ses hausses et ses baisses.",
+        "lead": "Autres interprétations possibles, et ce qui les soutiendrait."
       },
       "edited": true,
       "flags": []
@@ -51,21 +52,22 @@
   "fragment": {
     "lectures": {
       "title": "Génération, ou autre chose ?",
+      "lead": "Autres interprétations possibles, et ce qui les soutiendrait.",
       "rows": [
         {
-          "nom": "Une fracture de patrimoine",
-          "voir": "L'écart suit la détention d'actifs, quel que soit l'âge.",
-          "sens": "**L'écart propriétaires-locataires** à âge égal, validé s'il égale celui entre âges."
+          "nom": "Plus riches, plus pauvres",
+          "voir": "Les plus riches s'enrichissent, les plus pauvres s'appauvrissent.",
+          "sens": "**L'écart haut-bas** à âge égal : il grandirait aussi chez les jeunes."
         },
         {
           "nom": "Un retour à la normale",
           "voir": "Les jeunes revenaient d'un sommet : le point de départ était flatteur.",
-          "sens": "**Le rapport** sur une période plus longue, validé si la hausse s'atténue."
+          "sens": "**Le rapport** sur plus longtemps : il retomberait vers son niveau d'avant."
         },
         {
           "nom": "Un cycle de marché",
           "voir": "Le gain suit les marchés et peut s'inverser avec eux.",
-          "sens": "**Le rapport** comparé aux indices de Bourse, validé s'il baisse quand ils baissent."
+          "sens": "**Le rapport** comparé à la Bourse : il suivrait ses hausses et ses baisses."
         }
       ]
     }

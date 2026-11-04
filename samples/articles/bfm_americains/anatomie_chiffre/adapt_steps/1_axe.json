@@ -7,7 +7,7 @@
       "reason": "Le média chiffre ce passage de 9 à 15 fois (2022 à 2025). Il parle d'une « nouvelle fracture générationnelle » et d'une économie « en G », d'où la lecture 3. Les chiffres montrent directement ce mouvement.",
       "fields": {
         "fait": "pourquoi le rapport de patrimoine entre les plus âgés et les plus jeunes est passé de 9 à 15",
-        "lecture1": "Une fracture de patrimoine | L'écart suit la détention d'actifs, pas l'âge.",
+        "lecture1": "Plus riches, plus pauvres | Les plus riches s'enrichissent, les plus pauvres s'appauvrissent, à tout âge.",
         "lecture2": "Un retour à la normale | Le point de départ de 2022 était flatteur pour les jeunes.",
         "lecture3": "Un cycle de marché | Le gain suit les marchés et peut s'inverser avec eux.",
         "article": "Une fracture de génération | Un écart qui se creuse entre des générations aux conditions différentes."
@@ -58,8 +58,8 @@
       },
       "readings": [
         {
-          "nom": "Une fracture de patrimoine",
-          "formule": "L'écart suit la détention d'actifs, pas l'âge."
+          "nom": "Plus riches, plus pauvres",
+          "formule": "Les plus riches s'enrichissent, les plus pauvres s'appauvrissent, à tout âge."
         },
         {
           "nom": "Un retour à la normale",

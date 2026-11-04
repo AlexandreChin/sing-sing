@@ -7,10 +7,10 @@
       "reason": "Le cœur du chiffre : le ratio, ses deux termes et leur évolution entre 2022 et 2025, sans rien d'autre.",
       "fields": {
         "claim": "Le patrimoine des Américains selon l'âge, 2022-2025",
-        "fig1": "9 → 15 | Les plus de 75 ans ont 15 fois le patrimoine des moins de 35 ans | Contre 9 fois en 2022 · ménage « médian » par groupe",
+        "fig1": "9x → 15x | Les plus de 75 ans ont 15 fois le patrimoine des moins de 35 ans | Contre 9 fois en 2022 · ménage « médian » par groupe",
         "fig2": "505.000 $ | Patrimoine médian, plus de 75 ans | +37 % depuis 2022",
         "fig3": "33.000 $ | Patrimoine médian, moins de 35 ans | −23 % depuis 2022",
-        "note1": "remarque | Médian : autant de ménages du groupe possèdent moins que ce montant, qu'en possèdent plus.",
+        "note1": "remarque | Médian : on classe les ménages du moins au plus riche ; c'est le patrimoine de celui du milieu.",
         "fig4": "215.900 $ | Patrimoine médian, tous âges | +2 % depuis 2022"
       },
       "edited": true,
@@ -71,7 +71,7 @@
       "claim": "Le patrimoine des Américains selon l'âge, 2022-2025",
       "figures": [
         {
-          "value": "9 → 15",
+          "value": "9x → 15x",
           "label": "Les plus de 75 ans ont 15 fois le patrimoine des moins de 35 ans",
           "compare": "Contre 9 fois en 2022 · ménage « médian » par groupe"
         },
@@ -93,7 +93,7 @@
       ],
       "note": {
         "kind": "remark",
-        "text": "Médian : autant de ménages du groupe possèdent moins que ce montant, qu'en possèdent plus."
+        "text": "Médian : on classe les ménages du moins au plus riche ; c'est le patrimoine de celui du milieu."
       }
     }
   },

@@ -1,5 +1,5 @@
 {
-  "caption": "Les Américains de plus de 75 ans seraient 15 fois plus fortunés que les moins de 35 ans, selon l'enquête triennale de la Fed relayée par BFM Business. Que dit le chiffre, et que raconte l'article ? Les médianes sont mesurées ; le reste, une économie « en G », des gains venus des actifs, une concentration à venir, est avancé par des économistes. Ce que ces chiffres ne comptent pas : la part des actifs et celle du reste, l'âge comme seul clivage, les mêmes ménages suivis dans le temps, l'écart à l'intérieur de chaque groupe. Trois lectures restent donc possibles : une fracture de patrimoine, un retour à la normale, un cycle de marché. Quelle lecture les séries que vous trouverez soutiennent-elles ?\n\n#espritcritique #patrimoine #statistiques #lectureactive",
+  "caption": "Aux États-Unis, les plus de 75 ans seraient 15 fois plus fortunés que les moins de 35 ans (9 fois en 2022, selon la Fed). BFM Business l'attribue aux actifs. D'autres lectures existent : riches contre pauvres, retour à la normale, cycle de marché.",
   "axe": {
     "fait": "pourquoi le rapport de patrimoine entre les plus âgés et les plus jeunes est passé de 9 à 15",
     "article": {
@@ -8,8 +8,8 @@
     },
     "readings": [
       {
-        "nom": "Une fracture de patrimoine",
-        "formule": "L'écart suit la détention d'actifs, pas l'âge."
+        "nom": "Plus riches, plus pauvres",
+        "formule": "Les plus riches s'enrichissent, les plus pauvres s'appauvrissent, à tout âge."
       },
       {
         "nom": "Un retour à la normale",
@@ -22,15 +22,15 @@
     ]
   },
   "hook": {
-    "title": "« Les plus de 75 ans, **15 fois** plus fortunés que les jeunes »",
-    "promise": "Un écart de patrimoine entre générations : ce que le chiffre dit, et ce qu'on en conclut"
+    "title": "Les plus de 75 ans, **15 fois** plus fortunés que les jeunes",
+    "promise": "Un écart de patrimoine qui se creuse entre générations : analyse d'un chiffre"
   },
   "chiffres": {
     "claim": "Le patrimoine des Américains selon l'âge, 2022-2025",
     "detail": "",
     "figures": [
       {
-        "value": "9 → 15",
+        "value": "9x → 15x",
         "label": "Les plus de 75 ans ont 15 fois le patrimoine des moins de 35 ans",
         "compare": "Contre 9 fois en 2022 · ménage « médian » par groupe"
       },
@@ -52,28 +52,28 @@
     ],
     "note": {
       "kind": "remark",
-      "text": "Médian : autant de ménages du groupe possèdent moins que ce montant, qu'en possèdent plus."
+      "text": "Médian : on classe les ménages du moins au plus riche ; c'est le patrimoine de celui du milieu."
     }
   },
   "recit": {
-    "title": "Le rapport des patrimoines est passé de 9 à 15",
+    "title": "Actifs en hausse, économie « en G »",
     "rows": [
       {
         "kind": "explication",
-        "text": "« Leurs gains patrimoniaux proviennent de l'appréciation de leurs actifs. »",
-        "remark": "Une explication plausible, à situer parmi les données par type d'actif.",
+        "text": "Les aînés ont acquis tôt et profité de bulles ; les jeunes redescendent d'un pic",
+        "remark": "Deux causes avancées, non chiffrées : à situer parmi les données par âge.",
         "basis": ""
       },
       {
         "kind": "interpretation",
-        "text": "Une économie « en G », pour « générationnelle », plutôt qu'« en forme de K ».",
-        "remark": "Un cadrage centré sur l'âge ; d'autres décrivent les mêmes chiffres.",
+        "text": "Une économie en G (selon l'âge) plutôt qu'en K (selon le revenu)",
+        "remark": "Selon l'économiste Edward Yardeni, pour la consommation ; à vérifier pour le patrimoine.",
         "basis": ""
       },
       {
         "kind": "consequence",
-        "text": "« une concentration croissante des richesses chez les plus âgés »",
-        "remark": "Une projection : elle dépend de l'explication et de la durée de la tendance.",
+        "text": "Des jeunes qui pourraient ne pas se constituer un patrimoine de cette façon",
+        "remark": "Gagner par la hausse des actifs suppose d'en détenir : à comparer par âge.",
         "basis": ""
       }
     ]
@@ -82,12 +82,12 @@
     "title": "La génération, une piste parmi d'autres",
     "cards": [
       {
-        "claim": "Quelle part des actifs, quelle part du reste ?",
-        "detail": "",
+        "claim": "Une médiane masque les disparités",
+        "detail": "L'écart est-il le même dans chaque groupe ?",
         "notes": [
           {
             "kind": "source",
-            "text": "Comparer la répartition du patrimoine par type d'actif."
+            "text": "Comparer la dispersion du patrimoine dans chaque tranche d'âge."
           }
         ],
         "opens": [
@@ -96,8 +96,8 @@
         ]
       },
       {
-        "claim": "L'âge est-il le seul clivage ?",
-        "detail": "",
+        "claim": "L'âge masque d'autres clivages",
+        "detail": "L'âge est-il le seul clivage ?",
         "notes": [
           {
             "kind": "source",
@@ -110,26 +110,26 @@
         ]
       },
       {
-        "claim": "Compare-t-on les mêmes ménages dans le temps ?",
-        "detail": "",
+        "claim": "L'enrichissement n'est pas décomposé",
+        "detail": "Actions ou immobilier : lequel a monté ?",
         "notes": [
           {
             "kind": "source",
-            "text": "Suivre les mêmes ménages plutôt que des groupes d'âge."
+            "text": "Comparer, par âge, la part des actions et de l'immobilier."
           }
         ],
         "opens": [
-          2,
+          1,
           3
         ]
       },
       {
-        "claim": "L'écart est-il le même dans chaque groupe ?",
-        "detail": "",
+        "claim": "La source du capital reste inconnue",
+        "detail": "Ce patrimoine est-il constitué ou hérité ?",
         "notes": [
           {
             "kind": "source",
-            "text": "Comparer la dispersion du patrimoine dans chaque tranche d'âge."
+            "text": "Séparer ce qui est hérité de ce qui a été épargné, par âge."
           }
         ],
         "opens": [
@@ -141,22 +141,22 @@
   },
   "lectures": {
     "title": "Génération, ou autre chose ?",
-    "lead": "",
+    "lead": "Autres interprétations possibles, et ce qui les soutiendrait.",
     "rows": [
       {
-        "nom": "Une fracture de patrimoine",
-        "voir": "L'écart suit la détention d'actifs, quel que soit l'âge.",
-        "sens": "**L'écart propriétaires-locataires** à âge égal, validé s'il égale celui entre âges."
+        "nom": "Plus riches, plus pauvres",
+        "voir": "Les plus riches s'enrichissent, les plus pauvres s'appauvrissent.",
+        "sens": "**L'écart haut-bas** à âge égal : il grandirait aussi chez les jeunes."
       },
       {
         "nom": "Un retour à la normale",
         "voir": "Les jeunes revenaient d'un sommet : le point de départ était flatteur.",
-        "sens": "**Le rapport** sur une période plus longue, validé si la hausse s'atténue."
+        "sens": "**Le rapport** sur plus longtemps : il retomberait vers son niveau d'avant."
       },
       {
         "nom": "Un cycle de marché",
         "voir": "Le gain suit les marchés et peut s'inverser avec eux.",
-        "sens": "**Le rapport** comparé aux indices de Bourse, validé s'il baisse quand ils baissent."
+        "sens": "**Le rapport** comparé à la Bourse : il suivrait ses hausses et ses baisses."
       }
     ]
   }

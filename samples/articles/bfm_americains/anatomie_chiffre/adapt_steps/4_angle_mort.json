@@ -7,18 +7,22 @@
       "reason": "Retient le renouvellement de la tranche (lecture des groupes qui changent contre fracture de génération) et le croisement âge × détention d'actifs (effet de période contre fracture de génération). Les deux paires couvrent les trois lectures.",
       "fields": {
         "title": "La génération, une piste parmi d'autres",
-        "claim1": "Quelle part des actifs, quelle part du reste ?",
-        "verifier1": "Comparer la répartition du patrimoine par type d'actif.",
+        "claim1": "L'écart est-il le même dans chaque groupe ?",
+        "verifier1": "Comparer la dispersion du patrimoine dans chaque tranche d'âge.",
         "ouvre1": "1,3",
         "claim2": "L'âge est-il le seul clivage ?",
         "verifier2": "Comparer les écarts selon le logement et le revenu, à âge égal.",
         "ouvre2": "1,2",
-        "claim3": "Compare-t-on les mêmes ménages dans le temps ?",
-        "verifier3": "Suivre les mêmes ménages plutôt que des groupes d'âge.",
-        "ouvre3": "2,3",
-        "claim4": "L'écart est-il le même dans chaque groupe ?",
-        "verifier4": "Comparer la dispersion du patrimoine dans chaque tranche d'âge.",
-        "ouvre4": "1,3"
+        "claim3": "Actions ou immobilier : lequel a monté ?",
+        "verifier3": "Comparer, par âge, la part des actions et de l'immobilier.",
+        "ouvre3": "1,3",
+        "claim4": "Ce patrimoine est-il constitué ou hérité ?",
+        "verifier4": "Séparer ce qui est hérité de ce qui a été épargné, par âge.",
+        "ouvre4": "1,3",
+        "head1": "Une médiane masque les disparités",
+        "head2": "L'âge masque d'autres clivages",
+        "head3": "L'enrichissement n'est pas décomposé",
+        "head4": "La source du capital reste inconnue"
       },
       "edited": true,
       "flags": []
@@ -137,11 +141,12 @@
       "title": "La génération, une piste parmi d'autres",
       "cards": [
         {
-          "claim": "Quelle part des actifs, quelle part du reste ?",
+          "claim": "Une médiane masque les disparités",
+          "detail": "L'écart est-il le même dans chaque groupe ?",
           "notes": [
             {
               "kind": "source",
-              "text": "Comparer la répartition du patrimoine par type d'actif."
+              "text": "Comparer la dispersion du patrimoine dans chaque tranche d'âge."
             }
           ],
           "opens": [
@@ -150,7 +155,8 @@
           ]
         },
         {
-          "claim": "L'âge est-il le seul clivage ?",
+          "claim": "L'âge masque d'autres clivages",
+          "detail": "L'âge est-il le seul clivage ?",
           "notes": [
             {
               "kind": "source",
@@ -163,24 +169,26 @@
           ]
         },
         {
-          "claim": "Compare-t-on les mêmes ménages dans le temps ?",
+          "claim": "L'enrichissement n'est pas décomposé",
+          "detail": "Actions ou immobilier : lequel a monté ?",
           "notes": [
             {
               "kind": "source",
-              "text": "Suivre les mêmes ménages plutôt que des groupes d'âge."
+              "text": "Comparer, par âge, la part des actions et de l'immobilier."
             }
           ],
           "opens": [
-            2,
+            1,
             3
           ]
         },
         {
-          "claim": "L'écart est-il le même dans chaque groupe ?",
+          "claim": "La source du capital reste inconnue",
+          "detail": "Ce patrimoine est-il constitué ou hérité ?",
           "notes": [
             {
               "kind": "source",
-              "text": "Comparer la dispersion du patrimoine dans chaque tranche d'âge."
+              "text": "Séparer ce qui est hérité de ce qui a été épargné, par âge."
             }
           ],
           "opens": [

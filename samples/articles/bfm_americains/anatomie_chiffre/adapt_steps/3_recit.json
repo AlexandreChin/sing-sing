@@ -6,13 +6,15 @@
       "slot": "a",
       "reason": "Retient les quatre registres : le mesuré, la cause posée comme connue, le cadrage « en G » (lecture 3) et l'avis sur la suite. Montre le passage de la mesure à l'étiquette puis à la prévision.",
       "fields": {
-        "title": "Le rapport des patrimoines est passé de 9 à 15",
-        "row1": "explication | « Leurs gains patrimoniaux proviennent de l'appréciation de leurs actifs. » | Une explication plausible, à situer parmi les données par type d'actif.",
-        "row2": "interpretation | Une économie « en G », pour « générationnelle », plutôt qu'« en forme de K ». | Un cadrage centré sur l'âge ; d'autres décrivent les mêmes chiffres.",
-        "row3": "consequence | « une concentration croissante des richesses chez les plus âgés » | Une projection : elle dépend de l'explication et de la durée de la tendance."
+        "title": "Actifs en hausse, économie « en G »",
+        "row1": "explication | Les aînés ont acquis tôt et profité de bulles ; les jeunes redescendent d'un pic | Deux causes avancées, non chiffrées : à situer parmi les données par âge.",
+        "row2": "interpretation | Une économie en G (selon l'âge) plutôt qu'en K (selon le revenu) | Selon l'économiste Edward Yardeni, pour la consommation ; à vérifier pour le patrimoine.",
+        "row3": "consequence | Des jeunes qui pourraient ne pas se constituer un patrimoine de cette façon | Gagner par la hausse des actifs suppose d'en détenir : à comparer par âge."
       },
       "edited": true,
-      "flags": []
+      "flags": [
+        "recit: no explanation or interpretation shares a key word with the article's reading (axe article reading, « Une fracture de génération »)"
+      ]
     },
     {
       "id": "b",
@@ -71,22 +73,22 @@
   ],
   "fragment": {
     "recit": {
-      "title": "Le rapport des patrimoines est passé de 9 à 15",
+      "title": "Actifs en hausse, économie « en G »",
       "rows": [
         {
           "kind": "explication",
-          "text": "« Leurs gains patrimoniaux proviennent de l'appréciation de leurs actifs. »",
-          "remark": "Une explication plausible, à situer parmi les données par type d'actif."
+          "text": "Les aînés ont acquis tôt et profité de bulles ; les jeunes redescendent d'un pic",
+          "remark": "Deux causes avancées, non chiffrées : à situer parmi les données par âge."
         },
         {
           "kind": "interpretation",
-          "text": "Une économie « en G », pour « générationnelle », plutôt qu'« en forme de K ».",
-          "remark": "Un cadrage centré sur l'âge ; d'autres décrivent les mêmes chiffres."
+          "text": "Une économie en G (selon l'âge) plutôt qu'en K (selon le revenu)",
+          "remark": "Selon l'économiste Edward Yardeni, pour la consommation ; à vérifier pour le patrimoine."
         },
         {
           "kind": "consequence",
-          "text": "« une concentration croissante des richesses chez les plus âgés »",
-          "remark": "Une projection : elle dépend de l'explication et de la durée de la tendance."
+          "text": "Des jeunes qui pourraient ne pas se constituer un patrimoine de cette façon",
+          "remark": "Gagner par la hausse des actifs suppose d'en détenir : à comparer par âge."
         }
       ]
     }

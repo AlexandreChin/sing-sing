@@ -6,11 +6,14 @@
       "slot": "a",
       "reason": "Reprend le ratio brut du média et ouvre sur l'écart entre âges, sans le juger.",
       "fields": {
-        "title": "« Les plus de 75 ans, **15 fois** plus fortunés que les jeunes »",
-        "promise": "Un écart de patrimoine entre générations : ce que le chiffre dit, et ce qu'on en conclut"
+        "title": "Les plus de 75 ans, **15 fois** plus fortunés que les jeunes",
+        "promise": "Un écart de patrimoine qui se creuse entre générations : analyse d'un chiffre"
       },
-      "edited": false,
-      "flags": []
+      "edited": true,
+      "flags": [
+        "hook.title is usually the raw figure, in « »",
+        "hook.promise usually reads « <sujet> : ce que le chiffre dit, et ce qu'on en conclut »"
+      ]
     },
     {
       "id": "b",
@@ -55,8 +58,8 @@
   ],
   "fragment": {
     "hook": {
-      "title": "« Les plus de 75 ans, **15 fois** plus fortunés que les jeunes »",
-      "promise": "Un écart de patrimoine entre générations : ce que le chiffre dit, et ce qu'on en conclut"
+      "title": "Les plus de 75 ans, **15 fois** plus fortunés que les jeunes",
+      "promise": "Un écart de patrimoine qui se creuse entre générations : analyse d'un chiffre"
     }
   },
   "remarks": []
