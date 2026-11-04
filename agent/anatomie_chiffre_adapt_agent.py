@@ -51,9 +51,10 @@ class AwaitingChoice(Exception):
 class AxeOption(BaseModel):
     fait: str        # the movement to explain, in neutral words
     article: str     # « nom | formule » — the article's own reading (not drawn on slide 5)
-    lecture1: str    # « nom | formule » — three alternatives to the article's reading, each explaining the rise
+    lecture1: str    # « nom | formule » — four alternatives to the article's reading, each explaining the rise
     lecture2: str
     lecture3: str
+    lecture4: str
 
 
 class ChiffresOption(BaseModel):
@@ -99,6 +100,7 @@ class LecturesOption(BaseModel):
     lecture1: str    # « nom | hypothèse | **mesure** …, au conditionnel » — names equal the axe's
     lecture2: str
     lecture3: str
+    lecture4: str
 
 
 class HookOption(BaseModel):
@@ -191,17 +193,17 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     **{("angle_mort", f"head{i}"): ("chars", 36) for i in (1, 2, 3, 4)},
     **{("angle_mort", f"claim{i}"): ("chars", 46) for i in (1, 2, 3, 4)},
     **{("angle_mort", f"verifier{i}"): ("chars", 66) for i in (1, 2, 3, 4)},
-    ("lectures", "title"): ("chars", 40), ("lectures", "lead"): ("chars", 64),
+    ("lectures", "title"): ("chars", 30), ("lectures", "lead"): ("chars", 64),
     ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 100),
 }
 # a « a | b | c » field: the name and character cap of each part
 _PART_CAPS: dict[tuple[str, str], tuple[tuple[str, int], ...]] = {
-    **{("axe", name): (("name", 28), ("formula", 90)) for name in ("article", "lecture1", "lecture2", "lecture3")},
+    **{("axe", name): (("name", 28), ("formula", 90)) for name in ("article", "lecture1", "lecture2", "lecture3", "lecture4")},
     # fig1 is the key figure, drawn big and alone on its line: a plain sentence, its comparison glosses the term
     ("chiffres", "fig1"): (("value", 9), ("label", 64), ("comparison", 54)),
     **{("chiffres", f"fig{i}"): (("value", 9), ("label", 34), ("comparison", 26)) for i in (2, 3, 4)},
     **{("recit", f"row{i}"): (("type", 16), ("text", 80), ("remark", 90)) for i in (1, 2, 3)},
-    **{("lectures", f"lecture{i}"): (("name", 28), ("hypothesis", 70), ("number to follow", 90)) for i in (1, 2, 3)},
+    **{("lectures", f"lecture{i}"): (("name", 28), ("hypothesis", 56), ("number to follow", 90)) for i in (1, 2, 3, 4)},
 }
 _ACCUSING = re.compile(r"\b(biais|manipulation|manipul\w+|mensonges?|trompeu\w+|fallacieu\w+|sophismes?)\b", re.I)
 _HASHTAG = re.compile(r"#\w+")
@@ -209,14 +211,14 @@ _QUOTED = re.compile(r"«[^»]*»")
 _DIGIT = re.compile(r"\d")
 _NUMBER = re.compile(r"\d+(?:[.,]\d+)?")
 _KINDS = ("explication", "interpretation", "consequence")
-_REQUIRED = {"axe": ("fait", "article", "lecture1", "lecture2", "lecture3"),
+_REQUIRED = {"axe": ("fait", "article", "lecture1", "lecture2", "lecture3", "lecture4"),
              "chiffres": ("claim", "fig1", "fig2", "fig3"),
              "recit": ("title", "row1", "row2"),
              "angle_mort": ("title", *(f"{n}{i}" for i in (1, 2, 3, 4) for n in ("head", "claim", "verifier", "ouvre"))),
-             "lectures": ("title", "lead", "lecture1", "lecture2", "lecture3")}
+             "lectures": ("title", "lead", "lecture1", "lecture2", "lecture3", "lecture4")}
 # slides 4 and 5 are outside the article's frame and add no figure (the `ouvre` pair is a reference, not a figure)
 _NO_DIGIT = {"angle_mort": {"title", *(f"{n}{i}" for i in (1, 2, 3, 4) for n in ("head", "claim", "verifier"))},
-             "lectures": {"title", "lead", "lecture1", "lecture2", "lecture3"}}
+             "lectures": {"title", "lead", "lecture1", "lecture2", "lecture3", "lecture4"}}
 # a statistical term the reader may not know: `chiffres.note1` must gloss it in plain words
 _JARGON = re.compile(r"\b(médian\w*|écart[- ]type|percentiles?|quantiles?|décile\w*|quartile\w*|corrélation)\b", re.I)
 
@@ -246,12 +248,12 @@ def _bad_note(value: str) -> bool:
 
 
 def _ouvre(value: str) -> list[int] | None:
-    """« 1,3 » → [1, 3]; None when it is not two distinct readings numbered 1 to 3."""
+    """« 1,3 » → [1, 3]; None when it is not two distinct readings numbered 1 to 4."""
     try:
         nums = [int(x) for x in value.split(",")]
     except ValueError:
         return None
-    return nums if len(nums) == 2 and len(set(nums)) == 2 and all(1 <= n <= 3 for n in nums) else None
+    return nums if len(nums) == 2 and len(set(nums)) == 2 and all(1 <= n <= 4 for n in nums) else None
 
 
 def _axe_names(fragments: dict[str, dict]) -> list[str]:
@@ -290,9 +292,9 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
             hard.append(f"{step}.{name} is empty")
 
     if step == "axe":
-        names = [_parts(str(fields.get(n, "")), 2)[0] for n in ("article", "lecture1", "lecture2", "lecture3")]
+        names = [_parts(str(fields.get(n, "")), 2)[0] for n in ("article", "lecture1", "lecture2", "lecture3", "lecture4")]
         if len({_norm(n) for n in names if n}) < len([n for n in names if n]):
-            hard.append("axe: two readings share a name — the article's reading and the three alternatives must differ")
+            hard.append("axe: two readings share a name — the article's reading and the four alternatives must differ")
     if step == "chiffres":
         for name in ("fig1", "fig2", "fig3", "fig4"):
             value = str(fields.get(name, "")).strip()
@@ -354,16 +356,17 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                 continue
             pair = _ouvre(value)
             if pair is None:
-                hard.append(f"angle_mort.{name} must be two different readings numbered 1 to 3, e.g. « 1,3 »")
+                hard.append(f"angle_mort.{name} must be two different readings numbered 1 to 4, e.g. « 1,3 »")
             else:
                 pairs.append(pair)
-        if len(pairs) == 4 and set().union(*map(set, pairs)) != {1, 2, 3}:
-            hard.append("angle_mort: the four « ouvre » pairs must together cover the three readings")
+        readings = len(_axe_names(fragments)) or 4
+        if len(pairs) == 4 and set().union(*map(set, pairs)) != set(range(1, readings + 1)):
+            hard.append(f"angle_mort: the four « ouvre » pairs must together cover the {readings} readings")
     if step == "lectures":
         names = _axe_names(fragments)
-        for i in (1, 2, 3):
+        for i in (1, 2, 3, 4):
             value = str(fields.get(f"lecture{i}", "")).strip()
-            if value and len(names) == 3 and _norm(_parts(value, 3)[0]) != _norm(names[i - 1]):
+            if value and len(names) >= i and _norm(_parts(value, 3)[0]) != _norm(names[i - 1]):
                 hard.append(f"lectures.lecture{i} is named « {_parts(value, 3)[0]} » but the axe's reading {i} is « {names[i - 1]} »")
             last = _parts(value, 3)[2] if value else ""
             if value and not re.match(r"\*\*[^*]+\*\*\s*\S", last):
@@ -371,6 +374,15 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
         title = str(fields.get("title", "")).strip()
         if title and not title.endswith("?"):
             hard.append("lectures.title must be a question ending in « ? »")
+        # advisory: each alternative must follow from the blind spots of slide 4 that leave it open
+        cards = fragments.get("angle_mort", {}).get("angle_mort", {}).get("cards", [])
+        for i in (1, 2, 3, 4):
+            value = str(fields.get(f"lecture{i}", "")).strip()
+            blind = " ".join(f"{c.get('claim', '')} {c.get('detail', '')} " + " ".join(n.get("text", "") for n in c.get("notes", []))
+                             for c in cards if i in c.get("opens", []))
+            if value and blind and not _stems(_plain(value)) & _stems(_plain(blind)):
+                flags.append(f"lectures.lecture{i} shares no key word with the slide 4 blind spots that leave it open "
+                             "(their `ouvre` pairs): the alternative should follow from them")
     if step == "hook":
         if not fields.get("title", "").strip().startswith("«"):
             flags.append("hook.title is usually the raw figure, in « »")
@@ -402,7 +414,9 @@ def to_fragment(step: Step, option: Option) -> dict:
     f = option.fields
     if step.name == "axe":
         readings = []
-        for i in (1, 2, 3):
+        for i in (1, 2, 3, 4):
+            if i == 4 and not str(f.get("lecture4", "")).strip():
+                continue                                   # older decks carry three readings
             nom, formule = _parts(str(f.get(f"lecture{i}", "")), 2)
             readings.append({"nom": nom, "formule": formule})
         nom, formule = _parts(str(f.get("article", "")), 2)
@@ -434,7 +448,9 @@ def to_fragment(step: Step, option: Option) -> dict:
         return {"angle_mort": {"title": f.get("title", ""), "cards": cards}}
     if step.name == "lectures":
         rows = []
-        for i in (1, 2, 3):
+        for i in (1, 2, 3, 4):
+            if i == 4 and not str(f.get("lecture4", "")).strip():
+                continue
             nom, voir, sens = _parts(str(f.get(f"lecture{i}", "")), 3)
             rows.append({"nom": nom, "voir": voir, "sens": sens})
         return {"lectures": {"title": f.get("title", ""), "lead": f.get("lead", ""), "rows": rows}}

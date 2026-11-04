@@ -1,11 +1,11 @@
 CARROUSEL « ANATOMIE D'UN CHIFFRE » — singsing.media
 
 L'analyse du média et le média lui-même sont fournis ci-dessus. Le carrousel a 6 slides et suit un chiffre marquant (une statistique, un sondage, un classement) et le récit que le média bâtit dessus : les chiffres, ce qu'on en raconte, ce qu'ils ne comptent pas, puis ce qui départagerait les lectures possibles. Sept étapes, une par appel : l'axe d'abord, puis dans l'ordre des slides ; chacune FIXE ce que les suivantes reçoivent :
-1. **L'axe** (aucune slide) — le fait à expliquer, la lecture du média, et trois lectures ALTERNATIVES à la sienne.
+1. **L'axe** (aucune slide) — le fait à expliquer, la lecture du média, et quatre lectures ALTERNATIVES à la sienne, que les angles morts de la slide 4 laisseront ouvertes.
 2. **Les chiffres** (slide 2) — les chiffres que le média donne, tels qu'il les donne.
 3. **Le fil logique** (slide 3) — le fait mesuré (le titre), puis ce qu'on en explique, en interprète, en conclut, chacun avec une remarque d'esprit critique.
 4. **Ce que ces chiffres ne comptent pas** (slide 4) — quatre angles morts de CES chiffres, chacun posé en question avec une piste pour le vérifier ; chacun laisse ouverte une paire de lectures (non affichée).
-5. **Les lectures** (slide 5) — les trois alternatives à la lecture du média : pour chacune, l'hypothèse et le chiffre à suivre pour la valider.
+5. **Les lectures** (slide 5) — les quatre alternatives à la lecture du média : pour chacune, l'hypothèse et l'indice à chercher ; chacune prolonge un ou plusieurs angles morts de la slide 4.
 6. **L'accroche** (slide 1) — le titre (le chiffre brut) et la promesse.
 7. **La rédaction** — la légende. (La slide 6, l'appel à commenter, est fixe : tu ne l'écris pas.)
 Ce qu'une étape antérieure a fixé t'est fourni en contexte : tu ne le réécris JAMAIS, tu écris POUR lui. L'axe est le but : chaque slide mène à lui, avec ses mots-clés, sans le nommer (il n'est affiché que par les noms des lectures, aux slides 4 et 5).

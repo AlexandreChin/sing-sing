@@ -19,7 +19,7 @@ def test_the_deck_validates():
     pres = AnatomieChiffrePresentation.model_validate(DECK)
     assert [f.value for f in pres.chiffres.figures] == ["9 → 15", "505.000 $", "33.000 $", "215.900 $"]
     assert [r.kind for r in pres.recit.rows] == ["explication", "interpretation", "consequence"]
-    assert len(pres.axe.readings) == 3
+    assert len(pres.axe.readings) == 4
     assert pres.angle_mort.cards[0].opens == [1, 3]
 
 
@@ -157,8 +157,8 @@ def test_a_recit_row_has_its_own_known_type_and_a_remark():
 
 def test_ouvre_must_cover_every_reading():
     assert hard("angle_mort") == []
-    assert any("cover the three" in e for e in hard("angle_mort", ouvre1="1,2", ouvre2="1,2", ouvre3="1,2", ouvre4="1,2"))
-    for bad in ("1,1", "1,4", "1", "a,b", "0,1"):
+    assert any("cover the 4" in e for e in hard("angle_mort", ouvre1="1,2", ouvre2="1,2", ouvre3="1,2", ouvre4="1,2"))
+    for bad in ("1,1", "1,5", "1", "a,b", "0,1"):
         assert any("ouvre1" in e for e in hard("angle_mort", ouvre1=bad)), bad
     assert any("ouvre4 is empty" in e for e in hard("angle_mort", ouvre4=""))
 
@@ -444,7 +444,7 @@ def test_six_slides_are_rendered(tmp_path):
         assert label in texts["03_recit"], label
     assert texts["04_angle_mort"].count('class="card"') == 4
     assert "Pour vérifier" not in texts["04_angle_mort"] and "Réserve fédérale" not in texts["04_angle_mort"]
-    assert texts["04_angle_mort"].count("Comparer") == 3
+    assert texts["04_angle_mort"].count("Comparer") == 4
     assert "Laisse ouvert" not in texts["04_angle_mort"] and "On verrait" not in texts["05_lectures"]
     assert "validé" not in texts["05_lectures"] and "Chiffre à suivre" not in texts["05_lectures"]
     assert "quelle lecture les séries que vous trouverez soutiennent-elles ?" in texts["06_cta"]
@@ -495,19 +495,19 @@ def worst_case_fields(seed: int = 0) -> dict[str, dict]:
     parts = lambda step, name, *first: " | ".join(list(first) + [_chars(rng, c) for _, c in   # noqa: E731
                                                                   agent._PART_CAPS[(step, name)][len(first):]])
     note = lambda step, name: "source | **Fed** : " + _chars(rng, cap(step, name) - 19)   # noqa: E731
-    names = ["Wxxxxxxxxxxxxxxxxxxxxxxxxxxx", "Mxxxxxxxxxxxxxxxxxxxxxxxxxxx", "Gxxxxxxxxxxxxxxxxxxxxxxxxxxx"]   # 28 characters
+    names = ["Wxxxxxxxxxxxxxxxxxxxxxxxxxxx", "Mxxxxxxxxxxxxxxxxxxxxxxxxxxx", "Gxxxxxxxxxxxxxxxxxxxxxxxxxxx", "Hxxxxxxxxxxxxxxxxxxxxxxxxxxx"]   # 28 characters
     axe = {"fait": text("axe", "fait"), "article": "Axxxxxxxxxxxxxxxxxxxxxxxxxxx | " + _chars(rng, 90)} | {
-        f"lecture{i}": f"{names[i - 1]} | " + _chars(rng, 90) for i in (1, 2, 3)}
+        f"lecture{i}": f"{names[i - 1]} | " + _chars(rng, 90) for i in (1, 2, 3, 4)}
     chiffres = {"claim": text("chiffres", "claim"),
                 **{f"fig{i}": parts("chiffres", f"fig{i}", "WWWWWWWWW") for i in (1, 2, 3, 4)},
                 "note1": note("chiffres", "note1")}
     recit = {"title": text("recit", "title"), "row1": parts("recit", "row1", "explication"),
              "row2": parts("recit", "row2", "interpretation"), "row3": parts("recit", "row3", "consequence")}
-    angle = {"title": text("angle_mort", "title"), "ouvre1": "1,2", "ouvre2": "2,3", "ouvre3": "1,3", "ouvre4": "1,2"}
+    angle = {"title": text("angle_mort", "title"), "ouvre1": "1,2", "ouvre2": "3,4", "ouvre3": "1,3", "ouvre4": "2,4"}
     for i in (1, 2, 3, 4):
         angle |= {f"head{i}": text("angle_mort", f"head{i}"), f"claim{i}": text("angle_mort", f"claim{i}")[:-1] + "?", f"verifier{i}": text("angle_mort", f"verifier{i}")}
-    lectures = {"title": text("lectures", "title")[:-1] + "?", "lead": text("lectures", "lead"),                 **{f"lecture{i}": f"{names[i - 1]} | {_chars(rng, 70)} | **Le rapport** {_chars(rng, 60)} : il {_chars(rng, 13)}"
-                   for i in (1, 2, 3)}}
+    lectures = {"title": text("lectures", "title")[:-1] + "?", "lead": text("lectures", "lead"),                 **{f"lecture{i}": f"{names[i - 1]} | {_chars(rng, 56)} | **Le rapport** {_chars(rng, 60)} : il {_chars(rng, 13)}"
+                   for i in (1, 2, 3, 4)}}
     return {"axe": axe, "chiffres": chiffres, "recit": recit, "angle_mort": angle, "lectures": lectures,
             "hook": {"title": text("hook", "title"), "promise": text("hook", "promise")}, "writing": FIELDS["writing"]}
 

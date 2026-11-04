@@ -2,24 +2,28 @@
   "caption": "Les Américains de plus de 75 ans seraient 15 fois plus fortunés que les moins de 35 ans, selon l'enquête triennale de la Fed relayée par BFM Business. Que dit le chiffre, et que raconte l'article ? Les médianes sont mesurées ; le reste, une économie « en G », des gains venus des actifs, une concentration à venir, est avancé par des économistes. Ce que ces chiffres ne comptent pas : la part des actifs et celle du reste, l'âge comme seul clivage, les mêmes ménages suivis dans le temps, l'écart à l'intérieur de chaque groupe. Trois lectures restent donc possibles : une fracture de patrimoine, un retour à la normale, un cycle de marché. Quelle lecture les séries que vous trouverez soutiennent-elles ?\n\n#espritcritique #patrimoine #statistiques #lectureactive",
   "axe": {
     "fait": "pourquoi le rapport de patrimoine entre les plus âgés et les plus jeunes est passé de 9 à 15",
+    "article": {
+      "nom": "Une fracture de génération",
+      "formule": "Un écart qui se creuse entre des générations aux conditions différentes."
+    },
     "readings": [
       {
-        "nom": "Une fracture de patrimoine",
-        "formule": "L'écart suit la détention d'actifs, pas l'âge."
+        "nom": "Plus riches, plus pauvres",
+        "formule": "Les plus riches s'enrichissent, les plus pauvres s'appauvrissent, à tout âge."
       },
       {
-        "nom": "Un retour à la normale",
-        "formule": "Le point de départ de 2022 était flatteur pour les jeunes."
+        "nom": "Propriétaires et locataires",
+        "formule": "L'écart suit le fait de posséder son logement, pas l'âge."
       },
       {
         "nom": "Un cycle de marché",
         "formule": "Le gain suit les marchés et peut s'inverser avec eux."
+      },
+      {
+        "nom": "Le poids des dettes",
+        "formule": "Les dettes ont réduit le patrimoine net des moins aisés, quel que soit l'âge."
       }
-    ],
-    "article": {
-      "nom": "Une fracture de génération",
-      "formule": "Un écart qui se creuse entre des générations aux conditions différentes."
-    }
+    ]
   },
   "hook": {
     "title": "« Les plus de 75 ans, 15 fois plus fortunés que les jeunes »",
@@ -79,81 +83,86 @@
     "title": "La génération, une piste parmi d'autres",
     "cards": [
       {
-        "claim": "La part des actifs reste invisible",
-        "detail": "Quelle part du patrimoine vient des actifs ?",
-        "opens": [
-          1,
-          3
-        ],
-        "notes": [
-          {
-            "kind": "source",
-            "text": "Comparer la répartition du patrimoine par type d'actif."
-          }
-        ]
-      },
-      {
-        "claim": "L'âge masque d'autres clivages",
-        "detail": "L'âge est-il le seul clivage ?",
-        "opens": [
-          1,
-          2
-        ],
-        "notes": [
-          {
-            "kind": "source",
-            "text": "Comparer les écarts selon le logement et le revenu, à âge égal."
-          }
-        ]
-      },
-      {
-        "claim": "Les groupes changent avec le temps",
-        "detail": "Compare-t-on les mêmes ménages dans le temps ?",
-        "opens": [
-          2,
-          3
-        ],
-        "notes": [
-          {
-            "kind": "source",
-            "text": "Suivre les mêmes ménages plutôt que des groupes d'âge."
-          }
-        ]
-      },
-      {
         "claim": "Une médiane masque les disparités",
         "detail": "L'écart est-il le même dans chaque groupe ?",
-        "opens": [
-          1,
-          3
-        ],
         "notes": [
           {
             "kind": "source",
             "text": "Comparer la dispersion du patrimoine dans chaque tranche d'âge."
           }
+        ],
+        "opens": [
+          1,
+          3
+        ]
+      },
+      {
+        "claim": "L'âge masque d'autres clivages",
+        "detail": "L'âge est-il le seul clivage ?",
+        "notes": [
+          {
+            "kind": "source",
+            "text": "Comparer les écarts selon le logement et le revenu, à âge égal."
+          }
+        ],
+        "opens": [
+          1,
+          2
+        ]
+      },
+      {
+        "claim": "L'enrichissement n'est pas décomposé",
+        "detail": "Actions ou immobilier : lequel a monté ?",
+        "notes": [
+          {
+            "kind": "source",
+            "text": "Comparer, par âge, la part des actions et de l'immobilier."
+          }
+        ],
+        "opens": [
+          2,
+          3
+        ]
+      },
+      {
+        "claim": "Le patrimoine net inclut les dettes",
+        "detail": "Quelle part des dettes, selon le revenu ?",
+        "notes": [
+          {
+            "kind": "source",
+            "text": "Comparer actifs et dettes, par âge et par niveau de revenu."
+          }
+        ],
+        "opens": [
+          1,
+          4
         ]
       }
     ]
   },
   "lectures": {
     "title": "Génération, ou autre chose ?",
-    "lead": "Trois pistes, chacune avec son indice à chercher.",
+    "lead": "Autres interprétations possibles, et ce qui les soutiendrait.",
     "rows": [
       {
-        "nom": "Une fracture de patrimoine",
-        "voir": "L'écart suit la détention d'actifs, quel que soit l'âge.",
+        "nom": "Plus riches, plus pauvres",
+        "voir": "Les riches s'enrichissent, les pauvres s'appauvrissent.",
         "sens": "**L'écart haut-bas** à âge égal : il grandirait aussi chez les jeunes."
       },
       {
-        "nom": "Un retour à la normale",
-        "voir": "Les jeunes revenaient d'un sommet : le point de départ était flatteur.",
-        "sens": "**Le rapport** sur plus longtemps : il retomberait vers son niveau d'avant."
+        "nom": "Propriétaires et locataires",
+        "voir": "L'écart suit le logement possédé, quel que soit l'âge.",
+        "sens": "**La part de propriétaires** par âge : elle suivrait celle du patrimoine."
       },
       {
         "nom": "Un cycle de marché",
         "voir": "Le gain suit les marchés et peut s'inverser avec eux.",
         "sens": "**Le rapport** comparé à la Bourse : il suivrait ses hausses et ses baisses."
+      },
+      {
+        "nom": "Le poids des dettes",
+        "voir": "Les dettes ont réduit le patrimoine net des moins aisés.",
+        "sens": "**La part des dettes** à âge égal : elle serait plus forte chez les moins aisés."
       }
     ]
   }

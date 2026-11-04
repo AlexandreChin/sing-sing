@@ -8,7 +8,9 @@
 {% include 'article_carousel_anatomie_chiffre_v1/_cards.css' %}
 <style>
 /* the title block keeps the height of two lines so the cards start where they do on slides 3 and 4 */
-.hb { min-height: 135px; }
+:root { --gap-block: 14px; }
+.card { padding: 14px 30px 16px; }
+.hb { min-height: 118px; }
 .hb .head { min-height: 0; }
 .hb + .card { margin-top: var(--gap-title); }
 .sub { margin-top: 14px; font-size: 28px; font-weight: 500; line-height: 1.3; color: #ececec; hyphens: none; }

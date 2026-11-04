@@ -32,12 +32,12 @@ class AnatomieReading(BaseModel):
 
 
 class AnatomieAxe(BaseModel):
-    """The fact to explain and the three competing readings, fixed before any slide is
-    written. No slide shows it as such. `readings` are three alternatives to the article's own
+    """The fact to explain and the competing readings, fixed before any slide is
+    written. No slide shows it as such. `readings` are three (older decks) or four alternatives to the article's own
     reading (`article`); older decks carry the article's reading as the third of `readings`."""
     fait: str
     article: AnatomieReading | None = None
-    readings: list[AnatomieReading] = Field(default_factory=list)   # 3
+    readings: list[AnatomieReading] = Field(default_factory=list)   # 4 (older decks: 3)
 
 
 class AnatomieChiffres(BaseModel):  # slide 2 — the figures the article gives
@@ -82,7 +82,7 @@ class AnatomieLectureRow(BaseModel):
 class AnatomieLectures(BaseModel):  # slide 5 — what would separate the readings
     title: str
     lead: str = ""   # one line under the title: the frame shared by the three cards
-    rows: list[AnatomieLectureRow] = Field(default_factory=list)    # 3
+    rows: list[AnatomieLectureRow] = Field(default_factory=list)    # 4 (older decks: 3)
 
 
 class AnatomieChiffrePresentation(BaseModel):
