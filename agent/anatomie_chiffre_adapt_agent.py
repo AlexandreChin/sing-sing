@@ -67,7 +67,7 @@ class ChiffresOption(BaseModel):
 
 class RecitOption(BaseModel):
     title: str
-    # title: the measured fact, in a sentence that describes the key figure
+    # title: specific to the article — names the elements of its story (explanation, framing), never repeats the key figure
     row1: str        # « type | texte | remarque » — type: explication, interpretation, consequence
     row2: str
     row3: str        # optional
@@ -75,15 +75,19 @@ class RecitOption(BaseModel):
 
 class AngleMortOption(BaseModel):
     title: str
-    claim1: str      # card 1 — a blind spot of these figures, as a question ending in « ? »
+    head1: str       # card 1 — the blind spot stated in a short sentence (the card's title)
+    claim1: str      # card 1 — the same blind spot as a question ending in « ? » (drawn as the comment under the title)
     verifier1: str   # how to validate or invalidate the assumption it questions (an infinitive sentence)
     ouvre1: str      # the two readings it leaves undecided, e.g. « 1,3 » (not drawn)
+    head2: str
     claim2: str      # card 2 — another blind spot, as a question
     verifier2: str
     ouvre2: str
+    head3: str
     claim3: str      # card 3 — a third blind spot
     verifier3: str
     ouvre3: str
+    head4: str
     claim4: str      # card 4 — a fourth blind spot
     verifier4: str
     ouvre4: str
@@ -91,7 +95,8 @@ class AngleMortOption(BaseModel):
 
 class LecturesOption(BaseModel):
     title: str
-    lecture1: str    # « nom | on verrait | alors … » — names equal the axe's
+    lead: str        # one line under the title: the frame shared by the three cards (« Trois pistes, chacune avec son indice à chercher. »)
+    lecture1: str    # « nom | hypothèse | **mesure** …, au conditionnel » — names equal the axe's
     lecture2: str
     lecture3: str
 
@@ -183,9 +188,10 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("chiffres", "claim"): ("chars", 54), ("chiffres", "note1"): ("chars", 110),
     ("recit", "title"): ("chars", 46),
     ("angle_mort", "title"): ("chars", 40),
+    **{("angle_mort", f"head{i}"): ("chars", 36) for i in (1, 2, 3, 4)},
     **{("angle_mort", f"claim{i}"): ("chars", 46) for i in (1, 2, 3, 4)},
     **{("angle_mort", f"verifier{i}"): ("chars", 66) for i in (1, 2, 3, 4)},
-    ("lectures", "title"): ("chars", 40),
+    ("lectures", "title"): ("chars", 40), ("lectures", "lead"): ("chars", 64),
     ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 100),
 }
 # a « a | b | c » field: the name and character cap of each part
@@ -194,7 +200,7 @@ _PART_CAPS: dict[tuple[str, str], tuple[tuple[str, int], ...]] = {
     # fig1 is the key figure, drawn big and alone on its line: a plain sentence, its comparison glosses the term
     ("chiffres", "fig1"): (("value", 9), ("label", 64), ("comparison", 54)),
     **{("chiffres", f"fig{i}"): (("value", 9), ("label", 34), ("comparison", 26)) for i in (2, 3, 4)},
-    **{("recit", f"row{i}"): (("type", 16), ("text", 80), ("remark", 76)) for i in (1, 2, 3)},
+    **{("recit", f"row{i}"): (("type", 16), ("text", 80), ("remark", 90)) for i in (1, 2, 3)},
     **{("lectures", f"lecture{i}"): (("name", 28), ("hypothesis", 70), ("number to follow", 90)) for i in (1, 2, 3)},
 }
 _ACCUSING = re.compile(r"\b(biais|manipulation|manipul\w+|mensonges?|trompeu\w+|fallacieu\w+|sophismes?)\b", re.I)
@@ -206,11 +212,11 @@ _KINDS = ("explication", "interpretation", "consequence")
 _REQUIRED = {"axe": ("fait", "article", "lecture1", "lecture2", "lecture3"),
              "chiffres": ("claim", "fig1", "fig2", "fig3"),
              "recit": ("title", "row1", "row2"),
-             "angle_mort": ("title", *(f"{n}{i}" for i in (1, 2, 3, 4) for n in ("claim", "verifier", "ouvre"))),
-             "lectures": ("title", "lecture1", "lecture2", "lecture3")}
+             "angle_mort": ("title", *(f"{n}{i}" for i in (1, 2, 3, 4) for n in ("head", "claim", "verifier", "ouvre"))),
+             "lectures": ("title", "lead", "lecture1", "lecture2", "lecture3")}
 # slides 4 and 5 are outside the article's frame and add no figure (the `ouvre` pair is a reference, not a figure)
-_NO_DIGIT = {"angle_mort": {"title", *(f"{n}{i}" for i in (1, 2, 3, 4) for n in ("claim", "verifier"))},
-             "lectures": {"title", "lecture1", "lecture2", "lecture3"}}
+_NO_DIGIT = {"angle_mort": {"title", *(f"{n}{i}" for i in (1, 2, 3, 4) for n in ("head", "claim", "verifier"))},
+             "lectures": {"title", "lead", "lecture1", "lecture2", "lecture3"}}
 # a statistical term the reader may not know: `chiffres.note1` must gloss it in plain words
 _JARGON = re.compile(r"\b(médian\w*|écart[- ]type|percentiles?|quantiles?|décile\w*|quartile\w*|corrélation)\b", re.I)
 
@@ -360,8 +366,8 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
             if value and len(names) == 3 and _norm(_parts(value, 3)[0]) != _norm(names[i - 1]):
                 hard.append(f"lectures.lecture{i} is named « {_parts(value, 3)[0]} » but the axe's reading {i} is « {names[i - 1]} »")
             last = _parts(value, 3)[2] if value else ""
-            if value and not (re.match(r"\*\*[^*]+\*\*", last) and "validé" in last):
-                hard.append(f"lectures.lecture{i}: the last part starts with the measure in bold (**…**) and says « validé si … »")
+            if value and not re.match(r"\*\*[^*]+\*\*\s*\S", last):
+                hard.append(f"lectures.lecture{i}: the last part starts with the measure in bold (**…**), then says what to look for")
         title = str(fields.get("title", "")).strip()
         if title and not title.endswith("?"):
             hard.append("lectures.title must be a question ending in « ? »")
@@ -423,14 +429,15 @@ def to_fragment(step: Step, option: Option) -> dict:
             opens = _ouvre(str(f.get(f"ouvre{i}", ""))) or []
             clue = str(f.get(f"verifier{i}", "")).strip()
             notes = [{"kind": "source", "text": clue}] if clue else []
-            cards.append({"claim": f.get(f"claim{i}", ""), "notes": notes, "opens": opens})
+            # the card's title is the stated blind spot; the question is its comment (`detail`)
+            cards.append({"claim": f.get(f"head{i}", ""), "detail": f.get(f"claim{i}", ""), "notes": notes, "opens": opens})
         return {"angle_mort": {"title": f.get("title", ""), "cards": cards}}
     if step.name == "lectures":
         rows = []
         for i in (1, 2, 3):
             nom, voir, sens = _parts(str(f.get(f"lecture{i}", "")), 3)
             rows.append({"nom": nom, "voir": voir, "sens": sens})
-        return {"lectures": {"title": f.get("title", ""), "rows": rows}}
+        return {"lectures": {"title": f.get("title", ""), "lead": f.get("lead", ""), "rows": rows}}
     if step.name == "hook":
         return {"hook": {"title": f.get("title", ""), "promise": f.get("promise", "")}}
     return {"caption": f.get("caption", "")}

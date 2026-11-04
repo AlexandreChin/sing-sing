@@ -65,7 +65,7 @@ def generate_html(doc: AnatomieChiffreDocument, out_dir: Path) -> list[Path]:
                                                                for r in pres.recit.rows]})),
         ("angle_mort", f"{TPL}/04_angle_mort.html",
          _nobreak({"title": pres.angle_mort.title,
-                   "cards": [{**c.model_dump(exclude={"notes", "opens", "detail"}), "sources": notes(c.notes), "icon": _BLIND_SPOT_ICON}
+                   "cards": [{**c.model_dump(exclude={"notes", "opens"}), "sources": notes(c.notes), "icon": _BLIND_SPOT_ICON}
                              for c in pres.angle_mort.cards]})),
         ("lectures", f"{TPL}/05_lectures.html", _nobreak(pres.lectures.model_dump() | {"icons": [_READING_ICON] * len(pres.lectures.rows)})),
         ("cta", f"{OPT}/10_cta.html", {**cover_layers(meta, pres.hook.title), "background": background,

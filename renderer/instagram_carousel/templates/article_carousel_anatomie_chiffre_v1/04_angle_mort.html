@@ -18,8 +18,9 @@
     {% for c in cards %}<div class="card"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}
       <div class="pt"><svg viewBox="0 0 24 24">{{ ICONS[c.icon] | safe }}</svg><div>
         <div class="nm">{{ c.claim | md_bold }}</div>
-        {% if c.sources %}<div class="see">{{ c.sources[0].text | md_bold }}</div>{% endif %}
+        {% if c.detail %}<div class="see">{{ c.detail | md_bold }}</div>{% endif %}
       </div></div>
+      {% if c.sources %}<div class="foot"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg><span>{{ c.sources[0].text | md_bold }}</span></div>{% endif %}
     </div>{% endfor %}
   </div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>

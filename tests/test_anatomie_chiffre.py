@@ -69,8 +69,8 @@ def option_fields(deck: dict) -> dict[str, dict]:
                              pad([f"{x['kind']} | {x['text']} | {x['remark']}" for x in r["rows"]], 3)))},
         "angle_mort": {"title": a["title"],
                        **{f"{n}{i}": v for i, c in enumerate(a["cards"], 1)
-                          for n, v in (("claim", c["claim"]), ("verifier", c["notes"][0]["text"]), ("ouvre", ",".join(map(str, c["opens"]))))}},
-        "lectures": {"title": lc["title"],
+                          for n, v in (("head", c["claim"]), ("claim", c["detail"]), ("verifier", c["notes"][0]["text"]), ("ouvre", ",".join(map(str, c["opens"]))))}},
+        "lectures": {"title": lc["title"], "lead": lc["lead"],
                      **{f"lecture{i}": f"{x['nom']} | {x['voir']} | {x['sens']}" for i, x in enumerate(lc["rows"], 1)}},
         "hook": {"title": deck["hook"]["title"], "promise": deck["hook"]["promise"]},
         "writing": {"caption": deck["caption"]},
@@ -175,7 +175,7 @@ def test_lecture_names_must_equal_the_axe_names():
     bad = "Un effet de cohorte | Chaque génération s'enrichit | **Le rapport**, validé si x"
     assert any("lecture1" in e and "axe's reading 1" in e for e in hard("lectures", frags, lecture1=bad))
     assert hard("lectures", {}, lecture1=bad) == []     # no axe, nothing to compare
-    assert any("lecture1" in e and "validé" in e for e in hard("lectures", lecture1="Un effet de marché | Un écart stable | Fed"))
+    assert any("lecture1" in e and "measure in bold" in e for e in hard("lectures", lecture1="Un effet de marché | Un écart stable | Fed"))
     assert any("title must be a question" in e for e in hard("lectures", title="Pourquoi cette hausse."))
 
 
@@ -446,7 +446,7 @@ def test_six_slides_are_rendered(tmp_path):
     assert "Pour vérifier" not in texts["04_angle_mort"] and "Réserve fédérale" not in texts["04_angle_mort"]
     assert texts["04_angle_mort"].count("Comparer") == 3
     assert "Laisse ouvert" not in texts["04_angle_mort"] and "On verrait" not in texts["05_lectures"]
-    assert texts["05_lectures"].count("validé") == 3 and "Chiffre à suivre" not in texts["05_lectures"]
+    assert "validé" not in texts["05_lectures"] and "Chiffre à suivre" not in texts["05_lectures"]
     assert "quelle lecture les séries que vous trouverez soutiennent-elles ?" in texts["06_cta"]
 
 
@@ -505,8 +505,8 @@ def worst_case_fields(seed: int = 0) -> dict[str, dict]:
              "row2": parts("recit", "row2", "interpretation"), "row3": parts("recit", "row3", "consequence")}
     angle = {"title": text("angle_mort", "title"), "ouvre1": "1,2", "ouvre2": "2,3", "ouvre3": "1,3", "ouvre4": "1,2"}
     for i in (1, 2, 3, 4):
-        angle |= {f"claim{i}": text("angle_mort", f"claim{i}")[:-1] + "?", f"verifier{i}": text("angle_mort", f"verifier{i}")}
-    lectures = {"title": text("lectures", "title")[:-1] + "?",                 **{f"lecture{i}": f"{names[i - 1]} | {_chars(rng, 70)} | **Le rapport** {_chars(rng, 56)}, validé si {_chars(rng, 10)}"
+        angle |= {f"head{i}": text("angle_mort", f"head{i}"), f"claim{i}": text("angle_mort", f"claim{i}")[:-1] + "?", f"verifier{i}": text("angle_mort", f"verifier{i}")}
+    lectures = {"title": text("lectures", "title")[:-1] + "?", "lead": text("lectures", "lead"),                 **{f"lecture{i}": f"{names[i - 1]} | {_chars(rng, 70)} | **Le rapport** {_chars(rng, 60)} : il {_chars(rng, 13)}"
                    for i in (1, 2, 3)}}
     return {"axe": axe, "chiffres": chiffres, "recit": recit, "angle_mort": angle, "lectures": lectures,
             "hook": {"title": text("hook", "title"), "promise": text("hook", "promise")}, "writing": FIELDS["writing"]}

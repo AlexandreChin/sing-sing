@@ -79,8 +79,8 @@
     "title": "La génération, une piste parmi d'autres",
     "cards": [
       {
-        "claim": "Quelle part des actifs, quelle part du reste ?",
-        "detail": "",
+        "claim": "La part des actifs reste invisible",
+        "detail": "Quelle part du patrimoine vient des actifs ?",
         "opens": [
           1,
           3
@@ -93,8 +93,8 @@
         ]
       },
       {
-        "claim": "L'âge est-il le seul clivage ?",
-        "detail": "",
+        "claim": "L'âge masque d'autres clivages",
+        "detail": "L'âge est-il le seul clivage ?",
         "opens": [
           1,
           2
@@ -107,8 +107,8 @@
         ]
       },
       {
-        "claim": "Compare-t-on les mêmes ménages dans le temps ?",
-        "detail": "",
+        "claim": "Les groupes changent avec le temps",
+        "detail": "Compare-t-on les mêmes ménages dans le temps ?",
         "opens": [
           2,
           3
@@ -121,8 +121,8 @@
         ]
       },
       {
-        "claim": "L'écart est-il le même dans chaque groupe ?",
-        "detail": "",
+        "claim": "Une médiane masque les disparités",
+        "detail": "L'écart est-il le même dans chaque groupe ?",
         "opens": [
           1,
           3
@@ -138,22 +138,22 @@
   },
   "lectures": {
     "title": "Génération, ou autre chose ?",
-    "lead": "",
+    "lead": "Trois pistes, chacune avec son indice à chercher.",
     "rows": [
       {
         "nom": "Une fracture de patrimoine",
         "voir": "L'écart suit la détention d'actifs, quel que soit l'âge.",
-        "sens": "**L'écart propriétaires-locataires** à âge égal, validé s'il égale celui entre âges."
+        "sens": "**L'écart haut-bas** à âge égal : il grandirait aussi chez les jeunes."
       },
       {
         "nom": "Un retour à la normale",
         "voir": "Les jeunes revenaient d'un sommet : le point de départ était flatteur.",
-        "sens": "**Le rapport** sur une période plus longue, validé si la hausse s'atténue."
+        "sens": "**Le rapport** sur plus longtemps : il retomberait vers son niveau d'avant."
       },
       {
         "nom": "Un cycle de marché",
         "voir": "Le gain suit les marchés et peut s'inverser avec eux.",
-        "sens": "**Le rapport** comparé aux indices de Bourse, validé s'il baisse quand ils baissent."
+        "sens": "**Le rapport** comparé à la Bourse : il suivrait ses hausses et ses baisses."
       }
     ]
   }
