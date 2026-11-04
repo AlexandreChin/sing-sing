@@ -1,5 +1,5 @@
 {
-  "caption": "Aux États-Unis, les plus de 75 ans seraient 15 fois plus fortunés que les moins de 35 ans (9 fois en 2022, selon la Fed). BFM Business l'attribue aux actifs. D'autres lectures existent : riches contre pauvres, retour à la normale, cycle de marché.\n\nSource : https://www.bfmtv.com/economie/patrimoine/les-americains-de-plus-de-75-ans-sont-desormais-15-fois-plus-riches-que-les-jeunes-generations-leur-patrimoine-median-a-bondi-de-37-en-trois-ans-quand-celui-des-moins-de-35-ans-a-chute-de-23_AV-202611010091.html",
+  "caption": "Aux États-Unis, les plus de 75 ans seraient 15 fois plus fortunés que les moins de 35 ans (9 fois en 2022, selon la Fed). BFM Business l'attribue aux actifs. D'autres lectures existent : riches contre pauvres, propriétaires et locataires, cycle de marché, poids des dettes.\n\nSource : https://www.bfmtv.com/economie/patrimoine/les-americains-de-plus-de-75-ans-sont-desormais-15-fois-plus-riches-que-les-jeunes-generations-leur-patrimoine-median-a-bondi-de-37-en-trois-ans-quand-celui-des-moins-de-35-ans-a-chute-de-23_AV-202611010091.html",
   "axe": {
     "fait": "pourquoi le rapport de patrimoine entre les plus âgés et les plus jeunes est passé de 9 à 15",
     "article": {
@@ -12,12 +12,16 @@
         "formule": "Les plus riches s'enrichissent, les plus pauvres s'appauvrissent, à tout âge."
       },
       {
-        "nom": "Un retour à la normale",
-        "formule": "Le point de départ de 2022 était flatteur pour les jeunes."
+        "nom": "Propriétaires et locataires",
+        "formule": "L'écart suit le fait de posséder son logement, pas l'âge."
       },
       {
         "nom": "Un cycle de marché",
         "formule": "Le gain suit les marchés et peut s'inverser avec eux."
+      },
+      {
+        "nom": "Le poids des dettes",
+        "formule": "Les dettes ont réduit le patrimoine net des moins aisés, quel que soit l'âge."
       }
     ]
   },
@@ -119,22 +123,22 @@
           }
         ],
         "opens": [
-          1,
+          2,
           3
         ]
       },
       {
-        "claim": "La source du capital reste inconnue",
-        "detail": "Ce patrimoine est-il constitué ou hérité ?",
+        "claim": "Le patrimoine net inclut les dettes",
+        "detail": "Quelle part des dettes, selon le revenu ?",
         "notes": [
           {
             "kind": "source",
-            "text": "Séparer ce qui est hérité de ce qui a été épargné, par âge."
+            "text": "Comparer actifs et dettes, par âge et par niveau de revenu."
           }
         ],
         "opens": [
           1,
-          3
+          4
         ]
       }
     ]
@@ -145,18 +149,23 @@
     "rows": [
       {
         "nom": "Plus riches, plus pauvres",
-        "voir": "Les plus riches s'enrichissent, les plus pauvres s'appauvrissent.",
+        "voir": "Les riches s'enrichissent, les pauvres s'appauvrissent.",
         "sens": "**L'écart haut-bas** à âge égal : il grandirait aussi chez les jeunes."
       },
       {
-        "nom": "Un retour à la normale",
-        "voir": "Les jeunes revenaient d'un sommet : le point de départ était flatteur.",
-        "sens": "**Le rapport** sur plus longtemps : il retomberait vers son niveau d'avant."
+        "nom": "Propriétaires et locataires",
+        "voir": "L'écart suit le logement possédé, quel que soit l'âge.",
+        "sens": "**La part de propriétaires** par âge : elle suivrait celle du patrimoine."
       },
       {
         "nom": "Un cycle de marché",
         "voir": "Le gain suit les marchés et peut s'inverser avec eux.",
         "sens": "**Le rapport** comparé à la Bourse : il suivrait ses hausses et ses baisses."
+      },
+      {
+        "nom": "Le poids des dettes",
+        "voir": "Les dettes ont réduit le patrimoine net des moins aisés.",
+        "sens": "**La part des dettes** à âge égal : elle serait plus forte chez les moins aisés."
       }
     ]
   }

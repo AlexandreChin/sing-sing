@@ -8,9 +8,10 @@
       "fields": {
         "fait": "pourquoi le rapport de patrimoine entre les plus âgés et les plus jeunes est passé de 9 à 15",
         "lecture1": "Plus riches, plus pauvres | Les plus riches s'enrichissent, les plus pauvres s'appauvrissent, à tout âge.",
-        "lecture2": "Un retour à la normale | Le point de départ de 2022 était flatteur pour les jeunes.",
+        "lecture2": "Propriétaires et locataires | L'écart suit le fait de posséder son logement, pas l'âge.",
         "lecture3": "Un cycle de marché | Le gain suit les marchés et peut s'inverser avec eux.",
-        "article": "Une fracture de génération | Un écart qui se creuse entre des générations aux conditions différentes."
+        "article": "Une fracture de génération | Un écart qui se creuse entre des générations aux conditions différentes.",
+        "lecture4": "Le poids des dettes | Les dettes ont réduit le patrimoine net des moins aisés, quel que soit l'âge."
       },
       "edited": true,
       "flags": []
@@ -62,12 +63,16 @@
           "formule": "Les plus riches s'enrichissent, les plus pauvres s'appauvrissent, à tout âge."
         },
         {
-          "nom": "Un retour à la normale",
-          "formule": "Le point de départ de 2022 était flatteur pour les jeunes."
+          "nom": "Propriétaires et locataires",
+          "formule": "L'écart suit le fait de posséder son logement, pas l'âge."
         },
         {
           "nom": "Un cycle de marché",
           "formule": "Le gain suit les marchés et peut s'inverser avec eux."
+        },
+        {
+          "nom": "Le poids des dettes",
+          "formule": "Les dettes ont réduit le patrimoine net des moins aisés, quel que soit l'âge."
         }
       ]
     }
