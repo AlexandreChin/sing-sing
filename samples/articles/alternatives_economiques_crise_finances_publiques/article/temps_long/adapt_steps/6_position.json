@@ -7,7 +7,7 @@
       "reason": "Met en avant le cœur de la thèse : dérive de cinquante ans lue par les régimes de croissance, contre les chocs.",
       "fields": {
         "title": "Une dérive structurelle",
-        "lead": "Pour Robert Boyer, la crise n'est pas une suite de chocs mais l'aboutissement de cinquante ans de déficits : elle devient en 2026 une crise politique, voire de régime.",
+        "lead": "Pour Robert Boyer, la crise est l'aboutissement de cinquante ans de déficits, devenue en 2026 une crise politique.",
         "ecarte": "La **malchance** : des chocs communs à la plupart des pays, la France la plus touchée.",
         "diagnostic": "La France **s'endette au lieu de s'adapter** à un monde de croissance lente, pour préserver la paix sociale.",
         "issue": "Parlement en trois groupes, exécutif paralysé : une **crise de régime**, plus proche de 1958 que de Mai 68.",
@@ -55,11 +55,16 @@
   "fragment": {
     "position": {
       "title": "Une dérive structurelle",
-      "lead": "Pour Robert Boyer, la crise n'est pas une suite de chocs mais l'aboutissement de cinquante ans de déficits : elle devient en 2026 une crise politique, voire de régime.",
+      "lead": "Pour Robert Boyer, la crise est l'aboutissement de cinquante ans de déficits, devenue en 2026 une crise politique.",
+      "kicker": "",
       "ecarte": "La **malchance** : des chocs communs à la plupart des pays, la France la plus touchée.",
       "diagnostic": "La France **s'endette au lieu de s'adapter** à un monde de croissance lente, pour préserver la paix sociale.",
       "mecanisme": "De 1981 à 2019, la **baisse des taux d'intérêt** a allégé la dette. Depuis 2025, leur **hausse** l'alourdit.",
-      "issue": "Parlement en trois groupes, exécutif paralysé : une **crise de régime**, plus proche de 1958 que de Mai 68."
+      "issue": "Parlement en trois groupes, exécutif paralysé : une **crise de régime**, plus proche de 1958 que de Mai 68.",
+      "ecarte_label": "",
+      "diagnostic_label": "",
+      "mecanisme_label": "",
+      "issue_label": ""
     }
   },
   "remarks": []

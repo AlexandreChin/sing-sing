@@ -486,7 +486,7 @@ def test_seven_slides_are_rendered(tmp_path):
     assert 'class="ask"' not in lecture and "soutiennent-elles" not in lecture and "mineurs" not in lecture
     assert "Le point de départ" in texts["06_pieges"] and texts["06_pieges"].count('class="card piege"') == 4
     assert "Vous jugez." in texts["07_cta"]
-    assert "quelle lecture les séries que vous trouverez soutiennent-elles ?</span>" in texts["07_cta"]
+    assert "votre intuition avant de regarder : rupture, continuité ou cycle ?</span>" in texts["07_cta"]
 
 
 # ── the picture: one photo opens and closes the deck ────────────────────────

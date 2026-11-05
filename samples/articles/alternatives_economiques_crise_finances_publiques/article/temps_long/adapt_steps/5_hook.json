@@ -18,7 +18,7 @@
       "reason": "Reprend le titre du média et attribue la parole ; angle le plus proche du fait brut.",
       "fields": {
         "title": "Boyer : la crise des finances publiques est « aussi politique »",
-        "promise": "Prendre du recul sur cinquante ans de déficits, pas de chocs."
+        "promise": "Prendre du recul sur cinquante ans de déficits."
       },
       "edited": true,
       "flags": []
@@ -56,7 +56,7 @@
   "fragment": {
     "hook": {
       "title": "Boyer : la crise des finances publiques est « aussi politique »",
-      "promise": "Prendre du recul sur cinquante ans de déficits, pas de chocs."
+      "promise": "Prendre du recul sur cinquante ans de déficits."
     }
   },
   "remarks": []

@@ -1,8 +1,8 @@
 {
-  "caption": "Faut-il s'alarmer des finances publiques françaises ? Dans un article publié par Alternatives Économiques le 4 novembre 2026, l'économiste Robert Boyer, de l'école de la régulation (un courant distinct de la macroéconomie dominante), estime que la crise n'est pas une suite de chocs externes mais l'aboutissement de cinquante ans de déficits que les gouvernements n'ont pas su enrayer. Elle devient, selon lui, une crise politique, voire de régime. C'est une prise de position, pas un constat établi.\n\nCe carrousel ne tranche pas. Il résume sa lecture, puis donne des repères pour la tester : les épisodes que l'on cite depuis 2018, les textes qui ont changé les règles budgétaires depuis 1973, trois façons de lire le temps (rupture, continuité, cycle) et trois questions à se poser avant de comparer le déficit d'un moment à l'autre.\n\nÀ vous de comparer, sur la même mesure, ce que les séries disent. Quelle lecture les séries que vous trouverez soutiennent-elles ? Dites-le en commentaire.\n\n#financespubliques #deficit #lecturecritique #economie",
+  "caption": "Faut-il s'alarmer des finances publiques françaises ? Dans un article publié par Alternatives Économiques le 4 novembre 2026, l'économiste Robert Boyer, de l'école de la régulation (un courant distinct de la macroéconomie dominante), estime que la crise n'est pas une suite de chocs externes mais l'aboutissement de cinquante ans de déficits que les gouvernements n'ont pas su enrayer. Elle devient, selon lui, une crise politique, voire de régime. C'est une prise de position, pas un constat établi.\n\nCe carrousel ne tranche pas. Il résume sa lecture, puis donne des repères pour la tester : les épisodes que l'on cite depuis 2018, les textes qui ont changé les règles budgétaires depuis 1973, trois façons de lire le temps (rupture, continuité, cycle) et trois questions à se poser avant de comparer le déficit d'un moment à l'autre.\n\nÀ vous de comparer, sur la même mesure, ce que les séries disent. Votre intuition avant de regarder : rupture, continuité ou cycle ? Dites-le en commentaire.\n\n#financespubliques #deficit #lecturecritique #economie",
   "hook": {
     "title": "Boyer : la crise des finances publiques est « aussi politique »",
-    "promise": "Prendre du recul sur cinquante ans de déficits, pas de chocs."
+    "promise": "Prendre du recul sur cinquante ans de déficits."
   },
   "tournants": {
     "title": "Cinquante ans de **règles** budgétaires",
@@ -63,7 +63,7 @@
   },
   "position": {
     "title": "Une dérive structurelle",
-    "lead": "Pour Robert Boyer, la crise n'est pas une suite de chocs mais l'aboutissement de cinquante ans de déficits : elle devient en 2026 une crise politique, voire de régime.",
+    "lead": "Pour Robert Boyer, la crise est l'aboutissement de cinquante ans de déficits, devenue en 2026 une crise politique.",
     "ecarte": "La **malchance** : des chocs communs à la plupart des pays, la France la plus touchée.",
     "diagnostic": "La France **s'endette au lieu de s'adapter** à un monde de croissance lente, pour préserver la paix sociale.",
     "mecanisme": "De 1981 à 2019, la **baisse des taux d'intérêt** a allégé la dette. Depuis 2025, leur **hausse** l'alourdit.",
@@ -97,7 +97,7 @@
         "where": "Eurostat, déficit public annuel"
       }
     ],
-    "question": "Quelle lecture les séries que vous trouverez soutiennent-elles ?",
+    "question": "Votre intuition avant de regarder : rupture, continuité ou cycle ?",
     "author": ""
   },
   "pieges": {
