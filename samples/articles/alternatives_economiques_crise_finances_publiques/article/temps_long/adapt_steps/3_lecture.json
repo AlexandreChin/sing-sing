@@ -9,10 +9,10 @@
         "title": "Rupture, continuité ou **cycle** ?",
         "lead": "Pour trancher : comparer le déficit public d'un épisode à l'autre, sur la même mesure.",
         "rupture": "2026 sort-il de la série ? | L'**écart 2025–2026** serait plus grand que tout écart entre deux épisodes | INSEE, comptes des administrations publiques",
-        "continuite": "Les textes ont-ils changé la pente ? | Le **sens** du déficit serait le même avant et après chaque texte (1973, 1992, 2012, 2023) | Cour des comptes, finances publiques",
+        "continuite": "Les textes changent-ils la pente ? | Le **sens** du déficit serait le même avant et après chaque texte (1973, 1992, 2012, 2023) | Cour des comptes, finances publiques",
         "cycle": "Les hausses se résorbent-elles ? | Le **retour** du déficit près de son niveau d'avant, deux ans après mars 2020 et 2022 | Eurostat, déficit public annuel",
         "question": "Quelle lecture les séries que vous trouverez soutiennent-elles ?",
-        "author": "**Boyer** combine continuité (cinquante ans) et rupture (2026)"
+        "author": ""
       },
       "edited": true,
       "flags": []
@@ -83,7 +83,7 @@
         },
         {
           "kind": "continuite",
-          "signature": "Les textes ont-ils changé la pente ?",
+          "signature": "Les textes changent-ils la pente ?",
           "indicator": "Le **sens** du déficit serait le même avant et après chaque texte (1973, 1992, 2012, 2023)",
           "where": "Cour des comptes, finances publiques"
         },
@@ -95,7 +95,7 @@
         }
       ],
       "question": "Quelle lecture les séries que vous trouverez soutiennent-elles ?",
-      "author": "**Boyer** combine continuité (cinquante ans) et rupture (2026)"
+      "author": ""
     }
   },
   "remarks": []

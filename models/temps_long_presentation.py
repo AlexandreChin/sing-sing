@@ -62,6 +62,12 @@ class TempsLongPosition(BaseModel):  # slide 2 — what the author says, in the 
     diagnostic: str   # card 2 — his own reading
     mecanisme: str = ""   # card 3 — why it lasted and why it breaks (an older deck has three cards)
     issue: str    # card 4 — his conclusion
+    kicker: str = ""   # the label above the title, specific to the article; empty = « Ce que dit l'auteur »
+    # each card's own heading, specific to the article; empty = the default heading of the renderer
+    ecarte_label: str = ""
+    diagnostic_label: str = ""
+    mecanisme_label: str = ""
+    issue_label: str = ""
 
 
 class TempsLongPresentation(BaseModel):

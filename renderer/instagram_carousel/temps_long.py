@@ -40,7 +40,9 @@ def generate_html(doc: TempsLongDocument, out_dir: Path) -> list[Path]:
         ("hook", f"{OPT}/01_hook.html", hook),
         *([("position", f"{TPL}/02_position.html",
             _nobreak({"title": pres.position.title, "lead": pres.position.lead,
-                      "cards": [{"label": label, "icon": icon, "text": getattr(pres.position, key)}
+                      "kicker": pres.position.kicker or "Ce que dit l'auteur",
+                      "cards": [{"label": getattr(pres.position, f"{key}_label") or label, "icon": icon,
+                                 "text": getattr(pres.position, key)}
                                 for key, label, icon in _POSITION_CARDS if getattr(pres.position, key)]}))] if pres.position else []),
         ("episodes", f"{TPL}/02_frise.html",
          _nobreak(pres.episodes.model_dump()) | {"kick": "Les épisodes qu'on retient", "icon": "flame"}),

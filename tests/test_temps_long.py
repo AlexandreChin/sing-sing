@@ -39,7 +39,7 @@ def option_fields(deck: dict) -> dict[str, dict]:
         "episodes": _frise(deck["episodes"]),
         "lecture": {"title": le["title"], "lead": le["lead"],
                     **{r["kind"]: f"{r['signature']} | {r['indicator']} | {r['where']}" for r in le["readings"]},
-                    "question": le["question"], "author": le["author"]},
+                    "question": le["question"]},
         "pieges": {"title": pi["title"], "lead": pi["lead"], **dict(zip(("piege1", "piege2", "piege3", "piege4"), traps))},
         "hook": dict(deck["hook"]),
         "position": dict(deck["position"]),
@@ -327,6 +327,9 @@ def test_the_position_breaks_no_rule_and_every_card_is_required_and_capped():
     assert any("mecanisme is empty" in e for e in hard("position", mecanisme=""))
     assert any("title" in e and "max 44" in e for e in hard("position", title="x" * 45))
     assert any("issue" in e and "max 108" in e for e in hard("position", issue="x" * 109))
+    assert any("kicker" in e and "max 30" in e for e in hard("position", kicker="x" * 31))
+    assert any("issue_label" in e and "max 40" in e for e in hard("position", issue_label="x" * 41))
+    assert hard("position", issue_label="") == []   # a label is optional
 
 
 def test_a_quoted_passage_of_the_position_must_be_in_the_source():
@@ -456,6 +459,13 @@ def test_seven_slides_are_rendered(tmp_path):
     position = texts["02_position"]
     assert "Ce que dit l'auteur" in position and "Amnesty : un" in position
     assert all(label in position for label in ("Ce qu'il écarte", "Son diagnostic", "Pourquoi ça a duré", "Sa conclusion"))
+    custom = copy.deepcopy(DECK)
+    custom["position"] |= {"kicker": "Ce que disent l'ONU et Amnesty", "ecarte_label": "Ce qu'ils reconnaissent", "issue_label": "Ce qu'Amnesty y voit"}
+    cpaths = renderer.generate_html(extract(full(), TempsLongPresentation.model_validate(custom)), tmp_path / "custom")
+    ctext = html.unescape(next(p for p in cpaths if p.stem == "02_position").read_text(encoding="utf-8"))
+    assert "Ce que disent l'ONU et Amnesty" in ctext and "Ce que dit l'auteur" not in ctext and "Ce que dit l'auteur" in position
+    assert "Ce qu'ils reconnaissent" in ctext and "Ce qu'Amnesty y voit" in ctext
+    assert "Ce qu'il écarte" not in ctext and "Sa conclusion" not in ctext and "Son diagnostic" in ctext   # empty = default
     assert position.count('class="card pos"') == 4 and position.split("<body>")[1].count("data-perch") == 1
     assert "« surenchère sécuritaire »" in position and "7 / 7" in texts["07_cta"] and "2 / 7" in position
     assert "Les épisodes qu'on retient" in texts["03_episodes"] and "2018–2019" in texts["03_episodes"]
@@ -564,15 +574,16 @@ def worst_case_deck(seed: int = 0) -> dict:
     return DECK | {
         "hook": {"title": _sample(rng, _cap("hook", "title")), "promise": _sample(rng, _cap("hook", "promise"))},
         "position": {"title": _sample(rng, _cap("position", "title")), "lead": _sample(rng, _cap("position", "lead")),
-                     **{c: _sample(rng, _cap("position", c)) for c in agent._POSITION_CARDS}},
+                     **{c: _sample(rng, _cap("position", c)) for c in agent._POSITION_CARDS},
+                     "kicker": _sample(rng, _cap("position", "kicker")),
+                     **{f"{c}_label": _sample(rng, _cap("position", f"{c}_label")) for c in agent._POSITION_CARDS}},
         "tournants": frise("tournants"), "episodes": frise("episodes"),
         "lecture": {"title": _sample(rng, _cap("lecture", "title")), "lead": _sample(rng, _cap("lecture", "lead")),
                     "readings": [{"kind": k, "signature": _sample(rng, agent._SIGNATURE_MAX - 2) + " ?",
                                   "indicator": "Le **déficit** : " + _sample(rng, agent._INDICATOR_MAX - 15),
                                   "where": _sample(rng, agent._WHERE_MAX)}
                                  for k in ("rupture", "continuite", "cycle")],
-                    "question": _sample(rng, _cap("lecture", "question") - 2) + " ?",
-                    "author": "Le **texte** " + _sample(rng, _cap("lecture", "author") - 13)},
+                    "question": _sample(rng, _cap("lecture", "question") - 2) + " ?"},
         "pieges": {"title": _sample(rng, _cap("pieges", "title")), "lead": _sample(rng, _cap("pieges", "lead")),
                    "pieges": [{"title": _sample(rng, agent._PIEGE_TITLE_MAX),
                                "question": _sample(rng, agent._PIEGE_QUESTION_MAX - 2) + " ?"} for _ in range(4)]},
@@ -586,7 +597,9 @@ _LINES = """() => { const n = (sel) => [...document.querySelectorAll(sel)].map(e
     (t.getBoundingClientRect().height - t.querySelector('small').getBoundingClientRect().height - 10) /
     (parseFloat(getComputedStyle(t).fontSize) * 1.1)));
   return {subtitle: n('.subtitle'), lead: n('.lead'), label: n('.rep .l'), head: n('.head'),
-          remark: n('.rep .w span'), one: n('.read .s, .read .w span, .own span'), two: n('.read .t, .piege .t small'),
+          remark: n('.rep .w span'), one: n('.read .s, .read .w span'), two: n('.read .t, .piege .t small'),
+          qlabel: [...document.querySelectorAll('.q-label')].map(e => Math.round(e.getBoundingClientRect().height / (parseFloat(getComputedStyle(e).fontSize) * 1.1))),
+          kick: [...document.querySelectorAll('.kick')].map(e => Math.round(e.getBoundingClientRect().height / (parseFloat(getComputedStyle(e).fontSize) * 1.3))),
           trap: trapTitle, say: n('.pos .say'), bottom}; }"""
 
 
@@ -622,6 +635,8 @@ def test_every_field_at_its_cap_fits_in_its_lines_and_on_the_slide(tmp_path, see
         assert all(n <= 2 for n in m["label"]), (slide, "label", m["label"])
         assert all(n <= (2 if slide == "04_tournants" else 1) for n in m["remark"]), (slide, "remark", m["remark"])
         assert all(n <= 1 for n in m["one"]), (slide, "one-line fields", m["one"])
+        assert all(n <= 1 for n in m["kick"]), (slide, "kicker", m["kick"])
+        assert all(n <= 1 for n in m["qlabel"]), (slide, "card heading", m["qlabel"])
         assert all(n <= 2 for n in m["two"]), (slide, "two-line fields", m["two"])
         assert all(n <= 1 for n in m["trap"]), (slide, "trap title", m["trap"])
         assert m["bottom"] <= 1255, (slide, m["bottom"])

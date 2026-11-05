@@ -61,7 +61,6 @@ class LectureOption(BaseModel):
     continuite: str
     cycle: str
     question: str      # the neutral closing question: not drawn on slide 4, taken up by the sign-off
-    author: str        # where the author's thesis sits among the readings: one line, attributed, never judged
 
 
 class PiegesOption(BaseModel):
@@ -85,6 +84,11 @@ class PositionOption(BaseModel):
     diagnostic: str   # card 2 — his own reading
     mecanisme: str    # card 3 — why it lasted, why it breaks
     issue: str        # card 4 — his conclusion
+    kicker: str = ""             # the label above the title (empty = « Ce que dit l'auteur »)
+    ecarte_label: str = ""       # each card's heading, specific to the article (empty = the default one)
+    diagnostic_label: str = ""
+    mecanisme_label: str = ""
+    issue_label: str = ""
 
 
 class WritingCopy(BaseModel):
@@ -159,16 +163,17 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     **{(s, "lead"): ("chars", 84) for s in ("tournants", "episodes")},   # two lines at most, beside the bird perched on the first row
     **{(s, "lead"): ("chars", 94) for s in ("lecture", "pieges")},
     ("lecture", "question"): ("chars", 96),
-    ("lecture", "author"): ("chars", 60),   # one line under the cards, beside its icon
     ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 64),   # two lines at most, before « En juger soi-même. »
     ("position", "title"): ("chars", 44), ("position", "lead"): ("chars", 175),   # the summary, three lines at most
     **{("position", c): ("chars", 108) for c in _POSITION_CARDS},   # two lines in a card, three at the very worst
+    ("position", "kicker"): ("chars", 30),   # the kicker above the title, one line, capitals spaced out
+    **{("position", f"{c}_label"): ("chars", 40) for c in _POSITION_CARDS},   # a card's heading, one line beside its icon
 }
 _DATE_MAX = 14      # characters: the date is drawn big, in gold, in a narrow column
 _LABEL_MAX = 64     # characters: a reference point's label takes two lines at most
 _REMARK_MAX = 46    # characters: an episode's remark takes one line
 _TOURNANTS_REMARK_MAX = 84   # characters: a turning point's remark takes two lines (what it changes, and what it could change)
-_SIGNATURE_MAX = 36    # characters: a reading's hypothesis, a question, takes one line after its name
+_SIGNATURE_MAX = 34    # characters: a reading's hypothesis, a question, takes one line after its name
 _INDICATOR_MAX = 100    # characters: a reading's test takes two lines at most
 _WHERE_MAX = 44         # characters: where to find the series, one line after « Où regarder »
 _URL = re.compile(r"https?://|www\.", re.I)
@@ -180,7 +185,7 @@ _YEAR = re.compile(r"\b(?:1[89]|20)\d{2}\b")
 _TREND_FIGURE = re.compile(r"\d[\d  .,]*\s*(?:%|€|M€|Md€|milliards?|millions?|points?\b|×)|×\s*\d", re.I)
 _REQUIRED = {"tournants": ("title", "lead", "rep1", "rep2", "rep3"),
              "episodes": ("title", "lead", "rep1", "rep2", "rep3", "rep4"),   # 4 or 5 episodes
-             "lecture": ("title", "lead", "rupture", "continuite", "cycle", "question", "author"),
+             "lecture": ("title", "lead", "rupture", "continuite", "cycle", "question"),
              "pieges": ("title", "lead", "piege1", "piege2", "piege3", "piege4"),
              "position": ("title", "lead", "ecarte", "diagnostic", "mecanisme", "issue")}
 _EPISODES_MAX_AGE = 12   # years before the article: an episode older than this is no longer what people remember
@@ -307,9 +312,6 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                                  "of slides 2–3")
         if fields.get("question", "").strip() and not fields["question"].strip().endswith("?"):
             hard.append("lecture.question must be a question")
-        author = str(fields.get("author", "")).strip()
-        if author and not re.search(r"rupture|continuit|cycle", _norm(author)):
-            flags.append("lecture.author names none of the three readings — say which ones the author's thesis combines")
     if step == "pieges":
         lecture = fragments.get("lecture", {}).get("lecture", {})
         measure = _stems(_plain(lecture.get("lead", "")))
@@ -366,7 +368,7 @@ def to_fragment(step: Step, option: Option) -> dict:
                 signature, indicator, where = _parts(f[kind], 3)
                 readings.append({"kind": kind, "signature": signature, "indicator": indicator, "where": where})
         return {"lecture": {"title": f.get("title", ""), "lead": f.get("lead", ""), "readings": readings,
-                            "question": f.get("question", ""), "author": f.get("author", "")}}
+                            "question": f.get("question", "")}}
     if step.name == "pieges":
         pieges = []
         for name in _PIEGES:
@@ -377,7 +379,8 @@ def to_fragment(step: Step, option: Option) -> dict:
     if step.name == "hook":
         return {"hook": {"title": f.get("title", ""), "promise": f.get("promise", "")}}
     if step.name == "position":
-        return {"position": {k: f.get(k, "") for k in ("title", "lead", *_POSITION_CARDS)}}
+        return {"position": {k: f.get(k, "") for k in ("title", "lead", "kicker", *_POSITION_CARDS,
+                                                   *(f"{c}_label" for c in _POSITION_CARDS))}}
     return {"caption": f.get("caption", "")}
 
 

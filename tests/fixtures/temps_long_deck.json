@@ -81,7 +81,7 @@
       },
       {
         "kind": "continuite",
-        "signature": "Les textes ont-ils changé la pente ?",
+        "signature": "Les textes changent-ils la pente ?",
         "indicator": "Le **sens** du recours à la force serait le même avant et après chaque texte",
         "where": "Journal officiel, textes de 1970 à 2026"
       },
@@ -92,8 +92,7 @@
         "where": "Ministère de l'Intérieur, bilans annuels"
       }
     ],
-    "question": "Quelle lecture les séries que vous trouverez soutiennent-elles ?",
-    "author": "**Le texte** combine continuité et rupture"
+    "question": "Quelle lecture les séries que vous trouverez soutiennent-elles ?"
   },
   "pieges": {
     "title": "Pour ne pas conclure **trop vite**",
