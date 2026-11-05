@@ -1,7 +1,8 @@
-"""Renderer for the TEMPS LONG carousel: six slides, in the optimized deck's visual
-language, screenshotted by `renderer.shoot`. Slides 1 and 6 are the optimized deck's
-own hook and sign-off (photo included); slides 2–5 are the
-`article_carousel_temps_long_v1` templates. Registered as the `temps_long` format."""
+"""Renderer for the TEMPS LONG carousel: six slides, seven when the author's position is
+written, in the optimized deck's visual language, screenshotted by `renderer.shoot`.
+The first and the last are the optimized deck's own hook and sign-off (photo included);
+the ones between are the `article_carousel_temps_long_v1` templates, the position
+(when there is one) right after the hook. Registered as the `temps_long` format."""
 import json
 from pathlib import Path
 
@@ -15,6 +16,8 @@ from .cadrage import _nobreak
 TPL = "article_carousel_temps_long_v1"
 OPT = "article_carousel_optimized_v0"
 _READING_LABELS = {"rupture": "Rupture", "continuite": "Continuité", "cycle": "Cycle"}
+_POSITION_CARDS = (("ecarte", "Ce qu'il écarte", "eye_off"), ("diagnostic", "Son diagnostic", "lightbulb"),
+                   ("mecanisme", "Pourquoi ça a duré, et pourquoi ça casse", "roots"), ("issue", "Sa conclusion", "widen"))
 
 
 def _relance(question: str) -> str:
@@ -35,6 +38,10 @@ def generate_html(doc: TempsLongDocument, out_dir: Path) -> list[Path]:
             **hook_metrics(cover_dims(base), pres.hook.title), **cover_layers(meta, pres.hook.title)}
     specs = [
         ("hook", f"{OPT}/01_hook.html", hook),
+        *([("position", f"{TPL}/02_position.html",
+            _nobreak({"title": pres.position.title, "lead": pres.position.lead,
+                      "cards": [{"label": label, "icon": icon, "text": getattr(pres.position, key)}
+                                for key, label, icon in _POSITION_CARDS if getattr(pres.position, key)]}))] if pres.position else []),
         ("episodes", f"{TPL}/02_frise.html",
          _nobreak(pres.episodes.model_dump()) | {"kick": "Les épisodes qu'on retient", "icon": "flame"}),
         ("tournants", f"{TPL}/02_frise.html",

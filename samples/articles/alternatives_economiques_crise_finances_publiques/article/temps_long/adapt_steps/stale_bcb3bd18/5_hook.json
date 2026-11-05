@@ -1,0 +1,56 @@
+{
+  "step": "hook",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Met en avant le diagnostic de l'économiste, attribué, avec les deux mots forts du média.",
+      "fields": {
+        "title": "Robert Boyer : « la fin d'une époque », une « crise politique »",
+        "promise": "Prendre du recul sur les règles budgétaires et les chocs."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Met en avant la durée de la dérive et le passage au politique, dans les mots du média.",
+      "fields": {
+        "title": "« Cinquante ans de déficits » : une crise « de régime » ?",
+        "promise": "Prendre du recul sur la dette et ses repères dans le temps."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Fait brut sobre : la parole est attribuée à l'économiste, sans reprendre l'analogie avec 1958.",
+      "fields": {
+        "title": "Pour Robert Boyer, une « grande crise » des finances publiques",
+        "promise": "Prendre du recul sur les chocs, les règles et le déficit."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Met en avant le point de désaccord central : chocs externes contre dérive de fond, attribué à Boyer.",
+      "fields": {
+        "title": "Boyer : les « chocs » n'expliquent pas la crise budgétaire",
+        "promise": "Prendre du recul sur les chocs et les textes depuis 1973."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [],
+  "fragment": {},
+  "remarks": []
+}

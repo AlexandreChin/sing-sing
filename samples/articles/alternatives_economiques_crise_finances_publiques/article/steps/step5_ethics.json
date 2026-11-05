@@ -1,0 +1,27 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "category": "lying_by_omission",
+        "label": "Absence de contradicteur",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Cette oscillation entre ces deux appréciations contradictoires n’est plus tenable.",
+        "explanation": "Les positions adverses sont résumées sans voix directe ; aucune réponse des responsables ou économistes visés n'est sollicitée."
+      },
+      {
+        "category": "false_balance",
+        "label": "Absence de pluralité des analyses",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Ce serait une grave erreur car une analyse inspirée par l’approche de la régulation remet en perspective historique les régimes économiques",
+        "explanation": "Une seule école économique est présentée ; l'explication par les chocs externes est écartée sans confrontation chiffrée."
+      }
+    ],
+    "verdict": {
+      "overall": "passable",
+      "editorial_note": "Signaler clairement qu'il s'agit d'une tribune d'un seul auteur et confronter son diagnostic à au moins une analyse contradictoire ou à des données chiffrées."
+    },
+    "summary": "Aucun manquement déontologique grave n'a été relevé. Deux réserves mineures : l'absence de voix contradictoire et la présentation d'une seule école d'analyse comme diagnostic."
+  }
+}

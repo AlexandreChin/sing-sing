@@ -543,7 +543,7 @@ def _add_source_args(p: argparse.ArgumentParser) -> None:
 # the guided steps of the 9-slide deck, then those of the cadrage, temps_long and anatomie_chiffre cascades
 _STEP_CHOICES = ["question", "enjeu", "idees", "moments", "contexte", "socle", "hook",
                  "axe", "constat", "these", "angle_mort", "depassement", "boussole",
-                 "tournants", "episodes", "lecture", "pieges",
+                 "tournants", "episodes", "lecture", "pieges", "position",
                  "chiffres", "recit", "lectures"]
 
 

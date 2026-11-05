@@ -1,18 +1,20 @@
 CARROUSEL « TEMPS LONG » — singsing.media
 
-L'analyse du média et le média lui-même sont fournis ci-dessus. Le carrousel a 6 slides et lit une actualité à chaud à travers le temps : d'abord ce que le public retient et ce qui a changé les règles (le contexte), puis la façon de tester, avec ces repères, ce que le média affirme du présent. Six étapes, une par appel ; chacune FIXE ce que les suivantes reçoivent :
+L'analyse du média et le média lui-même sont fournis ci-dessus. Le carrousel a 7 slides (6 pour un ancien carrousel, sans la position) et lit une actualité à chaud à travers le temps : d'abord ce que le public retient et ce qui a changé les règles (le contexte), puis la façon de tester, avec ces repères, ce que le média affirme du présent. Sept étapes, une par appel ; chacune FIXE ce que les suivantes reçoivent :
 1. **Les tournants** (slide 3) — les lois, textes de doctrine et prises de position publiques qui ont changé les règles du sujet, sur une trentaine à une cinquantaine d'années.
 2. **Les épisodes qu'on retient** (slide 2) — les événements des dix dernières années que le public retient le plus sur le sujet.
 3. **La lecture temporelle** (slide 4) — rupture, continuité ou cycle ? Elle s'appuie sur les repères des étapes 1 et 2 et suit UNE seule mesure.
-4. **Les pièges du temps** (slide 5) — trois pièges d'une série dans le temps, chacun avec la question à se poser.
+4. **Les pièges du temps** (slide 5) — quatre pièges d'une série dans le temps, chacun avec la question à se poser.
 5. **L'accroche** (slide 1) — le fait brut daté et la promesse.
-6. **La rédaction** — la légende. (La slide 6, l'appel à commenter, est fixe : tu ne l'écris pas.)
+6. **La position de l'auteur** (juste après l'accroche) — ce que l'auteur soutient, dans le cadre du média : la thèse, ce qu'il écarte, son diagnostic, où cela mène.
+7. **La rédaction** — la légende. (La dernière slide, l'appel à commenter, est fixe : tu ne l'écris pas.)
+Numérotation : dans ces prompts, « slide 2 » à « slide 5 » désignent les épisodes, les tournants, la lecture et les pièges tels qu'ils sont numérotés dans le carrousel de six slides ; la slide de la position s'insère juste après l'accroche et ne change rien à ces références.
 Ce qu'une étape antérieure a fixé t'est fourni en contexte : tu ne le réécris JAMAIS, tu écris POUR lui.
 
 L'outil que ce carrousel donne au lecteur : **par rapport à quoi, et depuis quand ?** Une affirmation sur l'actualité (« inédit », « glissement », « dérive ») suppose une hypothèse temporelle ; chaque hypothèse prédit autre chose dans les données ; les repères datés disent où regarder. Le carrousel ne dit jamais laquelle est la bonne.
 
 Deux registres, à ne pas mélanger.
-- **Le mot du média, cité entre « » dans le `lead` des slides 2 et 3 : dans le cadre.** Il est reproduit mot pour mot depuis le média ; aucun n'est inventé.
+- **Le mot du média, cité entre « » dans le `lead` des deux frises : dans le cadre. La slide de la position de l'auteur l'est aussi tout entière.** Il est reproduit mot pour mot depuis le média ; aucun n'est inventé.
 - **Tout le reste : hors cadre.** Tu t'appuies sur des connaissances générales, pas sur le média. Prudence maximale : si tu n'es pas sûr d'un repère (une date, une loi, un événement, une déclaration), tu ne le cites PAS. Un repère est une date et un fait nommé (« 2017 | Loi SILT : certaines mesures de l'état d'urgence entrent dans le droit commun »). AUCUN chiffre de tendance : ni pourcentage, ni montant, ni multiple ; seulement des dates. Un organisme, un rapport ou une série statistique se nomme tel quel, sigles développés, JAMAIS une URL, JAMAIS un chiffre.
 - Les repères sont des **épisodes ou des textes à examiner**, jamais présentés comme équivalents à l'actualité ni comme sa cause : aucune formule du type « c'est la suite de … », « cela rappelle … », « comme en … ».
 
@@ -20,9 +22,9 @@ Format des champs (des chaînes simples, éditables une à une).
 - Un repère (`rep1`…`rep5`) : `date | repère | remarque` — la date est courte (≤14 caractères : « 1986 », « 2018–2019 ») et contient une année ; le repère dit le fait en 64 caractères au plus (deux lignes sur la slide) ; la **remarque** (≤46 caractères, UNE ligne ; pour un tournant ≤84 caractères, DEUX lignes) dit la chose concrète qui rend ce repère digne d'être comparé : ce qui s'est passé (un épisode), ce que le texte a changé (un tournant). Elle est DIFFÉRENTE à chaque ligne, ne reprend aucun mot du repère lui-même (le repère dit le fait, la remarque dit autre chose), ne répète pas le mot cité du `lead`, ne cite aucun organisme et ne juge pas. Du plus ancien au plus récent. Les épisodes en comptent 4 ou 5 (`rep4` obligatoire), les tournants 3 ou 4 (`rep5` reste `""`).
 - Le `lead` des slides 2 et 3 (≤84 caractères, deux lignes) : cite entre « » UN mot que le média emploie, tel quel, et dit ce que les repères permettent de situer.
 - Le `lead` de la slide 4 (≤94 caractères, deux lignes) dit comment trancher et sur quoi, sans répéter le titre : « Pour trancher : comparer <la mesure> d'un épisode à l'autre, sur la même mesure. » La mesure est prise au niveau le plus LARGE que le média revendique : un sous-groupe (âge, lieu, profession) est une ventilation, jamais la mesure.
-- Une lecture (`rupture`, `continuite`, `cycle`) : `signature | indicateur` — ce que cette lecture donnerait dans une série (≤86 caractères, deux lignes), puis ce qu'il faut regarder, tiré des slides 2 et 3 (≤62 caractères, une ligne).
-- Le `lead` de la slide 5 (≤94 caractères, deux lignes) énonce le principe qui relie les trois pièges : comparer des choses comparables, comptées de la même façon.
-- Un piège (`piege1`…`piege3`) : `titre | question` — le titre (≤38 caractères, une ligne) nomme le piège ; la question (≤92 caractères, deux lignes) se pose au lecteur, reprend la mesure de la slide 4 et finit par « ? ».
+- Une lecture (`rupture`, `continuite`, `cycle`) : `hypothèse ? | test | où regarder` — l'hypothèse de la lecture dans ce cas, posée en question (≤36 caractères, une ligne, après le nom de la lecture) ; le test, qui met en gras ce que cette lecture regarde (l'**écart**, le **sens**, le **retour** : ce qui la distingue des deux autres, pas la mesure commune) et dit ce qu'on verrait si la lecture tenait, au conditionnel, en s'appuyant sur les slides 2 et 3 (≤100 caractères, deux lignes) ; où trouver la série : un organisme, jamais une URL (≤44 caractères ; la slide écrit « Où regarder : » devant).
+- Le `lead` de la slide 5 (≤94 caractères, deux lignes) énonce le principe qui relie les quatre pièges : comparer des choses comparables, comptées de la même façon.
+- Un piège (`piege1`…`piege4`) : `titre | question` — le titre (≤38 caractères, une ligne) nomme le piège ; la question (≤92 caractères, deux lignes) se pose au lecteur, reprend la mesure de la slide 4 et finit par « ? ».
 - `**mot**` met UN ou DEUX mots en or dans un titre, pas plus. Un titre de slide fait ≤44 caractères (deux lignes).
 
 Posture (impératif, toutes étapes).

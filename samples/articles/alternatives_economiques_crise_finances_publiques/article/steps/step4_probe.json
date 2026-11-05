@@ -1,0 +1,152 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "L’agence de notation Moody’s n’a-t-elle pas récemment maintenu la note Aa3 de la dette souveraine de la France ?",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Cadrage",
+          "strength": 0.7,
+          "nature": "illustration"
+        },
+        "explanation": "Le maintien de la note est suggéré par une question, sans date ni source précise ; il se vérifie dans les communiqués de l'agence.",
+        "external_sources": [
+          {
+            "name": "Moody's – communiqués sur la notation souveraine de la France",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Agence France Trésor – tableau des notations de la France",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": null
+      },
+      {
+        "quote": "le déficit public se creuse encore et atteint plus de 5 % du PIB en 1993",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Positionnement",
+          "strength": 0.7,
+          "nature": "illustration"
+        },
+        "explanation": "Le chiffre est daté mais non sourcé ; il peut être comparé aux séries historiques de l'Insee.",
+        "external_sources": [
+          {
+            "name": "Insee – comptes nationaux des administrations publiques, séries longues",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Eurostat – déficit public des États membres",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 88
+      },
+      {
+        "quote": "Depuis cinquante ans, les gouvernements successifs, quelle que soit leur orientation politique, ont été incapables d’enrayer une croissance tendancielle des déficits publics.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "emotional_register",
+          "label": "lassitude",
+          "strength": 0.6,
+          "nature": "illustration"
+        },
+        "explanation": "« Incapables » juge les gouvernements ; les séries de l'Insee montrent des déficits presque continus depuis 1975, mais quelques années d'excédent ou de baisse existent.",
+        "external_sources": [
+          {
+            "name": "Insee – solde public annuel depuis 1975",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Cour des comptes – rapports sur la situation des finances publiques",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 68
+      },
+      {
+        "quote": "Le coût de refinancement de la dette publique est croissant dans la quasi-totalité des pays.",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Mesure",
+          "strength": 0.5,
+          "nature": "nuance"
+        },
+        "explanation": "L'affirmation est générale et sans chiffre ; elle se confronte aux rendements des obligations d'État par pays.",
+        "external_sources": [
+          {
+            "name": "OCDE – Perspectives de la dette souveraine",
+            "supports": "validates",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Banque centrale européenne – rendements des obligations d'État",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 65
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "Octobre 2026 marque la fin d’une époque car tous les facteurs d’une grande crise, pas seulement des finances publiques, sont réunis.",
+        "item_type": "bias",
+        "label": "langage dramatisant",
+        "effect": "Remarquez comment la formule installe d'emblée l'idée d'un tournant imminent, avant toute donnée chiffrée.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "inquiétude",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Ce serait une grave erreur car une analyse inspirée par l’approche de la régulation remet en perspective historique les régimes économiques",
+        "item_type": "bias",
+        "label": "explication adverse écartée d'emblée",
+        "effect": "Remarquez comment la lecture par les chocs externes est présentée au conditionnel puis rejetée avant d'être confrontée à des données.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "L'approche de la régulation et son auteur",
+          "strength": 0.7,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Elle se convertit donc en une crise politique, voire de régime car la constitution de la Ve République montre ses limites.",
+        "item_type": "fallacy",
+        "label": "saut de la crise budgétaire à la crise de régime",
+        "effect": "Remarquez comment le « donc » relie un Parlement divisé à une crise de régime, sans étape intermédiaire explicitée.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Les acteurs qui plaident pour un changement de régime ou de gouvernance",
+          "strength": 0.6,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "Plus qu’une répétition de Mai 68, elle n’est pas sans rappeler l’effondrement de la IVe République en 1958. Parmi les très nombreux candidats à la présidence où se cache le nouveau de Gaulle ?",
+      "proves": {
+        "type": "observation",
+        "label": "Conclusion",
+        "strength": 0.8,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase compare la situation de 2026 à 1958 et pose la question d'un recours providentiel. Elle suggère un risque de rupture institutionnelle sans citer d'élément comparatif. Qu'est-ce qui, concrètement, rapprocherait les deux moments ?"
+    }
+  }
+}

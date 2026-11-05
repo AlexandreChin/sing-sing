@@ -1,0 +1,70 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Repérez dès le départ que l'article suit une seule grille d'analyse, la périodisation historique en régimes de croissance, et lisez-le comme une lecture parmi d'autres possibles.",
+      "Gardez en tête les niveaux actuels de dette, de déficit et de charge d'intérêts : l'article en donne peu, vous pourrez les chercher à part.",
+      "Notez les mots de liaison qui font passer d'un constat à une conclusion, et demandez-vous quelle étape intermédiaire il faudrait pour les justifier."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "w1",
+          "text": "Le texte passe d'un Parlement divisé à une crise de régime, puis à une comparaison avec 1958, sans montrer ce qui relie ces étapes. L'image historique fait l'essentiel du travail de preuve.",
+          "references": [
+            "lr_3",
+            "ia_3",
+            "bias_2"
+          ]
+        },
+        {
+          "id": "w2",
+          "text": "L'explication par les chocs extérieurs est écartée sans être confrontée à des données. Une seule école économique s'exprime, sans contradicteur.",
+          "references": [
+            "pr_0",
+            "bias_1",
+            "cb_0"
+          ]
+        },
+        {
+          "id": "w3",
+          "text": "Le ton de gravité et la répétition d'une même formule sur la durée des déficits précèdent les chiffres actuels, qui sont rares. L'inquiétude peut sembler tenir lieu de démonstration.",
+          "references": [
+            "er_0",
+            "er_1",
+            "bs_1"
+          ]
+        },
+        {
+          "id": "w4",
+          "text": "L'argument le plus concret qui pourrait nuancer le tableau, le maintien de la note de l'agence de notation Moody's, n'apparaît que sous forme de question, sans chiffre ni discussion.",
+          "references": [
+            "claim_0",
+            "bs_3",
+            "obs_1"
+          ]
+        },
+        {
+          "id": "w5",
+          "text": "Le récit de crise de régime conduit vers l'idée d'un recours institutionnel, sans examiner d'autres issues possibles. Demandez-vous à qui profite cette lecture.",
+          "references": [
+            "cb_1",
+            "obs_2",
+            "lr_3"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Cherchez les chiffres récents de la dette, du déficit et des intérêts pour juger vous-même de l'ampleur de la situation.",
+      "Confrontez cette lecture à celle d'un économiste d'une autre école, notamment sur le poids des chocs externes.",
+      "Demandez-vous ce que le maintien de la note de Moody's change, ou non, à l'idée d'une crise de régime.",
+      "Retenez la périodisation en quatre régimes comme une grille utile, sans la prendre pour une démonstration."
+    ],
+    "title_note": null,
+    "perspective": {
+      "framing": "L'article place au centre une dérive structurelle des finances publiques, racontée à travers quatre régimes de croissance successifs, depuis l'approche de la régulation. Le registre est grave et historique, et le propos s'élargit d'une crise budgétaire à une crise politique.",
+      "blind_spots": "Les niveaux récents de dette, de déficit et de charge d'intérêts sont absents, tout comme les comparaisons européennes. Le rôle de la zone euro et de la BCE, et les lectures d'autres écoles économiques, sont à peine évoqués.",
+      "balance": "Un texte d'analyse signé qui assume l'approche d'une école n'a pas à présenter toutes les lectures, et un article de format court ne peut pas tout chiffrer. Ces limites sont réelles, mais elles invitent surtout le lecteur à compléter par d'autres sources."
+    }
+  }
+}

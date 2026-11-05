@@ -38,10 +38,11 @@ def option_fields(deck: dict) -> dict[str, dict]:
         "tournants": _frise(deck["tournants"]),
         "episodes": _frise(deck["episodes"]),
         "lecture": {"title": le["title"], "lead": le["lead"],
-                    **{r["kind"]: f"{r['signature']} | {r['indicator']}" for r in le["readings"]},
-                    "question": le["question"]},
-        "pieges": {"title": pi["title"], "lead": pi["lead"], **dict(zip(("piege1", "piege2", "piege3"), traps))},
+                    **{r["kind"]: f"{r['signature']} | {r['indicator']} | {r['where']}" for r in le["readings"]},
+                    "question": le["question"], "author": le["author"]},
+        "pieges": {"title": pi["title"], "lead": pi["lead"], **dict(zip(("piege1", "piege2", "piege3", "piege4"), traps))},
         "hook": dict(deck["hook"]),
+        "position": dict(deck["position"]),
         "writing": {"caption": deck["caption"]},
     }
 
@@ -67,9 +68,18 @@ def test_the_deck_validates():
     pres = TempsLongPresentation.model_validate(DECK)
     assert [r.kind for r in pres.lecture.readings] == ["rupture", "continuite", "cycle"]
     assert pres.episodes.reperes[1].date == "2018–2019" and pres.episodes.reperes[1].remark
-    assert len(pres.episodes.reperes) == 5 and len(pres.tournants.reperes) == 4 and len(pres.pieges.pieges) == 3
+    assert len(pres.episodes.reperes) == 5 and len(pres.tournants.reperes) == 4 and len(pres.pieges.pieges) == 4
     assert "mineurs" not in pres.lecture.lead and pres.lecture.lead.startswith("Pour trancher")
     assert pres.tournants.reperes[-1].date == "oct. 2026"
+    assert pres.position.title.startswith("Amnesty") and pres.position.issue
+
+
+def test_an_older_deck_has_no_position_and_keeps_six_slides(tmp_path):
+    old = {k: v for k, v in copy.deepcopy(DECK).items() if k != "position"}
+    pres = TempsLongPresentation.model_validate(old)
+    assert pres.position is None
+    paths = renderer.generate_html(extract(full(), pres), tmp_path / "html")
+    assert [p.stem for p in paths] == ["01_hook", "02_episodes", "03_tournants", "04_lecture", "05_pieges", "06_cta"]
 
 
 def test_an_older_deck_with_the_old_keys_still_loads():
@@ -83,7 +93,7 @@ def test_an_older_deck_with_the_old_keys_still_loads():
 
 
 def test_the_steps_run_noyau_first_and_every_step_has_its_prompt():
-    assert agent.STEP_NAMES == ["tournants", "episodes", "lecture", "pieges", "hook"]
+    assert agent.STEP_NAMES == ["tournants", "episodes", "lecture", "pieges", "hook", "position"]
     for s in agent.STEPS:
         assert Path(f"agent/prompts/temps_long_steps/{s.n}_{s.name}.md").exists(), s.name
 
@@ -91,9 +101,9 @@ def test_the_steps_run_noyau_first_and_every_step_has_its_prompt():
 def test_the_shared_prompt_lists_every_step():
     shared = Path("agent/prompts/temps_long_steps/0_shared.md").read_text(encoding="utf-8")
     for name in ("Les tournants", "Les épisodes qu'on retient", "La lecture temporelle", "Les pièges du temps",
-                 "L'accroche", "La rédaction"):
+                 "L'accroche", "La position de l'auteur", "La rédaction"):
         assert name in shared, name
-    assert "Six étapes" in shared
+    assert "Sept étapes" in shared
 
 
 def test_fragments_rebuild_the_deck():
@@ -245,14 +255,21 @@ def test_the_duplicate_flag_only_concerns_the_episodes():
     assert not [f for f in flags("tournants", _fragment("tournants")) if "looks like" in f]
 
 
-def test_a_reading_needs_a_signature_and_an_indicator():
-    assert any("lecture.cycle" in e for e in hard("lecture", cycle="Des pics à chaque mobilisation"))
+def test_a_reading_needs_its_three_parts():
+    ok = "Y a-t-il un retour ? | Le **retour** : elle reviendrait | INSEE, séries"
+    assert hard("lecture", cycle=ok) == []
+    assert any("lecture.cycle" in e for e in hard("lecture", cycle="Des pics à chaque mobilisation ?"))
+    assert any("lecture.cycle" in e for e in hard("lecture", cycle="Un retour ? | Le **retour** : x"))
     assert any("continuite is empty" in e for e in hard("lecture", continuite=""))
-    assert any("indicator" in e for e in hard("lecture", cycle="Des pics | " + "mot " * 20))
+    assert any("the test" in e and "characters" in e
+               for e in hard("lecture", cycle="Un retour ? | Le **retour** : " + "mot " * 30 + " | INSEE"))
+    assert any("bold" in e for e in hard("lecture", cycle="Un retour ? | Le retour arriverait | INSEE"))
+    assert any("question" in e for e in hard("lecture", cycle="Un retour | Le **retour** : x | INSEE"))
+    assert any("never a URL" in e for e in hard("lecture", cycle="Un retour ? | Le **retour** : x | https://insee.fr"))
 
 
 def test_a_line_that_refers_to_nothing_of_the_lead_or_slides_2_and_3_is_flagged_not_blocked():
-    off = "Des pics à chaque mobilisation | Les mêmes données, ordonnées dans le temps"
+    off = "Des pics à chaque mobilisation ? | Les **mêmes données**, ordonnées dans le temps | INSEE"
     frags = {**_fragment("tournants"), **_fragment("episodes")}
     assert hard("lecture", cycle=off) == []
     assert any(f.startswith("lecture.cycle: the line refers to nothing") for f in flags("lecture", frags, cycle=off))
@@ -263,7 +280,7 @@ def test_a_line_can_point_at_an_episode_a_text_or_a_year():
     frags = {**_fragment("tournants"), **_fragment("episodes")}
     for line in ("Le dernier épisode contre les gilets jaunes", "Les textes de 1970 à 2026, dans l'ordre",
                  "Les mois calmes de 2023 à 2025"):
-        assert not [f for f in flags("lecture", frags, rupture=f"Un saut net | {line}") if "refers to nothing" in f], line
+        assert not [f for f in flags("lecture", frags, rupture=f"Un saut net ? | **{line}** | INSEE") if "refers to nothing" in f], line
 
 
 def test_the_closing_line_is_a_question():
@@ -273,7 +290,7 @@ def test_the_closing_line_is_a_question():
 def test_a_trap_needs_a_title_and_a_question():
     assert any("piege1 must read" in e for e in hard("pieges", piege1="Le point de départ"))
     assert any("must be a question" in e for e in hard("pieges", piege1="Le point de départ | Changer de date."))
-    assert any("piege3 is empty" in e for e in hard("pieges", piege3=""))
+    assert any("piege4 is empty" in e for e in hard("pieges", piege4=""))
 
 
 def test_the_slide_5_lead_need_not_name_the_measure():
@@ -304,6 +321,25 @@ def test_the_caption_needs_four_hashtags():
     assert any("hashtag" in e for e in hard("writing", caption=DECK["caption"].replace("#espritcritique", "")))
 
 
+def test_the_position_breaks_no_rule_and_every_card_is_required_and_capped():
+    assert hard("position") == [] and flags("position") == []
+    assert any("ecarte is empty" in e for e in hard("position", ecarte=""))
+    assert any("mecanisme is empty" in e for e in hard("position", mecanisme=""))
+    assert any("title" in e and "max 44" in e for e in hard("position", title="x" * 45))
+    assert any("issue" in e and "max 108" in e for e in hard("position", issue="x" * 109))
+
+
+def test_a_quoted_passage_of_the_position_must_be_in_the_source():
+    assert any("quotes" in e for e in hard("position", issue="Elle y lit une « dérive inventée »."))
+    assert hard("position", issue="Elle y lit un « glissement ».") == []
+
+
+def test_the_position_may_give_a_figure_only_if_the_source_has_it():
+    assert hard("position", diagnostic="Sept points d'alerte, soit 12 % des cas.") == []     # no trend-figure ban here
+    assert any("12 %" in f for f in flags("position", diagnostic="Sept points d'alerte, soit 12 % des cas."))
+    assert flags("position", diagnostic="Sept points d'alerte relevés.") == []
+
+
 # ── the cascade, the model call faked ───────────────────────────────────────
 
 class FakeCalls:
@@ -326,9 +362,9 @@ def fake(monkeypatch):
     return calls
 
 
-def test_unattended_runs_six_steps_and_rebuilds_the_deck(fake, tmp_path):
+def test_unattended_runs_seven_steps_and_rebuilds_the_deck(fake, tmp_path):
     pres = agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", article_text=ARTICLE)
-    assert fake.labels == [s.name for s in agent.STEPS] and len(fake.labels) == 6
+    assert fake.labels == [s.name for s in agent.STEPS] and len(fake.labels) == 7
     assert all(e == [] for e in fake.errors.values())
     assert pres.model_dump() == TempsLongPresentation.model_validate(DECK).model_dump()
 
@@ -410,32 +446,37 @@ def test_every_step_can_be_a_stop_after_choice():
         assert name in main._STEP_CHOICES, name
 
 
-def test_six_slides_are_rendered(tmp_path):
+def test_seven_slides_are_rendered(tmp_path):
     doc = extract(full(), TempsLongPresentation.model_validate(DECK))
     paths = renderer.generate_html(doc, tmp_path / "html")
-    assert [p.stem for p in paths] == ["01_hook", "02_episodes", "03_tournants", "04_lecture", "05_pieges", "06_cta"]
+    assert [p.stem for p in paths] == ["01_hook", "02_position", "03_episodes", "04_tournants", "05_lecture", "06_pieges", "07_cta"]
     texts = {p.stem: html.unescape(p.read_text(encoding="utf-8")).replace("⁠", "").replace(" ", " ")
              for p in paths}
     assert "Prendre du recul" in texts["01_hook"]
-    assert "Les épisodes qu'on retient" in texts["02_episodes"] and "2018–2019" in texts["02_episodes"]
-    assert "Des mutilés, un débat sur la force" in texts["02_episodes"]
-    assert texts["02_episodes"].count('class="rep"') == 5 and "Légifrance" not in texts["02_episodes"]
-    for slide in ("02_episodes", "03_tournants"):          # the bird perches above the first row
+    position = texts["02_position"]
+    assert "Ce que dit l'auteur" in position and "Amnesty : un" in position
+    assert all(label in position for label in ("Ce qu'il écarte", "Son diagnostic", "Pourquoi ça a duré", "Sa conclusion"))
+    assert position.count('class="card pos"') == 4 and position.split("<body>")[1].count("data-perch") == 1
+    assert "« surenchère sécuritaire »" in position and "7 / 7" in texts["07_cta"] and "2 / 7" in position
+    assert "Les épisodes qu'on retient" in texts["03_episodes"] and "2018–2019" in texts["03_episodes"]
+    assert "Des mutilés, un débat sur la force" in texts["03_episodes"]
+    assert texts["03_episodes"].count('class="rep"') == 5 and "Légifrance" not in texts["03_episodes"]
+    for slide in ("03_episodes", "04_tournants"):          # the bird perches above the first row
         first = texts[slide].index('class="rep"')
         assert texts[slide][first:].startswith('class="rep" data-perch'), slide
         assert texts[slide].split("<body>")[1].count("data-perch") == 1
-    assert "Les tournants" in texts["03_tournants"] and "casseurs-payeurs" in texts["03_tournants"]
-    assert "Une responsabilité civile : payer les dégâts du groupe, même sans en être l'auteur" in texts["03_tournants"]
-    assert "Une sanction pénale, au-delà des auteurs identifiés" in texts["03_tournants"]
-    assert "vidéosurveillance algorithmique" in texts["03_tournants"]
-    assert texts["03_tournants"].count('class="rep"') == 4
-    lecture = texts["04_lecture"]
-    assert all(label in lecture for label in ("Rupture", "Continuité", "Cycle")) and lecture.count('class="read"') == 3
+    assert "Les tournants" in texts["04_tournants"] and "casseurs-payeurs" in texts["04_tournants"]
+    assert "Une responsabilité civile : payer les dégâts du groupe, même sans en être l'auteur" in texts["04_tournants"]
+    assert "Une sanction pénale, au-delà des auteurs identifiés" in texts["04_tournants"]
+    assert "vidéosurveillance algorithmique" in texts["04_tournants"]
+    assert texts["04_tournants"].count('class="rep"') == 4
+    lecture = texts["05_lecture"]
+    assert all(label in lecture for label in ("Rupture", "Continuité", "Cycle")) and lecture.count('class="card read"') == 3
     assert "Pour trancher" in lecture and "Mesure suivie" not in lecture
     assert 'class="ask"' not in lecture and "soutiennent-elles" not in lecture and "mineurs" not in lecture
-    assert "Le point de départ" in texts["05_pieges"] and texts["05_pieges"].count('class="card piege"') == 3
-    assert "Vous jugez." in texts["06_cta"]
-    assert "quelle lecture les séries que vous trouverez soutiennent-elles ?</span>" in texts["06_cta"]
+    assert "Le point de départ" in texts["06_pieges"] and texts["06_pieges"].count('class="card piege"') == 4
+    assert "Vous jugez." in texts["07_cta"]
+    assert "quelle lecture les séries que vous trouverez soutiennent-elles ?</span>" in texts["07_cta"]
 
 
 # ── the picture: one photo opens and closes the deck ────────────────────────
@@ -457,8 +498,8 @@ def test_a_lone_image_is_the_full_bleed_photo_of_the_hook_and_the_sign_off(tmp_p
     photo = background_image(base, or_cover=True)
     assert photo.startswith("data:image/png;base64,")
     assert '<div class="bg"' in texts["01_hook"] and 'class="shot"' not in texts["01_hook"]
-    assert '<div class="book"' in texts["06_cta"]
-    assert photo in texts["01_hook"] and photo in texts["06_cta"]          # the same picture, twice
+    assert '<div class="book"' in texts["07_cta"]
+    assert photo in texts["01_hook"] and photo in texts["07_cta"]          # the same picture, twice
 
 
 def test_a_background_file_still_wins_over_the_image(tmp_path):
@@ -473,7 +514,7 @@ def test_a_background_file_still_wins_over_the_image(tmp_path):
 
 def test_no_image_means_no_photo(tmp_path):
     texts, _ = _render_with(tmp_path)
-    assert '<div class="bg"' not in texts["01_hook"] and '<div class="book"' not in texts["06_cta"]
+    assert '<div class="bg"' not in texts["01_hook"] and '<div class="book"' not in texts["07_cta"]
 
 
 def test_other_formats_keep_ignoring_an_image_as_background(tmp_path):
@@ -522,15 +563,19 @@ def worst_case_deck(seed: int = 0) -> dict:
                                       for _ in range(4 if step == "tournants" else 5)]}
     return DECK | {
         "hook": {"title": _sample(rng, _cap("hook", "title")), "promise": _sample(rng, _cap("hook", "promise"))},
+        "position": {"title": _sample(rng, _cap("position", "title")), "lead": _sample(rng, _cap("position", "lead")),
+                     **{c: _sample(rng, _cap("position", c)) for c in agent._POSITION_CARDS}},
         "tournants": frise("tournants"), "episodes": frise("episodes"),
         "lecture": {"title": _sample(rng, _cap("lecture", "title")), "lead": _sample(rng, _cap("lecture", "lead")),
-                    "readings": [{"kind": k, "signature": _sample(rng, agent._SIGNATURE_MAX),
-                                  "indicator": _sample(rng, agent._INDICATOR_MAX)}
+                    "readings": [{"kind": k, "signature": _sample(rng, agent._SIGNATURE_MAX - 2) + " ?",
+                                  "indicator": "Le **déficit** : " + _sample(rng, agent._INDICATOR_MAX - 15),
+                                  "where": _sample(rng, agent._WHERE_MAX)}
                                  for k in ("rupture", "continuite", "cycle")],
-                    "question": _sample(rng, _cap("lecture", "question") - 2) + " ?"},
+                    "question": _sample(rng, _cap("lecture", "question") - 2) + " ?",
+                    "author": "Le **texte** " + _sample(rng, _cap("lecture", "author") - 13)},
         "pieges": {"title": _sample(rng, _cap("pieges", "title")), "lead": _sample(rng, _cap("pieges", "lead")),
                    "pieges": [{"title": _sample(rng, agent._PIEGE_TITLE_MAX),
-                               "question": _sample(rng, agent._PIEGE_QUESTION_MAX - 2) + " ?"} for _ in range(3)]},
+                               "question": _sample(rng, agent._PIEGE_QUESTION_MAX - 2) + " ?"} for _ in range(4)]},
     }
 
 
@@ -541,8 +586,8 @@ _LINES = """() => { const n = (sel) => [...document.querySelectorAll(sel)].map(e
     (t.getBoundingClientRect().height - t.querySelector('small').getBoundingClientRect().height - 10) /
     (parseFloat(getComputedStyle(t).fontSize) * 1.1)));
   return {subtitle: n('.subtitle'), lead: n('.lead'), label: n('.rep .l'), head: n('.head'),
-          remark: n('.rep .w span'), one: n('.read .w span'), two: n('.read .s, .piege .t small'),
-          trap: trapTitle, bottom}; }"""
+          remark: n('.rep .w span'), one: n('.read .s, .read .w span, .own span'), two: n('.read .t, .piege .t small'),
+          trap: trapTitle, say: n('.pos .say'), bottom}; }"""
 
 
 def _worst_case_doc(deck: dict):
@@ -569,12 +614,13 @@ def test_every_field_at_its_cap_fits_in_its_lines_and_on_the_slide(tmp_path, see
             measured[f.stem] = page.evaluate(_LINES)
         browser.close()
     assert measured["01_hook"]["subtitle"] == [3], "the promise is two lines, then « En juger soi-même. »"
-    for slide in ("02_episodes", "03_tournants", "04_lecture", "05_pieges"):
+    for slide in ("02_position", "03_episodes", "04_tournants", "05_lecture", "06_pieges"):
         m = measured[slide]
-        assert all(n <= 2 for n in m["lead"]), (slide, "lead", m["lead"])
+        assert all(n <= 3 for n in m["say"]), (slide, "position card", m["say"])
+        assert all(n <= (4 if slide == "02_position" else 2) for n in m["lead"]), (slide, "lead", m["lead"])
         assert all(n <= 2 for n in m["head"]), (slide, "title", m["head"])
         assert all(n <= 2 for n in m["label"]), (slide, "label", m["label"])
-        assert all(n <= (2 if slide == "03_tournants" else 1) for n in m["remark"]), (slide, "remark", m["remark"])
+        assert all(n <= (2 if slide == "04_tournants" else 1) for n in m["remark"]), (slide, "remark", m["remark"])
         assert all(n <= 1 for n in m["one"]), (slide, "one-line fields", m["one"])
         assert all(n <= 2 for n in m["two"]), (slide, "two-line fields", m["two"])
         assert all(n <= 1 for n in m["trap"]), (slide, "trap title", m["trap"])

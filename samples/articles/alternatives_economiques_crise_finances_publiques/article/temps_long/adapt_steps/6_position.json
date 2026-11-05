@@ -1,0 +1,66 @@
+{
+  "step": "position",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Met en avant le cœur de la thèse : dérive de cinquante ans lue par les régimes de croissance, contre les chocs.",
+      "fields": {
+        "title": "Une dérive structurelle",
+        "lead": "Pour Robert Boyer, la crise n'est pas une suite de chocs mais l'aboutissement de cinquante ans de déficits : elle devient en 2026 une crise politique, voire de régime.",
+        "ecarte": "La **malchance** : des chocs communs à la plupart des pays, la France la plus touchée.",
+        "diagnostic": "La France **s'endette au lieu de s'adapter** à un monde de croissance lente, pour préserver la paix sociale.",
+        "issue": "Parlement en trois groupes, exécutif paralysé : une **crise de régime**, plus proche de 1958 que de Mai 68.",
+        "mecanisme": "De 1981 à 2019, la **baisse des taux d'intérêt** a allégé la dette. Depuis 2025, leur **hausse** l'alourdit."
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Met en avant le volet politique : paralysie, Parlement divisé, colère sociale.",
+      "fields": {
+        "title": "Boyer : la crise devient **politique**",
+        "lead": "Robert Boyer, économiste, dans Alternatives Économiques : un point de vue, non un constat.",
+        "ecarte": "Alarme ou rassurance (Moody's, dette placée) : cette oscillation « n'est plus tenable ».",
+        "diagnostic": "Un Parlement fractionné en trois groupes irréconciliables ne facilite pas la solution à la crise.",
+        "issue": "La crise « s’aggrave et se diffracte dans l’ensemble de la société », avec l'escalade de la violence."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Met en avant le mécanisme des taux d'intérêt et la comparaison internationale plutôt que la périodisation.",
+      "fields": {
+        "title": "Boyer : une crise lente, puis **soudaine**",
+        "lead": "Robert Boyer, économiste, cite Rudiger Dornbusch : une lecture, pas un constat.",
+        "ecarte": "Les chocs sont communs à la plupart des pays, mais « c'est la France qui est la plus handicapée ».",
+        "diagnostic": "Des taux en baisse de 1981 à 2019 ont masqué la dérive ; leur hausse la révèle.",
+        "issue": "Pour les marchés financiers, la France fait courir « un risque systémique sur l’euro »."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "position": {
+      "title": "Une dérive structurelle",
+      "lead": "Pour Robert Boyer, la crise n'est pas une suite de chocs mais l'aboutissement de cinquante ans de déficits : elle devient en 2026 une crise politique, voire de régime.",
+      "ecarte": "La **malchance** : des chocs communs à la plupart des pays, la France la plus touchée.",
+      "diagnostic": "La France **s'endette au lieu de s'adapter** à un monde de croissance lente, pour préserver la paix sociale.",
+      "mecanisme": "De 1981 à 2019, la **baisse des taux d'intérêt** a allégé la dette. Depuis 2025, leur **hausse** l'alourdit.",
+      "issue": "Parlement en trois groupes, exécutif paralysé : une **crise de régime**, plus proche de 1958 que de Mai 68."
+    }
+  },
+  "remarks": []
+}

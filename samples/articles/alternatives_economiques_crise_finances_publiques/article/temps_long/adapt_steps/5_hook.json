@@ -1,0 +1,63 @@
+{
+  "step": "hook",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Met en avant le diagnostic de crise de régime attribué à l'économiste, dans les mots du média.",
+      "fields": {
+        "title": "Boyer : « fin d'une époque », crise « politique, voire de régime »",
+        "promise": "Prendre du recul sur les chocs, les règles et le déficit."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Reprend le titre du média et attribue la parole ; angle le plus proche du fait brut.",
+      "fields": {
+        "title": "Boyer : la crise des finances publiques est « aussi politique »",
+        "promise": "Prendre du recul sur cinquante ans de déficits, pas de chocs."
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Met en avant l'opposition entre dérive de long terme et série de chocs externes.",
+      "fields": {
+        "title": "Boyer : « cinquante ans » de déficits, non une série de « Pas de chance »",
+        "promise": "Prendre du recul sur les épisodes, les textes et les pièges."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Met en avant le registre d'urgence du média, attribué à l'économiste.",
+      "fields": {
+        "title": "Boyer : « l'heure de vérité est venue » pour les finances",
+        "promise": "Prendre du recul sur les chocs, les règles et les repères."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "b"
+  ],
+  "picked": [
+    "b"
+  ],
+  "fragment": {
+    "hook": {
+      "title": "Boyer : la crise des finances publiques est « aussi politique »",
+      "promise": "Prendre du recul sur cinquante ans de déficits, pas de chocs."
+    }
+  },
+  "remarks": []
+}

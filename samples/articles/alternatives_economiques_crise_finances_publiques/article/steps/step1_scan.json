@@ -1,0 +1,201 @@
+{
+  "article_type": "opinion",
+  "key_claims": [
+    {
+      "quote": "Octobre 2026 marque la fin d’une époque car tous les facteurs d’une grande crise, pas seulement des finances publiques, sont réunis.",
+      "source": "Robert Boyer",
+      "type": "attributed"
+    },
+    {
+      "quote": "la paralysie dont souffre le gouvernement français à l’automne 2026 serait due pour l’essentiel à la succession des chocs externes défavorables.",
+      "source": "Robert Boyer (thèse qu'il écarte)",
+      "type": "attributed"
+    },
+    {
+      "quote": "Depuis 50 ans, les gouvernements successifs ont été incapables d’enrayer une croissance tendancielle des déficits publics.",
+      "source": "Robert Boyer",
+      "type": "attributed"
+    },
+    {
+      "quote": "La dette publique est ainsi devenue une alternative à l’adaptation à nouvelle époque, aux antipodes du fordisme.",
+      "source": "Robert Boyer",
+      "type": "attributed"
+    },
+    {
+      "quote": "le déficit budgétaire s’est creusé.",
+      "source": null,
+      "type": "factual"
+    },
+    {
+      "quote": "le déficit public se creuse encore et atteint plus de 5 % du PIB en 1993.",
+      "source": null,
+      "type": "statistical"
+    },
+    {
+      "quote": "le poids des charges d’intérêt dans le PIB n’a cessé de diminuer pour atteindre son minimum de 2 % à la fin de la période.",
+      "source": null,
+      "type": "statistical"
+    },
+    {
+      "quote": "le taux apparent des prélèvements obligatoires augmente de presque 5 % entre 1995 et 2017.",
+      "source": null,
+      "type": "statistical"
+    },
+    {
+      "quote": "L’agence de notation Moody’s n’a-t-elle pas récemment maintenu la note Aa3 de la dette souveraine de la France ?",
+      "source": "Moody’s",
+      "type": "factual"
+    },
+    {
+      "quote": "Elle se convertit donc en une crise politique, voire de régime car la constitution de la Ve République montre ses limites.",
+      "source": "Robert Boyer",
+      "type": "attributed"
+    }
+  ],
+  "key_quotes": [
+    "« Une crise prend beaucoup plus de temps que vous ne le pensez puis elle arrive beaucoup plus rapidement que vous ne l’aviez pensé ! »",
+    "Cette oscillation entre ces deux appréciations contradictoires n’est plus tenable.",
+    "Ce serait en quelque sorte la faute d’une série de « Pas de chance ! »",
+    "Ce serait une grave erreur car une analyse inspirée par l’approche de la régulation remet en perspective historique les régimes économiques qui se sont enchaînés depuis la fin de la Seconde Guerre mondiale et livre tout autre diagnostic.",
+    "Lorsque l’on parcourt d’un coup d’œil l’ensemble de la période, le diagnostic est sans appel.",
+    "La paralysie de l’exécutif, largement la conséquence d’une dissolution du Parlement, irréfléchie et catastrophique, ne peut être surmontée par la seule affirmation que la politique d’Emmanuel Macron était la seule possible.",
+    "Plus qu’une répétition de Mai 68, elle n’est pas sans rappeler l’effondrement de la IVe République en 1958."
+  ],
+  "key_actors": [
+    {
+      "name": "Robert Boyer",
+      "role": "Économiste, auteur de l'analyse, issu de l'approche de la régulation"
+    },
+    {
+      "name": "Rudiger Dornbusch",
+      "role": "Économiste américain cité pour sa formule sur le caractère soudain des crises"
+    },
+    {
+      "name": "François Bayrou",
+      "role": "Ancien Premier ministre, présenté comme ayant sonné l'alarme sur la dette"
+    },
+    {
+      "name": "Emmanuel Macron",
+      "role": "Président de la République, dont les deux quinquennats sont évoqués"
+    },
+    {
+      "name": "Moody’s",
+      "role": "Agence de notation ayant maintenu la note Aa3 de la France"
+    },
+    {
+      "name": "Donald Trump",
+      "role": "Président américain, dont la politique budgétaire est citée comme facteur de hausse des taux"
+    },
+    {
+      "name": "Rassemblement national",
+      "role": "Parti présenté comme bénéficiaire de la déconsidération des partis de gouvernement"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Robert Boyer",
+      "used_for": "Poser le diagnostic d'une grande crise politique et économique en octobre 2026"
+    },
+    {
+      "entity": "Rudiger Dornbusch",
+      "used_for": "Appuyer l'idée qu'une crise arrive brutalement après une longue incubation"
+    },
+    {
+      "entity": "Moody’s",
+      "used_for": "Illustrer l'argument de ceux qui se rassurent sur la soutenabilité de la dette"
+    },
+    {
+      "entity": "Approche de la régulation",
+      "used_for": "Justifier la périodisation en quatre régimes et le rejet de l'explication par les chocs externes"
+    }
+  ],
+  "notable_omissions": [
+    "Aucune voix contradictoire : ni économiste d'une autre école, ni responsable politique n'est interrogé sur le diagnostic.",
+    "Peu de données chiffrées : niveau actuel de la dette et du déficit, charge d'intérêts récente, comparaisons européennes.",
+    "Les explications alternatives de la dérive (choix de dépenses, baisses d'impôts, démographie) ne sont pas confrontées à la thèse du régime de croissance.",
+    "Le rôle de la zone euro et de la BCE n'est évoqué que très brièvement.",
+    "Le parallèle avec 1958 et l'idée d'un « nouveau de Gaulle » ne sont pas étayés par des éléments comparatifs.",
+    "Aucune précision sur la méthode ou les données de la périodisation en quatre régimes."
+  ],
+  "rhetorical_patterns": [
+    "Ouverture par une citation d'autorité et une formule frappante sur la brutalité des crises.",
+    "Mise en scène d'une opposition binaire entre deux camps (ceux qui alarment, ceux qui se rassurent), puis présentation de sa propre lecture comme dépassant cette oscillation.",
+    "Construction d'une explication adverse (« Pas de chance ! ») présentée au conditionnel, puis écartée comme « grave erreur ».",
+    "Découpage chronologique en périodes successives qui conduit à une conclusion présentée comme évidente (« le diagnostic est sans appel »).",
+    "Vocabulaire de rupture et de gravité : « fin d'une époque », « heure de vérité », « crise de régime », « effondrement ».",
+    "Répétition quasi à l'identique d'une même phrase sur les cinquante ans de déficits.",
+    "Conclusion en question ouverte qui suggère une analogie historique (1958, de Gaulle)."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "",
+        "text": "Le 31 octobre 2026, des manifestations ont eu lieu, dont une à Bordeaux, selon la légende de la photo."
+      },
+      {
+        "id": "",
+        "text": "L'article cite François Bayrou comme dernier responsable à avoir alerté sur la dette, avant la fin de son mandat de Premier ministre."
+      },
+      {
+        "id": "",
+        "text": "L'article évoque un Parlement fractionné en trois groupes et la perspective de l'élection présidentielle."
+      },
+      {
+        "id": "",
+        "text": "L'article date du 4 novembre 2026, dans un débat récurrent sur la soutenabilité des finances publiques françaises."
+      }
+    ],
+    "who_is_speaking": [
+      "Alternatives Économiques est un magazine économique français classé à gauche, organisé en coopérative.",
+      "L'article reprend l'analyse de Robert Boyer, économiste associé à l'école de la régulation, qui lit l'histoire économique par régimes de croissance successifs.",
+      "L'approche de la régulation est une école hétérodoxe, distincte de la macroéconomie dominante que l'article évoque comme peu suivie."
+    ],
+    "important_facts": [
+      {
+        "id": "",
+        "text": "La dette publique et le déficit se mesurent en pourcentage du PIB ; les chiffres officiels sont publiés par l'Insee et Eurostat."
+      },
+      {
+        "id": "",
+        "text": "Les agences de notation comme Moody’s, S&P et Fitch évaluent séparément la dette française, avec des notes et des perspectives qui peuvent différer."
+      },
+      {
+        "id": "",
+        "text": "Le traité de Maastricht fixe des seuils de référence de 3 % du PIB pour le déficit et de 60 % pour la dette."
+      },
+      {
+        "id": "",
+        "text": "Le spread désigne l'écart entre le taux auquel la France emprunte et celui de l'Allemagne, pris comme référence."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "Approche de la régulation",
+        "definition": "Courant économique qui explique les périodes de croissance par la façon dont la société organise le travail, les salaires et l'État."
+      },
+      {
+        "term": "Fordisme",
+        "definition": "Modèle d'après-guerre où la production de masse et la hausse des salaires avec la productivité s'alimentent mutuellement."
+      },
+      {
+        "term": "Spread",
+        "definition": "Écart entre le taux d'intérêt de la dette d'un pays et celui de l'Allemagne."
+      },
+      {
+        "term": "Taux apparent des prélèvements obligatoires",
+        "definition": "Part des impôts et cotisations sociales rapportée à la richesse produite sur une année."
+      },
+      {
+        "term": "Financiarisation",
+        "definition": "Poids croissant de la finance et des marchés dans le fonctionnement de l'économie."
+      },
+      {
+        "term": "Too big to fail",
+        "definition": "Expression désignant un acteur jugé trop important pour qu'on le laisse faire faillite."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "Titre : La grande crise des finances publiques françaises est aussi une crise politique"
+  }
+}

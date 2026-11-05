@@ -1,0 +1,102 @@
+{
+  "step": "lecture",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "S'appuie sur « dérive » et « déficits » : mesure large, le déficit public, que le média revendique sur cinquante ans.",
+      "fields": {
+        "title": "Rupture, continuité ou **cycle** ?",
+        "lead": "Pour trancher : comparer le déficit public d'un épisode à l'autre, sur la même mesure.",
+        "rupture": "2026 sort-il de la série ? | L'**écart 2025–2026** serait plus grand que tout écart entre deux épisodes | INSEE, comptes des administrations publiques",
+        "continuite": "Les textes ont-ils changé la pente ? | Le **sens** du déficit serait le même avant et après chaque texte (1973, 1992, 2012, 2023) | Cour des comptes, finances publiques",
+        "cycle": "Les hausses se résorbent-elles ? | Le **retour** du déficit près de son niveau d'avant, deux ans après mars 2020 et 2022 | Eurostat, déficit public annuel",
+        "question": "Quelle lecture les séries que vous trouverez soutiennent-elles ?",
+        "author": "**Boyer** combine continuité (cinquante ans) et rupture (2026)"
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "S'appuie sur « endettement » et « dette publique » : suit le niveau de la dette, autre face de la même dérive.",
+      "fields": {
+        "title": "Une **rupture**, une pente ou un cycle ?",
+        "lead": "Pour trancher : comparer la dette publique d'un épisode à l'autre, sur la même mesure.",
+        "rupture": "La dette de 2026 s'écarte nettement de celle observée après chaque épisode | 2026 face à mars 2020, 2022 et mars 2023",
+        "continuite": "La dette s'accumule dans le même sens, de règle en règle, sans changement de pente | La dette avant et après 1992, puis 2012, puis 2023",
+        "cycle": "La dette grimpe à chaque choc, puis redescend vers son niveau d'avant | Redescend-elle entre 2018–2019 et mars 2020 ?",
+        "question": "Quelle lecture les séries sur la dette que vous trouverez soutiennent-elles ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "S'appuie sur « spread » et le « jugement » des investisseurs depuis 2019 : suit le coût d'emprunt, vu par les prêteurs.",
+      "fields": {
+        "title": "Quelle lecture du **temps** ?",
+        "lead": "Pour trancher : comparer le taux d'emprunt de l'État d'un épisode à l'autre.",
+        "rupture": "Le taux d'emprunt de 2026 s'écarte nettement de celui des épisodes précédents | 2026 face à 2018–2019, mars 2020 et 2022",
+        "continuite": "Le taux d'emprunt évolue progressivement, dans un seul sens, de texte en texte | Les taux relevés après 1973, 1992, 2012 puis 2023",
+        "cycle": "Le taux monte à chaque épisode, puis revient à son niveau d'avant | Que devient-il entre 2022 et mars 2023 ?",
+        "question": "Quelle lecture les séries de taux que vous trouverez soutiennent-elles ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "S'appuie sur « paralysie » et « crise de régime » : suit la capacité à adopter un budget, côté politique.",
+      "fields": {
+        "title": "Un **blocage** inédit ou récurrent ?",
+        "lead": "Pour trancher : comparer la difficulté à voter un budget d'un épisode à l'autre.",
+        "rupture": "La paralysie de 2026 n'a pas de précédent parmi les épisodes comparés | 2026 face à 2018–2019, 2022 et mars 2023",
+        "continuite": "Les blocages s'accentuent progressivement, de règle en règle | Les budgets votés après 1992, 2012 puis 2023, dans l'ordre",
+        "cycle": "Le blocage surgit à chaque mobilisation, puis le budget passe de nouveau | Que devient le vote du budget entre deux mobilisations ?",
+        "question": "Quelle lecture les séries que vous trouverez sur les budgets soutiennent-elles ?"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "lecture": {
+      "title": "Rupture, continuité ou **cycle** ?",
+      "lead": "Pour trancher : comparer le déficit public d'un épisode à l'autre, sur la même mesure.",
+      "readings": [
+        {
+          "kind": "rupture",
+          "signature": "2026 sort-il de la série ?",
+          "indicator": "L'**écart 2025–2026** serait plus grand que tout écart entre deux épisodes",
+          "where": "INSEE, comptes des administrations publiques"
+        },
+        {
+          "kind": "continuite",
+          "signature": "Les textes ont-ils changé la pente ?",
+          "indicator": "Le **sens** du déficit serait le même avant et après chaque texte (1973, 1992, 2012, 2023)",
+          "where": "Cour des comptes, finances publiques"
+        },
+        {
+          "kind": "cycle",
+          "signature": "Les hausses se résorbent-elles ?",
+          "indicator": "Le **retour** du déficit près de son niveau d'avant, deux ans après mars 2020 et 2022",
+          "where": "Eurostat, déficit public annuel"
+        }
+      ],
+      "question": "Quelle lecture les séries que vous trouverez soutiennent-elles ?",
+      "author": "**Boyer** combine continuité (cinquante ans) et rupture (2026)"
+    }
+  },
+  "remarks": []
+}

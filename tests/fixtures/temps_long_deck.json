@@ -4,6 +4,14 @@
     "title": "Des experts de l'ONU « consternés » par la « répression »",
     "promise": "Prendre du recul sur le maintien de l'ordre en manifestation."
   },
+  "position": {
+    "title": "Amnesty : un « glissement » autoritaire",
+    "lead": "Amnesty International relève sept points d'alerte sur un « glissement » vers des pratiques autoritaires.",
+    "ecarte": "Elle écarte le cas isolé : « la France n'est plus à l'abri de cette tendance mondiale ».",
+    "diagnostic": "L'ampleur des interpellations « apparaît disproportionnée ».",
+    "mecanisme": "Une « surenchère sécuritaire » dans la législation.",
+    "issue": "Elle y lit un « glissement vers des pratiques autoritaires »."
+  },
   "tournants": {
     "title": "Cinquante ans de règles sur les cortèges",
     "lead": "Amnesty cite une « surenchère sécuritaire » : plus de cinquante ans de textes.",
@@ -67,25 +75,29 @@
     "readings": [
       {
         "kind": "rupture",
-        "signature": "Le recours à la force dépasse nettement celui des épisodes précédents.",
-        "indicator": "Le dernier épisode contre les gilets jaunes et Sainte-Soline"
+        "signature": "Le recours sort-il de la série ?",
+        "indicator": "L'**écart** du dernier épisode serait le plus grand de la série",
+        "where": "Observatoire des violences, bilans annuels"
       },
       {
         "kind": "continuite",
-        "signature": "Le recours à la force augmente d'un épisode au suivant, dans le même sens.",
-        "indicator": "Les textes de 1970 à 2026, dans l'ordre : même direction ?"
+        "signature": "Les textes ont-ils changé la pente ?",
+        "indicator": "Le **sens** du recours à la force serait le même avant et après chaque texte",
+        "where": "Journal officiel, textes de 1970 à 2026"
       },
       {
         "kind": "cycle",
-        "signature": "Un pic de recours à la force à chaque mobilisation, puis un retour au niveau d'avant.",
-        "indicator": "Entre deux épisodes : le niveau retombe-t-il ?"
+        "signature": "Les hausses se résorbent-elles ?",
+        "indicator": "Le **retour** du recours à la force près de son niveau d'avant, deux ans après chaque épisode",
+        "where": "Ministère de l'Intérieur, bilans annuels"
       }
     ],
-    "question": "Quelle lecture les séries que vous trouverez soutiennent-elles ?"
+    "question": "Quelle lecture les séries que vous trouverez soutiennent-elles ?",
+    "author": "**Le texte** combine continuité et rupture"
   },
   "pieges": {
     "title": "Pour ne pas conclure **trop vite**",
-    "lead": "Trois points à vérifier avant de dire que la réponse a changé.",
+    "lead": "Quatre points à vérifier avant de dire que la réponse a changé.",
     "pieges": [
       {
         "title": "Le point de départ",
@@ -98,6 +110,10 @@
       {
         "title": "Les épisodes retenus",
         "question": "Les épisodes cités sont-ils les seuls ? Lesquels montrent moins de recours à la force ?"
+      },
+      {
+        "title": "Après n'est pas à cause de",
+        "question": "Le recours à la force change-t-il après un épisode à cause de lui, ou d'autre chose ?"
       }
     ]
   }

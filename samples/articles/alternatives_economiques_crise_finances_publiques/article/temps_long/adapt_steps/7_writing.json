@@ -1,0 +1,26 @@
+{
+  "step": "writing",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "",
+      "fields": {
+        "caption": "Faut-il s'alarmer des finances publiques françaises ? Dans un article publié par Alternatives Économiques le 4 novembre 2026, l'économiste Robert Boyer, de l'école de la régulation (un courant distinct de la macroéconomie dominante), estime que la crise n'est pas une suite de chocs externes mais l'aboutissement de cinquante ans de déficits que les gouvernements n'ont pas su enrayer. Elle devient, selon lui, une crise politique, voire de régime. C'est une prise de position, pas un constat établi.\n\nCe carrousel ne tranche pas. Il résume sa lecture, puis donne des repères pour la tester : les épisodes que l'on cite depuis 2018, les textes qui ont changé les règles budgétaires depuis 1973, trois façons de lire le temps (rupture, continuité, cycle) et trois questions à se poser avant de comparer le déficit d'un moment à l'autre.\n\nÀ vous de comparer, sur la même mesure, ce que les séries disent. Quelle lecture les séries que vous trouverez soutiennent-elles ? Dites-le en commentaire.\n\n#financespubliques #deficit #lecturecritique #economie"
+      },
+      "edited": true,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "caption": "Faut-il s'alarmer des finances publiques françaises ? Dans un article publié par Alternatives Économiques le 4 novembre 2026, l'économiste Robert Boyer, de l'école de la régulation (un courant distinct de la macroéconomie dominante), estime que la crise n'est pas une suite de chocs externes mais l'aboutissement de cinquante ans de déficits que les gouvernements n'ont pas su enrayer. Elle devient, selon lui, une crise politique, voire de régime. C'est une prise de position, pas un constat établi.\n\nCe carrousel ne tranche pas. Il résume sa lecture, puis donne des repères pour la tester : les épisodes que l'on cite depuis 2018, les textes qui ont changé les règles budgétaires depuis 1973, trois façons de lire le temps (rupture, continuité, cycle) et trois questions à se poser avant de comparer le déficit d'un moment à l'autre.\n\nÀ vous de comparer, sur la même mesure, ce que les séries disent. Quelle lecture les séries que vous trouverez soutiennent-elles ? Dites-le en commentaire.\n\n#financespubliques #deficit #lecturecritique #economie"
+  },
+  "remarks": []
+}

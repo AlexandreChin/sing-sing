@@ -1,0 +1,26 @@
+{
+  "step": "writing",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "",
+      "fields": {
+        "caption": "Faut-il s'alarmer des finances publiques françaises ? Dans une tribune publiée par Alternatives Économiques le 4 novembre 2026, l'économiste Robert Boyer, de l'école de la régulation (un courant distinct de la macroéconomie dominante), estime que la crise budgétaire est aussi une crise politique. Il s'agit d'une prise de position, pas d'un constat établi : il lit cinquante ans de déficits à travers quatre régimes de croissance, plutôt que comme une série de « chocs ».\n\nCe carrousel ne tranche pas. Il donne les épisodes des dix dernières années que l'on retient, les textes qui ont changé les règles budgétaires depuis 1973, trois lectures possibles du temps (rupture, continuité ou cycle) et trois questions à se poser avant de comparer le déficit d'un épisode à l'autre : en volume ou en proportion, la façon de compter, les épisodes retenus.\n\nÀ vous de comparer, sur la même mesure, ce que les séries disent. Quelle lecture les séries que vous trouverez soutiennent-elles ? Dites-le-nous en commentaire.\n\n#financespubliques #deficit #lecturecritique #economie"
+      },
+      "edited": true,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "caption": "Faut-il s'alarmer des finances publiques françaises ? Dans une tribune publiée par Alternatives Économiques le 4 novembre 2026, l'économiste Robert Boyer, de l'école de la régulation (un courant distinct de la macroéconomie dominante), estime que la crise budgétaire est aussi une crise politique. Il s'agit d'une prise de position, pas d'un constat établi : il lit cinquante ans de déficits à travers quatre régimes de croissance, plutôt que comme une série de « chocs ».\n\nCe carrousel ne tranche pas. Il donne les épisodes des dix dernières années que l'on retient, les textes qui ont changé les règles budgétaires depuis 1973, trois lectures possibles du temps (rupture, continuité ou cycle) et trois questions à se poser avant de comparer le déficit d'un épisode à l'autre : en volume ou en proportion, la façon de compter, les épisodes retenus.\n\nÀ vous de comparer, sur la même mesure, ce que les séries disent. Quelle lecture les séries que vous trouverez soutiennent-elles ? Dites-le-nous en commentaire.\n\n#financespubliques #deficit #lecturecritique #economie"
+  },
+  "remarks": []
+}

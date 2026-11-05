@@ -1,0 +1,96 @@
+{
+  "step": "episodes",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Ce sont les événements que le média cite lui-même (gilets jaunes, Covid, Ukraine), plus la mobilisation sur les retraites. Chacun laisse une trace documentée : synthèse du grand débat, rapports de la Cour des comptes sur la réponse à la pandémie et sur le bouclier tarifaire, décision du Conseil constitutionnel sur les retraites. Ils n'ont pas la même nature et ne sont jamais présentés comme équivalents.",
+      "fields": {
+        "title": "Des crises où le **budget** était en jeu",
+        "lead": "Les « chocs » cités : huit ans d'épisodes qui ont marqué les finances publiques.",
+        "rep1": "2018–2019 | Gilets jaunes : mesures sociales annoncées en urgence | Prime d'activité relevée, impôts allégés",
+        "rep2": "mars 2020 | Covid-19 : confinement national et « quoi qu'il en coûte » | Chômage partiel et prêts garantis",
+        "rep3": "2022 | Invasion de l'Ukraine et flambée des prix de l'énergie | Bouclier tarifaire sur le gaz et l'électricité",
+        "rep4": "juil. 2024 | Procédure pour déficit excessif ouverte contre la France | Un plan de redressement à présenter",
+        "rep5": "sept. 2025 | Le Premier ministre Bayrou perd la confiance des députés | Un vote engagé sur son plan budgétaire"
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Épisodes parlementaires qui font écho à la « paralysie » et à l'Assemblée en trois groupes évoquées par le média. Chacun laisse une trace officielle : comptes rendus des scrutins publics de l'Assemblée nationale, décret de dissolution au Journal officiel, résultats du ministère de l'Intérieur. Ce sont des épisodes à examiner, sans lien de cause posé entre eux.",
+      "fields": {
+        "title": "Des urnes aux **censures**, depuis 2022",
+        "lead": "« Paralysie » dit le média : les épisodes parlementaires les plus cités, à comparer.",
+        "rep1": "juin 2022 | Législatives : le camp présidentiel perd la majorité absolue | Trois blocs de taille voisine à l'Assemblée",
+        "rep2": "automne 2022 | Budget de l'État adopté sans vote, par l'article 49-3 | Motions de censure rejetées de peu",
+        "rep3": "juin 2024 | Dissolution de l'Assemblée et législatives anticipées | Scrutin organisé en trois semaines",
+        "rep4": "déc. 2024 | Chute du gouvernement du Premier ministre Michel Barnier | Une première depuis 1962",
+        "rep5": "sept. 2025 | Le Premier ministre Bayrou perd la confiance des députés | Scrutin convoqué sur son plan budgétaire"
+      },
+      "edited": false,
+      "flags": [
+        "episodes.rep4: the remark repeats the label — say something the label does not"
+      ]
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Épisodes centrés sur les finances publiques elles-mêmes, plus proches de l'objet du média (déficit, dette, regard des investisseurs). Traces documentées : publication de l'Insee sur le déficit 2023, décision de la Commission européenne sur la procédure, présentation du plan budgétaire du Premier ministre, communiqué de l'agence S&P Global Ratings. Ils servent à comparer une même mesure d'un épisode à l'autre, non à les dire équivalents.",
+      "fields": {
+        "title": "Les **alertes** budgétaires de 2024–2025",
+        "lead": "Le média voit une « heure de vérité » : les épisodes budgétaires les plus cités.",
+        "rep1": "mars 2024 | Déficit 2023 publié plus haut que prévu par le gouvernement | Recettes fiscales inférieures aux attentes",
+        "rep2": "juil. 2024 | Procédure pour déficit excessif ouverte contre la France | Trajectoire de redressement à soumettre",
+        "rep3": "juil. 2025 | Un plan budgétaire propose de supprimer deux jours fériés | Annoncé en conférence de presse, mi-juillet",
+        "rep4": "oct. 2025 | Une agence de notation abaisse la note de la dette | Annoncée avant la date prévue",
+        "rep5": ""
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "episodes": {
+      "title": "Des crises où le **budget** était en jeu",
+      "lead": "Les « chocs » cités : huit ans d'épisodes qui ont marqué les finances publiques.",
+      "reperes": [
+        {
+          "date": "2018–2019",
+          "label": "Gilets jaunes : mesures sociales annoncées en urgence",
+          "remark": "Prime d'activité relevée, impôts allégés"
+        },
+        {
+          "date": "mars 2020",
+          "label": "Covid-19 : confinement national et « quoi qu'il en coûte »",
+          "remark": "Chômage partiel et prêts garantis"
+        },
+        {
+          "date": "2022",
+          "label": "Invasion de l'Ukraine et flambée des prix de l'énergie",
+          "remark": "Bouclier tarifaire sur le gaz et l'électricité"
+        },
+        {
+          "date": "juil. 2024",
+          "label": "Procédure pour déficit excessif ouverte contre la France",
+          "remark": "Un plan de redressement à présenter"
+        },
+        {
+          "date": "sept. 2025",
+          "label": "Le Premier ministre Bayrou perd la confiance des députés",
+          "remark": "Un vote engagé sur son plan budgétaire"
+        }
+      ]
+    }
+  },
+  "remarks": []
+}

@@ -1,0 +1,62 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "Le **« donc »** relie un Parlement divisé à une crise de régime, et l'analogie avec 1958 tient lieu de démonstration : l'hypothèse qui fait le lien n'est jamais exposée. Ce saut logique soutient toute la conclusion de l'article.",
+        "references": [
+          "lr_3",
+          "ia_3",
+          "bias_2",
+          "focus"
+        ]
+      },
+      {
+        "text": "Le texte **écarte les chocs externes avant de les tester** (simple assertion, puis « grave erreur ») et s'appuie sur une seule école, la périodisation en quatre régimes, sans contradicteur. Le cadre est à la fois l'hypothèse non dite et le produit mis en avant, ce que l'éthique et la revue notent aussi.",
+        "references": [
+          "pr_0",
+          "bias_1",
+          "cb_0",
+          "pr_1",
+          "ia_0",
+          "obs_0",
+          "lr_0"
+        ]
+      },
+      {
+        "text": "Le texte **installe la gravité avant les données** : le vocabulaire de rupture et la répétition des « cinquante ans de déficits » précèdent des chiffres actuels absents. L'inquiétude et la redite tiennent lieu de preuve.",
+        "references": [
+          "er_0",
+          "bias_0",
+          "bs_1",
+          "obs_4",
+          "er_1",
+          "pr_2",
+          "claim_2"
+        ]
+      },
+      {
+        "text": "Le contre-argument le plus concret, la **note Aa3 maintenue par Moody's**, n'apparaît qu'en question rhétorique, sans chiffre ni discussion. Il pourrait pourtant nuancer la lecture de crise, et l'article se prive de cette confrontation.",
+        "references": [
+          "claim_0",
+          "bs_3",
+          "ia_1",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "La **crise de régime** sert un récit de refonte institutionnelle qui bénéficie aux partisans d'un changement de gouvernance, et la question finale du « nouveau de Gaulle » oriente vers un recours sans en examiner les alternatives.",
+        "references": [
+          "lr_3",
+          "obs_2",
+          "cb_1",
+          "focus"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quelle part de la dégradation des finances publiques s'explique par des chocs externes plutôt que par le fonctionnement des institutions ?",
+      "Que révèlent les chiffres actuels du déficit et de la dette sur l'ampleur réelle de la crise budgétaire ?",
+      "Que change concrètement le maintien de la note Aa3 par Moody's à la lecture d'une crise de régime ?"
+    ]
+  }
+}

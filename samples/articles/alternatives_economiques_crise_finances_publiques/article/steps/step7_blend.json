@@ -1,0 +1,108 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "Le **« donc »** sert de charnière à toute l'argumentation : il relie un Parlement divisé à une crise de régime (lr_3), et l'analogie avec 1958 (ia_3) est posée sans éléments comparatifs, ce que le focus et le biais de saut logique relèvent. L'hypothèse implicite n'est jamais exposée, et la conclusion tient surtout à la force de l'image historique.",
+        "layers": [
+          "logic",
+          "probe"
+        ],
+        "references": [
+          "lr_3",
+          "ia_3",
+          "bias_2",
+          "focus"
+        ]
+      },
+      {
+        "text": "L'explication par les chocs externes est **écartée avant d'être testée** : posée comme simple assertion (pr_0), elle est qualifiée de « grave erreur » (bias_1), ce qui sert la grille de l'approche de la régulation (cb_0). L'éthique relève la même absence de pluralité (déontologie), et la dimension *Treatment Fairness* est notée 2.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "pr_0",
+          "bias_1",
+          "cb_0",
+          "lr_0"
+        ]
+      },
+      {
+        "text": "Le texte **installe la gravité avant les données** : le vocabulaire de rupture (er_0, bias_0) précède des chiffres actuels absents (bs_1), si bien que l'inquiétude tient lieu de preuve. La dimension *Context & Completeness* (note 2) confirme ce déséquilibre entre récit et mesure.",
+        "layers": [
+          "rhetoric",
+          "probe",
+          "logic",
+          "review"
+        ],
+        "references": [
+          "er_0",
+          "bias_0",
+          "bs_1",
+          "obs_4"
+        ]
+      },
+      {
+        "text": "La répétition de la phrase sur les **cinquante ans de déficits** (er_1) produit un effet de lassitude, alors que l'énoncé n'est étayé que par un déficit daté (pr_2) et que la vérification montre de rares années d'amélioration (claim_2). La répétition remplace ici la démonstration chiffrée.",
+        "layers": [
+          "rhetoric",
+          "logic",
+          "probe"
+        ],
+        "references": [
+          "er_1",
+          "pr_2",
+          "claim_2",
+          "lr_1"
+        ]
+      },
+      {
+        "text": "Le contre-argument le plus concret, la **note Aa3 maintenue par Moody's**, n'apparaît qu'en question rhétorique (claim_0, bs_3) et n'est ni chiffré ni discuté. Il est pourtant celui qui pourrait nuancer la lecture de crise, et l'article se prive ainsi de la confrontation que l'éthique réclame.",
+        "layers": [
+          "probe",
+          "logic",
+          "ethics",
+          "rhetoric"
+        ],
+        "references": [
+          "claim_0",
+          "bs_3",
+          "ia_1",
+          "obs_1"
+        ]
+      },
+      {
+        "text": "Une **seule école** structure tout le texte : la périodisation en quatre régimes (pr_1, ia_0) sert de cadre, cui bono la désigne comme bénéficiaire (cb_0), et l'éthique comme la revue notent l'absence de contradicteur et un diagnostic non confronté. Le cadre est à la fois l'hypothèse non dite et le produit mis en avant.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "pr_1",
+          "ia_0",
+          "cb_0",
+          "obs_0"
+        ]
+      },
+      {
+        "text": "La **crise de régime** sert un récit de refonte institutionnelle : le passage du budgétaire au politique (lr_3, obs_2) bénéficie aux acteurs qui plaident pour un changement de gouvernance (cb_1), et il s'appuie sur la question finale du « nouveau de Gaulle » (focus). Le texte conduit le lecteur vers un recours sans en examiner les alternatives.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "lr_3",
+          "obs_2",
+          "cb_1",
+          "focus"
+        ]
+      }
+    ]
+  }
+}

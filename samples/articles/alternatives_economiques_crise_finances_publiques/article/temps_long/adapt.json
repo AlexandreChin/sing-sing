@@ -1,0 +1,120 @@
+{
+  "caption": "Faut-il s'alarmer des finances publiques françaises ? Dans un article publié par Alternatives Économiques le 4 novembre 2026, l'économiste Robert Boyer, de l'école de la régulation (un courant distinct de la macroéconomie dominante), estime que la crise n'est pas une suite de chocs externes mais l'aboutissement de cinquante ans de déficits que les gouvernements n'ont pas su enrayer. Elle devient, selon lui, une crise politique, voire de régime. C'est une prise de position, pas un constat établi.\n\nCe carrousel ne tranche pas. Il résume sa lecture, puis donne des repères pour la tester : les épisodes que l'on cite depuis 2018, les textes qui ont changé les règles budgétaires depuis 1973, trois façons de lire le temps (rupture, continuité, cycle) et trois questions à se poser avant de comparer le déficit d'un moment à l'autre.\n\nÀ vous de comparer, sur la même mesure, ce que les séries disent. Quelle lecture les séries que vous trouverez soutiennent-elles ? Dites-le en commentaire.\n\n#financespubliques #deficit #lecturecritique #economie",
+  "hook": {
+    "title": "Boyer : la crise des finances publiques est « aussi politique »",
+    "promise": "Prendre du recul sur cinquante ans de déficits, pas de chocs."
+  },
+  "tournants": {
+    "title": "Cinquante ans de **règles** budgétaires",
+    "lead": "Une « dérive » depuis cinquante ans : les textes qui ont fixé les règles du budget.",
+    "reperes": [
+      {
+        "date": "1973",
+        "label": "Loi du 3 janvier : la banque centrale n'avance plus l'État",
+        "remark": "Le Trésor doit désormais emprunter sur les marchés financiers."
+      },
+      {
+        "date": "1992",
+        "label": "Traité de Maastricht : seuils pour le déficit et la dette",
+        "remark": "Les pays de la future monnaie unique s'imposent des plafonds communs."
+      },
+      {
+        "date": "2012",
+        "label": "Loi organique sur la gouvernance des finances publiques",
+        "remark": "Un objectif de solde structurel s'impose, sous contrôle d'un organe indépendant."
+      },
+      {
+        "date": "2023",
+        "label": "Loi de programmation des finances publiques 2023-2027",
+        "remark": "Fixe une trajectoire pluriannuelle du solde et de la dette jusqu'en 2027."
+      }
+    ]
+  },
+  "episodes": {
+    "title": "Des crises où le **budget** était en jeu",
+    "lead": "Les « chocs » cités : huit ans d'épisodes qui ont marqué les finances publiques.",
+    "reperes": [
+      {
+        "date": "2018–2019",
+        "label": "Gilets jaunes : mesures sociales annoncées en urgence",
+        "remark": "Prime d'activité relevée, impôts allégés"
+      },
+      {
+        "date": "mars 2020",
+        "label": "Covid-19 : confinement national et « quoi qu'il en coûte »",
+        "remark": "Chômage partiel et prêts garantis"
+      },
+      {
+        "date": "2022",
+        "label": "Invasion de l'Ukraine et flambée des prix de l'énergie",
+        "remark": "Bouclier tarifaire sur le gaz et l'électricité"
+      },
+      {
+        "date": "juil. 2024",
+        "label": "Procédure pour déficit excessif ouverte contre la France",
+        "remark": "Un plan de redressement à présenter"
+      },
+      {
+        "date": "sept. 2025",
+        "label": "Le Premier ministre Bayrou perd la confiance des députés",
+        "remark": "Un vote engagé sur son plan budgétaire"
+      }
+    ]
+  },
+  "position": {
+    "title": "Une dérive structurelle",
+    "lead": "Pour Robert Boyer, la crise n'est pas une suite de chocs mais l'aboutissement de cinquante ans de déficits : elle devient en 2026 une crise politique, voire de régime.",
+    "ecarte": "La **malchance** : des chocs communs à la plupart des pays, la France la plus touchée.",
+    "diagnostic": "La France **s'endette au lieu de s'adapter** à un monde de croissance lente, pour préserver la paix sociale.",
+    "mecanisme": "De 1981 à 2019, la **baisse des taux d'intérêt** a allégé la dette. Depuis 2025, leur **hausse** l'alourdit.",
+    "issue": "Parlement en trois groupes, exécutif paralysé : une **crise de régime**, plus proche de 1958 que de Mai 68."
+  },
+  "lecture": {
+    "title": "Rupture, continuité ou **cycle** ?",
+    "lead": "Pour trancher : comparer le déficit public d'un épisode à l'autre, sur la même mesure.",
+    "readings": [
+      {
+        "kind": "rupture",
+        "signature": "2026 sort-il de la série ?",
+        "indicator": "L'**écart 2025–2026** serait plus grand que tout écart entre deux épisodes",
+        "where": "INSEE, comptes des administrations publiques"
+      },
+      {
+        "kind": "continuite",
+        "signature": "Les textes ont-ils changé la pente ?",
+        "indicator": "Le **sens** du déficit serait le même avant et après chaque texte (1973, 1992, 2012, 2023)",
+        "where": "Cour des comptes, finances publiques"
+      },
+      {
+        "kind": "cycle",
+        "signature": "Les hausses se résorbent-elles ?",
+        "indicator": "Le **retour** du déficit près de son niveau d'avant, deux ans après mars 2020 et 2022",
+        "where": "Eurostat, déficit public annuel"
+      }
+    ],
+    "question": "Quelle lecture les séries que vous trouverez soutiennent-elles ?",
+    "author": "**Boyer** combine continuité (cinquante ans) et rupture (2026)"
+  },
+  "pieges": {
+    "title": "Pour que la comparaison soit **juste**",
+    "lead": "Quatre points à vérifier sur les séries avant de choisir une lecture.",
+    "pieges": [
+      {
+        "title": "En volume ou en proportion",
+        "question": "Compare-t-on le déficit public en montant, ou rapporté à la richesse produite ?"
+      },
+      {
+        "title": "La façon de compter",
+        "question": "La définition ou le comptage du déficit public a-t-il changé entre deux épisodes ?"
+      },
+      {
+        "title": "Les épisodes retenus",
+        "question": "Quels épisodes vont en sens inverse, avec moins de déficit public que ceux qu'on cite ?"
+      },
+      {
+        "title": "Cause ou coïncidence",
+        "question": "Le déficit monte-t-il à cause de l'épisode, ou d'autre chose survenu au même moment ?"
+      }
+    ]
+  }
+}

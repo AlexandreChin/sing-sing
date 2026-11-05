@@ -1,0 +1,68 @@
+{
+  "emotional_register": [
+    {
+      "id": "",
+      "emotion": "inquiétude",
+      "how": "Le texte accumule un vocabulaire de rupture (« fin d'une époque », « heure de vérité », « crise de régime », « effondrement ») et ouvre sur une formule sur la brutalité des crises.",
+      "effect": "Le lecteur est préparé à juger la situation grave et à accepter l'idée d'un tournant imminent.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "L'article date du 4 novembre 2026, dans un débat récurrent sur la soutenabilité des finances publiques",
+        "strength": 0.6,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "",
+      "emotion": "lassitude",
+      "how": "La phrase sur cinquante ans de déficits revient deux fois et la succession de gouvernements « incapables » est présentée comme constante.",
+      "effect": "Le lecteur est porté à voir les alternances passées comme équivalentes et à chercher une rupture.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "Parlement fractionné en trois groupes et la perspective de l'élection présidentielle",
+        "strength": 0.4,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "",
+      "beneficiary": "L'approche de la régulation et son auteur",
+      "explanation": "Le cadrage présente les explications par les chocs externes comme une « grave erreur » et la périodisation en quatre régimes comme le seul diagnostic complet. Il met ainsi en avant la grille d'analyse de l'économiste.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "François Bayrou comme dernier responsable à avoir alerté sur la dette",
+        "strength": 0.5,
+        "nature": "specification"
+      }
+    },
+    {
+      "beneficiary": "Les acteurs qui plaident pour un changement de régime ou de gouvernance",
+      "explanation": "Présenter la crise budgétaire comme une crise politique, voire de régime, avec l'analogie de 1958, rend plausible l'idée d'une refonte institutionnelle ou de l'émergence d'un nouveau recours.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "Parlement fractionné en trois groupes et la perspective de l'élection présidentielle",
+        "strength": 0.5,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Extension",
+        "observation": "Le « aussi » élargit la crise budgétaire à une crise politique, sans préciser dans le titre le lien entre les deux."
+      },
+      {
+        "label": "Qualification",
+        "observation": "L'adjectif « grande » pose d'emblée la gravité de la crise comme acquise, avant toute donnée chiffrée."
+      }
+    ],
+    "body": "L'article adopte l'angle d'une lecture historique longue, celle de l'approche de la régulation, qui découpe l'après-guerre en quatre régimes de croissance. Il place au centre la dérive structurelle des déficits sur cinquante ans, indépendamment de l'orientation des gouvernements, et rattache les chocs externes à un rôle secondaire. Le registre est celui d'un diagnostic d'économiste, à la première personne de l'analyse, avec un ton de gravité. L'auteur parle depuis une école hétérodoxe, dans un magazine économique classé à gauche."
+  }
+}

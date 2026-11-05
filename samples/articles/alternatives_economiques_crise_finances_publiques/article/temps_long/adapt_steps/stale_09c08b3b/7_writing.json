@@ -1,0 +1,26 @@
+{
+  "step": "writing",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "",
+      "fields": {
+        "caption": "Robert Boyer, économiste de l'approche de la régulation, lit la situation des finances publiques françaises comme « aussi une crise politique ». Dans cet article d'opinion d'Alternatives Économiques, il écarte l'explication par une série de chocs externes (« Pas de chance ! »). Son diagnostic : quatre régimes de croissance depuis la guerre, cinquante ans de déficits et une crise budgétaire qui devient crise de régime, avec 1958 en écho. C'est une prise de position, pas un constat.\n\nCe carrousel ne tranche pas. Il donne les épisodes que l'on retient depuis dix ans, les textes qui ont changé les règles budgétaires en cinquante ans, trois lectures du temps (rupture, continuité ou cycle) et trois pièges pour tester les mots employés.\n\nQuelle lecture les séries que vous trouverez soutiennent-elles ? Dites-le en commentaire.\n\n#FinancesPubliques #Dette #Économie #LectureCritique"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "caption": "Robert Boyer, économiste de l'approche de la régulation, lit la situation des finances publiques françaises comme « aussi une crise politique ». Dans cet article d'opinion d'Alternatives Économiques, il écarte l'explication par une série de chocs externes (« Pas de chance ! »). Son diagnostic : quatre régimes de croissance depuis la guerre, cinquante ans de déficits et une crise budgétaire qui devient crise de régime, avec 1958 en écho. C'est une prise de position, pas un constat.\n\nCe carrousel ne tranche pas. Il donne les épisodes que l'on retient depuis dix ans, les textes qui ont changé les règles budgétaires en cinquante ans, trois lectures du temps (rupture, continuité ou cycle) et trois pièges pour tester les mots employés.\n\nQuelle lecture les séries que vous trouverez soutiennent-elles ? Dites-le en commentaire.\n\n#FinancesPubliques #Dette #Économie #LectureCritique"
+  },
+  "remarks": []
+}

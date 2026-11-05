@@ -1,11 +1,12 @@
-"""Adapt agent for the TEMPS LONG carousel (6 slides).
+"""Adapt agent for the TEMPS LONG carousel (6 slides, 7 once `position` is written).
 
 A guided cascade for a hot-news piece, read through the lens of time: first the
 tournants (the laws, doctrine texts and statements that changed the rules over
 fifty years, slide 3), then the episodes people remember from the last ten years
 (slide 2), then the temporal reading (rupture, continuité or cycle, slide 4,
 which leans on the two timelines), the traps a time series sets (pieges,
-slide 5), then the hook; `writing` finishes with the caption, without pausing.
+slide 5), then the hook, then `position` (the author's stand, slide 2 once
+written, in the article's own frame); `writing` finishes with the caption, without pausing.
 Each step proposes options with a reason and a ★, the author picks, edits or
 asks for others (`choose`), and a pick feeds the later steps. Steps are cached
 in `<format>/adapt_steps/` with a stamp of the inputs and the earlier picks.
@@ -56,10 +57,11 @@ class FriseOption(BaseModel):
 class LectureOption(BaseModel):
     title: str
     lead: str
-    rupture: str       # « signature | indicateur »
+    rupture: str       # « hypothèse ? | test avec un **passage en gras** | où regarder »
     continuite: str
     cycle: str
     question: str      # the neutral closing question: not drawn on slide 4, taken up by the sign-off
+    author: str        # where the author's thesis sits among the readings: one line, attributed, never judged
 
 
 class PiegesOption(BaseModel):
@@ -68,11 +70,21 @@ class PiegesOption(BaseModel):
     piege1: str  # « titre | question »
     piege2: str
     piege3: str
+    piege4: str
 
 
 class HookOption(BaseModel):
     title: str
     promise: str
+
+
+class PositionOption(BaseModel):
+    title: str        # the claim in a few plain words (the lead names the author)
+    lead: str         # the summary of the position
+    ecarte: str       # card 1 — what the author sets aside
+    diagnostic: str   # card 2 — his own reading
+    mecanisme: str    # card 3 — why it lasted, why it breaks
+    issue: str        # card 4 — his conclusion
 
 
 class WritingCopy(BaseModel):
@@ -95,14 +107,16 @@ STEPS: tuple[Step, ...] = (
     Step(3, "lecture", LectureOption, "title", 3),
     Step(4, "pieges", PiegesOption, "title", 3),
     Step(5, "hook", HookOption, "title", 3),
-    Step(6, "writing", None, "", 3, (1, 1)),
+    Step(6, "position", PositionOption, "title", 3),
+    Step(7, "writing", None, "", 3, (1, 1)),
 )
 STEP_BY_NAME: dict[str, Step] = {s.name: s for s in STEPS}
 STEP_NAMES = [s.name for s in STEPS[:-1]]
 _REPERES = ("rep1", "rep2", "rep3", "rep4", "rep5")
 _READINGS = ("rupture", "continuite", "cycle")
-_PIEGES = ("piege1", "piege2", "piege3")
+_PIEGES = ("piege1", "piege2", "piege3", "piege4")
 _FRISE_STEPS = ("tournants", "episodes")
+_POSITION_CARDS = ("ecarte", "diagnostic", "mecanisme", "issue")
 
 
 # ── Files ───────────────────────────────────────────────────────────────────
@@ -145,23 +159,30 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     **{(s, "lead"): ("chars", 84) for s in ("tournants", "episodes")},   # two lines at most, beside the bird perched on the first row
     **{(s, "lead"): ("chars", 94) for s in ("lecture", "pieges")},
     ("lecture", "question"): ("chars", 96),
+    ("lecture", "author"): ("chars", 60),   # one line under the cards, beside its icon
     ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 64),   # two lines at most, before « En juger soi-même. »
+    ("position", "title"): ("chars", 44), ("position", "lead"): ("chars", 175),   # the summary, three lines at most
+    **{("position", c): ("chars", 108) for c in _POSITION_CARDS},   # two lines in a card, three at the very worst
 }
 _DATE_MAX = 14      # characters: the date is drawn big, in gold, in a narrow column
 _LABEL_MAX = 64     # characters: a reference point's label takes two lines at most
 _REMARK_MAX = 46    # characters: an episode's remark takes one line
 _TOURNANTS_REMARK_MAX = 84   # characters: a turning point's remark takes two lines (what it changes, and what it could change)
-_SIGNATURE_MAX = 86    # characters: a reading's signature takes two lines at most
-_INDICATOR_MAX = 62     # characters: a reading's indicator takes one line
+_SIGNATURE_MAX = 36    # characters: a reading's hypothesis, a question, takes one line after its name
+_INDICATOR_MAX = 100    # characters: a reading's test takes two lines at most
+_WHERE_MAX = 44         # characters: where to find the series, one line after « Où regarder »
+_URL = re.compile(r"https?://|www\.", re.I)
 _PIEGE_TITLE_MAX = 38   # characters: a trap's name, one line
 _PIEGE_QUESTION_MAX = 92   # characters: a trap's question, two lines at most
+_FIGURE = re.compile(r"\d[\d  .,]*\s*(?:%|€|M€|Md€|milliards?|millions?|points?\b|×)?|×\s*\d", re.I)
 _YEAR = re.compile(r"\b(?:1[89]|20)\d{2}\b")
 # a trend figure: a percentage, an amount, a multiple — never in a dated reference point
 _TREND_FIGURE = re.compile(r"\d[\d  .,]*\s*(?:%|€|M€|Md€|milliards?|millions?|points?\b|×)|×\s*\d", re.I)
 _REQUIRED = {"tournants": ("title", "lead", "rep1", "rep2", "rep3"),
              "episodes": ("title", "lead", "rep1", "rep2", "rep3", "rep4"),   # 4 or 5 episodes
-             "lecture": ("title", "lead", "rupture", "continuite", "cycle", "question"),
-             "pieges": ("title", "lead", "piege1", "piege2", "piege3")}
+             "lecture": ("title", "lead", "rupture", "continuite", "cycle", "question", "author"),
+             "pieges": ("title", "lead", "piege1", "piege2", "piege3", "piege4"),
+             "position": ("title", "lead", "ecarte", "diagnostic", "mecanisme", "issue")}
 _EPISODES_MAX_AGE = 12   # years before the article: an episode older than this is no longer what people remember
 _TOURNANTS_MIN_AGE = 25  # the tournants reach back at least this far
 _TOURNANTS_RECENT = 3      # ... and include a point from the last few years, a bill under discussion included
@@ -187,7 +208,7 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                 hard.append(f"{step}.{name} is {n} {kind} (max {cap})")
         if (m := _ACCUSING.search(_QUOTED.sub("", value))):
             hard.append(f"{step}.{name} uses an accusing word « {m.group(0)} » — the carousel gives tools, not verdicts")
-        if step != "writing" and (m := _TREND_FIGURE.search(_QUOTED.sub("", value))):
+        if step not in ("writing", "position") and (m := _TREND_FIGURE.search(_QUOTED.sub("", value))):
             hard.append(f"{step}.{name} gives a figure « {m.group(0).strip()} » — dated reference points only, never a trend figure")
     for name in _REQUIRED.get(step, ()):
         if not str(fields.get(name, "")).strip():
@@ -259,14 +280,22 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
     if step == "lecture":
         for name in _READINGS:
             value = str(fields.get(name, "")).strip()
-            if value and not all(_parts(value, 2)):
-                hard.append(f"lecture.{name} must read « signature | indicateur »")
+            if value and not all(_parts(value, 3)):
+                hard.append(f"lecture.{name} must read « hypothèse ? | test avec un **passage en gras** | où regarder »")
             elif value:
-                signature, indicator = _parts(value, 2)
+                signature, indicator, where = _parts(value, 3)
                 if len(signature) > _SIGNATURE_MAX:
-                    hard.append(f"lecture.{name}: the signature is {len(signature)} characters (max {_SIGNATURE_MAX}) — two lines at most")
-                if len(indicator) > _INDICATOR_MAX:
-                    hard.append(f"lecture.{name}: the indicator is {len(indicator)} characters (max {_INDICATOR_MAX}) — one line")
+                    hard.append(f"lecture.{name}: the hypothesis is {len(signature)} characters (max {_SIGNATURE_MAX}) — one line")
+                if not signature.endswith("?"):
+                    hard.append(f"lecture.{name}: the hypothesis must be a question")
+                if len(re.sub(r"\*\*", "", indicator)) > _INDICATOR_MAX:
+                    hard.append(f"lecture.{name}: the test is {len(re.sub(r'[*][*]', '', indicator))} characters (max {_INDICATOR_MAX}) — two lines at most")
+                if indicator.count("**") < 2:
+                    hard.append(f"lecture.{name}: the test must put in bold (**…**) what this reading looks at")
+                if len(where) > _WHERE_MAX:
+                    hard.append(f"lecture.{name}: « où regarder » is {len(where)} characters (max {_WHERE_MAX}) — one line")
+                if _URL.search(where):
+                    hard.append(f"lecture.{name}: « où regarder » names an organisation, never a URL")
                 known = _stems(_plain(str(fields.get("lead", ""))))
                 known_years: set[str] = set()
                 for other in ("episodes", "tournants"):
@@ -278,6 +307,9 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                                  "of slides 2–3")
         if fields.get("question", "").strip() and not fields["question"].strip().endswith("?"):
             hard.append("lecture.question must be a question")
+        author = str(fields.get("author", "")).strip()
+        if author and not re.search(r"rupture|continuit|cycle", _norm(author)):
+            flags.append("lecture.author names none of the three readings — say which ones the author's thesis combines")
     if step == "pieges":
         lecture = fragments.get("lecture", {}).get("lecture", {})
         measure = _stems(_plain(lecture.get("lead", "")))
@@ -297,6 +329,14 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                 hard.append(f"pieges.{name}: the question must be a question")
             if measure and not _stems(_plain(value)) & measure:
                 flags.append(f"pieges.{name} cites nothing of the measure the deck follows — tie the trap to it")
+    if step == "position":
+        for name in ("title", *_POSITION_CARDS, "lead"):
+            value = str(fields.get(name, ""))
+            if article:
+                hard += [f"position.{name} quotes {q} but the source does not say it"
+                         for q in _QUOTED.findall(value) if _norm(q.strip("« »\u00a0 ")) not in _norm(article)]
+                flags += [f"position.{name} gives the figure « {n.strip(" .,")} » that the source does not carry — check it"
+                          for n in _FIGURE.findall(_QUOTED.sub("", value)) if _norm(n.strip(" .,")) not in _norm(article)]
     if step == "hook" and not fields.get("promise", "").lower().startswith("prendre du recul"):
         flags.append("hook.promise usually reads « Prendre du recul sur … »")
     if step == "writing":
@@ -323,10 +363,10 @@ def to_fragment(step: Step, option: Option) -> dict:
         readings = []
         for kind in _READINGS:
             if str(f.get(kind, "")).strip():
-                signature, indicator = _parts(f[kind], 2)
-                readings.append({"kind": kind, "signature": signature, "indicator": indicator})
+                signature, indicator, where = _parts(f[kind], 3)
+                readings.append({"kind": kind, "signature": signature, "indicator": indicator, "where": where})
         return {"lecture": {"title": f.get("title", ""), "lead": f.get("lead", ""), "readings": readings,
-                            "question": f.get("question", "")}}
+                            "question": f.get("question", ""), "author": f.get("author", "")}}
     if step.name == "pieges":
         pieges = []
         for name in _PIEGES:
@@ -336,6 +376,8 @@ def to_fragment(step: Step, option: Option) -> dict:
         return {"pieges": {"title": f.get("title", ""), "lead": f.get("lead", ""), "pieges": pieges}}
     if step.name == "hook":
         return {"hook": {"title": f.get("title", ""), "promise": f.get("promise", "")}}
+    if step.name == "position":
+        return {"position": {k: f.get(k, "") for k in ("title", "lead", *_POSITION_CARDS)}}
     return {"caption": f.get("caption", "")}
 
 

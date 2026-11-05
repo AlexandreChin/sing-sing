@@ -1,0 +1,60 @@
+{
+  "step": "tournants",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Relie le mot « dérive » à des moments où les gouvernements ont fixé un cap budgétaire, jusqu'à l'alerte de François Bayrou que l'article ouvre en rappel.",
+      "fields": {
+        "title": "Les **cadres** budgétaires depuis 1983",
+        "lead": "Le média décrit une « dérive » : quatre textes ou annonces pour situer les choix.",
+        "rep1": "1983 | Le Premier ministre Mauroy annonce un plan de rigueur | Priorité à la maîtrise des prix et du commerce extérieur sur la relance",
+        "rep2": "1997 | Pacte de stabilité et de croissance adopté à Amsterdam | Une procédure de sanctions peut viser les pays qui dépassent les limites",
+        "rep3": "2012 | Loi organique sur la gouvernance des finances publiques | Un comité indépendant juge le réalisme des prévisions du gouvernement",
+        "rep4": "juillet 2025 | Le Premier ministre Bayrou présente un plan d'économies | Le gouvernement tombe sur un vote de confiance en septembre",
+        "rep5": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Lois et textes européens faciles à retrouver ; ils situent l'affirmation que les gouvernements successifs ont été « incapables » en montrant quelles règles encadraient leurs marges de manœuvre.",
+      "fields": {
+        "title": "Qui encadre le **budget** depuis 1993",
+        "lead": "« Incapables », dit le média : les textes qui encadrent les choix budgétaires.",
+        "rep1": "août 1993 | Loi sur la Banque de France, qui devient indépendante | Le gouvernement ne peut plus dicter la politique monétaire",
+        "rep2": "2001 | Loi organique relative aux lois de finances, dite LOLF | Le budget se vote par grandes missions, avec des objectifs de résultats",
+        "rep3": "2008 | Révision constitutionnelle : lois de programmation des finances | Le Parlement vote des objectifs d'ensemble qui encadrent les budgets annuels",
+        "rep4": "avril 2024 | Nouvelles règles budgétaires de l'Union européenne en vigueur | Chaque pays négocie avec Bruxelles sa propre trajectoire sur plusieurs années",
+        "rep5": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Rattache « paralysie » et la crise de régime évoquée en fin d'article aux décisions sur les institutions : calendrier électoral, 49.3, dissolution.",
+      "fields": {
+        "title": "Les règles du **pouvoir** depuis 2000",
+        "lead": "Le média évoque une « paralysie » : quatre décisions sur les règles du pouvoir.",
+        "rep1": "2000 | Le quinquennat est approuvé par référendum | Le mandat présidentiel est raccourci pour coïncider avec celui des députés",
+        "rep2": "2001 | Les législatives sont placées juste après la présidentielle | Le but affiché : dégager une majorité de même camp que le chef de l'État",
+        "rep3": "2008 | Révision constitutionnelle : usage du 49.3 encadré | Hors budget, un seul texte par session peut être adopté sans vote",
+        "rep4": "juin 2024 | Le président annonce la dissolution de l'Assemblée nationale | Le scrutin anticipé de juillet donne trois blocs, sans majorité absolue",
+        "rep5": ""
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "b"
+  ],
+  "picked": [],
+  "fragment": {},
+  "remarks": []
+}

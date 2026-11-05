@@ -1,0 +1,94 @@
+{
+  "step": "pieges",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Le déficit public monte en pic lors d'un choc puis peut redescendre : le retour à la moyenne est le piège le plus proche d'une lecture en cycle.",
+      "fields": {
+        "title": "Pour ne pas conclure **trop vite**",
+        "lead": "Trois points à vérifier avant de dire que le déficit public a changé de nature.",
+        "piege1": "Le point de départ | Selon l'année où l'on commence, le déficit public monte-t-il ou baisse-t-il ?",
+        "piege2": "Le retour au niveau d'avant | Après un pic, le déficit public qui redescend est-il un cycle ou un simple rebond ?",
+        "piege3": "Les épisodes retenus | Quels épisodes vont en sens inverse, avec moins de déficit public que ceux qu'on cite ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Un déficit public se calcule avec des règles de comptage qui évoluent : vérifier que la mesure est la même d'un épisode à l'autre précède toute lecture.",
+      "fields": {
+        "title": "Pour que la comparaison soit **juste**",
+        "lead": "Quatre points à vérifier sur les séries avant de choisir une lecture.",
+        "piege1": "En volume ou en proportion | Compare-t-on le déficit public en montant, ou rapporté à la richesse produite ?",
+        "piege2": "La façon de compter | La définition ou le comptage du déficit public a-t-il changé entre deux épisodes ?",
+        "piege3": "Les épisodes retenus | Quels épisodes vont en sens inverse, avec moins de déficit public que ceux qu'on cite ?",
+        "piege4": "Cause ou coïncidence | Le déficit monte-t-il à cause de l'épisode, ou d'autre chose survenu au même moment ?"
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Un montant grossit avec la taille de l'économie ; une part non. Ce piège joue directement sur la rupture ou la continuité.",
+      "fields": {
+        "title": "Ce qu'il faut **vérifier**",
+        "lead": "Trois vérifications avant de comparer le déficit public d'aujourd'hui aux épisodes passés.",
+        "piege1": "Le point de départ | Selon l'année où l'on commence, le déficit public monte-t-il ou baisse-t-il ?",
+        "piege2": "En volume ou en proportion | Compare-t-on le déficit public en montant, ou rapporté à la richesse produite ?",
+        "piege3": "Les épisodes retenus | Quels épisodes vont en sens inverse, avec moins de déficit public que ceux qu'on cite ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Les épisodes se succèdent et leurs effets s'additionnent : distinguer ce qui vient de chaque épisode évite de lire un cycle ou une rupture à tort.",
+      "fields": {
+        "title": "Les pièges à **éviter**",
+        "lead": "Trois points à vérifier avant de relier le déficit public d'un épisode à celui du suivant.",
+        "piege1": "Le point de départ | Selon l'année où l'on commence, le déficit public monte-t-il ou baisse-t-il ?",
+        "piege2": "L'effet des épisodes précédents | Le déficit public d'un épisode vient-il de cet épisode, ou de ce qui l'a précédé ?",
+        "piege3": "Les épisodes retenus | Quels épisodes vont en sens inverse, avec moins de déficit public que ceux qu'on cite ?"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "b"
+  ],
+  "fragment": {
+    "pieges": {
+      "title": "Pour que la comparaison soit **juste**",
+      "lead": "Quatre points à vérifier sur les séries avant de choisir une lecture.",
+      "pieges": [
+        {
+          "title": "En volume ou en proportion",
+          "question": "Compare-t-on le déficit public en montant, ou rapporté à la richesse produite ?"
+        },
+        {
+          "title": "La façon de compter",
+          "question": "La définition ou le comptage du déficit public a-t-il changé entre deux épisodes ?"
+        },
+        {
+          "title": "Les épisodes retenus",
+          "question": "Quels épisodes vont en sens inverse, avec moins de déficit public que ceux qu'on cite ?"
+        },
+        {
+          "title": "Cause ou coïncidence",
+          "question": "Le déficit monte-t-il à cause de l'épisode, ou d'autre chose survenu au même moment ?"
+        }
+      ]
+    }
+  },
+  "remarks": []
+}

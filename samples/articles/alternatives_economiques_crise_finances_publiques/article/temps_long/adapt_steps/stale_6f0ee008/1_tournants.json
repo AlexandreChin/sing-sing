@@ -1,0 +1,89 @@
+{
+  "step": "tournants",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Le mot « dérive » suppose une référence : ces quatre textes (loi, traité, loi organique, loi de programmation) sont faciles à retrouver et montrent à partir de quand les règles ont encadré les déficits.",
+      "fields": {
+        "title": "Cinquante ans de **règles** budgétaires",
+        "lead": "Une « dérive » depuis cinquante ans : les textes qui ont fixé les règles du budget.",
+        "rep1": "1973 | Loi du 3 janvier : la banque centrale n'avance plus l'État | Le Trésor doit désormais emprunter sur les marchés financiers.",
+        "rep2": "1992 | Traité de Maastricht : seuils pour le déficit et la dette | Les pays de la future monnaie unique s'imposent des plafonds communs.",
+        "rep3": "2012 | Loi organique sur la gouvernance des finances publiques | Un objectif de solde structurel s'impose, sous contrôle d'un organe indépendant.",
+        "rep4": "2023 | Loi de programmation des finances publiques 2023-2027 | Fixe une trajectoire pluriannuelle du solde et de la dette jusqu'en 2027.",
+        "rep5": ""
+      },
+      "edited": true,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Le média évoque le spread avec l'Allemagne et l'appartenance à l'euro : ce fil situe le cadre européen dans lequel les écarts de taux et le jugement des investisseurs se lisent.",
+      "fields": {
+        "title": "L'Europe et le **cadre** des budgets",
+        "lead": "Le média cite le « spread » avec l'Allemagne : les règles communes pour le situer.",
+        "rep1": "1997 | Pacte de stabilité et de croissance : surveillance des budgets | Sanctions financières prévues pour les États qui dépassent les limites fixées.",
+        "rep2": "2005 | Réforme du Pacte : plus de souplesse selon la conjoncture | Les délais de correction s'allongent quand l'activité ralentit.",
+        "rep3": "2012 | Traité sur la stabilité, la coordination et la gouvernance | Chaque signataire inscrit une limite du solde structurel dans son droit.",
+        "rep4": "juillet 2024 | Procédure pour déficit excessif ouverte contre la France | Paris doit présenter un plan de redressement vers une trajectoire jugée tenable.",
+        "rep5": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Le média décrit des responsables qui alertent ou se rassurent, dont François Bayrou : ces prises de position situent qui a dit quoi, et quand, sur la dette.",
+      "fields": {
+        "title": "Des **discours** sur la dette depuis 1976",
+        "lead": "Le média évoque l'« alarme » : des prises de position publiques pour la situer.",
+        "rep1": "1976 | Plan Barre : programme d'austérité du Premier ministre | Prix gelés un temps, impôts relevés, budget de l'État resserré.",
+        "rep2": "1983 | Tournant de la rigueur sous le Premier ministre Pierre Mauroy | La relance par la dépense est abandonnée au profit de la défense du franc.",
+        "rep3": "décembre 2005 | Rapport Pébereau : une commission alerte sur la dette publique | Il insiste sur la charge laissée aux générations futures.",
+        "rep4": "juillet 2025 | François Bayrou, Premier ministre, présente le budget 2026 | Il fixe l'objectif de contenir l'endettement en demandant un effort à tous.",
+        "rep5": ""
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "tournants": {
+      "title": "Cinquante ans de **règles** budgétaires",
+      "lead": "Une « dérive » depuis cinquante ans : les textes qui ont fixé les règles du budget.",
+      "reperes": [
+        {
+          "date": "1973",
+          "label": "Loi du 3 janvier : la banque centrale n'avance plus l'État",
+          "remark": "Le Trésor doit désormais emprunter sur les marchés financiers."
+        },
+        {
+          "date": "1992",
+          "label": "Traité de Maastricht : seuils pour le déficit et la dette",
+          "remark": "Les pays de la future monnaie unique s'imposent des plafonds communs."
+        },
+        {
+          "date": "2012",
+          "label": "Loi organique sur la gouvernance des finances publiques",
+          "remark": "Un objectif de solde structurel s'impose, sous contrôle d'un organe indépendant."
+        },
+        {
+          "date": "2023",
+          "label": "Loi de programmation des finances publiques 2023-2027",
+          "remark": "Fixe une trajectoire pluriannuelle du solde et de la dette jusqu'en 2027."
+        }
+      ]
+    }
+  },
+  "remarks": []
+}

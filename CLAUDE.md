@@ -20,7 +20,7 @@ python main.py produce <article.txt> [--format instagram_carousel_optimized] [--
 # steps: constat these angle_mort depassement boussole hook (then `writing`, no pause)
 python main.py produce <video.txt> --format cadrage_logique --guided [--no-api] [--render] [--medium …] [--title …] [--source …]
 
-# The TEMPS LONG archetype (6 slides, for hot news; steps: tournants episodes lecture pieges hook, then `writing`, no pause)
+# The TEMPS LONG archetype (7 slides, for hot news; steps: tournants episodes lecture pieges hook position, then `writing`, no pause)
 python main.py produce <article.txt> --format temps_long --guided [--no-api] [--render] [--medium …] [--title …] [--source …]
 
 # The ANATOMIE D'UN CHIFFRE archetype (6 slides, for a statistic, a poll, a ranking; steps: axe chiffres recit angle_mort lectures hook, then `writing`, no pause)
@@ -79,7 +79,7 @@ renderer/
     _shared.py                     _env / _weighted_quality / _LOGO_DATA_URL / TYPE_FR (shared)
     optimized.py                   10-slide optimized deck
     cadrage.py                     the CADRAGE & LOGIQUE renderer (templates/article_carousel_cadrage_v1/ for slides 2–6; slides 1 and 7 are the optimized hook and CTA)
-    temps_long.py                  the TEMPS LONG renderer (templates/article_carousel_temps_long_v1/ for slides 2–4; slides 1 and 5 are the optimized hook and CTA)
+    temps_long.py                  the TEMPS LONG renderer (templates/article_carousel_temps_long_v1/ for slides 2–6; slides 1 and 7 are the optimized hook and CTA)
     anatomie_chiffre.py            the ANATOMIE D'UN CHIFFRE renderer (templates/article_carousel_anatomie_chiffre_v1/ for slides 2–5, reusing the cadrage `_argument.css` and notes macro; slides 1 and 6 are the optimized hook and CTA)
     templates/article_carousel_optimized_v0/  Jinja2 templates → PNG slides (1080×1350)
   newsletter/                      newsletter renderer → Markdown + HTML (rich + email); dark brand
@@ -174,35 +174,32 @@ samples/<medium>/<stem>/     (medium = articles | podcasts | videos)
   boussole's pointer, which has no wire. Three text tiers inside a card: the heading, the claim (bold), the detail (one
   size down); sources are the third, small and dim. `check` does not cover this format. Output folder:
   `<stem>/cadrage_logique/`.
-- `temps_long` — the TEMPS LONG archetype (`docs/carousels_archetypes.md`): 6 slides that read a hot-news piece through the lens
+- `temps_long` — the TEMPS LONG archetype (`docs/carousels_archetypes.md`): 7 slides that read a hot-news piece through the lens
   of time, in the optimized deck's visual language — Hook (identical to the optimized one; the title is the raw fact, in the media's words and attributed (the pill carries the date), the
-  promise « Prendre du recul sur … ») → Les épisodes qu'on retient (slide 2: 4–5 events of the last ten years that people remember
+  promise « Prendre du recul sur … ») → La position (slide 2, in the article's own frame: the title is the author's claim in a few plain white words (« Une dérive structurelle », no « selon … », no gold word), a summary lead (≤175 chars) that names the author and four cards (≤108 chars each, same 29 px / regular text as the pièges' cards, one idea each in plain words, 1–2 key passages in gold bold `**…**`): what he sets aside, his diagnosis, the mechanism, his conclusion; everything comes from the text, quotes verbatim, a figure only if the source gives it; `position` is optional — an older deck without it keeps 6 slides and the numbers below shift by one) → Les épisodes qu'on retient (slide 3: 4–5 events of the last ten years that people remember
   most on the subject — wide coverage AND a documented trace — each with a one-line remark saying what happened, different on every row and never repeating the label's words; the lead
-  quotes a media word) → Les tournants (slide 3: the laws, doctrine texts and public statements that changed the rules over
-  30–50 years, reaching back at least 25, 3–4 points, the latest from the last three years — a bill under discussion included, with its status — each with a two-line remark saying what the text changed and, for a bill touching the right to demonstrate, what it could change, each thesis attributed to its camp) → La lecture du temps (slide 4, the critical-thinking slide: the lead says how to decide and on what (« Pour trancher : comparer … d'un épisode à l'autre »), on ONE
-  measure; three rows rupture / continuité / cycle, each « what it would look like in that series | what to look at, drawn from slides 2–3 (episodes named, texts in order, the gap between episodes) »;
-  the closing question is not drawn here) → Les pièges du temps (slide 5: three traps of a time series — always the starting point first and the episodes we remember last, one free trap between (visibility (more cameras),
-  regression to the mean…) — title and lead say in plain words what the slide is for (« Pour ne pas conclure trop vite » / « Trois points à vérifier avant de dire que … a changé »), each trap is a question on slide 4's measure; the last one asks for the counter-examples (« les épisodes retenus »),
-  since slide 2 is itself a selection) → CTA (identical to the optimized one; its « Commentez — … » line takes
-  `lecture.question`). Five guided steps (`agent/temps_long_adapt_agent.py`, prompts in `agent/prompts/temps_long_steps/`):
-  `tournants` first (the noyau, fixed context for every later step), then `episodes`, `lecture`, `pieges`, `hook`; `writing`
+  quotes a media word) → Les tournants (slide 4: the laws, doctrine texts and public statements that changed the rules over
+  30–50 years, reaching back at least 25, 3–4 points, the latest from the last three years — a bill under discussion included, with its status — each with a two-line remark saying what the text changed and what it could change, each thesis attributed to its camp) → La lecture du temps (slide 5, the critical-thinking slide: the lead says how to decide and on what (« Pour trancher : comparer … d'un épisode à l'autre »), on ONE
+  measure; three cards rupture / continuité / cycle, each `hypothèse ? | test | où regarder` — the card's first line reads « Rupture : 2026 sort-il de la série ? », the test (≤100 chars) carries one **bold** passage that tells the reading apart from the other two (the gap, the direction, the return — never the shared measure), « Où regarder : » names an organisation; the three tests must give different results on the same series; under the cards one line, `lecture.author` (≤60 chars), places the author's thesis among the readings, attributed and never judged; the closing question is not drawn here) → Les pièges du temps (slide 6: four traps of a time series, **none imposed** — the starting point, « après n'est pas à cause de » (a serious candidate when the thesis states a cause), the episodes we remember, visibility, regression to the mean, a change of measure… — title and lead say in plain words what the slide is for (« Pour que la comparaison soit juste » / « Quatre points à vérifier sur les séries avant de choisir une lecture »), each trap is a question on slide 5's measure) → CTA (identical to the optimized one; its « Commentez — … » line takes
+  `lecture.question`). Six guided steps (`agent/temps_long_adapt_agent.py`, prompts in `agent/prompts/temps_long_steps/`):
+  `tournants` first (the noyau, fixed context for every later step), then `episodes`, `lecture`, `pieges`, `hook`, `position` (written last, shown as slide 2); `writing`
   (the caption) follows without a pause. Older decks that wrote `palier` / `vague_de_fond` still load. Same semantics as the other
   guided runs — options with a reason and a ★, `choose --pick/--edit/--more`, `fix <fmt_dir> <step>.<field>` (`episodes.rep1`,
-  `lecture.cycle`, `pieges.piege1`, `hook.title`…) or `caption`, choice log in `choices.jsonl`. Flat option strings: a reference
-  point `date | repère | remarque` (`rep1`…`rep5`, the date ≤14 characters and holding a year), a reading `signature | indicateur`,
-  a trap `titre | question` (`piege1`…`piege3`). Everything outside the quoted lead word is the model's general knowledge and
-  unverified: dates only, **never a trend figure** (a `%`, an amount or a multiple is a hard error), organisations named with
+  `lecture.cycle`, `lecture.author`, `pieges.piege1`, `position.lead`, `hook.title`…) or `caption`, choice log in `choices.jsonl`; `fix` re-stamps later steps without regenerating and prints no warnings. Re-run `produce` with the same metadata flags (`--title`, `--source`, `--url`, `--published-at`): they feed the step hash, and without them the steps are retired. Flat option strings: a reference
+  point `date | repère | remarque` (`rep1`…`rep5`, the date ≤14 characters and holding a year), a reading `hypothèse ? | test | où regarder` (hypothesis ≤36 and ending in « ? », test ≤100 with at least two `**`, where ≤44 and no URL),
+  a trap `titre | question` (`piege1`…`piege4`). Everything outside the quoted lead word is the model's general knowledge and
+  unverified: dates only, **never a trend figure** (a `%`, an amount or a multiple is a hard error, except on `position`, which follows the source), organisations named with
   acronyms spelled out and never a URL, and a reference point is something to examine, never an equivalent or a cause. Hard rules:
-  every text field is capped in characters to fit its lines whatever the words (two lines at most; one for an episode's remark and for indicators, two for a turning point's remark;
-  the caps live in `agent/temps_long_adapt_agent.py`, were measured on the rendered slides with random texts, and a seeded
+  every text field is capped in characters to fit its lines whatever the words (the caps live in `agent/temps_long_adapt_agent.py`, were measured on the rendered slides with random texts, and a seeded
   worst-case render test guards them), point, reading and trap formats, no trend figure, no accusing word outside « », the lead of
-  slides 2–3 quotes a media word found in the source, questions that end in « ? », 4 hashtags. They repair a generated option and
-  come back as ⚠ on the author's pick; advisory flags: a point with no remark, a remark that echoes the lead's quoted word, repeats another remark's or repeats its own label, an
-  indicator that shares none with the measure of slide 4's lead, an episode that looks like a point of the tournants (same event
+  slides 3–4 quotes a media word found in the source, questions that end in « ? », 4 hashtags. They repair a generated option and
+  come back as ⚠ on the author's pick; advisory flags: a point with no remark, a remark that echoes the lead's quoted word, repeats another remark's or repeats its own label, a reading test
+  that refers to nothing of the lead or of slides 3–4, an `author` line that names none of the three readings, an
+  episode that looks like a point of the tournants (same event
   listed twice — a shared year alone is not flagged), an episodes slide reaching back more than 12 years or a tournants slide that
-  does not reach 25 or has no text from the last 3 years (measured from the latest year in the source), a trap that cites nothing of slide 4's measure.
+  does not reach 25 or has no text from the last 3 years (measured from the latest year in the source), a trap that cites nothing of slide 5's measure.
   One picture opens and closes the deck: `background.*`, else `image.*` / `cover.*`, full-bleed on slide 1 and darkened on
-  slide 6 (the other formats still ignore `image.*` as a background; `background_image(…, or_cover=True)`). `check` does not
+  slide 7 (the other formats still ignore `image.*` as a background; `background_image(…, or_cover=True)`). `check` does not
   cover this format. Output folder: `<stem>/temps_long/`.
 - `anatomie_chiffre` — the ANATOMIE D'UN CHIFFRE archetype (`docs/carousels_archetypes.md`): 6 slides that follow a striking figure
   (a statistic, a poll, a ranking) and the story the article builds on it, in the optimized deck's visual language — Hook (identical to the optimized one; the title is the raw figure

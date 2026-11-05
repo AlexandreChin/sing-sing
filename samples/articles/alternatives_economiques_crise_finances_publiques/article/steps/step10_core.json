@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Cinquante ans de déficits publics, présentés comme une dérive structurelle liée à l'épuisement des régimes de croissance successifs, plutôt qu'aux chocs externes.",
+      "kind": "affirmation",
+      "centrality": 5,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "Depuis cinquante ans, les gouvernements de toute orientation n'ont pas su enrayer la hausse tendancielle des déficits.",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Périodisation en quatre régimes de croissance depuis 1945, de l'approche de la régulation, pour rejeter l'explication par les chocs externes.",
+      "kind": "angle",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 1,
+        "excerpt": "L'histoire économique d'après-guerre se découpe en quatre régimes de croissance successifs.",
+        "strength": 0.8,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "La crise budgétaire devient une crise politique, voire de régime : Parlement fractionné, exécutif paralysé, analogie avec 1958.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 3,
+        "excerpt": "Un Parlement divisé et une paralysie de l'exécutif font de la crise budgétaire une crise de régime, comparable à 1958.",
+        "strength": 0.8,
+        "nature": "inference"
+      }
+    },
+    {
+      "statement": "Hausse des taux d'intérêt, spread avec l'Allemagne et jugement sévère des investisseurs sur la dette française depuis 2019.",
+      "kind": "fait",
+      "centrality": 3,
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 1,
+        "excerpt": "Les écarts de spread et le jugement des investisseurs reflètent une fragilité propre à la France.",
+        "strength": 0.6,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "Déconsidération des partis de gouvernement et ascension du Rassemblement national, liées à l'incapacité à enrayer les déficits.",
+      "kind": "enjeu",
+      "centrality": 2,
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 2,
+        "excerpt": "La déconsidération des partis de gouvernement est liée à ces déficits, et elle contribue à l'ascension du RN.",
+        "strength": 0.5,
+        "nature": "inference"
+      }
+    }
+  ]
+}

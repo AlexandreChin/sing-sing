@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+{% include 'article_carousel_cadrage_v1/_argument.css' %}
+.lead { max-width: 900px; margin-top: 22px; font-size: 27px; font-weight: 500; line-height: 1.3; color: #ececec; text-wrap: pretty; }
+.lead strong { color: #d4aa00; font-weight: 700; }
+/* three cards: what the author sets aside, his reading, where it leads — a label, then his own words */
+.pos { padding: 14px 28px 16px; margin-top: 14px; }
+.pos .q-head { gap: 12px; margin-bottom: 8px; }
+.pos .q-head svg { width: 28px; height: 28px; }
+.pos .q-label { font-size: 26px; }
+.pos .say { font-size: 29px; font-weight: 500; line-height: 1.3; color: #ececec; text-wrap: pretty; hyphens: none; }
+.pos .say strong { color: #d4aa00; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
+  {% include '_brand.html' %}
+  <div class="stage">
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.speech_bubble | safe }}</svg>Ce que dit l'auteur</span>
+    <h1 class="head">{{ title | md_bold }}</h1>
+    <p class="lead">{{ lead | md_bold }}</p>
+    {% for c in cards %}<div class="card pos"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}
+      <div class="q-head"><svg viewBox="0 0 24 24">{{ ICONS[c.icon] | safe }}</svg><span class="q-label">{{ c.label }}</span></div>
+      <div class="say">{{ c.text | md_bold }}</div>
+    </div>{% endfor %}
+  </div>
+  <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
+  <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
+</div>
+</body>
+</html>

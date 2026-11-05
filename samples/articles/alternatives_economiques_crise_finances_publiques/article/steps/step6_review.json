@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 2,
+        "rationale": "L'article repose sur une seule voix, celle d'un économiste de l'approche de la régulation, et ne cite qu'un déficit daté (« plus de 5 % du PIB en 1993 ») sans source. Les blind_spots notent qu'« aucune voix d'un autre courant économique n'est présentée » et que la note de Moody's n'apparaît que dans une question.",
+        "lesson": "Comptez les voix et les sources d'un texte : une seule école qui parle seule appelle à chercher d'autres analyses."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "Le déficit de 1993 et la tendance aux déficits depuis 1975 sont vérifiables dans les séries de l'Insee (confidence 88 et 68). Mais plusieurs assertions sont présentées comme des faits sans chiffre, par exemple « Le coût de refinancement de la dette publique est croissant dans la quasi-totalité des pays » (confidence 65), et « incapables » est un jugement énoncé comme un fait.",
+        "lesson": "Distinguez les chiffres datés qu'on peut vérifier des formules générales, et cherchez les séries officielles pour les secondes."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 3,
+        "rationale": "La chaîne est lisible : déficits persistants, quelle que soit la majorité, donc dérive structurelle. En revanche, le `logical_reasoning` relève que les chocs externes peuvent s'ajouter à une fragilité de fond sans que leur part soit précisée, et que le lien entre déficits et montée du RN n'est pas établi. L'analogie avec 1958 n'a pas d'éléments comparatifs.",
+        "lesson": "Repérez les mots comme « donc » et demandez-vous quelle étape intermédiaire manque avant la conclusion."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 3,
+        "rationale": "Le texte revendique l'approche de la régulation et la périodisation en quatre régimes, ce qui rend le point de vue assez lisible. Les `implicit_assumptions` restent pourtant non dites, par exemple « Les régimes de croissance successifs déterminent la trajectoire des finances publiques », et la méthode de la périodisation n'est pas précisée.",
+        "lesson": "Cherchez ce qu'un auteur tient pour acquis, au-delà de l'école qu'il annonce."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "L'`emphasis` montre un déséquilibre : quatre périodes détaillées pour la dérive de long terme, mais les chiffres actuels de la dette ne sont évoqués qu'une fois. Les blind_spots signalent aussi que « le rôle de la zone euro et de la BCE tient en une phrase » et qu'aucun niveau récent ni comparaison européenne n'est donné.",
+        "lesson": "Vérifiez si les chiffres récents et les comparaisons sont présents avant de juger de la gravité d'une situation."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 2,
+        "rationale": "La lecture par les chocs externes est présentée au conditionnel puis écartée comme « grave erreur » avant toute confrontation de données. Le registre dramatisant (« Octobre 2026 marque la fin d'une époque ») précède les chiffres, et l'ethics relève une « absence de contradicteur » et une absence de pluralité des analyses.",
+        "lesson": "Notez comment l'explication adverse est présentée : exposée avec ses arguments ou écartée en une phrase ?"
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "Le découpage en quatre régimes de croissance donne un fil chronologique facile à suivre, et le cadrage en `title_analysis` est net : le « aussi » et l'adjectif « grande » annoncent le propos. Le texte reste accessible, mais le spread et les seuils de Maastricht ne sont pas expliqués.",
+        "lesson": "Appuyez-vous sur la structure chronologique pour suivre l'argument, et cherchez la définition des termes techniques laissés sans explication."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 4,
+        "rationale": "L'angle de la périodisation par régimes de croissance, issu de l'approche de la régulation, offre une grille différente de la lecture par les seuls chiffres de la dette. Les `observations` notent aussi le passage d'une crise budgétaire à une crise de régime avec le rapprochement de 1958, qui élargit le sujet.",
+        "lesson": "Comparez la grille proposée à celles d'autres écoles pour voir ce qu'elle éclaire et ce qu'elle laisse dans l'ombre."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Un lecteur qui suit l'actualité économique et veut découvrir la lecture de l'approche de la régulation, à confronter ensuite à des données récentes et à une autre école.",
+      "payoff": "Le lecteur découvre une grille historique en quatre régimes pour lire la dette française, et une façon de relier crise budgétaire et crise politique. Il repart avec des questions à poser sur la part des chocs externes et sur la comparaison avec 1958.",
+      "signature_move": "Un récit historique en régimes de croissance, porté par une seule école et un ton de gravité, qui installe la lecture structurelle avant les chiffres.",
+      "main_blind_side": "Les niveaux récents de dette, de déficit et de charge d'intérêts sont absents, ce qui laisse le lecteur juger de la gravité sur la seule force du récit.",
+      "further_resource": {
+        "title": "Théorie de la régulation : état des savoirs",
+        "source": "Robert Boyer, La Découverte",
+        "media_type": "book",
+        "why_explore": "Il présente l'approche de la régulation et ses régimes de croissance, et permet de situer la grille de l'article parmi d'autres lectures.",
+        "url": null
+      },
+      "summary": "Lecture avec réserves, pour qui suit l'économie et veut découvrir une lecture historique de la dette : elle offre une grille claire, mais s'appuie sur une seule école et peu de chiffres récents, à confronter à d'autres sources."
+    }
+  }
+}
