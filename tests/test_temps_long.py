@@ -641,7 +641,7 @@ def test_every_field_at_its_cap_fits_in_its_lines_and_on_the_slide(tmp_path, see
     for slide in ("02_position", "03_episodes", "04_tournants", "05_lecture", "06_pieges"):
         m = measured[slide]
         assert all(n <= 3 for n in m["say"]), (slide, "position card", m["say"])
-        assert all(n <= 2 for n in m["lead"]), (slide, "lead", m["lead"])
+        assert all(n <= (3 if slide == "05_lecture" else 2) for n in m["lead"]), (slide, "lead", m["lead"])
         assert all(n <= 5 for n in m["hl"]), (slide, "the position's headline", m["hl"])
         assert all(n <= 2 for n in m["rowh"]), (slide, "a detail row's heading", m["rowh"])
         assert all(n <= 2 for n in m["head"]), (slide, "title", m["head"])

@@ -1064,7 +1064,7 @@
     },
     "lecture": {
       "title": "Rupture, continuité ou **cycle** ?",
-      "lead": "Pour trancher : comparer le déficit public d'un épisode à l'autre, sur la même mesure.",
+      "lead": "Pour trancher : comparez le déficit public d'un épisode à l'autre, et voyez si les règles budgétaires successives peuvent l'expliquer.",
       "readings": [
         {
           "kind": "rupture",
@@ -1075,13 +1075,13 @@
         {
           "kind": "continuite",
           "signature": "Le déficit suit-il son cours ?",
-          "indicator": "La courbe du déficit **ne change pas de direction** après 1973, 1992, 2012 ni 2023",
+          "indicator": "La courbe du déficit **ne change pas de direction** d'un épisode à l'autre",
           "where": "Cour des comptes, finances publiques"
         },
         {
           "kind": "cycle",
           "signature": "Le déficit retombe-t-il ensuite ?",
-          "indicator": "Après chaque crise, le déficit **redescendrait** vers son niveau d'avant en deux ans environ",
+          "indicator": "Après chaque épisode, le déficit **redescendrait** vers son niveau d'avant en deux ans environ",
           "where": "Eurostat, déficit public annuel"
         }
       ],

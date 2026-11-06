@@ -163,7 +163,7 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     **{(s, "title"): ("chars", 44) for s in ("lecture", "pieges")},   # two lines at most, whatever the words
     **{(s, "title"): ("chars", 36) for s in ("tournants", "episodes")},   # the headline of the timelines, 70 px, centred: two lines at most
     **{(s, "lead"): ("chars", 84) for s in ("tournants", "episodes")},   # two lines at most, beside the bird perched on the first row
-    ("lecture", "lead"): ("chars", 94),
+    ("lecture", "lead"): ("chars", 140),
     ("lecture", "question"): ("chars", 96),
     ("lecture", "where"): ("chars", 48),   # the shared « Où regarder » line: one line under the lead
     ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 100),   # the headline: three lines at 84 px; the promise: three lines at 52 px, then the fixed tagline
@@ -176,7 +176,7 @@ _DATE_MAX = 14      # characters: the date is drawn big, in gold, in a narrow co
 _LABEL_MAX = 64     # characters: a reference point's label takes two lines at most
 _REMARK_MAX = 46    # characters: an episode's remark takes one line
 _TOURNANTS_REMARK_MAX = 84   # characters: a turning point's remark takes two lines (what it changes, and what it could change)
-_SIGNATURE_MAX = 42    # characters: a reading's hypothesis, a question, takes one line after its name
+_SIGNATURE_MAX = 40    # characters: a reading's hypothesis, a question, takes one line after its name
 _INDICATOR_MAX = 100    # characters: a reading's test takes two lines at most
 _WHERE_MAX = 44         # characters: where to find the series, one line after « Où regarder »
 _URL = re.compile(r"https?://|www\.", re.I)
