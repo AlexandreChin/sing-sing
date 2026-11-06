@@ -1019,19 +1019,19 @@
       "readings": [
         {
           "kind": "rupture",
-          "signature": "Octobre est-il sans précédent ?",
-          "indicator": "L'**écart** avec Sainte-Soline serait plus grand que tout écart entre deux épisodes",
+          "signature": "L'usage de la force change-t-il de cap ?",
+          "indicator": "Le recours à la force d'octobre changerait de **cap** par rapport aux épisodes précédents",
           "where": "Ministère de l'Intérieur, bilans annuels"
         },
         {
           "kind": "continuite",
-          "signature": "Les lois ont-elles eu un effet ?",
+          "signature": "L'usage de la force est-il stable ?",
           "indicator": "Le **sens** du recours à la force serait le même avant et après 1970, 2020 et 2023",
           "where": "Inspection générale de la police nationale"
         },
         {
           "kind": "cycle",
-          "signature": "La force retombe-t-elle ensuite ?",
+          "signature": "L'usage de la force retombe-t-il ensuite ?",
           "indicator": "Le **retour** du recours à la force près de son niveau d'avant, entre 2018 et 2023",
           "where": "Défenseur des droits, rapports annuels"
         }

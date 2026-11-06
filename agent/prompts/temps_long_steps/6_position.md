@@ -5,7 +5,7 @@ Les étapes 1 à 5 sont FIXÉES. Cette slide s'affiche juste après l'accroche :
 Cette slide est **dans le cadre du média**, comme le `lead` des slides 2 et 3 : tout vient du texte, rien de tes connaissances générales. Tu reformules ce que l'auteur dit, avec ses mots, sans rien ajouter, sans l'adoucir ni le durcir, et sans prendre parti. Un chiffre n'est permis que s'il figure dans le média, tel qu'il y figure. Un passage entre « » est reproduit mot pour mot.
 
 - `title` (**≤46 caractères**, DEUX lignes au plus : il est le message de la slide, en 70 px, centré) : la thèse de l'auteur en quelques mots, sans « selon … » (le sous-titre nomme l'auteur). Un passage en or avec `**…**` (obligatoire, jamais dans un « » reproduit). Ex. : « Une dérive structurelle devenue crise **politique** ».
-- `lead` (**≤84 caractères**, DEUX lignes, 34 px sous le titre) : UNE phrase qui NOMME l'auteur et complète le titre sans le répéter : ce qu'il écarte ou où cela le mène. Ex. : « Pour Robert Boyer, cinquante ans de déficits expliquent la crise de 2026. »
+- `lead` (**≤90 caractères**, DEUX lignes, 34 px sous le titre) : UNE phrase qui NOMME l'auteur ET dit qui il est tel que l'article le dit (« l'économiste Robert Boyer ») et complète le titre sans le répéter : ce qu'il écarte ou où cela le mène. Ex. : « Pour l'économiste Robert Boyer, la crise budgétaire actuelle vient de 50 ans de déficits »
 - Quatre lignes de détail, chacune **≤108 caractères** :
   - `ecarte` : l'explication que l'auteur écarte, et pourquoi il l'écarte, d'après lui.
   - `diagnostic` : sa propre lecture, le mécanisme de fond qu'il décrit (périodes, rôle de la dette…).

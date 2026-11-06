@@ -1051,7 +1051,7 @@
     },
     "position": {
       "title": "Une dérive structurelle devenue crise **politique**",
-      "lead": "Pour Robert Boyer, cinquante ans de déficits expliquent la crise de 2026.",
+      "lead": "Pour l'économiste Robert Boyer, la crise budgétaire actuelle vient de 50 ans de déficits",
       "ecarte": "La **malchance** : des chocs communs à la plupart des pays, la France la plus touchée.",
       "diagnostic": "La France **s'endette au lieu de s'adapter** à un monde de croissance lente, pour préserver la paix sociale.",
       "mecanisme": "De 1981 à 2019, la **baisse des taux d'intérêt** a allégé la dette. Depuis 2025, leur **hausse** l'alourdit.",
@@ -1068,20 +1068,20 @@
       "readings": [
         {
           "kind": "rupture",
-          "signature": "2026 sort-il de la série ?",
-          "indicator": "L'**écart 2025–2026** serait plus grand que tout écart entre deux épisodes",
+          "signature": "Le déficit change-t-il de cap en 2026 ?",
+          "indicator": "Le déficit de 2026 sortirait de la **trajectoire** que les épisodes précédents laissaient prévoir",
           "where": "INSEE, comptes des administrations publiques"
         },
         {
           "kind": "continuite",
-          "signature": "Les textes changent-ils la pente ?",
-          "indicator": "Le **sens** du déficit serait le même avant et après chaque texte (1973, 1992, 2012, 2023)",
+          "signature": "Le déficit suit-il son cours ?",
+          "indicator": "La courbe du déficit **ne change pas de direction** après 1973, 1992, 2012 ni 2023",
           "where": "Cour des comptes, finances publiques"
         },
         {
           "kind": "cycle",
-          "signature": "Les hausses se résorbent-elles ?",
-          "indicator": "Le **retour** du déficit près de son niveau d'avant, deux ans après mars 2020 et 2022",
+          "signature": "Le déficit retombe-t-il ensuite ?",
+          "indicator": "Après chaque crise, le déficit **redescendrait** vers son niveau d'avant en deux ans environ",
           "where": "Eurostat, déficit public annuel"
         }
       ],
@@ -1089,12 +1089,12 @@
       "author": ""
     },
     "pieges": {
-      "title": "Quatre points à **vérifier** avant de choisir",
+      "title": "Quatre points à **vérifier** avant de trancher",
       "lead": "",
       "pieges": [
         {
-          "title": "En volume ou en proportion",
-          "question": "Compare-t-on le déficit public en montant, ou rapporté à la richesse produite ?"
+          "title": "Dépenses ou recettes",
+          "question": "Le déficit se creuse-t-il parce que l'État dépense plus, ou parce qu'il encaisse moins ?"
         },
         {
           "title": "La façon de compter",
@@ -1105,8 +1105,8 @@
           "question": "Quels épisodes vont en sens inverse, avec moins de déficit public que ceux qu'on cite ?"
         },
         {
-          "title": "Cause ou coïncidence",
-          "question": "Le déficit monte-t-il à cause de l'épisode, ou d'autre chose survenu au même moment ?"
+          "title": "Le point de départ",
+          "question": "Choisir 1973 ou 1993 comme point de départ changerait-il la lecture du déficit ?"
         }
       ]
     }

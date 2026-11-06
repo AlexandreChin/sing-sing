@@ -21,7 +21,7 @@
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
   <div class="stage">
-    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.eye_off | safe }}</svg>Les pièges du temps</span>
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.eye_off | safe }}</svg>Les pièges de la lecture</span>
     <h1 class="head big">{{ title | md_bold }}</h1>
     {% for p in pieges %}<div class="card piege"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}<span class="n">{{ '%02d'|format(loop.index) }}</span><span class="t">{{ p.title | md_bold }}<small>{{ p.question | md_bold }}</small></span></div>{% endfor %}
   </div>

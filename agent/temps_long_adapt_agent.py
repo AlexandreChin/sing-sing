@@ -165,7 +165,7 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("lecture", "lead"): ("chars", 94),
     ("lecture", "question"): ("chars", 96),
     ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 100),   # the headline: three lines at 84 px; the promise: three lines at 52 px, then the fixed tagline
-    ("position", "title"): ("chars", 46), ("position", "lead"): ("chars", 84),   # slide 2: the title is the claim (70 px, two lines), the lead the sentence that names the author (34 px, two lines)
+    ("position", "title"): ("chars", 46), ("position", "lead"): ("chars", 90),   # slide 2: the title is the claim (70 px, two lines), the lead the sentence that names the author (34 px, two lines)
     **{("position", c): ("chars", 108) for c in _POSITION_CARDS},   # two lines in a card, three at the very worst
     ("position", "kicker"): ("chars", 30),   # the kicker above the title, one line, capitals spaced out
     **{("position", f"{c}_label"): ("chars", 30) for c in _POSITION_CARDS},   # a row's heading, two lines in its column beside the icon
@@ -174,7 +174,7 @@ _DATE_MAX = 14      # characters: the date is drawn big, in gold, in a narrow co
 _LABEL_MAX = 64     # characters: a reference point's label takes two lines at most
 _REMARK_MAX = 46    # characters: an episode's remark takes one line
 _TOURNANTS_REMARK_MAX = 84   # characters: a turning point's remark takes two lines (what it changes, and what it could change)
-_SIGNATURE_MAX = 34    # characters: a reading's hypothesis, a question, takes one line after its name
+_SIGNATURE_MAX = 42    # characters: a reading's hypothesis, a question, takes one line after its name
 _INDICATOR_MAX = 100    # characters: a reading's test takes two lines at most
 _WHERE_MAX = 44         # characters: where to find the series, one line after « Où regarder »
 _URL = re.compile(r"https?://|www\.", re.I)

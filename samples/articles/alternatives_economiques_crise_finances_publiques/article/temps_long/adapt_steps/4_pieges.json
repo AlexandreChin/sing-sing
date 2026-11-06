@@ -20,12 +20,12 @@
       "slot": "a",
       "reason": "Un déficit public se calcule avec des règles de comptage qui évoluent : vérifier que la mesure est la même d'un épisode à l'autre précède toute lecture.",
       "fields": {
-        "title": "Quatre points à **vérifier** avant de choisir",
+        "title": "Quatre points à **vérifier** avant de trancher",
         "lead": "",
-        "piege1": "En volume ou en proportion | Compare-t-on le déficit public en montant, ou rapporté à la richesse produite ?",
+        "piege1": "Dépenses ou recettes | Le déficit se creuse-t-il parce que l'État dépense plus, ou parce qu'il encaisse moins ?",
         "piege2": "La façon de compter | La définition ou le comptage du déficit public a-t-il changé entre deux épisodes ?",
         "piege3": "Les épisodes retenus | Quels épisodes vont en sens inverse, avec moins de déficit public que ceux qu'on cite ?",
-        "piege4": "Cause ou coïncidence | Le déficit monte-t-il à cause de l'épisode, ou d'autre chose survenu au même moment ?"
+        "piege4": "Le point de départ | Choisir 1973 ou 1993 comme point de départ changerait-il la lecture du déficit ?"
       },
       "edited": true,
       "flags": []
@@ -68,12 +68,12 @@
   ],
   "fragment": {
     "pieges": {
-      "title": "Quatre points à **vérifier** avant de choisir",
+      "title": "Quatre points à **vérifier** avant de trancher",
       "lead": "",
       "pieges": [
         {
-          "title": "En volume ou en proportion",
-          "question": "Compare-t-on le déficit public en montant, ou rapporté à la richesse produite ?"
+          "title": "Dépenses ou recettes",
+          "question": "Le déficit se creuse-t-il parce que l'État dépense plus, ou parce qu'il encaisse moins ?"
         },
         {
           "title": "La façon de compter",
@@ -84,8 +84,8 @@
           "question": "Quels épisodes vont en sens inverse, avec moins de déficit public que ceux qu'on cite ?"
         },
         {
-          "title": "Cause ou coïncidence",
-          "question": "Le déficit monte-t-il à cause de l'épisode, ou d'autre chose survenu au même moment ?"
+          "title": "Le point de départ",
+          "question": "Choisir 1973 ou 1993 comme point de départ changerait-il la lecture du déficit ?"
         }
       ]
     }
