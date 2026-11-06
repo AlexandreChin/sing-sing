@@ -1,7 +1,7 @@
 ÉTAPE 4 — LES PIÈGES DU TEMPS (slide 5)
 
 Les étapes 1 à 3 sont FIXÉES. Cette slide donne au lecteur quatre pièges d'une série dans le temps, ceux qui peuvent faire lire une rupture, une continuité ou un cycle là où il n'y en a pas, avec la question à se poser. C'est de la méthode générale, hors cadre : aucun chiffre sur le cas traité. Tu proposes 3 ou 4 options.
-- `title` (≤44 caractères, 2 lignes sur la slide, en gros : il est le seul texte d'en-tête, il remplace le sous-titre) : dit en mots simples ce que le lecteur va faire, dans les mots du sujet, sans jargon (pas de « série », pas de « comparables ») ; un mot peut être mis en or. Ex. : « Quatre points à **vérifier** avant de trancher ».
+- `title` (≤44 caractères, 2 lignes sur la slide, en gros : il est le seul texte d'en-tête, il remplace le sous-titre) : dit en mots simples ce que le lecteur va faire, dans les mots du sujet, sans jargon (pas de « série », pas de « comparables ») ; un mot peut être mis en or. Ex. : « Quatre points à **vérifier** avant de comparer ». Le titre dit l'objet (la comparaison de la slide 4, mot de son chapeau), jamais « avant de trancher » seul : on ne sait pas quoi.
 - `lead` : n'est plus affiché ; laisse-le vide (`""`).
 - `piege1`, `piege2`, `piege3`, `piege4` : `titre | question`.
   - Le titre (≤38 caractères, UNE ligne) nomme le piège par un groupe nominal court, de la même forme pour les quatre (« Dépenses ou recettes », « Les épisodes retenus », « Le point de départ », « Le nombre de manifestants ») : jamais une formule ou une phrase.

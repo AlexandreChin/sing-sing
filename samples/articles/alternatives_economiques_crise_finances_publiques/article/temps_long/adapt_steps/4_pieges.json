@@ -20,7 +20,7 @@
       "slot": "a",
       "reason": "Un déficit public se calcule avec des règles de comptage qui évoluent : vérifier que la mesure est la même d'un épisode à l'autre précède toute lecture.",
       "fields": {
-        "title": "Quatre points à **vérifier** avant de trancher",
+        "title": "Quatre points à **vérifier** avant de comparer",
         "lead": "",
         "piege1": "Dépenses ou recettes | Le déficit se creuse-t-il parce que l'État dépense plus, ou parce qu'il encaisse moins ?",
         "piege2": "La façon de compter | La définition ou le comptage du déficit public a-t-il changé entre deux épisodes ?",
@@ -68,7 +68,7 @@
   ],
   "fragment": {
     "pieges": {
-      "title": "Quatre points à **vérifier** avant de trancher",
+      "title": "Quatre points à **vérifier** avant de comparer",
       "lead": "",
       "pieges": [
         {
