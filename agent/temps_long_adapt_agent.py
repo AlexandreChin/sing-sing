@@ -64,8 +64,8 @@ class LectureOption(BaseModel):
 
 
 class PiegesOption(BaseModel):
-    title: str
-    lead: str
+    title: str        # the slide's headline; no sub-line is drawn any more
+    lead: str = ""
     piege1: str  # « titre | question »
     piege2: str
     piege3: str
@@ -159,15 +159,16 @@ def _retire(steps_dir: Path, step: Step, stamp: str) -> None:
 
 # (step, field) → ("words" | "chars", cap)
 _CAPS: dict[tuple[str, str], tuple[str, int]] = {
-    **{(s, "title"): ("chars", 44) for s in ("tournants", "episodes", "lecture", "pieges")},   # two lines at most, whatever the words
+    **{(s, "title"): ("chars", 44) for s in ("lecture", "pieges")},   # two lines at most, whatever the words
+    **{(s, "title"): ("chars", 36) for s in ("tournants", "episodes")},   # the headline of the timelines, 70 px, centred: two lines at most
     **{(s, "lead"): ("chars", 84) for s in ("tournants", "episodes")},   # two lines at most, beside the bird perched on the first row
-    **{(s, "lead"): ("chars", 94) for s in ("lecture", "pieges")},
+    ("lecture", "lead"): ("chars", 94),
     ("lecture", "question"): ("chars", 96),
-    ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 64),   # two lines at most, before « En juger soi-même. »
-    ("position", "title"): ("chars", 44), ("position", "lead"): ("chars", 175),   # the summary, three lines at most
+    ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 100),   # the headline: three lines at 84 px; the promise: three lines at 52 px, then the fixed tagline
+    ("position", "title"): ("chars", 46), ("position", "lead"): ("chars", 84),   # slide 2: the title is the claim (70 px, two lines), the lead the sentence that names the author (34 px, two lines)
     **{("position", c): ("chars", 108) for c in _POSITION_CARDS},   # two lines in a card, three at the very worst
     ("position", "kicker"): ("chars", 30),   # the kicker above the title, one line, capitals spaced out
-    **{("position", f"{c}_label"): ("chars", 40) for c in _POSITION_CARDS},   # a card's heading, one line beside its icon
+    **{("position", f"{c}_label"): ("chars", 30) for c in _POSITION_CARDS},   # a row's heading, two lines in its column beside the icon
 }
 _DATE_MAX = 14      # characters: the date is drawn big, in gold, in a narrow column
 _LABEL_MAX = 64     # characters: a reference point's label takes two lines at most
@@ -186,7 +187,7 @@ _TREND_FIGURE = re.compile(r"\d[\d  .,]*\s*(?:%|€|M€|Md€|milliards?|millio
 _REQUIRED = {"tournants": ("title", "lead", "rep1", "rep2", "rep3"),
              "episodes": ("title", "lead", "rep1", "rep2", "rep3", "rep4"),   # 4 or 5 episodes
              "lecture": ("title", "lead", "rupture", "continuite", "cycle", "question"),
-             "pieges": ("title", "lead", "piege1", "piege2", "piege3", "piege4"),
+             "pieges": ("title", "piege1", "piege2", "piege3", "piege4"),
              "position": ("title", "lead", "ecarte", "diagnostic", "mecanisme", "issue")}
 _EPISODES_MAX_AGE = 12   # years before the article: an episode older than this is no longer what people remember
 _TOURNANTS_MIN_AGE = 25  # the tournants reach back at least this far
@@ -332,6 +333,8 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
             if measure and not _stems(_plain(value)) & measure:
                 flags.append(f"pieges.{name} cites nothing of the measure the deck follows — tie the trap to it")
     if step == "position":
+        if "**" not in str(fields.get("title", "")):
+            hard.append("position.title needs at least one key passage in gold bold (**…**)")
         for name in ("title", *_POSITION_CARDS, "lead"):
             value = str(fields.get(name, ""))
             if article:
@@ -339,8 +342,9 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                          for q in _QUOTED.findall(value) if _norm(q.strip("« »\u00a0 ")) not in _norm(article)]
                 flags += [f"position.{name} gives the figure « {n.strip(" .,")} » that the source does not carry — check it"
                           for n in _FIGURE.findall(_QUOTED.sub("", value)) if _norm(n.strip(" .,")) not in _norm(article)]
-    if step == "hook" and not fields.get("promise", "").lower().startswith("prendre du recul"):
-        flags.append("hook.promise usually reads « Prendre du recul sur … »")
+    if step == "hook" and not (promise := fields.get("promise", "").strip()).lower().startswith("prendre du recul") \
+            and not promise.endswith("?"):
+        flags.append("hook.promise reads « Prendre du recul sur … » or is the question the deck tests (« …est-elle nouvelle ? »)")
     if step == "writing":
         tags = _HASHTAG.findall(fields.get("caption", ""))
         if len(tags) != 4:

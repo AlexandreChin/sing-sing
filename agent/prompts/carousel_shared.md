@@ -17,7 +17,7 @@ Ce qu'une étape antérieure a fixé t'est fourni en contexte : tu ne le réécr
 **Fidélité aux nuances (impératif).** Quand l'analyse signale un contre-poids à une faiblesse, conserve-le : ne présente jamais un point à double tranchant comme s'il n'avait qu'une face. Exemple : si la « source unique » est elle-même notable ou interne (ex. B'Tselem, une ONG israélienne qui critique Israël — critique de l'intérieur, difficile à récuser), le moment qui en parle DOIT porter ce qualificatif. Inspecte `context.important_facts` et `analysis.fond.observations` pour ces nuances avant de rédiger les moments, l'enjeu et l'objection.
 
 Structure du carousel :
-- Slide 1 : accroche — pastille source, `hook.sub_topic`, `hook.subtitle` (« Comprendre … » ; la slide ajoute « En juger soi-même. »)
+- Slide 1 : accroche — pastille source, `hook.sub_topic`, `hook.subtitle` (« Comprendre … »)
 - Slide 2 : En bref — `why_selected` §1 en chapeau, puis les 3 puces `essentiel`
 - Slide 3 : À savoir, à se demander — `reperes_facts`, puis les réflexes (la `lens_question` de chaque beat retenu)
 - Slides 4–6 : les moments — un beat retenu par slide (`moment`, `quote`, `lens_question`, `answer`)

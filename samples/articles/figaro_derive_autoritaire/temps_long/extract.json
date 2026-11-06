@@ -953,12 +953,12 @@
   "presentation": {
     "caption": "Le 28 octobre 2026, quatre rapporteurs spéciaux mandatés par le Conseil des droits de l'homme de l'ONU, qui ne s'expriment pas au nom de l'organisation, se disent « consternés » par la réponse des autorités aux manifestations lycéennes et étudiantes, et Amnesty International évoque un « glissement » vers des pratiques autoritaires. Les mêmes experts condamnent aussi les violences contre des policiers et les dégâts matériels.\n\nCe carrousel ne tranche pas. Il donne des repères datés, sur une dizaine d'années puis sur un demi-siècle, et trois façons de lire le temps (rupture, continuité, cycle) pour tester les mots employés : chacune prédit autre chose dans les séries qu'on peut consulter, auprès du Défenseur des droits, de l'inspection générale de la police nationale ou du ministère de l'Intérieur.\n\nEt vous, votre intuition avant de regarder : rupture, continuité ou cycle ? Dites-le en commentaire.\n\n#maintiendelordre #libertés #manifestations #espritcritique",
     "hook": {
-      "title": "Des experts de l'ONU « consternés » par la « répression »",
-      "promise": "Prendre du recul sur le maintien de l'ordre en manifestation."
+      "title": "Experts de l'ONU : « **consternés** » par la « répression »",
+      "promise": "Les manifestations sont-elles réprimées plus durement qu'avant ?"
     },
     "tournants": {
-      "title": "Cinquante ans de règles sur les cortèges",
-      "lead": "Amnesty cite une « surenchère sécuritaire » : plus de cinquante ans de textes.",
+      "title": "Les textes du **maintien de l'ordre**",
+      "lead": "Selon Amnesty, une « surenchère sécuritaire » : quatre textes, de 1970 à 2026.",
       "reperes": [
         {
           "date": "1970",
@@ -983,8 +983,8 @@
       ]
     },
     "episodes": {
-      "title": "Dix ans d'**épisodes** qu'on cite",
-      "lead": "Les experts jugent la réponse « disproportionnée » : les épisodes les plus cités.",
+      "title": "Épisodes où la **force** a fait débat",
+      "lead": "Les experts dénoncent un « recours excessif à la force » : cinq épisodes, 2016–2025.",
       "reperes": [
         {
           "date": "2016",
@@ -994,7 +994,7 @@
         {
           "date": "2018–2019",
           "label": "Gilets jaunes ; usage du lanceur de balles de défense (LBD)",
-          "remark": "Des mutilés, un débat sur la force"
+          "remark": "Des mutilés, une arme contestée"
         },
         {
           "date": "mars 2023",
@@ -1019,19 +1019,19 @@
       "readings": [
         {
           "kind": "rupture",
-          "signature": "Octobre 2026 sort-il de la série ?",
+          "signature": "Octobre est-il sans précédent ?",
           "indicator": "L'**écart** avec Sainte-Soline serait plus grand que tout écart entre deux épisodes",
           "where": "Ministère de l'Intérieur, bilans annuels"
         },
         {
           "kind": "continuite",
-          "signature": "Les textes changent-ils la pente ?",
+          "signature": "Les lois ont-elles eu un effet ?",
           "indicator": "Le **sens** du recours à la force serait le même avant et après 1970, 2020 et 2023",
           "where": "Inspection générale de la police nationale"
         },
         {
           "kind": "cycle",
-          "signature": "Les pics retombent-ils ?",
+          "signature": "La force retombe-t-elle ensuite ?",
           "indicator": "Le **retour** du recours à la force près de son niveau d'avant, entre 2018 et 2023",
           "where": "Défenseur des droits, rapports annuels"
         }
@@ -1040,8 +1040,8 @@
       "author": ""
     },
     "pieges": {
-      "title": "Pour ne pas conclure **trop vite**",
-      "lead": "Quatre points à vérifier avant de dire que la réponse a changé.",
+      "title": "Quatre points à **vérifier** avant de conclure",
+      "lead": "",
       "pieges": [
         {
           "title": "Un jugement, pas une mesure",
@@ -1063,8 +1063,8 @@
     },
     "position": {
       "kicker": "Ce que disent l'ONU et Amnesty",
-      "title": "Une réponse disproportionnée",
-      "lead": "Des experts de l'ONU et Amnesty jugent que la réponse sécuritaire a pris le pas sur les causes de la mobilisation.",
+      "title": "La « **répression** » a pris le pas sur les causes",
+      "lead": "Des experts de l'ONU et Amnesty jugent la réponse disproportionnée.",
       "ecarte": "Ils condamnent les violences, mais jugent l'**ampleur** des interpellations « disproportionnée ».",
       "ecarte_label": "Ce qu'ils reconnaissent",
       "diagnostic": "La réponse **sécuritaire** a relégué au second plan les causes profondes de la mobilisation.",

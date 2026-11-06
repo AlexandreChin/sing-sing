@@ -13,7 +13,7 @@ from pydantic import AliasChoices, BaseModel, ConfigDict, Field
 
 class TempsLongHook(BaseModel):
     title: str    # slide 1 — the raw fact, dated, ≤64 characters
-    promise: str  # slide 1 — « Prendre du recul sur … » (« En juger soi-même. » is added by the template)
+    promise: str  # slide 1 — the question the deck tests, ≤100 characters, in plain words (« La force en manifestation est-elle nouvelle ? »); the template adds the fixed second paragraph
 
 
 class TempsLongRepere(BaseModel):
@@ -50,14 +50,14 @@ class TempsLongPiege(BaseModel):
 
 
 class TempsLongPieges(BaseModel):  # slide 5 — the traps a time series sets
-    title: str
-    lead: str
+    title: str        # the headline: « Quatre points à vérifier avant de choisir »
+    lead: str = ""    # an older deck's sub-line — no longer drawn
     pieges: list[TempsLongPiege] = Field(default_factory=list)   # 3
 
 
 class TempsLongPosition(BaseModel):  # slide 2 — what the author says, in the article's own frame
-    title: str    # the claim in a few plain words, all white (the lead names the author)
-    lead: str     # the summary: the author's position in one or two sentences
+    title: str    # the claim, up to two lines at 70 px, a key passage in gold (**…**)
+    lead: str     # the sentence under it, naming the author (two lines at 34 px)
     ecarte: str   # card 1 — what the author sets aside (the explanation he rejects)
     diagnostic: str   # card 2 — his own reading
     mecanisme: str = ""   # card 3 — why it lasted and why it breaks (an older deck has three cards)

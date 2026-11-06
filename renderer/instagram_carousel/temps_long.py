@@ -15,6 +15,8 @@ from .cadrage import _nobreak
 
 TPL = "article_carousel_temps_long_v1"
 OPT = "article_carousel_optimized_v0"
+# the second paragraph of the promise, the same on every deck of this archetype
+_HOOK_TAGLINE = "Des épisodes, des textes, trois lectures pour **en juger**."
 _READING_LABELS = {"rupture": "Rupture", "continuite": "Continuité", "cycle": "Cycle"}
 _POSITION_CARDS = (("ecarte", "Ce qu'il écarte", "eye_off"), ("diagnostic", "Son diagnostic", "lightbulb"),
                    ("mecanisme", "Pourquoi ça a duré, et pourquoi ça casse", "roots"), ("issue", "Sa conclusion", "widen"))
@@ -34,7 +36,7 @@ def generate_html(doc: TempsLongDocument, out_dir: Path) -> list[Path]:
     # the pill names the medium, the source and the date: the length is left out of this deck
     length = duration_label(meta, short=True)
     hook = {"pill": [part for part in pill_parts(meta) if part != length], "sub_topic": pres.hook.title, "subtitle": pres.hook.promise,
-            "headline": pres.hook.title, "background": background, "thumb": cover_thumb(base),
+            "tagline": _HOOK_TAGLINE, "headline": pres.hook.title, "background": background, "thumb": cover_thumb(base),
             **hook_metrics(cover_dims(base), pres.hook.title), **cover_layers(meta, pres.hook.title)}
     specs = [
         ("hook", f"{OPT}/01_hook.html", hook),
@@ -45,9 +47,9 @@ def generate_html(doc: TempsLongDocument, out_dir: Path) -> list[Path]:
                                  "text": getattr(pres.position, key)}
                                 for key, label, icon in _POSITION_CARDS if getattr(pres.position, key)]}))] if pres.position else []),
         ("episodes", f"{TPL}/02_frise.html",
-         _nobreak(pres.episodes.model_dump()) | {"kick": "Les épisodes qu'on retient", "icon": "flame"}),
+         _nobreak(pres.episodes.model_dump()) | {"kick": "Les épisodes récents", "icon": "flame", "detail": "Les épisodes"}),
         ("tournants", f"{TPL}/02_frise.html",
-         _nobreak(pres.tournants.model_dump()) | {"kick": "Les tournants", "icon": "anchor"}),
+         _nobreak(pres.tournants.model_dump()) | {"kick": "Les tournants", "icon": "anchor", "detail": "Les textes"}),
         ("lecture", f"{TPL}/04_lecture.html",
          _nobreak(pres.lecture.model_dump()) | {"labels": _READING_LABELS}),
         ("pieges", f"{TPL}/05_pieges.html", _nobreak(pres.pieges.model_dump())),

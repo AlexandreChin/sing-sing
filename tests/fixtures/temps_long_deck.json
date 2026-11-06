@@ -2,18 +2,18 @@
   "caption": "Le 28 octobre 2026, quatre rapporteurs spéciaux mandatés par le Conseil des droits de l'homme de l'ONU, qui ne s'expriment pas au nom de l'organisation, se disent « consternés » par la réponse des autorités aux manifestations lycéennes et étudiantes, et Amnesty International évoque un « glissement » vers des pratiques autoritaires. Les mêmes experts condamnent aussi les violences contre des policiers et les dégâts matériels.\n\nCe carrousel ne tranche pas. Il donne des repères datés, sur une dizaine d'années puis sur un demi-siècle, et trois façons de lire le temps (rupture, continuité, cycle) pour tester les mots employés : chacune prédit autre chose dans les séries qu'on peut consulter, auprès du Défenseur des droits, de l'inspection générale de la police nationale ou du ministère de l'Intérieur.\n\nEt vous : quelle lecture les séries que vous trouverez soutiennent-elles ? Dites-le en commentaire, avec vos sources.\n\n#maintiendelordre #libertés #manifestations #espritcritique",
   "hook": {
     "title": "Des experts de l'ONU « consternés » par la « répression »",
-    "promise": "Prendre du recul sur le maintien de l'ordre en manifestation."
+    "promise": "La force en manifestation est-elle nouvelle ?"
   },
   "position": {
-    "title": "Amnesty : un « glissement » autoritaire",
-    "lead": "Amnesty International relève sept points d'alerte sur un « glissement » vers des pratiques autoritaires.",
+    "title": "Amnesty : un « glissement » **autoritaire**",
+    "lead": "Amnesty relève sept points d'alerte sur un « glissement » vers l'autoritarisme.",
     "ecarte": "Elle écarte le cas isolé : « la France n'est plus à l'abri de cette tendance mondiale ».",
     "diagnostic": "L'ampleur des interpellations « apparaît disproportionnée ».",
     "mecanisme": "Une « surenchère sécuritaire » dans la législation.",
     "issue": "Elle y lit un « glissement vers des pratiques autoritaires »."
   },
   "tournants": {
-    "title": "Cinquante ans de règles sur les cortèges",
+    "title": "Cinquante ans de règles du cortège",
     "lead": "Amnesty cite une « surenchère sécuritaire » : plus de cinquante ans de textes.",
     "reperes": [
       {
@@ -95,7 +95,7 @@
     "question": "Votre intuition avant de regarder : rupture, continuité ou cycle ?"
   },
   "pieges": {
-    "title": "Pour ne pas conclure **trop vite**",
+    "title": "Quatre points à **vérifier** avant de choisir",
     "lead": "Quatre points à vérifier avant de dire que la réponse a changé.",
     "pieges": [
       {

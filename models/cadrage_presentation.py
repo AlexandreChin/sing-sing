@@ -12,7 +12,7 @@ from pydantic import BaseModel, Field
 
 class CadrageHook(BaseModel):
     title: str    # slide 1 — the hook, ≤64 characters
-    promise: str  # slide 1 — « Décryptage d'une prise de position sur … » (« En juger soi-même. » is added by the template)
+    promise: str  # slide 1 — « Décryptage d'une prise de position sur … »
 
 
 class CadrageNote(BaseModel):

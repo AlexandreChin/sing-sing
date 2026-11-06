@@ -11,7 +11,7 @@ from pydantic import AliasChoices, BaseModel, Field
 
 class AnatomieHook(BaseModel):
     title: str    # slide 1 — the raw figure in « », ≤64 characters
-    promise: str  # slide 1 — « <sujet> : ce que le chiffre dit, et ce qu'on en conclut » (« En juger soi-même. » is added by the template)
+    promise: str  # slide 1 — « <sujet> : ce que le chiffre dit, et ce qu'on en conclut »
 
 
 class AnatomieNote(BaseModel):

@@ -181,7 +181,7 @@ _ANSWER_MAX_CHARS = 150
 _LOOK_MAX_CHARS = 60
 
 # Slide 1's promise under the hook: « Comprendre … » on one line at 46px; the
-# template adds « En juger soi-même. » on the next.
+# nothing follows it: the footer carries the sign-off line.
 _SUBTITLE_MAX_CHARS = 38
 # Slide 8's enjeu holds three lines in its card (40px across the text column).
 _ROOT_ISSUE_MAX_CHARS = 125
@@ -284,7 +284,7 @@ def _coherence_errors(pres, d) -> list[str]:
             f"at four lines and the reader loses its last words"
         )
     # Slide 1's promise, first half: « Comprendre … », picking up what the hook
-    # opens. One line; the template adds « En juger soi-même. »
+    # opens. One line.
     subtitle = _plain(pres.hook.subtitle)
     if not subtitle:
         errors.append("hook.subtitle is empty — slide 1 states the deck's promise under the hook")
@@ -297,7 +297,7 @@ def _coherence_errors(pres, d) -> list[str]:
         if not _SUBTITLE_SHAPE.match(subtitle):
             errors.append(
                 "hook.subtitle must be one sentence « Comprendre …. » picking up what the hook "
-                "opens (« Comprendre d'où elle vient. ») — the slide adds « En juger soi-même. »"
+                "opens (« Comprendre d'où elle vient. »)"
             )
     if len(_plain(d.root_issue)) > _ROOT_ISSUE_MAX_CHARS:
         errors.append(

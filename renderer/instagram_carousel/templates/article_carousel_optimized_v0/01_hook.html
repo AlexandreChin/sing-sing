@@ -17,7 +17,7 @@
 .giant svg circle { fill: none; }
 /* — Slide 1 says, at a glance, what the source is and what the deck gives.
    The source is named by a pill (medium · length · source · date); the deck's
-   promise is the title + « Comprendre … » + « En juger soi-même. » No other label: the old « Sélection »,
+   promise is the title + the promise line. No other label: the old « Sélection »,
    « On décrypte » and the act tracker made four framings compete. — */
 .src-pill { align-self: flex-start; display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; max-width: 900px;
   background: #d4aa00; color: #0a0a0a; font-size: 26px; font-weight: 800; letter-spacing: .01em;
@@ -34,20 +34,21 @@
   border-radius: 14px; }
 .shot .edge { position: absolute; inset: 0; border-radius: 14px; pointer-events: none;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.10), inset 0 1px 0 rgba(255,255,255,.16); }
-/* — Full-bleed: a chosen photo (`background.*`) under a solid band, so the logo
-   always sits on dark; it fades to black before the text. — */
-.bg { position: absolute; left: 0; right: 0; top: 120px; height: 760px; z-index: -3;
-  background-size: cover; background-position: center; }
-.shade { position: absolute; inset: 0; z-index: -2;
-  background: linear-gradient(to bottom, #000 0, #000 190px, rgba(0,0,0,.35) 270px,
-              rgba(0,0,0,.12) 24%, rgba(0,0,0,.7) 38%, rgba(0,0,0,.9) 47%, #000 55%); }
+/* — Full-bleed: a chosen photo (`background.*`) in a zone that holds the headline and the source and
+   ends exactly on the gold rule; a black band at the top keeps the logo on dark, and a veil
+   darkens the photo towards the rule so the headline reads. — */
+.photo-zone { position: relative; margin: -30px -90px 0; padding: 30px 90px 44px; min-height: 690px; display: flex; flex-direction: column;
+  background-size: cover; background-position: center; background-color: #0a0a0a; }
+.photo-zone::before { content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to bottom, #0a0a0a 0, #0a0a0a 70px, rgba(0,0,0,.3) 150px, rgba(0,0,0,.45) 42%, rgba(0,0,0,.62) 70%, rgba(0,0,0,.5) 100%); }
+.photo-zone > * { position: relative; }
+.company-name, .logo-img { z-index: 2; }
 /* On the full-bleed slide, the photo's caption at its bottom-left: a gold label
    naming the medium (« L'épisode »), the source's own title, upright and regular
    so it never competes with our headline, then the pill. The label is what makes
    it read as THEIR title, not our subtitle.
    (On the card slide the title is inside the capture and the pill stays above it.) */
-.src-block { position: absolute; left: 90px; bottom: 710px; right: 90px; display: flex; flex-direction: column;
-  align-items: flex-start; gap: 16px; }
+.src-block { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; margin-top: 26px; }
 .src-label { font-size: 22px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #d4aa00;
   text-shadow: 0 2px 6px rgba(0,0,0,.9); margin-bottom: -8px; }
 /* sized by length (see the markup) so the whole title shows; three lines at most */
@@ -56,16 +57,21 @@
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 /* a gold rule opens our part of the slide, as it does on the sign-off */
 .hook-divider { margin: 44px 0 0; }
-.slide.bleed .hook-divider { margin-top: auto; }
-.slide.bleed .cover-head { margin-top: 26px; }
+.slide.bleed .hook-divider { margin-top: 0; }
+.slide.bleed .cover-head { margin-top: 250px; position: relative; text-shadow: 0 2px 6px rgba(0,0,0,.85), 0 0 30px rgba(0,0,0,.8); color: #fff; line-height: 1.04; }
+.slide.bleed.has-src .cover-head { margin-top: 170px; }
+.slide.bleed .subtitle { margin-top: 36px; font-weight: 500; line-height: 1.16; color: #f2f2f2; }
 /* — The title, then the promise that continues it. — */
 .cover-head { font-size: 85px; font-weight: 900; line-height: 1.06; letter-spacing: -0.02em; color: #f0f0f0; max-width: 900px; margin-top: 44px; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .cover-head strong { color: #d4aa00; font-weight: 900; }
 .subtitle { font-size: 46px; line-height: 1.25; color: #e6e6e6; margin-top: 30px; max-width: 900px; }
-/* the second half of the promise is Sing Sing's, the same on every deck */
-.subtitle .judge { color: #d4aa00; font-weight: 800; }
+.tagline { margin-top: 24px; font-size: 34px; line-height: 1.25; font-weight: 500; letter-spacing: -0.01em; color: #cfcfcf; white-space: nowrap; }
+.tagline strong { color: #d4aa00; font-weight: 800; }
 .swipe { margin-top: auto; padding-top: 24px; margin-bottom: 40px; font-size: 30px; font-weight: 700; color: #d4aa00; text-align: right; }
-.slide.bleed .swipe { margin-top: 40px; }
+.slide.bleed .swipe { position: absolute; right: 90px; bottom: 120px; margin: 0; padding: 0; }
+/* the sign-off line of the last slide, as the footer of the first */
+.sing-foot { position: absolute; bottom: 56px; left: 0; right: 0; text-align: center; font-size: 22px; color: #6b6b6b; letter-spacing: 0.08em; font-style: italic; }
+.sing-foot span { color: #d4aa00; }
 /* the deck opens with the bird at home, the logo exactly as before the bird
    left it (144px box, top 44, right 56; wordmark at 204); it perches from slide 2 */
 .company-name { right: 204px !important; }
@@ -75,9 +81,9 @@
 <body>
 {% set play %}<svg viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></svg>{% endset %}
 {% set pill_html %}{% if pill %}<span class="src-pill">{% if pill[0] in ('Podcast', 'Vidéo') %}{{ play | safe }}{% endif %}{% for part in pill %}{% if not loop.first %}<span class="sep">·</span>{% endif %}{{ part | fr }}{% endfor %}</span>{% endif %}{% endset %}
-<div class="slide{{ ' bleed' if background else '' }}" style="justify-content: flex-start; text-align: left; padding-top: 150px;{{ ' background: #000;' if background else '' }}">
+<div class="slide{{ ' bleed' if background else '' }}{{ ' has-src' if background and source_title else '' }}{{ ' has-tag' if tagline else '' }}" style="justify-content: flex-start; text-align: left; padding-top: 150px;{{ ' background: #000;' if background else '' }}">
   {% if background %}
-  <div class="bg" style="background-image: url('{{ background }}')"></div><div class="shade"></div>
+  
   {% else %}
   <div class="artbg"><svg viewBox="0 0 1080 1350" preserveAspectRatio="xMidYMid slice">{{ art_svg | safe }}</svg></div>
   {% if glyph %}<div class="giant"><svg viewBox="0 0 24 24">{{ glyph | safe }}</svg></div>{% endif %}
@@ -86,16 +92,32 @@
   {% if logo %}<img class="logo-img" src="{{ logo }}" alt="">{% endif %}
   {% if rubrique %}<div class="rubrique-tab"><svg viewBox="0 0 24 24">{{ glyph | safe }}</svg>{{ rubrique }}</div>{% endif %}
 
-  {% if background %}<div class="src-block">{% if source_title %}<span class="src-label">{{ source_label or L.source_noun }}</span>{% set st_len = source_title | length %}<p class="src-title" style="font-size: {{ 62 if st_len <= 40 else (50 if st_len <= 80 else 42) }}px">{{ source_title | fr }}</p>{% endif %}{{ pill_html }}</div>
-  {% else %}{{ pill_html }}{% endif %}
-  {% if thumb and not background %}<div class="shot"><img src="{{ thumb }}" alt=""{% if slot_max %} style="max-height: {{ slot_max }}px"{% endif %}><div class="edge"></div></div>{% endif %}
+  {% set head_text = (sub_topic or topic or headline) %}
+  {% set head_len = head_text | length %}
+  {% set sub_len = (subtitle or '') | length %}
+  {% set src_html %}<div class="src-block">{% if source_title %}<span class="src-label">{{ source_label or L.source_noun }}</span>{% set st_len = source_title | length %}<p class="src-title" style="font-size: {{ 62 if st_len <= 40 else (50 if st_len <= 80 else 42) }}px">{{ source_title | fr }}</p>{% endif %}{{ pill_html }}</div>{% endset %}
+  {% if background %}
+  {# on the photo: the headline, then what the source is, then the promise #}
+  <div class="photo-zone" style="background-image: url('{{ background }}')">
+    <h1 class="cover-head" style="font-size: {{ 84 if head_len <= 48 else (72 if head_len <= 80 else 60) }}px">{{ head_text | md_bold }}</h1>
+    {{ src_html }}
+  </div>
+  <div class="divider hook-divider"></div>
+  {% if subtitle %}<p class="subtitle" style="font-size: {{ (72 if sub_len <= 45 else (62 if sub_len <= 64 else (52 if sub_len <= 100 else 44))) - (8 if source_title else 0) - (6 if tagline else 0) }}px">{{ subtitle | md_bold }}</p>{% endif %}
+  {% if tagline %}<p class="tagline">{{ tagline | md_bold }}</p>{% endif %}
+  {% else %}
+  {{ pill_html }}
+  {% if thumb %}<div class="shot"><img src="{{ thumb }}" alt=""{% if slot_max %} style="max-height: {{ slot_max }}px"{% endif %}><div class="edge"></div></div>{% endif %}
 
   {# French spacing is applied by the md_bold filter, for every field. #}
   <div class="divider hook-divider"></div>
-  <h1 class="cover-head" style="font-size: {{ 64 if background else (head_size | default(85)) }}px">{{ (sub_topic or topic or headline) | md_bold }}</h1>
-  {% if subtitle %}<p class="subtitle">{{ subtitle | md_bold }}<br><span class="judge">En juger soi-même.</span></p>{% endif %}
+  <h1 class="cover-head" style="font-size: {{ head_size | default(85) }}px">{{ head_text | md_bold }}</h1>
+  {% if subtitle %}<p class="subtitle">{{ subtitle | md_bold }}</p>{% endif %}
+  {% if tagline %}<p class="tagline">{{ tagline | md_bold }}</p>{% endif %}
+  {% endif %}
 
   <div class="swipe">Glissez &#8594;</div>
+  <div class="sing-foot"><span>Sing</span>, little bird, <span>sing</span></div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
 </div>

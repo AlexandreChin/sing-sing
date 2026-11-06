@@ -86,7 +86,7 @@ def test_pill_order_and_play_icon_for_audio():
 def test_subtitle_renders_under_the_title():
     html = _render(subtitle="Comprendre d'où elle vient.")
     assert 'class="subtitle"' in html and "Comprendre d&#39;où elle vient." in html
-    assert '<span class="judge">En juger soi-même.</span>' in html   # Sing Sing's half, fixed
+    assert "En juger" not in html and "little bird" in html   # the promise stands alone; the sign-off line is the footer
     assert html.index('class="cover-head"') < html.index('class="subtitle"')
     assert 'class="subtitle"' not in _render()             # old decks: the title alone
 
@@ -96,6 +96,8 @@ def test_background_photo_takes_the_whole_slide():
     assert 'class="slide bleed"' in html and "BBB" in html
     assert '<div class="shot">' not in html                # the photo replaces the card
     assert '<div class="artbg">' not in html
+    body = html.split("<body>")[-1]
+    assert body.index('class="cover-head"') < body.index('class="src-block"')   # on the photo: the headline first, then the source
 
 
 def test_source_title_under_the_pill_on_the_full_bleed_slide_only():

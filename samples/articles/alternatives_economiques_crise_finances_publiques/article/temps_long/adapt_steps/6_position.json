@@ -6,12 +6,13 @@
       "slot": "a",
       "reason": "Met en avant le cœur de la thèse : dérive de cinquante ans lue par les régimes de croissance, contre les chocs.",
       "fields": {
-        "title": "Une dérive structurelle",
-        "lead": "Pour Robert Boyer, la crise est l'aboutissement de cinquante ans de déficits, devenue en 2026 une crise politique.",
+        "title": "Une dérive structurelle devenue crise **politique**",
+        "lead": "Pour Robert Boyer, cinquante ans de déficits expliquent la crise de 2026.",
         "ecarte": "La **malchance** : des chocs communs à la plupart des pays, la France la plus touchée.",
         "diagnostic": "La France **s'endette au lieu de s'adapter** à un monde de croissance lente, pour préserver la paix sociale.",
         "issue": "Parlement en trois groupes, exécutif paralysé : une **crise de régime**, plus proche de 1958 que de Mai 68.",
-        "mecanisme": "De 1981 à 2019, la **baisse des taux d'intérêt** a allégé la dette. Depuis 2025, leur **hausse** l'alourdit."
+        "mecanisme": "De 1981 à 2019, la **baisse des taux d'intérêt** a allégé la dette. Depuis 2025, leur **hausse** l'alourdit.",
+        "mecanisme_label": "Pourquoi ça a duré, et casse"
       },
       "edited": true,
       "flags": []
@@ -54,8 +55,8 @@
   ],
   "fragment": {
     "position": {
-      "title": "Une dérive structurelle",
-      "lead": "Pour Robert Boyer, la crise est l'aboutissement de cinquante ans de déficits, devenue en 2026 une crise politique.",
+      "title": "Une dérive structurelle devenue crise **politique**",
+      "lead": "Pour Robert Boyer, cinquante ans de déficits expliquent la crise de 2026.",
       "kicker": "",
       "ecarte": "La **malchance** : des chocs communs à la plupart des pays, la France la plus touchée.",
       "diagnostic": "La France **s'endette au lieu de s'adapter** à un monde de croissance lente, pour préserver la paix sociale.",
@@ -63,7 +64,7 @@
       "issue": "Parlement en trois groupes, exécutif paralysé : une **crise de régime**, plus proche de 1958 que de Mai 68.",
       "ecarte_label": "",
       "diagnostic_label": "",
-      "mecanisme_label": "",
+      "mecanisme_label": "Pourquoi ça a duré, et casse",
       "issue_label": ""
     }
   },

@@ -1,8 +1,8 @@
 ÉTAPE 4 — LES PIÈGES DU TEMPS (slide 5)
 
 Les étapes 1 à 3 sont FIXÉES. Cette slide donne au lecteur quatre pièges d'une série dans le temps, ceux qui peuvent faire lire une rupture, une continuité ou un cycle là où il n'y en a pas, avec la question à se poser. C'est de la méthode générale, hors cadre : aucun chiffre sur le cas traité. Tu proposes 3 ou 4 options.
-- `title` (≤44 caractères, 2 lignes sur la slide) : dit en mots simples à quoi sert la slide, sans jargon (pas de « série », pas de « comparables ») ; un mot peut être mis en or. Ex. : « Pour ne pas conclure **trop vite** ».
-- `lead` (≤94 caractères, 2 lignes sur la slide) : complète le titre et annonce ce que le lecteur va faire, dans les mots du sujet. Ex. (autre sujet) : « Trois points à vérifier avant de dire que les arrêts maladie ont changé. » Pas de principe abstrait.
+- `title` (≤44 caractères, 2 lignes sur la slide, en gros : il est le seul texte d'en-tête, il remplace le sous-titre) : dit en mots simples ce que le lecteur va faire, dans les mots du sujet, sans jargon (pas de « série », pas de « comparables ») ; un mot peut être mis en or. Ex. : « Quatre points à **vérifier** avant de choisir ».
+- `lead` : n'est plus affiché ; laisse-le vide (`""`).
 - `piege1`, `piege2`, `piege3`, `piege4` : `titre | question`.
   - Le titre (≤38 caractères, UNE ligne) nomme le piège par un groupe nominal court, de la même forme pour les quatre (« En volume ou en proportion », « La façon de compter », « Les épisodes retenus », « Cause ou coïncidence ») : jamais une formule ou une phrase.
   - La question (≤92 caractères, 2 lignes) se pose au lecteur en une phrase simple, reprend la mesure de la slide 4 (ses mots), ne répète pas un mot du titre et finit par « ? ».

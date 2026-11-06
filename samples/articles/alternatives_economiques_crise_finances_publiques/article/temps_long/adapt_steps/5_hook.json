@@ -17,8 +17,8 @@
       "slot": "a",
       "reason": "Reprend le titre du média et attribue la parole ; angle le plus proche du fait brut.",
       "fields": {
-        "title": "Boyer : la crise des finances publiques est « aussi politique »",
-        "promise": "Prendre du recul sur cinquante ans de déficits."
+        "title": "Finances publiques : une crise « politique, voire de **régime** »",
+        "promise": "Le déficit de 2026 vient-il des crises récentes, ou de bien plus loin ?"
       },
       "edited": true,
       "flags": []
@@ -55,8 +55,8 @@
   ],
   "fragment": {
     "hook": {
-      "title": "Boyer : la crise des finances publiques est « aussi politique »",
-      "promise": "Prendre du recul sur cinquante ans de déficits."
+      "title": "Finances publiques : une crise « politique, voire de **régime** »",
+      "promise": "Le déficit de 2026 vient-il des crises récentes, ou de bien plus loin ?"
     }
   },
   "remarks": []

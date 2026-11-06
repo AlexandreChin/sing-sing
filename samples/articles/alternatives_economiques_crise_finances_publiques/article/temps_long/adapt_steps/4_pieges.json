@@ -20,8 +20,8 @@
       "slot": "a",
       "reason": "Un déficit public se calcule avec des règles de comptage qui évoluent : vérifier que la mesure est la même d'un épisode à l'autre précède toute lecture.",
       "fields": {
-        "title": "Pour que la comparaison soit **juste**",
-        "lead": "Quatre points à vérifier sur les séries avant de choisir une lecture.",
+        "title": "Quatre points à **vérifier** avant de choisir",
+        "lead": "",
         "piege1": "En volume ou en proportion | Compare-t-on le déficit public en montant, ou rapporté à la richesse produite ?",
         "piege2": "La façon de compter | La définition ou le comptage du déficit public a-t-il changé entre deux épisodes ?",
         "piege3": "Les épisodes retenus | Quels épisodes vont en sens inverse, avec moins de déficit public que ceux qu'on cite ?",
@@ -68,8 +68,8 @@
   ],
   "fragment": {
     "pieges": {
-      "title": "Pour que la comparaison soit **juste**",
-      "lead": "Quatre points à vérifier sur les séries avant de choisir une lecture.",
+      "title": "Quatre points à **vérifier** avant de choisir",
+      "lead": "",
       "pieges": [
         {
           "title": "En volume ou en proportion",

@@ -325,10 +325,10 @@ def test_the_position_breaks_no_rule_and_every_card_is_required_and_capped():
     assert hard("position") == [] and flags("position") == []
     assert any("ecarte is empty" in e for e in hard("position", ecarte=""))
     assert any("mecanisme is empty" in e for e in hard("position", mecanisme=""))
-    assert any("title" in e and "max 44" in e for e in hard("position", title="x" * 45))
+    assert any("title" in e and "max 46" in e for e in hard("position", title="**x** " + "x" * 46))
     assert any("issue" in e and "max 108" in e for e in hard("position", issue="x" * 109))
     assert any("kicker" in e and "max 30" in e for e in hard("position", kicker="x" * 31))
-    assert any("issue_label" in e and "max 40" in e for e in hard("position", issue_label="x" * 41))
+    assert any("issue_label" in e and "max 30" in e for e in hard("position", issue_label="x" * 31))
     assert hard("position", issue_label="") == []   # a label is optional
 
 
@@ -455,9 +455,9 @@ def test_seven_slides_are_rendered(tmp_path):
     assert [p.stem for p in paths] == ["01_hook", "02_position", "03_episodes", "04_tournants", "05_lecture", "06_pieges", "07_cta"]
     texts = {p.stem: html.unescape(p.read_text(encoding="utf-8")).replace("⁠", "").replace(" ", " ")
              for p in paths}
-    assert "Prendre du recul" in texts["01_hook"]
+    assert "est-elle nouvelle" in texts["01_hook"]
     position = texts["02_position"]
-    assert "Ce que dit l'auteur" in position and "Amnesty : un" in position
+    assert "Ce que dit l'auteur" in position and "glissement" in position and "Amnesty relève" in position   # the title, then the sentence under it
     assert all(label in position for label in ("Ce qu'il écarte", "Son diagnostic", "Pourquoi ça a duré", "Sa conclusion"))
     custom = copy.deepcopy(DECK)
     custom["position"] |= {"kicker": "Ce que disent l'ONU et Amnesty", "ecarte_label": "Ce qu'ils reconnaissent", "issue_label": "Ce qu'Amnesty y voit"}
@@ -466,9 +466,9 @@ def test_seven_slides_are_rendered(tmp_path):
     assert "Ce que disent l'ONU et Amnesty" in ctext and "Ce que dit l'auteur" not in ctext and "Ce que dit l'auteur" in position
     assert "Ce qu'ils reconnaissent" in ctext and "Ce qu'Amnesty y voit" in ctext
     assert "Ce qu'il écarte" not in ctext and "Sa conclusion" not in ctext and "Son diagnostic" in ctext   # empty = default
-    assert position.count('class="card pos"') == 4 and position.split("<body>")[1].count("data-perch") == 1
+    assert position.count('class="row"') == 4 and position.split("<body>")[1].count("data-perch") == 1
     assert "« surenchère sécuritaire »" in position and "7 / 7" in texts["07_cta"] and "2 / 7" in position
-    assert "Les épisodes qu'on retient" in texts["03_episodes"] and "2018–2019" in texts["03_episodes"]
+    assert "Les épisodes récents" in texts["03_episodes"] and "2018–2019" in texts["03_episodes"]
     assert "Des mutilés, un débat sur la force" in texts["03_episodes"]
     assert texts["03_episodes"].count('class="rep"') == 5 and "Légifrance" not in texts["03_episodes"]
     for slide in ("03_episodes", "04_tournants"):          # the bird perches above the first row
@@ -507,7 +507,7 @@ def test_a_lone_image_is_the_full_bleed_photo_of_the_hook_and_the_sign_off(tmp_p
     texts, base = _render_with(tmp_path, "image.png")
     photo = background_image(base, or_cover=True)
     assert photo.startswith("data:image/png;base64,")
-    assert '<div class="bg"' in texts["01_hook"] and 'class="shot"' not in texts["01_hook"]
+    assert '<div class="photo-zone"' in texts["01_hook"] and 'class="shot"' not in texts["01_hook"]
     assert '<div class="book"' in texts["07_cta"]
     assert photo in texts["01_hook"] and photo in texts["07_cta"]          # the same picture, twice
 
@@ -524,7 +524,7 @@ def test_a_background_file_still_wins_over_the_image(tmp_path):
 
 def test_no_image_means_no_photo(tmp_path):
     texts, _ = _render_with(tmp_path)
-    assert '<div class="bg"' not in texts["01_hook"] and '<div class="book"' not in texts["07_cta"]
+    assert '<div class="photo-zone"' not in texts["01_hook"] and '<div class="book"' not in texts["07_cta"]
 
 
 def test_other_formats_keep_ignoring_an_image_as_background(tmp_path):
@@ -573,7 +573,7 @@ def worst_case_deck(seed: int = 0) -> dict:
                                       for _ in range(4 if step == "tournants" else 5)]}
     return DECK | {
         "hook": {"title": _sample(rng, _cap("hook", "title")), "promise": _sample(rng, _cap("hook", "promise"))},
-        "position": {"title": _sample(rng, _cap("position", "title")), "lead": _sample(rng, _cap("position", "lead")),
+        "position": {"title": "**" + _sample(rng, 12) + "** " + _sample(rng, _cap("position", "title") - 14), "lead": _sample(rng, _cap("position", "lead")),
                      **{c: _sample(rng, _cap("position", c)) for c in agent._POSITION_CARDS},
                      "kicker": _sample(rng, _cap("position", "kicker")),
                      **{f"{c}_label": _sample(rng, _cap("position", f"{c}_label")) for c in agent._POSITION_CARDS}},
@@ -584,7 +584,7 @@ def worst_case_deck(seed: int = 0) -> dict:
                                   "where": _sample(rng, agent._WHERE_MAX)}
                                  for k in ("rupture", "continuite", "cycle")],
                     "question": _sample(rng, _cap("lecture", "question") - 2) + " ?"},
-        "pieges": {"title": _sample(rng, _cap("pieges", "title")), "lead": _sample(rng, _cap("pieges", "lead")),
+        "pieges": {"title": _sample(rng, _cap("pieges", "title")), "lead": "",
                    "pieges": [{"title": _sample(rng, agent._PIEGE_TITLE_MAX),
                                "question": _sample(rng, agent._PIEGE_QUESTION_MAX - 2) + " ?"} for _ in range(4)]},
     }
@@ -596,11 +596,13 @@ _LINES = """() => { const n = (sel) => [...document.querySelectorAll(sel)].map(e
   const trapTitle = [...document.querySelectorAll('.piege .t')].map(t => Math.round(
     (t.getBoundingClientRect().height - t.querySelector('small').getBoundingClientRect().height - 10) /
     (parseFloat(getComputedStyle(t).fontSize) * 1.1)));
-  return {subtitle: n('.subtitle'), lead: n('.lead'), label: n('.rep .l'), head: n('.head'),
+  return {subtitle: n('.subtitle'), lead: n('.lead, .ml'), label: n('.rep .l'), head: n('.head, .mh'),
+          hl: n('.msg .mt').filter(x => Number.isFinite(x)),
+          rowh: n('.row .h span'),
           remark: n('.rep .w span'), one: n('.read .s, .read .w span'), two: n('.read .t, .piege .t small'),
           qlabel: [...document.querySelectorAll('.q-label')].map(e => Math.round(e.getBoundingClientRect().height / (parseFloat(getComputedStyle(e).fontSize) * 1.1))),
           kick: [...document.querySelectorAll('.kick')].map(e => Math.round(e.getBoundingClientRect().height / (parseFloat(getComputedStyle(e).fontSize) * 1.3))),
-          trap: trapTitle, say: n('.pos .say'), bottom}; }"""
+          trap: trapTitle, say: n('.row .say'), bottom}; }"""
 
 
 def _worst_case_doc(deck: dict):
@@ -626,11 +628,13 @@ def test_every_field_at_its_cap_fits_in_its_lines_and_on_the_slide(tmp_path, see
             page.set_content(f.read_text(encoding="utf-8"), wait_until="load")
             measured[f.stem] = page.evaluate(_LINES)
         browser.close()
-    assert measured["01_hook"]["subtitle"] == [3], "the promise is two lines, then « En juger soi-même. »"
+    assert all(n <= 3 for n in measured["01_hook"]["subtitle"]), "the promise is three lines at most"
     for slide in ("02_position", "03_episodes", "04_tournants", "05_lecture", "06_pieges"):
         m = measured[slide]
         assert all(n <= 3 for n in m["say"]), (slide, "position card", m["say"])
-        assert all(n <= (4 if slide == "02_position" else 2) for n in m["lead"]), (slide, "lead", m["lead"])
+        assert all(n <= 2 for n in m["lead"]), (slide, "lead", m["lead"])
+        assert all(n <= 5 for n in m["hl"]), (slide, "the position's headline", m["hl"])
+        assert all(n <= 2 for n in m["rowh"]), (slide, "a detail row's heading", m["rowh"])
         assert all(n <= 2 for n in m["head"]), (slide, "title", m["head"])
         assert all(n <= 2 for n in m["label"]), (slide, "label", m["label"])
         assert all(n <= (2 if slide == "04_tournants" else 1) for n in m["remark"]), (slide, "remark", m["remark"])
@@ -640,3 +644,32 @@ def test_every_field_at_its_cap_fits_in_its_lines_and_on_the_slide(tmp_path, see
         assert all(n <= 2 for n in m["two"]), (slide, "two-line fields", m["two"])
         assert all(n <= 1 for n in m["trap"]), (slide, "trap title", m["trap"])
         assert m["bottom"] <= 1255, (slide, m["bottom"])
+
+
+_HOOK_LINES = """() => { const r = (sel) => document.querySelector(sel).getBoundingClientRect();
+  const lines = (sel) => { const e = document.querySelector(sel); return Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight)); };
+  return {head: lines('.cover-head'), promise: lines('.subtitle'), promiseBottom: r('.subtitle').bottom, tagBottom: r('.tagline').bottom, tagLines: lines('.tagline'), tagWidth: document.querySelector('.tagline').scrollWidth,
+          swipeTop: r('.swipe').top, footTop: r('.sing-foot').top, pillBottom: r('.src-pill').bottom, headBottom: r('.cover-head').bottom}; }"""
+
+
+@pytest.mark.parametrize("seed", range(4))
+def test_the_hook_on_a_photo_fits_at_its_caps(tmp_path, seed):
+    """The headline sits on the photo, the promise below it: at their caps they keep their lines and clear the foot."""
+    from PIL import Image
+    Image.new("RGB", (1080, 1350), "#223344").save(tmp_path / "background.png")
+    out = tmp_path / "temps_long" / "html"
+    out.mkdir(parents=True)
+    rng = random.Random(seed)
+    deck = DECK | {"hook": {"title": _sample(rng, _cap("hook", "title")), "promise": _sample(rng, _cap("hook", "promise") - 2) + " ?"}}
+    renderer.generate_html(_worst_case_doc(deck), out)
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page(viewport={"width": 1080, "height": 1350})
+        page.set_content((out / "01_hook.html").read_text(encoding="utf-8"), wait_until="load")
+        m = page.evaluate(_HOOK_LINES)
+        browser.close()
+    assert m["head"] <= 3, ("headline", m)
+    assert m["promise"] <= 3, ("promise", m)
+    assert m["tagLines"] <= 1 and m["tagWidth"] <= 900, ("the fixed second paragraph holds on one line", m)
+    assert m["headBottom"] < m["pillBottom"] < m["promiseBottom"] < m["tagBottom"], m
+    assert m["tagBottom"] < m["swipeTop"] and m["tagBottom"] < m["footTop"], m

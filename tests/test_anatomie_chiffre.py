@@ -548,7 +548,7 @@ def test_every_field_at_its_cap_fits_on_the_slide(tmp_path, seed):
             page.evaluate("document.fonts.ready")          # the web fonts change the line breaks
             measured[f.stem] = page.evaluate(_LINES)
         browser.close()
-    # the promise takes three lines at its 100-character cap, then « En juger soi-même. »
+    # the promise takes three lines at its 100-character cap
     assert all(n <= 4 for n in measured["01_hook"]["subtitle"]), measured["01_hook"]["subtitle"]
     for slide in ("02_chiffres", "03_recit", "04_angle_mort", "05_lectures"):
         m = measured[slide]

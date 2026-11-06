@@ -12,7 +12,7 @@ class Hook(BaseModel):
     topic: str
     sub_topic: str
     # Slide 1, under the title: the first half of the promise, « Comprendre … »,
-    # picking up what the hook opens; the template adds « En juger soi-même. »
+    # picking up what the hook opens
     # Empty on decks adapted before it existed; slide 1 then shows the title alone.
     subtitle: str = ""
     headline: str
