@@ -12,7 +12,8 @@
         "continuite": "Le déficit suit-il son cours ? | La courbe du déficit **ne change pas de direction** après 1973, 1992, 2012 ni 2023 | Cour des comptes, finances publiques",
         "cycle": "Le déficit retombe-t-il ensuite ? | Après chaque crise, le déficit **redescendrait** vers son niveau d'avant en deux ans environ | Eurostat, déficit public annuel",
         "question": "Votre intuition avant de regarder : rupture, continuité ou cycle ?",
-        "author": ""
+        "author": "",
+        "where": "INSEE ou Eurostat, déficit public annuel"
       },
       "edited": true,
       "flags": []
@@ -94,7 +95,8 @@
           "where": "Eurostat, déficit public annuel"
         }
       ],
-      "question": "Votre intuition avant de regarder : rupture, continuité ou cycle ?"
+      "question": "Votre intuition avant de regarder : rupture, continuité ou cycle ?",
+      "where": "INSEE ou Eurostat, déficit public annuel"
     }
   },
   "remarks": []

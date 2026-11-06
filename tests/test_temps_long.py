@@ -321,6 +321,14 @@ def test_the_caption_needs_four_hashtags():
     assert any("hashtag" in e for e in hard("writing", caption=DECK["caption"].replace("#espritcritique", "")))
 
 
+def test_a_reading_needs_no_where_once_the_series_is_named_under_the_lead():
+    two = "Interpelle-t-on soudain bien plus ? | Le nombre d'octobre sortirait de la **trajectoire** des épisodes précédents"
+    assert any("où regarder" in e for e in hard("lecture", rupture=two))                      # three parts without a shared line
+    assert hard("lecture", rupture=two, where="ministère de l'Intérieur") == []               # two are enough with it
+    assert any("URL" in e for e in hard("lecture", where="https://www.interieur.gouv.fr"))
+    assert any("max 48" in e for e in hard("lecture", where="x" * 49))
+
+
 def test_the_position_breaks_no_rule_and_every_card_is_required_and_capped():
     assert hard("position") == [] and flags("position") == []
     assert any("ecarte is empty" in e for e in hard("position", ecarte=""))
@@ -583,7 +591,8 @@ def worst_case_deck(seed: int = 0) -> dict:
                                   "indicator": "Le **déficit** : " + _sample(rng, agent._INDICATOR_MAX - 15),
                                   "where": _sample(rng, agent._WHERE_MAX)}
                                  for k in ("rupture", "continuite", "cycle")],
-                    "question": _sample(rng, _cap("lecture", "question") - 2) + " ?"},
+                    "question": _sample(rng, _cap("lecture", "question") - 2) + " ?",
+                    "where": _sample(rng, _cap("lecture", "where"))},
         "pieges": {"title": _sample(rng, _cap("pieges", "title")), "lead": "",
                    "pieges": [{"title": _sample(rng, agent._PIEGE_TITLE_MAX),
                                "question": _sample(rng, agent._PIEGE_QUESTION_MAX - 2) + " ?"} for _ in range(4)]},
@@ -599,7 +608,7 @@ _LINES = """() => { const n = (sel) => [...document.querySelectorAll(sel)].map(e
   return {subtitle: n('.subtitle'), lead: n('.lead, .ml'), label: n('.rep .l'), head: n('.head, .mh'),
           hl: n('.msg .mt').filter(x => Number.isFinite(x)),
           rowh: n('.row .h span'),
-          remark: n('.rep .w span'), one: n('.read .s, .read .w span'), two: n('.read .t, .piege .t small'),
+          remark: n('.rep .w span'), one: n('.read .s, .read .w span, .shared-w span'), two: n('.read .t, .piege .t small'),
           qlabel: [...document.querySelectorAll('.q-label')].map(e => Math.round(e.getBoundingClientRect().height / (parseFloat(getComputedStyle(e).fontSize) * 1.1))),
           kick: [...document.querySelectorAll('.kick')].map(e => Math.round(e.getBoundingClientRect().height / (parseFloat(getComputedStyle(e).fontSize) * 1.3))),
           trap: trapTitle, say: n('.row .say'), bottom}; }"""

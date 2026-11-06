@@ -61,6 +61,7 @@ class LectureOption(BaseModel):
     continuite: str
     cycle: str
     question: str      # the neutral closing question: not drawn on slide 4, taken up by the sign-off
+    where: str = ""    # where to find the series the three readings are tested on, shown once under the lead
 
 
 class PiegesOption(BaseModel):
@@ -164,6 +165,7 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     **{(s, "lead"): ("chars", 84) for s in ("tournants", "episodes")},   # two lines at most, beside the bird perched on the first row
     ("lecture", "lead"): ("chars", 94),
     ("lecture", "question"): ("chars", 96),
+    ("lecture", "where"): ("chars", 48),   # the shared « Où regarder » line: one line under the lead
     ("hook", "title"): ("chars", 64), ("hook", "promise"): ("chars", 100),   # the headline: three lines at 84 px; the promise: three lines at 52 px, then the fixed tagline
     ("position", "title"): ("chars", 46), ("position", "lead"): ("chars", 90),   # slide 2: the title is the claim (70 px, two lines), the lead the sentence that names the author (34 px, two lines)
     **{("position", c): ("chars", 108) for c in _POSITION_CARDS},   # two lines in a card, three at the very worst
@@ -284,10 +286,14 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                 flags.append(f"tournants ends in {max(years)}, over {_TOURNANTS_RECENT} years before the article — "
                              "add the most recent text, a bill under discussion included")
     if step == "lecture":
+        if _URL.search(str(fields.get("where", ""))):
+            hard.append("lecture.where names an organisation, never a URL")
         for name in _READINGS:
             value = str(fields.get(name, "")).strip()
-            if value and not all(_parts(value, 3)):
-                hard.append(f"lecture.{name} must read « hypothèse ? | test avec un **passage en gras** | où regarder »")
+            shared = bool(str(fields.get("where", "")).strip())   # the series is named once, under the lead: a card needs no « où regarder »
+            if value and not all(_parts(value, 3)[:2 if shared else 3]):
+                hard.append("lecture." + name + " must read « hypothèse ? | test avec un **passage en gras**"
+                            + ("" if shared else " | où regarder") + " »")
             elif value:
                 signature, indicator, where = _parts(value, 3)
                 if len(signature) > _SIGNATURE_MAX:
@@ -372,7 +378,7 @@ def to_fragment(step: Step, option: Option) -> dict:
                 signature, indicator, where = _parts(f[kind], 3)
                 readings.append({"kind": kind, "signature": signature, "indicator": indicator, "where": where})
         return {"lecture": {"title": f.get("title", ""), "lead": f.get("lead", ""), "readings": readings,
-                            "question": f.get("question", "")}}
+                            "question": f.get("question", ""), "where": f.get("where", "")}}
     if step.name == "pieges":
         pieges = []
         for name in _PIEGES:

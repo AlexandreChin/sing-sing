@@ -63,11 +63,11 @@
   },
   "position": {
     "title": "Une dérive structurelle devenue crise **politique**",
-    "lead": "Pour l'économiste Robert Boyer, la crise budgétaire actuelle vient de 50 ans de déficits",
-    "ecarte": "La **malchance** : des chocs communs à la plupart des pays, la France la plus touchée.",
+    "lead": "Pour l'économiste Robert Boyer, 50 ans de déficits ont préparé la crise de 2026",
+    "ecarte": "La **malchance** : des chocs communs à la plupart des pays, mais la France la plus handicapée.",
     "diagnostic": "La France **s'endette au lieu de s'adapter** à un monde de croissance lente, pour préserver la paix sociale.",
     "mecanisme": "De 1981 à 2019, la **baisse des taux d'intérêt** a allégé la dette. Depuis 2025, leur **hausse** l'alourdit.",
-    "issue": "Parlement en trois groupes, exécutif paralysé : une **crise de régime**, plus proche de 1958 que de Mai 68.",
+    "issue": "Parlement en trois groupes, exécutif paralysé : une crise politique, **voire de régime**, qui rappelle 1958.",
     "kicker": "",
     "ecarte_label": "",
     "diagnostic_label": "",
@@ -98,6 +98,7 @@
       }
     ],
     "question": "Votre intuition avant de regarder : rupture, continuité ou cycle ?",
+    "where": "INSEE ou Eurostat, déficit public annuel",
     "author": ""
   },
   "pieges": {

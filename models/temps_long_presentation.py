@@ -41,6 +41,7 @@ class TempsLongLecture(BaseModel):  # slide 4 — rupture, continuité or cycle?
     lead: str         # the procedure and the measure: « Pour trancher : comparer … d'un épisode à l'autre »
     readings: list[TempsLongReading] = Field(default_factory=list)   # 3, in this order
     question: str     # the neutral closing question: not drawn on the slide, taken up by the sign-off and the caption
+    where: str = ""   # one line under the lead: where to find the series the three readings are tested on (an organisation, never a URL); empty = each card carries its own
     author: str = ""  # one line under the cards: which of the readings the author's own thesis combines — attributed, never judged
 
 
