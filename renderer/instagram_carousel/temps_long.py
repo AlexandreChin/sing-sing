@@ -4,11 +4,12 @@ The first and the last are the optimized deck's own hook and sign-off (photo inc
 the ones between are the `article_carousel_temps_long_v1` templates, the position
 (when there is one) right after the hook. Registered as the `temps_long` format."""
 import json
+import re
 from pathlib import Path
 
 from models.temps_long_presentation import TempsLongDocument
 from ._shared import (
-    _env, _LOGO_DATA_URL, _LOGO_TIGHT_DATA_URL, background_image, cover_dims, cover_layers,
+    ICONS, _env, _LOGO_DATA_URL, _LOGO_TIGHT_DATA_URL, background_image, cover_dims, cover_layers,
     cover_thumb, duration_label, hook_metrics, medium_labels, pill_parts,
 )
 from .cadrage import _nobreak
@@ -17,9 +18,51 @@ TPL = "article_carousel_temps_long_v1"
 OPT = "article_carousel_optimized_v0"
 # the second paragraph of the promise, the same on every deck of this archetype
 _HOOK_TAGLINE = "Des épisodes, des textes, trois lectures pour **en juger**."
-_READING_LABELS = {"rupture": "Rupture", "continuite": "Continuité", "cycle": "Cycle"}
+_READING_LABELS = {"rupture": "Rupture", "continuite": "Continuité", "cycle": "Cycle",
+                   "experts": "Les experts", "amnesty": "Amnesty", "tests": "Trois tests",
+                   "cible": "Cible", "proportion": "Proportion", "effet": "Effet"}
+# the pictograms of the readings and of the sign cards, as the inside of a 24×24 svg
+_SHAPES = {'rupture': '<path d="M3 18h7V6h11"/>', 'continuite': '<path d="M3 18L21 6"/><circle cx="12" cy="12" r="1.6"/>', 'cycle': '<path d="M2 12c2.5-8 5.5-8 8 0s5.500 8 8 0 3-5 4-4"/>', 'experts': '<path d="M12 4v16M6 20h12M4 8h16"/><path d="M4 8l-2 6h4zM20 8l-2 6h4z"/>', 'amnesty': '<path d="M3 20h5v-5h5v-5h5V5"/>', 'tests': '<path d="M4 6l2 2 3-3M4 14l2 2 3-3M12 7h8M12 15h8"/>', 'cible': '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/>', 'proportion': '<path d="M12 4v16M6 20h12M4 8h16"/><path d="M4 8l-2 6h4zM20 8l-2 6h4z"/>', 'effet': '<path d="M2 12h5l3-7 4 14 3-7h5"/>', 'sequence': '<circle cx="4" cy="12" r="2"/><circle cx="20" cy="12" r="2"/><path d="M6 12h12"/>', 'nouveaute': '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/>', 'delai': '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>', 'memoire': '<path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/>'}
 _POSITION_CARDS = (("ecarte", "Ce qu'il écarte", "eye_off"), ("diagnostic", "Son diagnostic", "lightbulb"),
                    ("mecanisme", "Pourquoi ça a duré, et pourquoi ça casse", "roots"), ("issue", "Sa conclusion", "widen"))
+
+
+def _pictograms() -> dict[str, str]:
+    """Every pictogram a template may name: the readings' own, then the deck's general icons."""
+    return {**{k: v for k, v in ICONS.items() if k not in _SHAPES}, **_SHAPES}
+
+
+def _tag_meta(pres) -> dict[str, dict]:
+    """What a tag on a timeline shows: the icon of the criterion it names and whose criterion it is — the left-hand voice's
+    (a reading's name) or the second voice's (a sign's short name): every pill is drawn the same way."""
+    pic = _pictograms()
+    meta = {}
+    for r in pres.lecture.readings:
+        name = (r.label or r.kind).strip().lower()
+        meta[name] = {"icon": pic.get(r.icon) or pic.get(r.kind) or pic.get(pres.move) or pic["tests"]}
+    for c in pres.lecture.aside_cards:
+        meta[c.label.strip().lower()] = {"icon": pic.get(c.icon) or pic["tests"]}
+    return meta
+
+
+def _frise_rows(frise: dict) -> dict:
+    """What the `annees` and `axe` layouts need besides the rows: the date split into month / year / range end, and the
+    gap in years to the previous row (written on the spine). Years are read from the dates; a row with no year has no gap."""
+    rows, prev = [], None
+    for r in frise["reperes"]:
+        d = r["date"].strip()
+        years = re.findall(r"\b\d{4}\b", d)
+        year = years[0] if years else d
+        month = d[:d.find(year)].strip() if years else ""
+        rest = d[d.find(year) + len(year):].strip() if years else ""
+        gap = ""
+        if years and prev is not None and int(year) - prev > 0:
+            n = int(year) - prev
+            gap = f"{n}\u00a0an{'s' if n > 1 else ''}"
+        if years:
+            prev = int(year)
+        rows.append(r | {"year": year, "month": month, "to": rest, "gap": gap})
+    return frise | {"reperes": rows}
 
 
 def _relance(question: str) -> str:
@@ -36,7 +79,7 @@ def generate_html(doc: TempsLongDocument, out_dir: Path) -> list[Path]:
     # the pill names the medium, the source and the date: the length is left out of this deck
     length = duration_label(meta, short=True)
     hook = {"pill": [part for part in pill_parts(meta) if part != length], "sub_topic": pres.hook.title, "subtitle": pres.hook.promise,
-            "tagline": _HOOK_TAGLINE, "headline": pres.hook.title, "background": background, "thumb": cover_thumb(base),
+            "tagline": pres.hook.tagline or _HOOK_TAGLINE, "headline": pres.hook.title, "background": background, "thumb": cover_thumb(base),
             **hook_metrics(cover_dims(base), pres.hook.title), **cover_layers(meta, pres.hook.title)}
     specs = [
         ("hook", f"{OPT}/01_hook.html", hook),
@@ -47,15 +90,20 @@ def generate_html(doc: TempsLongDocument, out_dir: Path) -> list[Path]:
                                  "text": getattr(pres.position, key)}
                                 for key, label, icon in _POSITION_CARDS if getattr(pres.position, key)]}))] if pres.position else []),
         ("episodes", f"{TPL}/02_frise.html",
-         _nobreak(pres.episodes.model_dump()) | {"kick": "Les épisodes récents", "icon": "flame", "detail": "Les épisodes"}),
+         _nobreak(_frise_rows(pres.episodes.model_dump())) | {"kick": "Les épisodes récents", "icon": "flame", "detail": "Les épisodes",
+                                                  "tag_meta": _tag_meta(pres)}),
         ("tournants", f"{TPL}/02_frise.html",
-         _nobreak(pres.tournants.model_dump()) | {"kick": "Les tournants", "icon": "anchor", "detail": "Les textes"}),
+         _nobreak(_frise_rows(pres.tournants.model_dump())) | {"kick": "Les textes de loi", "icon": "anchor", "detail": "Les textes",
+                                                   "tag_meta": _tag_meta(pres)}),
         ("lecture", f"{TPL}/04_lecture.html",
-         _nobreak(pres.lecture.model_dump()) | {"labels": _READING_LABELS}),
+         _nobreak(pres.lecture.model_dump()) | {"labels": _READING_LABELS, "move": pres.move, "SHAPES": _pictograms()}),
         ("pieges", f"{TPL}/05_pieges.html", _nobreak(pres.pieges.model_dump())),
         ("cta", f"{OPT}/10_cta.html", {**cover_layers(meta, pres.hook.title), "background": background,
                                        "L": medium_labels(meta.medium) | {"cta_comment": _relance(pres.lecture.question)}}),
     ]
+    if pres.order:   # the slides between the hook and the sign-off follow the deck's own order
+        rank = {name: i for i, name in enumerate(pres.order)}
+        specs = [specs[0], *sorted(specs[1:-1], key=lambda s: rank.get(s[0], len(rank))), specs[-1]]
     env = _env()
     paths = []
     total = len(specs)

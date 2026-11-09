@@ -15,7 +15,10 @@
 .msg::after { content: ''; display: block; width: 90px; height: 6px; border-radius: 3px; background: #d4aa00; margin-top: 26px; }
 .det-label { margin-top: 14px; margin-bottom: 20px; font-size: 28px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: #a8a8a8; }
 /* the timeline: a thin vertical rule, the dates in gold on the left, a dot on the rule */
-.frise { position: relative; margin-top: 6px; }
+.stage { padding-bottom: 15px; }   /* the timeline may use the room down to here, and no further */
+/* the rows spread over the height the slide has left: the timeline grows (never shrinks, so a full slide is unchanged),
+   up to 150 px a row so that a short timeline does not spread out */
+.frise { position: relative; margin-top: 6px; display: flex; flex-direction: column; justify-content: space-between; flex: 1 0 auto; max-height: calc(var(--n, 4) * 150px); }
 .frise::before { content: ''; position: absolute; left: 178px; top: 12px; bottom: 12px; width: 2px; background: #3a3a3a; }
 .rep { position: relative; display: flex; gap: 0; align-items: flex-start; padding: 7px 0; }
 .rep .d { flex: none; width: 150px; padding-top: 3px; font-family: 'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace; font-size: 25px; font-weight: 700; line-height: 1.15; color: #d4aa00; letter-spacing: -0.03em; text-align: right; }
@@ -27,17 +30,62 @@
 .rep .w { display: flex; gap: 10px; align-items: flex-start; margin-top: 4px; font-size: 24px; font-weight: 500; line-height: 1.3; color: #9a9a9a; }
 .rep .w svg { width: 20px; height: 20px; flex: none; margin-top: 4px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .rep .w strong { color: #d0d0d0; font-weight: 700; }
+/* the tests of the lecture slide a point illustrates: chips under the date, stacked, so the row does not grow */
+/* a key under the rows takes room: the title and the lead sit a little tighter */
+.msg.with-key { height: 300px; }
+/* the key to the pills, once, under the rows */
+.fkey { display: flex; gap: 12px; align-items: flex-start; margin-top: 12px; padding-left: 8px; font-size: 21px; font-weight: 500; line-height: 1.22; color: #a8a8a8; }
+.fkey svg { width: 24px; height: 24px; flex: none; margin-top: 3px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.rep .tg { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; margin-top: 6px; }
+/* a pill: the criterion a point bears on — one style, gold, whichever voice's criterion it is */
+.rep .tg .pl { display: inline-flex; align-items: center; gap: 5px; font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-style: normal; font-size: 15px; font-weight: 800; letter-spacing: .05em; line-height: 1.1; text-transform: uppercase; color: #d4aa00; border: 2px solid #d4aa00; border-radius: 999px; padding: 2px 10px 3px 7px; white-space: nowrap; }
+.rep .tg .pl svg { width: 15px; height: 15px; flex: none; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+/* layout « annees »: the year drawn large, its month small above, a rule and a dot, the pills under the year */
+.frise.an::before { left: 212px; }
+.frise.an .rep { padding: 4px 0; }
+.rep .cy { flex: none; width: 200px; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.rep .cy .dy { display: flex; align-items: center; gap: 8px; }
+.rep .cy .sm { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; font-size: 17px; font-weight: 700; line-height: 1; color: #bdbdbd; letter-spacing: .02em; text-transform: uppercase; }
+.rep .cy .yr { font-family: 'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace; font-size: 36px; font-weight: 800; line-height: 1; color: #d4aa00; letter-spacing: -0.03em; }
+.rep .cy .tg { flex-direction: row; flex-wrap: wrap; justify-content: flex-end; margin-top: 0; }
+.frise.an .rep .dot { margin-top: 9px; }
+/* layout « axe »: a centred spine, the texts alternating from one side to the other, the gap between two texts written on the spine */
+.frise.ax { gap: 0; }
+.frise.ax::before { left: 50%; margin-left: -1px; }
+.frise.ax .arow { display: grid; grid-template-columns: 1fr 54px 1fr; align-items: start; padding: 3px 0; position: relative; }
+.frise.ax .arow .dot { grid-column: 2; grid-row: 1; margin: 6px auto 0; width: 24px; }
+.frise.ax .arow .dot::before { left: 5px; }
+.frise.ax .arow.l .t { grid-column: 1; grid-row: 1; text-align: right; padding: 0 10px 0 0; }
+.frise.ax .arow.l .w { flex-direction: row-reverse; text-align: right; }
+.frise.ax .arow.l .dd { grid-column: 3; grid-row: 1; align-items: flex-start; }
+.frise.ax .arow.r .t { grid-column: 3; grid-row: 1; padding: 0 0 0 10px; }
+.frise.ax .arow.r .dd { grid-column: 1; grid-row: 1; align-items: flex-end; text-align: right; }
+.frise.ax .dd { display: flex; flex-direction: column; gap: 6px; padding: 0 10px; }
+.frise.ax .dd .yr { font-family: 'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace; font-size: 27px; font-weight: 700; line-height: 1.15; color: #d4aa00; letter-spacing: -0.03em; }
+.frise.ax .dd .tg { display: flex; flex-direction: row; flex-wrap: wrap; gap: 6px; margin-top: 0; }
+.frise.ax .arow.r .dd .tg { justify-content: flex-end; }
+.frise.ax .agap { position: relative; display: flex; justify-content: center; align-items: center; height: 14px; z-index: 1; }
+.frise.ax .agap span { background: #0a0a0a; padding: 0 10px; font-size: 19px; font-weight: 700; line-height: 22px; color: #8a8a8a; border: 1px solid #2c2c2c; border-radius: 999px; }
 </style>
 </head>
 <body>
+{% macro pills(r) %}{% for t in r.tags %}{% set m = tag_meta.get(t | lower) %}<i class="pl">{% if m %}<svg viewBox="0 0 24 24">{{ m.icon | safe }}</svg>{% endif %}{{ t }}</i>{% endfor %}{% endmacro %}
 <div class="slide" style="justify-content: flex-start;">
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
   <div class="stage">
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS[icon] | safe }}</svg>{{ kick }}</span>
-    <div class="msg"><div class="mt"><h1 class="mh">{{ title | md_bold }}</h1><p class="ml">{{ lead | md_bold }}</p></div></div>
+    <div class="msg{{ ' with-key' if key else '' }}"><div class="mt"><h1 class="mh">{{ title | md_bold }}</h1><p class="ml">{{ lead | md_bold }}</p></div></div>
     <div class="det-label">{{ detail }}</div>
-    <div class="frise">{% for r in reperes %}<div class="rep"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}<span class="d">{{ r.date }}</span><span class="dot"></span><span class="t"><div class="l">{{ r.label | md_bold }}</div>{% if r.remark %}<div class="w"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg><span>{{ r.remark | md_bold }}</span></div>{% endif %}</span></div>{% endfor %}</div>
+    {% set perch %}{% include '_perch.html' %}{% endset %}
+    {% if layout == 'annees' %}
+    <div class="frise an" style="--n: {{ reperes | length }}">{% for r in reperes %}<div class="rep"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{{ perch | safe }}{% endif %}<span class="cy"><span class="dy">{% if r.month %}<span class="sm"><span>{{ r.month }}</span></span>{% endif %}<span class="yr">{{ r.year }}</span>{% if r.to %}<span class="sm"><span>{{ r.to }}</span></span>{% endif %}</span>{% if r.tags %}<span class="tg">{{ pills(r) }}</span>{% endif %}</span><span class="dot"></span><span class="t"><div class="l">{{ r.label | md_bold }}</div>{% if r.remark %}<div class="w"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg><span>{{ r.remark | md_bold }}</span></div>{% endif %}</span></div>{% endfor %}</div>
+    {% elif layout == 'axe' %}
+    <div class="frise ax" style="--n: {{ reperes | length }}">{% for r in reperes %}{% if r.gap %}<div class="agap"><span>{{ r.gap }}</span></div>{% endif %}<div class="rep arow {{ 'l' if loop.index is odd else 'r' }}"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{{ perch | safe }}{% endif %}<span class="dd"><span class="yr">{{ r.date }}</span>{% if r.tags %}<span class="tg">{{ pills(r) }}</span>{% endif %}</span><span class="dot"></span><span class="t"><div class="l">{{ r.label | md_bold }}</div>{% if r.remark %}<div class="w"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg><span>{{ r.remark | md_bold }}</span></div>{% endif %}</span></div>{% endfor %}</div>
+    {% else %}
+    <div class="frise" style="--n: {{ reperes | length }}">{% for r in reperes %}<div class="rep"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{{ perch | safe }}{% endif %}<span class="d">{{ r.date }}{% if r.tags %}<span class="tg">{{ pills(r) }}</span>{% endif %}</span><span class="dot"></span><span class="t"><div class="l">{{ r.label | md_bold }}</div>{% if r.remark %}<div class="w"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg><span>{{ r.remark | md_bold }}</span></div>{% endif %}</span></div>{% endfor %}</div>
+    {% endif %}
+    {% if key %}<div class="fkey"><svg viewBox="0 0 24 24">{{ ICONS.info | safe }}</svg><span>{{ key }}</span></div>{% endif %}
   </div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>

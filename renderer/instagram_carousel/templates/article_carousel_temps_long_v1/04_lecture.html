@@ -30,23 +30,55 @@
 .own { display: flex; gap: 12px; align-items: flex-start; margin-top: 16px; font-size: 26px; font-weight: 500; line-height: 1.35; color: #ececec; }
 .own svg { width: 24px; height: 24px; flex: none; margin-top: 5px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .own strong { color: #fff; font-weight: 800; }
+/* a decision table: one card per test — its name and question on the left, the two outcomes beside it, under the columns' names */
+.tb-h, .tr { display: grid; grid-template-columns: 276px 1fr 1fr; gap: 0 16px; align-items: center; }
+.tb-h { margin-top: 28px; margin-bottom: 10px; }
+.tb-h span { font-size: 18px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #a8a8a8; padding-left: 16px; white-space: nowrap; }
+.tb { display: flex; flex-direction: column; gap: 12px; }
+.tb .tr { margin-top: 0; padding: 12px 20px 12px 24px; }
+.tr .rl .s { display: flex; align-items: center; gap: 10px; }
+.tr .rl .ico { margin: 0; flex: none; width: 34px; height: 34px; }
+.tr .rl .k { font-size: 28px; font-weight: 900; color: #d4aa00; line-height: 1.1; }
+.tr .rq { margin-top: 4px; font-size: 21px; font-weight: 500; line-height: 1.15; color: #bdbdbd; }
+.tr .c { font-size: 24px; font-weight: 700; line-height: 1.2; color: #fff; padding-left: 16px; border-left: 1px solid rgba(255,255,255,.12); }
+.tr .c strong { font-weight: 900; }
+/* the second voice's signs: small cards, the sign's name in white with its icon and the explicit phrase beside it */
+.lead.am-lead { margin-top: 26px; margin-bottom: 14px; }   /* the second voice's paragraph is the lead's twin: same type, same width */
+.am-g { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }
+.am-g .am-c { margin-top: 0; display: flex; flex-direction: row; align-items: center; gap: 10px; padding: 10px 16px; text-align: left; line-height: 1.15; }
+.am-c .ico { margin: 0; flex: none; width: 28px; height: 28px; stroke: #d4aa00; }
+.am-c .ak { flex: none; font-size: 28px; font-weight: 900; color: #d4aa00; }
+.am-c .at { min-width: 0; font-size: 21px; line-height: 1.15; color: #bdbdbd; }
+/* an author line under the cards: the cards sit closer, so a two-line title still leaves it room */
+.stage.tight .read, .stage.sw.tight .read { margin-top: 16px; }
+.stage.tight .shared-w + .read, .stage.sw.tight .shared-w + .read { margin-top: 22px; }
+.stage.tight .own { margin-top: 10px; }
 </style>
 </head>
 <body>
 <div class="slide" style="justify-content: flex-start;">
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
-  <div class="stage{{ ' sw' if where else '' }}">
-    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.help | safe }}</svg>La lecture du temps</span>
+  <div class="stage{{ ' sw' if where else '' }}{{ ' tight' if author else '' }}">
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.help | safe }}</svg>{{ kicker or 'La lecture du temps' }}</span>
     <h1 class="head">{{ title | md_bold }}</h1>
     <p class="lead">{{ lead | md_bold }}</p>
-    {% if where %}<div class="shared-w"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="21" y1="21" x2="15.8" y2="15.8"/></svg><span><b>Où regarder</b> : {{ where }}</span></div>{% endif %}
-    {% set SHAPES = {'rupture': '<path d="M3 18h7V6h11"/>', 'continuite': '<path d="M3 18L21 6"/><circle cx="12" cy="12" r="1.6"/>', 'cycle': '<path d="M2 12c2.5-8 5.5-8 8 0s5.500 8 8 0 3-5 4-4"/>'} %}
+    {% if where %}<div class="shared-w"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="21" y1="21" x2="15.8" y2="15.8"/></svg><span><b>{{ where_label or 'Où regarder' }}</b> : {{ where }}</span></div>{% endif %}
+    
+    {% if aside_cards %}<div class="tb-h"><span></span><span>{{ heads[0] }}</span><span>{{ heads[1] }}</span></div>
+    <div class="tb">{% for r in readings %}<div class="card read tr"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}
+      <div class="rl"><div class="s"><svg class="ico" viewBox="0 0 24 24">{{ (SHAPES[r.icon] if r.icon in SHAPES else (SHAPES[r.kind] if r.kind in SHAPES else SHAPES.get(move, SHAPES['tests']))) | safe }}</svg><span class="k">{{ r.label or labels.get(r.kind, r.kind) }}</span></div><div class="rq">{{ r.signature }}</div></div>
+      <div class="c">{{ r.indicator | md_bold }}</div><div class="c">{{ r.other | md_bold }}</div>
+    </div>{% endfor %}</div>
+    <p class="lead am-lead">{{ aside_heading | md_bold }}</p>
+    <div class="am-g">{% for c in aside_cards %}<div class="card read am-c"><svg class="ico" viewBox="0 0 24 24">{{ (SHAPES.get(c.icon) or SHAPES['tests']) | safe }}</svg><span class="ak">{{ c.label }}</span><span class="at">{{ c.text }}</span></div>{% endfor %}</div>
+    {% else %}
     {% for r in readings %}<div class="card read"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}
-      <div class="s"><svg class="ico" viewBox="0 0 24 24">{{ SHAPES[r.kind] | safe }}</svg><span class="k">{{ labels[r.kind] }} :</span> {{ r.signature | md_bold }}</div>
+      <div class="s"><svg class="ico" viewBox="0 0 24 24">{{ (SHAPES[r.icon] if r.icon in SHAPES else (SHAPES[r.kind] if r.kind in SHAPES else SHAPES.get(move, SHAPES['tests']))) | safe }}</svg><span class="k">{{ r.label or labels.get(r.kind, r.kind) }} :</span> {{ r.signature | md_bold }}</div>
       {% if r.indicator %}<div class="t">{{ r.indicator | md_bold }}</div>{% endif %}
       {% if r.where and not where %}<div class="w"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><span><b>Où regarder</b> : {{ r.where }}</span></div>{% endif %}
     </div>{% endfor %}
+    {% endif %}
     {% if author %}<div class="own"><svg viewBox="0 0 24 24">{{ ICONS.speech_bubble | safe }}</svg><span>{{ author | md_bold }}</span></div>{% endif %}
   </div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>

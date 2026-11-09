@@ -951,124 +951,219 @@
     }
   },
   "presentation": {
-    "caption": "Le 28 octobre 2026, quatre rapporteurs spéciaux mandatés par le Conseil des droits de l'homme de l'ONU, qui ne s'expriment pas au nom de l'organisation, se disent « consternés » par la réponse des autorités aux manifestations lycéennes et étudiantes. Ils jugent « disproportionnée » l'ampleur des interpellations et des gardes à vue, qui touchent plusieurs milliers de personnes, principalement des mineurs, et estiment qu'elle dissuade d'exercer les libertés d'expression et de réunion. Amnesty International évoque un « glissement » vers des pratiques autoritaires. Les mêmes experts condamnent aussi les violences contre des policiers et les dégâts matériels.\n\nCe carrousel ne tranche pas. Il donne des repères datés, sur dix ans puis sur plus d'un demi-siècle, et trois façons de lire le temps (rupture, continuité, cycle) pour tester une question : interpelle-t-on plus qu'avant ? Chacune prédit autre chose dans les chiffres du ministère de l'Intérieur ou du Défenseur des droits, quand on les trouve.\n\nEt vous, votre intuition avant de regarder : rupture, continuité ou cycle ? Dites-le en commentaire.\n\n#maintiendelordre #libertés #manifestations #espritcritique",
+    "caption": "Le 28 octobre 2026, quatre rapporteurs spéciaux mandatés par le Conseil des droits de l'homme de l'ONU, qui ne s'expriment pas au nom de l'organisation, se disent « consternés » par la réponse des autorités aux manifestations lycéennes et étudiantes. Ils jugent « disproportionnée » l'ampleur des interpellations et des gardes à vue, tout en condamnant les violences contre des policiers. Amnesty International évoque, elle, un « glissement » vers des pratiques autoritaires.\n\nCe carrousel ne tranche pas. Jusqu'où va le maintien de l'ordre avant de devenir « répression » ? Les experts et Amnesty ne placent pas la ligne au même endroit, et l'article ne donne ni décompte précis ni réponse du gouvernement. Voici les critères de chaque camp, puis cinq épisodes et quatre textes depuis 1970 à mettre en parallèle avec eux, et quatre points à vérifier avant de classer.\n\nSelon vous, où passe la ligne : par un critère des experts, un signe d'Amnesty, ou ailleurs ? Dites-le en commentaire.\n\n#maintiendelordre #libertés #manifestations #espritcritique",
     "hook": {
       "title": "Experts de l'ONU : « **consternés** » par la « répression »",
-      "promise": "Interpelle-t-on plus qu'avant lors des manifestations ?"
+      "promise": "Jusqu'où va le maintien de l'ordre avant de devenir « répression » ?",
+      "tagline": "Deux camps, leurs critères pour **placer la ligne**."
     },
     "tournants": {
-      "title": "Les textes sur les **manifestations**",
-      "lead": "Amnesty évoque une « surenchère sécuritaire » : voici quatre textes, de 1970 à 2026.",
+      "title": "Ce que les textes **permettent**",
+      "lead": "« Surenchère sécuritaire » : quatre textes en cinquante ans, adoptés ou en discussion.",
       "reperes": [
         {
           "date": "1970",
-          "label": "Loi « anticasseurs » : sanction des violences collectives",
-          "remark": "Une sanction pénale, au-delà des auteurs identifiés"
+          "label": "Loi « anticasseurs » : violences collectives",
+          "remark": "Au-delà de l'auteur identifié des violences",
+          "tags": [
+            "cible"
+          ]
         },
         {
           "date": "2010",
           "label": "Loi contre les violences de groupes",
-          "remark": "Un délit visant les participants, pas seulement les auteurs"
+          "remark": "Les participants, pas que l'auteur",
+          "tags": [
+            "cible"
+          ]
         },
         {
           "date": "2019",
           "label": "Loi « anticasseurs » : fouilles et interdictions",
-          "remark": "Le préfet peut interdire à une personne de manifester"
+          "remark": "Une personne, avant les faits",
+          "tags": [
+            "cible",
+            "effet"
+          ]
         },
         {
           "date": "oct. 2026",
-          "label": "Le Sénat adopte le projet de loi « casseurs-payeurs »",
-          "remark": "Une responsabilité civile : payer les dégâts du groupe, même sans en être l'auteur"
+          "label": "Le Sénat adopte le projet « casseurs-payeurs »",
+          "remark": "Le groupe paie les dégâts, même sans en être l'auteur",
+          "tags": [
+            "cible",
+            "proportion"
+          ]
         }
-      ]
+      ],
+      "key": "Épisodes et textes hors de l'article : à vérifier avant d'en tirer une conclusion.",
+      "layout": "axe"
     },
     "episodes": {
-      "title": "Quand on **interpelle** en nombre",
-      "lead": "Les experts pointent des « interpellations massives » : quatre épisodes depuis 2016.",
+      "title": "Cinq épisodes à examiner",
+      "lead": "« Interpellations massives » : à quels critères chacun de ces épisodes renvoie-t-il ?",
       "reperes": [
         {
           "date": "2016",
           "label": "Mobilisations contre la loi Travail",
-          "remark": "Des lycéens arrêtés devant leurs lycées"
+          "remark": "Lycéens arrêtés devant leurs lycées",
+          "tags": [
+            "cible"
+          ]
         },
         {
           "date": "2018–2019",
           "label": "Gilets jaunes : manifestations chaque samedi",
-          "remark": "Des gardes à vue par milliers"
+          "remark": "Blessés par lanceurs de balles",
+          "tags": [
+            "proportion"
+          ]
+        },
+        {
+          "date": "nov. 2020",
+          "label": "Manifestations contre la loi « sécurité globale »",
+          "remark": "Des journalistes interpellés ou blessés",
+          "tags": [
+            "presse"
+          ]
         },
         {
           "date": "mars 2023",
           "label": "Réforme des retraites : manifestations sauvages",
-          "remark": "Des arrestations dénoncées par des ONG"
+          "remark": "Arrestations dénoncées par des ONG",
+          "tags": []
         },
         {
           "date": "juin 2023",
           "label": "Émeutes après la mort de Nahel Merzouk",
-          "remark": "Des arrestations en nombre, dont des mineurs"
-        }
-      ]
-    },
-    "lecture": {
-      "title": "Rupture, continuité ou **cycle** ?",
-      "lead": "Pour trancher : comparez les interpellations par manifestant d'un épisode à l'autre, et voyez si les lois peuvent l'expliquer.",
-      "readings": [
-        {
-          "kind": "rupture",
-          "signature": "Interpelle-t-on soudain bien plus ?",
-          "indicator": "Le nombre d'interpellations d'octobre sortirait de la **trajectoire** des épisodes précédents",
-          "where": "Ministère de l'Intérieur, bilans annuels"
-        },
-        {
-          "kind": "continuite",
-          "signature": "Octobre prolonge-t-il la tendance ?",
-          "indicator": "Octobre **prolongerait** la tendance des épisodes précédents, sans saut ni retour en arrière",
-          "where": "Ministère de l'Intérieur, bilans annuels"
-        },
-        {
-          "kind": "cycle",
-          "signature": "Interpelle-t-on moins après un pic ?",
-          "indicator": "Après chaque épisode, les interpellations **redescendraient** vers leur niveau d'avant",
-          "where": "Défenseur des droits, rapports annuels"
+          "remark": "Arrestations en nombre, dont des mineurs",
+          "tags": [
+            "cible"
+          ]
         }
       ],
-      "question": "Votre intuition avant de regarder : rupture, continuité ou cycle ?",
+      "key": "Épisodes et textes hors de l'article : à vérifier avant d'en tirer une conclusion.",
+      "layout": "annees"
+    },
+    "lecture": {
+      "kicker": "Les critères de chacun",
+      "title": "Maintien de l'ordre ou « **répression** » ?",
+      "lead": "Pour les experts, trois critères séparent l'approprié de l'excessif.",
+      "readings": [
+        {
+          "kind": "cible",
+          "signature": "Qui est visé ?",
+          "indicator": "les auteurs de violences",
+          "where": "",
+          "label": "Cible",
+          "other": "des milliers, surtout mineurs"
+        },
+        {
+          "kind": "proportion",
+          "signature": "Par rapport aux violences ?",
+          "indicator": "à la mesure",
+          "where": "",
+          "label": "Proportion",
+          "other": "disproportionnée"
+        },
+        {
+          "kind": "effet",
+          "signature": "Sur le droit de manifester ?",
+          "indicator": "aucun effet",
+          "where": "",
+          "label": "Effet",
+          "other": "dissuade"
+        }
+      ],
+      "question": "Selon vous, où passe la ligne : par un critère des experts, un signe d'Amnesty, ou ailleurs ?",
+      "where": "",
+      "where_label": "",
       "author": "",
-      "where": "ministère de l'Intérieur et Défenseur des droits"
+      "aside_cards": [
+        {
+          "label": "Presse",
+          "text": "attaquer la presse",
+          "icon": "book"
+        },
+        {
+          "label": "Dissidence",
+          "text": "écraser la dissidence",
+          "icon": "speech_bubble"
+        },
+        {
+          "label": "Techno",
+          "text": "instrumentaliser les technologies",
+          "icon": "eye"
+        },
+        {
+          "label": "Peur",
+          "text": "gouverner par la peur",
+          "icon": "flame"
+        },
+        {
+          "label": "Ennemi",
+          "text": "fabriquer un ennemi",
+          "icon": "pushpin"
+        },
+        {
+          "label": "Inégalités",
+          "text": "exploiter les inégalités",
+          "icon": "hierarchy"
+        },
+        {
+          "label": "Pouvoirs",
+          "text": "éliminer les contre-pouvoirs",
+          "icon": "shield"
+        }
+      ],
+      "heads": [
+        "Approprié",
+        "Excessif"
+      ],
+      "aside_heading": "Pour Amnesty, sept signes d'un « glissement »."
     },
     "pieges": {
-      "title": "Quatre points à **vérifier** avant de comparer",
+      "title": "Quatre points à **vérifier** avant de classer",
       "lead": "",
       "pieges": [
         {
-          "title": "Un jugement, pas une mesure",
-          "question": "« Disproportionnée » décrit-il un nombre d'interpellations, ou un jugement porté dessus ?"
+          "title": "Une étiquette n'est pas un verdict",
+          "question": "Elle indique simplement ce qu'elle éclaire ; la conclusion vous appartient."
         },
         {
-          "title": "Le nombre de manifestants",
-          "question": "Interpelle-t-on plus, ou y a-t-il simplement plus de manifestants à interpeller ?"
+          "title": "Un texte n'est pas une pratique",
+          "question": "La loi permet-elle seulement, ou l'a-t-on vraiment appliquée en octobre ?"
         },
         {
-          "title": "Les épisodes retenus",
-          "question": "Les épisodes cités sont-ils les seuls ? Lesquels montrent moins d'interpellations ?"
+          "title": "Un mot fort n'est pas une mesure",
+          "question": "« Disproportionnée » est un jugement : l'article ne donne pas de décompte précis."
         },
         {
-          "title": "Le motif de l'interpellation",
-          "question": "Interpelle-t-on pour des faits commis, ou pour avoir simplement été dans le cortège ?"
+          "title": "Une sélection de cas et de textes",
+          "question": "Que manque-t-il, dans l'autre sens ? Légifrance pour les textes, le rapport des experts."
         }
       ]
     },
     "position": {
-      "kicker": "Experts de l'ONU et Amnesty",
-      "title": "La « **répression** » a pris le pas sur les causes",
-      "lead": "Pour des experts mandatés par l'ONU, l'ampleur des interpellations est disproportionnée.",
-      "ecarte": "Les experts condamnent les violences, mais jugent l'**ampleur** des interpellations « disproportionnée ».",
-      "ecarte_label": "Ce qu'ils reconnaissent",
-      "diagnostic": "La réponse **sécuritaire** a relégué au second plan les causes profondes de la mobilisation.",
-      "diagnostic_label": "Ce qu'ils reprochent",
-      "mecanisme": "L'**ampleur** des interpellations et gardes à vue dissuade d'exercer les libertés d'expression et de réunion.",
-      "mecanisme_label": "L'effet sur les libertés",
-      "issue": "Amnesty y voit un **glissement** vers des pratiques autoritaires, dans une tendance mondiale.",
-      "issue_label": "Ce qu'Amnesty y voit"
-    }
+      "kicker": "Qui dit quoi",
+      "title": "Une réponse jugée **disproportionnée**",
+      "lead": "Par des rapporteurs mandatés par l'ONU, qui condamnent aussi les violences",
+      "ecarte": "Poursuivre les **auteurs** de violences contre des policiers ou des biens : ils les condamnent.",
+      "ecarte_label": "Ce qu'ils acceptent",
+      "diagnostic": "Des interpellations **massives**, surtout de mineurs, et un recours excessif à la force.",
+      "diagnostic_label": "Où ils placent la ligne",
+      "mecanisme": "Cette ampleur **dissuade** d'exercer les libertés d'expression et de réunion.",
+      "mecanisme_label": "Ce que ça produit",
+      "issue": "Un **glissement** autoritaire, jugé sur sept critères, de la presse aux contre-pouvoirs.",
+      "issue_label": "Où Amnesty la place"
+    },
+    "order": [
+      "position",
+      "lecture",
+      "episodes",
+      "tournants",
+      "pieges"
+    ],
+    "move": "seuil"
   }
 }

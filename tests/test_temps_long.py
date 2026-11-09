@@ -22,7 +22,8 @@ from tests._carousel_steps_fixtures import full
 DECK = json.loads(Path("tests/fixtures/temps_long_deck.json").read_text(encoding="utf-8"))
 ARTICLE = ("Le Figaro, 29 Oct 2026. Amnesty évoque sept points d'alerte sur un «glissement vers des pratiques "
            "autoritaires». «la France n'est plus à l'abri de cette tendance mondiale.» L'ampleur des "
-           "interpellations «apparaît disproportionnée», et une «surenchère sécuritaire» dans la législation.")
+           "interpellations «apparaît disproportionnée», et une «surenchère sécuritaire» dans la législation. Des experts "
+           "de l'ONU «consternés» par la «répression» des manifestations.")
 
 
 def _frise(f: dict) -> dict:
@@ -30,18 +31,25 @@ def _frise(f: dict) -> dict:
     return {"title": f["title"], "lead": f["lead"], **dict(zip(("rep1", "rep2", "rep3", "rep4", "rep5"), reps + [""] * 5))}
 
 
+AXE = {"fait": "Des experts de l'ONU « consternés » par la « répression »",
+       "title": "La « répression » est-elle nouvelle ?", "move": "forme", "mot": "glissement",
+       "reponse": "Trois lectures du changement et ce que chacune ferait voir", "criteres": "Rupture, Continuité, Cycle"}
+
+
 def option_fields(deck: dict) -> dict[str, dict]:
     """Each step's flat option fields, cut from the finished deck."""
     le, pi = deck["lecture"], deck["pieges"]
     traps = [f"{x['title']} | {x['question']}" for x in pi["pieges"]]
+    cards = {f"card{i}": f"{r.get('label') or agent._OLD_LABELS[r['kind']]} | {r['signature']} | {r['indicator']}"
+             for i, r in enumerate(le["readings"], 1)}
     return {
+        "axe": {**AXE, "fait": deck["hook"]["title"]},
         "tournants": _frise(deck["tournants"]),
         "episodes": _frise(deck["episodes"]),
-        "lecture": {"title": le["title"], "lead": le["lead"],
-                    **{r["kind"]: f"{r['signature']} | {r['indicator']} | {r['where']}" for r in le["readings"]},
-                    "question": le["question"]},
+        "lecture": {"title": le["title"], "lead": le["lead"], **cards, "question": le["question"],
+                    "where": le.get("where", "")},
         "pieges": {"title": pi["title"], "lead": pi["lead"], **dict(zip(("piege1", "piege2", "piege3", "piege4"), traps))},
-        "hook": dict(deck["hook"]),
+        "hook": {"promise": deck["hook"]["promise"], "tagline": deck["hook"].get("tagline", "")},
         "position": dict(deck["position"]),
         "writing": {"caption": deck["caption"]},
     }
@@ -66,7 +74,7 @@ def _fragment(step: str) -> dict:
 
 def test_the_deck_validates():
     pres = TempsLongPresentation.model_validate(DECK)
-    assert [r.kind for r in pres.lecture.readings] == ["rupture", "continuite", "cycle"]
+    assert [r.kind for r in pres.lecture.readings] == ["rupture", "continuite", "cycle"] and pres.move == "forme"
     assert pres.episodes.reperes[1].date == "2018–2019" and pres.episodes.reperes[1].remark
     assert len(pres.episodes.reperes) == 5 and len(pres.tournants.reperes) == 4 and len(pres.pieges.pieges) == 4
     assert "mineurs" not in pres.lecture.lead and pres.lecture.lead.startswith("Pour trancher")
@@ -82,6 +90,50 @@ def test_an_older_deck_has_no_position_and_keeps_six_slides(tmp_path):
     assert [p.stem for p in paths] == ["01_hook", "02_episodes", "03_tournants", "04_lecture", "05_pieges", "06_cta"]
 
 
+def test_the_slides_between_hook_and_signoff_follow_the_deck_order(tmp_path):
+    default = renderer.generate_html(extract(full(), TempsLongPresentation.model_validate(DECK)), tmp_path / "default")
+    assert [p.stem for p in default] == ["01_hook", "02_position", "03_episodes", "04_tournants", "05_lecture", "06_pieges", "07_cta"]
+    deck = copy.deepcopy(DECK)
+    deck["order"] = ["position", "lecture", "episodes", "tournants", "pieges"]
+    paths = renderer.generate_html(extract(full(), TempsLongPresentation.model_validate(deck)), tmp_path / "ordered")
+    assert [p.stem for p in paths] == ["01_hook", "02_position", "03_lecture", "04_episodes", "05_tournants", "06_pieges", "07_cta"]
+
+
+def test_a_reference_point_draws_its_test_tags_as_pills(tmp_path):
+    deck = copy.deepcopy(DECK)
+    deck["episodes"]["reperes"][0]["tags"] = ["cible", "effet"]
+    paths = renderer.generate_html(extract(full(), TempsLongPresentation.model_validate(deck)), tmp_path / "html")
+    html_text = next(p for p in paths if p.stem.endswith("episodes")).read_text(encoding="utf-8")
+    assert '<span class="tg"><i class="pl">cible</i><i class="pl">effet</i></span>' in html_text      # no reading of that name: no icon
+    assert html_text.count('class="tg"') == 1
+
+
+def _seuil_deck() -> dict:
+    deck = copy.deepcopy(DECK)
+    deck["move"] = "seuil"
+    deck["lecture"] |= {
+        "readings": [{"kind": "cible", "label": "Cible", "signature": "Qui est visé ?", "indicator": "les auteurs", "other": "des pacifiques"},
+                     {"kind": "proportion", "label": "Proportion", "signature": "Quelle ampleur ?", "indicator": "à la mesure", "other": "disproportionnée"},
+                     {"kind": "effet", "label": "Effet", "signature": "Quel effet ?", "indicator": "aucun", "other": "dissuade"}],
+        "heads": ["Maintien de l'ordre", "« Répression »"], "aside_heading": "Amnesty juge autrement : un « glissement »",
+        "aside_cards": [{"label": "Presse", "text": "attaquer la presse", "icon": "book"}, {"label": "Peur", "text": "gouverner par la peur", "icon": "flame"}],
+        "where": "", "author": ""}
+    return deck
+
+
+def test_a_pill_shows_whose_criterion_it_is_and_its_icon(tmp_path):
+    deck = _seuil_deck()
+    deck["episodes"]["reperes"][0]["tags"] = ["cible", "presse"]
+    paths = renderer.generate_html(extract(full(), TempsLongPresentation.model_validate(deck)), tmp_path / "html")
+    texts = {p.stem[3:]: p.read_text(encoding="utf-8") for p in paths}
+    episodes = texts["episodes"]
+    assert '<i class="pl"><svg viewBox="0 0 24 24"><circle' in episodes and 'Cible'.lower() in episodes.lower()
+    assert '<i class="pl am"' not in episodes and "presse</i>" in episodes       # the second voice's pill looks like the others
+    lecture = texts["lecture"]
+    assert 'class="tb-h"' in lecture and "Maintien de l&#39;ordre" in lecture and lecture.count('class="card read tr"') == 3
+    assert lecture.count('class="card read am-c"') == 2 and "attaquer la presse" in lecture
+
+
 def test_an_older_deck_with_the_old_keys_still_loads():
     old = {k: v for k, v in copy.deepcopy(DECK).items() if k not in ("tournants", "episodes")}
     old["vague_de_fond"], old["palier"] = DECK["tournants"], DECK["episodes"]
@@ -93,17 +145,17 @@ def test_an_older_deck_with_the_old_keys_still_loads():
 
 
 def test_the_steps_run_noyau_first_and_every_step_has_its_prompt():
-    assert agent.STEP_NAMES == ["tournants", "episodes", "lecture", "pieges", "hook", "position"]
+    assert agent.STEP_NAMES == ["axe", "position", "tournants", "episodes", "lecture", "pieges", "hook"]
     for s in agent.STEPS:
         assert Path(f"agent/prompts/temps_long_steps/{s.n}_{s.name}.md").exists(), s.name
 
 
 def test_the_shared_prompt_lists_every_step():
     shared = Path("agent/prompts/temps_long_steps/0_shared.md").read_text(encoding="utf-8")
-    for name in ("Les tournants", "Les épisodes qu'on retient", "La lecture temporelle", "Les pièges du temps",
+    for name in ("L'axe", "Les tournants", "Les épisodes qu'on retient", "La slide de lecture", "Les pièges du temps",
                  "L'accroche", "La position de l'auteur", "La rédaction"):
         assert name in shared, name
-    assert "Sept étapes" in shared
+    assert "Huit étapes" in shared
 
 
 def test_fragments_rebuild_the_deck():
@@ -116,7 +168,7 @@ def test_an_empty_reference_point_is_left_out():
     frag = agent.to_fragment(agent.STEP_BY_NAME["episodes"], Option(id="a", slot="a", reason="", fields=FIELDS["episodes"]))
     assert len(frag["episodes"]["reperes"]) == 5
     assert frag["episodes"]["reperes"][0] == {"date": "2016", "label": "Mobilisations contre la loi Travail",
-                                              "remark": "Lycéens et étudiants dans la rue"}
+                                              "remark": "Lycéens et étudiants dans la rue", "tags": []}
 
 
 # ── rules ───────────────────────────────────────────────────────────────────
@@ -152,7 +204,7 @@ def test_the_tournants_take_three_or_four_points_never_five():
 
 
 def test_a_turning_point_remark_takes_two_lines_but_an_episode_remark_one():
-    eighty = "Partisans : faire payer les dégâts. Opposants : un frein au droit de manifester."
+    eighty = "Partisans : faire payer. Opposants : un frein au droit."
     assert hard("tournants", rep1=f"1986 | Un texte | {eighty}") == []
     assert any("rep1" in e and "remark" in e and "two lines" in e
                for e in hard("tournants", rep1="1986 | Un texte | " + "mot " * 30))
@@ -181,7 +233,7 @@ def test_a_label_is_two_lines_at_most():
 
 def test_a_trend_figure_is_hard_but_a_date_is_not():
     assert any("figure" in e for e in hard("episodes", rep2="2018 | Les interpellations ont augmenté de 40 % | Un cortège"))
-    assert any("figure" in e for e in hard("lecture", rupture="Un bond de 3 millions | Les séries"))
+    assert any("figure" in e for e in hard("lecture", card1="Rupture | Un bond ? | Un bond de **3 millions** d'interpellations"))
     assert hard("episodes", rep2="28 oct. 2026 | Le fait | Un cortège") == []
 
 
@@ -255,24 +307,110 @@ def test_the_duplicate_flag_only_concerns_the_episodes():
     assert not [f for f in flags("tournants", _fragment("tournants")) if "looks like" in f]
 
 
-def test_a_reading_needs_its_three_parts():
-    ok = "Y a-t-il un retour ? | Le **retour** : elle reviendrait | INSEE, séries"
-    assert hard("lecture", cycle=ok) == []
-    assert any("lecture.cycle" in e for e in hard("lecture", cycle="Des pics à chaque mobilisation ?"))
-    assert any("lecture.cycle" in e for e in hard("lecture", cycle="Un retour ? | Le **retour** : x"))
-    assert any("continuite is empty" in e for e in hard("lecture", continuite=""))
-    assert any("the test" in e and "characters" in e
-               for e in hard("lecture", cycle="Un retour ? | Le **retour** : " + "mot " * 30 + " | INSEE"))
-    assert any("bold" in e for e in hard("lecture", cycle="Un retour ? | Le retour arriverait | INSEE"))
-    assert any("question" in e for e in hard("lecture", cycle="Un retour | Le **retour** : x | INSEE"))
-    assert any("never a URL" in e for e in hard("lecture", cycle="Un retour ? | Le **retour** : x | https://insee.fr"))
+def test_a_card_needs_its_three_parts():
+    ok = "Cycle | Y a-t-il un retour ? | Le **retour** : elle reviendrait"
+    assert hard("lecture", card3=ok) == []
+    assert any("lecture.card3" in e and "must read" in e for e in hard("lecture", card3="Cycle | Des pics à chaque mobilisation ?"))
+    assert any("lecture.card3" in e and "must read" in e for e in hard("lecture", card3="Cycle | Un retour ? | "))
+    assert any("needs three cards" in e for e in hard("lecture", card1="", card2="", card3=""))
+    assert any("the text" in e and "characters" in e for e in hard("lecture", card3="Cycle | Un retour ? | Le **retour** : " + "mot " * 30))
+    assert any("bold" in e for e in hard("lecture", card3="Cycle | Un retour ? | Le retour arriverait"))
+    assert any("end with" in e for e in hard("lecture", card3="Cycle | Un retour | Le **retour** : x"))
+    assert any("the question is" in e for e in hard("lecture", card3="Cycle | " + "Un retour " * 5 + "? | Le **retour** : x"))
+    assert any("the name is" in e for e in hard("lecture", card3="Un très long nom | Un retour ? | Le **retour** : x"))
+
+
+def _duo(**changes):
+    return {"title": "Maintien de l'ordre ou « **répression** » ?", "lead": "Pour les experts, trois critères les séparent.",
+            "card1": "Rupture | Qui est visé ? | les auteurs de violences | des manifestants pacifiques",
+            "card2": "Continuité | Par rapport aux violences ? | à la mesure | disproportionnée",
+            "card3": "Cycle | Sur le droit de manifester ? | aucun effet | dissuade", "question": "Où placez-vous la ligne ?",
+            "where": "", "author": "", "head1": "Maintien de l'ordre", "head2": "« Répression »",
+            "aside_heading": "Pour Amnesty, sept signes d'un « glissement ».",
+            "aside1": "Presse | attaquer la presse | book", "aside2": "Dissidence | écraser la dissidence", **changes}
+
+
+def test_a_table_row_has_two_outcomes_and_the_signs_each_a_name_and_a_phrase():
+    def duo_hard(**c):
+        return agent.field_errors("lecture", _duo(**c), {}, ARTICLE)[0]
+    assert duo_hard() == []
+    # a row of the decision table: « critère | question | issue 1 | issue 2 »
+    assert any("must read" in e for e in duo_hard(card1="Rupture | Qui est visé ? | les auteurs"))
+    assert any("must read" in e for e in duo_hard(card1="Rupture | | les auteurs | des pacifiques"))
+    assert any("the question is" in e and "max 28" in e for e in duo_hard(card1="Rupture | Qui est donc visé, au juste, ici ? | a | b"))
+    assert any("first outcome" in e and "max 30" in e for e in duo_hard(card1="Rupture | Qui ? | " + "mot " * 12 + "| b"))
+    assert any("second outcome" in e and "max 30" in e for e in duo_hard(card1="Rupture | Qui ? | a | " + "mot " * 12))
+    assert any("the name is" in e for e in duo_hard(card1="Un très long nom | Qui ? | a | b"))
+    assert not any("question must end" in e or "bold" in e for e in duo_hard())                     # no « ? » or bold asked here
+    # the names of the columns and the line above the signs
+    for field in ("head1", "head2", "aside_heading"):
+        assert any(f"{field} is empty" in e for e in duo_hard(**{field: ""})), field
+    assert any("head1" in e and "max 20" in e for e in duo_hard(head1="Maintien de l'ordre public"))
+    assert any("aside_heading" in e and "max 50" in e for e in duo_hard(aside_heading="Pour Amnesty, " + "tout autrement " * 6))
+    # the signs: « nom | phrase | icône », a name that is a pill
+    assert any("2 to 7" in e for e in duo_hard(aside2=""))
+    assert any("must read" in e and "aside1" in e for e in duo_hard(aside1="Presse | "))
+    assert any("aside1" in e and "name" in e and "max 10" in e for e in duo_hard(aside1="Une presse attaquée | attaquer la presse"))
+    assert any("aside1" in e and "phrase" in e and "max 34" in e for e in duo_hard(aside1="Presse | " + "mot " * 10))
+    assert duo_hard(**{f"aside{i}": f"Signe {i} | une phrase" for i in range(1, 8)}) == []             # seven signs are allowed
+    assert any("lecture.where must stay empty" in e for e in duo_hard(where="ministère de l'Intérieur"))
+    assert any("lecture.author must stay empty" in e for e in duo_hard(author="Une ligne."))
+    frag = agent.to_fragment(agent.STEP_BY_NAME["lecture"], Option(id="a", slot="a", reason="", fields=_duo()))["lecture"]
+    assert frag["aside_cards"] == [{"label": "Presse", "text": "attaquer la presse", "icon": "book"}, {"label": "Dissidence", "text": "écraser la dissidence", "icon": ""}]
+    assert (frag["readings"][0]["signature"], frag["readings"][0]["indicator"], frag["readings"][0]["other"]) == \
+        ("Qui est visé ?", "les auteurs de violences", "des manifestants pacifiques")
+    assert frag["heads"] == ["Maintien de l'ordre", "« Répression »"] and frag["aside_heading"].startswith("Pour Amnesty")
+    plain = agent.to_fragment(agent.STEP_BY_NAME["lecture"], Option(id="a", slot="a", reason="", fields=FIELDS["lecture"]))["lecture"]
+    assert plain["aside_cards"] == [] and plain["heads"] == [] and plain["readings"][0]["other"] == ""
+
+
+def test_the_second_voice_names_must_match_the_axe_and_tags_may_use_both_voices():
+    axe = {"axe": {"axe": {**AXE, "move": "seuil", "criteres": "Rupture, Continuité, Cycle", "criteres2": "Presse, Dissidence"}}}
+    assert agent.field_errors("lecture", _duo(), axe, ARTICLE)[0] == []
+    assert any("signes" in e or "must be named Presse, Dissidence" in e
+               for e in agent.field_errors("lecture", _duo(aside1="Peur | gouverner par la peur"), axe, ARTICLE)[0])
+    one = {**FIELDS["episodes"], "rep1": FIELDS["episodes"]["rep1"] + " | rupture, presse"}
+    assert not [e for e in agent.field_errors("episodes", one, axe, ARTICLE)[0] if "tag" in e]
+    three = {**FIELDS["episodes"], "rep1": FIELDS["episodes"]["rep1"] + " | rupture, presse, cycle"}
+    assert any("3 tags" in e and "2 at most" in e for e in agent.field_errors("episodes", three, axe, ARTICLE)[0])
+    def axe_hard(**c):
+        return agent.field_errors("axe", {**AXE, "move": "seuil", "criteres": "Cible, Proportion, Effet", **c}, {}, ARTICLE)[0]
+    assert axe_hard(criteres2="Presse, Dissidence, Techno") == []
+    assert any("only for the move seuil" in e for e in agent.field_errors("axe", {**AXE, "criteres2": "Presse, Dissidence"}, {}, ARTICLE)[0])
+    assert any("signs" in e for e in axe_hard(criteres2="Presse"))
+    assert any("at most" in e for e in axe_hard(criteres2="Presse, Une presse attaquée"))
+
+
+def test_the_cards_take_the_axe_criteria_in_order():
+    frags = _fragment("axe")
+    assert agent.field_errors("lecture", FIELDS["lecture"], frags, ARTICLE)[0] == []
+    swapped = {**FIELDS["lecture"], "card1": FIELDS["lecture"]["card2"], "card2": FIELDS["lecture"]["card1"]}
+    assert any("must be named Rupture, Continuité, Cycle" in e for e in agent.field_errors("lecture", swapped, frags, ARTICLE)[0])
+    seuil = {"axe": {"axe": {**AXE, "move": "seuil", "criteres": "Cible, Proportion, Effet"}}}
+    own = {**FIELDS["lecture"], "card1": "Cible | Qui est visé ? | Les **auteurs**, pas la foule",
+           "card2": "Proportion | À la mesure ? | L'**ampleur** est jugée disproportionnée",
+           "card3": "Effet | Quel effet ? | L'ampleur **dissuade** de manifester"}
+    assert agent.field_errors("lecture", own, seuil, ARTICLE)[0] == []
+    assert any("must be named" in e for e in agent.field_errors("lecture", FIELDS["lecture"], seuil, ARTICLE)[0])
+
+
+def test_an_older_lecture_keeps_its_three_readings_without_an_axe():
+    old = {"title": "Rupture, continuité ou **cycle** ?", "lead": FIELDS["lecture"]["lead"], "question": FIELDS["lecture"]["question"],
+           "rupture": "Un saut ? | Le **saut** : il sortirait de la série | INSEE",
+           "continuite": "Octobre prolonge-t-il la tendance ? | Le **prolongement** : sans saut | INSEE",
+           "cycle": "Y a-t-il un retour ? | Le **retour** : il reviendrait | INSEE"}
+    assert agent.field_errors("lecture", old, {}, ARTICLE)[0] == []
+    frag = agent.to_fragment(agent.STEP_BY_NAME["lecture"], Option(id="a", slot="a", reason="", fields=old))
+    assert [(r["kind"], r["label"], r["where"]) for r in frag["lecture"]["readings"]] == [
+        ("rupture", "Rupture", "INSEE"), ("continuite", "Continuité", "INSEE"), ("cycle", "Cycle", "INSEE")]
+    assert any("où regarder" in e for e in agent.field_errors("lecture", {**old, "rupture": "Un saut ? | Le **saut** : x"}, {}, ARTICLE)[0])
 
 
 def test_a_line_that_refers_to_nothing_of_the_lead_or_slides_2_and_3_is_flagged_not_blocked():
-    off = "Des pics à chaque mobilisation ? | Les **mêmes données**, ordonnées dans le temps | INSEE"
+    off = "Cycle | Des pics à chaque mobilisation ? | Les **mêmes données**, ordonnées dans le temps"
     frags = {**_fragment("tournants"), **_fragment("episodes")}
-    assert hard("lecture", cycle=off) == []
-    assert any(f.startswith("lecture.cycle: the line refers to nothing") for f in flags("lecture", frags, cycle=off))
+    assert hard("lecture", card3=off) == []
+    assert any(f.startswith("lecture.card3: the text refers to nothing") for f in flags("lecture", frags, card3=off))
     assert not [f for f in flags("lecture", frags) if "refers to nothing" in f]
 
 
@@ -280,7 +418,7 @@ def test_a_line_can_point_at_an_episode_a_text_or_a_year():
     frags = {**_fragment("tournants"), **_fragment("episodes")}
     for line in ("Le dernier épisode contre les gilets jaunes", "Les textes de 1970 à 2026, dans l'ordre",
                  "Les mois calmes de 2023 à 2025"):
-        assert not [f for f in flags("lecture", frags, rupture=f"Un saut net ? | **{line}** | INSEE") if "refers to nothing" in f], line
+        assert not [f for f in flags("lecture", frags, card1=f"Rupture | Un saut net ? | **{line}**") if "refers to nothing" in f], line
 
 
 def test_the_closing_line_is_a_question():
@@ -289,7 +427,7 @@ def test_the_closing_line_is_a_question():
 
 def test_a_trap_needs_a_title_and_a_question():
     assert any("piege1 must read" in e for e in hard("pieges", piege1="Le point de départ"))
-    assert any("must be a question" in e for e in hard("pieges", piege1="Le point de départ | Changer de date."))
+    assert hard("pieges", piege1="Le point de départ | Changer de date.") == []        # a watch-out is as good as a question
     assert any("piege4 is empty" in e for e in hard("pieges", piege4=""))
 
 
@@ -306,7 +444,7 @@ def test_a_trap_that_cites_nothing_of_the_measure_is_flagged_not_blocked():
 
 
 def test_caps_and_accusing_words_are_hard_unless_quoted():
-    assert any("hook.title" in e for e in hard("hook", title="x" * 65))
+    assert any("axe.fait" in e for e in agent.field_errors("axe", {**AXE, "fait": "x" * 65}, {}, ARTICLE)[0])
     assert any("accusing" in e for e in hard("pieges", lead="Une lecture trompeuse du temps."))
     assert hard("lecture", lead="L'ONG parle de « manipulation » de l'opinion.") == []
 
@@ -316,15 +454,98 @@ def test_the_hook_promise_is_flagged_not_blocked():
     assert any("Prendre du recul" in f for f in flags("hook", promise="Un regard sur la séquence."))
 
 
+def test_the_hook_promise_continues_the_title_and_the_axe():
+    frags = _fragment("axe")
+    assert agent.field_errors("hook", FIELDS["hook"], frags, ARTICLE) == ([], [])
+    off = "Un regard sur la séquence ?"
+    assert any("axe's question" in f for f in agent.field_errors("hook", {**FIELDS["hook"], "promise": off}, frags, ARTICLE)[1])
+    assert any("quoted passages" in f for f in agent.field_errors("hook", {**FIELDS["hook"], "promise": "Un phénomène récent, ou ancien ?"},
+                                                                  {"axe": {"axe": {**AXE, "title": "Un phénomène récent, ou ancien ?"}}}, ARTICLE)[1])
+
+
+def test_the_hook_tagline_is_one_line_with_key_words_in_gold():
+    frags = _fragment("axe")
+    assert any("tagline is empty" in e for e in agent.field_errors("hook", {**FIELDS["hook"], "tagline": ""}, frags, ARTICLE)[0])
+    assert any("no key words in gold" in e for e in agent.field_errors("hook", {**FIELDS["hook"], "tagline": "Trois lectures pour en juger."}, frags, ARTICLE)[0])
+    assert any("hook.tagline" in e and "max 56" in e for e in agent.field_errors("hook", {**FIELDS["hook"], "tagline": "mot " * 20 + "**x**"}, frags, ARTICLE)[0])
+    assert hard("hook", tagline="") == []                                            # an older deck has no axe, so no tagline to ask for
+
+
+def test_the_axe_names_a_move_a_question_and_a_word_of_the_media():
+    def axe_hard(**c):
+        return agent.field_errors("axe", {**AXE, **c}, {}, ARTICLE)[0]
+    assert axe_hard() == []
+    assert any("one of" in e for e in axe_hard(move="tendance"))
+    assert any("must be a question" in e for e in axe_hard(title="La force est-elle nouvelle."))
+    assert any("not in the source" in e for e in axe_hard(mot="dérive autoritaire du pouvoir"))
+    assert any("criteres" in e for e in axe_hard(move="seuil", criteres="Cible, Effet"))
+    assert any("Rupture, Continuité, Cycle" in e for e in axe_hard(criteres="Rupture, Cycle, Continuité"))
+    assert any("at most" in e for e in axe_hard(move="seuil", criteres="Cible, Proportion, Une durée longue"))
+    assert axe_hard(move="sequence", criteres="") == []
+    assert any("is empty" in e for e in axe_hard(reponse=""))
+    assert any("axe.fait" in e and "source does not say it" in e for e in axe_hard(fait="Des experts « scandalisés » par la loi"))
+    assert any("is empty" in e for e in axe_hard(fait=""))
+
+
+def test_the_fact_of_the_axe_is_the_hook_title_and_fix_reaches_it(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    assert agent.adapt(full(), steps_dir=steps, article_text=ARTICLE).hook.title == AXE["fait"]
+    before = list(fake.labels)
+    agent.fix(full(), steps, "axe.fait", "Des experts de l'ONU « consternés » par la « répression » en France", ARTICLE)
+    assert fake.labels == before
+    pres = agent.adapt(full(), steps_dir=steps, article_text=ARTICLE)
+    assert pres.hook.title.endswith("en France") and pres.hook.promise == DECK["hook"]["promise"]
+
+
+def test_a_key_under_the_rows_is_optional_and_drawn_when_given(tmp_path):
+    tagged = {**FIELDS["episodes"], "rep1": FIELDS["episodes"]["rep1"] + " | rupture"}
+    seuil = {"axe": {"axe": {**AXE, "criteres": "Rupture, Continuité, Cycle"}}}
+    assert not [e for e in agent.field_errors("episodes", tagged, seuil, ARTICLE)[0] if "key" in e]   # the key is optional, pills or not
+    keyed = {**tagged, "key": "Pastilles : les critères des experts et les signes d'Amnesty."}
+    assert not [e for e in agent.field_errors("episodes", keyed, seuil, ARTICLE)[0] if "key" in e]
+    assert not [e for e in agent.field_errors("episodes", FIELDS["episodes"], seuil, ARTICLE)[0] if "key" in e]   # no pills, no key
+    assert any("key is" in e and "max 100" in e for e in agent.field_errors("episodes", {**keyed, "key": "mot " * 30}, seuil, ARTICLE)[0])
+    frag = agent.to_fragment(agent.STEP_BY_NAME["episodes"], Option(id="a", slot="a", reason="", fields=keyed))
+    assert frag["episodes"]["key"].startswith("Pastilles")
+    deck = copy.deepcopy(DECK)
+    deck["episodes"]["key"] = "Pastilles : en or, les critères des experts."
+    deck["episodes"]["reperes"][0]["tags"] = ["rupture"]
+    paths = renderer.generate_html(extract(full(), TempsLongPresentation.model_validate(deck)), tmp_path / "html")
+    html_text = next(p for p in paths if p.stem.endswith("episodes")).read_text(encoding="utf-8")
+    assert '<div class="fkey">' in html_text and "Pastilles : en or, les critères des experts." in html_text
+    plain = renderer.generate_html(extract(full(), TempsLongPresentation.model_validate(DECK)), tmp_path / "plain")
+    assert 'class="fkey"' not in next(p for p in plain if p.stem.endswith("episodes")).read_text(encoding="utf-8")
+
+
+def test_a_tag_must_be_one_of_the_axe_criteria():
+    seuil = {"axe": {"axe": {**AXE, "move": "seuil", "criteres": "Cible, Proportion, Effet"}}}
+    ok = {**FIELDS["episodes"], "rep1": FIELDS["episodes"]["rep1"] + " | cible, effet"}
+    assert not [e for e in agent.field_errors("episodes", ok, seuil, ARTICLE)[0] if "tag" in e]
+    assert any("tag « durée »" in e for e in agent.field_errors("episodes", {**ok, "rep1": FIELDS["episodes"]["rep1"] + " | durée"}, seuil, ARTICLE)[0])
+    assert any("the axe has none" in e or "Rupture" in e for e in agent.field_errors("episodes", ok, {}, ARTICLE)[0])
+    frag = agent.to_fragment(agent.STEP_BY_NAME["episodes"], Option(id="a", slot="a", reason="", fields=ok))
+    assert frag["episodes"]["reperes"][0]["tags"] == ["cible", "effet"] and frag["episodes"]["reperes"][1]["tags"] == []
+
+
+def test_the_move_sets_the_order_of_the_slides():
+    frags = {s.name: agent.to_fragment(s, Option(id="a", slot="a", reason="", fields=FIELDS[s.name])) for s in agent.STEPS}
+    assert agent.assemble(frags)["order"] == [] and agent.assemble(frags)["move"] == "forme"
+    frags["axe"] = {"axe": {**AXE, "move": "seuil"}}
+    assert agent.assemble(frags)["order"] == ["position", "lecture", "episodes", "tournants", "pieges"]
+
+
 def test_the_caption_needs_four_hashtags():
     assert hard("writing") == []
     assert any("hashtag" in e for e in hard("writing", caption=DECK["caption"].replace("#espritcritique", "")))
 
 
-def test_a_reading_needs_no_where_once_the_series_is_named_under_the_lead():
-    two = "Interpelle-t-on soudain bien plus ? | Le nombre d'octobre sortirait de la **trajectoire** des épisodes précédents"
-    assert any("où regarder" in e for e in hard("lecture", rupture=two))                      # three parts without a shared line
-    assert hard("lecture", rupture=two, where="ministère de l'Intérieur") == []               # two are enough with it
+def test_an_older_reading_needs_no_where_once_the_series_is_named_under_the_lead():
+    old = {**{k: v for k, v in FIELDS["lecture"].items() if not k.startswith("card")}, "where": "",
+           "rupture": "Interpelle-t-on soudain bien plus ? | Le nombre d'octobre sortirait de la **trajectoire** des épisodes précédents",
+           "continuite": "Octobre prolonge-t-il la tendance ? | Octobre **prolongerait** la tendance",
+           "cycle": "Y a-t-il un retour ? | Le **retour** : elle reviendrait"}
+    assert any("où regarder" in e for e in agent.field_errors("lecture", old, {}, ARTICLE)[0])            # three parts without a shared line
+    assert agent.field_errors("lecture", {**old, "where": "ministère de l'Intérieur"}, {}, ARTICLE)[0] == []   # two are enough with it
     assert any("URL" in e for e in hard("lecture", where="https://www.interieur.gouv.fr"))
     assert any("max 48" in e for e in hard("lecture", where="x" * 49))
 
@@ -373,23 +594,23 @@ def fake(monkeypatch):
     return calls
 
 
-def test_unattended_runs_seven_steps_and_rebuilds_the_deck(fake, tmp_path):
+def test_unattended_runs_eight_steps_and_rebuilds_the_deck(fake, tmp_path):
     pres = agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", article_text=ARTICLE)
-    assert fake.labels == [s.name for s in agent.STEPS] and len(fake.labels) == 7
+    assert fake.labels == [s.name for s in agent.STEPS] and len(fake.labels) == 8
     assert all(e == [] for e in fake.errors.values())
     assert pres.model_dump() == TempsLongPresentation.model_validate(DECK).model_dump()
 
 
 def test_guided_pauses_at_the_first_step(fake, tmp_path, capsys):
     assert agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", article_text=ARTICLE, guided=True) is None
-    assert fake.labels == ["tournants"]
-    assert agent.pending_step(tmp_path / "adapt_steps") == "tournants"
-    assert "[tournants]" in capsys.readouterr().out
+    assert fake.labels == ["axe"]
+    assert agent.pending_step(tmp_path / "adapt_steps") == "axe"
+    assert "[axe]" in capsys.readouterr().out
 
 
 def test_stop_after_a_step(fake, tmp_path):
     assert agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", article_text=ARTICLE, stop_after="episodes") is None
-    assert fake.labels == ["tournants", "episodes"]
+    assert fake.labels == ["axe", "position", "tournants", "episodes"]
 
 
 def test_a_later_step_receives_the_earlier_picks(fake, tmp_path, monkeypatch):
@@ -397,8 +618,8 @@ def test_a_later_step_receives_the_earlier_picks(fake, tmp_path, monkeypatch):
     monkeypatch.setattr(agent, "_call_with_retry",
                         lambda msg, *a, **kw: messages.append(msg) or fake(msg, *a, **kw))
     agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", article_text=ARTICLE, stop_after="pieges")
-    fixed = messages[3].split("CHOIX FIXÉS (ne les réécris pas) :")[1]
-    assert "casseurs-payeurs" in fixed and "loi Travail" in fixed and "recours à la force" in fixed
+    fixed = messages[5].split("CHOIX FIXÉS (ne les réécris pas) :")[1]
+    assert "casseurs-payeurs" in fixed and "loi Travail" in fixed and "recours à la force" in fixed and "répression" in fixed
 
 
 def test_a_pick_then_a_fix_rewrites_one_field_without_regenerating(fake, tmp_path):
@@ -421,6 +642,10 @@ def test_fix_reaches_the_traps(fake, tmp_path):
 
 def test_choose_keeps_an_edited_pick_and_warns_on_a_broken_rule(fake, tmp_path):
     steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps, article_text=ARTICLE, guided=True)
+    agent.choose(full(), steps, "axe", ["a"], {}, article_text=ARTICLE)
+    agent.adapt(full(), steps_dir=steps, article_text=ARTICLE, guided=True)
+    agent.choose(full(), steps, "position", ["a"], {}, article_text=ARTICLE)
     agent.adapt(full(), steps_dir=steps, article_text=ARTICLE, guided=True)
     warnings = agent.choose(full(), steps, "tournants", ["a"],
                             {"a.rep2": "2011 | Une hausse de 12 % | « Glissement » : un texte"}, article_text=ARTICLE)
@@ -483,8 +708,8 @@ def test_seven_slides_are_rendered(tmp_path):
         first = texts[slide].index('class="rep"')
         assert texts[slide][first:].startswith('class="rep" data-perch'), slide
         assert texts[slide].split("<body>")[1].count("data-perch") == 1
-    assert "Les tournants" in texts["04_tournants"] and "casseurs-payeurs" in texts["04_tournants"]
-    assert "Une responsabilité civile : payer les dégâts du groupe, même sans en être l'auteur" in texts["04_tournants"]
+    assert "Les textes de loi" in texts["04_tournants"] and "casseurs-payeurs" in texts["04_tournants"]
+    assert "Payer les dégâts du groupe, même sans en être l'auteur" in texts["04_tournants"]
     assert "Une sanction pénale, au-delà des auteurs identifiés" in texts["04_tournants"]
     assert "vidéosurveillance algorithmique" in texts["04_tournants"]
     assert texts["04_tournants"].count('class="rep"') == 4
@@ -575,12 +800,12 @@ def worst_case_deck(seed: int = 0) -> dict:
     quote = " « glissement »"                         # a timeline lead must quote the media
     frise = lambda step: {"title": _sample(rng, _cap(step, "title")),  # noqa: E731
                           "lead": _sample(rng, _cap(step, "lead") - len(quote)) + quote,
-                          "reperes": [{"date": "2018–2019", "label": _sample(rng, agent._LABEL_MAX),
+                          "reperes": [{"date": "2018–2019", "label": _sample(rng, agent._TOURNANTS_LABEL_MAX if step == "tournants" else agent._LABEL_MAX),
                                        "remark": _sample(rng, agent._TOURNANTS_REMARK_MAX if step == "tournants"
                                                          else agent._REMARK_MAX)}
                                       for _ in range(4 if step == "tournants" else 5)]}
     return DECK | {
-        "hook": {"title": _sample(rng, _cap("hook", "title")), "promise": _sample(rng, _cap("hook", "promise"))},
+        "hook": {"title": _sample(rng, _cap("axe", "fait")), "promise": _sample(rng, _cap("hook", "promise"))},
         "position": {"title": "**" + _sample(rng, 12) + "** " + _sample(rng, _cap("position", "title") - 14), "lead": _sample(rng, _cap("position", "lead")),
                      **{c: _sample(rng, _cap("position", c)) for c in agent._POSITION_CARDS},
                      "kicker": _sample(rng, _cap("position", "kicker")),
@@ -608,10 +833,14 @@ _LINES = """() => { const n = (sel) => [...document.querySelectorAll(sel)].map(e
   return {subtitle: n('.subtitle'), lead: n('.lead, .ml'), label: n('.rep .l'), head: n('.head, .mh'),
           hl: n('.msg .mt').filter(x => Number.isFinite(x)),
           rowh: n('.row .h span'),
-          remark: n('.rep .w span'), one: n('.read .s, .read .w span, .shared-w span'), two: n('.read .t, .piege .t small'),
+          remark: n('.rep .w span'), one: [...document.querySelectorAll('.read .s, .read .w span, .shared-w span, .own span')].filter(e => !e.closest('.duo-b')).map(e => Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight))), two: [...document.querySelectorAll('.read .t, .piege .t small')].filter(e => !e.closest('.duo-b')).map(e => Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight))),
+          duot: n('.tr .c'), duoq: n('.tr .rq'), aside: n('.am-c .at'), asidek: n('.am-c .ak'), amh: n('.am-lead'),
+          fkey: n('.fkey span'),
+          hdr: [...document.querySelectorAll('.tb-h span')].map(e => Math.round(e.getBoundingClientRect().height / (parseFloat(getComputedStyle(e).fontSize) * 1.3))),
           qlabel: [...document.querySelectorAll('.q-label')].map(e => Math.round(e.getBoundingClientRect().height / (parseFloat(getComputedStyle(e).fontSize) * 1.1))),
           kick: [...document.querySelectorAll('.kick')].map(e => Math.round(e.getBoundingClientRect().height / (parseFloat(getComputedStyle(e).fontSize) * 1.3))),
-          trap: trapTitle, say: n('.row .say'), bottom}; }"""
+          trap: trapTitle, say: n('.row .say'), bottom,
+          dateOverflow: [...document.querySelectorAll('.rep .d, .rep .cy, .rep .dd')].map(e => e.scrollWidth - e.clientWidth)}; }"""
 
 
 def _worst_case_doc(deck: dict):
@@ -637,22 +866,80 @@ def test_every_field_at_its_cap_fits_in_its_lines_and_on_the_slide(tmp_path, see
             page.set_content(f.read_text(encoding="utf-8"), wait_until="load")
             measured[f.stem] = page.evaluate(_LINES)
         browser.close()
+    _assert_every_slide_fits(measured, ("02_position", "03_episodes", "04_tournants", "05_lecture", "06_pieges"), "05_lecture")
+
+
+def _assert_every_slide_fits(measured: dict, slides: tuple, lecture_slide: str, frise_two_lines: str = "04_tournants") -> None:
     assert all(n <= 3 for n in measured["01_hook"]["subtitle"]), "the promise is three lines at most"
-    for slide in ("02_position", "03_episodes", "04_tournants", "05_lecture", "06_pieges"):
+    for slide in slides:
         m = measured[slide]
         assert all(n <= 3 for n in m["say"]), (slide, "position card", m["say"])
-        assert all(n <= (3 if slide == "05_lecture" else 2) for n in m["lead"]), (slide, "lead", m["lead"])
+        assert all(n <= (3 if slide == lecture_slide else 2) for n in m["lead"]), (slide, "lead", m["lead"])
         assert all(n <= 5 for n in m["hl"]), (slide, "the position's headline", m["hl"])
         assert all(n <= 2 for n in m["rowh"]), (slide, "a detail row's heading", m["rowh"])
         assert all(n <= 2 for n in m["head"]), (slide, "title", m["head"])
         assert all(n <= 2 for n in m["label"]), (slide, "label", m["label"])
-        assert all(n <= (2 if slide == "04_tournants" else 1) for n in m["remark"]), (slide, "remark", m["remark"])
+        assert all(n <= (2 if slide == frise_two_lines else 1) for n in m["remark"]), (slide, "remark", m["remark"])
         assert all(n <= 1 for n in m["one"]), (slide, "one-line fields", m["one"])
         assert all(n <= 1 for n in m["kick"]), (slide, "kicker", m["kick"])
         assert all(n <= 1 for n in m["qlabel"]), (slide, "card heading", m["qlabel"])
         assert all(n <= 2 for n in m["two"]), (slide, "two-line fields", m["two"])
         assert all(n <= 1 for n in m["trap"]), (slide, "trap title", m["trap"])
+        assert all(n <= 2 for n in m["duot"]), (slide, "an outcome of the table", m["duot"])
+        assert all(n <= 2 for n in m["duoq"]), (slide, "a table row's question", m["duoq"])
+        assert all(n <= 1 for n in m["asidek"]), (slide, "a sign's name", m["asidek"])
+        assert all(n <= 2 for n in m["aside"]), (slide, "a sign's phrase", m["aside"])
+        assert all(n <= 2 for n in m["amh"]), (slide, "the paragraph above the signs", m["amh"])
+        assert all(n <= 2 for n in m["fkey"]), (slide, "the key under the rows", m["fkey"])
+        assert all(n <= 1 for n in m["hdr"]), (slide, "a column header", m["hdr"])
         assert m["bottom"] <= 1255, (slide, m["bottom"])
+        assert all(n <= 0 for n in m["dateOverflow"]), (slide, "a date and its tags stay in their column", m["dateOverflow"])
+
+
+def worst_case_seuil(seed: int = 0) -> dict:
+    """The worst-case deck as a `seuil` deck: free card names, a kicker, an author line, a labelled where-line,
+    tags on the points, and the slides in the move's own order."""
+    rng = random.Random(seed + 100)
+    deck = worst_case_deck(seed)
+    deck["move"], deck["order"] = "seuil", ["position", "lecture", "episodes", "tournants", "pieges"]
+    deck["hook"]["tagline"] = "**" + _sample(rng, 14) + "** " + _sample(rng, _cap("hook", "tagline") - 18)
+    lecture = deck["lecture"]
+    lecture |= {"kicker": _sample(rng, _cap("lecture", "kicker")), "where": "", "where_label": "", "author": "",
+                "lead": _sample(rng, agent._DUO_LEAD_MAX),
+                "heads": [_sample(rng, _cap("lecture", "head1")), _sample(rng, _cap("lecture", "head2"))],
+                "aside_heading": _sample(rng, _cap("lecture", "aside_heading")),
+                "aside_cards": [{"label": _sample(rng, agent._ASIDE_NAME_MAX), "text": _sample(rng, agent._ASIDE_PHRASE_MAX), "icon": "book"}
+                                for _ in range(agent._ASIDE_CARDS[1])],
+                "readings": [{"kind": "", "label": label, "signature": _sample(rng, agent._DUO_QUESTION_MAX),
+                              "indicator": _sample(rng, agent._DUO_CELL_MAX), "other": _sample(rng, agent._DUO_CELL_MAX), "where": ""}
+                             for label in ("Proportion", "Continuité", "interpellé")]}
+    for step in ("tournants", "episodes"):
+        deck[step]["key"] = _sample(rng, agent._KEY_MAX)
+        for point in deck[step]["reperes"]:
+            point["tags"] = ["cible", "proportion"]
+    # the two layouts of a seuil deck, with the widest dates the format allows (a day and a month, then a range)
+    deck["episodes"]["layout"], deck["tournants"]["layout"] = "annees", "axe"
+    for step in ("tournants", "episodes"):
+        for point, date in zip(deck[step]["reperes"], ("28 sept. 1970", "28 sept. 2018–2019", "1986", "28 oct. 2026", "mars 2023")):
+            point["date"] = date
+    return deck
+
+
+@pytest.mark.parametrize("seed", range(4))
+def test_a_seuil_deck_at_its_caps_fits_in_its_lines_and_on_the_slide(tmp_path, seed):
+    paths = renderer.generate_html(_worst_case_doc(worst_case_seuil(seed)), tmp_path)
+    assert [p.stem for p in paths] == ["01_hook", "02_position", "03_lecture", "04_episodes", "05_tournants", "06_pieges", "07_cta"]
+    measured = {}
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page(viewport={"width": 1080, "height": 1350})
+        for f in sorted(tmp_path.glob("*.html")):
+            page.set_content(f.read_text(encoding="utf-8"), wait_until="load")
+            measured[f.stem] = page.evaluate(_LINES)
+        browser.close()
+    _assert_every_slide_fits(measured, ("02_position", "03_lecture", "04_episodes", "05_tournants", "06_pieges"),
+                             "03_lecture", "05_tournants")
+
 
 
 _HOOK_LINES = """() => { const r = (sel) => document.querySelector(sel).getBoundingClientRect();
@@ -669,7 +956,8 @@ def test_the_hook_on_a_photo_fits_at_its_caps(tmp_path, seed):
     out = tmp_path / "temps_long" / "html"
     out.mkdir(parents=True)
     rng = random.Random(seed)
-    deck = DECK | {"hook": {"title": _sample(rng, _cap("hook", "title")), "promise": _sample(rng, _cap("hook", "promise") - 2) + " ?"}}
+    deck = DECK | {"hook": {"title": _sample(rng, _cap("axe", "fait")), "promise": _sample(rng, _cap("hook", "promise") - 2) + " ?",
+                            "tagline": "**" + _sample(rng, 14) + "** " + _sample(rng, _cap("hook", "tagline") - 18)}}
     renderer.generate_html(_worst_case_doc(deck), out)
     with sync_playwright() as p:
         browser = p.chromium.launch()
