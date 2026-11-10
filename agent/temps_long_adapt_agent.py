@@ -158,6 +158,7 @@ _KNOWN_KINDS = ("rupture", "continuite", "cycle", "cible", "proportion", "effet"
 _OLD_LABELS = {"rupture": "Rupture", "continuite": "Continuité", "cycle": "Cycle"}
 _PIEGES = ("piege1", "piege2", "piege3", "piege4")
 _FRISE_STEPS = ("tournants", "episodes")
+_LAYOUTS = {"episodes": "annees", "tournants": "axe"}   # the episodes read as large years, the texts on a spine (see the renderer)
 _POSITION_CARDS = ("ecarte", "diagnostic", "mecanisme", "issue")
 
 
@@ -189,6 +190,25 @@ def _retire(steps_dir: Path, step: Step, stamp: str) -> None:
         if p.exists():
             dest.mkdir(parents=True, exist_ok=True)
             p.replace(dest / p.name)
+
+
+# The order the steps are written in, once the axe has fixed the move. `seuil` writes the lecture slide (the table and the
+# signs) BEFORE the timelines — its rows are then chosen to bear on its criteria and signs, and the writing order is the
+# reading order; the other moves keep the default order (their cards hang on the timelines' rows).
+_WRITE_ORDER = {"seuil": ("axe", "position", "lecture", "episodes", "tournants", "pieges", "hook", "writing")}
+
+
+def steps_in_order(move: str | None) -> list[Step]:
+    names = _WRITE_ORDER.get(move or "")
+    return [STEP_BY_NAME[n] for n in names] if names else list(STEPS)
+
+
+def _move_of(steps_dir: Path | None) -> str | None:
+    """The move the axe has fixed (None until it is picked)."""
+    if steps_dir is None:
+        return None
+    sf, _ = _load(steps_dir, STEP_BY_NAME["axe"])
+    return _axe({"axe": sf.fragment}).get("move") if sf is not None and sf.fragment else None
 
 
 # ── Rules ───────────────────────────────────────────────────────────────────
@@ -375,6 +395,21 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
                         flags.append(f"episodes.{name} looks like the point « {other['date']} » of the tournants — "
                                      "each slide needs its own events")
                         break
+        # when the other timeline and the lecture slide are written, every criterion and sign should be tagged somewhere
+        other = "episodes" if step == "tournants" else "tournants"
+        lecture_frag = fragments.get("lecture", {}).get("lecture", {})
+        if other in fragments and lecture_frag:
+            names = [(r.get("label") or r.get("kind") or "") for r in lecture_frag.get("readings", [])]
+            names += [c.get("label", "") for c in lecture_frag.get("aside_cards", [])]
+            names = [n for n in names if n]
+            used = {t for p in fragments[other].get(other, {}).get("reperes", []) for t in p.get("tags", [])}
+            for name in _REPERES:
+                if str(fields.get(name, "")).strip():
+                    used |= {_label_key(t) for t in _parts(str(fields[name]), 4)[3].split(",") if t.strip()}
+            used = {_label_key(t) for t in used}
+            if (unused := [n for n in names if _label_key(n) not in used]):
+                flags.append(f"{step}: no point of the two timelines is tagged " + ", ".join(unused) +
+                             " — pick points that bear on them, or accept that none does")
         key = str(fields.get("key", "")).strip()
         if len(key) > _KEY_MAX:
             hard.append(f"{step}.key is {len(key)} characters (max {_KEY_MAX}) — two lines at most")
@@ -569,7 +604,8 @@ def to_fragment(step: Step, option: Option) -> dict:
                 date, label, remark, tag_text = _parts(f[name], 4)
                 reperes.append({"date": date, "label": label, "remark": remark,
                                 "tags": [t.strip().lower() for t in tag_text.split(",") if t.strip()]})
-        return {step.name: {"title": f.get("title", ""), "lead": f.get("lead", ""), "reperes": reperes, "key": f.get("key", "")}}
+        return {step.name: {"title": f.get("title", ""), "lead": f.get("lead", ""), "reperes": reperes, "key": f.get("key", ""),
+                            "layout": _LAYOUTS[step.name]}}
     if step.name == "lecture":
         duo = bool(_aside(f))   # beside an aside a card is a table row: « critère | question | issue 1 | issue 2 »
         readings = [{"kind": key if (key := _label_key(c["label"])) in _KNOWN_KINDS else "", "label": c["label"],
@@ -611,11 +647,57 @@ def assemble(fragments: dict[str, dict]) -> dict:
 
 # ── Generating a step ───────────────────────────────────────────────────────
 
+def prompt_caps() -> dict[str, int]:
+    """Every character cap a prompt may quote, by name (« {{cap:tournants.label}} »): the prompts never write the numbers,
+    so they cannot drift from the rules the options are checked against."""
+    caps = {f"{s}.{f}": n for (s, f), (_, n) in _CAPS.items()}
+    caps |= {"frise.date": _DATE_MAX, "episodes.label": _LABEL_MAX, "episodes.remark": _REMARK_MAX,
+             "tournants.label": _TOURNANTS_LABEL_MAX, "tournants.remark": _TOURNANTS_REMARK_MAX, "frise.key": _KEY_MAX,
+             "card.name": _CARD_LABEL_MAX, "card.question": _SIGNATURE_MAX, "card.text": _INDICATOR_MAX,
+             "aside.name": _ASIDE_NAME_MAX, "aside.phrase": _ASIDE_PHRASE_MAX, "duo.question": _DUO_QUESTION_MAX,
+             "duo.cell": _DUO_CELL_MAX, "duo.lead": _DUO_LEAD_MAX, "trap.title": _PIEGE_TITLE_MAX,
+             "trap.text": _PIEGE_QUESTION_MAX, "lecture.where_short": _WHERE_MAX,
+             "tournants.min_age": _TOURNANTS_MIN_AGE, "tournants.min_age_seuil": _TOURNANTS_MIN_AGE_SEUIL,
+             "tournants.recent": _TOURNANTS_RECENT, "episodes.max_age": _EPISODES_MAX_AGE}
+    return caps
+
+
+_CAP = re.compile(r"\{\{cap:([\w.]+)\}\}")
+
+
+def fill_caps(text: str) -> str:
+    caps = prompt_caps()
+    return _CAP.sub(lambda m: str(caps[m.group(1)]), text)
+
+
+def _read_prompt(name: str) -> str:
+    return fill_caps((_PROMPTS / name).read_text(encoding="utf-8"))
+
+
 def _prompt(step: Step) -> str:
-    body = (_PROMPTS / f"{step.n}_{step.name}.md").read_text(encoding="utf-8")
+    body = _read_prompt(f"{step.n}_{step.name}.md")
     if step.option_model is None:
         return body
-    return (_PROMPTS / "0_options.md").read_text(encoding="utf-8") + "\n" + body
+    return _read_prompt("0_options.md") + "\n" + body
+
+
+def examples_for(step: Step) -> str:
+    """The author's past decisions for this step (`examples/<n>_<step>.md`), "" when there are none."""
+    path = _PROMPTS / "examples" / f"{step.n}_{step.name}.md"
+    return path.read_text(encoding="utf-8") if path.exists() else ""
+
+
+def _order_note(step: Step, fragments: dict) -> str:
+    """Which steps are already written and which come after, for the move the axe has fixed."""
+    move = _axe(fragments).get("move")
+    order = steps_in_order(move)
+    if step not in order or step.name == "axe":
+        return ""
+    i = order.index(step)
+    done = ", ".join(s.name for s in order[:i]) or "—"
+    later = ", ".join(s.name for s in order[i + 1:]) or "—"
+    return (f"ORDRE D'ÉCRITURE (mouvement {move}) : déjà écrit = {done} ; tu écris {step.name} ; à venir = {later}. "
+            "Les étapes à venir s'écriront POUR ce que tu fixes ici, jamais l'inverse.")
 
 
 def _message(step: Step, full: ArticleFullAnalysis, fragments: dict, article_text: str | None,
@@ -625,7 +707,11 @@ def _message(step: Step, full: ArticleFullAnalysis, fragments: dict, article_tex
         parts.append(f"MÉDIA (transcription ou texte) :\n{article_text.strip()}")
     if fragments:
         parts.append(f"CHOIX FIXÉS (ne les réécris pas) :\n{_j(fragments)}")
-    parts += [(_PROMPTS / "0_shared.md").read_text(encoding="utf-8"), _prompt(step)]
+    parts += [_read_prompt("0_shared.md"), _prompt(step)]
+    if (note := _order_note(step, fragments)):
+        parts.append(note)
+    if step.option_model is not None and (examples := examples_for(step)):
+        parts.append(f"EXEMPLES (décisions passées de l'auteur) :\n{examples}")
     if rejected:
         parts.append(f"DÉJÀ PROPOSÉES ET ÉCARTÉES :\n{_j([o.fields for o in rejected])}")
     if remarks:
@@ -691,7 +777,7 @@ def _pick(step: Step, sf: StepFile, picks: list[str]) -> None:
 
 
 def pending_step(steps_dir: Path) -> str | None:
-    for s in STEPS[:-1]:
+    for s in steps_in_order(_move_of(steps_dir))[:-1]:
         sf, _ = _load(steps_dir, s)
         if sf is not None and not sf.picked:
             return s.name
@@ -701,10 +787,13 @@ def pending_step(steps_dir: Path) -> str | None:
 def _run(full, no_api, article_text, steps_dir, stop_after, guided) -> TempsLongPresentation | None:
     base = base_inputs(full, article_text)
     fragments: dict[str, dict] = {}
-    for i, step in enumerate(STEPS, 1):
-        stamp = stamp_for(base, [fragments[s.name] for s in STEPS if s.n < step.n])
+    order = steps_in_order(None)       # the axe is first in every order; the move it fixes then sets the rest
+    i = 0
+    while i < len(order):
+        step = order[i]
+        stamp = stamp_for(base, [fragments[s.name] for s in order[:i]])
         sf, saved = _load(steps_dir, step) if steps_dir is not None else (None, "")
-        tag = f"Adaptation temps long — étape {i}/{len(STEPS)} ({step.name})"
+        tag = f"Adaptation temps long — étape {i + 1}/{len(order)} ({step.name})"
         if sf is None or saved != stamp:
             if sf is not None:
                 _retire(steps_dir, step, saved)
@@ -730,6 +819,9 @@ def _run(full, no_api, article_text, steps_dir, stop_after, guided) -> TempsLong
             print(f"  ⚠  {e}", file=sys.stderr)
         if step.name == stop_after:
             return None
+        if step.name == "axe":
+            order = steps_in_order(_axe(fragments).get("move"))
+        i += 1
     return TempsLongPresentation.model_validate(assemble(fragments))
 
 
@@ -750,15 +842,15 @@ def adapt(full: ArticleFullAnalysis, no_api: bool = False, article_text: str | N
 
 def _earlier(full, steps_dir: Path, step: Step, article_text: str | None) -> tuple[dict, StepFile, str]:
     fragments: dict[str, dict] = {}
-    for s in STEPS:
-        if s.n >= step.n:
-            break
+    order = steps_in_order(_move_of(steps_dir))
+    before = order[:order.index(step)] if step in order else [s for s in STEPS if s.n < step.n]
+    for s in before:
         sf, _ = _load(steps_dir, s)
         if sf is None or not sf.picked:
             raise ChoiceError(f"{s.name} has no pick: run `produce --guided` to reach step {step.n} ({step.name})")
         fragments[s.name] = sf.fragment
     sf, saved = _load(steps_dir, step)
-    stamp = stamp_for(base_inputs(full, article_text), [fragments[s.name] for s in STEPS if s.n < step.n])
+    stamp = stamp_for(base_inputs(full, article_text), [fragments[s.name] for s in before])
     if sf is None or saved != stamp:
         raise ChoiceError(f"step {step.n} ({step.name}) is missing or stale: run `produce --guided` to regenerate it")
     return fragments, sf, stamp
@@ -794,6 +886,25 @@ def choose(full, steps_dir: Path, step: str, picks: list[str], edits: dict[str, 
     log_choice(steps_dir.parent, {"step": step, "event": "pick", "offered": offered,
                                   "picked": picks, "edits": edits, "reason": reason})
     return hard
+
+
+async def verify_pick(steps_dir: Path, step: str, search=None) -> list[str]:
+    """Check the picked reference points of `tournants` / `episodes` against the web (see `temps_long_verify`):
+    the ⚠ lines for the author, the results kept beside the step and in the choice log. Advisory, never blocking."""
+    from agent import temps_long_verify as tv
+    st = STEP_BY_NAME[step]
+    sf, _ = _load(steps_dir, st)
+    if step not in tv.VERIFIED_STEPS or sf is None or not sf.picked:
+        return []
+    picked = next(o for o in sf.options if o.id == sf.picked[0])
+    results = await tv.verify_points(picked.fields, search)
+    tv.save(steps_dir, st.n, step, results)
+    log_choice(steps_dir.parent, {"step": step, "event": "verify",
+                                  "results": [{k: r[k] for k in ("field", "status", "source")} for r in results]})
+    return tv.warnings(step, results)
+
+
+VERIFIED_STEPS = ("tournants", "episodes")
 
 
 def more(full, steps_dir: Path, step: str, remark: str = "", article_text: str | None = None,
@@ -836,9 +947,10 @@ def fix(full, steps_dir: Path, field: str, text: str, article_text: str | None =
     _save(steps_dir, sf, stamp)
     base = base_inputs(full, article_text)
     fragments = {s.name: (_load(steps_dir, s)[0].fragment if _load(steps_dir, s)[0] else None) for s in STEPS}
-    for s in STEPS:
-        if s.n > owner.n and _path(steps_dir, s).exists():
-            before_frags = [fragments[x.name] for x in STEPS if x.n < s.n]
+    order = steps_in_order(_move_of(steps_dir))
+    for k, s in enumerate(order):
+        if k > order.index(owner) and _path(steps_dir, s).exists():
+            before_frags = [fragments[x.name] for x in order[:k]]
             if None in before_frags:
                 break
             _path(steps_dir, s).with_suffix(".sha256").write_text(stamp_for(base, before_frags))

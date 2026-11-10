@@ -230,6 +230,10 @@ async def cmd_choose(args: argparse.Namespace) -> None:
     except run.ChoiceError as e:
         print(e, file=sys.stderr)
         sys.exit(1)
+    # temps_long: the picked reference points are checked against the web (advisory; the API key is needed, so not with --no-api)
+    if hasattr(run, "verify_pick") and args.step in getattr(run, "VERIFIED_STEPS", ()) and not args.no_api:
+        print(f"Checking the {args.step} against the web…", file=sys.stderr, flush=True)
+        warnings = [*warnings, *await run.verify_pick(steps_dir, args.step)]
     for w in warnings:
         print(f"⚠ {w}", file=sys.stderr)
     print(f"Kept {', '.join(picks)} at {args.step}; rerun produce (or adapt) with --guided to continue.", file=sys.stderr)
@@ -502,7 +506,23 @@ async def cmd_fetch(args: argparse.Namespace) -> None:
           "Fetch one with: python main.py fetch <url>", file=sys.stderr)
 
 
+def _check_temps_long(document: Path) -> int:
+    """The deck-level check of a finished temps_long deck (cross-slide rules, no model call)."""
+    from agent.temps_long_deck_check import check_deck
+    from models.temps_long_presentation import TempsLongDocument
+    from tools.check_deck import format_report
+
+    doc = TempsLongDocument.model_validate_json(document.read_text(encoding="utf-8"))
+    report = check_deck(doc.presentation, document.parent / "adapt_steps")
+    print(format_report(report))
+    return 1 if report["temps_long rules"] else 0
+
+
 async def cmd_check(args: argparse.Namespace) -> None:
+    if Path(args.document).parent.name == TEMPS_LONG_FORMAT:
+        if args.reader:
+            print("--reader is not available for temps_long: the deck check is deterministic.", file=sys.stderr)
+        sys.exit(_check_temps_long(Path(args.document)))
     if Path(args.document).parent.name in GUIDED_AGENTS:
         print(f"check covers the 9-slide deck; the {Path(args.document).parent.name} rules run while it is adapted "
               "(a pick that breaks one comes back as a warning).", file=sys.stderr)

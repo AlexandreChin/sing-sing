@@ -15,7 +15,7 @@ from agent import temps_long_adapt_agent as agent
 from agent.carousel_steps.steps import Option
 from extractors.registry import FORMATS
 from extractors.temps_long import extract
-from models.temps_long_presentation import TempsLongPresentation
+from models.temps_long_presentation import TempsLongDocument, TempsLongPresentation
 from renderer.instagram_carousel import temps_long as renderer
 from tests._carousel_steps_fixtures import full
 
@@ -152,16 +152,22 @@ def test_the_steps_run_noyau_first_and_every_step_has_its_prompt():
 
 def test_the_shared_prompt_lists_every_step():
     shared = Path("agent/prompts/temps_long_steps/0_shared.md").read_text(encoding="utf-8")
-    for name in ("L'axe", "Les tournants", "Les épisodes qu'on retient", "La slide de lecture", "Les pièges du temps",
-                 "L'accroche", "La position de l'auteur", "La rédaction"):
+    for name in ("**axe**", "**position**", "**lecture**", "**episodes**", "**tournants**", "**pieges**", "**hook**", "**writing**"):
         assert name in shared, name
     assert "Huit étapes" in shared
+
+
+def _with_layouts(deck: dict) -> dict:
+    """The fixture deck as the pipeline builds it: the episodes as large years, the texts on a spine."""
+    deck = copy.deepcopy(deck)
+    deck["episodes"]["layout"], deck["tournants"]["layout"] = "annees", "axe"
+    return deck
 
 
 def test_fragments_rebuild_the_deck():
     frags = {s.name: agent.to_fragment(s, Option(id="a", slot="a", reason="", fields=FIELDS[s.name]))
              for s in agent.STEPS}
-    assert TempsLongPresentation.model_validate(agent.assemble(frags)) == TempsLongPresentation.model_validate(DECK)
+    assert TempsLongPresentation.model_validate(agent.assemble(frags)) == TempsLongPresentation.model_validate(_with_layouts(DECK))
 
 
 def test_an_empty_reference_point_is_left_out():
@@ -601,11 +607,78 @@ def fake(monkeypatch):
     return calls
 
 
+def _seuil_fields() -> dict:
+    """The step fields of a `seuil` deck: a decision table and signs, written before the timelines."""
+    fields = copy.deepcopy(FIELDS)
+    fields["axe"] = {**AXE, "move": "seuil", "criteres": "Cible, Proportion, Effet", "criteres2": "Presse, Dissidence"}
+    fields["lecture"] = _duo(card1="Cible | Qui est visé ? | les auteurs de violences | des milliers de mineurs",
+                             card2="Proportion | Par rapport aux violences ? | à la mesure | disproportionnée",
+                             card3="Effet | Sur le droit de manifester ? | aucun effet | dissuade")
+    return fields
+
+
+def test_a_seuil_deck_writes_the_lecture_before_the_timelines(monkeypatch, tmp_path):
+    fields = _seuil_fields()
+    labels, messages = [], {}
+
+    def call(user_message, schema, validator, no_api=False, label="", system=None):
+        labels.append(label)
+        messages[label] = user_message
+        one = copy.deepcopy(fields[label])
+        data = ({"options": [{**one, "reason": "r"}, {**one, "reason": "r2"}, {**one, "reason": "r3"}], "recommended": [0]}
+                if label != "writing" else one)
+        assert validator(data) == [], (label, validator(data))
+        return data
+
+    monkeypatch.setattr(agent, "_call_with_retry", call)
+    pres = agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", article_text=ARTICLE)
+    assert labels == ["axe", "position", "lecture", "episodes", "tournants", "pieges", "hook", "writing"]
+    assert pres.order == ["position", "lecture", "episodes", "tournants", "pieges"]
+    assert "ORDRE D'ÉCRITURE (mouvement" not in messages["axe"]
+    assert "à venir = episodes, tournants, pieges, hook, writing" in messages["lecture"]
+    assert "déjà écrit = axe, position, lecture" in messages["episodes"]
+    assert pres.episodes.layout == "annees" and pres.tournants.layout == "axe"
+    labels.clear()
+    agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", article_text=ARTICLE)       # a second run reuses every step
+    assert labels == []
+
+
+def test_a_guided_seuil_run_asks_for_the_lecture_before_the_timelines(monkeypatch, tmp_path):
+    fields = _seuil_fields()
+
+    def call(user_message, schema, validator, no_api=False, label="", system=None):
+        one = copy.deepcopy(fields[label])
+        return ({"options": [{**one, "reason": "r"}, {**one, "reason": "r2"}, {**one, "reason": "r3"}], "recommended": [0]}
+                if label != "writing" else one)
+
+    monkeypatch.setattr(agent, "_call_with_retry", call)
+    steps = tmp_path / "adapt_steps"
+    asked = []
+    for _ in range(8):
+        agent.adapt(full(), steps_dir=steps, article_text=ARTICLE, guided=True)
+        pending = agent.pending_step(steps)
+        if pending is None:
+            break
+        asked.append(pending)
+        agent.choose(full(), steps, pending, ["a"], {}, article_text=ARTICLE)
+    assert asked == ["axe", "position", "lecture", "episodes", "tournants", "pieges", "hook"]
+    deck = agent.adapt(full(), steps_dir=steps, article_text=ARTICLE, guided=True)
+    assert deck is not None and deck.move == "seuil"
+    agent.fix(full(), steps, "lecture.lead", "Pour les rapporteurs, trois critères jugent la réponse.", ARTICLE)
+    assert agent.pending_step(steps) is None                                                # the later steps are re-stamped, not stale
+
+
+def test_the_other_moves_keep_the_default_order():
+    assert [s.name for s in agent.steps_in_order("forme")] == [s.name for s in agent.STEPS]
+    assert [s.name for s in agent.steps_in_order(None)] == [s.name for s in agent.STEPS]
+    assert [s.name for s in agent.steps_in_order("seuil")][:4] == ["axe", "position", "lecture", "episodes"]
+
+
 def test_unattended_runs_eight_steps_and_rebuilds_the_deck(fake, tmp_path):
     pres = agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", article_text=ARTICLE)
     assert fake.labels == [s.name for s in agent.STEPS] and len(fake.labels) == 8
     assert all(e == [] for e in fake.errors.values())
-    assert pres.model_dump() == TempsLongPresentation.model_validate(DECK).model_dump()
+    assert pres.model_dump() == TempsLongPresentation.model_validate(_with_layouts(DECK)).model_dump()
 
 
 def test_guided_pauses_at_the_first_step(fake, tmp_path, capsys):
@@ -977,3 +1050,171 @@ def test_the_hook_on_a_photo_fits_at_its_caps(tmp_path, seed):
     assert m["tagLines"] <= 2 and m["tagWidth"] <= 900, ("the second paragraph holds on two lines", m)
     assert m["headBottom"] < m["pillBottom"] < m["promiseBottom"] < m["tagBottom"], m
     assert m["tagBottom"] < m["swipeTop"] and m["tagBottom"] < m["footTop"], m
+
+
+# ── checking the reference points against the web ───────────────────────────
+
+class _Found:
+    def __init__(self, confirming=(), contradicting=()):
+        self.confirming, self.contradicting = list(confirming), list(contradicting)
+
+
+class _Source:
+    def __init__(self, url, reason=""):
+        self.title, self.url, self.stance_reason = "source", url, reason
+
+
+def test_a_picked_point_with_no_supporting_source_is_flagged_and_the_results_are_kept(tmp_path):
+    import asyncio
+    from agent import temps_long_verify as tv
+
+    async def search(text):
+        if "Loi contre les violences" in text:
+            return _Found(confirming=[_Source("https://example.org/2010")])
+        if "Mobilisations" in text:
+            return _Found(contradicting=[_Source("https://example.org/x", "autre date")])
+        return _Found()
+
+    steps = tmp_path / "adapt_steps"
+    sf = agent.StepFile(step="tournants", options=[Option(id="a", slot="a", reason="", fields={
+        "rep1": "2010 | Loi contre les violences de groupes | Les participants",
+        "rep2": "2016 | Mobilisations contre la loi Travail | Lycéens arrêtés",
+        "rep3": "2019 | Loi « anticasseurs » | Une personne, avant les faits", "rep4": "", "rep5": ""})],
+        picked=["a"])
+    agent._save(steps, sf, "stamp")
+    warns = asyncio.run(agent.verify_pick(steps, "tournants", search))
+    assert len(warns) == 2
+    assert any("tournants.rep2" in w and "contradicts" in w and "example.org/x" in w for w in warns)
+    assert any("tournants.rep3" in w and "no source found" in w for w in warns)
+    assert not any("rep1" in w for w in warns)                                           # a confirmed point is silent
+    saved = json.loads((steps / "2_tournants.verification.json").read_text(encoding="utf-8"))
+    assert [r["status"] for r in saved] == ["confirmed", "contradicted", "unconfirmed"]
+    assert saved[0]["source"]["url"] == "https://example.org/2010"
+
+
+def test_a_search_that_cannot_run_is_reported_not_raised(tmp_path):
+    import asyncio
+    from agent import temps_long_verify as tv
+
+    async def search(text):
+        raise RuntimeError("no key")
+
+    results = asyncio.run(tv.verify_points({"rep1": "2010 | Une loi | Une remarque"}, search))
+    assert results[0]["status"] == "unavailable" and "could not be checked" in tv.warnings("tournants", results)[0]
+
+
+def test_only_the_timelines_are_checked(tmp_path):
+    import asyncio
+    steps = tmp_path / "adapt_steps"
+    sf = agent.StepFile(step="pieges", options=[Option(id="a", slot="a", reason="", fields={})], picked=["a"])
+    agent._save(steps, sf, "stamp")
+    assert asyncio.run(agent.verify_pick(steps, "pieges")) == []
+
+
+# ── the prompts quote the code's caps, never their own numbers ─────────────
+
+_PROMPT_FILES = sorted((Path(agent.__file__).parent / "prompts" / "temps_long_steps").glob("*.md"))
+
+
+def test_the_prompts_hold_no_hard_coded_cap():
+    """A cap is written {{cap:step.field}} and filled from the rules: a number typed in a prompt would drift from the code."""
+    import re
+    for path in _PROMPT_FILES:
+        text = path.read_text(encoding="utf-8")
+        assert not re.search(r"≤ ?\d", text), (path.name, "a literal « ≤N » — use {{cap:…}}")
+
+
+def test_every_cap_placeholder_resolves_and_is_filled():
+    import re
+    caps = agent.prompt_caps()
+    for path in _PROMPT_FILES:
+        for name in re.findall(r"\{\{cap:([\w.]+)\}\}", path.read_text(encoding="utf-8")):
+            assert name in caps, (path.name, name)
+    for step in agent.STEPS:
+        rendered = agent._prompt(step) if step.option_model is not None else agent._read_prompt(f"{step.n}_{step.name}.md")
+        assert "{{cap:" not in rendered
+
+
+def test_a_prompt_states_the_caps_the_options_are_checked_against():
+    tournants = agent._prompt(agent.STEP_BY_NAME["tournants"])
+    assert f"{agent._TOURNANTS_LABEL_MAX} caractères au plus" in tournants and f"≤{agent._TOURNANTS_REMARK_MAX} caractères" in tournants
+    assert f"≤{agent._CAPS[('hook', 'tagline')][1]} caractères" in agent._prompt(agent.STEP_BY_NAME["hook"])
+    assert "84" not in tournants and "≤56 caractères, UNE ligne" not in agent._read_prompt("0_shared.md")
+
+
+def test_the_message_of_a_step_carries_the_order_the_examples_and_the_shared_prompt(tmp_path, monkeypatch):
+    monkeypatch.setattr(agent, "examples_for", lambda step: "## Retenus\n- un exemple" if step.name == "pieges" else "")
+    frags = {"axe": {"axe": {"move": "seuil", "criteres": "Cible, Proportion, Effet"}}}
+    msg = agent._message(agent.STEP_BY_NAME["pieges"], full(), frags, ARTICLE, [], [])
+    assert "ORDRE D'ÉCRITURE (mouvement seuil)" in msg and "EXEMPLES (décisions passées de l'auteur)" in msg and "un exemple" in msg
+    assert "EXEMPLES" not in agent._message(agent.STEP_BY_NAME["hook"], full(), frags, ARTICLE, [], [])
+
+
+# ── the deck-level check ────────────────────────────────────────────────────
+
+def _seuil_pres() -> TempsLongPresentation:
+    deck = copy.deepcopy(DECK)
+    deck["move"], deck["order"] = "seuil", ["position", "lecture", "episodes", "tournants", "pieges"]
+    deck["lecture"] = {**deck["lecture"], "readings": [
+        {"kind": "", "label": "Cible", "signature": "Qui est visé ?", "indicator": "les auteurs", "other": "des milliers", "where": ""},
+        {"kind": "", "label": "Effet", "signature": "Sur le droit ?", "indicator": "aucun effet", "other": "dissuade", "where": ""}],
+        "heads": ["Maintien de l'ordre", "Répression"], "aside_heading": "Pour Amnesty, sept signes d'un glissement.",
+        "aside_cards": [{"label": "Presse", "text": "attaquer la presse", "icon": "book"},
+                        {"label": "Peur", "text": "gouverner par la peur", "icon": "flame"}]}
+    deck["hook"]["tagline"] = "Les rapporteurs jugent la réponse, Amnesty la trajectoire : à vous de **juger**."
+    deck["episodes"]["reperes"][0]["tags"] = ["cible"]
+    deck["tournants"]["reperes"][0]["tags"] = ["presse"]
+    deck["episodes"]["key"] = deck["tournants"]["key"] = "Les [[étiquettes]] ne sont pas des verdicts."
+    return TempsLongPresentation.model_validate(deck)
+
+
+def test_the_deck_check_lists_what_no_timeline_uses_and_a_tag_that_names_nothing():
+    from agent.temps_long_deck_check import check_deck
+    report = check_deck(_seuil_pres())
+    assert report["temps_long rules"] == []
+    assert any("never used as a tag" in a and "Effet" in a and "Peur" in a and "Presse" not in a for a in report["editorial (advisory)"])
+    pres = _seuil_pres()
+    pres.episodes.reperes[1].tags = ["dissidence"]
+    assert any("« dissidence »" in r for r in check_deck(pres)["temps_long rules"])
+
+
+def test_the_deck_check_wants_the_camps_named_in_the_tagline_and_the_tags_explained():
+    from agent.temps_long_deck_check import check_deck
+    pres = _seuil_pres()
+    pres.hook.tagline = "Deux grilles de lecture à croiser pour en **juger**."
+    pres.tournants.key = ""
+    advice = check_deck(pres)["editorial (advisory)"]
+    assert any("tagline names none of the camps" in a for a in advice)
+    assert any("tournants" in a and "nothing explains them" in a for a in advice)
+    assert not any("tagline names none" in a for a in check_deck(_seuil_pres())["editorial (advisory)"])
+
+
+def test_the_deck_check_reports_the_points_the_web_could_not_confirm(tmp_path):
+    from agent.temps_long_deck_check import check_deck
+    (tmp_path / "2_tournants.verification.json").write_text(json.dumps([
+        {"field": "rep1", "claim": "Une loi (2010)", "status": "confirmed", "source": {}, "reason": ""},
+        {"field": "rep2", "claim": "Un texte (2019)", "status": "unconfirmed", "source": None, "reason": ""}]), encoding="utf-8")
+    advice = check_deck(_seuil_pres(), tmp_path)["editorial (advisory)"]
+    assert any("tournants.rep2" in a and "unconfirmed" in a for a in advice) and not any("rep1" in a for a in advice)
+
+
+def test_the_check_command_covers_temps_long(tmp_path, capsys):
+    import main
+    folder = tmp_path / "temps_long"
+    folder.mkdir()
+    doc = TempsLongDocument.model_validate({"analysis": json.loads(full().model_dump_json()),
+                                            "presentation": _seuil_pres().model_dump()})
+    (folder / "extract.json").write_text(doc.model_dump_json(), encoding="utf-8")
+    assert main._check_temps_long(folder / "extract.json") == 0
+    assert "editorial (advisory)" in capsys.readouterr().out
+
+
+def test_a_second_timeline_that_leaves_criteria_untagged_is_flagged_only_when_the_lecture_is_written():
+    lecture = {"lecture": {"lecture": {"readings": [{"label": "Cible", "kind": ""}, {"label": "Effet", "kind": ""}],
+                                       "aside_cards": [{"label": "Presse"}, {"label": "Peur"}]}}}
+    other = {"episodes": {"episodes": {"reperes": [{"date": "2016", "label": "x", "remark": "", "tags": ["cible"]}]}}}
+    frags = {"axe": {"axe": {**AXE, "move": "seuil", "criteres": "Cible, Effet", "criteres2": "Presse, Peur"}}, **lecture, **other}
+    fields = {**FIELDS["tournants"], "rep1": FIELDS["tournants"]["rep1"].split(" | ")[0] + " | Une loi | Une remarque | presse"}
+    flag = [f for f in agent.field_errors("tournants", fields, frags, ARTICLE)[1] if "is tagged" in f]
+    assert flag and "Effet" in flag[0] and "Peur" in flag[0] and "Cible" not in flag[0] and "Presse" not in flag[0]
+    assert not [f for f in agent.field_errors("tournants", fields, {k: v for k, v in frags.items() if k != "lecture"}, ARTICLE)[1] if "is tagged" in f]
