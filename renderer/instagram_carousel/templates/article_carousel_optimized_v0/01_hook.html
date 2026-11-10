@@ -64,8 +64,9 @@
 /* — The title, then the promise that continues it. — */
 .cover-head { font-size: 85px; font-weight: 900; line-height: 1.06; letter-spacing: -0.02em; color: #f0f0f0; max-width: 900px; margin-top: 44px; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .cover-head strong { color: #d4aa00; font-weight: 900; }
+.cover-head.ctr { text-align: center; margin-left: auto; margin-right: auto; }
 .subtitle { font-size: 46px; line-height: 1.25; color: #e6e6e6; margin-top: 30px; max-width: 900px; }
-.tagline { margin-top: 24px; font-size: 34px; line-height: 1.25; font-weight: 500; letter-spacing: -0.01em; color: #cfcfcf; white-space: nowrap; }
+.tagline { margin-top: 24px; font-size: 34px; line-height: 1.25; font-weight: 500; letter-spacing: -0.01em; color: #cfcfcf; text-wrap: balance; }
 .tagline strong { color: #d4aa00; font-weight: 800; }
 .swipe { margin-top: auto; padding-top: 24px; margin-bottom: 40px; font-size: 30px; font-weight: 700; color: #d4aa00; text-align: right; }
 .slide.bleed .swipe { position: absolute; right: 90px; bottom: 120px; margin: 0; padding: 0; }
@@ -99,7 +100,7 @@
   {% if background %}
   {# on the photo: the headline, then what the source is, then the promise #}
   <div class="photo-zone" style="background-image: url('{{ background }}')">
-    <h1 class="cover-head" style="font-size: {{ 84 if head_len <= 48 else (72 if head_len <= 80 else 60) }}px">{{ head_text | md_bold }}</h1>
+    <h1 class="cover-head{{ ' ctr' if center_head else '' }}" style="font-size: {{ 84 if head_len <= 48 else (72 if head_len <= 80 else 60) }}px">{{ head_text | md_bold }}</h1>
     {{ src_html }}
   </div>
   <div class="divider hook-divider"></div>
@@ -111,7 +112,7 @@
 
   {# French spacing is applied by the md_bold filter, for every field. #}
   <div class="divider hook-divider"></div>
-  <h1 class="cover-head" style="font-size: {{ head_size | default(85) }}px">{{ head_text | md_bold }}</h1>
+  <h1 class="cover-head{{ ' ctr' if center_head else '' }}" style="font-size: {{ head_size | default(85) }}px">{{ head_text | md_bold }}</h1>
   {% if subtitle %}<p class="subtitle">{{ subtitle | md_bold }}</p>{% endif %}
   {% if tagline %}<p class="tagline">{{ tagline | md_bold }}</p>{% endif %}
   {% endif %}

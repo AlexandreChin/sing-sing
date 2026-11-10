@@ -40,15 +40,22 @@
 .tr .rl .ico { margin: 0; flex: none; width: 34px; height: 34px; }
 .tr .rl .k { font-size: 28px; font-weight: 900; color: #d4aa00; line-height: 1.1; }
 .tr .rq { margin-top: 4px; font-size: 21px; font-weight: 500; line-height: 1.15; color: #bdbdbd; }
-.tr .c { font-size: 24px; font-weight: 700; line-height: 1.2; color: #fff; padding-left: 16px; border-left: 1px solid rgba(255,255,255,.12); }
+.tr .c { font-size: 24px; font-weight: 700; line-height: 1.2; color: #fff; padding-left: 16px; border-left: 1px solid rgba(255,255,255,.12); align-self: stretch; display: flex; align-items: center; position: relative; }
+/* the crack: one gold fissure runs between the two columns, from the headers down through every row */
+.tr .c + .c { border-left: none; }
+.tr .c + .c::before, .tb-h span:nth-child(3)::before { content: ''; position: absolute; left: -9px; top: -12px; bottom: -12px; width: 14px; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='60' viewBox='0 0 14 60'><path d='M7 0 L10 12 L4 24 L9 34 L5 46 L7 60' fill='none' stroke='%23d4aa00' stroke-width='2.5' stroke-linejoin='round'/></svg>") repeat-y center top; }
+.tb-h span { position: relative; }
+.tb-h span:nth-child(3)::before { top: -4px; bottom: -4px; left: -9px; }
 .tr .c strong { font-weight: 900; }
 /* the second voice's signs: small cards, the sign's name in white with its icon and the explicit phrase beside it */
+.stage.ctr .head, .stage.ctr > .lead:not(.am-lead) { text-align: center; }
 .lead.am-lead { margin-top: 26px; margin-bottom: 14px; }   /* the second voice's paragraph is the lead's twin: same type, same width */
-.am-g { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }
-.am-g .am-c { margin-top: 0; display: flex; flex-direction: row; align-items: center; gap: 10px; padding: 10px 16px; text-align: left; line-height: 1.15; }
+.am-g { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px; }
+.am-g .am-c { margin-top: 0; display: flex; flex-direction: row; align-items: center; gap: 10px; padding: 7px 16px; text-align: left; line-height: 1.15; }
 .am-c .ico { margin: 0; flex: none; width: 28px; height: 28px; stroke: #d4aa00; }
-.am-c .ak { flex: none; font-size: 28px; font-weight: 900; color: #d4aa00; }
-.am-c .at { min-width: 0; font-size: 21px; line-height: 1.15; color: #bdbdbd; }
+.am-c .ak { flex: none; font-size: 24px; font-weight: 900; color: #d4aa00; }
+.am-c .at { min-width: 0; font-size: 22px; line-height: 1.15; color: #e6e6e6; }
+.am-c .at strong { font-weight: 900; color: #d4aa00; }
 /* an author line under the cards: the cards sit closer, so a two-line title still leaves it room */
 .stage.tight .read, .stage.sw.tight .read { margin-top: 16px; }
 .stage.tight .shared-w + .read, .stage.sw.tight .shared-w + .read { margin-top: 22px; }
@@ -59,7 +66,7 @@
 <div class="slide" style="justify-content: flex-start;">
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
-  <div class="stage{{ ' sw' if where else '' }}{{ ' tight' if author else '' }}">
+  <div class="stage{{ ' sw' if where else '' }}{{ ' tight' if author else '' }}{{ ' ctr' if aside_cards else '' }}">
     <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.help | safe }}</svg>{{ kicker or 'La lecture du temps' }}</span>
     <h1 class="head">{{ title | md_bold }}</h1>
     <p class="lead">{{ lead | md_bold }}</p>
@@ -68,10 +75,10 @@
     {% if aside_cards %}<div class="tb-h"><span></span><span>{{ heads[0] }}</span><span>{{ heads[1] }}</span></div>
     <div class="tb">{% for r in readings %}<div class="card read tr"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}
       <div class="rl"><div class="s"><svg class="ico" viewBox="0 0 24 24">{{ (SHAPES[r.icon] if r.icon in SHAPES else (SHAPES[r.kind] if r.kind in SHAPES else SHAPES.get(move, SHAPES['tests']))) | safe }}</svg><span class="k">{{ r.label or labels.get(r.kind, r.kind) }}</span></div><div class="rq">{{ r.signature }}</div></div>
-      <div class="c">{{ r.indicator | md_bold }}</div><div class="c">{{ r.other | md_bold }}</div>
+      <div class="c"><span>{{ r.indicator | md_bold }}</span></div><div class="c"><span>{{ r.other | md_bold }}</span></div>
     </div>{% endfor %}</div>
     <p class="lead am-lead">{{ aside_heading | md_bold }}</p>
-    <div class="am-g">{% for c in aside_cards %}<div class="card read am-c"><svg class="ico" viewBox="0 0 24 24">{{ (SHAPES.get(c.icon) or SHAPES['tests']) | safe }}</svg><span class="ak">{{ c.label }}</span><span class="at">{{ c.text }}</span></div>{% endfor %}</div>
+    <div class="am-g">{% for c in aside_cards %}<div class="card read am-c"><svg class="ico" viewBox="0 0 24 24">{{ (SHAPES.get(c.icon) or SHAPES['tests']) | safe }}</svg>{% if not c.found %}<span class="ak">{{ c.label }}</span>{% endif %}<span class="at">{{ c.hl | md_bold }}</span></div>{% endfor %}</div>
     {% else %}
     {% for r in readings %}<div class="card read"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}
       <div class="s"><svg class="ico" viewBox="0 0 24 24">{{ (SHAPES[r.icon] if r.icon in SHAPES else (SHAPES[r.kind] if r.kind in SHAPES else SHAPES.get(move, SHAPES['tests']))) | safe }}</svg><span class="k">{{ r.label or labels.get(r.kind, r.kind) }} :</span> {{ r.signature | md_bold }}</div>

@@ -955,20 +955,12 @@
     "hook": {
       "title": "Experts de l'ONU : « **consternés** » par la « répression »",
       "promise": "Jusqu'où va le maintien de l'ordre avant de devenir « répression » ?",
-      "tagline": "Deux camps, leurs critères pour **placer la ligne**."
+      "tagline": "Les rapporteurs jugent la réponse, Amnesty la trajectoire : deux grilles à croiser, **à vous de juger**."
     },
     "tournants": {
-      "title": "Ce que les textes **permettent**",
-      "lead": "« Surenchère sécuritaire » : quatre textes en cinquante ans, adoptés ou en discussion.",
+      "title": "La **loi** a-t-elle ouvert la voie ?",
+      "lead": "« Surenchère sécuritaire » : quatre textes depuis 2010, dont un en cours de vote.",
       "reperes": [
-        {
-          "date": "1970",
-          "label": "Loi « anticasseurs » : violences collectives",
-          "remark": "Au-delà de l'auteur identifié des violences",
-          "tags": [
-            "cible"
-          ]
-        },
         {
           "date": "2010",
           "label": "Loi contre les violences de groupes",
@@ -987,6 +979,14 @@
           ]
         },
         {
+          "date": "mai 2021",
+          "label": "Loi « sécurité globale » : images de policiers",
+          "remark": "Diffuser leurs images : l'ex-article 24 censuré",
+          "tags": [
+            "presse"
+          ]
+        },
+        {
           "date": "oct. 2026",
           "label": "Le Sénat adopte le projet « casseurs-payeurs »",
           "remark": "Le groupe paie les dégâts, même sans en être l'auteur",
@@ -996,12 +996,12 @@
           ]
         }
       ],
-      "key": "Épisodes et textes hors de l'article : à vérifier avant d'en tirer une conclusion.",
+      "key": "Les [[étiquettes]] ne sont pas des verdicts : elles indiquent ce qu'elles éclairent.",
       "layout": "axe"
     },
     "episodes": {
       "title": "Cinq épisodes à examiner",
-      "lead": "« Interpellations massives » : à quels critères chacun de ces épisodes renvoie-t-il ?",
+      "lead": "« Interpellations massives » : de quel côté de la ligne situez-vous ces épisodes ?",
       "reperes": [
         {
           "date": "2016",
@@ -1042,13 +1042,13 @@
           ]
         }
       ],
-      "key": "Épisodes et textes hors de l'article : à vérifier avant d'en tirer une conclusion.",
+      "key": "Les [[étiquettes]] ne sont pas des verdicts : elles indiquent ce qu'elles éclairent.",
       "layout": "annees"
     },
     "lecture": {
       "kicker": "Les critères de chacun",
       "title": "Maintien de l'ordre ou « **répression** » ?",
-      "lead": "Pour les experts, trois critères séparent l'approprié de l'excessif.",
+      "lead": "Pour les rapporteurs, trois critères jugent la réponse des autorités.",
       "readings": [
         {
           "kind": "cible",
@@ -1075,7 +1075,7 @@
           "other": "dissuade"
         }
       ],
-      "question": "Selon vous, où passe la ligne : par un critère des experts, un signe d'Amnesty, ou ailleurs ?",
+      "question": "Selon vous, où passe la ligne : par un critère des rapporteurs, un signe d'Amnesty, ou ailleurs ?",
       "where": "",
       "where_label": "",
       "author": "",
@@ -1117,22 +1117,22 @@
         }
       ],
       "heads": [
-        "Approprié",
-        "Excessif"
+        "Maintien de l'ordre",
+        "Répression"
       ],
-      "aside_heading": "Pour Amnesty, sept signes d'un « glissement »."
+      "aside_heading": "Pour Amnesty, sept signes d'un glissement autoritaire."
     },
     "pieges": {
-      "title": "Quatre points à **vérifier** avant de classer",
+      "title": "Quelques précautions **avant de juger**",
       "lead": "",
       "pieges": [
         {
-          "title": "Une étiquette n'est pas un verdict",
-          "question": "Elle indique simplement ce qu'elle éclaire ; la conclusion vous appartient."
+          "title": "Une suite n'est pas une cause",
+          "question": "Qu'un texte suive des manifestations ne dit pas lequel a provoqué l'autre."
         },
         {
-          "title": "Un texte n'est pas une pratique",
-          "question": "La loi permet-elle seulement, ou l'a-t-on vraiment appliquée en octobre ?"
+          "title": "Un camp n'a pas la parole",
+          "question": "Le gouvernement n'est pas cité : on ne sait pas où il place, lui, la ligne."
         },
         {
           "title": "Un mot fort n'est pas une mesure",
@@ -1140,14 +1140,14 @@
         },
         {
           "title": "Une sélection de cas et de textes",
-          "question": "Que manque-t-il, dans l'autre sens ? Légifrance pour les textes, le rapport des experts."
+          "question": "Que manque-t-il, dans l'autre sens ? Légifrance pour les textes, le communiqué des rapporteurs."
         }
       ]
     },
     "position": {
       "kicker": "Qui dit quoi",
       "title": "Une réponse jugée **disproportionnée**",
-      "lead": "Par des rapporteurs mandatés par l'ONU, qui condamnent aussi les violences",
+      "lead": "Selon quatre rapporteurs mandatés par l'ONU, qui ne parlent pas en son nom",
       "ecarte": "Poursuivre les **auteurs** de violences contre des policiers ou des biens : ils les condamnent.",
       "ecarte_label": "Ce qu'ils acceptent",
       "diagnostic": "Des interpellations **massives**, surtout de mineurs, et un recours excessif à la force.",

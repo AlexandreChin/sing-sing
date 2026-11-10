@@ -104,7 +104,7 @@ class PiegesOption(BaseModel):
 
 class HookOption(BaseModel):
     promise: str
-    tagline: str = ""   # the second paragraph, one line, key words in gold; empty = the archetype's default
+    tagline: str = ""   # the second paragraph, two lines at most, key words in gold; empty = the archetype's default
 
 
 class PositionOption(BaseModel):
@@ -205,8 +205,8 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("lecture", "where"): ("chars", 48),   # the shared « Où regarder » line: one line under the lead
     ("axe", "criteres2"): ("chars", 90), ("axe", "fait"): ("chars", 64), ("axe", "title"): ("chars", 100), ("axe", "mot"): ("chars", 40), ("axe", "reponse"): ("chars", 120), ("axe", "criteres"): ("chars", 40),
     ("lecture", "kicker"): ("chars", 30), ("lecture", "author"): ("chars", 60), ("lecture", "where_label"): ("chars", 20),
-    ("lecture", "head1"): ("chars", 20), ("lecture", "head2"): ("chars", 20), ("lecture", "aside_heading"): ("chars", 50),
-    ("hook", "tagline"): ("chars", 56),   # one line at 34 px under the promise
+    ("lecture", "head1"): ("chars", 20), ("lecture", "head2"): ("chars", 20), ("lecture", "aside_heading"): ("chars", 60), 
+    ("hook", "tagline"): ("chars", 110),   # two lines at 34 px under the promise
     ("hook", "promise"): ("chars", 100),   # the headline: three lines at 84 px; the promise: three lines at 52 px, then the fixed tagline
     ("position", "title"): ("chars", 46), ("position", "lead"): ("chars", 90),   # slide 2: the title is the claim (70 px, two lines), the lead the sentence that names the author (34 px, two lines)
     **{("position", c): ("chars", 108) for c in _POSITION_CARDS},   # two lines in a card, three at the very worst
@@ -245,7 +245,8 @@ _REQUIRED = {"axe": ("fait", "title", "move", "mot", "reponse"),
              "pieges": ("title", "piege1", "piege2", "piege3", "piege4"),
              "position": ("title", "lead", "ecarte", "diagnostic", "mecanisme", "issue")}
 _EPISODES_MAX_AGE = 12   # years before the article: an episode older than this is no longer what people remember
-_TOURNANTS_MIN_AGE = 25  # the tournants reach back at least this far
+_TOURNANTS_MIN_AGE = 25  # the tournants reach back at least this far (10 for the move seuil: the question is about the present line)
+_TOURNANTS_MIN_AGE_SEUIL = 10
 _TOURNANTS_RECENT = 3      # ... and include a point from the last few years, a bill under discussion included
 
 
@@ -390,8 +391,9 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict],
             if step == "episodes" and min(years) < ref - _EPISODES_MAX_AGE:
                 flags.append(f"episodes reaches back to {min(years)}, over {_EPISODES_MAX_AGE} years before the article — "
                              "an older point belongs to the tournants")
-            if step == "tournants" and min(years) > ref - _TOURNANTS_MIN_AGE:
-                flags.append(f"tournants starts in {min(years)}, less than {_TOURNANTS_MIN_AGE} years before the article — "
+            min_age = _TOURNANTS_MIN_AGE_SEUIL if _axe(fragments).get("move") == "seuil" else _TOURNANTS_MIN_AGE
+            if step == "tournants" and min(years) > ref - min_age:
+                flags.append(f"tournants starts in {min(years)}, less than {min_age} years before the article — "
                              "it should reach further back")
             if step == "tournants" and max(years) < ref - _TOURNANTS_RECENT:
                 flags.append(f"tournants ends in {max(years)}, over {_TOURNANTS_RECENT} years before the article — "

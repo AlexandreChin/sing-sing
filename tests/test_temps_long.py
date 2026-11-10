@@ -131,7 +131,7 @@ def test_a_pill_shows_whose_criterion_it_is_and_its_icon(tmp_path):
     assert '<i class="pl am"' not in episodes and "presse</i>" in episodes       # the second voice's pill looks like the others
     lecture = texts["lecture"]
     assert 'class="tb-h"' in lecture and "Maintien de l&#39;ordre" in lecture and lecture.count('class="card read tr"') == 3
-    assert lecture.count('class="card read am-c"') == 2 and "attaquer la presse" in lecture
+    assert lecture.count('class="card read am-c"') == 2 and "attaquer la <strong>presse</strong>" in lecture
 
 
 def test_an_older_deck_with_the_old_keys_still_loads():
@@ -289,6 +289,13 @@ def test_a_tournants_slide_that_stays_close_is_flagged():
     assert not [f for f in flags("tournants") if "reach further back" in f]
 
 
+def test_a_seuil_tournants_slide_only_needs_ten_years_of_reach():
+    close = {"rep1": "2012 | Un repère | Un texte", "rep2": "2015 | Un repère | Un autre", "rep3": "2017 | Un repère | Encore un",
+             "rep4": ""}
+    seuil = {"axe": {"axe": {**AXE, "move": "seuil", "criteres": "Cible, Proportion, Effet"}}}
+    assert not [f for f in agent.field_errors("tournants", {**FIELDS["tournants"], **close}, seuil, ARTICLE)[1] if "reach further back" in f]
+
+
 def test_the_same_event_on_both_slides_is_flagged_not_blocked():
     twin = "2020 | Schéma national du maintien de l'ordre publié | « Disproportionnée » : la force"
     fields = {**FIELDS["episodes"], "rep3": twin}
@@ -346,7 +353,7 @@ def test_a_table_row_has_two_outcomes_and_the_signs_each_a_name_and_a_phrase():
     for field in ("head1", "head2", "aside_heading"):
         assert any(f"{field} is empty" in e for e in duo_hard(**{field: ""})), field
     assert any("head1" in e and "max 20" in e for e in duo_hard(head1="Maintien de l'ordre public"))
-    assert any("aside_heading" in e and "max 50" in e for e in duo_hard(aside_heading="Pour Amnesty, " + "tout autrement " * 6))
+    assert any("aside_heading" in e and "max 60" in e for e in duo_hard(aside_heading="Pour Amnesty, " + "tout autrement " * 6))
     # the signs: « nom | phrase | icône », a name that is a pill
     assert any("2 to 7" in e for e in duo_hard(aside2=""))
     assert any("must read" in e and "aside1" in e for e in duo_hard(aside1="Presse | "))
@@ -467,7 +474,7 @@ def test_the_hook_tagline_is_one_line_with_key_words_in_gold():
     frags = _fragment("axe")
     assert any("tagline is empty" in e for e in agent.field_errors("hook", {**FIELDS["hook"], "tagline": ""}, frags, ARTICLE)[0])
     assert any("no key words in gold" in e for e in agent.field_errors("hook", {**FIELDS["hook"], "tagline": "Trois lectures pour en juger."}, frags, ARTICLE)[0])
-    assert any("hook.tagline" in e and "max 56" in e for e in agent.field_errors("hook", {**FIELDS["hook"], "tagline": "mot " * 20 + "**x**"}, frags, ARTICLE)[0])
+    assert any("hook.tagline" in e and "max 110" in e for e in agent.field_errors("hook", {**FIELDS["hook"], "tagline": "mot " * 40 + "**x**"}, frags, ARTICLE)[0])
     assert hard("hook", tagline="") == []                                            # an older deck has no axe, so no tagline to ask for
 
 
@@ -834,7 +841,7 @@ _LINES = """() => { const n = (sel) => [...document.querySelectorAll(sel)].map(e
           hl: n('.msg .mt').filter(x => Number.isFinite(x)),
           rowh: n('.row .h span'),
           remark: n('.rep .w span'), one: [...document.querySelectorAll('.read .s, .read .w span, .shared-w span, .own span')].filter(e => !e.closest('.duo-b')).map(e => Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight))), two: [...document.querySelectorAll('.read .t, .piege .t small')].filter(e => !e.closest('.duo-b')).map(e => Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight))),
-          duot: n('.tr .c'), duoq: n('.tr .rq'), aside: n('.am-c .at'), asidek: n('.am-c .ak'), amh: n('.am-lead'),
+          duot: n('.tr .c span'), duoq: n('.tr .rq'), aside: n('.am-c .at'), asidek: n('.am-c .ak'), amh: n('.am-lead'),
           fkey: n('.fkey span'),
           hdr: [...document.querySelectorAll('.tb-h span')].map(e => Math.round(e.getBoundingClientRect().height / (parseFloat(getComputedStyle(e).fontSize) * 1.3))),
           qlabel: [...document.querySelectorAll('.q-label')].map(e => Math.round(e.getBoundingClientRect().height / (parseFloat(getComputedStyle(e).fontSize) * 1.1))),
@@ -967,6 +974,6 @@ def test_the_hook_on_a_photo_fits_at_its_caps(tmp_path, seed):
         browser.close()
     assert m["head"] <= 3, ("headline", m)
     assert m["promise"] <= 3, ("promise", m)
-    assert m["tagLines"] <= 1 and m["tagWidth"] <= 900, ("the fixed second paragraph holds on one line", m)
+    assert m["tagLines"] <= 2 and m["tagWidth"] <= 900, ("the second paragraph holds on two lines", m)
     assert m["headBottom"] < m["pillBottom"] < m["promiseBottom"] < m["tagBottom"], m
     assert m["tagBottom"] < m["swipeTop"] and m["tagBottom"] < m["footTop"], m

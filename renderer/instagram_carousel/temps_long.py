@@ -8,6 +8,8 @@ import re
 from pathlib import Path
 
 from models.temps_long_presentation import TempsLongDocument
+from markupsafe import escape
+
 from ._shared import (
     ICONS, _env, _LOGO_DATA_URL, _LOGO_TIGHT_DATA_URL, background_image, cover_dims, cover_layers,
     cover_thumb, duration_label, hook_metrics, medium_labels, pill_parts,
@@ -65,6 +67,27 @@ def _frise_rows(frise: dict) -> dict:
     return frise | {"reperes": rows}
 
 
+def _highlight(text: str, label: str) -> tuple[str, bool]:
+    """A sign's phrase with its name in bold gold: the word of the phrase that starts with the name (« presse » in
+    « attaquer la presse », « techno » in « technologies »). Returns the phrase and whether the name was found in it."""
+    m = re.search(re.escape(label.strip()) + r"\w*", text, re.IGNORECASE) if label.strip() else None
+    if not m:
+        return text, False
+    return f"{text[:m.start()]}**{m.group(0)}**{text[m.end():]}", True
+
+
+def _lecture_ctx(pres) -> dict:
+    ctx = _nobreak(pres.lecture.model_dump()) | {"labels": _READING_LABELS, "move": pres.move, "SHAPES": _pictograms()}
+    for c in ctx.get("aside_cards", []):
+        c["hl"], c["found"] = _highlight(c["text"], c["label"])
+    return ctx
+
+
+def _key_html(key: str) -> str:
+    """The key under a timeline: its text escaped, and a word written [[like this]] drawn as a pill, as the ones on the rows."""
+    return re.sub(r"\[\[(.+?)\]\]", r'<i class="pl">\1</i>', str(escape(key)))
+
+
 def _relance(question: str) -> str:
     """The sign-off's « Commentez — … » line: the deck's closing question, lowercased to follow the dash."""
     return question[:1].lower() + question[1:]
@@ -79,7 +102,7 @@ def generate_html(doc: TempsLongDocument, out_dir: Path) -> list[Path]:
     # the pill names the medium, the source and the date: the length is left out of this deck
     length = duration_label(meta, short=True)
     hook = {"pill": [part for part in pill_parts(meta) if part != length], "sub_topic": pres.hook.title, "subtitle": pres.hook.promise,
-            "tagline": pres.hook.tagline or _HOOK_TAGLINE, "headline": pres.hook.title, "background": background, "thumb": cover_thumb(base),
+            "tagline": pres.hook.tagline or _HOOK_TAGLINE, "center_head": True, "headline": pres.hook.title, "background": background, "thumb": cover_thumb(base),
             **hook_metrics(cover_dims(base), pres.hook.title), **cover_layers(meta, pres.hook.title)}
     specs = [
         ("hook", f"{OPT}/01_hook.html", hook),
@@ -90,15 +113,15 @@ def generate_html(doc: TempsLongDocument, out_dir: Path) -> list[Path]:
                                  "text": getattr(pres.position, key)}
                                 for key, label, icon in _POSITION_CARDS if getattr(pres.position, key)]}))] if pres.position else []),
         ("episodes", f"{TPL}/02_frise.html",
-         _nobreak(_frise_rows(pres.episodes.model_dump())) | {"kick": "Les épisodes récents", "icon": "flame", "detail": "Les épisodes",
+         _nobreak(_frise_rows(pres.episodes.model_dump())) | {"kick": "Les épisodes récents", "icon": "flame", "detail": "Les épisodes", "key_html": _key_html(pres.episodes.key),
                                                   "tag_meta": _tag_meta(pres)}),
         ("tournants", f"{TPL}/02_frise.html",
-         _nobreak(_frise_rows(pres.tournants.model_dump())) | {"kick": "Les textes de loi", "icon": "anchor", "detail": "Les textes",
+         _nobreak(_frise_rows(pres.tournants.model_dump())) | {"kick": "Les textes de loi", "icon": "anchor", "detail": "Les textes", "key_html": _key_html(pres.tournants.key),
                                                    "tag_meta": _tag_meta(pres)}),
         ("lecture", f"{TPL}/04_lecture.html",
-         _nobreak(pres.lecture.model_dump()) | {"labels": _READING_LABELS, "move": pres.move, "SHAPES": _pictograms()}),
+         _lecture_ctx(pres)),
         ("pieges", f"{TPL}/05_pieges.html", _nobreak(pres.pieges.model_dump())),
-        ("cta", f"{OPT}/10_cta.html", {**cover_layers(meta, pres.hook.title), "background": background,
+        ("cta", f"{OPT}/10_cta.html", {**cover_layers(meta, pres.hook.title), "background": background, "plain_head": True,
                                        "L": medium_labels(meta.medium) | {"cta_comment": _relance(pres.lecture.question)}}),
     ]
     if pres.order:   # the slides between the hook and the sign-off follow the deck's own order

@@ -28,13 +28,13 @@
 .rep .l { font-size: 26px; font-weight: 700; line-height: 1.2; color: #e6e6e6; text-wrap: pretty; hyphens: none; }
 .rep .l strong { color: #d4aa00; font-weight: 700; }
 .rep .w { display: flex; gap: 10px; align-items: flex-start; margin-top: 4px; font-size: 24px; font-weight: 500; line-height: 1.3; color: #9a9a9a; }
-.rep .w svg { width: 20px; height: 20px; flex: none; margin-top: 4px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .rep .w strong { color: #d0d0d0; font-weight: 700; }
 /* the tests of the lecture slide a point illustrates: chips under the date, stacked, so the row does not grow */
 /* a key under the rows takes room: the title and the lead sit a little tighter */
 .msg.with-key { height: 300px; }
 /* the key to the pills, once, under the rows */
 .fkey { display: flex; gap: 12px; align-items: flex-start; margin-top: 12px; padding-left: 8px; font-size: 21px; font-weight: 500; line-height: 1.22; color: #a8a8a8; }
+.fkey .pl { display: inline-block; font-style: normal; font-size: 15px; font-weight: 800; letter-spacing: .05em; line-height: 1.1; text-transform: uppercase; color: #d4aa00; border: 2px solid #d4aa00; border-radius: 999px; padding: 1px 10px 2px; margin: 0 3px; vertical-align: 2px; white-space: nowrap; }
 .fkey svg { width: 24px; height: 24px; flex: none; margin-top: 3px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .rep .tg { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; margin-top: 6px; }
 /* a pill: the criterion a point bears on — one style, gold, whichever voice's criterion it is */
@@ -79,13 +79,13 @@
     <div class="det-label">{{ detail }}</div>
     {% set perch %}{% include '_perch.html' %}{% endset %}
     {% if layout == 'annees' %}
-    <div class="frise an" style="--n: {{ reperes | length }}">{% for r in reperes %}<div class="rep"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{{ perch | safe }}{% endif %}<span class="cy"><span class="dy">{% if r.month %}<span class="sm"><span>{{ r.month }}</span></span>{% endif %}<span class="yr">{{ r.year }}</span>{% if r.to %}<span class="sm"><span>{{ r.to }}</span></span>{% endif %}</span>{% if r.tags %}<span class="tg">{{ pills(r) }}</span>{% endif %}</span><span class="dot"></span><span class="t"><div class="l">{{ r.label | md_bold }}</div>{% if r.remark %}<div class="w"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg><span>{{ r.remark | md_bold }}</span></div>{% endif %}</span></div>{% endfor %}</div>
+    <div class="frise an" style="--n: {{ reperes | length }}">{% for r in reperes %}<div class="rep"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{{ perch | safe }}{% endif %}<span class="cy"><span class="dy">{% if r.month %}<span class="sm"><span>{{ r.month }}</span></span>{% endif %}<span class="yr">{{ r.year }}</span>{% if r.to %}<span class="sm"><span>{{ r.to }}</span></span>{% endif %}</span>{% if r.tags %}<span class="tg">{{ pills(r) }}</span>{% endif %}</span><span class="dot"></span><span class="t"><div class="l">{{ r.label | md_bold }}</div>{% if r.remark %}<div class="w"><span>{{ r.remark | md_bold }}</span></div>{% endif %}</span></div>{% endfor %}</div>
     {% elif layout == 'axe' %}
-    <div class="frise ax" style="--n: {{ reperes | length }}">{% for r in reperes %}{% if r.gap %}<div class="agap"><span>{{ r.gap }}</span></div>{% endif %}<div class="rep arow {{ 'l' if loop.index is odd else 'r' }}"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{{ perch | safe }}{% endif %}<span class="dd"><span class="yr">{{ r.date }}</span>{% if r.tags %}<span class="tg">{{ pills(r) }}</span>{% endif %}</span><span class="dot"></span><span class="t"><div class="l">{{ r.label | md_bold }}</div>{% if r.remark %}<div class="w"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg><span>{{ r.remark | md_bold }}</span></div>{% endif %}</span></div>{% endfor %}</div>
+    <div class="frise ax" style="--n: {{ reperes | length }}">{% for r in reperes %}{% if r.gap %}<div class="agap"><span>{{ r.gap }}</span></div>{% endif %}<div class="rep arow {{ 'l' if loop.index is odd else 'r' }}"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{{ perch | safe }}{% endif %}<span class="dd"><span class="yr">{{ r.date }}</span>{% if r.tags %}<span class="tg">{{ pills(r) }}</span>{% endif %}</span><span class="dot"></span><span class="t"><div class="l">{{ r.label | md_bold }}</div>{% if r.remark %}<div class="w"><span>{{ r.remark | md_bold }}</span></div>{% endif %}</span></div>{% endfor %}</div>
     {% else %}
-    <div class="frise" style="--n: {{ reperes | length }}">{% for r in reperes %}<div class="rep"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{{ perch | safe }}{% endif %}<span class="d">{{ r.date }}{% if r.tags %}<span class="tg">{{ pills(r) }}</span>{% endif %}</span><span class="dot"></span><span class="t"><div class="l">{{ r.label | md_bold }}</div>{% if r.remark %}<div class="w"><svg viewBox="0 0 24 24">{{ ICONS.bookmark | safe }}</svg><span>{{ r.remark | md_bold }}</span></div>{% endif %}</span></div>{% endfor %}</div>
+    <div class="frise" style="--n: {{ reperes | length }}">{% for r in reperes %}<div class="rep"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{{ perch | safe }}{% endif %}<span class="d">{{ r.date }}{% if r.tags %}<span class="tg">{{ pills(r) }}</span>{% endif %}</span><span class="dot"></span><span class="t"><div class="l">{{ r.label | md_bold }}</div>{% if r.remark %}<div class="w"><span>{{ r.remark | md_bold }}</span></div>{% endif %}</span></div>{% endfor %}</div>
     {% endif %}
-    {% if key %}<div class="fkey"><svg viewBox="0 0 24 24">{{ ICONS.info | safe }}</svg><span>{{ key }}</span></div>{% endif %}
+    {% if key %}<div class="fkey"><svg viewBox="0 0 24 24">{{ ICONS.info | safe }}</svg><span>{{ key_html | safe }}</span></div>{% endif %}
   </div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
