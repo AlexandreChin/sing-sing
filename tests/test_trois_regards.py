@@ -182,3 +182,238 @@ def test_a_prism_fragment_takes_its_prism_id_from_the_axe_order():
     assert [s["prism"] for s in prismes["prisms"]] == ["juridique", "historique", "politique"]
     matrice = agent.to_fragment(agent.STEP_BY_NAME["matrice"], [_opt(FIELDS["matrice"])], frags)
     assert [c["prism"] for c in matrice["matrix"]["columns"]] == ["juridique", "historique", "politique"]
+
+
+# ---- hard rules, flags and caps -------------------------------------------------------------------------------
+
+import pytest  # noqa: E402
+
+ARTICLE = ("Le gouvernement a proposé un plafond. « Un manque de logements sociaux » pèse sur les loyers. "
+           "L'article cite aussi l'année 2024 et le Parlement.")
+
+
+def _fe(step: str, fields: dict, slot: str = "a", article: str | None = None, frags: dict | None = None):
+    frags = _fragments() if frags is None else frags
+    if step == "axe":
+        frags = {}
+    return agent.field_errors(step, fields, frags, article, slot)
+
+
+def _with(step: str, slot: str | None = None, **kw) -> dict:
+    base = FIELDS[step][slot] if slot else FIELDS[step]
+    return {**base, **kw}
+
+
+def _hard(step, fields, **kw):
+    return _fe(step, fields, **kw)[0]
+
+
+def _flags(step, fields, **kw):
+    return _fe(step, fields, **kw)[1]
+
+
+def test_the_sample_deck_breaks_no_hard_rule():
+    for step in ("axe", "position", "matrice", "hook", "writing"):
+        assert _hard(step, FIELDS[step]) == [], step
+    for slot in ("p1", "p2", "p3"):
+        assert _hard("prismes", FIELDS["prismes"][slot], slot=slot) == [], slot
+
+
+def test_a_field_over_its_cap_is_a_hard_error():
+    assert any("axe.question" in e and "max 60" in e for e in _hard("axe", _with("axe", question="x" * 59 + "y ?")))
+    assert not _hard("axe", _with("axe", question="D'où vient la crise du logement ?"))
+    assert any("axe.subject" in e for e in _hard("axe", _with("axe", subject="x" * 37)))
+    assert any("axe.closing" in e for e in _hard("axe", _with("axe", closing="x" * 110 + " ?")))
+    assert any("axe.media_grounding" in e for e in _hard("axe", _with("axe", media_grounding="x" * 121)))
+    for name, cap in (("kicker", 30), ("title", 46), ("lead", 90)):
+        assert any(f"position.{name}" in e for e in _hard("position", _with("position", **{name: "x" * (cap + 1)})))
+    assert any("prismes.question" in e for e in _hard("prismes", _with("prismes", "p2", question="x" * 65), slot="p2"))
+    assert any("prismes.line3" in e for e in _hard("prismes", _with("prismes", "p2", line3="x" * 81), slot="p2"))
+    assert any("prismes.media_note" in e for e in _hard("prismes", _with("prismes", "p1", media_note="x" * 91), slot="p1"))
+    assert any("matrice.title" in e for e in _hard("matrice", _with("matrice", title="x" * 34 + " ?")))
+    assert any("hook.title" in e for e in _hard("hook", _with("hook", title="x" * 70 + " ?")))
+    assert any("hook.promise" in e for e in _hard("hook", _with("hook", promise="x" * 101)))
+
+
+@pytest.mark.parametrize("step,name,part,cap", [
+    ("position", "card2", "label", 30), ("position", "card2", "text", 108),
+    ("matrice", "col2", "variable", 60), ("matrice", "col2", "indicator", 40)])
+def test_a_part_over_its_cap_is_a_hard_error(step, name, part, cap):
+    cell = {"label": "ab | cd", "text": "ab | cd", "variable": "ab | cd", "indicator": "ab | cd"}
+    over, ok = "x" * (cap + 1), "x" * cap
+    other = "ab"
+    mk = lambda v: (f"{v} | {other}" if part in ("label", "variable") else f"{other} | {v}")  # noqa: E731
+    assert any(f"{step}.{name}" in e and part in e for e in _hard(step, _with(step, **{name: mk(over)})))
+    assert not any(f"{step}.{name}" in e for e in _hard(step, _with(step, **{name: mk(ok)})))
+    assert cell
+
+
+def test_a_source_name_over_30_characters_or_a_fourth_source_is_a_hard_error():
+    p = lambda s: _hard("prismes", _with("prismes", "p2", sources=s), slot="p2")  # noqa: E731
+    assert any("sources" in e for e in p("A ; " + "x" * 31))
+    assert any("sources" in e for e in p("A ; B ; C ; D"))
+    assert not p("A ; B ; " + "x" * 30)
+
+
+def test_the_axe_needs_three_distinct_prisms_of_the_catalogue():
+    assert any("distinct" in e for e in _hard("axe", _with("axe", prism2="politique")))
+    assert any("catalogue" in e for e in _hard("axe", _with("axe", prism3="gastronomique")))
+    assert any("distinct" in e or "empty" in e for e in _hard("axe", _with("axe", prism3="")))
+
+
+def test_the_media_prism_is_one_of_the_three():
+    assert any("media" in e for e in _hard("axe", _with("axe", media="juridique")))
+    assert not _hard("axe", _with("axe", media="sociologique"))
+
+
+def test_the_deck_question_the_hook_title_the_closing_line_and_the_matrix_title_end_in_a_question_mark():
+    assert any("axe.question" in e and "?" in e for e in _hard("axe", _with("axe", question="D'où vient la crise.")))
+    assert any("axe.closing" in e and "?" in e for e in _hard("axe", _with("axe", closing="Quel regard explique la crise.")))
+    assert any("matrice.title" in e and "?" in e for e in _hard("matrice", _with("matrice", title="Que mesurer")))
+    assert any("hook.title" in e and "?" in e for e in _hard("hook", _with("hook", title="La crise du logement")))
+
+
+def test_the_hook_promise_has_the_fixed_shape():
+    ok = "Trois regards sur la crise du logement ; à vous d'en juger."
+    assert not _hard("hook", _with("hook", promise=ok))
+    for bad in ("Comprendre la crise du logement en trois regards.",
+                "Trois regards sur la crise du logement, à vous d'en juger.",
+                "Trois regards sur ; à vous d'en juger.",
+                "Trois regards sur   ; à vous d'en juger."):
+        assert any("hook.promise" in e for e in _hard("hook", _with("hook", promise=bad))), bad
+
+
+def test_a_prism_slide_needs_three_lines_and_a_source():
+    assert any("line3" in e for e in _hard("prismes", _with("prismes", "p2", line3=""), slot="p2"))
+    assert any("line1" in e for e in _hard("prismes", _with("prismes", "p2", line1=""), slot="p2"))
+    assert any("sources" in e for e in _hard("prismes", _with("prismes", "p2", sources=" ; "), slot="p2"))
+    assert any("question" in e for e in _hard("prismes", _with("prismes", "p2", question=""), slot="p2"))
+    assert not _hard("prismes", _with("prismes", "p2", line4=""), slot="p2")
+
+
+def test_only_the_media_prism_slot_carries_a_media_note():
+    assert any("media_note" in e for e in _hard("prismes", _with("prismes", "p1", media_note=""), slot="p1"))
+    assert any("media_note" in e for e in _hard("prismes", _with("prismes", "p2", media_note="Le regard du média."), slot="p2"))
+    assert not _hard("prismes", _with("prismes", "p3"), slot="p3")
+
+
+def test_accusing_and_blaming_words_are_refused_outside_guillemets_only():
+    assert any("oublie" in e for e in _hard("prismes", _with("prismes", "p2", line1="L'article oublie l'économie."), slot="p2"))
+    assert any("ne dit pas" in e for e in _hard("position", _with("position", lead="L'article ne dit pas pourquoi.")))
+    assert any("biais" in e for e in _hard("position", _with("position", card1="Cause | Un biais net.")))
+    assert any("manipulation" in e for e in _hard("hook", _with("hook", title="Une manipulation du logement ?")))
+    for word in ("ignore", "omet", "néglige", "mensonge", "trompeur"):
+        assert any(word in e for e in _hard("prismes", _with("prismes", "p2", line2=f"Il {word} cela."), slot="p2")), word
+    assert not _hard("prismes", _with("prismes", "p2", line1="Le texte cite « l'article oublie » tel quel."), slot="p2")
+
+
+def test_the_matrix_refuses_prescriptive_verbs():
+    for text in ("Il faut plafonner les loyers", "Le Parlement doit voter", "Ils devraient agir", "On devrait construire"):
+        assert any("prescriptive" in e for e in _hard("matrice", _with("matrice", col1=f"{text} | Mesures")))
+    assert any("prescriptive" in e for e in _hard("matrice", _with("matrice", title="Que faut-il faire ? Il faut mesurer ?")))
+    assert not _hard("matrice", FIELDS["matrice"])
+
+
+def test_no_url_in_sources():
+    for s in ("https://ine.es", "www.ine.es", "ine.com/data", "ine.fr/data"):
+        assert any("URL" in e for e in _hard("prismes", _with("prismes", "p2", sources=f"A ; {s}"), slot="p2")), s
+
+
+def test_no_digit_on_the_matrix_or_in_sources():
+    assert any("digit" in e for e in _hard("prismes", _with("prismes", "p2", sources="INE 2024"), slot="p2"))
+    assert any("digit" in e for e in _hard("matrice", _with("matrice", col2="Écart | 3 millions")))
+    assert any("digit" in e for e in _hard("matrice", _with("matrice", title="Que mesurer en 2024 ?")))
+
+
+def test_a_year_is_allowed_on_a_prism_line_but_not_another_number():
+    p = lambda line: _hard("prismes", _with("prismes", "p2", line1=line), slot="p2")  # noqa: E731
+    assert not p("Le plafond date de 2024.")
+    assert not p("La loi de 1985 reste en vigueur.")
+    assert any("digit" in e for e in p("Il manque 600 000 logements."))
+    assert any("digit" in e for e in p("Les loyers montent de 12 %."))
+    assert any("digit" in e for e in p("Une loi de 1200."))
+    assert any("digit" in e for e in p("Une loi de 2100."))
+
+
+def test_position_and_media_note_are_exempt_from_the_digit_rule():
+    assert not _hard("position", _with("position", card1="Ce qu'il raconte | 175 000 manifestants."))
+    assert not _hard("prismes", _with("prismes", "p1", media_note="L'article chiffre 175 000 personnes."), slot="p1")
+
+
+def test_an_axe_with_no_dominant_prism_is_a_flag_not_a_hard_error():
+    fields = _with("axe", media_grounding="Aucun prisme ne domine : le texte mêle politique et économie.")
+    hard, flags = _fe("axe", fields)
+    assert hard == [] and any("dominate" in f for f in flags)
+    assert not any("dominate" in f for f in _flags("axe", FIELDS["axe"]))
+
+
+def test_a_prism_question_a_matrix_cell_or_the_closing_line_sharing_no_key_word_with_the_axe_question_is_flagged():
+    assert not [f for f in _flags("prismes", FIELDS["prismes"]["p2"], slot="p2") if "question" in f]
+    bad = _flags("prismes", _with("prismes", "p2", question="Combien de pommes, à quel prix ?"), slot="p2")
+    assert any("prismes.question" in f and "key word" in f for f in bad)
+    assert not _flags("prismes", _with("prismes", "p2", question="Combien de logements, à quel prix ?"), slot="p2")
+    cell = _flags("matrice", _with("matrice", col1="Les pommes | Récolte"))
+    assert any("matrice.col1" in f for f in cell)
+    assert not any("matrice.col2" in f for f in cell)
+    closing = _with("axe", closing="Politique, économique ou sociologique : quel regard est le meilleur ?")
+    assert any("axe.closing" in f and "key word" in f for f in _flags("axe", closing))
+    assert not any("axe.closing" in f and "key word" in f for f in _flags("axe", FIELDS["axe"]))
+
+
+def test_a_closing_line_with_ou_is_flagged_not_blocked():
+    hard, flags = _fe("axe", FIELDS["axe"])
+    assert hard == [] and any("« ou »" in f for f in flags)
+    hard, flags = _fe("axe", _with("axe", closing="Politique, économique, sociologique : quel regard explique la crise du logement ?"))
+    assert hard == [] and not any("« ou »" in f for f in flags)
+    assert any("« ou »" in f for f in _flags("matrice", _with("matrice", title="Prix ou loyers ?")))
+
+
+def test_a_quoted_passage_of_the_position_or_the_media_note_must_be_in_the_source():
+    fields = _with("position", card2="Ses causes | « Un manque de logements sociaux » pèse.")
+    assert not [f for f in _flags("position", fields, article=ARTICLE) if "quote" in f]
+    fields = _with("position", card2="Ses causes | « Un excès de touristes » pèse.")
+    assert any("position.card2" in f and "word for word" in f for f in _flags("position", fields, article=ARTICLE))
+    assert not _hard("position", fields, article=ARTICLE)
+    assert not [f for f in _flags("position", fields) if "word for word" in f]
+    note = _with("prismes", "p1", media_note="Il parle d'« un plafond inventé ».")
+    assert any("media_note" in f and "word for word" in f for f in _flags("prismes", note, slot="p1", article=ARTICLE))
+
+
+def test_two_near_identical_prism_slides_are_flagged():
+    frags = _fragments()
+    twin = copy.deepcopy(FIELDS["prismes"]["p2"])
+    frags["prismes"] = agent.to_fragment(agent.STEP_BY_NAME["prismes"],
+                                         [_opt(FIELDS["prismes"]["p1"], "p1"), _opt(twin, "p2")], frags)
+    same = _flags("prismes", twin, slot="p3", frags=frags)
+    assert any("near" in f for f in same)
+    assert not [f for f in _flags("prismes", FIELDS["prismes"]["p3"], slot="p3") if "near" in f]
+
+
+def test_the_closing_line_missing_a_prism_name_is_flagged():
+    assert not [f for f in _flags("axe", FIELDS["axe"]) if "name" in f and "closing" in f]
+    flags = _flags("axe", _with("axe", closing="Politique ou économique : quel regard explique la crise du logement ?"))
+    assert any("closing" in f and "sociolog" in f.lower() for f in flags)
+
+
+def test_the_hook_promise_with_another_subject_than_the_axe_is_flagged():
+    flags = _flags("hook", _with("hook", promise="Trois regards sur les retraites ; à vous d'en juger."))
+    assert any("subject" in f for f in flags)
+    assert not [f for f in _flags("hook", FIELDS["hook"]) if "subject" in f]
+
+
+def test_the_caption_needs_four_hashtags():
+    assert any("hashtag" in e for e in _hard("writing", {"caption": "Un texte #un #deux"}))
+    assert not [e for e in _hard("writing", FIELDS["writing"]) if "hashtag" in e]
+
+
+def test_prompt_caps_cover_every_capped_field():
+    caps = agent.prompt_caps()
+    for (step, name), (_, cap) in agent._CAPS.items():
+        assert caps[f"{step}.{name}"] == cap
+    for (step, name), parts in agent._PART_CAPS.items():
+        for part, cap in parts:
+            assert caps[f"{step}.{name}.{part}"] == cap
+    assert caps["axe.question"] == 60 and caps["prismes.source"] == 30 and caps["prismes.sources"] == 3
+    assert agent.fill_caps("max {{cap:axe.question}} signes") == "max 60 signes"
+    with pytest.raises(KeyError):
+        agent.fill_caps("{{cap:nope.nope}}")
