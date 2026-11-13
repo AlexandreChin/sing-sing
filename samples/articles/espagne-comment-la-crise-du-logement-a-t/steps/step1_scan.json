@@ -1,0 +1,204 @@
+{
+  "article_type": "news_report",
+  "key_claims": [
+    {
+      "quote": "Le premier ministre espagnol, Pedro Sánchez, a convoqué la semaine dernière des élections législatives anticipées, dans la foulée des manifestations sans précédent contre la crise du logement qui secoue le pays, et du rejet par le Congrès des députés des mesures proposées par son parti pour enrayer la crise.",
+      "source": "Radio-Canada, d'après CBC News",
+      "type": "factual"
+    },
+    {
+      "quote": "Prévue pour le 29 novembre, l’élection devance de six mois la date d’échéance de son mandat.",
+      "source": "Radio-Canada, d'après CBC News",
+      "type": "factual"
+    },
+    {
+      "quote": "Les turbulences actuelles pourraient donner à son parti – le Parti socialiste ouvrier espagnol (PSOE) – l’élan nécessaire pour atteindre la majorité absolue qu’il tente en vain d’obtenir depuis 2018",
+      "source": "Radio-Canada, d'après CBC News",
+      "type": "attributed"
+    },
+    {
+      "quote": "En plaçant maintenant l'accessibilité du logement au cœur de sa campagne, M. Sánchez espère rallier les électeurs progressistes à sa cause, tout en détournant l'attention des critiques à l'égard de son parti et de lui.",
+      "source": "Radio-Canada, d'après CBC News",
+      "type": "attributed"
+    },
+    {
+      "quote": "les logements sociaux représentent environ 1,7 % du parc immobilier espagnol, un pourcentage bien inférieur à celui de la plupart des pays de l’Union européenne.",
+      "source": "Radio-Canada, d'après CBC News",
+      "type": "statistical"
+    },
+    {
+      "quote": "la Banque d’Espagne estime que le pays accuse actuellement un déficit d’environ 750 000 logements, déficit qui devrait dépasser le million d’ici 2028.",
+      "source": "Banque d'Espagne",
+      "type": "statistical"
+    },
+    {
+      "quote": "Une journée après avoir annoncé l’élection anticipée, son gouvernement a adopté une version légèrement modifiée des mesures, qui incluent des dispositions visant à plafonner les loyers, à interdire temporairement les évictions et à interdire aux entreprises d’acheter des maisons.",
+      "source": "Radio-Canada, d'après CBC News",
+      "type": "factual"
+    },
+    {
+      "quote": "Le Parti populaire espagnol, le parti de droite qui mène actuellement dans les sondages, met en garde contre les plafonds de loyer proposés par le Parti socialiste, estimant qu’ils pourraient avoir l'effet inverse de celui escompté, en retirant des logements du marché.",
+      "source": "Parti populaire",
+      "type": "attributed"
+    },
+    {
+      "quote": "Il blâme également le gouvernement de Pedro Sánchez d’avoir aggravé la pression sur le marché immobilier en étant, selon lui, trop favorable à l’immigration.",
+      "source": "Parti populaire",
+      "type": "attributed"
+    },
+    {
+      "quote": "Si le Parti populaire devait remporter l’élection, ce serait probablement au sein d’une coalition conservatrice aux côtés du parti d’extrême droite Vox, montrent les sondages.",
+      "source": "Sondages (non précisés)",
+      "type": "statistical"
+    },
+    {
+      "quote": "près 30 % de leur population est à risque de pauvreté",
+      "source": "Radio-Canada, d'après CBC News",
+      "type": "statistical"
+    }
+  ],
+  "key_quotes": [
+    "Ce n’est que maintenant, alors que les manifestations et les troubles se propagent partout en Espagne, qu’ils ont commencé à s’intéresser au logement social et à la question de savoir où les gens de ce pays peuvent se permettre de vivre",
+    "Il freine constamment les politiques de logement au profit du tourisme",
+    "Cela fait une dizaine d’années qu’aucun logement social n’a été construit aux Îles Canaries",
+    "Je ne suis pas entièrement satisfaite de la gauche, car elle n’en a pas fait assez en matière de logement ou sur d’autres enjeux, affirme-t-elle. Mais je veux empêcher le retour du fascisme."
+  ],
+  "key_actors": [
+    {
+      "name": "Pedro Sánchez",
+      "role": "Premier ministre espagnol, socialiste (PSOE), qui a convoqué des élections anticipées"
+    },
+    {
+      "name": "Sofía Olivares",
+      "role": "Étudiante de 25 ans, porte-parole du groupe Derecho al Techo"
+    },
+    {
+      "name": "Maricarmen Abascal",
+      "role": "Femme de 87 ans expulsée de son logement madrilène fin septembre, morte deux semaines plus tard, devenue le visage de la crise"
+    },
+    {
+      "name": "Garazi González",
+      "role": "Habitante de 36 ans, ancienne locataire contrainte de partir après une hausse de loyer, qui soutient les manifestations"
+    },
+    {
+      "name": "Parti populaire (PP)",
+      "role": "Parti de droite en tête des sondages, critique des plafonds de loyer"
+    },
+    {
+      "name": "Vox",
+      "role": "Parti d'extrême droite, allié probable du PP dans une coalition"
+    },
+    {
+      "name": "Banque d'Espagne",
+      "role": "Institution citée pour l'estimation du déficit de logements"
+    }
+  ],
+  "authority_anchors": [
+    {
+      "entity": "Banque d'Espagne",
+      "used_for": "Chiffrer le déficit de logements (750 000, plus d'un million d'ici 2028)"
+    },
+    {
+      "entity": "Derecho al Techo (Sofía Olivares)",
+      "used_for": "Attribuer la crise aux politiques locales favorables au tourisme et décrire le manque de logements sociaux aux Canaries"
+    },
+    {
+      "entity": "Sondages (non précisés)",
+      "used_for": "Étayer la avance de la droite et l'éventualité d'une coalition avec Vox"
+    },
+    {
+      "entity": "Parti populaire",
+      "used_for": "Contester l'efficacité des plafonds de loyer et lier la crise à l'immigration"
+    }
+  ],
+  "notable_omissions": [
+    "Date de l'article : il date d'octobre ; depuis, une grève générale a eu lieu le 11 novembre (la première depuis 14 ans), le décret a été de nouveau soumis au vote le 12 novembre et les élections se tiennent le 29 novembre.",
+    "Les sondages cités ne sont pas détaillés : ni instituts, ni dates, ni chiffres.",
+    "Aucune voix du gouvernement ni du PSOE n'est citée directement pour expliquer ses mesures.",
+    "Aucun avis d'économiste sur l'efficacité des plafonds de loyer, malgré l'objection avancée par le PP.",
+    "Aucune source pour le lien établi par le PP entre immigration et pression immobilière.",
+    "Le nombre exact de manifestants à Madrid est imprécis (« des dizaines de milliers »).",
+    "Les raisons précises du rejet des mesures par le Parlement ne sont pas détaillées.",
+    "Les enquêtes pour corruption visant l'entourage de M. Sánchez sont mentionnées sans détail."
+  ],
+  "rhetorical_patterns": [
+    "Un cas individuel (Maricarmen Abascal, 87 ans) sert de point d'entrée émotionnel à une crise structurelle.",
+    "Les témoignages viennent de personnes favorables aux manifestations (porte-parole militante, ancienne locataire expulsée) ; la position adverse passe par un parti, pas par un individu.",
+    "L'intention prêtée à Pedro Sánchez (« espère rallier… tout en détournant l'attention ») est présentée sans source ni citation.",
+    "Le parti de droite est présenté à travers des verbes d'opinion (« estimant », « selon lui »), alors que les chiffres sur le logement social ou le déficit sont énoncés comme des faits.",
+    "L'article se termine sur une citation personnelle qui fait passer l'enjeu du logement à la menace de l'extrême droite.",
+    "Le champ lexical est celui de la crise et du dramatique (« turbulences », « troubles », « affrontements musclés », « sans précédent »)."
+  ],
+  "context": {
+    "contexts": [
+      {
+        "id": "",
+        "text": "L'article date d'octobre 2026 ; depuis, une grève générale a eu lieu le 11 novembre, la première depuis 14 ans, et le décret sur le logement a été soumis à un nouveau vote le 12 novembre."
+      },
+      {
+        "id": "",
+        "text": "Les élections législatives anticipées sont prévues le 29 novembre, six mois avant l'échéance du mandat."
+      },
+      {
+        "id": "",
+        "text": "Le PSOE de Pedro Sánchez n'a pas obtenu de majorité absolue depuis 2018, d'après l'article."
+      },
+      {
+        "id": "",
+        "text": "Les mesures d'urgence sur le logement ont d'abord été rejetées par le Congrès des députés, puis adoptées dans une version légèrement modifiée par le gouvernement."
+      }
+    ],
+    "who_is_speaking": [
+      "Radio-Canada est le diffuseur public canadien de langue française, financé en grande partie par des fonds publics fédéraux.",
+      "Le texte est adapté d'un article de la journaliste Renée Boskaljon, de CBC News, le service anglophone du même groupe public.",
+      "Il s'agit d'un reportage d'actualité, non d'une tribune d'opinion, rédigé pour un public canadien et non espagnol."
+    ],
+    "important_facts": [
+      {
+        "id": "",
+        "text": "Le Congrès des députés est la chambre basse du Parlement espagnol ; une loi ou un décret doit y recueillir une majorité pour être validé."
+      },
+      {
+        "id": "",
+        "text": "Dans l'Union européenne, la part du logement social varie beaucoup d'un pays à l'autre ; elle est bien plus élevée dans certains pays comme les Pays-Bas ou l'Autriche."
+      },
+      {
+        "id": "",
+        "text": "Le PSOE gouverne en coalition avec d'autres formations de gauche, sans majorité absolue au Congrès."
+      },
+      {
+        "id": "",
+        "text": "Vox est un parti d'extrême droite qui n'a jamais fait partie d'un gouvernement national depuis le retour de la démocratie en Espagne."
+      }
+    ],
+    "key_terms": [
+      {
+        "term": "PSOE",
+        "definition": "Parti socialiste ouvrier espagnol, parti de gauche de Pedro Sánchez."
+      },
+      {
+        "term": "Congrès des députés",
+        "definition": "Chambre basse du Parlement espagnol, qui vote les lois et les décrets."
+      },
+      {
+        "term": "Plafonnement des loyers",
+        "definition": "Mesure qui fixe par la loi un montant maximal que les propriétaires peuvent demander pour un loyer."
+      },
+      {
+        "term": "Décret",
+        "definition": "Texte pris par le gouvernement, qui doit ensuite être validé par le Parlement."
+      },
+      {
+        "term": "Derecho al Techo",
+        "definition": "Groupe de défense du droit au logement, dont Sofía Olivares est porte-parole."
+      },
+      {
+        "term": "Vox",
+        "definition": "Parti espagnol d'extrême droite, allié probable du Parti populaire dans une coalition conservatrice."
+      }
+    ]
+  },
+  "article_metadata": {
+    "title": "<extra_instructions>"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "step": "position",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Suit l'enchaînement des faits de l'article, du déclencheur au scrutin, en mettant en avant la chronologie et les chiffres de pénurie.",
+      "fields": {
+        "kicker": "Le récit de Radio-Canada",
+        "title": "Le logement, enjeu **d'élection**",
+        "lead": "Radio-Canada explique comment la crise du logement a mené à des élections anticipées.",
+        "card1": "Ce qu'il raconte | Une femme de **87 ans** expulsée, des manifestations, puis un scrutin.",
+        "card2": "Les causes qu'il avance | Peu de **logements sociaux** et un déficit de **750 000** logements.",
+        "card3": "Ce que répondent les acteurs | Le gouvernement propose des **mesures d'urgence**, le Parlement les rejette.",
+        "card4": "Où il mène | Un scrutin le **29 novembre**, avec le logement au cœur de la campagne."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Met en avant l'attribution : chaque carte donne la parole à une voix que l'article cite, plutôt qu'une chronologie.",
+      "fields": {
+        "kicker": "Qui dit quoi",
+        "title": "Une crise, plusieurs **voix**",
+        "lead": "Adapté de CBC par Radio-Canada, il demande comment la crise a mené aux urnes.",
+        "card1": "Les militantes | Sofía Olivares, du groupe Derecho al Techo, blâme le **gouvernement local**.",
+        "card2": "Le Parti populaire | Il craint que les **plafonds de loyer** retirent des logements du marché.",
+        "card3": "Une électrice | Garazi González veut surtout **empêcher** le retour de l'extrême droite.",
+        "card4": "Le rendez-vous | Les élections ont lieu le **29 novembre**, la droite menant les sondages."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Place la stratégie électorale de Sánchez au centre, l'angle le plus proche du prisme politique du média.",
+      "fields": {
+        "kicker": "Le pari de Sánchez",
+        "title": "Un pari **risqué**",
+        "lead": "Radio-Canada suit Pedro Sánchez, qui avance les élections après les manifestations.",
+        "card1": "Le déclencheur | Manifestations et rejet des mesures mènent à un **vote anticipé**.",
+        "card2": "Ce que l'article lui prête | Il espère **rallier** les progressistes et détourner les critiques.",
+        "card3": "Ce que dit l'opposition | La droite, **en tête des sondages**, met en garde contre les plafonds.",
+        "card4": "Où cela peut mener | La droite pourrait gouverner avec **Vox** (extrême droite), une première."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "position": {
+      "kicker": "Le récit de Radio-Canada",
+      "title": "Le logement, enjeu **d'élection**",
+      "lead": "Radio-Canada explique comment la crise du logement a mené à des élections anticipées.",
+      "cards": [
+        {
+          "label": "Ce qu'il raconte",
+          "text": "Une femme de **87 ans** expulsée, des manifestations, puis un scrutin."
+        },
+        {
+          "label": "Les causes qu'il avance",
+          "text": "Peu de **logements sociaux** et un déficit de **750 000** logements."
+        },
+        {
+          "label": "Ce que répondent les acteurs",
+          "text": "Le gouvernement propose des **mesures d'urgence**, le Parlement les rejette."
+        },
+        {
+          "label": "Où il mène",
+          "text": "Un scrutin le **29 novembre**, avec le logement au cœur de la campagne."
+        }
+      ]
+    }
+  },
+  "remarks": []
+}

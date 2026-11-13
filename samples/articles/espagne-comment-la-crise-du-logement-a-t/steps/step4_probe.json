@@ -1,0 +1,148 @@
+{
+  "facts_vs_opinions": {
+    "claims_and_sources": [
+      {
+        "quote": "la Banque d’Espagne estime que le pays accuse actuellement un déficit d’environ 750 000 logements, déficit qui devrait dépasser le million d’ici 2028",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Calendrier",
+          "strength": 0.4,
+          "nature": "nuance"
+        },
+        "explanation": "Le chiffre est attribué à une institution nommée, mais l'article ne renvoie à aucun rapport précis ni à sa méthode de calcul.",
+        "external_sources": [
+          {
+            "name": "Banco de España, rapports sur le marché du logement",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Eurostat, statistiques sur le logement",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 68
+      },
+      {
+        "quote": "les logements sociaux représentent environ 1,7 % du parc immobilier espagnol, un pourcentage bien inférieur à celui de la plupart des pays de l’Union européenne",
+        "presentation": "presented_as_established_fact",
+        "proves": {
+          "type": "observation",
+          "label": "Institutions",
+          "strength": 0.3,
+          "nature": "nuance"
+        },
+        "explanation": "Le chiffre et la comparaison ne citent ni source ni pays de référence ; les statistiques européennes permettent de les recouper.",
+        "external_sources": [
+          {
+            "name": "Eurostat",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Ministerio de Vivienda y Agenda Urbana",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          }
+        ],
+        "confidence": 72
+      },
+      {
+        "quote": "En plaçant maintenant l'accessibilité du logement au cœur de sa campagne, M. Sánchez espère rallier les électeurs progressistes à sa cause, tout en détournant l'attention des critiques à l'égard de son parti et de lui.",
+        "presentation": "opinion_stated_as_fact",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Pedro Sánchez et le PSOE",
+          "strength": 0.6,
+          "nature": "illustration"
+        },
+        "explanation": "Une intention prêtée au premier ministre est énoncée comme un constat, sans citation ni source.",
+        "external_sources": [
+          {
+            "name": "Déclarations publiques de Pedro Sánchez sur la convocation du scrutin",
+            "supports": "neutral",
+            "evidence_type": "party_statement"
+          }
+        ],
+        "confidence": null
+      },
+      {
+        "quote": "Le Parti populaire espagnol, le parti de droite qui mène actuellement dans les sondages, met en garde contre les plafonds de loyer proposés par le Parti socialiste, estimant qu’ils pourraient avoir l'effet inverse de celui escompté, en retirant des logements du marché.",
+        "presentation": "attributed_to_source",
+        "proves": {
+          "type": "observation",
+          "label": "Procédure",
+          "strength": 0.4,
+          "nature": "nuance"
+        },
+        "explanation": "La position est attribuée au PP, mais aucune étude d'économistes n'est citée pour ou contre l'effet des plafonds.",
+        "external_sources": [
+          {
+            "name": "Banco de España, analyses sur la régulation des loyers",
+            "supports": "neutral",
+            "evidence_type": "official_data"
+          },
+          {
+            "name": "Parti populaire, communiqués sur le logement",
+            "supports": "validates",
+            "evidence_type": "party_statement"
+          }
+        ],
+        "confidence": 45
+      }
+    ]
+  },
+  "biases_and_focus": {
+    "biases_and_rhetoric": [
+      {
+        "quote": "Un cas d’éviction mortel déclenche des manifestations",
+        "presentation": "",
+        "item_type": "bias",
+        "label": "cas individuel émotionnel",
+        "effect": "Remarquez comment un seul destin nommé donne un visage à une crise dont l'ampleur repose ensuite sur d'autres données.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "indignation",
+          "strength": 0.8,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "Mais je veux empêcher le retour du fascisme.",
+        "item_type": "bias",
+        "label": "fin sur un témoignage chargé",
+        "effect": "Remarquez comment le dernier mot revient à une peur, ce qui déplace l'attention du logement vers l'extrême droite.",
+        "proves": {
+          "type": "emotional_register",
+          "label": "inquiétude",
+          "strength": 0.7,
+          "nature": "illustration"
+        }
+      },
+      {
+        "quote": "En plaçant maintenant l'accessibilité du logement au cœur de sa campagne, M. Sánchez espère rallier les électeurs progressistes à sa cause, tout en détournant l'attention des critiques à l'égard de son parti et de lui.",
+        "item_type": "fallacy",
+        "label": "intention prêtée sans preuve",
+        "effect": "Remarquez comment un calcul politique est présenté comme un fait, alors qu'aucune source ne l'appuie.",
+        "proves": {
+          "type": "cui_bono",
+          "label": "Pedro Sánchez et le PSOE",
+          "strength": 0.6,
+          "nature": "illustration"
+        }
+      }
+    ],
+    "focus": {
+      "quote": "Le premier ministre espagnol, Pedro Sánchez, a convoqué la semaine dernière des élections législatives anticipées, dans la foulée des manifestations sans précédent contre la crise du logement qui secoue le pays, et du rejet par le Congrès des députés des mesures proposées par son parti pour enrayer la crise.",
+      "proves": {
+        "type": "observation",
+        "label": "Chronologie",
+        "strength": 0.8,
+        "nature": "illustration"
+      },
+      "analysis": "La phrase relie en une seule séquence **manifestations**, **rejet des mesures** et **élections anticipées**. Elle sous-entend que la rue a précipité le scrutin, sans évoquer le blocage parlementaire ni les enquêtes pour corruption comme causes possibles. Depuis octobre, une **grève générale le 11 novembre** et un nouveau vote du décret le 12 ont prolongé la séquence : le calendrier du 29 novembre en sort-il renforcé ?"
+    }
+  }
+}

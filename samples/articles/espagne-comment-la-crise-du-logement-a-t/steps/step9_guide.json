@@ -1,0 +1,70 @@
+{
+  "guide": {
+    "pre_reading": [
+      "Gardez en tête que l'article suit une chaîne simple, du cas individuel aux manifestations, puis aux élections ; demandez-vous à chaque étape ce qui relie vraiment les maillons.",
+      "Repérez qui parle et qui est cité : notez si le gouvernement, des économistes ou seulement des militantes et l'opposition ont la parole.",
+      "Vérifiez la date de publication, car des événements postérieurs, comme la grève générale et le nouveau vote, ne peuvent pas figurer dans le texte."
+    ],
+    "watch_out": {
+      "items": [
+        {
+          "id": "w1",
+          "text": "Le texte présente comme acquis un lien direct entre la mobilisation sur le logement et les élections anticipées. Le blocage parlementaire et les enquêtes pour corruption, autres explications possibles, sont à peine évoqués.",
+          "references": [
+            "ia_0",
+            "lr_1",
+            "obs_0"
+          ]
+        },
+        {
+          "id": "w2",
+          "text": "L'article commence par un destin individuel et finit sur la peur de l'extrême droite. Ces deux registres émotionnels encadrent le récit et peuvent éloigner l'attention du logement lui-même.",
+          "references": [
+            "lr_0",
+            "er_0",
+            "bias_1"
+          ]
+        },
+        {
+          "id": "w3",
+          "text": "L'intention prêtée au chef du gouvernement est énoncée comme un constat, sans citation ni réponse de son camp. Distinguez ce qui est rapporté de ce qui est interprété.",
+          "references": [
+            "pr_3",
+            "claim_2",
+            "bias_2"
+          ]
+        },
+        {
+          "id": "w4",
+          "text": "Les chiffres sur le déficit de logements et le logement social n'ont pas tous une source nommée, et les sondages ne sont ni datés ni attribués. Recoupez-les avant de les reprendre.",
+          "references": [
+            "claim_0",
+            "claim_1",
+            "pr_1",
+            "bs_2"
+          ]
+        },
+        {
+          "id": "w5",
+          "text": "Le lien entre immigration et pression immobilière est rapporté depuis l'opposition, sans vérification ni réponse du gouvernement. Il s'agit d'une thèse, pas d'un fait établi.",
+          "references": [
+            "bs_3",
+            "claim_3"
+          ]
+        }
+      ]
+    },
+    "after_reading": [
+      "Demandez-vous quelle part le logement prend réellement dans l'évolution du vote, face au blocage parlementaire et aux enquêtes pour corruption.",
+      "Retenez que les chiffres clés ont besoin d'une source et d'une date : cherchez les rapports d'origine, par exemple chez Eurostat ou à la Banque d'Espagne.",
+      "Notez les voix absentes, gouvernement et économistes, et cherchez-les ailleurs pour compléter le tableau.",
+      "Cherchez des sources plus récentes pour suivre ce qui s'est passé après la publication."
+    ],
+    "title_note": "Le titre pose une question causale, mais le texte y répond surtout par une chronologie des événements plutôt que par une explication.",
+    "perspective": {
+      "framing": "L'article adopte l'angle du reportage d'ambiance : il place au centre les témoignages de militantes et un parcours individuel, dans un registre émotionnel qui va de l'inquiétude à la crainte du fascisme. Le logement y est présenté comme le point de départ d'une trajectoire politique qui mène aux élections.",
+      "blind_spots": "Aucune voix du gouvernement ni d'économiste n'est donnée, alors que les plafonds de loyer et le déficit de logements relèvent de leurs champs. Le blocage parlementaire et les enquêtes pour corruption, autres lectures possibles de la crise politique, ne sont presque pas traités.",
+      "balance": "Un reportage d'actualité vise à rendre une mobilisation vivante plus qu'à être exhaustif, et partir de témoignages est un choix de genre légitime. Les limites relevées sont réelles, mais on peut les attendre d'un format court plutôt que d'une enquête contradictoire."
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "blend": {
+    "patterns": [
+      {
+        "text": "Le texte s'ouvre sur un cas individuel émotionnel et se referme sur la peur du fascisme : ces deux registres encadrent le récit et déplacent l'attention du logement vers l'extrême droite. Les chiffres structurels, eux, ne portent que le milieu du raisonnement.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "probe"
+        ],
+        "references": [
+          "lr_0",
+          "er_0",
+          "er_1",
+          "bias_0",
+          "bias_1"
+        ]
+      },
+      {
+        "text": "L'intention prêtée à Sánchez est une assertion non étayée (logique), énoncée comme un constat (probe), sans réponse sollicitée du gouvernement (éthique). Le même point faible se retrouve ainsi à trois niveaux, et il pèse sur la note de rigueur des sources.",
+        "layers": [
+          "logic",
+          "probe",
+          "ethics",
+          "review"
+        ],
+        "references": [
+          "pr_3",
+          "lr_2",
+          "claim_2",
+          "bias_2",
+          "bs_0"
+        ]
+      },
+      {
+        "text": "L'absence de la voix du gouvernement et d'économistes, côté logique, coïncide avec la place donnée aux militantes, côté rhétorique : les groupes de défense du logement fournissent l'essentiel des témoignages et des chiffres. Le cadrage se construit donc depuis un seul camp, ce que reflète la note de traitement équitable.",
+        "layers": [
+          "logic",
+          "rhetoric",
+          "review"
+        ],
+        "references": [
+          "bs_0",
+          "bs_1",
+          "cb_1",
+          "er_0"
+        ]
+      },
+      {
+        "text": "La chaîne qui va de la mobilisation aux élections présume un lien causal direct, alors que le blocage parlementaire et les enquêtes pour corruption sont à peine évoqués. La phrase d'ouverture du texte condense ce lien en une seule séquence, et l'observation chronologique montre que les événements ultérieurs ont prolongé cette séquence.",
+        "layers": [
+          "logic",
+          "probe"
+        ],
+        "references": [
+          "ia_0",
+          "lr_1",
+          "focus",
+          "obs_0"
+        ]
+      },
+      {
+        "text": "Les chiffres clés, comme les 750 000 logements manquants et les 1,7 % de logement social, sont attribués de façon partielle ou pas du tout, et les sondages ne sont ni datés ni attribués. Les données qui soutiennent la dimension structurelle sont donc elles-mêmes difficiles à vérifier, ce qui pèse sur l'exactitude factuelle et la complétude du contexte.",
+        "layers": [
+          "logic",
+          "probe",
+          "review"
+        ],
+        "references": [
+          "pr_1",
+          "pr_2",
+          "claim_0",
+          "claim_1",
+          "bs_2"
+        ]
+      },
+      {
+        "text": "Le lien entre immigration et pression immobilière, rapporté depuis le PP, reste sans source ni réponse du gouvernement. Cette lacune dans la logique se double d'une réserve déontologique sur le droit de réponse, et affaiblit l'une des explications concurrentes de la crise.",
+        "layers": [
+          "logic",
+          "ethics"
+        ],
+        "references": [
+          "bs_3",
+          "bs_0",
+          "claim_3"
+        ]
+      }
+    ]
+  }
+}

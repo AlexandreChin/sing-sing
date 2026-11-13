@@ -1,0 +1,64 @@
+{
+  "elements": [
+    {
+      "statement": "Pedro Sánchez avance les élections au 29 novembre après les manifestations sur le logement et le rejet des mesures par le Congrès.",
+      "kind": "fait",
+      "centrality": 5,
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "Les élections législatives anticipées sont prévues le 29 novembre, six mois avant l'échéance du mandat.",
+        "strength": 0.9,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "L'article prête à Sánchez l'intention de faire du logement un enjeu de campagne pour rallier les progressistes et détourner les critiques.",
+      "kind": "affirmation",
+      "centrality": 4,
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 2,
+        "excerpt": "Sánchez fait du logement le cœur de sa campagne pour rallier les progressistes et masquer ses difficultés.",
+        "strength": 0.6,
+        "nature": "inference"
+      }
+    },
+    {
+      "statement": "La pénurie de logements, sociaux notamment, est chiffrée : environ 1,7 % de logement social et un déficit de 750 000 logements.",
+      "kind": "enjeu",
+      "centrality": 4,
+      "seeds": {
+        "source": "premisse",
+        "index": 2,
+        "excerpt": "Le pays manque d'environ 750 000 logements, et plus d'un million d'ici 2028, selon la Banque d'Espagne.",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "statement": "Les mesures d'urgence (plafonnement des loyers, gel des évictions) sont contestées par le Parti populaire, sans avis d'économiste cité.",
+      "kind": "enjeu",
+      "centrality": 3,
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 1,
+        "excerpt": "Le plafonnement des loyers peut soulager la crise, malgré l'objection du Parti populaire.",
+        "strength": 0.7,
+        "nature": "specification"
+      }
+    },
+    {
+      "statement": "L'article date d'octobre : depuis, grève générale le 11 novembre, nouveau vote du décret le 12, élections le 29 novembre.",
+      "kind": "angle",
+      "centrality": 3,
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "depuis, une grève générale a eu lieu le 11 novembre, la première depuis 14 ans",
+        "strength": 0.9,
+        "nature": "specification"
+      }
+    }
+  ]
+}

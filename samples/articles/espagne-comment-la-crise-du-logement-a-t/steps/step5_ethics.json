@@ -1,0 +1,27 @@
+{
+  "deontology": {
+    "violations": [
+      {
+        "category": "right_of_reply",
+        "label": "Droit de réponse",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "En plaçant maintenant l'accessibilité du logement au cœur de sa campagne, M. Sánchez espère rallier les électeurs progressistes à sa cause, tout en détournant l'attention des critiques à l'égard de son parti et de lui.",
+        "explanation": "Une intention politique est prêtée au premier ministre sans citation ni réponse sollicitée du gouvernement ou du PSOE."
+      },
+      {
+        "category": "right_of_reply",
+        "label": "Droit de réponse",
+        "severity": "minor",
+        "status": "caution",
+        "evidence": "Il blâme également le gouvernement de Pedro Sánchez d'avoir aggravé la pression sur le marché immobilier en étant, selon lui, trop favorable à l'immigration.",
+        "explanation": "Le lien entre immigration et pression immobilière est rapporté sans source ni réponse du gouvernement ni vérification."
+      }
+    ],
+    "verdict": {
+      "overall": "good",
+      "editorial_note": "Préciser la source de l'intention prêtée à M. Sánchez, donner la parole au gouvernement et signaler que l'article date d'octobre (grève générale du 11 novembre, nouveau vote du décret le 12 novembre, élections le 29 novembre)."
+    },
+    "summary": "Aucun manquement déontologique grave n'a été relevé. Deux réserves mineures portent sur l'absence de réponse du gouvernement face à une intention prêtée et à un lien entre immigration et logement."
+  }
+}

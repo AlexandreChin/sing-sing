@@ -1,0 +1,54 @@
+{
+  "distill": {
+    "points": [
+      {
+        "text": "Le texte **présume un lien causal direct** entre la mobilisation et les élections, alors que le blocage parlementaire et les enquêtes pour corruption sont à peine évoqués. Cette chaîne, condensée dès la phrase d'ouverture, **oriente la lecture de l'ensemble** : le logement devient le point de départ d'une trajectoire politique.",
+        "references": [
+          "ia_0",
+          "lr_1",
+          "focus",
+          "obs_0"
+        ]
+      },
+      {
+        "text": "Le texte s'ouvre sur un cas individuel émotionnel et se referme sur la peur du fascisme. Ces deux registres **encadrent le récit** et déplacent l'attention du logement vers l'extrême droite ; les chiffres structurels n'en portent que le milieu.",
+        "references": [
+          "lr_0",
+          "er_0",
+          "er_1",
+          "bias_0",
+          "bias_1"
+        ]
+      },
+      {
+        "text": "L'intention prêtée à Sánchez est une **assertion non étayée**, énoncée comme un constat et sans réponse du gouvernement. Le même point faible apparaît en logique, dans le ton et en déontologie, et **pèse sur la note de rigueur** des sources.",
+        "references": [
+          "pr_3",
+          "lr_2",
+          "claim_2",
+          "bias_2",
+          "bs_0"
+        ]
+      },
+      {
+        "text": "Les voix du gouvernement et des économistes sont absentes, tandis que les militantes fournissent l'essentiel des témoignages et des chiffres. **Le cadrage se construit depuis un seul camp**, ce qui rend difficile de situer les chiffres clés, dont les 750 000 logements manquants et les 1,7 % de logement social, souvent sans attribution ni date.",
+        "references": [
+          "bs_0",
+          "bs_1",
+          "cb_1",
+          "er_0",
+          "pr_1",
+          "pr_2",
+          "claim_0",
+          "claim_1",
+          "bs_2"
+        ]
+      }
+    ],
+    "open_questions": [
+      "Quelle part réelle la dynamique du logement joue-t-elle dans l'évolution du vote, face au blocage parlementaire et aux enquêtes pour corruption ?",
+      "Quelle est l'ampleur réelle du déficit de logements et de la part du logement social, une fois les sources et les dates établies ?",
+      "Quel rôle l'immigration joue-t-elle dans la pression immobilière, et peut-on le mesurer ?"
+    ]
+  }
+}

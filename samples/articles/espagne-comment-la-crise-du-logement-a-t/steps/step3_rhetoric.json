@@ -1,0 +1,69 @@
+{
+  "emotional_register": [
+    {
+      "id": "",
+      "emotion": "indignation",
+      "how": "L'article ouvre sur l'éviction puis la mort d'une femme de 87 ans, nommée et photographiée, puis enchaîne des témoignages de personnes touchées par la crise.",
+      "effect": "Le lecteur est préparé à voir la crise comme une injustice sociale concrète, avant d'aborder les chiffres et les débats politiques.",
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 0,
+        "excerpt": "Un cas d'éviction mortel déclenche des manifestations",
+        "strength": 0.8,
+        "nature": "illustration"
+      }
+    },
+    {
+      "id": "",
+      "emotion": "inquiétude",
+      "how": "Le texte s'achève sur une citation évoquant le « retour du fascisme » et l'avenir d'une fille, après un champ lexical de crise (« turbulences », « troubles », « affrontements musclés »).",
+      "effect": "Le lecteur est amené à lire l'élection comme un enjeu de protection face à l'extrême droite, au-delà du logement.",
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 3,
+        "excerpt": "fait passer l'enjeu du logement à celui de l'extrême droite",
+        "strength": 0.7,
+        "nature": "inference"
+      }
+    }
+  ],
+  "cui_bono": [
+    {
+      "id": "",
+      "beneficiary": "Pedro Sánchez et le PSOE",
+      "explanation": "Le cadrage met le logement et la mobilisation au centre ; la voix du gouvernement n'est pas citée, mais ses mesures sont présentées comme une réponse à la rue. La peur de l'extrême droite en fin de texte peut aussi profiter aux électeurs de gauche.",
+      "seeds": {
+        "source": "logical_reasoning",
+        "index": 3,
+        "excerpt": "Le PP en tête des sondages pourrait gouverner avec Vox",
+        "strength": 0.5,
+        "nature": "inference"
+      }
+    },
+    {
+      "id": "",
+      "beneficiary": "Les groupes de défense du droit au logement",
+      "explanation": "Ils fournissent l'essentiel des témoignages et des chiffres sur la pénurie de logements sociaux, ce qui donne à leur lecture de la crise la place la plus visible.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "Aucune voix du gouvernement ou du PSOE n'explique ses mesures.",
+        "strength": 0.5,
+        "nature": "specification"
+      }
+    }
+  ],
+  "cadrage": {
+    "title_analysis": [
+      {
+        "label": "Causalité",
+        "observation": "Le titre pose un lien de cause à effet entre crise du logement et élections anticipées."
+      },
+      {
+        "label": "Question",
+        "observation": "La forme interrogative annonce une explication, que le corps du texte traite surtout par la chronologie des événements."
+      }
+    ],
+    "body": "L'article présente la convocation d'élections anticipées comme la suite des manifestations sur le logement et du rejet des mesures au Congrès. Il part d'un cas individuel, puis s'appuie sur des témoignages de militantes et des chiffres sur le déficit de logements. Le registre est celui du reportage d'actualité, rédigé depuis le Canada pour un public étranger au débat espagnol. Les positions du Parti populaire sont rapportées en quelques phrases, et l'article se referme sur l'enjeu du retour de l'extrême droite."
+  }
+}

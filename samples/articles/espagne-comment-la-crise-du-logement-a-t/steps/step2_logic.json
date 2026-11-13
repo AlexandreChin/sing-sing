@@ -1,0 +1,176 @@
+{
+  "main_claim": "Face aux manifestations sur le logement, Sánchez avance les élections et mise sur cette crise pour sa campagne.",
+  "premisses": [
+    {
+      "statement": "Les manifestations sont nées de l'éviction puis de la mort de Maricarmen Abascal, 87 ans.",
+      "quality": "Un cas isolé sert d'entrée émotionnelle ; il ne dit pas à lui seul ce qui cause une crise **structurelle**."
+    },
+    {
+      "statement": "Le logement social représente environ 1,7 % du parc, très en dessous de la plupart des pays de l'Union européenne.",
+      "quality": "Donnée chiffrée, mais sans source précisée ni pays de comparaison."
+    },
+    {
+      "statement": "Le pays manque d'environ 750 000 logements, et plus d'un million d'ici 2028, selon la Banque d'Espagne.",
+      "quality": "Donnée **solide**, attribuée à une institution nommée."
+    },
+    {
+      "statement": "Sánchez place le logement au cœur de sa campagne pour rallier les progressistes et détourner l'attention des critiques.",
+      "quality": "Simple **assertion non étayée** : aucune source ni citation ne l'appuie."
+    }
+  ],
+  "implicit_assumptions": [
+    {
+      "statement": "Les manifestations et le rejet des mesures sont la cause directe de la décision d'avancer les élections.",
+      "impact": "Si d'autres raisons pèsent (corruption, majorité bloquée), le lien entre **crise du logement** et élections se desserre."
+    },
+    {
+      "statement": "Le plafonnement des loyers peut soulager la crise, malgré l'objection du Parti populaire.",
+      "impact": "S'il retire des logements du marché, les mesures du gouvernement ne règlent pas le problème."
+    },
+    {
+      "statement": "Les témoignages recueillis reflètent l'opinion d'ensemble des Espagnols sur la crise.",
+      "impact": "Si l'opinion est plus partagée, le **tableau d'une mobilisation unanime** est trop large."
+    }
+  ],
+  "blind_spots": [
+    {
+      "topic": "Aucune voix du gouvernement ou du PSOE n'explique ses mesures.",
+      "significance": "Les raisons du décret et son contenu exact seraient connus de **première main**."
+    },
+    {
+      "topic": "Aucun économiste ne tranche sur l'effet des plafonds de loyer.",
+      "significance": "L'objection du PP resterait une opinion de parti ou serait **appuyée par des données**."
+    },
+    {
+      "topic": "Les sondages cités ne sont ni datés ni attribués à un institut.",
+      "significance": "L'ampleur de l'avance de la droite et de la coalition avec Vox serait **vérifiable**."
+    },
+    {
+      "topic": "Le lien établi par le PP entre immigration et pression immobilière n'est pas documenté.",
+      "significance": "Sans chiffres, le lecteur ne peut pas **peser cette explication**."
+    }
+  ],
+  "emphasis": [
+    "Le texte consacre plusieurs paragraphes aux témoignages de militantes favorables aux manifestations, alors que la position du PP tient en quelques phrases et celle du gouvernement n'est jamais citée.",
+    "Les enquêtes pour corruption visant l'entourage de Sánchez ne sont évoquées qu'une fois, sans détail.",
+    "Le texte s'ouvre sur un cas individuel et se referme sur la peur du retour de l'extrême droite, deux registres émotionnels."
+  ],
+  "logical_reasoning": [
+    {
+      "step": "Un cas d'éviction mortel déclenche des manifestations, qui illustrent une crise structurelle du logement.",
+      "problem_type": "validity",
+      "diagnosis": "Le cas individuel est donné comme point de départ ; les chiffres sur le déficit et le logement social portent seuls la dimension **structurelle**."
+    },
+    {
+      "step": "Les manifestations et le rejet des mesures mènent Sánchez à convoquer des élections anticipées.",
+      "problem_type": null,
+      "diagnosis": null
+    },
+    {
+      "step": "Sánchez fait du logement le cœur de sa campagne pour rallier les progressistes et masquer ses difficultés.",
+      "problem_type": "soundness",
+      "diagnosis": "L'intention prêtée au premier ministre est avancée **sans source ni citation**."
+    },
+    {
+      "step": "Le PP en tête des sondages pourrait gouverner avec Vox, ce qui fait passer l'enjeu du logement à celui de l'extrême droite.",
+      "problem_type": "validity",
+      "diagnosis": "Le passage du logement au risque politique repose sur un **témoignage unique** et sur des sondages non précisés."
+    }
+  ],
+  "observations": [
+    {
+      "id": "",
+      "aspect": "Chronologie",
+      "summary": "L'article date d'octobre ; depuis, **une grève générale a eu lieu le 11 novembre**, la première depuis 14 ans, et le décret a été de nouveau voté le 12 novembre.",
+      "seeds": {
+        "source": "context",
+        "index": 0,
+        "excerpt": "depuis, une grève générale a eu lieu le 11 novembre",
+        "strength": 0.9,
+        "nature": "specification"
+      },
+      "proven_by": []
+    },
+    {
+      "id": "",
+      "aspect": "Calendrier",
+      "summary": "Le texte annonce un scrutin le **29 novembre**, six mois avant l'échéance du mandat, et le pari reste **risqué** pour Sánchez.",
+      "seeds": {
+        "source": "context",
+        "index": 1,
+        "excerpt": "élections législatives anticipées sont prévues le 29 novembre",
+        "strength": 0.9,
+        "nature": "illustration"
+      },
+      "proven_by": []
+    },
+    {
+      "id": "",
+      "aspect": "Majorité",
+      "summary": "Le PSOE n'a pas atteint la **majorité absolue depuis 2018**, ce qui éclaire le pari de l'élection anticipée.",
+      "seeds": {
+        "source": "context",
+        "index": 2,
+        "excerpt": "n'a pas obtenu de majorité absolue depuis 2018",
+        "strength": 0.8,
+        "nature": "inference"
+      },
+      "proven_by": []
+    },
+    {
+      "id": "",
+      "aspect": "Procédure",
+      "summary": "Les mesures rejetées au **Congrès** ont été adoptées par le gouvernement dans une **version légèrement modifiée**.",
+      "seeds": {
+        "source": "context",
+        "index": 3,
+        "excerpt": "d'abord été rejetées par le Congrès des députés, puis adoptées",
+        "strength": 0.9,
+        "nature": "specification"
+      },
+      "proven_by": []
+    },
+    {
+      "id": "",
+      "aspect": "Institutions",
+      "summary": "Le **Congrès des députés** valide lois et décrets, ce qui explique le poids de son rejet initial.",
+      "seeds": {
+        "source": "important_fact",
+        "index": 0,
+        "excerpt": "chambre basse du Parlement espagnol",
+        "strength": 0.8,
+        "nature": "specification"
+      },
+      "proven_by": []
+    }
+  ],
+  "steel_man": [
+    {
+      "counterargument": "Les élections anticipées peuvent venir surtout du blocage au Congrès et des enquêtes pour corruption, la crise du logement servant de motif visible.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 0,
+        "excerpt": "cause directe de la décision d'avancer les élections"
+      },
+      "alternative_conclusion": "Le logement est un levier de campagne parmi d'autres ; le scrutin répond d'abord à une impasse politique."
+    },
+    {
+      "counterargument": "Si les économistes confirment l'effet de retrait des logements du marché, l'objection du PP vise juste sur les plafonds de loyer.",
+      "seeds": {
+        "source": "implicit_assumption",
+        "index": 1,
+        "excerpt": "Le plafonnement des loyers peut soulager la crise"
+      },
+      "alternative_conclusion": "Les mesures du gouvernement risquent d'aggraver la pénurie plutôt que de la réduire."
+    },
+    {
+      "counterargument": "La grève générale du 11 novembre et le nouveau vote du 12 montrent une mobilisation qui dépasse le cas Abascal et ancre la crise dans la durée.",
+      "seeds": {
+        "source": "blind_spot",
+        "index": 0,
+        "excerpt": "Aucune voix du gouvernement ou du PSOE"
+      },
+      "alternative_conclusion": "La crise du logement est un mouvement social durable qui pèse réellement sur le calendrier politique."
+    }
+  ]
+}

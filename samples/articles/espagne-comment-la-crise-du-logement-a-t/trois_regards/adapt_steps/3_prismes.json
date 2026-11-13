@@ -1,0 +1,209 @@
+{
+  "step": "prismes",
+  "options": [
+    {
+      "id": "p1a",
+      "slot": "p1",
+      "reason": "L'angle du pouvoir de décision : qui peut voter, et quand.",
+      "fields": {
+        "question": "Qui décide de la politique du logement ?",
+        "line1": "Un gouvernement sans majorité doit négocier chaque mesure avec le Congrès.",
+        "line2": "Le calendrier électoral pèse sur le moment où les mesures sont proposées.",
+        "line3": "Les partis divergent sur le rôle de la loi face au marché locatif.",
+        "line4": "",
+        "sources": "Congrès des députés ; Gouvernement d'Espagne",
+        "media_note": "Le récit suit les mesures, leur rejet par le Congrès, puis l'élection du 29 novembre."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p1b",
+      "slot": "p1",
+      "reason": "L'angle des niveaux de pouvoir et du rôle du décret.",
+      "fields": {
+        "question": "Qui a la main sur le logement ?",
+        "line1": "Le logement relève de plusieurs niveaux : État, régions et communes.",
+        "line2": "Une coalition sans majorité absolue rend chaque vote incertain.",
+        "line3": "Une élection anticipée remet les rapports de force en jeu.",
+        "line4": "Un décret du gouvernement doit ensuite être validé par le Congrès.",
+        "sources": "Congrès des députés ; Ministère du Logement",
+        "media_note": "Le récit suit le rejet des mesures par le Congrès, puis la campagne du 29 novembre."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p2c",
+      "slot": "p2",
+      "reason": "Angle de l'offre et de la rareté : d'où vient la crise, vue par le manque de logements et la pression touristique.",
+      "fields": {
+        "question": "D'où vient le manque de logements en Espagne ?",
+        "line1": "Quand l'offre ne suit pas la demande, les prix et les loyers montent.",
+        "line2": "Les logements sociaux sont rares : le marché seul répond aux besoins.",
+        "line3": "Le tourisme met les résidents en concurrence avec les locations de courte durée.",
+        "line4": "",
+        "sources": "Banque d'Espagne ; Eurostat ; INE (statistique)",
+        "media_note": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p2d",
+      "slot": "p2",
+      "reason": "Angle du pouvoir d'achat : d'où vient la crise, vue par l'écart entre loyers et revenus, sans reprendre l'offre ni les plafonds.",
+      "fields": {
+        "question": "D'où vient l'écart entre loyers et revenus ?",
+        "line1": "Les loyers et les salaires évoluent à des rythmes différents selon les villes.",
+        "line2": "Quand le loyer pèse lourd, les ménages renoncent à d'autres dépenses.",
+        "line3": "Les ménages jeunes ou modestes sont les premiers à voir leur marge se réduire.",
+        "line4": "Acheter ou louer : le choix dépend du crédit, de l'épargne et des revenus.",
+        "sources": "Banque d'Espagne ; Eurostat ; INE (statistique)",
+        "media_note": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p2e",
+      "slot": "p2",
+      "reason": "Angle de l'investissement et du crédit : d'où vient la crise, vue par l'usage financier du logement, distinct de l'offre et du budget des ménages.",
+      "fields": {
+        "question": "D'où vient la hausse des prix du logement ?",
+        "line1": "Un logement sert à se loger, mais aussi à placer son épargne.",
+        "line2": "Quand l'investissement attire plus que l'habitat, l'usage des logements change.",
+        "line3": "Les taux d'intérêt et le crédit modifient le prix que chacun peut payer.",
+        "line4": "",
+        "sources": "Banque d'Espagne ; Banque centrale européenne ; Eurostat",
+        "media_note": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p3a",
+      "slot": "p3",
+      "reason": "L'angle des groupes concernés et de la mobilisation.",
+      "fields": {
+        "question": "Qui est touché par la crise du logement ?",
+        "line1": "Les jeunes, les locataires et les aînés ne vivent pas la crise de la même façon.",
+        "line2": "Se loger détermine aussi où l'on travaille, étudie et fonde une famille.",
+        "line3": "Les expulsions marquent les esprits et font naître des mouvements collectifs.",
+        "line4": "",
+        "sources": "INE ; Eurostat",
+        "media_note": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p3b",
+      "slot": "p3",
+      "reason": "L'angle des normes, des statuts et des liens sociaux.",
+      "fields": {
+        "question": "Que dit la crise du logement de la société ?",
+        "line1": "Être propriétaire reste, pour beaucoup, un signe de réussite et de sécurité.",
+        "line2": "Les liens entre générations changent quand les jeunes vivent chez leurs parents.",
+        "line3": "Des collectifs de locataires et de voisins s'organisent pour défendre leur toit.",
+        "line4": "Les inégalités entre régions touristiques et autres régions se creusent.",
+        "sources": "INE ; Eurostat ; CIS",
+        "media_note": ""
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [
+    {
+      "id": "p2a",
+      "slot": "p2",
+      "reason": "L'angle de l'offre, de la rareté et des prix.",
+      "fields": {
+        "question": "Pourquoi le logement est-il si dur à bâtir ?",
+        "line1": "Un logement se bâtit entre coût du terrain, normes et budget public.",
+        "line2": "Les loyers et les prix dépendent de la rareté de l'offre.",
+        "line3": "Le logement social, rare, laisse le marché seul face aux besoins.",
+        "line4": "Le tourisme met les résidents en concurrence avec les locations courtes.",
+        "sources": "Banque d'Espagne ; Eurostat ; INE",
+        "media_note": ""
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "p2b",
+      "slot": "p2",
+      "reason": "L'angle des incitations et de la répartition des coûts.",
+      "fields": {
+        "question": "Qui supporte le coût du logement ?",
+        "line1": "Un plafond de loyer fixe un prix : il change les choix des propriétaires.",
+        "line2": "Le coût du logement pèse plus sur les ménages aux revenus modestes.",
+        "line3": "Les investisseurs et les ménages n'ont pas les mêmes incitations à acheter.",
+        "line4": "",
+        "sources": "Banque d'Espagne ; Eurostat",
+        "media_note": ""
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "recommended": [
+    "p1a",
+    "p2c",
+    "p3a"
+  ],
+  "picked": [
+    "p1a",
+    "p2c",
+    "p3a"
+  ],
+  "fragment": {
+    "prisms": [
+      {
+        "prism": "politique",
+        "question": "Qui décide de la politique du logement ?",
+        "lines": [
+          "Un gouvernement sans majorité doit négocier chaque mesure avec le Congrès.",
+          "Le calendrier électoral pèse sur le moment où les mesures sont proposées.",
+          "Les partis divergent sur le rôle de la loi face au marché locatif."
+        ],
+        "sources": [
+          "Congrès des députés",
+          "Gouvernement d'Espagne"
+        ],
+        "media_note": "Le récit suit les mesures, leur rejet par le Congrès, puis l'élection du 29 novembre."
+      },
+      {
+        "prism": "economique",
+        "question": "D'où vient le manque de logements en Espagne ?",
+        "lines": [
+          "Quand l'offre ne suit pas la demande, les prix et les loyers montent.",
+          "Les logements sociaux sont rares : le marché seul répond aux besoins.",
+          "Le tourisme met les résidents en concurrence avec les locations de courte durée."
+        ],
+        "sources": [
+          "Banque d'Espagne",
+          "Eurostat",
+          "INE (statistique)"
+        ]
+      },
+      {
+        "prism": "sociologique",
+        "question": "Qui est touché par la crise du logement ?",
+        "lines": [
+          "Les jeunes, les locataires et les aînés ne vivent pas la crise de la même façon.",
+          "Se loger détermine aussi où l'on travaille, étudie et fonde une famille.",
+          "Les expulsions marquent les esprits et font naître des mouvements collectifs."
+        ],
+        "sources": [
+          "INE",
+          "Eurostat"
+        ]
+      }
+    ]
+  },
+  "remarks": [
+    "La question du prisme doit lire la question du deck (d'où vient la crise) ; développer les sigles des sources."
+  ]
+}

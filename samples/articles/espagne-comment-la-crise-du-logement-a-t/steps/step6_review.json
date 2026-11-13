@@ -1,0 +1,78 @@
+{
+  "review": {
+    "dimensions": [
+      {
+        "dimension": "source_rigor",
+        "label": "Source Rigor",
+        "score": 3,
+        "rationale": "Le déficit de logements est attribué à une institution nommée (« la Banque d’Espagne estime que le pays accuse actuellement un déficit d’environ 750 000 logements »), et les positions du PP sont rapportées. Mais les 1,7 % de logement social n'ont ni source ni pays de comparaison, et l'intention prêtée à Sánchez n'est appuyée par aucune citation. Les témoignages viennent surtout de militantes, et aucune voix du gouvernement n'est citée.",
+        "lesson": "Vérifier, pour chaque chiffre ou intention rapportés, qui en est la source nommée et si le camp concerné a pu répondre."
+      },
+      {
+        "dimension": "factual_accuracy",
+        "label": "Factual Accuracy",
+        "score": 3,
+        "rationale": "Le chiffre de la Banque d'Espagne (confiance 68) et celui des 1,7 % de logement social (confiance 72) sont plausibles et recoupables avec des données officielles, mais aucun rapport précis n'est cité. L'intention prêtée à Sánchez est classée « opinion_stated_as_fact ». Les sondages sont cités sans date ni institut.",
+        "lesson": "Distinguer le chiffre attribué à une institution de celui qui n'a aucune source, et rechercher le rapport d'origine avant de le reprendre."
+      },
+      {
+        "dimension": "reasoning_structure",
+        "label": "Reasoning Structure",
+        "score": 3,
+        "rationale": "La chaîne cas individuel → manifestations → rejet des mesures → élections est lisible. Mais le dernier maillon, de l'intention de Sánchez au risque d'extrême droite, repose sur un « témoignage unique » et sur des sondages non précisés (`logical_reasoning`). Les dimensions structurelle et politique ne sont étayées que par quelques chiffres.",
+        "lesson": "Repérer le maillon d'une chaîne causale qui ne repose que sur une anecdote ou une assertion, et se demander ce qui le soutiendrait."
+      },
+      {
+        "dimension": "approach_transparency",
+        "label": "Approach Transparency",
+        "score": 3,
+        "rationale": "L'article se présente comme un reportage d'actualité et attribue clairement les positions du PP. Il ne signale pas que l'intention de Sánchez est une interprétation, ni que le lien entre immigration et pression immobilière est celui du PP et n'est pas vérifié (`implicit_assumptions`). Le lecteur doit faire seul la distinction entre fait et lecture.",
+        "lesson": "Chercher dans un reportage la phrase qui passe d'un fait à une interprétation sans le signaler."
+      },
+      {
+        "dimension": "context_completeness",
+        "label": "Context & Completeness",
+        "score": 2,
+        "rationale": "Les `blind_spots` sont nombreux : aucune voix du gouvernement ou du PSOE, aucun économiste sur les plafonds de loyer, sondages non datés. Les enquêtes pour corruption ne sont évoquées qu'une fois, et l'article ne tient pas compte des événements postérieurs (grève générale du 11 novembre, nouveau vote du 12). Les témoignages de militantes occupent plus de place que la position du PP.",
+        "lesson": "Demander quelles voix et quelles données manquent avant de juger si un tableau est complet, et vérifier la date de publication."
+      },
+      {
+        "dimension": "treatment_fairness",
+        "label": "Treatment Fairness",
+        "score": 3,
+        "rationale": "Le PP et ses arguments sont rapportés, mais en quelques phrases, alors que les militantes bénéficient de longs témoignages. L'article s'ouvre sur un cas individuel et se ferme sur « Mais je veux empêcher le retour du fascisme. », deux registres émotionnels. La voix du gouvernement n'est jamais citée.",
+        "lesson": "Comparer la place donnée à chaque camp et noter qui ouvre et qui clôt le texte."
+      },
+      {
+        "dimension": "clarity",
+        "label": "Clarity",
+        "score": 4,
+        "rationale": "Le récit est chronologique et lisible pour un public étranger au débat espagnol, avec un point de départ concret. Le titre pose une question causale (`title_analysis`) que le corps du texte traite surtout par la chronologie plutôt que par une explication. Les institutions, comme le Congrès des députés, sont peu expliquées.",
+        "lesson": "Vérifier si le titre promet une explication que le texte livre vraiment, ou seulement une succession d'événements."
+      },
+      {
+        "dimension": "angle_originality",
+        "label": "Angle & Originality",
+        "score": 3,
+        "rationale": "L'angle, qui relie le logement aux élections anticipées, est pertinent et ancré dans un cas humain. Il reste un reportage d'actualité classique, sans accès inédit ni analyse économique. Le `steel_man` montre qu'une lecture par le blocage parlementaire et la corruption reste possible.",
+        "lesson": "Se demander quelle lecture alternative du même événement l'article ne développe pas."
+      }
+    ],
+    "verdict": {
+      "quality": "adequate",
+      "reading_recommendation": "with_reservations",
+      "for_whom": "Lecteur francophone qui découvre la crise du logement en Espagne et veut un récit d'ensemble des manifestations, à compléter avec des sources plus récentes.",
+      "payoff": "Le lecteur comprend comment une crise du logement a alimenté les manifestations puis le calendrier électoral. Il repère aussi les voix et les données qui manquent pour juger la lecture proposée.",
+      "signature_move": "Le reportage d'ambiance, qui ouvre sur un destin individuel nommé et se ferme sur la peur de l'extrême droite, donne un visage à la crise mais laisse en retrait la voix du gouvernement et les données économiques.",
+      "main_blind_side": "Aucune voix du gouvernement ni d'économiste n'est citée, ce qui suggère un reportage construit autour des témoignages de la mobilisation plutôt que d'une enquête contradictoire.",
+      "further_resource": {
+        "title": "Statistiques européennes sur le logement (Eurostat)",
+        "source": "Eurostat",
+        "media_type": "report",
+        "why_explore": "Elles permettent de recouper la part de logement social et de comparer l'Espagne aux autres pays de l'Union européenne.",
+        "url": null
+      },
+      "summary": "Lecture avec réserves, utile à qui découvre le dossier : le récit est clair et ancré dans des cas concrets, mais la voix du gouvernement, les données sur les loyers et les événements postérieurs à octobre manquent."
+    }
+  }
+}

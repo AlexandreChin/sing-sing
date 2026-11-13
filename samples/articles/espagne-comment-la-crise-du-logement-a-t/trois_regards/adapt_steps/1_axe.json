@@ -1,0 +1,104 @@
+{
+  "step": "axe",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Le récit est politique ; l'économie (l'offre, les prix) et la sociologie (les ménages touchés) donnent des réponses distinctes.",
+      "fields": {
+        "question": "D'où vient la crise du logement en Espagne ?",
+        "article_question": "Comment la crise du logement a-t-elle mené à des élections anticipées ?",
+        "subject": "la crise du logement",
+        "prism1": "politique",
+        "prism2": "economique",
+        "prism3": "sociologique",
+        "media": "politique",
+        "media_grounding": "Le récit suit le rejet des mesures par le Congrès, l'élection du 29 novembre et la montée de la droite.",
+        "closing": "entre le politique, l'économique et le sociologique, quel regard éclaire le mieux la crise du logement ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Le juridique (plafonds de loyer, évictions, décret) sépare le cadre des règles de l'offre et du jeu politique ; le média reste politique.",
+      "fields": {
+        "question": "Qu'est-ce qui explique la crise du logement en Espagne ?",
+        "article_question": "Comment la crise du logement a-t-elle mené à des élections anticipées ?",
+        "subject": "la crise du logement",
+        "prism1": "economique",
+        "prism2": "juridique",
+        "prism3": "politique",
+        "media": "politique",
+        "media_grounding": "Le récit suit les mesures d'urgence, leur rejet au Congrès et la convocation d'élections anticipées.",
+        "closing": "entre l'économique, le juridique et le politique, quel regard éclaire le mieux la crise du logement ?"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "L'historique ajoute la trajectoire longue (logement social, repères datés) que ni l'économie ni le calendrier électoral ne donnent.",
+      "fields": {
+        "question": "Pourquoi se loger est-il si difficile en Espagne ?",
+        "article_question": "Comment la crise du logement a-t-elle mené à des élections anticipées ?",
+        "subject": "la crise du logement",
+        "prism1": "historique",
+        "prism2": "economique",
+        "prism3": "politique",
+        "media": "politique",
+        "media_grounding": "Le récit suit le rejet des mesures, l'élection du 29 novembre et les sondages favorables à la droite.",
+        "closing": "entre l'historique, l'économique et le politique, quel regard éclaire le mieux la crise du logement ?"
+      },
+      "edited": false,
+      "flags": [
+        "axe.closing shares no key word with the axe's question"
+      ]
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Le sociologique (qui est touché), le juridique (les droits des locataires) et le politique (les coalitions) offrent trois angles distincts.",
+      "fields": {
+        "question": "Pourquoi le logement est-il si cher et rare en Espagne ?",
+        "article_question": "Comment la crise du logement a-t-elle mené à des élections anticipées ?",
+        "subject": "la crise du logement",
+        "prism1": "sociologique",
+        "prism2": "juridique",
+        "prism3": "politique",
+        "media": "politique",
+        "media_grounding": "Aucun prisme ne domine ; le plus proche est le politique : mesures, vote du Congrès, élections.",
+        "closing": "entre le sociologique, le juridique et le politique, quel regard éclaire le mieux la crise du logement ?"
+      },
+      "edited": false,
+      "flags": [
+        "axe: no prism clearly dominates the article — the media's prism is the closest one; the « regard du média » line will say only what the article does with it"
+      ]
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "axe": {
+      "question": "D'où vient la crise du logement en Espagne ?",
+      "article_question": "Comment la crise du logement a-t-elle mené à des élections anticipées ?",
+      "subject": "la crise du logement",
+      "prisms": [
+        "politique",
+        "economique",
+        "sociologique"
+      ],
+      "media": "politique",
+      "media_grounding": "Le récit suit le rejet des mesures par le Congrès, l'élection du 29 novembre et la montée de la droite.",
+      "closing": "entre le politique, l'économique et le sociologique, quel regard éclaire le mieux la crise du logement ?"
+    }
+  },
+  "remarks": []
+}

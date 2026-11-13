@@ -1,0 +1,63 @@
+{
+  "step": "hook",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Reprend mot pour mot la question de l'axe : la plus proche, la plus courte et la plus claire pour qui n'a pas lu l'article.",
+      "fields": {
+        "title": "D'où vient la crise du logement en Espagne ?",
+        "promise": "Trois regards sur la crise du logement ; à vous d'en juger."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Met l'accent sur l'explication plutôt que sur l'origine : invite à chercher plusieurs causes, ce que chaque discipline fait à sa manière.",
+      "fields": {
+        "title": "Qu'est-ce qui explique la crise du logement en Espagne ?",
+        "promise": "Trois regards sur la crise du logement ; à vous d'en juger."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Formulation directe, centrée sur le « pourquoi » : large, accessible, et chacun des trois regards y répond différemment.",
+      "fields": {
+        "title": "Pourquoi l'Espagne connaît-elle une crise du logement ?",
+        "promise": "Trois regards sur la crise du logement ; à vous d'en juger."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Tourne la question vers la façon de comprendre, ce qui annonce que la réponse dépend du regard choisi.",
+      "fields": {
+        "title": "Comment expliquer la crise du logement en Espagne ?",
+        "promise": "Trois regards sur la crise du logement ; à vous d'en juger."
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "hook": {
+      "title": "D'où vient la crise du logement en Espagne ?",
+      "promise": "Trois regards sur la crise du logement ; à vous d'en juger."
+    }
+  },
+  "remarks": []
+}
