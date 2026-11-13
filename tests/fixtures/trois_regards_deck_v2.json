@@ -1,0 +1,194 @@
+{
+  "caption": "Trois regards sur la crise du logement en Espagne : politique, économique, sociologique. Quel regard éclaire le mieux ce que vous venez de lire ?\n\n#logement #Espagne #espritcritique #singsing",
+  "axe": {
+    "question": "D'où vient la crise du logement en Espagne ?",
+    "article_question": "Comment la crise du logement a-t-elle mené à des élections anticipées ?",
+    "subject": "la crise du logement",
+    "prisms": [
+      "politique",
+      "economique",
+      "sociologique"
+    ],
+    "media": "politique",
+    "media_grounding": "Radio-Canada suit les mesures du gouvernement, le rejet du Parlement et l'élection : un regard politique.",
+    "closing": "Politique, économique ou sociologique : quel regard explique le mieux la crise du logement ?"
+  },
+  "hook": {
+    "title": "D'où vient la crise du logement en Espagne ?",
+    "promise": "Trois regards sur la crise du logement ; à vous d'en juger."
+  },
+  "position": {
+    "kicker": "Ce que dit l'article",
+    "title": "Le logement, enjeu d'élection",
+    "lead": "L'article répond à une question plus étroite : comment la crise a-t-elle mené aux urnes ?",
+    "cards": [
+      {
+        "label": "Ce qu'il raconte",
+        "text": "Une octogénaire expulsée, des manifestations, puis des élections anticipées."
+      },
+      {
+        "label": "Ses causes",
+        "text": "Peu de logements sociaux, des loyers sans plafond, un parc insuffisant."
+      },
+      {
+        "label": "Ce que répondent les acteurs",
+        "text": "Le gouvernement veut plafonner les loyers ; la droite craint moins d'offre."
+      },
+      {
+        "label": "Où il mène",
+        "text": "Un scrutin anticipé où le logement devient l'enjeu central de la campagne."
+      }
+    ]
+  },
+  "prisms": [
+    {
+      "prism": "politique",
+      "title": "Un logement bloqué au **Parlement**",
+      "media_note": "L'article suit la rue, le rejet des mesures au Parlement, puis l'élection anticipée.",
+      "cards": [
+        {
+          "head": "Le Parlement a rejeté les mesures",
+          "claim": "Ce blocage aggrave-t-il la crise du logement ?",
+          "source": "Congrès des députés",
+          "find": "les votes sur les mesures d'urgence d'octobre"
+        },
+        {
+          "head": "Les régions gèrent le logement",
+          "claim": "Qui décide du logement : État ou régions ?",
+          "source": "Constitution espagnole",
+          "find": "le partage des compétences sur le logement"
+        },
+        {
+          "head": "Le logement, thème de campagne",
+          "claim": "La crise du logement change-t-elle le vote ?",
+          "source": "CIS (baromètres)",
+          "find": "la place du logement parmi les préoccupations"
+        },
+        {
+          "head": "Le plafond des loyers divise",
+          "claim": "Plafonner les loyers apaise-t-il la crise ?",
+          "source": "Ley de vivienda",
+          "find": "les zones où les loyers peuvent être plafonnés"
+        }
+      ]
+    },
+    {
+      "prism": "economique",
+      "title": "Un marché qui **ne construit plus assez**",
+      "cards": [
+        {
+          "head": "L'offre de logements ne suit pas",
+          "claim": "Construit-on assez de logements en Espagne ?",
+          "source": "Banque d'Espagne",
+          "find": "ses estimations du déficit de logements"
+        },
+        {
+          "head": "Le parc social reste très réduit",
+          "claim": "Le logement social manque-t-il à la crise ?",
+          "source": "Eurostat",
+          "find": "la part du logement social, pays par pays"
+        },
+        {
+          "head": "Le tourisme prend des logements",
+          "claim": "La location touristique réduit-elle l'offre ?",
+          "source": "INE",
+          "find": "le recensement des logements à usage touristique"
+        },
+        {
+          "head": "Les loyers devancent les salaires",
+          "claim": "Quelle part du revenu va au logement ?",
+          "source": "Eurostat (EU-SILC)",
+          "find": "le taux d'effort des locataires"
+        }
+      ]
+    },
+    {
+      "prism": "sociologique",
+      "title": "Une crise vécue **par les jeunes**",
+      "cards": [
+        {
+          "head": "Les jeunes quittent tard le foyer",
+          "claim": "Le logement retarde-t-il l'autonomie ?",
+          "source": "Consejo de la Juventud",
+          "find": "l'âge moyen de départ du foyer familial"
+        },
+        {
+          "head": "Les locataires modestes exposés",
+          "claim": "Qui porte le poids de la crise du logement ?",
+          "source": "Fondation FOESSA",
+          "find": "les ménages en logement précaire"
+        },
+        {
+          "head": "Des collectifs de locataires",
+          "claim": "Les collectifs pèsent-ils sur la crise ?",
+          "source": "Sindicato de Inquilinas",
+          "find": "ses campagnes et ses adhérents, ville par ville"
+        },
+        {
+          "head": "Une expulsion devient un symbole",
+          "claim": "Pourquoi une éviction résume-t-elle la crise ?",
+          "source": "CGPJ (statistiques)",
+          "find": "les expulsions de locataires par région"
+        }
+      ]
+    }
+  ],
+  "tensions": {
+    "title": "Où les regards divergent-ils ?",
+    "cards": [
+      {
+        "pair": [
+          1,
+          2
+        ],
+        "head": "Des votes qui bloquent, ou l'offre rare",
+        "claim": "La crise du logement vient-elle des votes ?",
+        "source": "Banque d'Espagne",
+        "find": "l'évolution des mises en chantier"
+      },
+      {
+        "pair": [
+          1,
+          3
+        ],
+        "head": "L'agenda des partis, ou la rue",
+        "claim": "La rue a-t-elle mis le logement à l'agenda ?",
+        "source": "CIS (baromètres)",
+        "find": "le rang du logement parmi les soucis"
+      },
+      {
+        "pair": [
+          2,
+          3
+        ],
+        "head": "Les prix, ou les parcours de vie",
+        "claim": "Le logement pèse-t-il surtout sur les jeunes ?",
+        "source": "Eurostat (EU-SILC)",
+        "find": "le taux d'effort selon l'âge"
+      }
+    ]
+  },
+  "arbitrage": {
+    "title": "Quel regard pèse le plus ?",
+    "cards": [
+      {
+        "head": "Les choix publics expliquent la crise",
+        "test": "Les régions qui ont bâti plus de logement social auraient des loyers plus sages",
+        "source": "Ministère du Logement",
+        "find": "les logements protégés livrés, région par région"
+      },
+      {
+        "head": "Le marché explique l'essentiel",
+        "test": "Le taux d'effort serait le plus haut là où l'offre de logements manque le plus",
+        "source": "INE",
+        "find": "l'indice des prix du logement, ville par ville"
+      },
+      {
+        "head": "Les parcours de vie pèsent le plus",
+        "test": "Jeunes et locataires seraient les plus touchés par la crise, partout en Espagne",
+        "source": "Eurostat (EU-SILC)",
+        "find": "la surcharge des coûts du logement selon l'âge"
+      }
+    ]
+  }
+}

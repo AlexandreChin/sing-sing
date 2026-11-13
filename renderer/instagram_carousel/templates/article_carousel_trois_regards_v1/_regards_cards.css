@@ -1,0 +1,11 @@
+/* the revision-2 cards of slides 3–7, on top of the anatomie `_cards.css`: a tighter card so four fit under
+   the title, the deck's question as a small line under the title; the room left above the page number is
+   shared between the cards at screenshot time (data-fit / data-gap, renderer/shoot.py): spacing only */
+:root { --gap-block: 12px; --gap-foot: 8px; }
+.card.pc { padding: 14px 30px 14px; }
+.card.pc .foot { line-height: 1.25; }
+.card.pc .nm { font-size: 31px; }
+.card.pc .see { margin-top: 4px; font-size: 27px; }
+.card.pc .tagk { display: block; margin-bottom: 4px; line-height: 1.2; white-space: nowrap; }
+.dq { margin-top: 8px; font-size: 26px; font-weight: 500; line-height: 1.3; color: #c4c4c4; text-wrap: pretty; hyphens: none; }
+.dq + .card, .mn + .card, .head + .card { margin-top: 22px; }

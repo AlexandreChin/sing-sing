@@ -250,11 +250,24 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("prismes", "media_note"): ("chars", 90),
     ("matrice", "title"): ("chars", 34),
     ("hook", "title"): ("chars", 70), ("hook", "promise"): ("chars", 100),
+    # revision 2: the four-card prism slides, the tensions (slide 6) and the arbitrage (slide 7)
+    ("prismes", "title"): ("chars", 40),
+    **{("prismes", f"head{i}"): ("chars", 36) for i in (1, 2, 3, 4)},
+    **{("prismes", f"claim{i}"): ("chars", 46) for i in (1, 2, 3, 4)},
+    ("tensions", "title"): ("chars", 34),
+    **{("tensions", f"head{i}"): ("chars", 40) for i in (1, 2, 3)},
+    **{("tensions", f"claim{i}"): ("chars", 46) for i in (1, 2, 3)},
+    ("arbitrage", "title"): ("chars", 34),
+    **{("arbitrage", f"head{i}"): ("chars", 40) for i in (1, 2, 3)},
+    **{("arbitrage", f"test{i}"): ("chars", 80) for i in (1, 2, 3)},
 }
 # (step, field) -> the parts of a « a | b » field, each with its cap in characters
 _PART_CAPS: dict[tuple[str, str], tuple[tuple[str, int], ...]] = {
     **{("position", f"card{i}"): (("label", 30), ("text", 76)) for i in (1, 2, 3, 4)},
     **{("matrice", f"col{i}"): (("variable", 60), ("indicator", 40)) for i in (1, 2, 3)},
+    # a clue: « <source nommée> | <ce qu'on y cherche> »
+    **{(step, f"indice{i}"): (("source", 30), ("find", 60))
+       for step, n in (("prismes", 4), ("tensions", 3), ("arbitrage", 3)) for i in range(1, n + 1)},
 }
 _SOURCE_MAX = 30       # characters in one source name
 _SOURCES_MAX = 3       # names on one prism slide

@@ -1,8 +1,10 @@
-"""Renderer for the TROIS REGARDS carousel: seven slides, in the optimized deck's visual
-language, screenshotted by `renderer.shoot`. Slides 1 and 7 are the optimized deck's own
-hook and sign-off (photo included); slide 2 is the `temps_long` position slide, drawn as
-it is; slides 3–5 (one prism each) and 6 (the matrix) are the
-`article_carousel_trois_regards_v1` templates. Registered as the `trois_regards` format."""
+"""Renderer for the TROIS REGARDS carousel, in the optimized deck's visual language, screenshotted
+by `renderer.shoot`. The first and last slides are the optimized deck's own hook and sign-off (photo
+included); slide 2 is the `temps_long` position slide, drawn as it is; slides 3–5 (one prism each)
+are the `article_carousel_trois_regards_v1` templates. A revision-2 deck (prism `cards`, `tensions`,
+`arbitrage`) draws four cards per prism, then the tensions (slide 6) and the arbitrage (slide 7):
+eight slides. An older deck (prism `lines`, `matrix`) keeps its seven slides and its old templates.
+Registered as the `trois_regards` format."""
 import json
 import re
 from pathlib import Path
@@ -21,6 +23,9 @@ POSITION = "article_carousel_temps_long_v1/02_position.html"
 POSITION_KICKER = "Ce que dit l'article"
 POSITION_ICONS = ("book", "link", "eye", "widen")   # one fixed icon per card, in order
 MEDIA_BADGE = "Le regard du média"
+CARD_ICON = "help"                       # a prism card ends on a question, as the anatomie blind spots
+TENSIONS_KICKER, TENSIONS_ICON, TENSION_CARD_ICON = "Les tensions", "flame", "link"
+ARBITRAGE_KICKER, ARBITRAGE_ICON = "Le poids des regards", "anchor"
 
 
 def _typeset(text: str) -> str:
@@ -56,19 +61,41 @@ def generate_html(doc: TroisRegardsDocument, out_dir: Path) -> list[Path]:
     position = {"kicker": pres.position.kicker or POSITION_KICKER, "title": pres.position.title, "lead": pres.position.lead,
                 "cards": [{"label": c.label, "text": c.text, "icon": POSITION_ICONS[i % len(POSITION_ICONS)]}
                           for i, c in enumerate(pres.position.cards)]}
-    # only the media's prism carries a media_note (a hard rule of the adapt agent): it draws the badge
-    prisms = [("prisme", f"{TPL}/02_prisme.html",
+    # only the media's prism carries a media_note (a hard rule of the adapt agent): it draws the badge;
+    # a prism with cards is a revision-2 slide, one with lines the older one
+    prisms = [("prisme", f"{TPL}/02_prisme_cartes.html",
+               _nobreak({"title": s.title, "question": question, "cards": [c.model_dump() for c in s.cards],
+                         "media_note": s.media_note, "badge": MEDIA_BADGE, "icon": CARD_ICON}) | {"prism": _prism(s.prism)})
+              if s.cards else
+              ("prisme", f"{TPL}/02_prisme.html",
                _nobreak({"question": s.question, "lines": s.lines, "sources": s.sources,
                          "media_note": s.media_note, "badge": MEDIA_BADGE}) | {"prism": _prism(s.prism)})
               for s in pres.prisms]
-    columns = [_nobreak({"variable": c.variable, "indicator": c.indicator}) | _prism(c.prism) | {"media": bool(media) and c.prism == media}
-               for c in pres.matrix.columns]
+    # the tags name the prisms by their place in the axe (the prism slides' order when the deck has no axe)
+    order = [_prism(p) for p in (pres.axe.prisms if pres.axe else [s.prism for s in pres.prisms])]
+    name = lambda k: order[k - 1]["name"] if 0 < k <= len(order) else ""   # noqa: E731
+    later = []
+    if pres.tensions:
+        later.append(("tensions", f"{TPL}/03_tensions.html", _nobreak(
+            {"kicker": TENSIONS_KICKER, "kicker_icon": TENSIONS_ICON, "icon": TENSION_CARD_ICON,
+             "title": pres.tensions.title, "question": question,
+             "cards": [c.model_dump() | {"tag": " × ".join(name(k) for k in c.pair)} for c in pres.tensions.cards]})))
+    elif pres.matrix:
+        columns = [_nobreak({"variable": c.variable, "indicator": c.indicator}) | _prism(c.prism)
+                   | {"media": bool(media) and c.prism == media} for c in pres.matrix.columns]
+        later.append(("matrice", f"{TPL}/03_matrice.html",
+                      _nobreak({"title": pres.matrix.title, "lead": question, "badge": MEDIA_BADGE}) | {"columns": columns}))
+    if pres.arbitrage:
+        # the prism icons are svg markup: added after `_nobreak`, which would put word joiners in their path data
+        later.append(("arbitrage", f"{TPL}/04_arbitrage.html", _nobreak(
+            {"kicker": ARBITRAGE_KICKER, "kicker_icon": ARBITRAGE_ICON, "title": pres.arbitrage.title, "question": question,
+             "cards": [c.model_dump() | {"tag": name(k)} for k, c in enumerate(pres.arbitrage.cards, 1)]})
+            | {"icons": [p["icon"] for p in order]}))
     specs = [
         ("hook", f"{OPT}/01_hook.html", hook),
         ("position", POSITION, _nobreak(position)),
         *prisms,
-        ("matrice", f"{TPL}/03_matrice.html",
-         _nobreak({"title": pres.matrix.title, "lead": question, "badge": MEDIA_BADGE}) | {"columns": columns}),
+        *later,
         ("cta", f"{OPT}/10_cta.html", {**cover_layers(meta, pres.hook.title), "background": background,
                                        "L": medium_labels(meta.medium)
                                        | ({"cta_comment": _relance(pres.axe.closing)} if pres.axe and pres.axe.closing else {})}),
