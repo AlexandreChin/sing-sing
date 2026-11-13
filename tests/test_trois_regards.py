@@ -731,3 +731,90 @@ def test_a_wording_fix_on_a_later_step_still_restamps_without_a_model_call(fake,
     assert all(_fresh(steps, s) for s in _LATER)
     agent.adapt(full(), steps_dir=steps)
     assert fake.labels == before
+
+
+# ── Prompts ─────────────────────────────────────────────────────────────────
+
+PROMPTS = Path("agent/prompts/trois_regards_steps")
+
+
+def _prompt_text(path: Path) -> str:
+    return path.read_text(encoding="utf-8")
+
+
+def test_every_step_has_its_prompt():
+    files = [PROMPTS / "0_options.md", PROMPTS / "0_shared.md",
+             *(PROMPTS / f"{s.n}_{s.name}.md" for s in agent.STEPS)]
+    for f in files:
+        assert f.exists(), f
+        assert len(_prompt_text(f)) > 400, f"{f} is still a stub"
+
+
+def test_the_shared_prompt_states_the_anti_goals():
+    text = _prompt_text(PROMPTS / "0_shared.md").lower()
+    for guard in ("reproche", "oublie", "inventée", "réelle", "prescri", "il faut", "ligne en trop"):
+        assert guard in text, guard
+
+
+def test_every_cap_placeholder_resolves():
+    caps = agent.prompt_caps()
+    for f in PROMPTS.glob("*.md"):
+        for name in re.findall(r"\{\{cap:([\w.]+)\}\}", _prompt_text(f)):
+            assert name in caps, f"{f.name}: {name}"
+    for step in agent.STEPS:
+        assert "{{" not in agent._prompt(step), step.name
+        assert "{{" not in agent.fill_caps(_prompt_text(PROMPTS / "0_shared.md"))
+
+
+def test_no_prompt_types_a_literal_cap():
+    for f in PROMPTS.glob("*.md"):
+        text = _prompt_text(f)
+        assert not re.search(r"≤\s*\d", text), f.name
+        assert not re.search(r"max(?:imum)? \d+ caractères", text), f.name
+
+
+def test_the_prompts_name_the_exact_option_fields():
+    for step in agent.STEPS:
+        if step.option_model is None:
+            continue
+        text = _prompt_text(PROMPTS / f"{step.n}_{step.name}.md")
+        for field in step.option_model.model_fields:
+            assert f"`{field}`" in text, f"{step.name}: {field}"
+
+
+def test_the_message_leaves_no_placeholder():
+    msg = agent._message(agent.STEP_BY_NAME["prismes"], full(), _fragments(), "Texte.", [], [])
+    assert "{{" not in msg and "CATALOGUE DES PRISMES" in msg
+
+
+def test_the_worked_examples_of_the_prompts_break_no_hard_rule():
+    """The examples written in 1_axe / 2_position / 3_prismes / 4_matrice / 5_hook respect the rules."""
+    def bullets(name: str) -> dict[str, str]:
+        text = _prompt_text(PROMPTS / name).split("Exemple", 1)[1]
+        return {m.group(1): m.group(2).strip() for m in re.finditer(r"^- `(\w+)` : « ?(.*?) ?»\s*$", text, re.M)}
+
+    def clean(d: dict[str, str]) -> dict[str, str]:
+        return {k: v for k, v in d.items() if k != "reason"}
+
+    axe = clean(bullets("1_axe.md"))
+    axe.update(prism1="politique", prism2="economique", prism3="sociologique", media="politique")
+    frags = {"axe": agent.to_fragment(agent.STEP_BY_NAME["axe"], [_opt(FIELDS["axe"] | axe)], {})}
+    assert agent.field_errors("axe", FIELDS["axe"] | axe, {}, None)[0] == []
+    pos = clean(bullets("2_position.md"))
+    assert agent.field_errors("position", pos, frags, None)[0] == []
+    mat = clean(bullets("4_matrice.md"))
+    assert agent.field_errors("matrice", mat, frags, None)[0] == []
+    assert agent.field_errors("hook", FIELDS["hook"] | {"title": axe["question"],
+                                                         "promise": "Trois regards sur la crise du logement ; à vous d'en juger."},
+                              frags, None)[0] == []
+    p2 = {"question": "Un marché qui construit trop peu suffit-il à l'expliquer ?", "line1": "Quand l'offre de logements ne suit pas la demande, les prix montent.",
+          "line2": "Le logement social, rare, laisse le marché seul face aux besoins.",
+          "line3": "Le tourisme met les résidents en concurrence avec les locations courtes.",
+          "line4": "", "sources": "Banque d'Espagne ; Eurostat ; INE", "media_note": ""}
+    p1 = {"question": "Qui décide, et qui bloque ?", "line1": "Un gouvernement sans majorité doit négocier chaque mesure avec le Congrès.",
+          "line2": "Le calendrier électoral pèse sur le moment où les mesures sont proposées.",
+          "line3": "Les partis ne s'accordent pas sur le rôle de la loi face au marché locatif.", "line4": "",
+          "sources": "Congrès des députés ; Gouvernement d'Espagne",
+          "media_note": "Le récit suit les mesures du gouvernement, leur rejet par le Congrès, puis l'élection."}
+    assert agent.field_errors("prismes", p2, frags, None, slot="p2")[0] == []
+    assert agent.field_errors("prismes", p1, frags, None, slot="p1")[0] == []

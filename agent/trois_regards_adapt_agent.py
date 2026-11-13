@@ -536,9 +536,9 @@ def _response_model(step: Step, slots: tuple[str, ...] | None = None):
 
 def _prompt(step: Step) -> str:
     body = (_PROMPTS / f"{step.n}_{step.name}.md").read_text(encoding="utf-8")
-    if step.option_model is None:
-        return body
-    return (_PROMPTS / "0_options.md").read_text(encoding="utf-8") + "\n" + body
+    if step.option_model is not None:
+        body = (_PROMPTS / "0_options.md").read_text(encoding="utf-8") + "\n" + body
+    return fill_caps(body)
 
 
 def _to_options(step: Step, proposals: list, rejected: list[Option]) -> list[Option]:
@@ -579,7 +579,7 @@ def _message(step: Step, full: ArticleFullAnalysis, fragments: dict, article_tex
     if fragments:
         parts.append(f"CHOIX FIXÉS (ne les réécris pas) :\n{_j(fragments)}")
     parts.append(f"CATALOGUE DES PRISMES :\n{catalogue_text()}")
-    parts += [(_PROMPTS / "0_shared.md").read_text(encoding="utf-8"), _prompt(step)]
+    parts += [fill_caps((_PROMPTS / "0_shared.md").read_text(encoding="utf-8")), _prompt(step)]
     if _multi(step):
         parts.append(_slots_note(step, fragments, only_slot))
     if rejected:
