@@ -60,3 +60,35 @@ def test_the_fixture_respects_the_caps_and_the_spec():
     outside = re.sub(r"«[^»]*»", "", json.dumps(DECK, ensure_ascii=False).lower())
     for w in ("biais", "manipulation", "mensonge", "trompeur", "oublie", "ignore", "omet", "néglige", "ne dit pas"):
         assert w not in outside, w
+
+
+# ---- the seven-prism registry -----------------------------------------------------------------------------------
+
+def test_the_catalogue_has_the_seven_prisms_in_the_spec_order():
+    from agent.trois_regards_prisms import PRISM_IDS, PRISMS
+    assert PRISM_IDS == ("economique", "sociologique", "juridique", "historique", "politique", "ecologique", "technologique")
+    assert list(PRISMS) == list(PRISM_IDS)
+
+
+def test_every_prism_has_a_name_a_definition_and_a_distinct_icon():
+    from agent.trois_regards_prisms import PRISMS
+    assert all(p.name and p.definition and p.icon_svg for p in PRISMS.values())
+    assert len({p.icon_svg for p in PRISMS.values()}) == 7
+    assert all("<" in p.icon_svg and "stroke" not in p.icon_svg and "#" not in p.icon_svg for p in PRISMS.values())
+    assert PRISMS["economique"].name == "Économique" and PRISMS["ecologique"].name == "Écologique"
+
+
+def test_the_prism_icons_are_not_in_the_canonical_lenses():
+    from agent.lenses import CANONICAL_LENSES
+    from agent.trois_regards_prisms import PRISM_IDS
+    assert set(CANONICAL_LENSES) == {"sources", "chiffres", "causalite", "cadrage", "opinion_fait", "equilibre",
+                                     "sophismes", "angles_morts"}
+    assert not set(PRISM_IDS) & set(CANONICAL_LENSES)
+
+
+def test_the_catalogue_text_names_every_prism():
+    from agent.trois_regards_prisms import PRISM_IDS, PRISMS, catalogue_text
+    lines = catalogue_text().splitlines()
+    assert len(lines) == 7
+    for line, pid in zip(lines, PRISM_IDS):
+        assert pid in line and PRISMS[pid].name in line and PRISMS[pid].definition in line
