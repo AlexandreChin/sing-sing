@@ -16,18 +16,26 @@ separated by « | » (see `to_fragment`).
 Same guided semantics as `agent/anatomie_chiffre_adapt_agent.py`, kept as a module of its own.
 """
 import copy
+import json
 import re
+import string
+import sys
 import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ValidationError, create_model
 
+from agent._base import _call_with_retry, _j, medium_directive
 from agent.carousel_steps.steps import Option
-from agent.carousel_steps.store import digest
-from agent.trois_regards_prisms import PRISM_IDS, PRISMS
+from agent.carousel_steps.store import digest, log_choice, stamp_for
+from agent.instagram_carousel_adapt_agent import _full_analysis_context
+from agent.trois_regards_prisms import PRISM_IDS, PRISMS, catalogue_text
 from models.full_analysis import ArticleFullAnalysis
+from models.trois_regards_presentation import TroisRegardsPresentation
+
+_PROMPTS = Path(__file__).parent / "prompts" / "trois_regards_steps"
 
 
 class ChoiceError(ValueError):
@@ -448,3 +456,436 @@ def prompt_caps() -> dict[str, int]:
 def fill_caps(text: str) -> str:
     caps = prompt_caps()
     return _CAP.sub(lambda m: str(caps[m.group(1)]), text)
+
+
+# ── Picks and slots ─────────────────────────────────────────────────────────
+
+def _multi(step: Step) -> bool:
+    return len(step.slots) > 1
+
+
+def _by_slot(step: Step, options: list[Option]) -> list[Option]:
+    """`options` in the step's slot order (stable inside a slot)."""
+    order = {s: i for i, s in enumerate(step.slots)}
+    return sorted(options, key=lambda o: order.get(o.slot, len(order)))
+
+
+def _complete(step: Step, sf: StepFile) -> bool:
+    """The step holds one pick per slot (a `more` on one prism leaves the others' picks only)."""
+    slot_of = {o.id: o.slot for o in sf.options}
+    return bool(sf.picked) and sorted(slot_of.get(p, "") for p in sf.picked) == sorted(step.slots)
+
+
+def _chosen(step: Step, sf: StepFile) -> list[Option]:
+    by_id = {o.id: o for o in sf.options}
+    return _by_slot(step, [by_id[p] for p in sf.picked if p in by_id])
+
+
+def _pick_error(step: Step, options: list[Option], picks: list[str]) -> str | None:
+    slot_of = {o.id: o.slot for o in options}
+    if (unknown := [p for p in picks if p not in slot_of]):
+        return f"{step.name}: unknown option(s) {', '.join(unknown)} — options: {', '.join(slot_of)}"
+    if _multi(step):
+        if sorted(slot_of[p] for p in picks) != sorted(step.slots):
+            return f"{step.name}: keep exactly one option per prism ({', '.join(step.slots)})"
+    elif len(picks) != 1:
+        return f"{step.name}: keep exactly one of {', '.join(slot_of)}"
+    return None
+
+
+def _pick(step: Step, sf: StepFile, picks: list[str], fragments: dict[str, dict]) -> None:
+    sf.picked = list(picks)
+    chosen = _chosen(step, sf)
+    sf.picked = [o.id for o in chosen]
+    sf.fragment = to_fragment(step, chosen, fragments)
+
+
+def _fill(step: Step, sf: StepFile) -> list[str]:
+    """The picks kept, completed with the recommended option of every slot left without one."""
+    slot_of = {o.id: o.slot for o in sf.options}
+    taken = {slot_of.get(p) for p in sf.picked}
+    return [p for p in sf.picked if p in slot_of] + [r for r in sf.recommended if slot_of.get(r) not in taken]
+
+
+def _pick_rules(step: Step, sf: StepFile, fragments: dict[str, dict], article_text: str | None) -> tuple[list[str], list[str]]:
+    """(hard, flags) of the picked options, given the other steps' fragments; a prism's are
+    prefixed with its slot, and checked against the other prism slides of the pick."""
+    others = {k: v for k, v in fragments.items() if k != step.name}
+    if _multi(step) and sf.fragment:
+        others[step.name] = sf.fragment
+    hard, flags = [], []
+    for o in _chosen(step, sf):
+        h, o.flags = field_errors(step.name, o.fields, others, article_text, o.slot)
+        tag = f"{o.slot}: " if _multi(step) else ""
+        hard += [tag + e for e in h]
+        flags += [tag + f for f in o.flags]
+    return hard, flags
+
+
+# ── Generating a step ───────────────────────────────────────────────────────
+
+def _response_model(step: Step, slots: tuple[str, ...] | None = None):
+    if step.option_model is None:
+        return WritingCopy
+    extra: dict[str, Any] = {"reason": (str, ...)}
+    if _multi(step):
+        extra["slot"] = (Literal[tuple(slots or step.slots)], ...)
+    proposal = create_model(f"{step.name.title()}Proposal", __base__=step.option_model, **extra)
+    return create_model(f"{step.name.title()}Response", options=(list[proposal], ...), recommended=(list[int], ...))
+
+
+def _prompt(step: Step) -> str:
+    body = (_PROMPTS / f"{step.n}_{step.name}.md").read_text(encoding="utf-8")
+    if step.option_model is None:
+        return body
+    return (_PROMPTS / "0_options.md").read_text(encoding="utf-8") + "\n" + body
+
+
+def _to_options(step: Step, proposals: list, rejected: list[Option]) -> list[Option]:
+    """Ids `a`, `b`, … (one slot) or `<slot><letter>` (`p1a`, `p2c`), continuing after `rejected`."""
+    used = {o.id for o in rejected}
+    out = []
+    for p in proposals:
+        slot = getattr(p, "slot", "a")
+        prefix = slot if _multi(step) else ""
+        oid = next(prefix + c for c in string.ascii_lowercase if prefix + c not in used)
+        used.add(oid)
+        out.append(Option(id=oid, slot=slot, reason=p.reason,
+                          fields=p.model_dump(mode="json", exclude={"slot", "reason"})))
+    return out
+
+
+def _slots_note(step: Step, fragments: dict, only_slot: str | None) -> str:
+    """For `prismes`: which prism each slot writes, and how many options per slot."""
+    prisms = _axe_prisms(fragments)
+    media = _axe(fragments).get("media", "")
+    named = [f"- {s} = {p} ({PRISMS[p].name if p in PRISMS else p})" + (" — le prisme du média" if p == media else "")
+             for s, p in zip(step.slots, prisms)]
+    lo, hi = step.offered
+    if only_slot:
+        ask = (f"Écris {lo} à {hi} options pour l'emplacement {only_slot} SEULEMENT (les autres prismes sont gardés), "
+               f"chacune avec `slot` = « {only_slot} » ; `recommended` : un seul indice.")
+    else:
+        ask = (f"Écris {lo} à {hi} options PAR emplacement ({', '.join(step.slots)}), chacune avec son `slot` ; "
+               f"`recommended` : {len(step.slots)} indices, un par emplacement.")
+    return "PRISMES PAR EMPLACEMENT :\n" + "\n".join(named) + "\n" + ask
+
+
+def _message(step: Step, full: ArticleFullAnalysis, fragments: dict, article_text: str | None,
+             rejected: list[Option], remarks: list[str], only_slot: str | None = None) -> str:
+    parts = [_full_analysis_context(full, step.analysis_slice)]
+    if article_text:
+        parts.append(f"MÉDIA (transcription ou texte) :\n{article_text.strip()}")
+    if fragments:
+        parts.append(f"CHOIX FIXÉS (ne les réécris pas) :\n{_j(fragments)}")
+    parts.append(f"CATALOGUE DES PRISMES :\n{catalogue_text()}")
+    parts += [(_PROMPTS / "0_shared.md").read_text(encoding="utf-8"), _prompt(step)]
+    if _multi(step):
+        parts.append(_slots_note(step, fragments, only_slot))
+    if rejected:
+        parts.append(f"DÉJÀ PROPOSÉES ET ÉCARTÉES :\n{_j([o.fields for o in rejected])}")
+    if remarks:
+        parts.append("REMARQUES DE L'AUTEUR :\n" + "\n".join(f"- {r}" for r in remarks))
+    if (directive := medium_directive(full.article_metadata.medium)):
+        parts.append(directive)
+    return "\n\n---\n\n".join(parts)
+
+
+def _failed(step: Step, steps_dir: Path | None, data, errors: list[str]) -> RuntimeError:
+    where = ""
+    if steps_dir is not None:
+        steps_dir.mkdir(parents=True, exist_ok=True)
+        path = steps_dir / f"{step.n}_{step.name}.failed.json"
+        path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        where = f" (raw answer saved to {path})"
+    return RuntimeError(f"step {step.n} ({step.name}): the model's answer is still invalid after the retries"
+                        f"{where}:\n" + "\n".join(f"- {e}" for e in errors))
+
+
+def _coverage_errors(step: Step, options: list[Option], slots: tuple[str, ...]) -> list[str]:
+    lo, hi = step.offered
+    if not _multi(step):
+        n = len(options)
+        return [] if lo <= n <= hi else [f"options: {n} option(s), must have {lo}–{hi}"]
+    errors = [f"options: slot {o.slot!r} is not asked for" for o in options if o.slot not in slots]
+    for slot in slots:
+        n = sum(o.slot == slot for o in options)
+        if not lo <= n <= hi:
+            errors.append(f"options: slot {slot!r} has {n} option(s), must have {lo}–{hi}")
+    return errors
+
+
+def _recommended(step: Step, options: list[Option], indices: list[int],
+                 slots: tuple[str, ...]) -> tuple[list[str], list[str]]:
+    """The recommended ids, one per slot in slot order, or the errors."""
+    what = "exactly one valid index" if len(slots) == 1 else \
+        f"{len(slots)} valid indices, one per slot ({', '.join(slots)})"
+    if len(indices) != len(slots) or any(not 0 <= i < len(options) for i in indices):
+        return [], [f"recommended: {what}"]
+    chosen = [options[i] for i in indices]
+    if sorted(o.slot for o in chosen) != sorted(slots):
+        return [], [f"recommended: {what} — got slots {', '.join(o.slot for o in chosen)}"]
+    return [o.id for o in _by_slot(step, chosen)], []
+
+
+def generate(step: Step, full: ArticleFullAnalysis, fragments: dict[str, dict], article_text: str | None,
+             no_api: bool, rejected: list[Option] = [], remarks: list[str] = [],
+             steps_dir: Path | None = None, only_slot: str | None = None) -> StepFile:
+    """One model call for `step`'s options (writing: its copy), checked against the
+    rules. Nothing is picked. For `prismes`, 2–3 options per slot (or for `only_slot`
+    alone) and one recommended per slot. An answer still breaking a hard rule after the
+    retries raises RuntimeError."""
+    slots = (only_slot,) if only_slot else step.slots
+    model = _response_model(step, slots)
+    message = _message(step, full, fragments, article_text, rejected, remarks, only_slot)
+    if step.option_model is None:
+        def check_writing(d):
+            return field_errors(step.name, WritingCopy.model_validate(d).model_dump(), fragments, article_text)[0]
+        data = _call_with_retry(message, model.model_json_schema(), validator=check_writing,
+                                no_api=no_api, label=step.name)
+        try:
+            fields = WritingCopy.model_validate(data).model_dump()
+        except ValidationError as exc:
+            raise _failed(step, steps_dir, data, [str(exc)]) from None
+        return StepFile(step=step.name, options=[Option(id="a", slot="a", reason="", fields=fields)],
+                        recommended=["a"], rejected=rejected, remarks=remarks)
+
+    def parse(data):
+        resp = model.model_validate(data)
+        options = _to_options(step, resp.options, rejected)
+        return options, *_recommended(step, options, resp.recommended, slots)
+
+    def validator(data):
+        options, _, errors = parse(data)
+        errors = _coverage_errors(step, options, slots) + errors
+        for k, o in enumerate(options):
+            errors += [f"options[{k}]: {e}" for e in
+                       field_errors(step.name, o.fields, fragments, article_text, o.slot)[0]]
+        return errors
+
+    data = _call_with_retry(message, model.model_json_schema(), validator=validator, no_api=no_api, label=step.name)
+    try:
+        options, recommended, errors = parse(data)
+    except ValidationError as exc:
+        raise _failed(step, steps_dir, data, [str(exc)]) from None
+    if not options or errors or any(not any(o.slot == s for o in options) for s in slots):
+        raise _failed(step, steps_dir, data, errors or ["a slot has no option"])
+    for o in options:
+        o.flags = field_errors(step.name, o.fields, fragments, article_text, o.slot)[1]
+    return StepFile(step=step.name, options=_by_slot(step, options), rejected=rejected,
+                    recommended=recommended, remarks=remarks)
+
+
+# ── Showing a step ──────────────────────────────────────────────────────────
+
+def format_options(step: Step, sf: StepFile) -> str:
+    """The options as the author reads them: one block per slot for `prismes`, ★ on the recommended."""
+    lines = [f"[{step.name}]"]
+    for slot in step.slots:
+        opts = [o for o in sf.options if o.slot == slot]
+        if not opts:
+            continue
+        if _multi(step):
+            lines.append(f"[{slot}]")
+        for o in opts:
+            name = o.fields.get(step.text_field, "")
+            lines.append(f"{o.id} — {name}" + (" ★" if o.id in sf.recommended else ""))
+            lines += [f"   · {k} : {v}" for k, v in o.fields.items() if k != step.text_field]
+            lines.append(f"   ↳ {o.reason}")
+            lines += [f"   ⚠ {flag}" for flag in o.flags]
+        if _multi(step):
+            lines.append("")
+    return "\n".join(lines).rstrip()
+
+
+# ── The run ─────────────────────────────────────────────────────────────────
+
+def pending_step(steps_dir: Path) -> str | None:
+    for s in STEPS[:-1]:
+        sf, _ = _load(steps_dir, s)
+        if sf is not None and not _complete(s, sf):
+            return s.name
+    return None
+
+
+def _run(full, no_api, article_text, steps_dir, stop_after, guided) -> TroisRegardsPresentation | None:
+    base = base_inputs(full, article_text)
+    fragments: dict[str, dict] = {}
+    for step in STEPS:
+        stamp = stamp_for(base, [fragments[s.name] for s in STEPS if s.n < step.n])
+        sf, saved = _load(steps_dir, step) if steps_dir is not None else (None, "")
+        tag = f"Adaptation trois_regards — étape {step.n}/{len(STEPS)} ({step.name})"
+        if sf is None or saved != stamp:
+            if sf is not None:
+                _retire(steps_dir, step, saved)
+            print(f"{tag}…", file=sys.stderr, flush=True)
+            sf = generate(step, full, fragments, article_text, no_api, steps_dir=steps_dir)
+            if not guided or step.option_model is None:    # writing offers no choice
+                _pick(step, sf, sf.recommended, fragments)
+        else:
+            print(f"{tag} : {_path(steps_dir, step)} réutilisé", file=sys.stderr, flush=True)
+            if not _complete(step, sf) and not guided:
+                _pick(step, sf, _fill(step, sf), fragments)
+            elif _complete(step, sf) and not sf.fragment:
+                _pick(step, sf, sf.picked, fragments)
+        if steps_dir is not None:
+            _save(steps_dir, sf, stamp)
+        if not _complete(step, sf):
+            print(format_options(step, sf))
+            raise AwaitingChoice(step.name)
+        fragments[step.name] = sf.fragment
+        hard, flags = _pick_rules(step, sf, fragments, article_text)
+        for e in hard + flags:
+            print(f"  ⚠  {e}", file=sys.stderr)
+        if step.name == stop_after:
+            return None
+    return TroisRegardsPresentation.model_validate(assemble(fragments))
+
+
+def adapt(full: ArticleFullAnalysis, no_api: bool = False, article_text: str | None = None,
+          steps_dir: Path | None = None, stop_after: str | None = None,
+          guided: bool = False) -> TroisRegardsPresentation | None:
+    """The deck, step by step. Unattended, each step takes its recommended pick(s);
+    guided, the run stops at the first step with no complete pick and prints its options.
+    Returns None when it stops (`stop_after` reached, or a choice awaited)."""
+    try:
+        return _run(full, no_api, article_text, steps_dir, stop_after, guided)
+    except AwaitingChoice as e:
+        print(f"Awaiting a choice at step {STEP_BY_NAME[e.step].n} ({e.step})", file=sys.stderr)
+        return None
+
+
+# ── Choosing, asking for more, fixing ───────────────────────────────────────
+
+def _earlier(full, steps_dir: Path, step: Step, article_text: str | None) -> tuple[dict, StepFile, str]:
+    fragments: dict[str, dict] = {}
+    for s in STEPS:
+        if s.n >= step.n:
+            break
+        sf, _ = _load(steps_dir, s)
+        if sf is None or not _complete(s, sf):
+            raise ChoiceError(f"{s.name} has no pick: run `produce --guided` to reach step {step.n} ({step.name})")
+        fragments[s.name] = sf.fragment
+    sf, saved = _load(steps_dir, step)
+    stamp = stamp_for(base_inputs(full, article_text), [fragments[s.name] for s in STEPS if s.n < step.n])
+    if sf is None or saved != stamp:
+        raise ChoiceError(f"step {step.n} ({step.name}) is missing or stale: run `produce --guided` to regenerate it")
+    return fragments, sf, stamp
+
+
+def _option_step(step: str) -> Step:
+    st = STEP_BY_NAME.get(step)
+    if st is None or st.option_model is None:
+        raise ChoiceError(f"{step!r} offers no options — steps: {', '.join(STEP_NAMES)}")
+    return st
+
+
+def choose(full, steps_dir: Path, step: str, picks: list[str], edits: dict[str, str],
+           reason: str = "", article_text: str | None = None) -> list[str]:
+    """Keep `picks` at `step` — one id, or one per prism for `prismes` — with the author's
+    rewrites (`ID` or `ID.field` → text). Only the pick itself blocks; hard-rule failures
+    come back as warnings."""
+    st = _option_step(step)
+    fragments, sf, stamp = _earlier(full, steps_dir, st, article_text)
+    by_id = {o.id: o for o in sf.options}
+    valid = list(st.option_model.model_fields)
+    for key in edits:
+        oid, _, field = key.partition(".")
+        if oid not in by_id:
+            raise ChoiceError(f"{step}: unknown option {oid!r}")
+        if field and field not in valid:
+            raise ChoiceError(f"{step}: unknown field {field!r} — the options have {', '.join(valid)}")
+    if (error := _pick_error(st, sf.options, picks)):
+        raise ChoiceError(error)
+    offered = [{"id": o.id, "slot": o.slot, "text": o.fields.get(st.text_field, "")} for o in sf.options]
+    for key, text in edits.items():
+        oid, _, field = key.partition(".")
+        by_id[oid].fields[field or st.text_field] = text
+        by_id[oid].edited = True
+    _pick(st, sf, picks, fragments)
+    hard, _ = _pick_rules(st, sf, fragments, article_text)
+    _save(steps_dir, sf, stamp)
+    log_choice(steps_dir.parent, {"step": step, "event": "pick", "offered": offered,
+                                  "picked": sf.picked, "edits": edits, "reason": reason})
+    return hard
+
+
+def more(full, steps_dir: Path, step: str, remark: str = "", article_text: str | None = None,
+         no_api: bool = False, slot: str | None = None) -> StepFile:
+    """Set the options aside and generate others, told what was rejected and why. With
+    `slot` (`p2`, or the prism id the axe puts there), only that prism's options are
+    regenerated: the other slots keep their options and their picks, and the stamp is kept."""
+    st = _option_step(step)
+    fragments, sf, stamp = _earlier(full, steps_dir, st, article_text)
+    if slot is not None:
+        by_prism = dict(zip(_axe_prisms(fragments), st.slots))
+        slot = by_prism.get(slot, slot)
+        if not _multi(st) or slot not in st.slots:
+            raise ChoiceError(f"{step}: unknown slot {slot!r} — "
+                              + (f"slots: {', '.join(st.slots)}" if _multi(st) else "this step has a single slot"))
+    remarks = sf.remarks + ([remark] if remark else [])
+    if slot is None:
+        new = generate(st, full, fragments, article_text, no_api, rejected=sf.rejected + sf.options,
+                       remarks=remarks, steps_dir=steps_dir)
+    else:
+        slot_of = {o.id: o.slot for o in sf.options}
+        old = [o for o in sf.options if o.slot == slot]
+        gen = generate(st, full, fragments, article_text, no_api, rejected=sf.rejected + old,
+                       remarks=remarks, steps_dir=steps_dir, only_slot=slot)
+        kept = [o for o in sf.options if o.slot != slot]
+        by_id = {o.id: o for o in kept + gen.options}
+        recommended = [r for r in sf.recommended if slot_of.get(r) != slot] + gen.recommended
+        new = StepFile(step=st.name, options=_by_slot(st, kept + gen.options), rejected=gen.rejected,
+                       recommended=[o.id for o in _by_slot(st, [by_id[r] for r in recommended])],
+                       picked=[p for p in sf.picked if slot_of.get(p) != slot], remarks=remarks)
+    _save(steps_dir, new, stamp)
+    log_choice(steps_dir.parent, {"step": step, "event": "more", "remark": remark, "slot": slot})
+    return new
+
+
+# deck field → (owning step, slot or None, option field): « <step>.<field> », « prismes.<slot>.<field> », the caption
+_FIELD_OWNER: dict[str, tuple[str, str | None, str]] = {
+    (f"{st.name}.{slot}.{name}" if _multi(st) else f"{st.name}.{name}"): (st.name, slot if _multi(st) else None, name)
+    for st in STEPS if st.option_model is not None for slot in st.slots for name in st.option_model.model_fields}
+_FIELD_OWNER["caption"] = ("writing", None, "caption")
+
+
+def fix(full, steps_dir: Path, field: str, text: str, article_text: str | None = None) -> tuple[str, list[str]]:
+    """Overwrite one field of the picked option of the step that owns it (« <step>.<field> »,
+    « prismes.<slot>.<field> », or `caption`), and rebuild the fragments from that step on.
+    Nothing is regenerated: the later steps are re-stamped. Returns the owner step and the
+    hard-rule failures of the rewritten field and of every later step, as warnings: like
+    `choose`, `fix` leaves the last word to the author."""
+    if field not in _FIELD_OWNER:
+        raise ChoiceError(f"{field!r} is not a deck field — fields: {', '.join(_FIELD_OWNER)}")
+    owner_name, slot, option_field = _FIELD_OWNER[field]
+    owner = STEP_BY_NAME[owner_name]
+    sf, _ = _load(steps_dir, owner)
+    if sf is None or not sf.fragment or not _complete(owner, sf):
+        raise ChoiceError(f"{owner_name} has no fragment to fix: run `produce` first")
+    picked = next(o for o in _chosen(owner, sf) if slot is None or o.slot == slot)
+    before, picked.fields[option_field] = picked.fields.get(option_field, ""), text
+    picked.edited = True
+    base = base_inputs(full, article_text)
+    fragments: dict[str, dict] = {}
+    warnings: list[str] = []
+    for s in STEPS:
+        current, saved = _load(steps_dir, s)
+        if s.n == owner.n:
+            current = sf
+        if current is None or not _complete(s, current):
+            if s.n <= owner.n:
+                raise ChoiceError(f"{s.name} has no pick: run `produce` first")
+            break                                  # nothing later can be re-stamped
+        if s.n < owner.n:
+            fragments[s.name] = current.fragment
+            continue
+        if s.n > owner.n:
+            saved = stamp_for(base, [fragments[t.name] for t in STEPS if t.n < s.n])
+        current.fragment = to_fragment(s, _chosen(s, current), fragments)   # a prism id follows the axe
+        fragments[s.name] = current.fragment
+        warnings += _pick_rules(s, current, fragments, article_text)[0]
+        _save(steps_dir, current, saved)
+    log_choice(steps_dir.parent, {"step": owner_name, "event": "fix", "field": field,
+                                  "before": before, "after": text})
+    return owner_name, warnings

@@ -425,3 +425,240 @@ def test_prompt_caps_cover_every_capped_field():
     assert agent.fill_caps("max {{cap:axe.question}} signes") == "max 60 signes"
     with pytest.raises(KeyError):
         agent.fill_caps("{{cap:nope.nope}}")
+
+
+# ---- the cascade, the model call faked ---------------------------------------------------------------------------
+
+def _schema_slots(schema: dict) -> list[str]:
+    """The slots the response schema lets the model write (empty when the step has no slot)."""
+    for d in schema.get("$defs", {}).values():
+        slot = d.get("properties", {}).get("slot")
+        if slot:
+            return list(slot.get("enum") or [slot["const"]])
+    return []
+
+
+class FakeCalls:
+    def __init__(self):
+        self.labels, self.errors, self.messages, self.slots, self.no_api = [], {}, [], [], []
+
+    def __call__(self, user_message, schema, validator, no_api=False, label="", system=None):
+        self.labels.append(label)
+        self.messages.append(user_message)
+        self.no_api.append(no_api)
+        call = len(self.labels)
+        if label == "writing":
+            data = copy.deepcopy(FIELDS["writing"])
+        elif label == "prismes":
+            slots = _schema_slots(schema)
+            self.slots.append(slots)
+            options = [{**copy.deepcopy(FIELDS["prismes"][s]), "slot": s, "reason": f"r{call}-{k}"}
+                       for s in slots for k in range(3)]
+            data = {"options": options, "recommended": [3 * i for i in range(len(slots))]}
+        else:
+            fields = FIELDS[label]
+            data = {"options": [{**copy.deepcopy(fields), "reason": f"r{call}-{k}"} for k in range(3)],
+                    "recommended": [0]}
+        self.errors[label] = validator(data)
+        return data
+
+
+@pytest.fixture
+def fake(monkeypatch):
+    calls = FakeCalls()
+    monkeypatch.setattr(agent, "_call_with_retry", calls)
+    return calls
+
+
+def _step_file(steps, name):
+    return agent._load(steps, agent.STEP_BY_NAME[name])[0]
+
+
+def _log(steps) -> list[dict]:
+    return [json.loads(line) for line in (steps.parent / "choices.jsonl").read_text(encoding="utf-8").splitlines()]
+
+
+def test_unattended_runs_six_steps_and_rebuilds_the_deck(fake, tmp_path):
+    pres = agent.adapt(full(), steps_dir=tmp_path / "adapt_steps")
+    assert fake.labels == [s.name for s in agent.STEPS]
+    assert all(e == [] for e in fake.errors.values()), fake.errors
+    assert fake.slots == [["p1", "p2", "p3"]]
+    assert pres.model_dump() == TroisRegardsPresentation.model_validate(DECK).model_dump()
+    prismes = _step_file(tmp_path / "adapt_steps", "prismes")
+    assert [o.id for o in prismes.options] == ["p1a", "p1b", "p1c", "p2a", "p2b", "p2c", "p3a", "p3b", "p3c"]
+    assert prismes.recommended == prismes.picked == ["p1a", "p2a", "p3a"]
+    assert [o.id for o in _step_file(tmp_path / "adapt_steps", "axe").options] == ["a", "b", "c"]
+
+
+def test_guided_pauses_at_the_axe(fake, tmp_path, capsys):
+    assert agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", guided=True) is None
+    assert fake.labels == ["axe"]
+    assert agent.pending_step(tmp_path / "adapt_steps") == "axe"
+    assert "[axe]" in capsys.readouterr().out
+
+
+def test_guided_shows_the_prism_options_one_block_per_slot(fake, tmp_path, capsys):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps, stop_after="position")
+    capsys.readouterr()
+    assert agent.adapt(full(), steps_dir=steps, guided=True) is None
+    out = capsys.readouterr().out
+    assert agent.pending_step(steps) == "prismes"
+    blocks = [out.index(f"[{s}]") for s in ("p1", "p2", "p3")]
+    assert blocks == sorted(blocks)
+    assert out.count("★") == 3 and "p2a — " in out and "p3c — " in out
+
+
+def test_stop_after_a_step(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    assert agent.adapt(full(), steps_dir=steps, stop_after="prismes") is None
+    assert fake.labels == ["axe", "position", "prismes"]
+    assert not (steps / "4_matrice.json").exists() and (steps / "3_prismes.json").exists()
+
+
+def test_a_later_step_receives_the_earlier_picks(fake, tmp_path):
+    agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", article_text="TEXTE-DE-L-ARTICLE", stop_after="prismes")
+    first, _, third = fake.messages
+    assert "CHOIX FIXÉS" not in first and "CATALOGUE DES PRISMES" in first
+    fixed = third.split("CHOIX FIXÉS (ne les réécris pas) :")[1]
+    assert FIELDS["axe"]["question"] in fixed and FIELDS["position"]["title"] in fixed
+    assert "TEXTE-DE-L-ARTICLE" in third
+    assert all(f"{s} = {p}" in third for s, p in zip(("p1", "p2", "p3"), ("politique", "economique", "sociologique")))
+    for private in ("review", "ethics", "blend", "distill", "guide"):
+        assert f'"{private}"' not in third
+
+
+def test_choose_on_prismes_needs_one_pick_per_slot(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    msg = "prismes: keep exactly one option per prism (p1, p2, p3)"
+    with pytest.raises(agent.ChoiceError, match=re.escape(msg)):
+        agent.choose(full(), steps, "prismes", ["p1a", "p1b", "p2a"], {})
+    with pytest.raises(agent.ChoiceError, match=re.escape(msg)):
+        agent.choose(full(), steps, "prismes", ["p1a", "p2a"], {})
+    with pytest.raises(agent.ChoiceError):
+        agent.choose(full(), steps, "prismes", ["p1a", "p2a", "p4a"], {})
+    with pytest.raises(agent.ChoiceError):
+        agent.choose(full(), steps, "axe", ["a", "b"], {})
+    assert _step_file(steps, "prismes").picked == ["p1a", "p2a", "p3a"]       # a refused choice changes nothing
+    edit = {"p2c.line1": "Les loyers montent plus vite que les salaires."}
+    assert agent.choose(full(), steps, "prismes", ["p3b", "p1b", "p2c"], edit) == []
+    sf = _step_file(steps, "prismes")
+    assert sf.picked == ["p1b", "p2c", "p3b"]
+    assert sf.fragment["prisms"][1]["lines"][0] == "Les loyers montent plus vite que les salaires."
+    assert [s["prism"] for s in sf.fragment["prisms"]] == ["politique", "economique", "sociologique"]
+
+
+def test_choose_keeps_an_edited_pick_and_warns_on_a_broken_rule(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps, guided=True)
+    long_question = "D'où vient vraiment la crise du logement qui secoue toute l'Espagne ?"
+    warnings = agent.choose(full(), steps, "axe", ["b"], {"b.question": long_question}, reason="plus large")
+    assert any(w.startswith("axe.question is") for w in warnings)
+    sf = _step_file(steps, "axe")
+    assert sf.picked == ["b"] and sf.fragment["axe"]["question"] == long_question
+    assert next(o for o in sf.options if o.id == "b").edited
+    with pytest.raises(agent.ChoiceError):
+        agent.choose(full(), steps, "axe", ["a"], {"a.nope": "x"})
+    with pytest.raises(agent.ChoiceError):
+        agent.choose(full(), steps, "writing", ["a"], {})
+
+
+def test_more_with_a_slot_regenerates_only_that_slot(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    before = _step_file(steps, "prismes")
+    stamp = (steps / "3_prismes.sha256").read_text()
+    new = agent.more(full(), steps, "prismes", remark="plus concret", slot="p2")
+    assert fake.slots[-1] == ["p2"] and "plus concret" in fake.messages[-1]
+    keep = lambda sf: [o.model_dump() for o in sf.options if o.slot != "p2"]  # noqa: E731
+    assert keep(new) == keep(before)
+    p2 = [o for o in new.options if o.slot == "p2"]
+    assert len(p2) == 3 and {o.id for o in p2}.isdisjoint({"p2a", "p2b", "p2c"})
+    assert {o.id for o in new.rejected} == {"p2a", "p2b", "p2c"}
+    assert new.picked == ["p1a", "p3a"] and set(new.recommended) == {"p1a", "p3a", p2[0].id}
+    assert _step_file(steps, "prismes").model_dump() == new.model_dump()
+    assert (steps / "3_prismes.sha256").read_text() == stamp
+    assert agent.pending_step(steps) == "prismes"
+    with pytest.raises(agent.ChoiceError):
+        agent.more(full(), steps, "prismes", slot="p4")
+    whole = agent.more(full(), steps, "prismes")
+    assert fake.slots[-1] == ["p1", "p2", "p3"] and whole.picked == []
+    assert len(whole.options) == 9 and {o.id for o in whole.options}.isdisjoint({o.id for o in new.options})
+    agent.more(full(), steps, "prismes", slot="economique")             # the prism id the axe puts in p2
+    assert fake.slots[-1] == ["p2"]
+
+
+def test_changing_the_axe_makes_every_later_step_stale(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    agent.choose(full(), steps, "axe", ["a"], {})                 # the same pick: nothing changes
+    agent.adapt(full(), steps_dir=steps)
+    assert fake.labels == [s.name for s in agent.STEPS]
+    agent.choose(full(), steps, "axe", ["b"], {"b.question": "Pourquoi le logement manque-t-il en Espagne ?"})
+    with pytest.raises(agent.ChoiceError, match="stale"):
+        agent.choose(full(), steps, "prismes", ["p1a", "p2a", "p3a"], {})
+    pres = agent.adapt(full(), steps_dir=steps)
+    assert fake.labels[len(agent.STEPS):] == ["position", "prismes", "matrice", "hook", "writing"]
+    assert pres.axe.question == "Pourquoi le logement manque-t-il en Espagne ?"
+    assert list(steps.glob("stale_*/3_prismes.json"))
+
+
+def test_fix_rewrites_one_field_without_regenerating(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    before = list(fake.labels)
+    assert agent.fix(full(), steps, "axe.question", "Pourquoi le logement manque-t-il en Espagne ?") == ("axe", [])
+    assert agent.fix(full(), steps, "position.title", "Une crise devenue enjeu de scrutin") == ("position", [])
+    assert agent.fix(full(), steps, "caption", DECK["caption"] + " Merci.")[0] == "writing"
+    pres = agent.adapt(full(), steps_dir=steps)
+    assert fake.labels == before                      # the later steps were re-stamped, not rerun
+    assert pres.axe.question == "Pourquoi le logement manque-t-il en Espagne ?"
+    assert pres.position.title == "Une crise devenue enjeu de scrutin" and pres.caption.endswith("Merci.")
+    step, warnings = agent.fix(full(), steps, "hook.title", "x" * 75)
+    assert step == "hook" and any("hook.title is 75" in w for w in warnings)
+    _, warnings = agent.fix(full(), steps, "axe.media", "economique")      # a later step now breaks a rule
+    assert any(w.startswith("p1: prismes.media_note must be empty") for w in warnings)
+    with pytest.raises(agent.ChoiceError):
+        agent.fix(full(), steps, "invisible.statement", "x")
+
+
+def test_fix_reaches_a_prism_field_by_slot(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    before = list(fake.labels)
+    assert agent.fix(full(), steps, "prismes.p2.line1", "Les loyers montent plus vite que les salaires.") == ("prismes", [])
+    pres = agent.adapt(full(), steps_dir=steps)
+    assert fake.labels == before
+    assert pres.prisms[1].lines[0] == "Les loyers montent plus vite que les salaires."
+    assert pres.prisms[0].lines == DECK["prisms"][0]["lines"] and pres.prisms[2].lines == DECK["prisms"][2]["lines"]
+    _, warnings = agent.fix(full(), steps, "prismes.p3.line2", "Plus de 300 collectifs se forment.")
+    assert any(w.startswith("p3: prismes.line2 holds a digit") for w in warnings)
+    with pytest.raises(agent.ChoiceError, match="prismes.p1.line1"):
+        agent.fix(full(), steps, "prismes.line1", "x")
+    with pytest.raises(agent.ChoiceError):
+        agent.fix(full(), steps, "prismes.p4.line1", "x")
+
+
+def test_the_choice_log_records_picks_edits_and_fixes(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    agent.choose(full(), steps, "prismes", ["p1b", "p2a", "p3a"], {"p1b.question": "Qui décide ?"}, reason="plus court")
+    new = agent.more(full(), steps, "prismes", remark="autre angle", slot="p3")
+    with pytest.raises(agent.ChoiceError):          # the p3 pick went with its options: nothing to fix yet
+        agent.fix(full(), steps, "prismes.p2.line1", "Une ligne refaite.")
+    agent.choose(full(), steps, "prismes", ["p1b", "p2a", new.recommended[-1]], {})
+    agent.fix(full(), steps, "prismes.p2.line1", "Une ligne refaite.")
+    pick, more, _, fix = _log(steps)
+    assert pick["event"] == "pick" and pick["step"] == "prismes" and pick["picked"] == ["p1b", "p2a", "p3a"]
+    assert pick["edits"] == {"p1b.question": "Qui décide ?"} and pick["reason"] == "plus court"
+    assert {"id": "p2b", "slot": "p2", "text": FIELDS["prismes"]["p2"]["question"]} in pick["offered"]
+    assert more == {**more, "event": "more", "step": "prismes", "remark": "autre angle", "slot": "p3"}
+    assert fix == {**fix, "event": "fix", "step": "prismes", "field": "prismes.p2.line1",
+                   "before": FIELDS["prismes"]["p2"]["line1"], "after": "Une ligne refaite."}
+
+
+def test_no_api_runs_through_the_same_path(fake, tmp_path):
+    pres = agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", no_api=True)
+    assert fake.labels == [s.name for s in agent.STEPS] and all(fake.no_api)
+    assert pres.matrix.title == DECK["matrix"]["title"]
