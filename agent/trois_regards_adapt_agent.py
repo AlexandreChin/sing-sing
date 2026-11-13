@@ -1,4 +1,4 @@
-"""Adapt agent for the TROIS REGARDS carousel (6 slides).
+"""Adapt agent for the TROIS REGARDS carousel (7 slides).
 
 A guided cascade: first the axe (the wide question, the narrower one the article answers
 and the three prisms that read it, never rendered as such), then in slide order the
@@ -682,8 +682,11 @@ def generate(step: Step, full: ArticleFullAnalysis, fragments: dict[str, dict], 
              steps_dir: Path | None = None, only_slot: str | None = None) -> StepFile:
     """One model call for `step`'s options (writing: its copy), checked against the
     rules. Nothing is picked. For `prismes`, 2–3 options per slot (or for `only_slot`
-    alone) and one recommended per slot. An answer still breaking a hard rule after the
-    retries raises RuntimeError."""
+    alone) and one recommended per slot. A hard-rule failure is sent back to the model
+    for repair (`_call_with_retry`); an option still breaking one after the retries is
+    kept as it is (the retry loop prints the failures, and they come back as ⚠ on the
+    author's pick). RuntimeError only when the answer cannot be read: it does not fit the
+    schema, its recommended indices are wrong, or a slot has no option."""
     slots = (only_slot,) if only_slot else step.slots
     model = _response_model(step, slots)
     message = _message(step, full, fragments, article_text, rejected, remarks, only_slot)

@@ -1,9 +1,9 @@
 """Models for the TROIS REGARDS carousel.
 
 The archetype for a question the article answers from one angle: the article's own
-position, then three prisms (politique, économique, sociologique) that each read
-the same question differently, and what each would measure. Separate from the
-format-agnostic ArticleFullAnalysis.
+position, then three prisms of the catalogue (`agent/trois_regards_prisms.py`, e.g.
+politique, économique, sociologique) that each read the same question differently,
+and what each would measure. Separate from the format-agnostic ArticleFullAnalysis.
 """
 from __future__ import annotations
 from pydantic import BaseModel, Field
@@ -36,14 +36,14 @@ class RegardsPosition(BaseModel):  # slide 2 — the article's frame
     kicker: str
     title: str
     lead: str    # says which narrower question the article answers
-    cards: list[RegardsCard] = Field(default_factory=list)   # 4
+    cards: list[RegardsCard] = Field(default_factory=list)   # 3 or 4 (the fourth is optional)
 
 
 class RegardsPrismSlide(BaseModel):  # slides 3 to 5 — one prism each
     prism: str
     question: str
     lines: list[str] = Field(default_factory=list)
-    sources: list[str] = Field(default_factory=list)   # names to consult, at most 3
+    sources: list[str] = Field(default_factory=list)   # names to consult, 1 to 3 (2 or 3 asked for)
     media_note: str = ""    # only on the prism the article takes
 
 

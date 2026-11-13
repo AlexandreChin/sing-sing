@@ -215,11 +215,12 @@ samples/<medium>/<stem>/     (medium = articles | podcasts | videos)
   discipline called in, and which one the article used — in the optimized deck's visual language. Hook (identical to the optimized one,
   photo included; pill = medium · source · date, no length; the title is **the deck's question**, a broad question each prism can answer,
   not the article's narrower one, ending in « ? », not in « »; the promise has a fixed shape: « Trois regards sur <sujet> ; à vous d'en
-  juger. », the subject being the axe's) → La position (slide 2, in the article's frame, drawn with the `temps_long` `02_position.html`:
-  kicker — « Ce que dit l'article » when empty —, title, a lead saying which narrower question the article answers, four `libellé | texte`
-  cards with fixed icons: what it recounts, the causes it puts forward, what the actors answer, where it leads; quotes verbatim, a figure
+  juger. », the subject being the axe's — a no-break space before « ; » or a typographic ’ is accepted; the prompts ask for plain
+  spaces and the renderer sets a no-break space before « ; : ? ! » on the hook's title and promise) → La position (slide 2, in the article's frame, drawn with the `temps_long` `02_position.html`:
+  kicker — « Ce que dit l'article » when empty —, title, a lead saying which narrower question the article answers, three or four `libellé | texte`
+  cards (the fourth optional) with fixed icons: what it recounts, the causes it puts forward, what the actors answer, where it leads; quotes verbatim, a figure
   only as the article gives it) → three prism slides (slides 3–5, out of frame: the prism's icon and name, the deck's question seen through
-  that discipline, three or four lines on what it lights up, 1–3 sources to consult — organisations or series, named, no URL, no figure;
+  that discipline, three or four lines on what it lights up, one to three sources to consult (two or three asked for) — organisations or series, named, no URL, no figure;
   the media's prism alone carries the « Le regard du média » badge and one sentence in the article's frame, `media_note`) → La matrice
   (slide 6, out of frame, no digit: a neutral non-binary title, the deck's question as lead line, then one column per prism in the axe's
   order — « Commence par » the variable that prism would look at first to answer that question, « À suivre » a named series or
@@ -236,7 +237,9 @@ samples/<medium>/<stem>/     (medium = articles | podcasts | videos)
   ⚠; a fix of `axe.prism1`…`prism3` or `axe.media` re-stamps nothing, the later steps rerun —, choice log in `choices.jsonl`).
   `prismes` is picked **one option per prism slot**: slot `pN` writes the Nth prism of the axe, its options are `p1a`, `p1b`, …, and
   `--pick p1b,p2a,p3c` must keep exactly one per slot (`choose` refuses zero or two); `--more --prism <p1|p2|p3 or the prism id>`
-  regenerates that prism's options only, the others keeping their options and picks; `fix <fmt_dir> prismes.<slot>.<field>`
+  regenerates that prism's options only, the others keeping their options and picks (shown « ✔ gardée »): while that prism awaits its
+  pick, `choose … prismes --pick <its id>` names only the missing slot and the kept picks complete the set (naming a kept slot
+  replaces its pick), and `fix` says which `choose` to run; `fix <fmt_dir> prismes.<slot>.<field>`
   (e.g. `prismes.p2.line1`). Flat option strings: axe `question`, `article_question`, `subject`, `prism1`…`prism3`, `media`,
   `media_grounding`, `closing`; position `kicker`, `title`, `lead`, `card1`…`card4` (`libellé | texte`, `card4` optional); a prism
   `question`, `line1`…`line4` (`line4` optional), `sources` (names separated by « ; »), `media_note`; matrice `title`, `col1`…`col3`
@@ -249,10 +252,13 @@ samples/<medium>/<stem>/     (medium = articles | podcasts | videos)
   three distinct prisms of the catalogue, the media's one of them; the media's slot alone carries a `media_note`; the deck's question, the
   closing line, the hook title and the matrix title end in « ? »; the promise's fixed shape; no accusing word (*biais, manipulation,
   mensonge, trompeur, fallacieux, sophisme*) and no wording that blames the article (*oublie, ignore, omet, néglige, ne dit pas*) outside
-  « »; no prescriptive verb (*il faut, doit, devrait*) on the matrix; no digit on the matrix nor in the sources, no URL in the sources, and
-  on a prism's question and lines a year (1500–2099) only (the position and the `media_note`, in frame, follow the article); 4 hashtags.
+  « »; no prescriptive verb (*il faut, il faudrait, faut-il, doit, devrait*) on the matrix; no digit on the matrix nor in the sources, no URL
+  in the sources (a bare domain such as `ine.es` counts), and on the axe's question and a prism's question and lines only a year
+  (1500–2099), a date (« 15 mai », « 1er ») or a reference (« 12/2023 ») — any other digit (« 15-M », « 12 % ») is refused (the
+  position and the `media_note`, in frame, follow the article); 4 hashtags.
   Advisory flags: no prism clearly dominates the article (the media's prism is the closest); a closing line or a matrix title holding « ou »
-  (may read binary); a closing line, a prism question or a matrix column sharing no key word with the axe's question; a closing line that
+  (may read binary); a closing line, a prism question or a matrix column sharing no key word with the axe's question; a prism slide whose lines
+  share no key word with the subject (it drifts); a closing line that
   does not name the three prisms; a quoted passage of the position or the `media_note` not found word for word in the source; two prism
   slides saying nearly the same thing; a promise whose subject is not the axe's. After a pick on `prismes`, each named source is checked
   on the web (`agent/trois_regards_verify.py`, through `tools/verify.py`), advisory: kept beside the step
