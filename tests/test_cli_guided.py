@@ -237,7 +237,11 @@ def test_fix_a_prism_field_by_slot(tmp_path, capsys):
         fmt = _trois_adapted(tmp_path, None)
         new = "Les loyers montent plus vite que les salaires."
         asyncio.run(main.cmd_fix(build_parser().parse_args(["fix", str(fmt), "prismes.p2.line1", new])))
-        assert "Fixed prismes.p2.line1 in prismes" in capsys.readouterr().err
+        assert "Fixed prismes.p2.line1 in prismes; the later steps keep your version." in capsys.readouterr().err
+        asyncio.run(main.cmd_fix(build_parser().parse_args(["fix", str(fmt), "axe.prism2", "juridique"])))
+        err = capsys.readouterr().err
+        assert "Fixed axe.prism2 in axe" in err and "keep your version" not in err
+        assert "stale" in err.splitlines()[-1] and "produce" in err.splitlines()[-1]
         sf = tra._load(fmt / "adapt_steps", tra.STEP_BY_NAME["prismes"])[0]
         assert sf.fragment["prisms"][1]["lines"][0] == new
     finally:

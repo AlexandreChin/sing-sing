@@ -515,6 +515,33 @@ def _pick_error(step: Step, options: list[Option], picks: list[str]) -> str | No
     return None
 
 
+def _with_kept(step: Step, sf: StepFile, picks: list[str]) -> list[str]:
+    """While a prism awaits its pick (after `more --prism`), the picks kept on the other slots complete
+    `picks`: the author names only the missing slot(s), and naming a kept slot replaces its pick. Once
+    every slot has a pick, `picks` must name one per slot again."""
+    if not _multi(step) or not picks or _complete(step, sf):
+        return list(picks)
+    slot_of = {o.id: o.slot for o in sf.options}
+    named = {slot_of.get(p) for p in picks}
+    return list(picks) + [p for p in sf.picked if slot_of.get(p) not in named]
+
+
+def _missing_slots(step: Step, sf: StepFile) -> list[str]:
+    slot_of = {o.id: o.slot for o in sf.options}
+    taken = {slot_of.get(p) for p in sf.picked}
+    return [s for s in step.slots if s not in taken]
+
+
+def _no_pick(steps_dir: Path, step: Step, sf: StepFile | None) -> str:
+    """Why `step` cannot be fixed yet, and what to run."""
+    if sf is not None and _multi(step) and sf.picked:
+        missing = _missing_slots(step, sf)
+        ids = [o.id for o in sf.options if o.slot in missing]
+        return (f"{step.name} awaits a pick for {', '.join(missing)} (the other prisms are kept): run "
+                f"`python main.py choose {steps_dir.parent} {step.name} --pick <one of {', '.join(ids)}>` first")
+    return f"{step.name} has no pick: run `produce` first"
+
+
 def _pick(step: Step, sf: StepFile, picks: list[str], fragments: dict[str, dict]) -> None:
     sf.picked = list(picks)
     chosen = _chosen(step, sf)
@@ -703,6 +730,7 @@ def generate(step: Step, full: ArticleFullAnalysis, fragments: dict[str, dict], 
 def format_options(step: Step, sf: StepFile) -> str:
     """The options as the author reads them: one block per slot for `prismes`, ★ on the recommended."""
     lines = [f"[{step.name}]"]
+    kept = set(sf.picked) if _multi(step) else set()
     for slot in step.slots:
         opts = [o for o in sf.options if o.slot == slot]
         if not opts:
@@ -711,12 +739,17 @@ def format_options(step: Step, sf: StepFile) -> str:
             lines.append(f"[{slot}]")
         for o in opts:
             name = o.fields.get(step.text_field, "")
-            lines.append(f"{o.id} — {name}" + (" ★" if o.id in sf.recommended else ""))
+            lines.append(f"{o.id} — {name}" + (" ★" if o.id in sf.recommended else "")
+                         + (" ✔ gardée" if o.id in kept else ""))
             lines += [f"   · {k} : {v}" for k, v in o.fields.items() if k != step.text_field]
             lines.append(f"   ↳ {o.reason}")
             lines += [f"   ⚠ {flag}" for flag in o.flags]
         if _multi(step):
             lines.append("")
+    if kept and not _complete(step, sf):
+        missing = _missing_slots(step, sf)
+        lines.append(f"Kept picks (✔): {', '.join(sorted(kept))}. Still to pick: {', '.join(missing)} — "
+                     f"`choose <fmt_dir> {step.name} --pick <one option of {', '.join(missing)}>`; the kept picks complete the set.")
     return "\n".join(lines).rstrip()
 
 
@@ -817,6 +850,7 @@ def choose(full, steps_dir: Path, step: str, picks: list[str], edits: dict[str, 
             raise ChoiceError(f"{step}: unknown option {oid!r}")
         if field and field not in valid:
             raise ChoiceError(f"{step}: unknown field {field!r} — the options have {', '.join(valid)}")
+    picks = _with_kept(st, sf, picks)
     if (error := _pick_error(st, sf.options, picks)):
         raise ChoiceError(error)
     offered = [{"id": o.id, "slot": o.slot, "text": o.fields.get(st.text_field, "")} for o in sf.options]
@@ -897,6 +931,8 @@ _FIELD_OWNER["caption"] = ("writing", None, "caption")
 
 # axe fields that carry a prism id or decide the media's prism: the later steps were written for them
 _PRISM_FIELDS = ("axe.prism1", "axe.prism2", "axe.prism3", "axe.media")
+# the warning `fix` returns when the later steps were left stale (main.cmd_fix then says so instead of « keep your version »)
+LATER_STALE = "are stale and will be regenerated on the next `adapt`"
 
 
 def fix(full, steps_dir: Path, field: str, text: str, article_text: str | None = None) -> tuple[str, list[str]]:
@@ -914,7 +950,7 @@ def fix(full, steps_dir: Path, field: str, text: str, article_text: str | None =
     owner = STEP_BY_NAME[owner_name]
     sf, _ = _load(steps_dir, owner)
     if sf is None or not sf.fragment or not _complete(owner, sf):
-        raise ChoiceError(f"{owner_name} has no fragment to fix: run `produce` first")
+        raise ChoiceError(_no_pick(steps_dir, owner, sf))
     picked = next(o for o in _chosen(owner, sf) if slot is None or o.slot == slot)
     before, picked.fields[option_field] = picked.fields.get(option_field, ""), text
     picked.edited = True
@@ -929,7 +965,7 @@ def fix(full, steps_dir: Path, field: str, text: str, article_text: str | None =
             current = sf
         if current is None or not _complete(s, current):
             if s.n <= owner.n:
-                raise ChoiceError(f"{s.name} has no pick: run `produce` first")
+                raise ChoiceError(_no_pick(steps_dir, s, current))
             break                                  # nothing later can be re-stamped
         fresh = saved == stamp_for(base, [old[t.name] for t in STEPS if t.n < s.n])
         old[s.name] = current.fragment
@@ -948,8 +984,7 @@ def fix(full, steps_dir: Path, field: str, text: str, article_text: str | None =
             break                                  # a stale owner: its later steps stay stale too
     if reprism:
         later = ", ".join(t.name for t in STEPS if t.n > owner.n)
-        warnings.append(f"{field} changes the prisms: the later steps ({later}) are stale and will be "
-                        "regenerated on the next `adapt`")
+        warnings.append(f"{field} changes the prisms: the later steps ({later}) {LATER_STALE}")
     log_choice(steps_dir.parent, {"step": owner_name, "event": "fix", "field": field,
                                   "before": before, "after": text})
     return owner_name, warnings

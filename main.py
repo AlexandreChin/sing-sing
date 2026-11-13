@@ -260,7 +260,13 @@ async def cmd_fix(args: argparse.Namespace) -> None:
         sys.exit(1)
     for w in warnings:
         print(f"⚠ {w}", file=sys.stderr)
-    print(f"Fixed {args.field} in {step}; the later steps keep your version.", file=sys.stderr)
+    # trois_regards: a fix of a prism of the axe leaves the later steps stale (they were written for the old prisms)
+    stale = getattr(run, "LATER_STALE", None)
+    if stale and any(stale in w for w in warnings):
+        print(f"Fixed {args.field} in {step}; the later steps are stale: rerun produce (or adapt) to regenerate them.",
+              file=sys.stderr)
+    else:
+        print(f"Fixed {args.field} in {step}; the later steps keep your version.", file=sys.stderr)
 
 
 async def cmd_extract(args: argparse.Namespace) -> None:

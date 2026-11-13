@@ -643,6 +643,57 @@ def test_more_with_a_slot_regenerates_only_that_slot(fake, tmp_path):
     assert fake.slots[-1] == ["p2"]
 
 
+def _half(steps):
+    """The prismes step after `choose p1b,p2a,p3c` then `more --prism p2`: p1b and p3c kept, p2 to pick."""
+    agent.adapt(full(), steps_dir=steps)
+    agent.choose(full(), steps, "prismes", ["p1b", "p2a", "p3c"], {})
+    return agent.more(full(), steps, "prismes", slot="p2")
+
+
+def test_after_more_on_one_prism_the_kept_picks_are_shown(fake, tmp_path, capsys):
+    steps = tmp_path / "adapt_steps"
+    new = _half(steps)
+    out = agent.format_options(agent.STEP_BY_NAME["prismes"], new)
+    kept = [line for line in out.splitlines() if "✔ gardée" in line]
+    assert [line.split(" — ")[0] for line in kept] == ["p1b", "p3c"]
+    assert "--pick" in out and "p2" in out.splitlines()[-1]          # says what is left to pick
+    capsys.readouterr()
+    agent.adapt(full(), steps_dir=steps, guided=True)               # the guided loop prints the same marks
+    assert capsys.readouterr().out.count("✔ gardée") == 2
+
+
+def test_after_more_on_one_prism_choose_takes_only_the_missing_slot(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    new = _half(steps)
+    p2 = [o.id for o in new.options if o.slot == "p2"]
+    for bad in ([], [p2[0], p2[1]], ["p9z"], ["p1a"]):              # zero, two for one slot, unknown, p2 still missing
+        with pytest.raises(agent.ChoiceError):
+            agent.choose(full(), steps, "prismes", bad, {})
+    assert agent.choose(full(), steps, "prismes", [p2[1]], {}) == []
+    sf = _step_file(steps, "prismes")
+    assert sf.picked == ["p1b", p2[1], "p3c"] and [s["question"] for s in sf.fragment["prisms"]]
+    assert agent.pending_step(steps) is None
+
+
+def test_after_more_on_one_prism_naming_a_kept_slot_replaces_its_pick(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    new = _half(steps)
+    p2 = next(o.id for o in new.options if o.slot == "p2")
+    agent.choose(full(), steps, "prismes", ["p1a", p2], {})
+    assert _step_file(steps, "prismes").picked == ["p1a", p2, "p3c"]
+
+
+def test_a_fix_while_a_prism_awaits_its_pick_says_which_choose_to_run(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    new = _half(steps)
+    p2 = [o.id for o in new.options if o.slot == "p2"]
+    for field in ("prismes.p1.line1", "matrice.title"):
+        with pytest.raises(agent.ChoiceError) as e:
+            agent.fix(full(), steps, field, "Une ligne refaite.")
+        msg = str(e.value)
+        assert "choose" in msg and "prismes --pick" in msg and p2[0] in msg and "run `produce`" not in msg, msg
+
+
 def test_changing_the_axe_makes_every_later_step_stale(fake, tmp_path):
     steps = tmp_path / "adapt_steps"
     agent.adapt(full(), steps_dir=steps)
