@@ -4,49 +4,41 @@
     {
       "id": "a",
       "slot": "a",
-      "reason": "Angle de l'exemple : chaque prisme ouvre sur un point de départ distinct (décisions, offre/demande, vécu), en reprenant le mot logement et la question de l'axe.",
+      "reason": "Chaque colonne ouvre sur un objet propre : le vote, le prix, le parc social dans la durée.",
       "fields": {
-        "title": "Quel regard pèse le plus ?",
-        "col1": "Les décisions prises par les pouvoirs publics | Mesures votées ou rejetées",
-        "col2": "L'écart entre l'offre et la demande de logements | Déficit de logements",
-        "col3": "L'expérience vécue par les ménages touchés | Taux d'effort des locataires"
+        "title": "Par où commencer l'enquête ?",
+        "col1": "Les majorités qui décident du logement au Congrès | Baromètre d'opinion (CIS)",
+        "col2": "Les prix et l'offre de logement face aux ménages | Indice des prix du logement (INE)",
+        "col3": "La place du logement social dans les politiques passées | Observatoire du logement et du sol"
       },
-      "edited": true,
-      "flags": [
-        "matrice.col1 shares no key word with the axe's question — it should say where the prism starts to answer that question",
-        "matrice.col3 shares no key word with the axe's question — it should say where the prism starts to answer that question"
-      ]
+      "edited": false,
+      "flags": []
     },
     {
       "id": "b",
       "slot": "a",
-      "reason": "Angle des mécanismes : chaque prisme part du ressort qu'il juge central (blocage, prix, groupes exposés) plutôt que d'un constat.",
+      "reason": "Angle de la chronologie : le moment électoral, l'écart entre offre et besoins, puis le parc hérité du passé.",
       "fields": {
-        "title": "Quel regard pèse le plus ?",
-        "col1": "Les rapports de force qui font passer ou bloquent les mesures | Votes du Congrès des députés",
-        "col2": "Les prix et les loyers face au manque de logements sociaux | Indice des prix des loyers (INE)",
-        "col3": "Les groupes de la population les plus exposés à la crise | Enquête sur les conditions de vie"
+        "title": "Que regarder en premier ?",
+        "col1": "Le calendrier électoral et la crise du logement | Baromètre d'opinion (CIS)",
+        "col2": "Les logements construits face aux nouveaux ménages | Rapport annuel (Banque d'Espagne)",
+        "col3": "Le parc de logements bâti avant la crise financière | Recensement des logements (INE)"
       },
       "edited": false,
-      "flags": [
-        "matrice.col1 shares no key word with the axe's question — it should say where the prism starts to answer that question"
-      ]
+      "flags": []
     },
     {
       "id": "c",
       "slot": "a",
-      "reason": "Angle des acteurs et du parc : chaque prisme part d'une réalité observable (votes, parc social, personnes expulsées), plus concrète et proche du récit.",
+      "reason": "Angle de la répartition des compétences, du coût supporté par les ménages et de la trajectoire du logement social.",
       "fields": {
-        "title": "Par où commencer la lecture ?",
-        "col1": "Les votes et le calendrier qui décident du sort des mesures | Votes du Congrès des députés",
-        "col2": "La part de logements sociaux dans l'ensemble des logements | Parc social (Eurostat)",
-        "col3": "Les jeunes et les aînés face aux expulsions et aux loyers | Expulsions (INE)"
+        "title": "Quel regard pèse le plus ?",
+        "col1": "Qui décide du logement : État, régions ou villes | Journal des sessions du Congrès",
+        "col2": "Le coût du logement pour les ménages locataires | Charge des coûts du logement (Eurostat)",
+        "col3": "Le logement social dans la durée, après la bulle | Observatoire du logement et du sol"
       },
       "edited": false,
-      "flags": [
-        "matrice.col1 shares no key word with the axe's question — it should say where the prism starts to answer that question",
-        "matrice.col3 shares no key word with the axe's question — it should say where the prism starts to answer that question"
-      ]
+      "flags": []
     }
   ],
   "rejected": [],
@@ -58,22 +50,22 @@
   ],
   "fragment": {
     "matrix": {
-      "title": "Quel regard pèse le plus ?",
+      "title": "Par où commencer l'enquête ?",
       "columns": [
         {
           "prism": "politique",
-          "variable": "Les décisions prises par les pouvoirs publics",
-          "indicator": "Mesures votées ou rejetées"
+          "variable": "Les majorités qui décident du logement au Congrès",
+          "indicator": "Baromètre d'opinion (CIS)"
         },
         {
           "prism": "economique",
-          "variable": "L'écart entre l'offre et la demande de logements",
-          "indicator": "Déficit de logements"
+          "variable": "Les prix et l'offre de logement face aux ménages",
+          "indicator": "Indice des prix du logement (INE)"
         },
         {
-          "prism": "sociologique",
-          "variable": "L'expérience vécue par les ménages touchés",
-          "indicator": "Taux d'effort des locataires"
+          "prism": "historique",
+          "variable": "La place du logement social dans les politiques passées",
+          "indicator": "Observatoire du logement et du sol"
         }
       ]
     }

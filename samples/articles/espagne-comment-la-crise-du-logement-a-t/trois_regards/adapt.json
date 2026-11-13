@@ -1,107 +1,109 @@
 {
-  "caption": "D'où vient la crise du logement en Espagne ?\n\nRadio-Canada raconte comment cette crise, après des manifestations et le rejet de mesures d'urgence par le Congrès, a mené à des élections anticipées. Précision : l'article date d'octobre. Depuis, une grève générale a eu lieu le 11 novembre, la première depuis 14 ans, le décret a été de nouveau soumis au vote le 12 novembre, et les élections se tiennent le 29 novembre.\n\nCe carrousel regarde la même question à travers trois disciplines : le politique, l'économique et le sociologique. Le média emploie surtout le regard politique. Ces trois regards sont notre grille de lecture, pas celle du média.\n\nÀ vous d'en juger. En commentaire : entre le politique, l'économique et le sociologique, quel regard éclaire le mieux la crise du logement ?\n\n#Espagne #Logement #LectureCritique #Actualité",
+  "caption": "D'où vient la crise du logement en Espagne ?\n\nRadio-Canada, d'après CBC, raconte comment cette crise, des manifestations au rejet des mesures par le Congrès, a conduit Pedro Sánchez à convoquer des élections anticipées.\n\nCe carrousel regarde la même question à travers trois disciplines : le politique, l'économique et l'historique. Le regard du média est le politique. Ces trois regards sont notre grille de lecture, pas celle du média.\n\nÀ vous d'en juger. Dites-nous en commentaire : entre le politique, l'économique et l'historique, quel regard éclaire le mieux la crise du logement ?\n\nPrécision : l'article date d'octobre. Depuis, une grève générale a eu lieu le 11 novembre, la première depuis 14 ans, le décret a été de nouveau soumis au vote le 12 novembre, et les élections se tiennent le 29 novembre.\n\n#Espagne #Logement #LectureCritique #Décryptage",
   "axe": {
     "question": "D'où vient la crise du logement en Espagne ?",
-    "article_question": "Comment la crise du logement a-t-elle mené à des élections anticipées ?",
-    "subject": "la crise du logement",
+    "article_question": "Comment la crise du logement a-t-elle conduit Pedro Sánchez à convoquer des élections anticipées ?",
+    "subject": "la crise du logement en Espagne",
     "prisms": [
       "politique",
       "economique",
-      "sociologique"
+      "historique"
     ],
     "media": "politique",
-    "media_grounding": "Le récit suit le rejet des mesures par le Congrès, l'élection du 29 novembre et la montée de la droite.",
-    "closing": "entre le politique, l'économique et le sociologique, quel regard éclaire le mieux la crise du logement ?"
+    "media_grounding": "Le récit suit les manifestations, le rejet au Congrès, le calendrier électoral et la montée de la droite et de Vox.",
+    "closing": "entre le politique, l'économique et l'historique, quel regard éclaire le mieux la crise du logement ?"
   },
   "hook": {
     "title": "D'où vient la crise du logement en Espagne ?",
-    "promise": "Trois regards sur la crise du logement ; à vous d'en juger."
+    "promise": "Trois regards sur la crise du logement en Espagne ; à vous d'en juger."
   },
   "position": {
-    "kicker": "Le récit de Radio-Canada",
-    "title": "Le logement, enjeu **d'élection**",
-    "lead": "Radio-Canada explique comment la crise du logement a mené à des élections anticipées.",
+    "kicker": "Ce que dit l'article",
+    "title": "Du logement **aux urnes**",
+    "lead": "Radio-Canada, d'après CBC, explique comment la crise a mené Sánchez aux élections.",
     "cards": [
       {
         "label": "Ce qu'il raconte",
-        "text": "Une femme de **87 ans** expulsée, des manifestations, puis un scrutin."
+        "text": "Une femme de 87 ans, expulsée, meurt et **des manifestations** s'étendent."
       },
       {
-        "label": "Les causes qu'il avance",
-        "text": "Peu de **logements sociaux** et un déficit de **750 000** logements."
+        "label": "Les causes qu'il cite",
+        "text": "**Peu de logements sociaux** (1,7 %) et un déficit de 750 000 logements."
       },
       {
         "label": "Ce que répondent les acteurs",
-        "text": "Le gouvernement propose des **mesures d'urgence**, le Parlement les rejette."
+        "text": "Le Parti populaire dit craindre l'**effet inverse** des plafonds de loyer."
       },
       {
         "label": "Où il mène",
-        "text": "Un scrutin le **29 novembre**, avec le logement au cœur de la campagne."
+        "text": "Un **pari risqué** pour Sánchez, alors que la droite mène dans les sondages."
       }
     ]
   },
   "prisms": [
     {
       "prism": "politique",
-      "question": "Qui décide de la politique du logement ?",
+      "question": "La crise du logement vient-elle du jeu politique ?",
       "lines": [
-        "Un gouvernement sans majorité doit négocier chaque mesure avec le Congrès.",
-        "Le calendrier électoral pèse sur le moment où les mesures sont proposées.",
-        "Les partis divergent sur le rôle de la loi face au marché locatif."
+        "La politique regarde qui décide du logement : État, régions, villes, Parlement.",
+        "Elle suit les majorités : sans elles, un décret est voté, rejeté, puis refait.",
+        "Elle lit la crise du logement via le calendrier électoral et les coalitions.",
+        "Elle montre comment un enjeu social devient un thème de campagne."
       ],
       "sources": [
         "Congrès des députés",
-        "Gouvernement d'Espagne"
+        "CIS (enquêtes d'opinion)"
       ],
-      "media_note": "Le récit suit les mesures, leur rejet par le Congrès, puis l'élection du 29 novembre."
+      "media_note": "L'article suit les manifestations, le rejet au Congrès, puis un scrutin au 29 novembre."
     },
     {
       "prism": "economique",
-      "question": "D'où vient le manque de logements en Espagne ?",
+      "question": "La crise du logement tient-elle aux prix ?",
       "lines": [
-        "Quand l'offre ne suit pas la demande, les prix et les loyers montent.",
-        "Les logements sociaux sont rares : le marché seul répond aux besoins.",
-        "Le tourisme met les résidents en concurrence avec les locations de courte durée."
+        "L'économie regarde le logement comme un bien rare dont le prix répond à l'offre.",
+        "Elle compare les logements construits aux ménages qui se forment.",
+        "Elle étudie ce que fait un plafond de loyer aux bailleurs et aux locataires.",
+        "Elle distingue logement privé, social et touristique, aux coûts différents."
       ],
       "sources": [
         "Banque d'Espagne",
-        "Eurostat",
-        "INE (statistique)"
+        "Eurostat"
       ],
       "media_note": ""
     },
     {
-      "prism": "sociologique",
-      "question": "Qui est touché par la crise du logement ?",
+      "prism": "historique",
+      "question": "La crise du logement vient-elle de loin ?",
       "lines": [
-        "Les jeunes, les locataires et les aînés ne vivent pas la crise de la même façon.",
-        "Se loger détermine aussi où l'on travaille, étudie et fonde une famille.",
-        "Les expulsions marquent les esprits et font naître des mouvements collectifs."
+        "L'histoire regarde comment l'Espagne a bâti et financé son parc de logements.",
+        "Elle rappelle la crise financière de 2008 et l'éclatement de la bulle.",
+        "Elle suit la place, restée faible, du logement social dans les politiques.",
+        "Elle relie la crise aux mobilisations d'avant, comme celle du 15 mai 2011."
       ],
       "sources": [
-        "INE",
-        "Eurostat"
+        "Banque d'Espagne",
+        "INE (statistique)"
       ],
       "media_note": ""
     }
   ],
   "matrix": {
-    "title": "Quel regard pèse le plus ?",
+    "title": "Par où commencer l'enquête ?",
     "columns": [
       {
         "prism": "politique",
-        "variable": "Les décisions prises par les pouvoirs publics",
-        "indicator": "Mesures votées ou rejetées"
+        "variable": "Les majorités qui décident du logement au Congrès",
+        "indicator": "Baromètre d'opinion (CIS)"
       },
       {
         "prism": "economique",
-        "variable": "L'écart entre l'offre et la demande de logements",
-        "indicator": "Déficit de logements"
+        "variable": "Les prix et l'offre de logement face aux ménages",
+        "indicator": "Indice des prix du logement (INE)"
       },
       {
-        "prism": "sociologique",
-        "variable": "L'expérience vécue par les ménages touchés",
-        "indicator": "Taux d'effort des locataires"
+        "prism": "historique",
+        "variable": "La place du logement social dans les politiques passées",
+        "indicator": "Observatoire du logement et du sol"
       }
     ]
   }

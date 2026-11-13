@@ -4,31 +4,31 @@
     {
       "id": "a",
       "slot": "a",
-      "reason": "Suit l'enchaînement des faits de l'article, du déclencheur au scrutin, en mettant en avant la chronologie et les chiffres de pénurie.",
+      "reason": "Suit l'enchaînement des faits, de l'éviction aux élections, et signale ce qui s'est passé depuis l'article.",
       "fields": {
-        "kicker": "Le récit de Radio-Canada",
-        "title": "Le logement, enjeu **d'élection**",
-        "lead": "Radio-Canada explique comment la crise du logement a mené à des élections anticipées.",
-        "card1": "Ce qu'il raconte | Une femme de **87 ans** expulsée, des manifestations, puis un scrutin.",
-        "card2": "Les causes qu'il avance | Peu de **logements sociaux** et un déficit de **750 000** logements.",
-        "card3": "Ce que répondent les acteurs | Le gouvernement propose des **mesures d'urgence**, le Parlement les rejette.",
-        "card4": "Où il mène | Un scrutin le **29 novembre**, avec le logement au cœur de la campagne."
+        "kicker": "Ce que dit l'article",
+        "title": "Du logement **aux urnes**",
+        "lead": "Radio-Canada, d'après CBC, explique comment la crise a mené Sánchez aux élections.",
+        "card1": "Ce qu'il raconte | Une femme de 87 ans, expulsée, meurt et **des manifestations** s'étendent.",
+        "card2": "Les causes qu'il cite | **Peu de logements sociaux** (1,7 %) et un déficit de 750 000 logements.",
+        "card3": "Ce que répondent les acteurs | Le Parti populaire dit craindre l'**effet inverse** des plafonds de loyer.",
+        "card4": "Où il mène | Un **pari risqué** pour Sánchez, alors que la droite mène dans les sondages."
       },
-      "edited": false,
+      "edited": true,
       "flags": []
     },
     {
       "id": "b",
       "slot": "a",
-      "reason": "Met en avant l'attribution : chaque carte donne la parole à une voix que l'article cite, plutôt qu'une chronologie.",
+      "reason": "Met en avant le calendrier politique et l'intention que l'article prête à Sánchez.",
       "fields": {
-        "kicker": "Qui dit quoi",
-        "title": "Une crise, plusieurs **voix**",
-        "lead": "Adapté de CBC par Radio-Canada, il demande comment la crise a mené aux urnes.",
-        "card1": "Les militantes | Sofía Olivares, du groupe Derecho al Techo, blâme le **gouvernement local**.",
-        "card2": "Le Parti populaire | Il craint que les **plafonds de loyer** retirent des logements du marché.",
-        "card3": "Une électrice | Garazi González veut surtout **empêcher** le retour de l'extrême droite.",
-        "card4": "Le rendez-vous | Les élections ont lieu le **29 novembre**, la droite menant les sondages."
+        "kicker": "Le récit du reportage",
+        "title": "Un pari **électoral**",
+        "lead": "Radio-Canada, d'après CBC, explique pourquoi Sánchez avance les élections.",
+        "card1": "Ce qu'il raconte | Sánchez avance **le vote au 29 novembre** après les manifestations.",
+        "card2": "Le motif qu'il prête | L'article prête à Sánchez l'espoir de **rallier les progressistes**.",
+        "card3": "Ce que répondent les acteurs | Le gouvernement adopte **dès le lendemain** une version modifiée.",
+        "card4": "Depuis l'article | **Grève le 11 novembre**, nouveau vote le 12 et scrutin le 29."
       },
       "edited": false,
       "flags": []
@@ -36,15 +36,31 @@
     {
       "id": "c",
       "slot": "a",
-      "reason": "Place la stratégie électorale de Sánchez au centre, l'angle le plus proche du prisme politique du média.",
+      "reason": "Attribue chaque idée à une voix du reportage : militante, opposition, et rappelle les suites.",
       "fields": {
-        "kicker": "Le pari de Sánchez",
-        "title": "Un pari **risqué**",
-        "lead": "Radio-Canada suit Pedro Sánchez, qui avance les élections après les manifestations.",
-        "card1": "Le déclencheur | Manifestations et rejet des mesures mènent à un **vote anticipé**.",
-        "card2": "Ce que l'article lui prête | Il espère **rallier** les progressistes et détourner les critiques.",
-        "card3": "Ce que dit l'opposition | La droite, **en tête des sondages**, met en garde contre les plafonds.",
-        "card4": "Où cela peut mener | La droite pourrait gouverner avec **Vox** (extrême droite), une première."
+        "kicker": "Les voix du reportage",
+        "title": "Logement : **qui dit quoi**",
+        "lead": "Radio-Canada, d'après CBC, donne la parole aux militantes et à la droite.",
+        "card1": "Ce qu'il raconte | **Maricarmen Abascal**, 87 ans, expulsée, meurt deux semaines plus tard.",
+        "card2": "Ce que dit une porte-parole | Selon elle, le tourisme passe avant **le logement aux Canaries**.",
+        "card3": "Ce que dit la droite | Le Parti populaire redoute que **les plafonds retirent** des logements.",
+        "card4": "Depuis l'article | **Grève générale le 11 novembre**, nouveau vote du décret le 12."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Met en avant les chiffres de la pénurie et les mesures d'urgence, avec les suites depuis octobre.",
+      "fields": {
+        "kicker": "Le récit chiffré",
+        "title": "Un **manque** de logements",
+        "lead": "Radio-Canada, d'après CBC, relie la crise du logement aux élections anticipées.",
+        "card1": "Ce qu'il raconte | Manifestations, rejet des mesures, puis **élections avancées**.",
+        "card2": "Les chiffres qu'il donne | Environ **1,7 % de logement social** et 750 000 logements manquants.",
+        "card3": "Ce que répondent les acteurs | Le gouvernement adopte **plafonds de loyer** et **gel des évictions**.",
+        "card4": "Depuis l'article | **Grève générale le 11 novembre**, nouveau vote du décret le 12."
       },
       "edited": false,
       "flags": []
@@ -59,25 +75,25 @@
   ],
   "fragment": {
     "position": {
-      "kicker": "Le récit de Radio-Canada",
-      "title": "Le logement, enjeu **d'élection**",
-      "lead": "Radio-Canada explique comment la crise du logement a mené à des élections anticipées.",
+      "kicker": "Ce que dit l'article",
+      "title": "Du logement **aux urnes**",
+      "lead": "Radio-Canada, d'après CBC, explique comment la crise a mené Sánchez aux élections.",
       "cards": [
         {
           "label": "Ce qu'il raconte",
-          "text": "Une femme de **87 ans** expulsée, des manifestations, puis un scrutin."
+          "text": "Une femme de 87 ans, expulsée, meurt et **des manifestations** s'étendent."
         },
         {
-          "label": "Les causes qu'il avance",
-          "text": "Peu de **logements sociaux** et un déficit de **750 000** logements."
+          "label": "Les causes qu'il cite",
+          "text": "**Peu de logements sociaux** (1,7 %) et un déficit de 750 000 logements."
         },
         {
           "label": "Ce que répondent les acteurs",
-          "text": "Le gouvernement propose des **mesures d'urgence**, le Parlement les rejette."
+          "text": "Le Parti populaire dit craindre l'**effet inverse** des plafonds de loyer."
         },
         {
           "label": "Où il mène",
-          "text": "Un scrutin le **29 novembre**, avec le logement au cœur de la campagne."
+          "text": "Un **pari risqué** pour Sánchez, alors que la droite mène dans les sondages."
         }
       ]
     }
