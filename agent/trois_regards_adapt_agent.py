@@ -850,12 +850,19 @@ _FIELD_OWNER: dict[str, tuple[str, str | None, str]] = {
 _FIELD_OWNER["caption"] = ("writing", None, "caption")
 
 
+# axe fields that carry a prism id or decide the media's prism: the later steps were written for them
+_PRISM_FIELDS = ("axe.prism1", "axe.prism2", "axe.prism3", "axe.media")
+
+
 def fix(full, steps_dir: Path, field: str, text: str, article_text: str | None = None) -> tuple[str, list[str]]:
     """Overwrite one field of the picked option of the step that owns it (« <step>.<field> »,
-    « prismes.<slot>.<field> », or `caption`), and rebuild the fragments from that step on.
-    Nothing is regenerated: the later steps are re-stamped. Returns the owner step and the
-    hard-rule failures of the rewritten field and of every later step, as warnings: like
-    `choose`, `fix` leaves the last word to the author."""
+    « prismes.<slot>.<field> », or `caption`) and rebuild its fragment. Nothing is regenerated:
+    a later step that was fresh is rebuilt from its picks and re-stamped; one that was already
+    stale stays stale. A fix of a prism field of the axe (`_PRISM_FIELDS`) re-stamps nothing:
+    the later steps were written for the old prisms, so they go stale and the next `adapt`
+    reruns them. Returns the owner step and the hard-rule failures of the rewritten field and
+    of every re-stamped later step, as warnings: like `choose`, `fix` leaves the last word to
+    the author."""
     if field not in _FIELD_OWNER:
         raise ChoiceError(f"{field!r} is not a deck field — fields: {', '.join(_FIELD_OWNER)}")
     owner_name, slot, option_field = _FIELD_OWNER[field]
@@ -866,8 +873,10 @@ def fix(full, steps_dir: Path, field: str, text: str, article_text: str | None =
     picked = next(o for o in _chosen(owner, sf) if slot is None or o.slot == slot)
     before, picked.fields[option_field] = picked.fields.get(option_field, ""), text
     picked.edited = True
+    reprism = field in _PRISM_FIELDS and text.strip() != str(before).strip()
     base = base_inputs(full, article_text)
-    fragments: dict[str, dict] = {}
+    old: dict[str, dict] = {}       # the fragments as saved before the fix
+    new: dict[str, dict] = {}       # the fragments after it
     warnings: list[str] = []
     for s in STEPS:
         current, saved = _load(steps_dir, s)
@@ -877,15 +886,25 @@ def fix(full, steps_dir: Path, field: str, text: str, article_text: str | None =
             if s.n <= owner.n:
                 raise ChoiceError(f"{s.name} has no pick: run `produce` first")
             break                                  # nothing later can be re-stamped
+        fresh = saved == stamp_for(base, [old[t.name] for t in STEPS if t.n < s.n])
+        old[s.name] = current.fragment
         if s.n < owner.n:
-            fragments[s.name] = current.fragment
+            new[s.name] = current.fragment
             continue
         if s.n > owner.n:
-            saved = stamp_for(base, [fragments[t.name] for t in STEPS if t.n < s.n])
-        current.fragment = to_fragment(s, _chosen(s, current), fragments)   # a prism id follows the axe
-        fragments[s.name] = current.fragment
-        warnings += _pick_rules(s, current, fragments, article_text)[0]
+            if reprism or not fresh:
+                break                              # stale: the next `adapt` reruns it and every later step
+            saved = stamp_for(base, [new[t.name] for t in STEPS if t.n < s.n])
+        current.fragment = to_fragment(s, _chosen(s, current), new)
+        new[s.name] = current.fragment
+        warnings += _pick_rules(s, current, new, article_text)[0]
         _save(steps_dir, current, saved)
+        if s.n == owner.n and not fresh:
+            break                                  # a stale owner: its later steps stay stale too
+    if reprism:
+        later = ", ".join(t.name for t in STEPS if t.n > owner.n)
+        warnings.append(f"{field} changes the prisms: the later steps ({later}) are stale and will be "
+                        "regenerated on the next `adapt`")
     log_choice(steps_dir.parent, {"step": owner_name, "event": "fix", "field": field,
                                   "before": before, "after": text})
     return owner_name, warnings

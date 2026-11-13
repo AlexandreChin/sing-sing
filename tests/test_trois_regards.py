@@ -617,8 +617,12 @@ def test_fix_rewrites_one_field_without_regenerating(fake, tmp_path):
     assert pres.position.title == "Une crise devenue enjeu de scrutin" and pres.caption.endswith("Merci.")
     step, warnings = agent.fix(full(), steps, "hook.title", "x" * 75)
     assert step == "hook" and any("hook.title is 75" in w for w in warnings)
-    _, warnings = agent.fix(full(), steps, "axe.media", "economique")      # a later step now breaks a rule
-    assert any(w.startswith("p1: prismes.media_note must be empty") for w in warnings)
+    step, warnings = agent.fix(full(), steps, "matrice.title", "Que mesurer pour en juger ?")
+    assert step == "matrice" and not [w for w in warnings if w.startswith("matrice")]
+    _, warnings = agent.fix(full(), steps, "prismes.p2.media_note", "Une note.")   # a wording fix still checked
+    assert any(w.startswith("p2: prismes.media_note must be empty") for w in warnings)
+    pres = agent.adapt(full(), steps_dir=steps)
+    assert fake.labels == before and pres.matrix.title == "Que mesurer pour en juger ?"
     with pytest.raises(agent.ChoiceError):
         agent.fix(full(), steps, "invisible.statement", "x")
 
@@ -662,3 +666,68 @@ def test_no_api_runs_through_the_same_path(fake, tmp_path):
     pres = agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", no_api=True)
     assert fake.labels == [s.name for s in agent.STEPS] and all(fake.no_api)
     assert pres.matrix.title == DECK["matrix"]["title"]
+
+
+_LATER = ["position", "prismes", "matrice", "hook", "writing"]
+
+
+def _fresh(steps, name) -> bool:
+    """The step's saved stamp equals the one its earlier saved fragments give."""
+    base = agent.base_inputs(full(), None)
+    st = agent.STEP_BY_NAME[name]
+    frags = [_step_file(steps, s.name).fragment for s in agent.STEPS if s.n < st.n]
+    return (steps / f"{st.n}_{st.name}.sha256").read_text() == agent.stamp_for(base, frags)
+
+
+def test_a_fix_of_an_axe_prism_leaves_the_later_steps_stale_and_they_rerun(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    n = len(fake.labels)
+    owner, warnings = agent.fix(full(), steps, "axe.prism2", "juridique")
+    assert owner == "axe" and any("regenerated" in w for w in warnings)
+    assert _step_file(steps, "axe").fragment["axe"]["prisms"] == ["politique", "juridique", "sociologique"]
+    assert not any(_fresh(steps, s) for s in _LATER)
+    # never relabelled: the old p2 text keeps its old prism id until it is regenerated
+    assert _step_file(steps, "prismes").fragment["prisms"][1]["prism"] == "economique"
+    assert _step_file(steps, "matrice").fragment["matrix"]["columns"][1]["prism"] == "economique"
+    pres = agent.adapt(full(), steps_dir=steps)
+    assert fake.labels[n:] == _LATER
+    assert "p2 = juridique" in fake.messages[n + 1]               # the prism slides were written for the new prism
+    assert pres.prisms[1].prism == "juridique" and pres.matrix.columns[1].prism == "juridique"
+
+
+def test_a_fix_of_the_axe_media_leaves_the_later_steps_stale_and_they_rerun(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    n = len(fake.labels)
+    _, warnings = agent.fix(full(), steps, "axe.media", "economique")
+    assert any("regenerated" in w for w in warnings)
+    assert not any(_fresh(steps, s) for s in _LATER)
+    assert _step_file(steps, "prismes").fragment["prisms"][0]["media_note"]      # untouched until the rerun
+    agent.adapt(full(), steps_dir=steps)
+    assert fake.labels[n:] == _LATER
+    _, warnings = agent.fix(full(), steps, "axe.prism1", "economique")             # the hard rules still run
+    assert any("three prisms must be distinct" in w for w in warnings)
+
+
+def test_a_wording_fix_on_the_axe_keeps_already_stale_later_steps_stale(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    n = len(fake.labels)
+    agent.choose(full(), steps, "axe", ["b"], {"b.prism2": "juridique"})
+    agent.fix(full(), steps, "axe.question", "Pourquoi le logement manque-t-il en Espagne ?")
+    assert not any(_fresh(steps, s) for s in _LATER)
+    assert _step_file(steps, "prismes").fragment["prisms"][1]["prism"] == "economique"   # not rebuilt
+    pres = agent.adapt(full(), steps_dir=steps)
+    assert fake.labels[n:] == _LATER
+    assert pres.axe.question == "Pourquoi le logement manque-t-il en Espagne ?" and pres.prisms[1].prism == "juridique"
+
+
+def test_a_wording_fix_on_a_later_step_still_restamps_without_a_model_call(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    before = list(fake.labels)
+    agent.fix(full(), steps, "position.title", "Une crise devenue enjeu de scrutin")
+    assert all(_fresh(steps, s) for s in _LATER)
+    agent.adapt(full(), steps_dir=steps)
+    assert fake.labels == before
