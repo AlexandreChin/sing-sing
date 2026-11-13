@@ -266,19 +266,36 @@ _REQUIRED = {"axe": ("question", "article_question", "subject", "prism1", "prism
              "hook": ("title", "promise")}
 _ACCUSING = re.compile(r"\b(biais|manipulation|manipul\w+|mensonges?|trompeu\w+|fallacieu\w+|sophismes?)\b", re.I)
 _BLAMING = re.compile(r"\b(oublie(?:nt|s)?|ignore(?:nt|s)?|omet(?:s|tent)?|néglige(?:nt|s)?|ne (?:dit|disent) pas)\b", re.I)
-_PRESCRIPTIVE = re.compile(r"\b(il faut|doit|doivent|devrait|devraient)\b", re.I)
+_PRESCRIPTIVE = re.compile(r"\b(il faut|faut-il|il faudrait|faudrait|doit|doivent|devrait|devraient)\b", re.I)
 _QUOTED = re.compile(r"«[^»]*»")
 _HASHTAG = re.compile(r"#\w+")
 _DIGIT = re.compile(r"\d")
 _NUMBER = re.compile(r"\d+(?:[.,]\d+)?")
 _YEAR = re.compile(r"(?:1[5-9]|20)\d\d")
-_URL = re.compile(r"https?:|www\.|\.com/|\.fr/", re.I)
+# on a prism and the axe's question, a date is allowed besides a year: « 15 mai », « 1er », a reference « 12/2023 »
+_MONTHS = "janvier|février|fevrier|mars|avril|mai|juin|juillet|août|aout|septembre|octobre|novembre|décembre|decembre"
+_DATE = re.compile(rf"\b(?:\d{{1,2}}(?:er)?\s+(?:{_MONTHS})\b|1er\b|\d{{1,2}}/\d{{4}}\b)", re.I)
+# a link, or a bare domain (« ine.es »): a name followed by a common top-level domain
+_URL = re.compile(r"https?:|www\.|\b[\w-]+\.(?:com|fr|es|org|eu|net|gov|info|int)\b", re.I)
 _PROMISE = re.compile(r"Trois regards sur (\S.*?) ; à vous d'en juger\.")
 _NO_DOMINANT = re.compile(r"aucun\b.{0,30}\bdomin|pas de prisme dominant|ne domine pas", re.I)
 _NEAR_IDENTICAL = 0.6
 _STOP = frozenset("""alors après aussi autre autres avant avoir avons cette celle celui comme comment dans donc elle elles
 entre être leur leurs mais même moins plus pour quel quelle quelles quels sont sous tout toute toutes tous très vers
 vous nous cela ceux dont lors quand quoi sans selon peut peuvent faire fait ainsi encore depuis""".split())
+
+
+def _typo_plain(s: str) -> str:
+    """French typography undone: a no-break space (NBSP, narrow NBSP) is a space, ’ is '."""
+    return s.replace("\u00a0", " ").replace("\u202f", " ").replace("’", "'")
+
+
+def _odd_digits(text: str) -> bool:
+    """`text` holds a number that is neither a year (1500–2099) nor part of a date or a law reference."""
+    return any(not _YEAR.fullmatch(n) for n in _NUMBER.findall(_DATE.sub(" ", text)))
+
+
+_DIGIT_RULE = "only a year (1500–2099), a date (« 15 mai », « 1er ») or a reference (« 12/2023 ») is allowed outside the article's frame"
 
 
 def _plain(s: str) -> str:
@@ -356,6 +373,8 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict], 
         if media and media not in prisms:
             hard.append(f"axe.media « {media} » is not one of the three prisms")
         question("question", str(fields.get("question", "")))
+        if _odd_digits(str(fields.get("question", ""))):     # drawn as the matrix lead line
+            hard.append(f"axe.question holds a digit — {_DIGIT_RULE}")
         question("closing", str(fields.get("closing", "")))
         closing = str(fields.get("closing", ""))
         if _NO_DOMINANT.search(str(fields.get("media_grounding", ""))):
@@ -378,8 +397,8 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict], 
     if step == "prismes":
         lines = [str(fields.get(f"line{i}", "")) for i in (1, 2, 3, 4)]
         for label, text in (("question", str(fields.get("question", ""))), *((f"line{i}", t) for i, t in enumerate(lines, 1))):
-            if any(not _YEAR.fullmatch(n) for n in _NUMBER.findall(text)):
-                hard.append(f"prismes.{label} holds a digit — only a year (1500–2099) is allowed outside the article's frame")
+            if _odd_digits(text):
+                hard.append(f"prismes.{label} holds a digit — {_DIGIT_RULE}")
         raw = str(fields.get("sources", ""))
         names = [s.strip() for s in raw.split(";") if s.strip()]
         if raw.strip() and not names:
@@ -407,6 +426,9 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict], 
         if question_words and str(fields.get("question", "")).strip() \
                 and not _key_words(str(fields.get("question", ""))) & question_words:
             flags.append("prismes.question shares no key word with the axe's question — the prism should answer that question")
+        subject_words = _key_words(str(axe.get("subject", "")))
+        if subject_words and any(t.strip() for t in lines) and not _key_words(" ".join(lines)) & subject_words:
+            flags.append(f"prismes: the lines share no key word with the subject « {axe['subject']} » — the slide may drift")
         mine = _key_words(" ".join([str(fields.get("question", "")), *lines]))
         for k, other in enumerate(fragments.get("prismes", {}).get("prisms", []), 1):
             if k == n:
@@ -427,7 +449,7 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict], 
     if step == "hook":
         question("title", str(fields.get("title", "")))
         promise = str(fields.get("promise", "")).strip()
-        m = _PROMISE.fullmatch(_bare(promise)) if promise else None
+        m = _PROMISE.fullmatch(_typo_plain(_bare(promise))) if promise else None
         if promise and not m:
             hard.append("hook.promise must read « Trois regards sur <sujet> ; à vous d'en juger. » with a subject")
         elif m and axe.get("subject") and _norm(axe["subject"]) != _norm(m.group(1)):

@@ -283,6 +283,16 @@ def test_the_hook_promise_has_the_fixed_shape():
         assert any("hook.promise" in e for e in _hard("hook", _with("hook", promise=bad))), bad
 
 
+def test_the_hook_promise_accepts_french_typography():
+    """A no-break space (NBSP or narrow) before « ; » or a typographic apostrophe is the same promise."""
+    for typo in ("Trois regards sur la crise du logement\u00a0; à vous d'en juger.",
+                 "Trois regards sur la crise du logement\u202f; à vous d'en juger.",
+                 "Trois regards sur la crise du logement ; à vous d\u2019en juger.",
+                 "Trois regards sur la crise du logement\u202f; à vous d\u2019en juger."):
+        hard, flags = _fe("hook", _with("hook", promise=typo))
+        assert hard == [] and not [f for f in flags if "subject" in f], typo
+
+
 def test_a_prism_slide_needs_three_lines_and_a_source():
     assert any("line3" in e for e in _hard("prismes", _with("prismes", "p2", line3=""), slot="p2"))
     assert any("line1" in e for e in _hard("prismes", _with("prismes", "p2", line1=""), slot="p2"))
@@ -327,6 +337,21 @@ def test_no_url_in_sources():
         assert any("URL" in e for e in _hard("prismes", _with("prismes", "p2", sources=f"A ; {s}"), slot="p2")), s
 
 
+def test_a_bare_domain_in_sources_is_a_url():
+    p = lambda s: _hard("prismes", _with("prismes", "p2", sources=s), slot="p2")  # noqa: E731
+    for s in ("idealista.com ; ine.es", "Insee.fr", "europa.eu ; INE", "data.gov", "oecd.org", "x.net", "a.info", "who.int"):
+        assert any("URL" in e for e in p(s)), s
+    for s in ("INE (statistique) ; Banque d'Espagne ; Eurostat", "Insee ; Cour des comptes", "Ministère du Logement"):
+        assert not any("URL" in e for e in p(s)), s
+
+
+def test_the_matrix_refuses_il_faudrait_and_faut_il():
+    for phrase in ("il faudrait", "faut-il", "faudrait"):
+        col = _with("matrice", col1=f"Ce qu'{phrase} mesurer | Mesures" if phrase[0] == "i" else f"Ce que {phrase} mesurer | Mesures")
+        assert any("prescriptive" in e for e in _hard("matrice", col)), phrase
+    assert any("prescriptive" in e for e in _hard("matrice", _with("matrice", title="Que faut-il regarder ?")))
+
+
 def test_no_digit_on_the_matrix_or_in_sources():
     assert any("digit" in e for e in _hard("prismes", _with("prismes", "p2", sources="INE 2024"), slot="p2"))
     assert any("digit" in e for e in _hard("matrice", _with("matrice", col2="Écart | 3 millions")))
@@ -341,6 +366,23 @@ def test_a_year_is_allowed_on_a_prism_line_but_not_another_number():
     assert any("digit" in e for e in p("Les loyers montent de 12 %."))
     assert any("digit" in e for e in p("Une loi de 1200."))
     assert any("digit" in e for e in p("Une loi de 2100."))
+
+
+def test_a_date_or_a_law_reference_is_allowed_on_a_prism_but_no_other_number():
+    p = lambda line: _hard("prismes", _with("prismes", "p2", line1=line), slot="p2")  # noqa: E731
+    q = lambda text: _hard("prismes", _with("prismes", "p2", question=text), slot="p2")  # noqa: E731
+    for ok in ("Le mouvement naît le 15 mai 2011.", "La loi 12/2023 encadre les loyers.", "Le décret du 1er janvier 2024.",
+               "Le texte entre en vigueur le 1er juillet.", "Le 3 août, le gouvernement tombe."):
+        assert not p(ok), ok
+    assert not q("Que change la loi 12/2023 ?")
+    for bad in ("Le 15-M rassemble des milliers de jeunes.", "Le loyer atteint 12 mois.", "Il manque 15 logements.",
+                "Une loi 123/2023.", "Le 15 du mois."):
+        assert any("digit" in e for e in p(bad)), bad
+
+
+def test_the_axe_question_is_digit_checked_like_a_prism():
+    assert not _hard("axe", _with("axe", question="Pourquoi les loyers ont-ils doublé depuis 2015 ?"))
+    assert any("axe.question" in e and "digit" in e for e in _hard("axe", _with("axe", question="Pourquoi 12 % des loyers montent-ils ?")))
 
 
 def test_position_and_media_note_are_exempt_from_the_digit_rule():
@@ -359,13 +401,25 @@ def test_a_prism_question_a_matrix_cell_or_the_closing_line_sharing_no_key_word_
     assert not [f for f in _flags("prismes", FIELDS["prismes"]["p2"], slot="p2") if "question" in f]
     bad = _flags("prismes", _with("prismes", "p2", question="Combien de pommes, à quel prix ?"), slot="p2")
     assert any("prismes.question" in f and "key word" in f for f in bad)
-    assert not _flags("prismes", _with("prismes", "p2", question="Combien de logements, à quel prix ?"), slot="p2")
+    assert not [f for f in _flags("prismes", _with("prismes", "p2", question="Combien de logements, à quel prix ?"), slot="p2")
+                if "question" in f]
     cell = _flags("matrice", _with("matrice", col1="Les pommes | Récolte"))
     assert any("matrice.col1" in f for f in cell)
     assert not any("matrice.col2" in f for f in cell)
     closing = _with("axe", closing="Politique, économique ou sociologique : quel regard est le meilleur ?")
     assert any("axe.closing" in f and "key word" in f for f in _flags("axe", closing))
     assert not any("axe.closing" in f and "key word" in f for f in _flags("axe", FIELDS["axe"]))
+
+
+def test_a_prism_slide_whose_lines_share_no_key_word_with_the_subject_is_flagged():
+    """The subject of the fixture is « la crise du logement »: a slide whose lines never name it drifts."""
+    drift = _with("prismes", "p2", line1="Les pommes mûrissent en automne.", line2="Les poires suivent.",
+                  line3="Les cerises viennent plus tôt.", line4="")
+    hard, flags = _fe("prismes", drift, slot="p2")
+    assert hard == [] and any("prismes" in f and "subject" in f for f in flags)
+    assert not [f for f in _flags("prismes", FIELDS["prismes"]["p3"], slot="p3") if "subject" in f]
+    named = {**drift, "line2": "Les poires suivent la crise."}
+    assert not [f for f in _flags("prismes", named, slot="p2") if "subject" in f]
 
 
 def test_a_closing_line_with_ou_is_flagged_not_blocked():
@@ -899,6 +953,16 @@ def test_the_cta_line_is_the_closing_question_lowercased(tmp_path):
 def test_the_hook_promise_and_title_are_drawn(tmp_path):
     text = _render(tmp_path)["01_hook"]
     assert DECK["hook"]["title"] in text and DECK["hook"]["promise"] in text
+
+
+def test_the_hook_promise_keeps_its_semicolon_on_the_line_and_the_title_its_hyphens(tmp_path):
+    """The renderer puts a no-break space before « ; » (and « ? ») and word joiners around in-word hyphens."""
+    deck = copy.deepcopy(DECK)
+    deck["hook"]["title"] = "Le logement a-t-il mené aux urnes ?"
+    doc = extract(full(), TroisRegardsPresentation.model_validate(deck))
+    raw = (renderer.generate_html(doc, tmp_path / "html")[0]).read_text(encoding="utf-8")
+    assert "logement\u00a0; à vous" in raw and "logement ; à vous" not in raw
+    assert "a\u2060-\u2060t\u2060-\u2060il" in raw and "urnes\u00a0?" in raw
 
 
 # ── the layout: every field at its cap still fits its lines and the slide ───

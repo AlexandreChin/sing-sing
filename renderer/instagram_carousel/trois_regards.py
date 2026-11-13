@@ -4,6 +4,7 @@ hook and sign-off (photo included); slide 2 is the `temps_long` position slide, 
 it is; slides 3–5 (one prism each) and 6 (the matrix) are the
 `article_carousel_trois_regards_v1` templates. Registered as the `trois_regards` format."""
 import json
+import re
 from pathlib import Path
 
 from agent.trois_regards_prisms import PRISMS
@@ -20,6 +21,12 @@ POSITION = "article_carousel_temps_long_v1/02_position.html"
 POSITION_KICKER = "Ce que dit l'article"
 POSITION_ICONS = ("book", "link", "eye", "widen")   # one fixed icon per card, in order
 MEDIA_BADGE = "Le regard du média"
+
+
+def _typeset(text: str) -> str:
+    """French typography at draw time: a no-break space before « ; : ? ! » (the prompts ask for a plain
+    space), so the sign never starts a line; then word joiners around in-word hyphens (`_nobreak`)."""
+    return _nobreak(re.sub(r"[ \u202f\u00a0]+([;:?!])", "\u00a0\\1", text))
 
 
 def _relance(question: str) -> str:
@@ -40,8 +47,9 @@ def generate_html(doc: TroisRegardsDocument, out_dir: Path) -> list[Path]:
     background = background_image(base, or_cover=True)
     # the pill names the medium, the source and the date: the length is left out of this deck
     length = duration_label(meta, short=True)
-    hook = {"pill": [part for part in pill_parts(meta) if part != length], "sub_topic": pres.hook.title, "subtitle": pres.hook.promise,
-            "headline": pres.hook.title, "background": background, "thumb": cover_thumb(base),
+    title, promise = _typeset(pres.hook.title), _typeset(pres.hook.promise)
+    hook = {"pill": [part for part in pill_parts(meta) if part != length], "sub_topic": title, "subtitle": promise,
+            "headline": title, "background": background, "thumb": cover_thumb(base),
             **hook_metrics(cover_dims(base), pres.hook.title), **cover_layers(meta, pres.hook.title)}
     media = pres.axe.media if pres.axe else ""
     question = pres.axe.question if pres.axe else ""
