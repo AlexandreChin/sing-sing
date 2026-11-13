@@ -92,3 +92,93 @@ def test_the_catalogue_text_names_every_prism():
     assert len(lines) == 7
     for line, pid in zip(lines, PRISM_IDS):
         assert pid in line and PRISMS[pid].name in line and PRISMS[pid].definition in line
+
+
+# ---- guided steps, option models, fragments --------------------------------------------------------------------
+
+import copy  # noqa: E402
+
+from agent import trois_regards_adapt_agent as agent  # noqa: E402
+from agent.carousel_steps.steps import Option  # noqa: E402
+
+
+def option_fields(deck: dict) -> dict[str, dict]:
+    """The flat option fields of every step, cut from a deck."""
+    pad = lambda items, n: list(items) + [""] * (n - len(items))  # noqa: E731
+    ax, po, pr, mx = deck["axe"], deck["position"], deck["prisms"], deck["matrix"]
+    prisms = {}
+    for i, s in enumerate(pr, 1):
+        prisms[f"p{i}"] = {"question": s["question"],
+                           **dict(zip(("line1", "line2", "line3", "line4"), pad(s["lines"], 4))),
+                           "sources": " ; ".join(s["sources"]), "media_note": s.get("media_note", "")}
+    return {
+        "axe": {"question": ax["question"], "article_question": ax["article_question"], "subject": ax["subject"],
+                **{f"prism{i}": p for i, p in enumerate(ax["prisms"], 1)},
+                "media": ax["media"], "media_grounding": ax["media_grounding"], "closing": ax["closing"]},
+        "position": {"kicker": po["kicker"], "title": po["title"], "lead": po["lead"],
+                     **dict(zip(("card1", "card2", "card3", "card4"),
+                                pad([f"{c['label']} | {c['text']}" for c in po["cards"]], 4)))},
+        "prismes": prisms,
+        "matrice": {"title": mx["title"],
+                    **{f"col{i}": f"{c['variable']} | {c['indicator']}" for i, c in enumerate(mx["columns"], 1)}},
+        "hook": {"title": deck["hook"]["title"], "promise": deck["hook"]["promise"]},
+        "writing": {"caption": deck["caption"]},
+    }
+
+
+FIELDS = option_fields(DECK)
+
+
+def _opt(fields: dict, slot: str = "a") -> Option:
+    return Option(id=slot, slot=slot, reason="r", fields=fields)
+
+
+def _fragments(fields: dict = FIELDS) -> dict[str, dict]:
+    frags: dict[str, dict] = {}
+    for step in agent.STEPS:
+        if step.name == "prismes":
+            picks = [_opt(fields["prismes"][s], s) for s in step.slots]
+        else:
+            picks = [_opt(fields[step.name])]
+        frags[step.name] = agent.to_fragment(step, picks, frags)
+    return frags
+
+
+def test_the_steps_come_in_order():
+    assert agent.STEP_NAMES == ["axe", "position", "prismes", "matrice", "hook"]
+    assert agent.STEPS[-1].name == "writing" and agent.STEPS[-1].option_model is None
+    assert [s.n for s in agent.STEPS] == [1, 2, 3, 4, 5, 6]
+
+
+def test_only_prismes_has_three_slots():
+    assert {s.name: s.slots for s in agent.STEPS if s.slots != ("a",)} == {"prismes": ("p1", "p2", "p3")}
+    assert agent.STEP_BY_NAME["prismes"].offered == (2, 3)
+
+
+def test_the_fragments_rebuild_the_deck():
+    deck = agent.assemble(_fragments())
+    assert TroisRegardsPresentation.model_validate(deck).model_dump() == \
+        TroisRegardsPresentation.model_validate(DECK).model_dump()
+    assert deck == DECK
+
+
+def test_an_empty_line4_and_an_empty_media_note_are_left_out():
+    fields = copy.deepcopy(FIELDS)
+    fields["prismes"]["p2"]["line4"] = ""
+    frag = agent.to_fragment(agent.STEP_BY_NAME["prismes"], [_opt(fields["prismes"][s], s) for s in ("p1", "p2", "p3")],
+                             {"axe": _fragments()["axe"]})
+    assert all(len(s["lines"]) == 3 for s in frag["prisms"])
+    assert "media_note" in frag["prisms"][0] and "media_note" not in frag["prisms"][1]
+    fields["position"]["card4"] = ""
+    pos = agent.to_fragment(agent.STEP_BY_NAME["position"], [_opt(fields["position"])], {})
+    assert len(pos["position"]["cards"]) == 3
+
+
+def test_a_prism_fragment_takes_its_prism_id_from_the_axe_order():
+    frags = _fragments()
+    frags["axe"]["axe"]["prisms"] = ["juridique", "historique", "politique"]
+    prismes = agent.to_fragment(agent.STEP_BY_NAME["prismes"],
+                                [_opt(FIELDS["prismes"][s], s) for s in ("p1", "p2", "p3")], frags)
+    assert [s["prism"] for s in prismes["prisms"]] == ["juridique", "historique", "politique"]
+    matrice = agent.to_fragment(agent.STEP_BY_NAME["matrice"], [_opt(FIELDS["matrice"])], frags)
+    assert [c["prism"] for c in matrice["matrix"]["columns"]] == ["juridique", "historique", "politique"]
