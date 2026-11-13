@@ -45,10 +45,18 @@ def test_the_fixture_respects_the_caps_and_the_spec():
     assert all(n(c.text) <= 108 and n(c.label) <= 30 for c in p.position.cards)
     for s in p.prisms:
         assert n(s.question) <= 64 and n(s.media_note) <= 90 and len(s.sources) <= 3
-        assert all(n(x) <= 80 and not re.search(r"\d{5}|\d{1,3}\s?\d{3}|\b\d{1,3}\b", x) for x in s.lines)
+        assert all(n(x) <= 80 and all(re.fullmatch(r"(1[5-9]|20)\d\d", d) for d in re.findall(r"\d+", x)) for x in s.lines)
         assert all(n(x) <= 30 and not re.search(r"\d", x) for x in s.sources)
     assert n(p.matrix.title) <= 34
     assert all(n(c.variable) <= 60 and n(c.indicator) <= 40 for c in p.matrix.columns)
     assert not re.search(r"\d", json.dumps(DECK["matrix"], ensure_ascii=False))
     assert n(p.hook.title) <= 70 and n(p.hook.promise) <= 100
     assert "http" not in json.dumps(DECK, ensure_ascii=False) and p.caption.count("#") == 4
+    assert p.matrix.title.endswith("?") and p.hook.title.endswith("?")
+    assert p.hook.promise == "Trois regards sur la crise du logement ; à vous d'en juger."
+    words = {"politique": "politique", "economique": "économi", "sociologique": "sociolog"}
+    assert all(words[k] in p.axe.closing.lower() for k in p.axe.prisms)
+    assert [s.prism for s in p.prisms if s.media_note] == [p.axe.media]
+    outside = re.sub(r"«[^»]*»", "", json.dumps(DECK, ensure_ascii=False).lower())
+    for w in ("biais", "manipulation", "mensonge", "trompeur", "oublie", "ignore", "omet", "néglige", "ne dit pas"):
+        assert w not in outside, w

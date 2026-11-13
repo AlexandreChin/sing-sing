@@ -16,6 +16,7 @@ class RegardsAxe(BaseModel):
     article_question: str    # the narrower question the article actually answers
     subject: str             # « la crise du logement », ≤36 characters
     prisms: list[str] = Field(default_factory=list)   # three slugs
+    # media, media_grounding and closing default to "" on purpose: older decks load without them
     media: str = ""          # the prism the article itself takes
     media_grounding: str = ""   # why the article belongs to that prism, ≤120 characters
     closing: str = ""        # the closing question naming the three prisms, ends in « ? », ≤110
