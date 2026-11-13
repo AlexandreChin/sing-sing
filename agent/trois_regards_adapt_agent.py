@@ -369,9 +369,9 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict], 
                           for q in _QUOTED.findall(value) if _norm(q.strip("« »  ")) not in _norm(article)]
     if step == "prismes":
         lines = [str(fields.get(f"line{i}", "")) for i in (1, 2, 3, 4)]
-        for i, text in enumerate(lines, 1):
+        for label, text in (("question", str(fields.get("question", ""))), *((f"line{i}", t) for i, t in enumerate(lines, 1))):
             if any(not _YEAR.fullmatch(n) for n in _NUMBER.findall(text)):
-                hard.append(f"prismes.line{i} holds a digit — only a year (1500–2099) is allowed outside the article's frame")
+                hard.append(f"prismes.{label} holds a digit — only a year (1500–2099) is allowed outside the article's frame")
         raw = str(fields.get("sources", ""))
         names = [s.strip() for s in raw.split(";") if s.strip()]
         if raw.strip() and not names:

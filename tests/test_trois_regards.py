@@ -308,10 +308,18 @@ def test_accusing_and_blaming_words_are_refused_outside_guillemets_only():
 
 
 def test_the_matrix_refuses_prescriptive_verbs():
-    for text in ("Il faut plafonner les loyers", "Le Parlement doit voter", "Ils devraient agir", "On devrait construire"):
-        assert any("prescriptive" in e for e in _hard("matrice", _with("matrice", col1=f"{text} | Mesures")))
-    assert any("prescriptive" in e for e in _hard("matrice", _with("matrice", title="Que faut-il faire ? Il faut mesurer ?")))
+    for verb in ("il faut", "doit", "doivent", "devrait", "devraient", "on devrait"):
+        col = _with("matrice", col1=f"Ce que {verb} mesurer | Mesures")
+        assert any("prescriptive" in e and verb.split()[-1] in e for e in _hard("matrice", col)), verb
+        title = _with("matrice", title=f"Que {verb} mesurer ?")
+        assert any("prescriptive" in e and "matrice.title" in e for e in _hard("matrice", title)), verb
     assert not _hard("matrice", FIELDS["matrice"])
+
+
+def test_a_digit_in_a_prism_question_is_refused_unless_it_is_a_year():
+    q = lambda text: _hard("prismes", _with("prismes", "p2", question=text), slot="p2")  # noqa: E731
+    assert any("prismes.question" in e and "digit" in e for e in q("Que pèse 12 % du budget ?"))
+    assert not q("Que change 1975 ?")
 
 
 def test_no_url_in_sources():
