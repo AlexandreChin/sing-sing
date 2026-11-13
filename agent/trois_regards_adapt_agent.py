@@ -843,6 +843,29 @@ def more(full, steps_dir: Path, step: str, remark: str = "", article_text: str |
     return new
 
 
+VERIFIED_STEPS = ("prismes",)
+
+
+async def verify_pick(steps_dir: Path, step: str, search=None) -> list[str]:
+    """Check the sources of the picked prism slides against the web (see `trois_regards_verify`): the ⚠ lines for
+    the author, the results kept beside the step and in the choice log. Advisory, never blocking."""
+    from agent import trois_regards_verify as tv
+    st = STEP_BY_NAME[step]
+    sf, _ = _load(steps_dir, st)
+    if step not in VERIFIED_STEPS or sf is None or not _complete(st, sf):
+        return []
+    axe_sf, _ = _load(steps_dir, STEP_BY_NAME["axe"])
+    axe = (axe_sf.fragment if axe_sf else {}).get("axe", {})
+    chosen = _chosen(st, sf)
+    pts = tv.points({o.slot: o.fields for o in chosen}, list(axe.get("prisms", [])))
+    results = await tv.verify_sources(pts, str(axe.get("subject", "")), search)
+    tv.save(steps_dir, st.n, step, results)
+    log_choice(steps_dir.parent, {"step": step, "event": "verify",
+                                  "results": [{k: r[k] for k in ("slot", "source", "status", "source_ref")}
+                                              for r in results]})
+    return tv.warnings(step, results)
+
+
 # deck field → (owning step, slot or None, option field): « <step>.<field> », « prismes.<slot>.<field> », the caption
 _FIELD_OWNER: dict[str, tuple[str, str | None, str]] = {
     (f"{st.name}.{slot}.{name}" if _multi(st) else f"{st.name}.{name}"): (st.name, slot if _multi(st) else None, name)

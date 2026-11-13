@@ -173,3 +173,104 @@ def test_missing_analysis_exits_1(tmp_path, capsys):
     with pytest.raises(SystemExit) as e:
         asyncio.run(main.cmd_fix(args))
     assert e.value.code == 1 and "analysis.json" in capsys.readouterr().err
+
+
+# ── trois_regards ───────────────────────────────────────────────────────────
+
+def _trois_dir(tmp_path):
+    from tests._carousel_steps_fixtures import full
+    fmt = tmp_path / "stem" / "trois_regards"
+    fmt.mkdir(parents=True)
+    (fmt.parent / "analysis.json").write_text(full().model_dump_json(), encoding="utf-8")
+    return fmt
+
+
+def _trois_adapted(tmp_path, fake):
+    from agent import trois_regards_adapt_agent as tra
+    from tests._carousel_steps_fixtures import full
+    fmt = _trois_dir(tmp_path)
+    tra.adapt(full(), steps_dir=fmt / "adapt_steps")
+    return fmt
+
+
+def test_choose_more_accepts_a_prism_slot_for_trois_regards(tmp_path, capsys):
+    from tests.test_trois_regards import FakeCalls
+    import agent.trois_regards_adapt_agent as tra
+    calls = FakeCalls()
+    mp = pytest.MonkeyPatch()
+    mp.setattr(tra, "_call_with_retry", calls)
+    try:
+        fmt = _trois_adapted(tmp_path, calls)
+        args = build_parser().parse_args(["choose", str(fmt), "prismes", "--more", "--prism", "p2", "--remark", "plus concret"])
+        asyncio.run(main.cmd_choose(args))
+        assert calls.slots[-1] == ["p2"]
+        assert "[p2]" in capsys.readouterr().out
+        args = build_parser().parse_args(["choose", str(fmt), "prismes", "--more", "--prism", "economique"])
+        asyncio.run(main.cmd_choose(args))
+        assert calls.slots[-1] == ["p2"]
+    finally:
+        mp.undo()
+
+
+def test_prism_flag_without_more_is_refused(tmp_path, capsys):
+    fmt = _trois_dir(tmp_path)
+    args = build_parser().parse_args(["choose", str(fmt), "prismes", "--pick", "p1a,p2a,p3a", "--prism", "p2"])
+    with pytest.raises(SystemExit) as e:
+        asyncio.run(main.cmd_choose(args))
+    assert e.value.code == 2 and "--prism" in capsys.readouterr().err
+
+
+def test_prism_flag_is_refused_by_a_format_without_prisms(tmp_path, capsys, stub_full):
+    fmt = _fmt_dir(tmp_path)
+    args = build_parser().parse_args(["choose", str(fmt), "idees", "--more", "--prism", "p2"])
+    with pytest.raises(SystemExit) as e:
+        asyncio.run(main.cmd_choose(args))
+    assert e.value.code == 2 and "--prism" in capsys.readouterr().err
+
+
+def test_fix_a_prism_field_by_slot(tmp_path, capsys):
+    from tests.test_trois_regards import FakeCalls
+    import agent.trois_regards_adapt_agent as tra
+    mp = pytest.MonkeyPatch()
+    mp.setattr(tra, "_call_with_retry", FakeCalls())
+    try:
+        fmt = _trois_adapted(tmp_path, None)
+        new = "Les loyers montent plus vite que les salaires."
+        asyncio.run(main.cmd_fix(build_parser().parse_args(["fix", str(fmt), "prismes.p2.line1", new])))
+        assert "Fixed prismes.p2.line1 in prismes" in capsys.readouterr().err
+        sf = tra._load(fmt / "adapt_steps", tra.STEP_BY_NAME["prismes"])[0]
+        assert sf.fragment["prisms"][1]["lines"][0] == new
+    finally:
+        mp.undo()
+
+
+def test_stop_after_accepts_prismes_and_matrice():
+    for step in ("prismes", "matrice"):
+        args = build_parser().parse_args(["adapt", "a.json", "--format", "trois_regards", "--stop-after", step, "--guided"])
+        assert args.stop_after == step
+        assert build_parser().parse_args(["choose", "d", step, "--pick", "x"]).step == step
+
+
+def test_choose_pick_runs_the_prismes_pick_and_the_web_check(tmp_path, capsys):
+    from tests.test_trois_regards import FakeCalls
+    from types import SimpleNamespace
+    import agent.trois_regards_adapt_agent as tra
+    import agent.trois_regards_verify as tv
+    mp = pytest.MonkeyPatch()
+    mp.setattr(tra, "_call_with_retry", FakeCalls())
+    try:
+        fmt = _trois_adapted(tmp_path, None)
+
+        async def search(text):
+            return SimpleNamespace(confirming=[], contradicting=[])
+        mp.setattr(tv, "_search", search)
+        args = build_parser().parse_args(["choose", str(fmt), "prismes", "--pick", "p1a,p2a,p3a"])
+        asyncio.run(main.cmd_choose(args))
+        err = capsys.readouterr().err
+        assert "Kept p1a, p2a, p3a" in err
+        assert "⚠" in err and "news" in err      # the web check ran and found nothing
+        assert (fmt / "adapt_steps" / "3_prismes.verification.json").exists()
+        asyncio.run(main.cmd_choose(build_parser().parse_args(["choose", str(fmt), "prismes", "--pick", "p1b,p2a,p3a", "--no-api"])))
+        assert "news" not in capsys.readouterr().err   # --no-api skips the check
+    finally:
+        mp.undo()

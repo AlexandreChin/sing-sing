@@ -18,9 +18,11 @@ DEFAULT_FORMAT = "instagram_carousel_optimized"
 CADRAGE_FORMAT = "cadrage_logique"   # its guided cascade lives in agent/cadrage_adapt_agent.py
 TEMPS_LONG_FORMAT = "temps_long"     # and this one's in agent/temps_long_adapt_agent.py
 ANATOMIE_FORMAT = "anatomie_chiffre"  # and this one's in agent/anatomie_chiffre_adapt_agent.py
+TROIS_REGARDS_FORMAT = "trois_regards"  # and this one's in agent/trois_regards_adapt_agent.py
 # the formats with a guided cascade of their own (the 9-slide deck's lives in agent/carousel_steps)
 GUIDED_AGENTS = {CADRAGE_FORMAT: "agent.cadrage_adapt_agent", TEMPS_LONG_FORMAT: "agent.temps_long_adapt_agent",
-                 ANATOMIE_FORMAT: "agent.anatomie_chiffre_adapt_agent"}
+                 ANATOMIE_FORMAT: "agent.anatomie_chiffre_adapt_agent",
+                 TROIS_REGARDS_FORMAT: "agent.trois_regards_adapt_agent"}
 
 
 def _base_dir(input_path: str | None, stem: str) -> Path:
@@ -219,10 +221,17 @@ async def cmd_choose(args: argparse.Namespace) -> None:
     if not args.pick and not args.more:
         print("choose needs --pick <ids> or --more", file=sys.stderr)
         sys.exit(2)
+    if args.prism and not args.more:
+        print("--prism only goes with --more (it picks the prism whose options are regenerated)", file=sys.stderr)
+        sys.exit(2)
+    if args.prism and "slot" not in inspect.signature(run.more).parameters:
+        print(f"--prism is not available for {Path(args.fmt_dir).name}: it has no prism slots", file=sys.stderr)
+        sys.exit(2)
     full, steps_dir, article = _load_fmt_dir(args.fmt_dir)
     try:
         if args.more:
-            sf = run.more(full, steps_dir, args.step, args.remark, article, args.no_api)
+            extra = {"slot": args.prism} if args.prism else {}
+            sf = run.more(full, steps_dir, args.step, args.remark, article, args.no_api, **extra)
             print(run.format_options(STEP_BY_NAME[args.step], sf))
             return
         picks = [p.strip() for p in args.pick.split(",") if p.strip()]
@@ -560,11 +569,11 @@ def _add_source_args(p: argparse.ArgumentParser) -> None:
                    help="listening/viewing time in minutes (default: estimated from the word count)")
 
 
-# the guided steps of the 9-slide deck, then those of the cadrage, temps_long and anatomie_chiffre cascades
+# the guided steps of the 9-slide deck, then those of the cadrage, temps_long, anatomie_chiffre and trois_regards cascades
 _STEP_CHOICES = ["question", "enjeu", "idees", "moments", "contexte", "socle", "hook",
                  "axe", "constat", "these", "angle_mort", "depassement", "boussole",
                  "tournants", "episodes", "lecture", "pieges", "position",
-                 "chiffres", "recit", "lectures"]
+                 "chiffres", "recit", "lectures", "prismes", "matrice"]
 
 
 def _add_stop_after(p: argparse.ArgumentParser) -> None:
@@ -615,6 +624,8 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--reason", default="", help="why, kept in the choice log")
     p.add_argument("--more", action="store_true", help="set the options aside and generate others")
     p.add_argument("--remark", default="", help="with --more: what was missing from the options")
+    p.add_argument("--prism", help="with --more (trois_regards, prismes): only this prism's options — "
+                                   "a slot (p1, p2, p3) or a prism id")
     p.add_argument("--no-api", action="store_true")
     p.set_defaults(func=cmd_choose)
 
