@@ -58,7 +58,7 @@
     }
   ],
   "matrix": {
-    "title": "Trois façons de mesurer la crise",
+    "title": "Que mesurer pour trancher ?",
     "columns": [
       {"prism": "politique", "variable": "Les décisions prises par les pouvoirs publics", "indicator": "Mesures votées ou rejetées"},
       {"prism": "economique", "variable": "L'écart entre l'offre et la demande de logements", "indicator": "Déficit de logements"},
