@@ -841,37 +841,59 @@ def test_the_message_leaves_no_placeholder():
     assert "{{" not in msg and "CATALOGUE DES PRISMES" in msg
 
 
-def test_the_worked_examples_of_the_prompts_break_no_hard_rule():
-    """The examples written in 1_axe / 2_position / 3_prismes / 4_matrice / 5_hook respect the rules."""
-    def bullets(name: str) -> dict[str, str]:
-        text = _prompt_text(PROMPTS / name).split("Exemple", 1)[1]
-        return {m.group(1): m.group(2).strip() for m in re.finditer(r"^- `(\w+)` : « ?(.*?) ?»\s*$", text, re.M)}
+_BULLET = re.compile(r"^- `(\w+)` : (?:« (.*) »|`(.*)`)\s*$", re.M)
 
-    def clean(d: dict[str, str]) -> dict[str, str]:
-        return {k: v for k, v in d.items() if k != "reason"}
 
-    axe = clean(bullets("1_axe.md"))
-    axe.update(prism1="politique", prism2="economique", prism3="sociologique", media="politique")
-    frags = {"axe": agent.to_fragment(agent.STEP_BY_NAME["axe"], [_opt(FIELDS["axe"] | axe)], {})}
-    assert agent.field_errors("axe", FIELDS["axe"] | axe, {}, None)[0] == []
-    pos = clean(bullets("2_position.md"))
-    assert agent.field_errors("position", pos, frags, None)[0] == []
-    mat = clean(bullets("4_matrice.md"))
-    assert agent.field_errors("matrice", mat, frags, None)[0] == []
-    assert agent.field_errors("hook", FIELDS["hook"] | {"title": axe["question"],
-                                                         "promise": "Trois regards sur la crise du logement ; à vous d'en juger."},
-                              frags, None)[0] == []
-    p2 = {"question": "Construit-on trop peu de logements ?", "line1": "Quand l'offre de logements ne suit pas la demande, les prix montent.",
-          "line2": "Le logement social, rare, laisse le marché seul face aux besoins.",
-          "line3": "Le tourisme met les résidents en concurrence avec les locations courtes.",
-          "line4": "", "sources": "Banque d'Espagne ; Eurostat ; INE", "media_note": ""}
-    p1 = {"question": "Qui décide de la politique du logement ?", "line1": "Un gouvernement sans majorité doit négocier chaque mesure avec le Congrès.",
-          "line2": "Le calendrier électoral pèse sur le moment où les mesures sont proposées.",
-          "line3": "Les partis ne s'accordent pas sur le rôle de la loi face au marché locatif.", "line4": "",
-          "sources": "Congrès des députés ; Gouvernement d'Espagne",
-          "media_note": "Le récit suit les mesures du gouvernement, leur rejet par le Congrès, puis l'élection."}
-    assert agent.field_errors("prismes", p2, frags, None, slot="p2")[0] == []
-    assert agent.field_errors("prismes", p1, frags, None, slot="p1")[0] == []
+def _example(text: str) -> dict[str, str]:
+    """The `- `field` : « value »` (or `` `value` ``, `` `""` `` for empty) bullets of one worked example."""
+    out = {}
+    for m in _BULLET.finditer(text):
+        value = m.group(2) if m.group(2) is not None else m.group(3)
+        out[m.group(1)] = "" if value == '""' else value
+    out.pop("reason", None)
+    return out
+
+
+def _examples(name: str) -> list[tuple[str, dict[str, str]]]:
+    """Each « Exemple … » section of a prompt: (its heading line, its fields)."""
+    parts = re.split(r"^(Exemple.*)$", _prompt_text(PROMPTS / name), flags=re.M)[1:]
+    return [(head, _example(body)) for head, body in zip(parts[::2], parts[1::2])]
+
+
+def test_the_worked_examples_of_the_prompts_break_no_rule_and_raise_no_flag():
+    """The examples of 1_axe … 5_hook are what the model imitates: they keep every hard rule AND every advisory
+    flag (each prism question and matrix cell keeps a key word of the deck question, each prism slide names the
+    subject, the indicators are named series), and they are not about the sample deck's subject."""
+    def check(step, fields, frags, slot="a"):
+        hard, flags = agent.field_errors(step, fields, frags, None, slot)
+        assert hard == [] and flags == [], (step, slot, hard, flags)
+
+    [(_, axe)] = _examples("1_axe.md")
+    check("axe", axe, {})
+    frags = {"axe": agent.to_fragment(agent.STEP_BY_NAME["axe"], [_opt(axe)], {})}
+    [(_, pos)] = _examples("2_position.md")
+    check("position", pos, frags)
+    frags["position"] = agent.to_fragment(agent.STEP_BY_NAME["position"], [_opt(pos)], frags)
+    prisms = []
+    for head, fields in _examples("3_prismes.md"):
+        slot, pid = re.search(r"emplacement (p\d) = `(\w+)`", head).groups()
+        assert axe[f"prism{slot[1]}"] == pid, head
+        prisms.append(_opt(fields, slot))
+    assert len(prisms) >= 2
+    prisms.sort(key=lambda o: o.slot)                     # a prismes fragment is in slot order
+    frags["prismes"] = agent.to_fragment(agent.STEP_BY_NAME["prismes"], prisms, frags)
+    for o in prisms:
+        check("prismes", o.fields, frags, o.slot)
+    [(_, mat)] = _examples("4_matrice.md")
+    check("matrice", mat, frags)
+    frags["matrice"] = agent.to_fragment(agent.STEP_BY_NAME["matrice"], [_opt(mat)], frags)
+    [(_, hook)] = _examples("5_hook.md")
+    check("hook", hook, frags)
+    assert hook["title"] == axe["question"]
+    # the sample deck's article is not the examples' subject: the model must not copy its wording into that deck
+    every = " ".join(_prompt_text(f) for f in PROMPTS.glob("*.md"))
+    for word in ("Espagne", "logement", "Radio-Canada", "Congrès"):
+        assert word not in every, word
 
 
 # ── the render ──────────────────────────────────────────────────────────────
