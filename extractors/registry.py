@@ -21,6 +21,11 @@ FORMATS: dict[str, tuple[str, str, str]] = {
         "extractors.anatomie_chiffre",
         "renderer.instagram_carousel.anatomie_chiffre",
     ),
+    "trois_regards": (
+        "agent.trois_regards_adapt_agent",
+        "extractors.trois_regards",
+        "renderer.instagram_carousel.trois_regards",
+    ),
     "newsletter": (
         "agent.newsletter_adapt_agent",
         "extractors.newsletter",

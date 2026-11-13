@@ -1,0 +1,68 @@
+{
+  "caption": "Trois regards sur la crise du logement en Espagne : politique, économique, sociologique. Quel regard éclaire le mieux ce que vous venez de lire ?\n\n#logement #Espagne #espritcritique #singsing",
+  "axe": {
+    "question": "D'où vient la crise du logement en Espagne ?",
+    "article_question": "Comment la crise du logement a-t-elle mené à des élections anticipées ?",
+    "subject": "la crise du logement",
+    "prisms": ["politique", "economique", "sociologique"],
+    "media": "politique",
+    "media_grounding": "Radio-Canada suit les mesures du gouvernement, le rejet du Parlement et l'élection : un regard politique.",
+    "closing": "Politique, économique ou sociologique : quel regard explique le mieux la crise du logement ?"
+  },
+  "hook": {
+    "title": "D'où vient la crise du logement en Espagne ?",
+    "promise": "Trois regards sur la crise du logement ; à vous d'en juger."
+  },
+  "position": {
+    "kicker": "Ce que dit l'article",
+    "title": "Une crise devenue enjeu d'élection",
+    "lead": "L'article répond à une question plus étroite : comment la crise a-t-elle mené aux urnes ?",
+    "cards": [
+      {"label": "Ce qu'il raconte", "text": "Une octogénaire expulsée, des manifestations dans tout le pays, puis des élections anticipées."},
+      {"label": "Ses causes", "text": "Un manque de logements sociaux, des loyers sans plafond et un parc immobilier insuffisant."},
+      {"label": "Ce que répondent les acteurs", "text": "Le gouvernement propose plafonds et gel des évictions ; la droite redoute moins de logements offerts."},
+      {"label": "Où il mène", "text": "Un scrutin anticipé où le logement devient l'enjeu central de la campagne."}
+    ]
+  },
+  "prisms": [
+    {
+      "prism": "politique",
+      "question": "Qui décide, et qui bloque ?",
+      "lines": [
+        "Les mesures d'urgence ont d'abord été rejetées par le Parlement.",
+        "Gouvernement et opposition s'opposent sur les plafonds de loyer.",
+        "Le logement sert aussi d'argument de campagne."
+      ],
+      "sources": ["Congrès des députés", "Gouvernement espagnol"],
+      "media_note": "C'est le regard que prend l'article."
+    },
+    {
+      "prism": "economique",
+      "question": "Combien de logements, à quel prix ?",
+      "lines": [
+        "L'offre n'a pas suivi la demande dans les grandes villes.",
+        "Le parc social reste faible face aux autres pays européens.",
+        "Le tourisme concurrence l'habitat des résidents."
+      ],
+      "sources": ["Banque d'Espagne", "Eurostat", "INE"]
+    },
+    {
+      "prism": "sociologique",
+      "question": "Qui est touché, et comment s'organise-t-il ?",
+      "lines": [
+        "Jeunes et locataires modestes portent l'essentiel de la pression.",
+        "Des collectifs se forment pour défendre le droit au logement.",
+        "Une éviction devient le visage d'un malaise partagé."
+      ],
+      "sources": ["Derecho al Techo", "CIS"]
+    }
+  ],
+  "matrix": {
+    "title": "Trois façons de mesurer la crise",
+    "columns": [
+      {"prism": "politique", "variable": "Les décisions prises par les pouvoirs publics", "indicator": "Mesures votées ou rejetées"},
+      {"prism": "economique", "variable": "L'écart entre l'offre et la demande de logements", "indicator": "Déficit de logements"},
+      {"prism": "sociologique", "variable": "L'expérience vécue par les ménages touchés", "indicator": "Taux d'effort des locataires"}
+    ]
+  }
+}
