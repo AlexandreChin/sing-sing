@@ -41,10 +41,10 @@ def test_the_fixture_respects_the_caps_and_the_spec():
     n = lambda s: len(s.replace("**", ""))
     assert n(p.axe.question) <= 60 and n(p.axe.subject) <= 36
     assert n(p.axe.closing) <= 110 and p.axe.closing.endswith("?") and n(p.axe.media_grounding) <= 120
-    assert n(p.position.kicker) <= 30 and n(p.position.title) <= 36 and n(p.position.lead) <= 90
-    assert all(n(c.text) <= 96 and n(c.label) <= 30 for c in p.position.cards)
+    assert n(p.position.kicker) <= 26 and n(p.position.title) <= 32 and n(p.position.lead) <= 90
+    assert all(n(c.text) <= 76 and n(c.label) <= 30 for c in p.position.cards)
     for s in p.prisms:
-        assert n(s.question) <= 60 and n(s.media_note) <= 90 and len(s.sources) <= 3
+        assert n(s.question) <= 50 and n(s.media_note) <= 90 and len(s.sources) <= 3
         assert all(n(x) <= 80 and all(re.fullmatch(r"(1[5-9]|20)\d\d", d) for d in re.findall(r"\d+", x)) for x in s.lines)
         assert all(n(x) <= 30 and not re.search(r"\d", x) for x in s.sources)
     assert n(p.matrix.title) <= 34
@@ -225,9 +225,9 @@ def test_a_field_over_its_cap_is_a_hard_error():
     assert any("axe.subject" in e for e in _hard("axe", _with("axe", subject="x" * 37)))
     assert any("axe.closing" in e for e in _hard("axe", _with("axe", closing="x" * 110 + " ?")))
     assert any("axe.media_grounding" in e for e in _hard("axe", _with("axe", media_grounding="x" * 121)))
-    for name, cap in (("kicker", 30), ("title", 36), ("lead", 90)):
+    for name, cap in (("kicker", 26), ("title", 32), ("lead", 90)):
         assert any(f"position.{name}" in e for e in _hard("position", _with("position", **{name: "x" * (cap + 1)})))
-    assert any("prismes.question" in e for e in _hard("prismes", _with("prismes", "p2", question="x" * 61), slot="p2"))
+    assert any("prismes.question" in e for e in _hard("prismes", _with("prismes", "p2", question="x" * 51), slot="p2"))
     assert any("prismes.line3" in e for e in _hard("prismes", _with("prismes", "p2", line3="x" * 81), slot="p2"))
     assert any("prismes.media_note" in e for e in _hard("prismes", _with("prismes", "p1", media_note="x" * 91), slot="p1"))
     assert any("matrice.title" in e for e in _hard("matrice", _with("matrice", title="x" * 34 + " ?")))
@@ -236,7 +236,7 @@ def test_a_field_over_its_cap_is_a_hard_error():
 
 
 @pytest.mark.parametrize("step,name,part,cap", [
-    ("position", "card2", "label", 30), ("position", "card2", "text", 96),
+    ("position", "card2", "label", 30), ("position", "card2", "text", 76),
     ("matrice", "col2", "variable", 60), ("matrice", "col2", "indicator", 40)])
 def test_a_part_over_its_cap_is_a_hard_error(step, name, part, cap):
     cell = {"label": "ab | cd", "text": "ab | cd", "variable": "ab | cd", "indicator": "ab | cd"}
@@ -609,12 +609,12 @@ def test_fix_rewrites_one_field_without_regenerating(fake, tmp_path):
     agent.adapt(full(), steps_dir=steps)
     before = list(fake.labels)
     assert agent.fix(full(), steps, "axe.question", "Pourquoi le logement manque-t-il en Espagne ?") == ("axe", [])
-    assert agent.fix(full(), steps, "position.title", "Une crise devenue enjeu de scrutin") == ("position", [])
+    assert agent.fix(full(), steps, "position.title", "Le logement, enjeu de scrutin") == ("position", [])
     assert agent.fix(full(), steps, "caption", DECK["caption"] + " Merci.")[0] == "writing"
     pres = agent.adapt(full(), steps_dir=steps)
     assert fake.labels == before                      # the later steps were re-stamped, not rerun
     assert pres.axe.question == "Pourquoi le logement manque-t-il en Espagne ?"
-    assert pres.position.title == "Une crise devenue enjeu de scrutin" and pres.caption.endswith("Merci.")
+    assert pres.position.title == "Le logement, enjeu de scrutin" and pres.caption.endswith("Merci.")
     step, warnings = agent.fix(full(), steps, "hook.title", "x" * 75)
     assert step == "hook" and any("hook.title is 75" in w for w in warnings)
     step, warnings = agent.fix(full(), steps, "matrice.title", "Que mesurer pour en juger ?")
@@ -727,7 +727,7 @@ def test_a_wording_fix_on_a_later_step_still_restamps_without_a_model_call(fake,
     steps = tmp_path / "adapt_steps"
     agent.adapt(full(), steps_dir=steps)
     before = list(fake.labels)
-    agent.fix(full(), steps, "position.title", "Une crise devenue enjeu de scrutin")
+    agent.fix(full(), steps, "position.title", "Le logement, enjeu de scrutin")
     assert all(_fresh(steps, s) for s in _LATER)
     agent.adapt(full(), steps_dir=steps)
     assert fake.labels == before
@@ -807,11 +807,11 @@ def test_the_worked_examples_of_the_prompts_break_no_hard_rule():
     assert agent.field_errors("hook", FIELDS["hook"] | {"title": axe["question"],
                                                          "promise": "Trois regards sur la crise du logement ; à vous d'en juger."},
                               frags, None)[0] == []
-    p2 = {"question": "Un marché qui construit trop peu suffit-il à l'expliquer ?", "line1": "Quand l'offre de logements ne suit pas la demande, les prix montent.",
+    p2 = {"question": "Construit-on trop peu de logements ?", "line1": "Quand l'offre de logements ne suit pas la demande, les prix montent.",
           "line2": "Le logement social, rare, laisse le marché seul face aux besoins.",
           "line3": "Le tourisme met les résidents en concurrence avec les locations courtes.",
           "line4": "", "sources": "Banque d'Espagne ; Eurostat ; INE", "media_note": ""}
-    p1 = {"question": "Qui décide, et qui bloque ?", "line1": "Un gouvernement sans majorité doit négocier chaque mesure avec le Congrès.",
+    p1 = {"question": "Qui décide de la politique du logement ?", "line1": "Un gouvernement sans majorité doit négocier chaque mesure avec le Congrès.",
           "line2": "Le calendrier électoral pèse sur le moment où les mesures sont proposées.",
           "line3": "Les partis ne s'accordent pas sur le rôle de la loi face au marché locatif.", "line4": "",
           "sources": "Congrès des députés ; Gouvernement d'Espagne",
@@ -847,7 +847,7 @@ def _render(tmp_path, deck: dict = DECK) -> dict[str, str]:
 def test_seven_slides_are_rendered(tmp_path):
     texts = _render(tmp_path)
     assert list(texts) == _SLIDES
-    assert "Une crise devenue enjeu d'élection" in texts["02_position"] and "Ce que dit l'article" in texts["02_position"]
+    assert "Le logement, enjeu d'élection" in texts["02_position"] and "Ce que dit l'article" in texts["02_position"]
     for stem, prism in zip(("03_prisme", "04_prisme", "05_prisme"), DECK["prisms"]):
         assert PRISMS[prism["prism"]].name in texts[stem] and prism["question"] in texts[stem]
         assert PRISMS[prism["prism"]].icon_svg in texts[stem]
@@ -911,13 +911,21 @@ _POOL = ("le la les de des du un une et à au en par sur pour dans avec plus que
 
 
 def _chars(rng: random.Random, n: int) -> str:
-    """Random French-looking text of at most `n` characters, long words included."""
+    """Random French-looking text of EXACTLY `n` characters, long words included: words while they fit,
+    then a long word cut to the room left (or the last word stretched by a letter), so no field undershoots its cap."""
     out = ""
     while True:
         w = rng.choice(_POOL)
         if len((out + " " + w).strip()) > n:
-            return out
+            break
         out = (out + " " + w).strip()
+    room = n - len(out) - (1 if out else 0)
+    if room >= 1:
+        out = (out + " " + rng.choice([w for w in _POOL if len(w) >= max(room, 10)])[:room]).strip()
+    elif len(out) < n:
+        out += "s"
+    assert len(out) == n, (out, n)
+    return out
 
 
 def _ask(rng: random.Random, n: int) -> str:
@@ -956,8 +964,27 @@ def worst_case_deck(seed: int = 0) -> dict:
     return agent.assemble(_fragments(worst_case_fields(seed)))
 
 
+def test_the_worst_case_fields_sit_exactly_at_their_caps():
+    """The generator must not undershoot: every capped field, part and source name is at its cap exactly."""
+    for seed in range(12):
+        fields = worst_case_fields(seed)
+        steps = [(st, f) for st in ("axe", "position", "matrice", "hook") for f in [fields[st]]]
+        steps += [("prismes", f) for f in fields["prismes"].values()]
+        for st, f in steps:
+            for (cst, name), (_, cap) in agent._CAPS.items():
+                if cst == st and (name != "media_note" or f.get(name)):
+                    assert len(f[name]) == cap, (seed, st, name, len(f[name]), cap)
+            for (cst, name), caps in agent._PART_CAPS.items():
+                if cst == st:
+                    assert [len(x) for x in agent._parts(f[name], len(caps))] == [c for _, c in caps], (seed, st, name)
+            if st == "prismes":
+                names = [x.strip() for x in f["sources"].split(";")]
+                assert len(names) == agent._SOURCES_MAX and all(len(x) == agent._SOURCE_MAX for x in names)
+        assert sum(bool(f["media_note"]) for f in fields["prismes"].values()) == 1
+
+
 def test_the_worst_case_deck_breaks_no_hard_rule():
-    for seed in range(4):
+    for seed in range(12):
         fields = worst_case_fields(seed)
         frags = _fragments(fields)
         for name in ("axe", "position", "matrice", "hook"):
@@ -977,7 +1004,7 @@ _LINES = """() => { const box = (s) => ['paddingTop', 'paddingBottom', 'borderTo
           page: document.documentElement.scrollWidth}; }"""
 
 
-@pytest.mark.parametrize("seed", range(4))
+@pytest.mark.parametrize("seed", range(12))
 def test_every_field_at_its_cap_fits_on_the_slide(tmp_path, seed):
     doc = extract(full(), TroisRegardsPresentation.model_validate(worst_case_deck(seed)))
     renderer.generate_html(doc, tmp_path)

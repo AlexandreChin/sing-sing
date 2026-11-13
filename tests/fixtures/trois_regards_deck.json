@@ -15,12 +15,12 @@
   },
   "position": {
     "kicker": "Ce que dit l'article",
-    "title": "Une crise devenue enjeu d'élection",
+    "title": "Le logement, enjeu d'élection",
     "lead": "L'article répond à une question plus étroite : comment la crise a-t-elle mené aux urnes ?",
     "cards": [
-      {"label": "Ce qu'il raconte", "text": "Une octogénaire expulsée, des manifestations dans tout le pays, puis des élections anticipées."},
-      {"label": "Ses causes", "text": "Un manque de logements sociaux, des loyers sans plafond et un parc immobilier insuffisant."},
-      {"label": "Ce que répondent les acteurs", "text": "Le gouvernement propose plafonds et gel des évictions ; la droite craint une offre réduite."},
+      {"label": "Ce qu'il raconte", "text": "Une octogénaire expulsée, des manifestations, puis des élections anticipées."},
+      {"label": "Ses causes", "text": "Peu de logements sociaux, des loyers sans plafond, un parc insuffisant."},
+      {"label": "Ce que répondent les acteurs", "text": "Le gouvernement veut plafonner les loyers ; la droite craint moins d'offre."},
       {"label": "Où il mène", "text": "Un scrutin anticipé où le logement devient l'enjeu central de la campagne."}
     ]
   },
