@@ -17,7 +17,7 @@ Exemple (même article) :
 - `kicker` : « Ce que dit l'article »
 - `title` : « Une crise devenue enjeu **d'élection** »
 - `lead` : « Radio-Canada raconte comment la crise a mené aux urnes. »
-- `card1` : « Ce qu'il raconte | L'expulsion d'une femme de **87 ans**, des manifestations dans le pays, puis des élections anticipées. »
+- `card1` : « Ce qu'il raconte | L'expulsion d'une femme de **87 ans**, des manifestations, puis des élections anticipées. »
 - `card2` : « Ses causes | Un **manque de logements sociaux**, des loyers sans contrôle et un déficit de logements. »
 - `card3` : « Ce que répondent les acteurs | Le gouvernement propose des **mesures d'urgence** ; le Congrès les rejette. »
 - `card4` : « Où il mène | Un scrutin le **29 novembre**, où le logement devient l'enjeu central de la campagne. »

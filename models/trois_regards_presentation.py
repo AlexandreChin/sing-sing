@@ -29,7 +29,7 @@ class RegardsHook(BaseModel):
 
 class RegardsCard(BaseModel):
     label: str   # ≤30 characters
-    text: str    # ≤108 characters
+    text: str    # ≤96 characters
 
 
 class RegardsPosition(BaseModel):  # slide 2 — the article's frame

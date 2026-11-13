@@ -244,8 +244,8 @@ def assemble(fragments: dict[str, dict]) -> dict:
 _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("axe", "question"): ("chars", 60), ("axe", "subject"): ("chars", 36),
     ("axe", "closing"): ("chars", 110), ("axe", "media_grounding"): ("chars", 120),
-    ("position", "kicker"): ("chars", 30), ("position", "title"): ("chars", 46), ("position", "lead"): ("chars", 90),
-    ("prismes", "question"): ("chars", 64),
+    ("position", "kicker"): ("chars", 30), ("position", "title"): ("chars", 36), ("position", "lead"): ("chars", 90),
+    ("prismes", "question"): ("chars", 60),
     **{("prismes", f"line{i}"): ("chars", 80) for i in (1, 2, 3, 4)},
     ("prismes", "media_note"): ("chars", 90),
     ("matrice", "title"): ("chars", 34),
@@ -253,7 +253,7 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
 }
 # (step, field) -> the parts of a « a | b » field, each with its cap in characters
 _PART_CAPS: dict[tuple[str, str], tuple[tuple[str, int], ...]] = {
-    **{("position", f"card{i}"): (("label", 30), ("text", 108)) for i in (1, 2, 3, 4)},
+    **{("position", f"card{i}"): (("label", 30), ("text", 96)) for i in (1, 2, 3, 4)},
     **{("matrice", f"col{i}"): (("variable", 60), ("indicator", 40)) for i in (1, 2, 3)},
 }
 _SOURCE_MAX = 30       # characters in one source name

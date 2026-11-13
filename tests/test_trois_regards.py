@@ -41,10 +41,10 @@ def test_the_fixture_respects_the_caps_and_the_spec():
     n = lambda s: len(s.replace("**", ""))
     assert n(p.axe.question) <= 60 and n(p.axe.subject) <= 36
     assert n(p.axe.closing) <= 110 and p.axe.closing.endswith("?") and n(p.axe.media_grounding) <= 120
-    assert n(p.position.kicker) <= 30 and n(p.position.title) <= 46 and n(p.position.lead) <= 90
-    assert all(n(c.text) <= 108 and n(c.label) <= 30 for c in p.position.cards)
+    assert n(p.position.kicker) <= 30 and n(p.position.title) <= 36 and n(p.position.lead) <= 90
+    assert all(n(c.text) <= 96 and n(c.label) <= 30 for c in p.position.cards)
     for s in p.prisms:
-        assert n(s.question) <= 64 and n(s.media_note) <= 90 and len(s.sources) <= 3
+        assert n(s.question) <= 60 and n(s.media_note) <= 90 and len(s.sources) <= 3
         assert all(n(x) <= 80 and all(re.fullmatch(r"(1[5-9]|20)\d\d", d) for d in re.findall(r"\d+", x)) for x in s.lines)
         assert all(n(x) <= 30 and not re.search(r"\d", x) for x in s.sources)
     assert n(p.matrix.title) <= 34
@@ -225,9 +225,9 @@ def test_a_field_over_its_cap_is_a_hard_error():
     assert any("axe.subject" in e for e in _hard("axe", _with("axe", subject="x" * 37)))
     assert any("axe.closing" in e for e in _hard("axe", _with("axe", closing="x" * 110 + " ?")))
     assert any("axe.media_grounding" in e for e in _hard("axe", _with("axe", media_grounding="x" * 121)))
-    for name, cap in (("kicker", 30), ("title", 46), ("lead", 90)):
+    for name, cap in (("kicker", 30), ("title", 36), ("lead", 90)):
         assert any(f"position.{name}" in e for e in _hard("position", _with("position", **{name: "x" * (cap + 1)})))
-    assert any("prismes.question" in e for e in _hard("prismes", _with("prismes", "p2", question="x" * 65), slot="p2"))
+    assert any("prismes.question" in e for e in _hard("prismes", _with("prismes", "p2", question="x" * 61), slot="p2"))
     assert any("prismes.line3" in e for e in _hard("prismes", _with("prismes", "p2", line3="x" * 81), slot="p2"))
     assert any("prismes.media_note" in e for e in _hard("prismes", _with("prismes", "p1", media_note="x" * 91), slot="p1"))
     assert any("matrice.title" in e for e in _hard("matrice", _with("matrice", title="x" * 34 + " ?")))
@@ -236,7 +236,7 @@ def test_a_field_over_its_cap_is_a_hard_error():
 
 
 @pytest.mark.parametrize("step,name,part,cap", [
-    ("position", "card2", "label", 30), ("position", "card2", "text", 108),
+    ("position", "card2", "label", 30), ("position", "card2", "text", 96),
     ("matrice", "col2", "variable", 60), ("matrice", "col2", "indicator", 40)])
 def test_a_part_over_its_cap_is_a_hard_error(step, name, part, cap):
     cell = {"label": "ab | cd", "text": "ab | cd", "variable": "ab | cd", "indicator": "ab | cd"}
@@ -818,3 +818,188 @@ def test_the_worked_examples_of_the_prompts_break_no_hard_rule():
           "media_note": "Le récit suit les mesures du gouvernement, leur rejet par le Congrès, puis l'élection."}
     assert agent.field_errors("prismes", p2, frags, None, slot="p2")[0] == []
     assert agent.field_errors("prismes", p1, frags, None, slot="p1")[0] == []
+
+
+# ── the render ──────────────────────────────────────────────────────────────
+
+import html  # noqa: E402
+import random  # noqa: E402
+
+from playwright.sync_api import sync_playwright  # noqa: E402
+
+from agent.trois_regards_prisms import PRISM_IDS, PRISMS  # noqa: E402
+from renderer.instagram_carousel import trois_regards as renderer  # noqa: E402
+
+_SLIDES = ["01_hook", "02_position", "03_prisme", "04_prisme", "05_prisme", "06_matrice", "07_cta"]
+
+
+def _texts(paths) -> dict[str, str]:
+    clean = lambda s: html.unescape(s).replace(" ", " ").replace(" ", " ").replace("⁠", "")   # noqa: E731
+    # the body only: the shared stylesheets name `data-perch` too
+    return {p.stem: clean(p.read_text(encoding="utf-8")).split("<body>", 1)[1] for p in paths}
+
+
+def _render(tmp_path, deck: dict = DECK) -> dict[str, str]:
+    doc = extract(full(), TroisRegardsPresentation.model_validate(deck))
+    return _texts(renderer.generate_html(doc, tmp_path / "html"))
+
+
+def test_seven_slides_are_rendered(tmp_path):
+    texts = _render(tmp_path)
+    assert list(texts) == _SLIDES
+    assert "Une crise devenue enjeu d'élection" in texts["02_position"] and "Ce que dit l'article" in texts["02_position"]
+    for stem, prism in zip(("03_prisme", "04_prisme", "05_prisme"), DECK["prisms"]):
+        assert PRISMS[prism["prism"]].name in texts[stem] and prism["question"] in texts[stem]
+        assert PRISMS[prism["prism"]].icon_svg in texts[stem]
+        assert all(line in texts[stem] for line in prism["lines"]), stem
+        assert " · ".join(prism["sources"]) in texts[stem]
+    assert "Que mesurer pour trancher ?" in texts["06_matrice"] and DECK["axe"]["question"] in texts["06_matrice"]
+
+
+def test_the_position_kicker_defaults_and_the_cards_take_fixed_icons(tmp_path):
+    from renderer.instagram_carousel._shared import ICONS
+    deck = copy.deepcopy(DECK)
+    deck["position"]["kicker"] = ""
+    text = _render(tmp_path, deck)["02_position"]
+    assert "Ce que dit l'article" in text
+    positions = [text.index(ICONS[name]) for name in ("book", "link", "eye", "widen")]
+    assert positions == sorted(positions)
+
+
+def test_the_media_prism_slide_carries_the_badge_and_the_others_do_not(tmp_path):
+    texts = _render(tmp_path)
+    assert "Le regard du média" in texts["03_prisme"] and DECK["prisms"][0]["media_note"] in texts["03_prisme"]
+    assert "Le regard du média" not in texts["04_prisme"] and "Le regard du média" not in texts["05_prisme"]
+
+
+def test_the_bird_perches_on_each_prism_title(tmp_path):
+    texts = _render(tmp_path)
+    for stem in ("03_prisme", "04_prisme", "05_prisme"):
+        assert texts[stem].count("data-perch") == 1
+        assert re.search(r'<h1 class="head[^"]*"[^>]*data-perch', texts[stem]), stem
+
+
+def test_the_matrix_marks_the_media_column(tmp_path):
+    text = _render(tmp_path)["06_matrice"]
+    cols = text.split('<div class="col')[1:]
+    assert len(cols) == 3
+    marked = [c for c in cols if "Le regard du média" in c]
+    assert len(marked) == 1 and "Politique" in marked[0] and "data-perch" in marked[0]
+    assert text.count("data-perch") == 1
+    for col, c in zip(cols, DECK["matrix"]["columns"]):
+        assert PRISMS[c["prism"]].name in col and c["variable"] in col and c["indicator"] in col
+        assert "Commence par" in col and "À suivre" in col
+
+
+def test_the_cta_line_is_the_closing_question_lowercased(tmp_path):
+    text = _render(tmp_path)["07_cta"]
+    assert "— politique, économique ou sociologique : quel regard explique le mieux la crise du logement ?" in text
+
+
+def test_the_hook_promise_and_title_are_drawn(tmp_path):
+    text = _render(tmp_path)["01_hook"]
+    assert DECK["hook"]["title"] in text and DECK["hook"]["promise"] in text
+
+
+# ── the layout: every field at its cap still fits its lines and the slide ───
+
+_POOL = ("le la les de des du un une et à au en par sur pour dans avec plus que qui "
+         "logement logements gouvernement Parlement locataires propriétaires intergénérationnelle "
+         "constitutionnelle décentralisation institutionnelles municipalités investissements "
+         "démographiques recensement observatoire statistiques européennes ménages métropoles "
+         "spéculation rénovation copropriétés expulsions coalitions majoritaire").split()
+
+
+def _chars(rng: random.Random, n: int) -> str:
+    """Random French-looking text of at most `n` characters, long words included."""
+    out = ""
+    while True:
+        w = rng.choice(_POOL)
+        if len((out + " " + w).strip()) > n:
+            return out
+        out = (out + " " + w).strip()
+
+
+def _ask(rng: random.Random, n: int) -> str:
+    return _chars(rng, n - 2) + " ?"
+
+
+def worst_case_fields(seed: int = 0) -> dict:
+    """Every step's fields at their caps (four lines and three sources per prism); a « a | b » field
+    takes each part at its cap. The three prisms and the media's one are drawn from the catalogue."""
+    rng = random.Random(seed)
+    cap = lambda step, name: agent._CAPS[(step, name)][1]   # noqa: E731
+    text = lambda step, name: _chars(rng, cap(step, name))   # noqa: E731
+    parts = lambda step, name: " | ".join(_chars(rng, c) for _, c in agent._PART_CAPS[(step, name)])   # noqa: E731
+    prisms = rng.sample(PRISM_IDS, 3)
+    media = rng.choice(prisms)
+    axe = {"question": _ask(rng, cap("axe", "question")), "article_question": _ask(rng, 80),
+           "subject": text("axe", "subject"), **{f"prism{i}": p for i, p in enumerate(prisms, 1)},
+           "media": media, "media_grounding": text("axe", "media_grounding"), "closing": _ask(rng, cap("axe", "closing"))}
+    position = {"kicker": text("position", "kicker"), "title": text("position", "title"), "lead": text("position", "lead"),
+                **{f"card{i}": parts("position", f"card{i}") for i in (1, 2, 3, 4)}}
+    source = lambda: _chars(rng, agent._SOURCE_MAX)   # noqa: E731
+    prismes = {f"p{i}": {"question": _ask(rng, cap("prismes", "question")),
+                         **{f"line{k}": text("prismes", f"line{k}") for k in (1, 2, 3, 4)},
+                         "sources": " ; ".join(source() for _ in range(agent._SOURCES_MAX)),
+                         "media_note": text("prismes", "media_note") if p == media else ""}
+               for i, p in enumerate(prisms, 1)}
+    matrice = {"title": _ask(rng, cap("matrice", "title")), **{f"col{i}": parts("matrice", f"col{i}") for i in (1, 2, 3)}}
+    fixed = "Trois regards sur  ; à vous d'en juger."
+    hook = {"title": _ask(rng, cap("hook", "title")),
+            "promise": f"Trois regards sur {_chars(rng, cap('hook', 'promise') - len(fixed))} ; à vous d'en juger."}
+    return {"axe": axe, "position": position, "prismes": prismes, "matrice": matrice, "hook": hook,
+            "writing": FIELDS["writing"]}
+
+
+def worst_case_deck(seed: int = 0) -> dict:
+    return agent.assemble(_fragments(worst_case_fields(seed)))
+
+
+def test_the_worst_case_deck_breaks_no_hard_rule():
+    for seed in range(4):
+        fields = worst_case_fields(seed)
+        frags = _fragments(fields)
+        for name in ("axe", "position", "matrice", "hook"):
+            assert agent.field_errors(name, fields[name], {} if name == "axe" else frags, None)[0] == [], (seed, name)
+        for slot, f in fields["prismes"].items():
+            assert agent.field_errors("prismes", f, frags, None, slot)[0] == [], (seed, slot)
+
+
+_LINES = """() => { const box = (s) => ['paddingTop', 'paddingBottom', 'borderTopWidth', 'borderBottomWidth']
+    .reduce((a, k) => a + parseFloat(s[k]), 0);
+  const n = (sel) => [...document.querySelectorAll(sel)].map(e => { const s = getComputedStyle(e);
+    return Math.round((e.getBoundingClientRect().height - box(s)) / parseFloat(s.lineHeight)); });
+  const bottom = Math.max(0, ...[...document.querySelectorAll('.stage *')].map(e => e.getBoundingClientRect().bottom));
+  const cut = [...document.querySelectorAll('.col, .col *')]
+    .filter(e => e.scrollWidth > e.clientWidth + 1 || e.scrollHeight > e.clientHeight + 1).map(e => e.className);
+  return {head: n('.head'), lines: n('.ln-t'), badge: n('.badge'), title: n('.mh'), bottom, cut,
+          page: document.documentElement.scrollWidth}; }"""
+
+
+@pytest.mark.parametrize("seed", range(4))
+def test_every_field_at_its_cap_fits_on_the_slide(tmp_path, seed):
+    doc = extract(full(), TroisRegardsPresentation.model_validate(worst_case_deck(seed)))
+    renderer.generate_html(doc, tmp_path)
+    measured = {}
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page(viewport={"width": 1080, "height": 1350})
+        for f in sorted(tmp_path.glob("*.html")):
+            page.set_content(f.read_text(encoding="utf-8"), wait_until="load")
+            page.evaluate("document.fonts.ready")          # the web fonts change the line breaks
+            measured[f.stem] = page.evaluate(_LINES)
+        browser.close()
+    assert list(measured) == _SLIDES
+    for slide, m in measured.items():
+        assert m["page"] <= 1080, (slide, "horizontal overflow", m["page"])
+        assert m["bottom"] <= 1255, (slide, m["bottom"])
+    assert all(n <= 2 for n in measured["02_position"]["title"]), ("position title", measured["02_position"]["title"])
+    for slide in ("03_prisme", "04_prisme", "05_prisme"):
+        m = measured[slide]
+        assert len(m["head"]) == 1 and m["head"][0] <= 2, (slide, "the question takes more than two lines", m["head"])
+        assert len(m["lines"]) == 4 and all(n <= 2 for n in m["lines"]), (slide, "a line takes more than two lines", m["lines"])
+        assert all(n == 1 for n in m["badge"]), (slide, "the badge wraps", m["badge"])
+    assert sum(len(measured[s]["badge"]) for s in ("03_prisme", "04_prisme", "05_prisme")) == 1
+    assert measured["06_matrice"]["cut"] == [], ("a matrix cell is clipped", measured["06_matrice"]["cut"])
+    assert len(measured["06_matrice"]["head"]) == 1 and measured["06_matrice"]["head"][0] <= 2
