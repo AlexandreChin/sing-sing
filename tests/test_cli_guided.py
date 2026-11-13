@@ -235,24 +235,64 @@ def test_fix_a_prism_field_by_slot(tmp_path, capsys):
     mp.setattr(tra, "_call_with_retry", FakeCalls())
     try:
         fmt = _trois_adapted(tmp_path, None)
-        new = "Les loyers montent plus vite que les salaires."
-        asyncio.run(main.cmd_fix(build_parser().parse_args(["fix", str(fmt), "prismes.p2.line1", new])))
-        assert "Fixed prismes.p2.line1 in prismes; the later steps keep your version." in capsys.readouterr().err
+        new = "Les loyers devancent les salaires"
+        asyncio.run(main.cmd_fix(build_parser().parse_args(["fix", str(fmt), "prismes.p2.head1", new])))
+        assert "Fixed prismes.p2.head1 in prismes; the later steps keep your version." in capsys.readouterr().err
         asyncio.run(main.cmd_fix(build_parser().parse_args(["fix", str(fmt), "axe.prism2", "juridique"])))
         err = capsys.readouterr().err
         assert "Fixed axe.prism2 in axe" in err and "keep your version" not in err
         assert "stale" in err.splitlines()[-1] and "produce" in err.splitlines()[-1]
         sf = tra._load(fmt / "adapt_steps", tra.STEP_BY_NAME["prismes"])[0]
-        assert sf.fragment["prisms"][1]["lines"][0] == new
+        assert sf.fragment["prisms"][1]["cards"][0]["head"] == new
     finally:
         mp.undo()
 
 
-def test_stop_after_accepts_prismes_and_matrice():
-    for step in ("prismes", "matrice"):
+def test_stop_after_accepts_prismes_tensions_and_arbitrage():
+    for step in ("prismes", "tensions", "arbitrage"):
         args = build_parser().parse_args(["adapt", "a.json", "--format", "trois_regards", "--stop-after", step, "--guided"])
         assert args.stop_after == step
         assert build_parser().parse_args(["choose", "d", step, "--pick", "x"]).step == step
+
+
+def test_matrice_is_no_longer_a_step_choice(capsys):
+    for argv in (["adapt", "a.json", "--format", "trois_regards", "--stop-after", "matrice"], ["choose", "d", "matrice", "--pick", "x"]):
+        with pytest.raises(SystemExit) as e:
+            build_parser().parse_args(argv)
+        assert e.value.code == 2 and "matrice" in capsys.readouterr().err
+    assert "matrice" not in main._STEP_CHOICES
+
+
+def _trois_fix(tmp_path, capsys, field, text):
+    from tests.test_trois_regards import FakeCalls
+    import agent.trois_regards_adapt_agent as tra
+    mp = pytest.MonkeyPatch()
+    mp.setattr(tra, "_call_with_retry", FakeCalls())
+    try:
+        fmt = _trois_adapted(tmp_path, None)
+        capsys.readouterr()
+        asyncio.run(main.cmd_fix(build_parser().parse_args(["fix", str(fmt), field, text])))
+        return fmt, capsys.readouterr().err
+    finally:
+        mp.undo()
+
+
+def test_fix_a_tensions_field(tmp_path, capsys):
+    import agent.trois_regards_adapt_agent as tra
+    fmt, err = _trois_fix(tmp_path, capsys, "tensions.claim2", "La rue pèse-t-elle sur la crise du logement ?")
+    assert "Fixed tensions.claim2 in tensions; the later steps keep your version." in err and "⚠" not in err
+    sf = tra._load(fmt / "adapt_steps", tra.STEP_BY_NAME["tensions"])[0]
+    assert sf.fragment["tensions"]["cards"][1]["claim"] == "La rue pèse-t-elle sur la crise du logement ?"
+
+
+def test_fix_an_arbitrage_field(tmp_path, capsys):
+    import agent.trois_regards_adapt_agent as tra
+    fmt, err = _trois_fix(tmp_path, capsys, "arbitrage.test2", "Le taux d'effort est plus haut")
+    assert "Fixed arbitrage.test2 in arbitrage" in err
+    sf = tra._load(fmt / "adapt_steps", tra.STEP_BY_NAME["arbitrage"])[0]
+    assert sf.fragment["arbitrage"]["cards"][1]["test"] == "Le taux d'effort est plus haut"
+    _, err = _trois_fix(tmp_path / "again", capsys, "arbitrage.test2", "Le taux d'effort serait-il plus haut ?")
+    assert "⚠ arbitrage.test2" in err and "not a question" in err
 
 
 def test_choose_pick_runs_the_prismes_pick_and_the_web_check(tmp_path, capsys):

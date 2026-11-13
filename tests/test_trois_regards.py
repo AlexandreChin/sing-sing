@@ -1,6 +1,7 @@
 """The TROIS REGARDS carousel: model, extractor, registry. The deck in
-tests/fixtures/trois_regards_deck.json is written from
-samples/articles/espagne-comment-la-crise-du-logement-a-t."""
+tests/fixtures/trois_regards_deck.json (four-card prism slides, the tensions, the arbitrage) is written from
+samples/articles/espagne-comment-la-crise-du-logement-a-t; tests/fixtures/trois_regards_deck_v1.json is the older
+deck shape (prism lines and sources, the matrix), kept to prove an older deck still loads and renders."""
 import importlib
 import json
 import re
@@ -12,6 +13,7 @@ from models.trois_regards_presentation import TroisRegardsPresentation
 from tests._carousel_steps_fixtures import full
 
 DECK = json.loads(Path("tests/fixtures/trois_regards_deck.json").read_text(encoding="utf-8"))
+DECK_V1 = json.loads(Path("tests/fixtures/trois_regards_deck_v1.json").read_text(encoding="utf-8"))
 
 
 def test_the_deck_validates():
@@ -36,8 +38,8 @@ def test_the_format_is_registered():
     assert importlib.import_module(names[1]).extract is extract
 
 
-def test_the_fixture_respects_the_caps_and_the_spec():
-    p = TroisRegardsPresentation.model_validate(DECK)
+def test_the_v1_fixture_respects_the_older_caps_and_the_spec():
+    p = TroisRegardsPresentation.model_validate(DECK_V1)
     n = lambda s: len(s.replace("**", ""))
     assert n(p.axe.question) <= 60 and n(p.axe.subject) <= 36
     assert n(p.axe.closing) <= 110 and p.axe.closing.endswith("?") and n(p.axe.media_grounding) <= 120
@@ -49,15 +51,15 @@ def test_the_fixture_respects_the_caps_and_the_spec():
         assert all(n(x) <= 30 and not re.search(r"\d", x) for x in s.sources)
     assert n(p.matrix.title) <= 34
     assert all(n(c.variable) <= 60 and n(c.indicator) <= 40 for c in p.matrix.columns)
-    assert not re.search(r"\d", json.dumps(DECK["matrix"], ensure_ascii=False))
+    assert not re.search(r"\d", json.dumps(DECK_V1["matrix"], ensure_ascii=False))
     assert n(p.hook.title) <= 70 and n(p.hook.promise) <= 100
-    assert "http" not in json.dumps(DECK, ensure_ascii=False) and p.caption.count("#") == 4
+    assert "http" not in json.dumps(DECK_V1, ensure_ascii=False) and p.caption.count("#") == 4
     assert p.matrix.title.endswith("?") and p.hook.title.endswith("?")
     assert p.hook.promise == "Trois regards sur la crise du logement ; à vous d'en juger."
     words = {"politique": "politique", "economique": "économi", "sociologique": "sociolog"}
     assert all(words[k] in p.axe.closing.lower() for k in p.axe.prisms)
     assert [s.prism for s in p.prisms if s.media_note] == [p.axe.media]
-    outside = re.sub(r"«[^»]*»", "", json.dumps(DECK, ensure_ascii=False).lower())
+    outside = re.sub(r"«[^»]*»", "", json.dumps(DECK_V1, ensure_ascii=False).lower())
     for w in ("biais", "manipulation", "mensonge", "trompeur", "oublie", "ignore", "omet", "néglige", "ne dit pas"):
         assert w not in outside, w
 
@@ -103,14 +105,18 @@ from agent.carousel_steps.steps import Option  # noqa: E402
 
 
 def option_fields(deck: dict) -> dict[str, dict]:
-    """The flat option fields of every step, cut from a deck."""
+    """The flat option fields of every step, cut from a deck (a clue is « source | find », a pair « 1,2 »)."""
     pad = lambda items, n: list(items) + [""] * (n - len(items))  # noqa: E731
-    ax, po, pr, mx = deck["axe"], deck["position"], deck["prisms"], deck["matrix"]
+    clue = lambda c: f"{c['source']} | {c['find']}"  # noqa: E731
+    ax, po, t, a = deck["axe"], deck["position"], deck["tensions"], deck["arbitrage"]
     prisms = {}
-    for i, s in enumerate(pr, 1):
-        prisms[f"p{i}"] = {"question": s["question"],
-                           **dict(zip(("line1", "line2", "line3", "line4"), pad(s["lines"], 4))),
-                           "sources": " ; ".join(s["sources"]), "media_note": s.get("media_note", "")}
+    for i, s in enumerate(deck["prisms"], 1):
+        cards = s["cards"]
+        prisms[f"p{i}"] = {"title": s["title"],
+                           **{f"head{k}": c["head"] for k, c in enumerate(cards, 1)},
+                           **{f"claim{k}": c["claim"] for k, c in enumerate(cards, 1)},
+                           **{f"indice{k}": clue(c) for k, c in enumerate(cards, 1)},
+                           "media_note": s.get("media_note", "")}
     return {
         "axe": {"question": ax["question"], "article_question": ax["article_question"], "subject": ax["subject"],
                 **{f"prism{i}": p for i, p in enumerate(ax["prisms"], 1)},
@@ -119,8 +125,15 @@ def option_fields(deck: dict) -> dict[str, dict]:
                      **dict(zip(("card1", "card2", "card3", "card4"),
                                 pad([f"{c['label']} | {c['text']}" for c in po["cards"]], 4)))},
         "prismes": prisms,
-        "matrice": {"title": mx["title"],
-                    **{f"col{i}": f"{c['variable']} | {c['indicator']}" for i, c in enumerate(mx["columns"], 1)}},
+        "tensions": {"title": t["title"],
+                     **{f"pair{k}": ",".join(map(str, c["pair"])) for k, c in enumerate(t["cards"], 1)},
+                     **{f"head{k}": c["head"] for k, c in enumerate(t["cards"], 1)},
+                     **{f"claim{k}": c["claim"] for k, c in enumerate(t["cards"], 1)},
+                     **{f"indice{k}": clue(c) for k, c in enumerate(t["cards"], 1)}},
+        "arbitrage": {"title": a["title"],
+                      **{f"head{k}": c["head"] for k, c in enumerate(a["cards"], 1)},
+                      **{f"test{k}": c["test"] for k, c in enumerate(a["cards"], 1)},
+                      **{f"indice{k}": clue(c) for k, c in enumerate(a["cards"], 1)}},
         "hook": {"title": deck["hook"]["title"], "promise": deck["hook"]["promise"]},
         "writing": {"caption": deck["caption"]},
     }
@@ -145,9 +158,20 @@ def _fragments(fields: dict = FIELDS) -> dict[str, dict]:
 
 
 def test_the_steps_come_in_order():
-    assert agent.STEP_NAMES == ["axe", "position", "prismes", "matrice", "hook"]
+    assert agent.STEP_NAMES == ["axe", "position", "prismes", "tensions", "arbitrage", "hook"]
     assert agent.STEPS[-1].name == "writing" and agent.STEPS[-1].option_model is None
-    assert [s.n for s in agent.STEPS] == [1, 2, 3, 4, 5, 6]
+    assert [s.n for s in agent.STEPS] == [1, 2, 3, 4, 5, 6, 7]
+    assert "matrice" not in agent.STEP_BY_NAME and not hasattr(agent, "MatriceOption")
+
+
+def test_the_option_models_have_the_flat_card_fields():
+    four, three = (1, 2, 3, 4), (1, 2, 3)
+    assert list(agent.PrismesOption.model_fields) == ["title", *(f"head{k}" for k in four), *(f"claim{k}" for k in four),
+                                                       *(f"indice{k}" for k in four), "media_note"]
+    assert list(agent.TensionsOption.model_fields) == ["title", *(f"pair{k}" for k in three), *(f"head{k}" for k in three),
+                                                        *(f"claim{k}" for k in three), *(f"indice{k}" for k in three)]
+    assert list(agent.ArbitrageOption.model_fields) == ["title", *(f"head{k}" for k in three), *(f"test{k}" for k in three),
+                                                         *(f"indice{k}" for k in three)]
 
 
 def test_only_prismes_has_three_slots():
@@ -155,23 +179,34 @@ def test_only_prismes_has_three_slots():
     assert agent.STEP_BY_NAME["prismes"].offered == (2, 3)
 
 
-def test_the_fragments_rebuild_the_deck():
+def test_the_fragments_rebuild_the_v2_deck():
     deck = agent.assemble(_fragments())
     assert TroisRegardsPresentation.model_validate(deck).model_dump() == \
         TroisRegardsPresentation.model_validate(DECK).model_dump()
     assert deck == DECK
+    assert "matrix" not in deck and deck["tensions"]["cards"][2]["pair"] == [2, 3]
 
 
-def test_an_empty_line4_and_an_empty_media_note_are_left_out():
-    fields = copy.deepcopy(FIELDS)
-    fields["prismes"]["p2"]["line4"] = ""
-    frag = agent.to_fragment(agent.STEP_BY_NAME["prismes"], [_opt(fields["prismes"][s], s) for s in ("p1", "p2", "p3")],
+def test_an_empty_media_note_is_left_out():
+    frag = agent.to_fragment(agent.STEP_BY_NAME["prismes"], [_opt(FIELDS["prismes"][s], s) for s in ("p1", "p2", "p3")],
                              {"axe": _fragments()["axe"]})
-    assert all(len(s["lines"]) == 3 for s in frag["prisms"])
+    assert all(len(s["cards"]) == 4 for s in frag["prisms"])
     assert "media_note" in frag["prisms"][0] and "media_note" not in frag["prisms"][1]
+    fields = copy.deepcopy(FIELDS)
     fields["position"]["card4"] = ""
     pos = agent.to_fragment(agent.STEP_BY_NAME["position"], [_opt(fields["position"])], {})
     assert len(pos["position"]["cards"]) == 3
+
+
+def test_a_clue_is_cut_into_source_and_find_and_a_pair_into_two_numbers():
+    frags = _fragments()
+    card = frags["prismes"]["prisms"][1]["cards"][0]
+    assert card == {"head": DECK["prisms"][1]["cards"][0]["head"], "claim": DECK["prisms"][1]["cards"][0]["claim"],
+                    "source": "Banque d'Espagne", "find": "ses estimations du déficit de logements"}
+    t = agent.to_fragment(agent.STEP_BY_NAME["tensions"], [_opt({**FIELDS["tensions"], "pair1": " 2 , 1 "})], frags)
+    assert t["tensions"]["cards"][0]["pair"] == [1, 2]                 # a pair is the same pair either way round
+    a = frags["arbitrage"]["arbitrage"]["cards"][1]
+    assert set(a) == {"head", "test", "source", "find"} and a["source"] == "INE"
 
 
 def test_a_prism_fragment_takes_its_prism_id_from_the_axe_order():
@@ -180,8 +215,6 @@ def test_a_prism_fragment_takes_its_prism_id_from_the_axe_order():
     prismes = agent.to_fragment(agent.STEP_BY_NAME["prismes"],
                                 [_opt(FIELDS["prismes"][s], s) for s in ("p1", "p2", "p3")], frags)
     assert [s["prism"] for s in prismes["prisms"]] == ["juridique", "historique", "politique"]
-    matrice = agent.to_fragment(agent.STEP_BY_NAME["matrice"], [_opt(FIELDS["matrice"])], frags)
-    assert [c["prism"] for c in matrice["matrix"]["columns"]] == ["juridique", "historique", "politique"]
 
 
 # ---- hard rules, flags and caps -------------------------------------------------------------------------------
@@ -212,11 +245,18 @@ def _flags(step, fields, **kw):
     return _fe(step, fields, **kw)[1]
 
 
-def test_the_sample_deck_breaks_no_hard_rule():
-    for step in ("axe", "position", "matrice", "hook", "writing"):
+def _p2(**kw):
+    """The hard errors of the second (non-media) prism slide with `kw` rewritten."""
+    return _hard("prismes", _with("prismes", "p2", **kw), slot="p2")
+
+
+def test_the_sample_deck_breaks_no_hard_rule_and_its_cards_raise_no_flag():
+    for step in ("axe", "position", "tensions", "arbitrage", "hook", "writing"):
         assert _hard(step, FIELDS[step]) == [], step
+    for step in ("tensions", "arbitrage"):
+        assert _flags(step, FIELDS[step]) == [], step
     for slot in ("p1", "p2", "p3"):
-        assert _hard("prismes", FIELDS["prismes"][slot], slot=slot) == [], slot
+        assert _fe("prismes", FIELDS["prismes"][slot], slot=slot) == ([], []), slot
 
 
 def test_a_field_over_its_cap_is_a_hard_error():
@@ -227,32 +267,47 @@ def test_a_field_over_its_cap_is_a_hard_error():
     assert any("axe.media_grounding" in e for e in _hard("axe", _with("axe", media_grounding="x" * 121)))
     for name, cap in (("kicker", 26), ("title", 32), ("lead", 90)):
         assert any(f"position.{name}" in e for e in _hard("position", _with("position", **{name: "x" * (cap + 1)})))
-    assert any("prismes.question" in e for e in _hard("prismes", _with("prismes", "p2", question="x" * 51), slot="p2"))
-    assert any("prismes.line3" in e for e in _hard("prismes", _with("prismes", "p2", line3="x" * 81), slot="p2"))
     assert any("prismes.media_note" in e for e in _hard("prismes", _with("prismes", "p1", media_note="x" * 91), slot="p1"))
-    assert any("matrice.title" in e for e in _hard("matrice", _with("matrice", title="x" * 34 + " ?")))
     assert any("hook.title" in e for e in _hard("hook", _with("hook", title="x" * 70 + " ?")))
     assert any("hook.promise" in e for e in _hard("hook", _with("hook", promise="x" * 101)))
 
 
+_NEW_CAPS = [(s, f) for (s, f) in agent._CAPS if s in ("prismes", "tensions", "arbitrage") and f != "media_note"]
+
+
+@pytest.mark.parametrize("step,name", _NEW_CAPS)
+def test_each_card_field_at_its_cap_passes_and_one_more_character_fails(step, name):
+    cap = agent._CAPS[(step, name)][1]
+    asks = name.startswith("claim") or (name == "title" and step != "prismes")
+    make = (lambda n: "x" * (n - 2) + " ?") if asks else (lambda n: "x" * n)   # noqa: E731
+    slot = "p2" if step == "prismes" else "a"
+    at = _hard(step, _with(step, slot if step == "prismes" else None, **{name: make(cap)}), slot=slot)
+    over = _hard(step, _with(step, slot if step == "prismes" else None, **{name: make(cap + 1)}), slot=slot)
+    assert not any(e.startswith(f"{step}.{name} is") for e in at), at
+    assert any(e.startswith(f"{step}.{name} is {cap + 1} chars (max {cap})") for e in over), over
+
+
+def test_the_starting_caps_of_the_spec():
+    caps = agent.prompt_caps()
+    assert (caps["prismes.title"], caps["prismes.head"], caps["prismes.claim"]) == (40, 36, 46)
+    assert (caps["prismes.indice.source"], caps["prismes.indice.find"]) == (30, 60)
+    assert (caps["tensions.title"], caps["tensions.head"], caps["tensions.claim"]) == (34, 40, 46)
+    assert (caps["arbitrage.title"], caps["arbitrage.head"], caps["arbitrage.test"]) == (34, 40, 80)
+    assert (caps["tensions.indice.source"], caps["arbitrage.indice.find"]) == (30, 60)
+
+
 @pytest.mark.parametrize("step,name,part,cap", [
     ("position", "card2", "label", 30), ("position", "card2", "text", 76),
-    ("matrice", "col2", "variable", 60), ("matrice", "col2", "indicator", 40)])
+    ("prismes", "indice2", "source", 30), ("prismes", "indice4", "find", 60),
+    ("tensions", "indice1", "source", 30), ("tensions", "indice3", "find", 60),
+    ("arbitrage", "indice2", "source", 30), ("arbitrage", "indice1", "find", 60)])
 def test_a_part_over_its_cap_is_a_hard_error(step, name, part, cap):
-    cell = {"label": "ab | cd", "text": "ab | cd", "variable": "ab | cd", "indicator": "ab | cd"}
     over, ok = "x" * (cap + 1), "x" * cap
-    other = "ab"
-    mk = lambda v: (f"{v} | {other}" if part in ("label", "variable") else f"{other} | {v}")  # noqa: E731
-    assert any(f"{step}.{name}" in e and part in e for e in _hard(step, _with(step, **{name: mk(over)})))
-    assert not any(f"{step}.{name}" in e for e in _hard(step, _with(step, **{name: mk(ok)})))
-    assert cell
-
-
-def test_a_source_name_over_30_characters_or_a_fourth_source_is_a_hard_error():
-    p = lambda s: _hard("prismes", _with("prismes", "p2", sources=s), slot="p2")  # noqa: E731
-    assert any("sources" in e for e in p("A ; " + "x" * 31))
-    assert any("sources" in e for e in p("A ; B ; C ; D"))
-    assert not p("A ; B ; " + "x" * 30)
+    mk = lambda v: (f"{v} | ab" if part in ("label", "source") else f"ab | {v}")  # noqa: E731
+    slot = "p2" if step == "prismes" else "a"
+    h = lambda v: _hard(step, _with(step, slot if step == "prismes" else None, **{name: mk(v)}), slot=slot)  # noqa: E731
+    assert any(f"{step}.{name}" in e and part in e for e in h(over))
+    assert not any(f"{step}.{name}" in e for e in h(ok))
 
 
 def test_the_axe_needs_three_distinct_prisms_of_the_catalogue():
@@ -266,11 +321,18 @@ def test_the_media_prism_is_one_of_the_three():
     assert not _hard("axe", _with("axe", media="sociologique"))
 
 
-def test_the_deck_question_the_hook_title_the_closing_line_and_the_matrix_title_end_in_a_question_mark():
+def test_the_deck_question_the_hook_title_and_the_closing_line_end_in_a_question_mark():
     assert any("axe.question" in e and "?" in e for e in _hard("axe", _with("axe", question="D'où vient la crise.")))
     assert any("axe.closing" in e and "?" in e for e in _hard("axe", _with("axe", closing="Quel regard explique la crise.")))
-    assert any("matrice.title" in e and "?" in e for e in _hard("matrice", _with("matrice", title="Que mesurer")))
     assert any("hook.title" in e and "?" in e for e in _hard("hook", _with("hook", title="La crise du logement")))
+
+
+def test_claims_and_titles_end_in_a_question_mark():
+    assert any(e.startswith("prismes.claim3 must be a question") for e in _p2(claim3="La crise du logement vient du marché"))
+    assert not any("must be a question" in e for e in _p2(title="Un marché qui ne construit plus"))   # a thesis
+    for step, name in (("tensions", "title"), ("tensions", "claim2"), ("arbitrage", "title")):
+        bad = _hard(step, _with(step, **{name: "Où les regards divergent"}))
+        assert any(e.startswith(f"{step}.{name} must be a question") for e in bad), (step, name)
 
 
 def test_the_hook_promise_has_the_fixed_shape():
@@ -285,20 +347,25 @@ def test_the_hook_promise_has_the_fixed_shape():
 
 def test_the_hook_promise_accepts_french_typography():
     """A no-break space (NBSP or narrow) before « ; » or a typographic apostrophe is the same promise."""
-    for typo in ("Trois regards sur la crise du logement\u00a0; à vous d'en juger.",
-                 "Trois regards sur la crise du logement\u202f; à vous d'en juger.",
-                 "Trois regards sur la crise du logement ; à vous d\u2019en juger.",
-                 "Trois regards sur la crise du logement\u202f; à vous d\u2019en juger."):
+    for typo in ("Trois regards sur la crise du logement ; à vous d'en juger.",
+                 "Trois regards sur la crise du logement ; à vous d'en juger.",
+                 "Trois regards sur la crise du logement ; à vous d’en juger.",
+                 "Trois regards sur la crise du logement ; à vous d’en juger."):
         hard, flags = _fe("hook", _with("hook", promise=typo))
         assert hard == [] and not [f for f in flags if "subject" in f], typo
 
 
-def test_a_prism_slide_needs_three_lines_and_a_source():
-    assert any("line3" in e for e in _hard("prismes", _with("prismes", "p2", line3=""), slot="p2"))
-    assert any("line1" in e for e in _hard("prismes", _with("prismes", "p2", line1=""), slot="p2"))
-    assert any("sources" in e for e in _hard("prismes", _with("prismes", "p2", sources=" ; "), slot="p2"))
-    assert any("question" in e for e in _hard("prismes", _with("prismes", "p2", question=""), slot="p2"))
-    assert not _hard("prismes", _with("prismes", "p2", line4=""), slot="p2")
+def test_a_prism_slide_needs_a_title_and_four_whole_cards():
+    for name in ("title", "head1", "head4", "claim2", "indice3"):
+        assert any(e == f"prismes.{name} is empty" for e in _p2(**{name: ""})), name
+    assert not _p2(media_note="")
+
+
+def test_the_tensions_and_the_arbitrage_need_three_whole_cards():
+    for name in ("title", "pair2", "head3", "claim1", "indice2"):
+        assert any(e == f"tensions.{name} is empty" for e in _hard("tensions", _with("tensions", **{name: ""}))), name
+    for name in ("title", "head3", "test1", "indice2"):
+        assert any(e == f"arbitrage.{name} is empty" for e in _hard("arbitrage", _with("arbitrage", **{name: ""}))), name
 
 
 def test_only_the_media_prism_slot_carries_a_media_note():
@@ -308,86 +375,103 @@ def test_only_the_media_prism_slot_carries_a_media_note():
 
 
 def test_accusing_and_blaming_words_are_refused_outside_guillemets_only():
-    assert any("oublie" in e for e in _hard("prismes", _with("prismes", "p2", line1="L'article oublie l'économie."), slot="p2"))
+    assert any("oublie" in e for e in _p2(head1="L'article oublie l'offre"))
     assert any("ne dit pas" in e for e in _hard("position", _with("position", lead="L'article ne dit pas pourquoi.")))
     assert any("biais" in e for e in _hard("position", _with("position", card1="Cause | Un biais net.")))
     assert any("manipulation" in e for e in _hard("hook", _with("hook", title="Une manipulation du logement ?")))
     for word in ("ignore", "omet", "néglige", "mensonge", "trompeur"):
-        assert any(word in e for e in _hard("prismes", _with("prismes", "p2", line2=f"Il {word} cela."), slot="p2")), word
-    assert not _hard("prismes", _with("prismes", "p2", line1="Le texte cite « l'article oublie » tel quel."), slot="p2")
+        assert any(word in e for e in _p2(claim2=f"Il {word} la crise ?")), word
+        assert any(word in e for e in _hard("tensions", _with("tensions", head2=f"Il {word} cela"))), word
+        assert any(word in e for e in _hard("arbitrage", _with("arbitrage", test3=f"Il {word} cela"))), word
+        assert any(word in e for e in _p2(indice1=f"INE | ce que l'article {word}")), word
+    assert not _p2(head1="Le texte dit « l'article oublie »")
 
 
-def test_the_matrix_refuses_prescriptive_verbs():
-    for verb in ("il faut", "doit", "doivent", "devrait", "devraient", "on devrait"):
-        col = _with("matrice", col1=f"Ce que {verb} mesurer | Mesures")
-        assert any("prescriptive" in e and verb.split()[-1] in e for e in _hard("matrice", col)), verb
-        title = _with("matrice", title=f"Que {verb} mesurer ?")
-        assert any("prescriptive" in e and "matrice.title" in e for e in _hard("matrice", title)), verb
-    assert not _hard("matrice", FIELDS["matrice"])
+def test_prescriptive_verbs_are_refused_on_the_tensions_only():
+    """On the tensions every field; on the arbitrage its title and heads, never its tests (« devrait » is a conditional
+    observation there); never on the prism slides."""
+    for verb in ("il faut", "doit", "doivent", "devrait", "devraient", "il faudrait", "faut-il"):
+        for name in ("title", "head1", "claim2"):
+            value = f"Que {verb} bâtir ?" if name != "head1" else f"Ce qu'{verb} bâtir"
+            assert any("prescriptive" in e and f"tensions.{name}" in e
+                       for e in _hard("tensions", _with("tensions", **{name: value}))), (verb, name)
+        assert any("prescriptive" in e for e in _hard("tensions", _with("tensions", indice3=f"INE | ce qu'on {verb} bâtir"))), verb
+        assert any("prescriptive" in e and "arbitrage.head2" in e
+                   for e in _hard("arbitrage", _with("arbitrage", head2=f"L'État {verb} agir"))), verb
+        assert any("prescriptive" in e and "arbitrage.title" in e
+                   for e in _hard("arbitrage", _with("arbitrage", title=f"Qui {verb} trancher ?"))), verb
+        assert not any("prescriptive" in e for e in _p2(head2=f"L'État {verb} agir"))
+    test = "Les loyers devraient baisser là où l'offre de logements augmente"
+    assert not any("prescriptive" in e for e in _hard("arbitrage", _with("arbitrage", test1=test)))
+    assert not _hard("tensions", FIELDS["tensions"]) and not _hard("arbitrage", FIELDS["arbitrage"])
 
 
-def test_a_digit_in_a_prism_question_is_refused_unless_it_is_a_year():
-    q = lambda text: _hard("prismes", _with("prismes", "p2", question=text), slot="p2")  # noqa: E731
-    assert any("prismes.question" in e and "digit" in e for e in q("Que pèse 12 % du budget ?"))
-    assert not q("Que change 1975 ?")
+def test_a_digit_in_a_card_is_refused_unless_it_is_a_year_a_date_or_a_reference():
+    digit = lambda errors: [e for e in errors if "digit" in e]  # noqa: E731
+    for ok in ("Le plafond date de 2024", "Le mouvement du 15 mai 2011", "La loi 12/2023", "Le décret du 1er janvier"):
+        assert not digit(_p2(head1=ok)), ok
+        assert not digit(_hard("tensions", _with("tensions", head1=ok))), ok
+        assert not digit(_hard("arbitrage", _with("arbitrage", test2=ok))), ok
+    for bad in ("Il manque 600 000 logements", "Les loyers montent de 12 %", "Le 15-M rassemble", "Une loi de 2100"):
+        assert any("prismes.head1 holds a digit" in e for e in _p2(head1=bad)), bad
+        assert any("prismes.claim1 holds a digit" in e for e in _p2(claim1=bad + " ?")), bad
+        assert any("tensions.claim3 holds a digit" in e for e in _hard("tensions", _with("tensions", claim3=bad + " ?"))), bad
+        assert any("arbitrage.head1 holds a digit" in e for e in _hard("arbitrage", _with("arbitrage", head1=bad))), bad
 
 
-def test_no_url_in_sources():
-    for s in ("https://ine.es", "www.ine.es", "ine.com/data", "ine.fr/data"):
-        assert any("URL" in e for e in _hard("prismes", _with("prismes", "p2", sources=f"A ; {s}"), slot="p2")), s
+def test_an_indice_needs_a_source_and_what_to_find():
+    for bad in ("Banque d'Espagne", " | ses estimations", "Banque d'Espagne | ", "|"):
+        assert any("prismes.indice2" in e and "source | find" in e for e in _p2(indice2=bad)), bad
+        assert any("tensions.indice1" in e and "source | find" in e
+                   for e in _hard("tensions", _with("tensions", indice1=bad))), bad
+        assert any("arbitrage.indice3" in e and "source | find" in e
+                   for e in _hard("arbitrage", _with("arbitrage", indice3=bad))), bad
+    assert not _p2(indice2="Banque d'Espagne | ses estimations du déficit")
 
 
-def test_a_bare_domain_in_sources_is_a_url():
-    p = lambda s: _hard("prismes", _with("prismes", "p2", sources=s), slot="p2")  # noqa: E731
-    for s in ("idealista.com ; ine.es", "Insee.fr", "europa.eu ; INE", "data.gov", "oecd.org", "x.net", "a.info", "who.int"):
-        assert any("URL" in e for e in p(s)), s
-    for s in ("INE (statistique) ; Banque d'Espagne ; Eurostat", "Insee ; Cour des comptes", "Ministère du Logement"):
-        assert not any("URL" in e for e in p(s)), s
+def test_an_indice_refuses_a_url_a_bare_domain_and_a_figure():
+    for clue in ("https://ine.es | les séries", "www.ine.es | les séries", "INE | les séries sur ine.es",
+                 "idealista.com | les annonces", "Insee.fr | la série", "who.int | la base", "data.gov | la base"):
+        assert any("prismes.indice1" in e and "URL" in e for e in _p2(indice1=clue)), clue
+        assert any("URL" in e for e in _hard("tensions", _with("tensions", indice2=clue))), clue
+        assert any("URL" in e for e in _hard("arbitrage", _with("arbitrage", indice1=clue))), clue
+    for clue in ("INE | les 12 % de logements vides", "INE 2 | les séries", "Eurostat | un écart de 3 points"):
+        assert any("prismes.indice1 holds a digit" in e for e in _p2(indice1=clue)), clue
+    for clue in ("INE | le recensement de 2021", "Insee | les séries depuis le 1er janvier", "Cour des comptes | son rapport"):
+        assert not _p2(indice1=clue), clue
 
 
-def test_the_matrix_refuses_il_faudrait_and_faut_il():
-    for phrase in ("il faudrait", "faut-il", "faudrait"):
-        col = _with("matrice", col1=f"Ce qu'{phrase} mesurer | Mesures" if phrase[0] == "i" else f"Ce que {phrase} mesurer | Mesures")
-        assert any("prescriptive" in e for e in _hard("matrice", col)), phrase
-    assert any("prescriptive" in e for e in _hard("matrice", _with("matrice", title="Que faut-il regarder ?")))
+def test_the_tension_pairs_are_the_three_pairs():
+    assert not _hard("tensions", FIELDS["tensions"])
+    assert not _hard("tensions", _with("tensions", pair1="2,3", pair3="1,2"))        # any order of the cards
+    assert not _hard("tensions", _with("tensions", pair1="2, 1"))                    # either way round
 
 
-def test_no_digit_on_the_matrix_or_in_sources():
-    assert any("digit" in e for e in _hard("prismes", _with("prismes", "p2", sources="INE 2024"), slot="p2"))
-    assert any("digit" in e for e in _hard("matrice", _with("matrice", col2="Écart | 3 millions")))
-    assert any("digit" in e for e in _hard("matrice", _with("matrice", title="Que mesurer en 2024 ?")))
+def test_a_pair_that_repeats_or_is_missing_is_refused():
+    for kw in ({"pair2": "1,2"}, {"pair3": "2,1"}, {"pair1": "1,1"}, {"pair2": "1,4"}, {"pair1": "1"},
+               {"pair1": "1 et 2"}, {"pair3": "1,2,3"}):
+        assert any("tensions" in e and "pair" in e for e in _hard("tensions", _with("tensions", **kw))), kw
+    assert any("tensions.pair3 is empty" == e for e in _hard("tensions", _with("tensions", pair3="")))
 
 
-def test_a_year_is_allowed_on_a_prism_line_but_not_another_number():
-    p = lambda line: _hard("prismes", _with("prismes", "p2", line1=line), slot="p2")  # noqa: E731
-    assert not p("Le plafond date de 2024.")
-    assert not p("La loi de 1985 reste en vigueur.")
-    assert any("digit" in e for e in p("Il manque 600 000 logements."))
-    assert any("digit" in e for e in p("Les loyers montent de 12 %."))
-    assert any("digit" in e for e in p("Une loi de 1200."))
-    assert any("digit" in e for e in p("Une loi de 2100."))
-
-
-def test_a_date_or_a_law_reference_is_allowed_on_a_prism_but_no_other_number():
-    p = lambda line: _hard("prismes", _with("prismes", "p2", line1=line), slot="p2")  # noqa: E731
-    q = lambda text: _hard("prismes", _with("prismes", "p2", question=text), slot="p2")  # noqa: E731
-    for ok in ("Le mouvement naît le 15 mai 2011.", "La loi 12/2023 encadre les loyers.", "Le décret du 1er janvier 2024.",
-               "Le texte entre en vigueur le 1er juillet.", "Le 3 août, le gouvernement tombe."):
-        assert not p(ok), ok
-    assert not q("Que change la loi 12/2023 ?")
-    for bad in ("Le 15-M rassemble des milliers de jeunes.", "Le loyer atteint 12 mois.", "Il manque 15 logements.",
-                "Une loi 123/2023.", "Le 15 du mois."):
-        assert any("digit" in e for e in p(bad)), bad
-
-
-def test_the_axe_question_is_digit_checked_like_a_prism():
-    assert not _hard("axe", _with("axe", question="Pourquoi les loyers ont-ils doublé depuis 2015 ?"))
-    assert any("axe.question" in e and "digit" in e for e in _hard("axe", _with("axe", question="Pourquoi 12 % des loyers montent-ils ?")))
+def test_the_arbitrage_has_three_cards_and_its_test_is_a_conditional_sentence():
+    assert list(agent.ArbitrageOption.model_fields).count("test3") == 1 and "test4" not in agent.ArbitrageOption.model_fields
+    assert any("arbitrage.test2" in e and "not a question" in e
+               for e in _hard("arbitrage", _with("arbitrage", test2="Le taux d'effort serait-il plus haut ?")))
+    hard, flags = _fe("arbitrage", _with("arbitrage", test2="Le taux d'effort est plus haut là où l'offre manque"))
+    assert hard == [] and any("arbitrage.test2" in f and "conditional" in f for f in flags)
+    for ok in ("Le taux d'effort serait plus haut", "Les loyers baisseraient", "On verrait les loyers monter"):
+        assert not [f for f in _flags("arbitrage", _with("arbitrage", test2=ok)) if "conditional" in f], ok
 
 
 def test_position_and_media_note_are_exempt_from_the_digit_rule():
     assert not _hard("position", _with("position", card1="Ce qu'il raconte | 175 000 manifestants."))
     assert not _hard("prismes", _with("prismes", "p1", media_note="L'article chiffre 175 000 personnes."), slot="p1")
+
+
+def test_the_axe_question_is_digit_checked_like_a_card():
+    assert not _hard("axe", _with("axe", question="Pourquoi les loyers ont-ils doublé depuis 2015 ?"))
+    assert any("axe.question" in e and "digit" in e for e in _hard("axe", _with("axe", question="Pourquoi 12 % des loyers montent-ils ?")))
 
 
 def test_an_axe_with_no_dominant_prism_is_a_flag_not_a_hard_error():
@@ -397,37 +481,52 @@ def test_an_axe_with_no_dominant_prism_is_a_flag_not_a_hard_error():
     assert not any("dominate" in f for f in _flags("axe", FIELDS["axe"]))
 
 
-def test_a_prism_question_a_matrix_cell_or_the_closing_line_sharing_no_key_word_with_the_axe_question_is_flagged():
-    assert not [f for f in _flags("prismes", FIELDS["prismes"]["p2"], slot="p2") if "question" in f]
-    bad = _flags("prismes", _with("prismes", "p2", question="Combien de pommes, à quel prix ?"), slot="p2")
-    assert any("prismes.question" in f and "key word" in f for f in bad)
-    assert not [f for f in _flags("prismes", _with("prismes", "p2", question="Combien de logements, à quel prix ?"), slot="p2")
-                if "question" in f]
-    cell = _flags("matrice", _with("matrice", col1="Les pommes | Récolte"))
-    assert any("matrice.col1" in f for f in cell)
-    assert not any("matrice.col2" in f for f in cell)
+def test_a_card_sharing_no_key_word_with_the_axe_question_is_flagged():
+    """The axe asks « D'où vient la crise du logement en Espagne ? »: a card whose head and claim (head and test on the
+    arbitrage) never name it drifts."""
+    hard, flags = _fe("prismes", _with("prismes", "p2", head2="Les pommes mûrissent tard", claim2="Les poires suivent-elles ?"),
+                      slot="p2")
+    assert hard == [] and any(f.startswith("prismes.card2 shares no key word") for f in flags)
+    assert not [f for f in flags if "card1" in f or "card3" in f]
+    flags = _flags("tensions", _with("tensions", head3="Les pommes ou les poires", claim3="Lequel mûrit le premier ?"))
+    assert any(f.startswith("tensions.card3 shares no key word") for f in flags)
+    flags = _flags("arbitrage", _with("arbitrage", head1="Les vergers pèsent le plus", test1="Les pommes seraient chères"))
+    assert any(f.startswith("arbitrage.card1 shares no key word") for f in flags)
     closing = _with("axe", closing="Politique, économique ou sociologique : quel regard est le meilleur ?")
     assert any("axe.closing" in f and "key word" in f for f in _flags("axe", closing))
     assert not any("axe.closing" in f and "key word" in f for f in _flags("axe", FIELDS["axe"]))
 
 
-def test_a_prism_slide_whose_lines_share_no_key_word_with_the_subject_is_flagged():
-    """The subject of the fixture is « la crise du logement »: a slide whose lines never name it drifts."""
-    drift = _with("prismes", "p2", line1="Les pommes mûrissent en automne.", line2="Les poires suivent.",
-                  line3="Les cerises viennent plus tôt.", line4="")
-    hard, flags = _fe("prismes", drift, slot="p2")
-    assert hard == [] and any("prismes" in f and "subject" in f for f in flags)
-    assert not [f for f in _flags("prismes", FIELDS["prismes"]["p3"], slot="p3") if "subject" in f]
-    named = {**drift, "line2": "Les poires suivent la crise."}
-    assert not [f for f in _flags("prismes", named, slot="p2") if "subject" in f]
+def test_two_near_identical_cards_of_one_slide_are_flagged():
+    p2 = FIELDS["prismes"]["p2"]
+    twin = _with("prismes", "p2", head3=p2["head1"], claim3=p2["claim1"])
+    assert any("card1" in f and "card3" in f and "near" in f for f in _flags("prismes", twin, slot="p2"))
+    t = FIELDS["tensions"]
+    assert any("near" in f for f in _flags("tensions", _with("tensions", head2=t["head1"], claim2=t["claim1"])))
+    a = FIELDS["arbitrage"]
+    assert any("near" in f for f in _flags("arbitrage", _with("arbitrage", head3=a["head2"], test3=a["test2"])))
+    assert not [f for f in _flags("prismes", p2, slot="p2") if "near" in f]
 
 
-def test_a_closing_line_with_ou_is_flagged_not_blocked():
+def test_two_near_identical_prism_slides_are_flagged():
+    frags = _fragments()
+    twin = copy.deepcopy(FIELDS["prismes"]["p2"])
+    frags["prismes"] = agent.to_fragment(agent.STEP_BY_NAME["prismes"],
+                                         [_opt(FIELDS["prismes"]["p1"], "p1"), _opt(twin, "p2")], frags)
+    same = _flags("prismes", twin, slot="p3", frags=frags)
+    assert any("near" in f and "p2" in f for f in same)
+    assert not [f for f in _flags("prismes", FIELDS["prismes"]["p3"], slot="p3") if "near" in f]
+
+
+def test_a_closing_line_or_a_tensions_or_arbitrage_title_with_ou_is_flagged_not_blocked():
     hard, flags = _fe("axe", FIELDS["axe"])
     assert hard == [] and any("« ou »" in f for f in flags)
     hard, flags = _fe("axe", _with("axe", closing="Politique, économique, sociologique : quel regard explique la crise du logement ?"))
     assert hard == [] and not any("« ou »" in f for f in flags)
-    assert any("« ou »" in f for f in _flags("matrice", _with("matrice", title="Prix ou loyers ?")))
+    for step in ("tensions", "arbitrage"):
+        hard, flags = _fe(step, _with(step, title="Prix ou loyers ?"))
+        assert hard == [] and any(f"{step}.title" in f and "« ou »" in f for f in flags), step
+    assert not [f for f in _flags("tensions", _with("tensions", head1="Des votes, ou l'offre rare")) if "« ou »" in f]
 
 
 def test_a_quoted_passage_of_the_position_or_the_media_note_must_be_in_the_source():
@@ -439,16 +538,6 @@ def test_a_quoted_passage_of_the_position_or_the_media_note_must_be_in_the_sourc
     assert not [f for f in _flags("position", fields) if "word for word" in f]
     note = _with("prismes", "p1", media_note="Il parle d'« un plafond inventé ».")
     assert any("media_note" in f and "word for word" in f for f in _flags("prismes", note, slot="p1", article=ARTICLE))
-
-
-def test_two_near_identical_prism_slides_are_flagged():
-    frags = _fragments()
-    twin = copy.deepcopy(FIELDS["prismes"]["p2"])
-    frags["prismes"] = agent.to_fragment(agent.STEP_BY_NAME["prismes"],
-                                         [_opt(FIELDS["prismes"]["p1"], "p1"), _opt(twin, "p2")], frags)
-    same = _flags("prismes", twin, slot="p3", frags=frags)
-    assert any("near" in f for f in same)
-    assert not [f for f in _flags("prismes", FIELDS["prismes"]["p3"], slot="p3") if "near" in f]
 
 
 def test_the_closing_line_missing_a_prism_name_is_flagged():
@@ -475,10 +564,19 @@ def test_prompt_caps_cover_every_capped_field():
     for (step, name), parts in agent._PART_CAPS.items():
         for part, cap in parts:
             assert caps[f"{step}.{name}.{part}"] == cap
-    assert caps["axe.question"] == 60 and caps["prismes.source"] == 30 and caps["prismes.sources"] == 3
+    assert caps["axe.question"] == 60 and caps["prismes.indice.source"] == 30 and caps["tensions.head"] == 40
     assert agent.fill_caps("max {{cap:axe.question}} signes") == "max 60 signes"
     with pytest.raises(KeyError):
         agent.fill_caps("{{cap:nope.nope}}")
+
+
+def test_the_removed_fields_have_no_cap_left():
+    caps = agent.prompt_caps()
+    for gone in ("prismes.question", "prismes.line1", "prismes.line", "prismes.source", "prismes.sources", "matrice.title",
+                 "matrice.col.variable"):
+        assert gone not in caps, gone
+    assert not any(s == "matrice" for s, _ in agent._CAPS) and not any(s == "matrice" for s, _ in agent._PART_CAPS)
+    assert not hasattr(agent, "_SOURCE_MAX") and not hasattr(agent, "_SOURCES_MAX")
 
 
 # ---- the cascade, the model call faked ---------------------------------------------------------------------------
@@ -532,7 +630,7 @@ def _log(steps) -> list[dict]:
     return [json.loads(line) for line in (steps.parent / "choices.jsonl").read_text(encoding="utf-8").splitlines()]
 
 
-def test_unattended_runs_six_steps_and_rebuilds_the_deck(fake, tmp_path):
+def test_unattended_runs_seven_steps_and_rebuilds_the_deck(fake, tmp_path):
     pres = agent.adapt(full(), steps_dir=tmp_path / "adapt_steps")
     assert fake.labels == [s.name for s in agent.STEPS]
     assert all(e == [] for e in fake.errors.values()), fake.errors
@@ -567,7 +665,7 @@ def test_stop_after_a_step(fake, tmp_path):
     steps = tmp_path / "adapt_steps"
     assert agent.adapt(full(), steps_dir=steps, stop_after="prismes") is None
     assert fake.labels == ["axe", "position", "prismes"]
-    assert not (steps / "4_matrice.json").exists() and (steps / "3_prismes.json").exists()
+    assert not (steps / "4_tensions.json").exists() and (steps / "3_prismes.json").exists()
 
 
 def test_a_later_step_receives_the_earlier_picks(fake, tmp_path):
@@ -595,11 +693,11 @@ def test_choose_on_prismes_needs_one_pick_per_slot(fake, tmp_path):
     with pytest.raises(agent.ChoiceError):
         agent.choose(full(), steps, "axe", ["a", "b"], {})
     assert _step_file(steps, "prismes").picked == ["p1a", "p2a", "p3a"]       # a refused choice changes nothing
-    edit = {"p2c.line1": "Les loyers montent plus vite que les salaires."}
+    edit = {"p2c.head1": "Les loyers devancent les salaires"}
     assert agent.choose(full(), steps, "prismes", ["p3b", "p1b", "p2c"], edit) == []
     sf = _step_file(steps, "prismes")
     assert sf.picked == ["p1b", "p2c", "p3b"]
-    assert sf.fragment["prisms"][1]["lines"][0] == "Les loyers montent plus vite que les salaires."
+    assert sf.fragment["prisms"][1]["cards"][0]["head"] == "Les loyers devancent les salaires"
     assert [s["prism"] for s in sf.fragment["prisms"]] == ["politique", "economique", "sociologique"]
 
 
@@ -671,7 +769,7 @@ def test_after_more_on_one_prism_choose_takes_only_the_missing_slot(fake, tmp_pa
             agent.choose(full(), steps, "prismes", bad, {})
     assert agent.choose(full(), steps, "prismes", [p2[1]], {}) == []
     sf = _step_file(steps, "prismes")
-    assert sf.picked == ["p1b", p2[1], "p3c"] and [s["question"] for s in sf.fragment["prisms"]]
+    assert sf.picked == ["p1b", p2[1], "p3c"] and all(s["title"] for s in sf.fragment["prisms"])
     assert agent.pending_step(steps) is None
 
 
@@ -687,7 +785,7 @@ def test_a_fix_while_a_prism_awaits_its_pick_says_which_choose_to_run(fake, tmp_
     steps = tmp_path / "adapt_steps"
     new = _half(steps)
     p2 = [o.id for o in new.options if o.slot == "p2"]
-    for field in ("prismes.p1.line1", "matrice.title"):
+    for field in ("prismes.p1.head1", "tensions.title", "arbitrage.test1"):
         with pytest.raises(agent.ChoiceError) as e:
             agent.fix(full(), steps, field, "Une ligne refaite.")
         msg = str(e.value)
@@ -704,7 +802,7 @@ def test_changing_the_axe_makes_every_later_step_stale(fake, tmp_path):
     with pytest.raises(agent.ChoiceError, match="stale"):
         agent.choose(full(), steps, "prismes", ["p1a", "p2a", "p3a"], {})
     pres = agent.adapt(full(), steps_dir=steps)
-    assert fake.labels[len(agent.STEPS):] == ["position", "prismes", "matrice", "hook", "writing"]
+    assert fake.labels[len(agent.STEPS):] == ["position", "prismes", "tensions", "arbitrage", "hook", "writing"]
     assert pres.axe.question == "Pourquoi le logement manque-t-il en Espagne ?"
     assert list(steps.glob("stale_*/3_prismes.json"))
 
@@ -722,12 +820,12 @@ def test_fix_rewrites_one_field_without_regenerating(fake, tmp_path):
     assert pres.position.title == "Le logement, enjeu de scrutin" and pres.caption.endswith("Merci.")
     step, warnings = agent.fix(full(), steps, "hook.title", "x" * 75)
     assert step == "hook" and any("hook.title is 75" in w for w in warnings)
-    step, warnings = agent.fix(full(), steps, "matrice.title", "Que mesurer pour en juger ?")
-    assert step == "matrice" and not [w for w in warnings if w.startswith("matrice")]
+    step, warnings = agent.fix(full(), steps, "tensions.title", "Sur quoi divergent les regards ?")
+    assert step == "tensions" and not [w for w in warnings if w.startswith("tensions")]
     _, warnings = agent.fix(full(), steps, "prismes.p2.media_note", "Une note.")   # a wording fix still checked
     assert any(w.startswith("p2: prismes.media_note must be empty") for w in warnings)
     pres = agent.adapt(full(), steps_dir=steps)
-    assert fake.labels == before and pres.matrix.title == "Que mesurer pour en juger ?"
+    assert fake.labels == before and pres.tensions.title == "Sur quoi divergent les regards ?"
     with pytest.raises(agent.ChoiceError):
         agent.fix(full(), steps, "invisible.statement", "x")
 
@@ -736,44 +834,66 @@ def test_fix_reaches_a_prism_field_by_slot(fake, tmp_path):
     steps = tmp_path / "adapt_steps"
     agent.adapt(full(), steps_dir=steps)
     before = list(fake.labels)
-    assert agent.fix(full(), steps, "prismes.p2.line1", "Les loyers montent plus vite que les salaires.") == ("prismes", [])
+    assert agent.fix(full(), steps, "prismes.p2.indice3", "Insee | les logements vacants, commune par commune") == ("prismes", [])
     pres = agent.adapt(full(), steps_dir=steps)
     assert fake.labels == before
-    assert pres.prisms[1].lines[0] == "Les loyers montent plus vite que les salaires."
-    assert pres.prisms[0].lines == DECK["prisms"][0]["lines"] and pres.prisms[2].lines == DECK["prisms"][2]["lines"]
-    _, warnings = agent.fix(full(), steps, "prismes.p3.line2", "Plus de 300 collectifs se forment.")
-    assert any(w.startswith("p3: prismes.line2 holds a digit") for w in warnings)
-    with pytest.raises(agent.ChoiceError, match="prismes.p1.line1"):
-        agent.fix(full(), steps, "prismes.line1", "x")
+    card = pres.prisms[1].cards[2]
+    assert (card.source, card.find) == ("Insee", "les logements vacants, commune par commune")
+    assert card.head == DECK["prisms"][1]["cards"][2]["head"]
+    assert [c.model_dump() for c in pres.prisms[0].cards] == DECK["prisms"][0]["cards"]
+    _, warnings = agent.fix(full(), steps, "prismes.p3.head2", "Plus de 300 collectifs")
+    assert any(w.startswith("p3: prismes.head2 holds a digit") for w in warnings)
+    with pytest.raises(agent.ChoiceError, match="prismes.p1.indice1"):
+        agent.fix(full(), steps, "prismes.indice1", "x")
     with pytest.raises(agent.ChoiceError):
-        agent.fix(full(), steps, "prismes.p4.line1", "x")
+        agent.fix(full(), steps, "prismes.p4.head1", "x")
+    with pytest.raises(agent.ChoiceError):
+        agent.fix(full(), steps, "prismes.p2.line1", "x")          # a removed field
+
+
+def test_fix_reaches_a_tensions_field(fake, tmp_path):
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps)
+    before = list(fake.labels)
+    assert agent.fix(full(), steps, "tensions.head2", "Les partis, ou la rue") == ("tensions", [])
+    _, warnings = agent.fix(full(), steps, "tensions.pair3", "1,2")
+    assert any("pair" in w for w in warnings)                     # still checked, still kept
+    agent.fix(full(), steps, "tensions.pair3", "3,2")
+    assert agent.fix(full(), steps, "arbitrage.test1", "Les loyers seraient plus sages là où l'État bâtit") == ("arbitrage", [])
+    _, warnings = agent.fix(full(), steps, "arbitrage.title", "Il faut trancher ?")
+    assert any("arbitrage.title is prescriptive" in w for w in warnings)
+    pres = agent.adapt(full(), steps_dir=steps)
+    assert fake.labels == before
+    assert pres.tensions.cards[1].head == "Les partis, ou la rue" and pres.tensions.cards[2].pair == [2, 3]
+    assert pres.arbitrage.cards[0].test == "Les loyers seraient plus sages là où l'État bâtit"
+    assert pres.arbitrage.title == "Il faut trancher ?"
 
 
 def test_the_choice_log_records_picks_edits_and_fixes(fake, tmp_path):
     steps = tmp_path / "adapt_steps"
     agent.adapt(full(), steps_dir=steps)
-    agent.choose(full(), steps, "prismes", ["p1b", "p2a", "p3a"], {"p1b.question": "Qui décide ?"}, reason="plus court")
+    agent.choose(full(), steps, "prismes", ["p1b", "p2a", "p3a"], {"p1b.title": "Qui décide ?"}, reason="plus court")
     new = agent.more(full(), steps, "prismes", remark="autre angle", slot="p3")
     with pytest.raises(agent.ChoiceError):          # the p3 pick went with its options: nothing to fix yet
-        agent.fix(full(), steps, "prismes.p2.line1", "Une ligne refaite.")
+        agent.fix(full(), steps, "prismes.p2.head1", "Une ligne refaite.")
     agent.choose(full(), steps, "prismes", ["p1b", "p2a", new.recommended[-1]], {})
-    agent.fix(full(), steps, "prismes.p2.line1", "Une ligne refaite.")
+    agent.fix(full(), steps, "prismes.p2.head1", "Une ligne refaite.")
     pick, more, _, fix = _log(steps)
     assert pick["event"] == "pick" and pick["step"] == "prismes" and pick["picked"] == ["p1b", "p2a", "p3a"]
-    assert pick["edits"] == {"p1b.question": "Qui décide ?"} and pick["reason"] == "plus court"
-    assert {"id": "p2b", "slot": "p2", "text": FIELDS["prismes"]["p2"]["question"]} in pick["offered"]
+    assert pick["edits"] == {"p1b.title": "Qui décide ?"} and pick["reason"] == "plus court"
+    assert {"id": "p2b", "slot": "p2", "text": FIELDS["prismes"]["p2"]["title"]} in pick["offered"]
     assert more == {**more, "event": "more", "step": "prismes", "remark": "autre angle", "slot": "p3"}
-    assert fix == {**fix, "event": "fix", "step": "prismes", "field": "prismes.p2.line1",
-                   "before": FIELDS["prismes"]["p2"]["line1"], "after": "Une ligne refaite."}
+    assert fix == {**fix, "event": "fix", "step": "prismes", "field": "prismes.p2.head1",
+                   "before": FIELDS["prismes"]["p2"]["head1"], "after": "Une ligne refaite."}
 
 
 def test_no_api_runs_through_the_same_path(fake, tmp_path):
     pres = agent.adapt(full(), steps_dir=tmp_path / "adapt_steps", no_api=True)
     assert fake.labels == [s.name for s in agent.STEPS] and all(fake.no_api)
-    assert pres.matrix.title == DECK["matrix"]["title"]
+    assert pres.tensions.title == DECK["tensions"]["title"] and pres.arbitrage.title == DECK["arbitrage"]["title"]
 
 
-_LATER = ["position", "prismes", "matrice", "hook", "writing"]
+_LATER = ["position", "prismes", "tensions", "arbitrage", "hook", "writing"]
 
 
 def _fresh(steps, name) -> bool:
@@ -794,11 +914,10 @@ def test_a_fix_of_an_axe_prism_leaves_the_later_steps_stale_and_they_rerun(fake,
     assert not any(_fresh(steps, s) for s in _LATER)
     # never relabelled: the old p2 text keeps its old prism id until it is regenerated
     assert _step_file(steps, "prismes").fragment["prisms"][1]["prism"] == "economique"
-    assert _step_file(steps, "matrice").fragment["matrix"]["columns"][1]["prism"] == "economique"
     pres = agent.adapt(full(), steps_dir=steps)
     assert fake.labels[n:] == _LATER
     assert "p2 = juridique" in fake.messages[n + 1]               # the prism slides were written for the new prism
-    assert pres.prisms[1].prism == "juridique" and pres.matrix.columns[1].prism == "juridique"
+    assert pres.prisms[1].prism == "juridique" and pres.matrix is None
 
 
 def test_a_fix_of_the_axe_media_leaves_the_later_steps_stale_and_they_rerun(fake, tmp_path):
@@ -836,6 +955,47 @@ def test_a_wording_fix_on_a_later_step_still_restamps_without_a_model_call(fake,
     assert all(_fresh(steps, s) for s in _LATER)
     agent.adapt(full(), steps_dir=steps)
     assert fake.labels == before
+
+
+def _write_step(steps, name: str, n: int, fields: dict, stamp: str) -> None:
+    """An older step file as the previous step table wrote it: `<n>_<name>.json` and its stamp."""
+    sf = agent.StepFile(step=name, options=[Option(id="a", slot="a", reason="r", fields=fields)],
+                        recommended=["a"], picked=["a"], fragment={"x": 1})
+    (steps / f"{n}_{name}.json").write_text(sf.model_dump_json(indent=2), encoding="utf-8")
+    (steps / f"{n}_{name}.sha256").write_text(stamp)
+
+
+def test_an_old_adapt_steps_folder_with_4_matrice_json_does_not_crash_a_rerun(fake, tmp_path):
+    """A folder written by the first step table: 3_prismes (question, lines, sources), 4_matrice, 5_hook, 6_writing.
+    The old prism slides keep a stamp that still matches the axe and the position, but their option fields are not the
+    current ones: they are retired like a stale step and rerun; the other old files are never read."""
+    steps = tmp_path / "adapt_steps"
+    agent.adapt(full(), steps_dir=steps, stop_after="position")
+    stamp = (steps / "2_position.sha256").read_text()
+    prism_stamp = agent.stamp_for(agent.base_inputs(full(), None),
+                                  [_step_file(steps, s).fragment for s in ("axe", "position")])
+    old_prism = {"question": "D'où vient la crise ?", "line1": "a", "line2": "b", "line3": "c", "line4": "",
+                 "sources": "INE ; Eurostat", "media_note": ""}
+    sf = agent.StepFile(step="prismes", options=[Option(id=f"{s}a", slot=s, reason="r", fields=old_prism)
+                                                 for s in ("p1", "p2", "p3")],
+                        recommended=["p1a", "p2a", "p3a"], picked=["p1a", "p2a", "p3a"],
+                        fragment={"prisms": [{"prism": "politique", "question": "?", "lines": ["a"], "sources": ["INE"]}]})
+    (steps / "3_prismes.json").write_text(sf.model_dump_json(indent=2), encoding="utf-8")
+    (steps / "3_prismes.sha256").write_text(prism_stamp)
+    _write_step(steps, "matrice", 4, {"title": "Que mesurer ?", "col1": "a | b", "col2": "a | b", "col3": "a | b"}, stamp)
+    _write_step(steps, "hook", 5, FIELDS["hook"], stamp)
+    _write_step(steps, "writing", 6, FIELDS["writing"], stamp)
+    assert agent.pending_step(steps) is None                      # the old files do not read as a pending step
+    with pytest.raises(agent.ChoiceError, match="stale"):         # nor as a step one can still choose on
+        agent.choose(full(), steps, "prismes", ["p1a", "p2a", "p3a"], {})
+    n = len(fake.labels)
+    pres = agent.adapt(full(), steps_dir=steps)
+    assert fake.labels[n:] == ["prismes", "tensions", "arbitrage", "hook", "writing"]
+    assert pres.model_dump() == TroisRegardsPresentation.model_validate(DECK).model_dump()
+    assert list(steps.glob("stale_*/3_prismes.json"))             # the old prism slides were retired
+    assert (steps / "4_tensions.json").exists() and (steps / "6_hook.json").exists() and (steps / "7_writing.json").exists()
+    assert agent.adapt(full(), steps_dir=steps).model_dump() == pres.model_dump()   # and the rerun is stable
+    assert len(fake.labels) == n + 5
 
 
 # ── Prompts ─────────────────────────────────────────────────────────────────
@@ -876,6 +1036,7 @@ def test_no_prompt_types_a_literal_cap():
         text = _prompt_text(f)
         assert not re.search(r"≤\s*\d", text), f.name
         assert not re.search(r"max(?:imum)? \d+ caractères", text), f.name
+        assert not re.search(r"\b\d{2,3} (?:caractères|signes)", text), f.name
 
 
 def test_the_prompts_name_the_exact_option_fields():
@@ -911,40 +1072,72 @@ def _examples(name: str) -> list[tuple[str, dict[str, str]]]:
     return [(head, _example(body)) for head, body in zip(parts[::2], parts[1::2])]
 
 
-def test_the_worked_examples_of_the_prompts_break_no_rule_and_raise_no_flag():
-    """The examples of 1_axe … 5_hook are what the model imitates: they keep every hard rule AND every advisory
-    flag (each prism question and matrix cell keeps a key word of the deck question, each prism slide names the
-    subject, the indicators are named series), and they are not about the sample deck's subject."""
+def test_the_worked_examples_break_no_hard_rule_and_raise_no_flag():
+    """The examples of 1_axe … 6_hook are what the model imitates: parsed from the prompt files, they keep every hard
+    rule AND every advisory flag. 3_prismes holds full prism slides (four cards, one of them the media's with its
+    `media_note`), 4_tensions three cards (one per pair), 5_arbitrage three cards."""
     def check(step, fields, frags, slot="a"):
         hard, flags = agent.field_errors(step, fields, frags, None, slot)
         assert hard == [] and flags == [], (step, slot, hard, flags)
 
-    [(_, axe)] = _examples("1_axe.md")
+    def only(name):
+        examples = _examples(name)
+        assert len(examples) == 1, (name, [h for h, _ in examples])
+        return examples[0][1]
+
+    axe = only("1_axe.md")
     check("axe", axe, {})
     frags = {"axe": agent.to_fragment(agent.STEP_BY_NAME["axe"], [_opt(axe)], {})}
-    [(_, pos)] = _examples("2_position.md")
+    pos = only("2_position.md")
     check("position", pos, frags)
     frags["position"] = agent.to_fragment(agent.STEP_BY_NAME["position"], [_opt(pos)], frags)
     prisms = []
     for head, fields in _examples("3_prismes.md"):
         slot, pid = re.search(r"emplacement (p\d) = `(\w+)`", head).groups()
         assert axe[f"prism{slot[1]}"] == pid, head
+        assert set(fields) == set(agent.PrismesOption.model_fields), (head, set(fields) ^ set(agent.PrismesOption.model_fields))
         prisms.append(_opt(fields, slot))
-    assert len(prisms) >= 2
+    assert len(prisms) >= 2 and len({o.slot for o in prisms}) == len(prisms)
+    assert [o.slot for o in prisms if o.fields["media_note"]] == [f"p{[axe[f'prism{i}'] for i in (1, 2, 3)].index(axe['media']) + 1}"]
     prisms.sort(key=lambda o: o.slot)                     # a prismes fragment is in slot order
     frags["prismes"] = agent.to_fragment(agent.STEP_BY_NAME["prismes"], prisms, frags)
     for o in prisms:
         check("prismes", o.fields, frags, o.slot)
-    [(_, mat)] = _examples("4_matrice.md")
-    check("matrice", mat, frags)
-    frags["matrice"] = agent.to_fragment(agent.STEP_BY_NAME["matrice"], [_opt(mat)], frags)
-    [(_, hook)] = _examples("5_hook.md")
+    for name, step in (("4_tensions.md", "tensions"), ("5_arbitrage.md", "arbitrage")):
+        fields = only(name)
+        model = agent.STEP_BY_NAME[step].option_model
+        assert set(fields) == set(model.model_fields), (step, set(fields) ^ set(model.model_fields))
+        check(step, fields, frags)
+        frags[step] = agent.to_fragment(agent.STEP_BY_NAME[step], [_opt(fields)], frags)
+    assert len(frags["tensions"]["tensions"]["cards"]) == 3 and len(frags["arbitrage"]["arbitrage"]["cards"]) == 3
+    hook = only("6_hook.md")
     check("hook", hook, frags)
     assert hook["title"] == axe["question"]
-    # the sample deck's article is not the examples' subject: the model must not copy its wording into that deck
+
+
+def test_the_examples_are_on_another_subject_than_the_spanish_article():
+    """The sample deck's article is not the examples' subject: the model must not copy their wording into that deck."""
     every = " ".join(_prompt_text(f) for f in PROMPTS.glob("*.md"))
-    for word in ("Espagne", "logement", "Radio-Canada", "Congrès"):
-        assert word not in every, word
+    for word in ("Espagne", "espagnol", "logement", "Radio-Canada", "Congrès", "loyer"):
+        assert word.lower() not in every.lower(), word
+
+
+def test_no_prompt_mentions_the_removed_fields():
+    for f in PROMPTS.glob("*.md"):
+        text = _prompt_text(f)
+        low = text.lower()
+        for gone in ("matrice", "line1", "line4", "`lines`", "sources à consulter", "column", "colonne", "variable | indicateur",
+                     "`sources`", "`col1`", "prismes.question", "prismes.source}}"):
+            assert gone not in low, (f.name, gone)
+    assert "`question`" not in _prompt_text(PROMPTS / "3_prismes.md")     # the prism slide has a thesis title now
+
+
+def test_the_card_prompts_define_the_clue_and_the_conditional():
+    shared = _prompt_text(PROMPTS / "0_shared.md")
+    for word in ("`head`", "`claim`", "`indice`", "source nommée | ce qu'on y cherche", "URL", "quatre mécanismes"):
+        assert word in shared, word
+    assert "conditionnel" in _prompt_text(PROMPTS / "5_arbitrage.md")
+    assert all(p in _prompt_text(PROMPTS / "4_tensions.md") for p in ("`1,2`", "`1,3`", "`2,3`"))
 
 
 # ── the render ──────────────────────────────────────────────────────────────
@@ -971,16 +1164,16 @@ def _render(tmp_path, deck: dict = DECK) -> dict[str, str]:
     return _texts(renderer.generate_html(doc, tmp_path / "html"))
 
 
-def test_seven_slides_are_rendered(tmp_path):
-    texts = _render(tmp_path)
+def test_an_older_deck_renders_seven_slides(tmp_path):
+    texts = _render(tmp_path, DECK_V1)
     assert list(texts) == _SLIDES
     assert "Le logement, enjeu d'élection" in texts["02_position"] and "Ce que dit l'article" in texts["02_position"]
-    for stem, prism in zip(("03_prisme", "04_prisme", "05_prisme"), DECK["prisms"]):
+    for stem, prism in zip(("03_prisme", "04_prisme", "05_prisme"), DECK_V1["prisms"]):
         assert PRISMS[prism["prism"]].name in texts[stem] and prism["question"] in texts[stem]
         assert PRISMS[prism["prism"]].icon_svg in texts[stem]
         assert all(line in texts[stem] for line in prism["lines"]), stem
         assert " · ".join(prism["sources"]) in texts[stem]
-    assert "Que mesurer pour trancher ?" in texts["06_matrice"] and DECK["axe"]["question"] in texts["06_matrice"]
+    assert "Que mesurer pour trancher ?" in texts["06_matrice"] and DECK_V1["axe"]["question"] in texts["06_matrice"]
 
 
 def test_the_position_kicker_defaults_and_the_cards_take_fixed_icons(tmp_path):
@@ -993,33 +1186,33 @@ def test_the_position_kicker_defaults_and_the_cards_take_fixed_icons(tmp_path):
     assert positions == sorted(positions)
 
 
-def test_the_media_prism_slide_carries_the_badge_and_the_others_do_not(tmp_path):
-    texts = _render(tmp_path)
-    assert "Le regard du média" in texts["03_prisme"] and DECK["prisms"][0]["media_note"] in texts["03_prisme"]
+def test_the_media_prism_slide_of_an_older_deck_carries_the_badge_and_the_others_do_not(tmp_path):
+    texts = _render(tmp_path, DECK_V1)
+    assert "Le regard du média" in texts["03_prisme"] and DECK_V1["prisms"][0]["media_note"] in texts["03_prisme"]
     assert "Le regard du média" not in texts["04_prisme"] and "Le regard du média" not in texts["05_prisme"]
 
 
 def test_the_bird_perches_on_each_prism_title(tmp_path):
-    texts = _render(tmp_path)
+    texts = _render(tmp_path, DECK_V1)
     for stem in ("03_prisme", "04_prisme", "05_prisme"):
         assert texts[stem].count("data-perch") == 1
         assert re.search(r'<h1 class="head[^"]*"[^>]*data-perch', texts[stem]), stem
 
 
-def test_the_matrix_marks_the_media_column(tmp_path):
-    text = _render(tmp_path)["06_matrice"]
+def test_the_matrix_of_an_older_deck_marks_the_media_column(tmp_path):
+    text = _render(tmp_path, DECK_V1)["06_matrice"]
     cols = text.split('<div class="col')[1:]
     assert len(cols) == 3
     marked = [c for c in cols if "Le regard du média" in c]
     assert len(marked) == 1 and "Politique" in marked[0] and "data-perch" in marked[0]
     assert text.count("data-perch") == 1
-    for col, c in zip(cols, DECK["matrix"]["columns"]):
+    for col, c in zip(cols, DECK_V1["matrix"]["columns"]):
         assert PRISMS[c["prism"]].name in col and c["variable"] in col and c["indicator"] in col
         assert "Commence par" in col and "À suivre" in col
 
 
 def test_the_cta_line_is_the_closing_question_lowercased(tmp_path):
-    text = _render(tmp_path)["07_cta"]
+    text = _render(tmp_path)["08_cta"]
     assert "— politique, économique ou sociologique : quel regard explique le mieux la crise du logement ?" in text
 
 
@@ -1069,13 +1262,24 @@ def _ask(rng: random.Random, n: int) -> str:
     return _chars(rng, n - 2) + " ?"
 
 
+# the older deck shape (prism question, lines and sources, the matrix) is no longer written by the agent: its caps,
+# kept here as they were, and a builder of its deck keep the older-deck layout test alive
+_OLD_PRISM_CAPS = {("prismes", "question"): ("chars", 50), **{("prismes", f"line{i}"): ("chars", 80) for i in (1, 2, 3, 4)},
+                   ("prismes", "media_note"): agent._CAPS[("prismes", "media_note")]}
+_OLD_CAPS = {**{k: v for k, v in agent._CAPS.items() if k[0] in ("axe", "position", "hook")},
+             **_OLD_PRISM_CAPS, ("matrice", "title"): ("chars", 34)}
+_OLD_PART_CAPS = {**{k: v for k, v in agent._PART_CAPS.items() if k[0] == "position"},
+                  **{("matrice", f"col{i}"): (("variable", 60), ("indicator", 40)) for i in (1, 2, 3)}}
+_OLD_SOURCE_MAX, _OLD_SOURCES_MAX = 30, 3
+
+
 def worst_case_fields(seed: int = 0) -> dict:
-    """Every step's fields at their caps (four lines and three sources per prism); a « a | b » field
+    """Every older-shape field at its cap (four lines and three sources per prism); a « a | b » field
     takes each part at its cap. The three prisms and the media's one are drawn from the catalogue."""
     rng = random.Random(seed)
-    cap = lambda step, name: agent._CAPS[(step, name)][1]   # noqa: E731
+    cap = lambda step, name: _OLD_CAPS[(step, name)][1]   # noqa: E731
     text = lambda step, name: _chars(rng, cap(step, name))   # noqa: E731
-    parts = lambda step, name: " | ".join(_chars(rng, c) for _, c in agent._PART_CAPS[(step, name)])   # noqa: E731
+    parts = lambda step, name: " | ".join(_chars(rng, c) for _, c in _OLD_PART_CAPS[(step, name)])   # noqa: E731
     prisms = rng.sample(PRISM_IDS, 3)
     media = rng.choice(prisms)
     axe = {"question": _ask(rng, cap("axe", "question")), "article_question": _ask(rng, 80),
@@ -1083,10 +1287,10 @@ def worst_case_fields(seed: int = 0) -> dict:
            "media": media, "media_grounding": text("axe", "media_grounding"), "closing": _ask(rng, cap("axe", "closing"))}
     position = {"kicker": text("position", "kicker"), "title": text("position", "title"), "lead": text("position", "lead"),
                 **{f"card{i}": parts("position", f"card{i}") for i in (1, 2, 3, 4)}}
-    source = lambda: _chars(rng, agent._SOURCE_MAX)   # noqa: E731
+    source = lambda: _chars(rng, _OLD_SOURCE_MAX)   # noqa: E731
     prismes = {f"p{i}": {"question": _ask(rng, cap("prismes", "question")),
                          **{f"line{k}": text("prismes", f"line{k}") for k in (1, 2, 3, 4)},
-                         "sources": " ; ".join(source() for _ in range(agent._SOURCES_MAX)),
+                         "sources": " ; ".join(source() for _ in range(_OLD_SOURCES_MAX)),
                          "media_note": text("prismes", "media_note") if p == media else ""}
                for i, p in enumerate(prisms, 1)}
     matrice = {"title": _ask(rng, cap("matrice", "title")), **{f"col{i}": parts("matrice", f"col{i}") for i in (1, 2, 3)}}
@@ -1097,16 +1301,24 @@ def worst_case_fields(seed: int = 0) -> dict:
             "writing": FIELDS["writing"]}
 
 
-# the older deck shape (prism question, lines and sources, the matrix): its worst case covers these keys only,
-# the revision-2 keys (prism cards, tensions, arbitrage) have a worst case of their own below
-_OLD_PRISM_KEYS = {"question", "line1", "line2", "line3", "line4", "media_note"}
-_OLD_CAPS = {k: v for k, v in agent._CAPS.items()
-             if k[0] in ("axe", "position", "matrice", "hook") or (k[0] == "prismes" and k[1] in _OLD_PRISM_KEYS)}
-_OLD_PART_CAPS = {k: v for k, v in agent._PART_CAPS.items() if k[0] in ("position", "matrice")}
-
-
 def worst_case_deck(seed: int = 0) -> dict:
-    return agent.assemble(_fragments(worst_case_fields(seed)))
+    """The older deck shape at its caps: axe, position, hook and caption through the agent, the prism lines and
+    sources and the matrix built here."""
+    fields = worst_case_fields(seed)
+    frags: dict[str, dict] = {}
+    for name in ("axe", "position", "hook", "writing"):
+        frags[name] = agent.to_fragment(agent.STEP_BY_NAME[name], [_opt(fields[name])], frags)
+    deck = agent.assemble(frags)
+    ids = deck["axe"]["prisms"]
+    deck["prisms"] = [{"prism": ids[i - 1], "question": f["question"],
+                       "lines": [f[f"line{k}"] for k in (1, 2, 3, 4) if f[f"line{k}"]],
+                       "sources": [x.strip() for x in f["sources"].split(";")],
+                       **({"media_note": f["media_note"]} if f["media_note"] else {})}
+                      for i, f in ((int(s[1]), f) for s, f in fields["prismes"].items())]
+    m = fields["matrice"]
+    deck["matrix"] = {"title": m["title"], "columns": [
+        {"prism": ids[i - 1], **dict(zip(("variable", "indicator"), agent._parts(m[f"col{i}"], 2)))} for i in (1, 2, 3)]}
+    return deck
 
 
 def test_the_worst_case_fields_sit_exactly_at_their_caps():
@@ -1124,18 +1336,18 @@ def test_the_worst_case_fields_sit_exactly_at_their_caps():
                     assert [len(x) for x in agent._parts(f[name], len(caps))] == [c for _, c in caps], (seed, st, name)
             if st == "prismes":
                 names = [x.strip() for x in f["sources"].split(";")]
-                assert len(names) == agent._SOURCES_MAX and all(len(x) == agent._SOURCE_MAX for x in names)
+                assert len(names) == _OLD_SOURCES_MAX and all(len(x) == _OLD_SOURCE_MAX for x in names)
         assert sum(bool(f["media_note"]) for f in fields["prismes"].values()) == 1
+        TroisRegardsPresentation.model_validate(worst_case_deck(seed))
 
 
 def test_the_worst_case_deck_breaks_no_hard_rule():
+    """The steps the agent still writes (axe, position, hook) at their caps; the card steps below."""
     for seed in range(12):
         fields = worst_case_fields(seed)
-        frags = _fragments(fields)
-        for name in ("axe", "position", "matrice", "hook"):
+        frags = {"axe": agent.to_fragment(agent.STEP_BY_NAME["axe"], [_opt(fields["axe"])], {})}
+        for name in ("axe", "position", "hook"):
             assert agent.field_errors(name, fields[name], {} if name == "axe" else frags, None)[0] == [], (seed, name)
-        for slot, f in fields["prismes"].items():
-            assert agent.field_errors("prismes", f, frags, None, slot)[0] == [], (seed, slot)
 
 
 _LINES = """() => { const box = (s) => ['paddingTop', 'paddingBottom', 'borderTopWidth', 'borderBottomWidth']
@@ -1179,13 +1391,12 @@ def test_every_field_at_its_cap_fits_on_the_slide(tmp_path, seed):
 
 # ── revision 2: four-card prism slides, the tensions and the arbitrage (older decks keep their seven slides) ──
 
-DECK_V2 = json.loads(Path("tests/fixtures/trois_regards_deck_v2.json").read_text(encoding="utf-8"))
 _SLIDES_V2 = ["01_hook", "02_position", "03_prisme", "04_prisme", "05_prisme", "06_tensions", "07_arbitrage", "08_cta"]
 _PAIRS = [[1, 2], [1, 3], [2, 3]]
 
 
 def test_a_v2_deck_validates():
-    pres = TroisRegardsPresentation.model_validate(DECK_V2)
+    pres = TroisRegardsPresentation.model_validate(DECK)
     assert [p.prism for p in pres.prisms] == pres.axe.prisms
     assert all(p.title and len(p.cards) == 4 for p in pres.prisms)
     assert all(c.head and c.claim and c.source and c.find for p in pres.prisms for c in p.cards)
@@ -1195,7 +1406,7 @@ def test_a_v2_deck_validates():
 
 
 def test_the_v2_fixture_respects_the_caps_and_the_spec():
-    p = TroisRegardsPresentation.model_validate(DECK_V2)
+    p = TroisRegardsPresentation.model_validate(DECK)
     n = lambda s: len(s.replace("**", ""))   # noqa: E731
     cap = lambda step, name: agent._CAPS[(step, name)][1]   # noqa: E731
     src, find = (c for _, c in agent._PART_CAPS[("prismes", "indice1")])
@@ -1219,7 +1430,7 @@ def test_the_v2_fixture_respects_the_caps_and_the_spec():
         assert n(c.head) <= cap("arbitrage", f"head{k}") and n(c.test) <= cap("arbitrage", f"test{k}"), c
         assert re.search(r"\w(rait|raient)\b", c.test) and clue(c) and no_digit(c.head + c.test + c.find), c
         assert agent._key_words(c.head + " " + c.test) & words, c
-    outside = re.sub(r"«[^»]*»", "", json.dumps(DECK_V2, ensure_ascii=False).lower())
+    outside = re.sub(r"«[^»]*»", "", json.dumps(DECK, ensure_ascii=False).lower())
     for w in ("biais", "manipulation", "mensonge", "trompeur", "oublie", "ignore", "omet", "néglige", "ne dit pas",
               "il faut", "devrait", "doit "):
         assert w not in outside, w
@@ -1235,29 +1446,29 @@ def test_the_new_caps_are_exposed_to_the_prompts():
 
 
 def test_an_older_deck_still_loads_and_renders(tmp_path):
-    pres = TroisRegardsPresentation.model_validate(DECK)
+    pres = TroisRegardsPresentation.model_validate(DECK_V1)
     assert pres.tensions is None and pres.arbitrage is None and pres.matrix is not None
     assert all(not s.cards and not s.title for s in pres.prisms)
-    texts = _render(tmp_path)
+    texts = _render(tmp_path, DECK_V1)
     assert list(texts) == _SLIDES
     assert all('class="card ln"' in texts[s] for s in ("03_prisme", "04_prisme", "05_prisme"))
 
 
 def test_a_v2_deck_renders_eight_slides(tmp_path):
-    texts = _render(tmp_path, DECK_V2)
+    texts = _render(tmp_path, DECK)
     assert list(texts) == _SLIDES_V2
     assert "8 / 8" in texts["08_cta"] and "7 / 8" in texts["07_arbitrage"]
 
 
 def test_a_prism_slide_shows_title_the_deck_question_and_four_cards(tmp_path):
-    texts = _render(tmp_path, DECK_V2)
-    for stem, s in zip(("03_prisme", "04_prisme", "05_prisme"), DECK_V2["prisms"]):
+    texts = _render(tmp_path, DECK)
+    for stem, s in zip(("03_prisme", "04_prisme", "05_prisme"), DECK["prisms"]):
         t = texts[stem]
         assert PRISMS[s["prism"]].name in t and PRISMS[s["prism"]].icon_svg in t
         assert re.search(r'<h1 class="head[^"]*"[^>]*data-perch', t) and t.count("data-perch") == 1, stem
         title = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s["title"])
-        assert title in t and DECK_V2["axe"]["question"] in t
-        assert t.index(title) < t.index(DECK_V2["axe"]["question"])
+        assert title in t and DECK["axe"]["question"] in t
+        assert t.index(title) < t.index(DECK["axe"]["question"])
         assert t.count('class="card pc"') == 4, stem
         heads = [t.index(c["head"]) for c in s["cards"]]
         assert heads == sorted(heads) and all(c["claim"] in t for c in s["cards"])
@@ -1265,10 +1476,10 @@ def test_a_prism_slide_shows_title_the_deck_question_and_four_cards(tmp_path):
 
 
 def test_the_media_prism_slide_keeps_the_badge_and_the_note_only_there(tmp_path):
-    texts = _render(tmp_path, DECK_V2)
-    media = [s for s in DECK_V2["prisms"] if s.get("media_note")]
+    texts = _render(tmp_path, DECK)
+    media = [s for s in DECK["prisms"] if s.get("media_note")]
     assert len(media) == 1
-    for stem, s in zip(("03_prisme", "04_prisme", "05_prisme"), DECK_V2["prisms"]):
+    for stem, s in zip(("03_prisme", "04_prisme", "05_prisme"), DECK["prisms"]):
         has = "Le regard du média" in texts[stem]
         assert has == (s is media[0]), stem
         if has:
@@ -1277,12 +1488,12 @@ def test_the_media_prism_slide_keeps_the_badge_and_the_note_only_there(tmp_path)
 
 
 def test_a_tension_card_is_tagged_with_its_two_prism_names(tmp_path):
-    text = _render(tmp_path, DECK_V2)["06_tensions"]
-    names = [PRISMS[p].name for p in DECK_V2["axe"]["prisms"]]
+    text = _render(tmp_path, DECK)["06_tensions"]
+    names = [PRISMS[p].name for p in DECK["axe"]["prisms"]]
     cards = text.split('class="card pc"')[1:]
     assert len(cards) == 3
-    assert DECK_V2["tensions"]["title"] in text and DECK_V2["axe"]["question"] in text
-    for card, c in zip(cards, DECK_V2["tensions"]["cards"]):
+    assert DECK["tensions"]["title"] in text and DECK["axe"]["question"] in text
+    for card, c in zip(cards, DECK["tensions"]["cards"]):
         a, b = c["pair"]
         assert re.search(rf'<span class="tagk">{names[a - 1]} × {names[b - 1]}</span>', card), card[:300]
         assert c["head"] in card and c["claim"] in card
@@ -1291,21 +1502,21 @@ def test_a_tension_card_is_tagged_with_its_two_prism_names(tmp_path):
 
 
 def test_the_clue_shows_the_source_in_bold_then_what_to_find(tmp_path):
-    texts = _render(tmp_path, DECK_V2)
-    c = DECK_V2["prisms"][1]["cards"][0]
+    texts = _render(tmp_path, DECK)
+    c = DECK["prisms"][1]["cards"][0]
     assert f"<strong>{c['source']}</strong> : {c['find']}" in texts["04_prisme"]
-    t = DECK_V2["tensions"]["cards"][2]
+    t = DECK["tensions"]["cards"][2]
     assert f"<strong>{t['source']}</strong> : {t['find']}" in texts["06_tensions"]
-    a = DECK_V2["arbitrage"]["cards"][0]
+    a = DECK["arbitrage"]["cards"][0]
     assert f"<strong>{a['source']}</strong> : {a['find']}" in texts["07_arbitrage"]
 
 
 def test_an_arbitrage_card_shows_its_prism_tag_the_hypothesis_the_conditional_observation_and_the_clue(tmp_path):
-    text = _render(tmp_path, DECK_V2)["07_arbitrage"]
-    assert DECK_V2["arbitrage"]["title"] in text and DECK_V2["axe"]["question"] in text
+    text = _render(tmp_path, DECK)["07_arbitrage"]
+    assert DECK["arbitrage"]["title"] in text and DECK["axe"]["question"] in text
     cards = text.split('class="card pc"')[1:]
     assert len(cards) == 3
-    for card, pid, c in zip(cards, DECK_V2["axe"]["prisms"], DECK_V2["arbitrage"]["cards"]):
+    for card, pid, c in zip(cards, DECK["axe"]["prisms"], DECK["arbitrage"]["cards"]):
         assert f'<span class="tagk">{PRISMS[pid].name}</span>' in card
         assert PRISMS[pid].icon_svg in card
         assert card.index(c["head"]) < card.index(c["test"]) < card.index(c["source"])
@@ -1314,15 +1525,15 @@ def test_an_arbitrage_card_shows_its_prism_tag_the_hypothesis_the_conditional_ob
 
 def test_the_prism_icons_are_drawn_untouched_on_the_arbitrage(tmp_path):
     """The icons are svg path data: no word joiner may land in them (`_nobreak` would put one around « - »)."""
-    doc = extract(full(), TroisRegardsPresentation.model_validate(DECK_V2))
+    doc = extract(full(), TroisRegardsPresentation.model_validate(DECK))
     raw = [p for p in renderer.generate_html(doc, tmp_path / "html") if p.stem == "07_arbitrage"][0].read_text(encoding="utf-8")
-    for pid in DECK_V2["axe"]["prisms"]:
+    for pid in DECK["axe"]["prisms"]:
         drawn = re.sub(r"></(?:line|path|circle|rect)>", "/>", raw)
         assert PRISMS[pid].icon_svg in drawn, pid
 
 
 def test_the_bird_perches_on_the_first_tension_and_the_first_arbitrage_card(tmp_path):
-    texts = _render(tmp_path, DECK_V2)
+    texts = _render(tmp_path, DECK)
     for stem in ("06_tensions", "07_arbitrage"):
         first = texts[stem].split('class="card pc"')[1]
         assert first.lstrip('"').lstrip().startswith("data-perch"), stem
@@ -1364,22 +1575,18 @@ def worst_case_fields_v2(seed: int = 0) -> dict:
 
 
 def worst_case_deck_v2(seed: int = 0) -> dict:
-    """The older worst-case deck (axe, position, hook) with the revision-2 slides 3–7 at their caps."""
-    fields = worst_case_fields_v2(seed)
-    deck = worst_case_deck(seed)
-    deck.pop("matrix")
-    clue = lambda v: dict(zip(("source", "find"), agent._parts(v, 2)))   # noqa: E731
-    deck["prisms"] = [{"prism": deck["axe"]["prisms"][i - 1], "question": "", "title": f["title"],
-                       "cards": [{"head": f[f"head{k}"], "claim": f[f"claim{k}"], **clue(f[f"indice{k}"])} for k in (1, 2, 3, 4)],
-                       **({"media_note": f["media_note"]} if f["media_note"] else {})}
-                      for i, f in ((int(s[1]), f) for s, f in fields["prismes"].items())]
-    t, a = fields["tensions"], fields["arbitrage"]
-    deck["tensions"] = {"title": t["title"], "cards": [
-        {"pair": [int(x) for x in t[f"pair{k}"].split(",")], "head": t[f"head{k}"], "claim": t[f"claim{k}"],
-         **clue(t[f"indice{k}"])} for k in (1, 2, 3)]}
-    deck["arbitrage"] = {"title": a["title"], "cards": [
-        {"head": a[f"head{k}"], "test": a[f"test{k}"], **clue(a[f"indice{k}"])} for k in (1, 2, 3)]}
-    return deck
+    """The revision-2 deck at its caps, assembled by the agent from the flat fields."""
+    return agent.assemble(_fragments(worst_case_fields_v2(seed)))
+
+
+def test_the_v2_worst_case_fields_break_no_hard_rule():
+    for seed in range(12):
+        fields = worst_case_fields_v2(seed)
+        frags = _fragments(fields)
+        for slot, f in fields["prismes"].items():
+            assert agent.field_errors("prismes", f, frags, None, slot)[0] == [], (seed, slot)
+        for name in ("tensions", "arbitrage"):
+            assert agent.field_errors(name, fields[name], frags, None)[0] == [], (seed, name)
 
 
 def test_the_v2_worst_case_fields_sit_exactly_at_their_caps():

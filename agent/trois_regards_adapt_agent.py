@@ -1,17 +1,20 @@
-"""Adapt agent for the TROIS REGARDS carousel (7 slides).
+"""Adapt agent for the TROIS REGARDS carousel (8 slides).
 
 A guided cascade: first the axe (the wide question, the narrower one the article answers
 and the three prisms that read it, never rendered as such), then in slide order the
-article's position, the three prism slides, the matrix of what each prism would measure,
-and the hook; `writing` finishes with the caption, without pausing. Each step proposes
+article's position, the three prism slides (four cards each), the tensions (where two
+regards disagree, one card per pair of prisms), the arbitrage (what one would observe if a
+regard weighed most, one card per prism) and the hook; `writing` finishes with the caption,
+without pausing. Each step proposes
 options with a reason and a ★, the author picks, edits or asks for others (`choose`),
 and a pick feeds the later steps. The `prismes` step is picked slot by slot (one option
 per prism). Steps are cached in `<format>/adapt_steps/` with a stamp of the inputs and
 the earlier picks.
 
 An option's fields are flat strings so that `choose --edit ID.field=TEXT` and `fix`
-can rewrite any of them: a card, a matrix column are one line each, their parts
-separated by « | » (see `to_fragment`).
+can rewrite any of them: a card is one field per part (`headN`, `claimN` or `testN`, `indiceN`),
+a clue « source | find » and a position card « label | text » are one line each, their parts
+separated by « | », a tension's pair is two prism numbers « 1,2 » (see `to_fragment`).
 
 Same guided semantics as `agent/anatomie_chiffre_adapt_agent.py`, kept as a module of its own.
 """
@@ -73,20 +76,49 @@ class PositionOption(BaseModel):
 
 
 class PrismesOption(BaseModel):
-    question: str
-    line1: str
-    line2: str
-    line3: str
-    line4: str               # optional
-    sources: str             # names separated by « ; »
+    title: str               # the prism's thesis on the deck's question
+    head1: str               # four cards: an assertion (headN), the same point as a question (claimN),
+    head2: str               # a clue « source | find » (indiceN)
+    head3: str
+    head4: str
+    claim1: str
+    claim2: str
+    claim3: str
+    claim4: str
+    indice1: str
+    indice2: str
+    indice3: str
+    indice4: str
     media_note: str          # only on the prism the article takes; empty otherwise
 
 
-class MatriceOption(BaseModel):
-    title: str
-    col1: str                # « variable | indicateur » — one column per prism, in the axe's order
-    col2: str
-    col3: str
+class TensionsOption(BaseModel):
+    title: str               # a neutral question
+    pair1: str               # two prism numbers « 1,2 »: the three cards take the three pairs
+    pair2: str
+    pair3: str
+    head1: str               # the point of disagreement, each side attributed to its prism
+    head2: str
+    head3: str
+    claim1: str              # the question it raises
+    claim2: str
+    claim3: str
+    indice1: str             # « source | find »: what would help settle it
+    indice2: str
+    indice3: str
+
+
+class ArbitrageOption(BaseModel):
+    title: str               # a neutral question
+    head1: str               # card N is the axe's Nth prism: the hypothesis that it weighs most
+    head2: str
+    head3: str
+    test1: str               # what one would observe if it did, in the conditional
+    test2: str
+    test3: str
+    indice1: str             # « source | find »: the series to follow
+    indice2: str
+    indice3: str
 
 
 class HookOption(BaseModel):
@@ -112,10 +144,11 @@ class Step:
 STEPS: tuple[Step, ...] = (
     Step(1, "axe", AxeOption, "question", 3),
     Step(2, "position", PositionOption, "title", 3),
-    Step(3, "prismes", PrismesOption, "question", 3, (2, 3), ("p1", "p2", "p3")),
-    Step(4, "matrice", MatriceOption, "title", 3),
-    Step(5, "hook", HookOption, "title", 3),
-    Step(6, "writing", None, "", 3, (1, 1)),
+    Step(3, "prismes", PrismesOption, "title", 3, (2, 3), ("p1", "p2", "p3")),
+    Step(4, "tensions", TensionsOption, "title", 3),
+    Step(5, "arbitrage", ArbitrageOption, "title", 3),
+    Step(6, "hook", HookOption, "title", 3),
+    Step(7, "writing", None, "", 3, (1, 1)),
 )
 STEP_BY_NAME: dict[str, Step] = {s.name: s for s in STEPS}
 STEP_NAMES = [s.name for s in STEPS[:-1]]
@@ -138,12 +171,17 @@ def _path(steps_dir: Path, step: Step) -> Path:
 
 
 def _load(steps_dir: Path, step: Step) -> tuple[StepFile | None, str]:
+    """The step file and its stamp. A file whose options do not carry the step's current fields (the prism slides
+    of an older step table: question, lines, sources) reads as unstamped, so it is stale: retired and rerun."""
     path = _path(steps_dir, step)
     if not path.exists():
         return None, ""
     stamp = path.with_suffix(".sha256")
-    return (StepFile.model_validate_json(path.read_text(encoding="utf-8")),
-            stamp.read_text().strip() if stamp.exists() else "")
+    sf = StepFile.model_validate_json(path.read_text(encoding="utf-8"))
+    fields = set(step.option_model.model_fields) if step.option_model is not None else None
+    if fields is not None and any(set(o.fields) != fields for o in sf.options):
+        return sf, ""
+    return sf, stamp.read_text().strip() if stamp.exists() else ""
 
 
 def _save(steps_dir: Path, sf: StepFile, stamp: str) -> None:
@@ -177,6 +215,20 @@ def _axe_prisms(fragments: dict[str, dict]) -> list[str]:
     return list(fragments.get("axe", {}).get("axe", {}).get("prisms", []))
 
 
+_PAIR = re.compile(r"\s*(\d)\s*,\s*(\d)\s*")
+
+
+def _pair(value: str) -> list[int]:
+    """« 1,2 » (or « 2, 1 ») → [1, 2]; anything else → []."""
+    m = _PAIR.fullmatch(str(value))
+    return sorted(int(x) for x in m.groups()) if m else []
+
+
+def _clue(value: str) -> dict[str, str]:
+    source, find = _parts(str(value), 2)
+    return {"source": source, "find": find}
+
+
 def to_fragment(step: Step, picks: list[Option], fragments: dict[str, dict]) -> dict:
     """One pick, or three for `prismes` (slot `pN` takes the Nth prism of the axe)."""
     f = picks[0].fields
@@ -200,23 +252,21 @@ def to_fragment(step: Step, picks: list[Option], fragments: dict[str, dict]) -> 
         for pick in picks:
             g = pick.fields
             n = int(pick.slot[1:])
-            slide = {"prism": axe_prisms[n - 1] if n <= len(axe_prisms) else "",
-                     "question": g.get("question", ""),
-                     "lines": [str(g[k]).strip() for k in ("line1", "line2", "line3", "line4")
-                               if str(g.get(k, "")).strip()],
-                     "sources": [s.strip() for s in str(g.get("sources", "")).split(";") if s.strip()]}
+            slide = {"prism": axe_prisms[n - 1] if n <= len(axe_prisms) else "", "title": g.get("title", ""),
+                     "cards": [{"head": g.get(f"head{k}", ""), "claim": g.get(f"claim{k}", ""),
+                                **_clue(g.get(f"indice{k}", ""))} for k in (1, 2, 3, 4)]}
             if str(g.get("media_note", "")).strip():
                 slide["media_note"] = str(g["media_note"]).strip()
             slides.append(slide)
         return {"prisms": slides}
-    if step.name == "matrice":
-        axe_prisms = _axe_prisms(fragments)
-        columns = []
-        for i in (1, 2, 3):
-            variable, indicator = _parts(str(f.get(f"col{i}", "")), 2)
-            columns.append({"prism": axe_prisms[i - 1] if i <= len(axe_prisms) else "",
-                            "variable": variable, "indicator": indicator})
-        return {"matrix": {"title": f.get("title", ""), "columns": columns}}
+    if step.name == "tensions":
+        return {"tensions": {"title": f.get("title", ""), "cards": [
+            {"pair": _pair(f.get(f"pair{k}", "")), "head": f.get(f"head{k}", ""), "claim": f.get(f"claim{k}", ""),
+             **_clue(f.get(f"indice{k}", ""))} for k in (1, 2, 3)]}}
+    if step.name == "arbitrage":
+        return {"arbitrage": {"title": f.get("title", ""), "cards": [
+            {"head": f.get(f"head{k}", ""), "test": f.get(f"test{k}", ""), **_clue(f.get(f"indice{k}", ""))}
+            for k in (1, 2, 3)]}}
     if step.name == "hook":
         return {"hook": {"title": f.get("title", ""), "promise": f.get("promise", "")}}
     return {"caption": f.get("caption", "")}
@@ -245,12 +295,9 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("axe", "question"): ("chars", 60), ("axe", "subject"): ("chars", 36),
     ("axe", "closing"): ("chars", 110), ("axe", "media_grounding"): ("chars", 120),
     ("position", "kicker"): ("chars", 26), ("position", "title"): ("chars", 32), ("position", "lead"): ("chars", 90),
-    ("prismes", "question"): ("chars", 50),
-    **{("prismes", f"line{i}"): ("chars", 80) for i in (1, 2, 3, 4)},
     ("prismes", "media_note"): ("chars", 90),
-    ("matrice", "title"): ("chars", 34),
     ("hook", "title"): ("chars", 70), ("hook", "promise"): ("chars", 100),
-    # revision 2: the four-card prism slides, the tensions (slide 6) and the arbitrage (slide 7)
+    # the four-card prism slides, the tensions (slide 6) and the arbitrage (slide 7)
     ("prismes", "title"): ("chars", 40),
     **{("prismes", f"head{i}"): ("chars", 36) for i in (1, 2, 3, 4)},
     **{("prismes", f"claim{i}"): ("chars", 46) for i in (1, 2, 3, 4)},
@@ -264,25 +311,25 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
 # (step, field) -> the parts of a « a | b » field, each with its cap in characters
 _PART_CAPS: dict[tuple[str, str], tuple[tuple[str, int], ...]] = {
     **{("position", f"card{i}"): (("label", 30), ("text", 76)) for i in (1, 2, 3, 4)},
-    **{("matrice", f"col{i}"): (("variable", 60), ("indicator", 40)) for i in (1, 2, 3)},
     # a clue: « <source nommée> | <ce qu'on y cherche> »
     **{(step, f"indice{i}"): (("source", 30), ("find", 60))
        for step, n in (("prismes", 4), ("tensions", 3), ("arbitrage", 3)) for i in range(1, n + 1)},
 }
-_SOURCE_MAX = 30       # characters in one source name
-_SOURCES_MAX = 3       # names on one prism slide
 _REQUIRED = {"axe": ("question", "article_question", "subject", "prism1", "prism2", "prism3", "media",
                      "media_grounding", "closing"),
              "position": ("kicker", "title", "lead", "card1", "card2", "card3"),
-             "prismes": ("question", "line1", "line2", "line3", "sources"),
-             "matrice": ("title", "col1", "col2", "col3"),
+             "prismes": tuple(f for f in PrismesOption.model_fields if f != "media_note"),
+             "tensions": tuple(TensionsOption.model_fields),
+             "arbitrage": tuple(ArbitrageOption.model_fields),
              "hook": ("title", "promise")}
+# the card steps: how many cards, and the field that carries a card's second line
+_CARDS = {"prismes": (4, "claim"), "tensions": (3, "claim"), "arbitrage": (3, "test")}
+_CONDITIONAL = re.compile(r"\w(?:rait|raient)\b", re.I)
 _ACCUSING = re.compile(r"\b(biais|manipulation|manipul\w+|mensonges?|trompeu\w+|fallacieu\w+|sophismes?)\b", re.I)
 _BLAMING = re.compile(r"\b(oublie(?:nt|s)?|ignore(?:nt|s)?|omet(?:s|tent)?|néglige(?:nt|s)?|ne (?:dit|disent) pas)\b", re.I)
 _PRESCRIPTIVE = re.compile(r"\b(il faut|faut-il|il faudrait|faudrait|doit|doivent|devrait|devraient)\b", re.I)
 _QUOTED = re.compile(r"«[^»]*»")
 _HASHTAG = re.compile(r"#\w+")
-_DIGIT = re.compile(r"\d")
 _NUMBER = re.compile(r"\d+(?:[.,]\d+)?")
 _YEAR = re.compile(r"(?:1[5-9]|20)\d\d")
 # on a prism and the axe's question, a date is allowed besides a year: « 15 mai », « 1er », a reference « 12/2023 »
@@ -355,10 +402,12 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict], 
             hard.append(f"{step}.{name} uses an accusing word « {m.group(0)} » — the carousel gives tools, not verdicts")
         if (m := _BLAMING.search(outside)):
             hard.append(f"{step}.{name} blames the article (« {m.group(0)} ») — say what a prism looks at, never what the article lacks")
-        if step == "matrice" and (m := _PRESCRIPTIVE.search(outside)):
-            hard.append(f"{step}.{name} is prescriptive (« {m.group(0)} ») — the matrix says what to measure, never what to do")
-        if step == "matrice" and _DIGIT.search(value):
-            hard.append(f"{step}.{name} holds a digit — the matrix is outside the article's frame and adds no figure")
+        # prescriptive verbs: everywhere on the tensions; on the arbitrage, its title and heads only (a test's
+        # « devrait » is a conditional observation)
+        if (step == "tensions" or (step == "arbitrage" and (name == "title" or name.startswith("head")))) \
+                and (m := _PRESCRIPTIVE.search(outside)):
+            hard.append(f"{step}.{name} is prescriptive (« {m.group(0)} ») — the carousel weighs regards, "
+                        "it never says what to do")
     for (st, name), caps in _PART_CAPS.items():
         if st == step and str(fields.get(name, "")).strip():
             parts = _parts(fields[name], len(caps))
@@ -386,7 +435,7 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict], 
         if media and media not in prisms:
             hard.append(f"axe.media « {media} » is not one of the three prisms")
         question("question", str(fields.get("question", "")))
-        if _odd_digits(str(fields.get("question", ""))):     # drawn as the matrix lead line
+        if _odd_digits(str(fields.get("question", ""))):     # drawn under the prism, tensions and arbitrage titles
             hard.append(f"axe.question holds a digit — {_DIGIT_RULE}")
         question("closing", str(fields.get("closing", "")))
         closing = str(fields.get("closing", ""))
@@ -407,23 +456,52 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict], 
             if article:
                 flags += [f"position.{name}: {q} does not appear word for word in the source"
                           for q in _QUOTED.findall(value) if _norm(q.strip("« »  ")) not in _norm(article)]
+    if step in _CARDS:
+        count, second = _CARDS[step]
+        title = str(fields.get("title", ""))
+        if _odd_digits(title):
+            hard.append(f"{step}.title holds a digit — {_DIGIT_RULE}")
+        if step != "prismes":                       # a prism's title is a thesis; the other two ask
+            question("title", title)
+            if re.search(r"\bou\b", title):
+                flags.append(f"{step}.title contains « ou » — it may read as a binary choice; the question should stay open")
+        cards = []
+        for k in range(1, count + 1):
+            for name in (f"head{k}", f"{second}{k}", f"indice{k}"):
+                if _odd_digits(str(fields.get(name, ""))):
+                    hard.append(f"{step}.{name} holds a digit — {_DIGIT_RULE}")
+            if _URL.search(str(fields.get(f"indice{k}", ""))):
+                hard.append(f"{step}.indice{k} holds a URL — name the organisation, document or series, never a link")
+            line = str(fields.get(f"{second}{k}", ""))
+            if second == "claim":
+                question(f"claim{k}", line)
+            elif line.strip().endswith("?"):
+                hard.append(f"{step}.test{k} is a sentence, not a question — what one would observe, in the conditional")
+            elif line.strip() and not _CONDITIONAL.search(line):
+                flags.append(f"{step}.test{k} has no conditional verb (« -rait / -raient ») — say what one would observe "
+                             "if this regard weighed most, never a result")
+            text = f"{fields.get(f'head{k}', '')} {line}"
+            cards.append(_key_words(text) - question_words)
+            if text.strip() and question_words and not _key_words(text) & question_words:
+                flags.append(f"{step}.card{k} shares no key word with the axe's question — each card answers that question")
+        for i in range(count):
+            for j in range(i + 1, count):
+                a, b = cards[i], cards[j]
+                if a and b and len(a & b) / min(len(a), len(b)) >= _NEAR_IDENTICAL:
+                    flags.append(f"{step}: card{i + 1} and card{j + 1} say nearly the same thing — "
+                                 "each card should bring its own mechanism")
+    if step == "tensions":
+        pairs = []
+        for k in (1, 2, 3):
+            raw = str(fields.get(f"pair{k}", "")).strip()
+            pair = _pair(raw)
+            if raw and (not pair or pair[0] == pair[1] or not set(pair) <= {1, 2, 3}):
+                hard.append(f"tensions.pair{k} « {raw} » must be two different prism numbers among 1, 2, 3, as « 1,2 »")
+            elif pair:
+                pairs.append(tuple(pair))
+        if len(pairs) == 3 and sorted(pairs) != [(1, 2), (1, 3), (2, 3)]:
+            hard.append("tensions: the three pairs must be the three pairs of prisms (1,2 ; 1,3 ; 2,3), one per card")
     if step == "prismes":
-        lines = [str(fields.get(f"line{i}", "")) for i in (1, 2, 3, 4)]
-        for label, text in (("question", str(fields.get("question", ""))), *((f"line{i}", t) for i, t in enumerate(lines, 1))):
-            if _odd_digits(text):
-                hard.append(f"prismes.{label} holds a digit — {_DIGIT_RULE}")
-        raw = str(fields.get("sources", ""))
-        names = [s.strip() for s in raw.split(";") if s.strip()]
-        if raw.strip() and not names:
-            hard.append("prismes.sources names no source — it takes 1 to 3 organisations or series, separated by « ; »")
-        if len(names) > _SOURCES_MAX:
-            hard.append(f"prismes.sources has {len(names)} names (max {_SOURCES_MAX})")
-        hard += [f"prismes.sources: « {n} » is {len(_bare(n))} characters (max {_SOURCE_MAX})"
-                 for n in names if len(_bare(n)) > _SOURCE_MAX]
-        if _URL.search(raw):
-            hard.append("prismes.sources holds a URL — name the organisation or series, never a link")
-        if _DIGIT.search(raw):
-            hard.append("prismes.sources holds a digit — name an organisation or a series, never a figure")
         note = str(fields.get("media_note", "")).strip()
         axe_prisms = _axe_prisms(fragments)
         n = int(slot[1:]) if re.fullmatch(r"p\d", slot) else 0
@@ -435,30 +513,17 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict], 
                 hard.append("prismes.media_note must be empty — only the media's prism carries it")
         if article:
             flags += [f"prismes.media_note: {q} does not appear word for word in the source"
-                      for q in _QUOTED.findall(note) if _norm(q.strip("« »  ")) not in _norm(article)]
-        if question_words and str(fields.get("question", "")).strip() \
-                and not _key_words(str(fields.get("question", ""))) & question_words:
-            flags.append("prismes.question shares no key word with the axe's question — the prism should answer that question")
-        subject_words = _key_words(str(axe.get("subject", "")))
-        if subject_words and any(t.strip() for t in lines) and not _key_words(" ".join(lines)) & subject_words:
-            flags.append(f"prismes: the lines share no key word with the subject « {axe['subject']} » — the slide may drift")
-        mine = _key_words(" ".join([str(fields.get("question", "")), *lines]))
+                      for q in _QUOTED.findall(note) if _norm(q.strip("« »  ")) not in _norm(article)]
+        words = lambda texts: _key_words(" ".join(texts)) - question_words   # noqa: E731
+        mine = words([str(fields.get("title", "")), *(str(fields.get(f"{p}{k}", "")) for p in ("head", "claim")
+                                                      for k in (1, 2, 3, 4))])
         for k, other in enumerate(fragments.get("prismes", {}).get("prisms", []), 1):
             if k == n:
                 continue
-            theirs = _key_words(" ".join([other.get("question", ""), *other.get("lines", [])]))
+            theirs = words([other.get("title", ""), *(c.get(p, "") for c in other.get("cards", []) for p in ("head", "claim"))])
             if mine and theirs and len(mine & theirs) / min(len(mine), len(theirs)) >= _NEAR_IDENTICAL:
                 flags.append(f"prismes: this slide and the one of slot p{k} say nearly the same thing — "
                              "each prism should bring its own reading")
-    if step == "matrice":
-        question("title", str(fields.get("title", "")))
-        if re.search(r"\bou\b", str(fields.get("title", ""))):
-            flags.append("matrice.title contains « ou » — it may read as a binary choice; the question should stay open")
-        for name in ("col1", "col2", "col3"):
-            value = str(fields.get(name, "")).strip()
-            if value and question_words and not _key_words(value) & question_words:
-                flags.append(f"matrice.{name} shares no key word with the axe's question — it should say where the prism "
-                             "starts to answer that question")
     if step == "hook":
         question("title", str(fields.get("title", "")))
         promise = str(fields.get("promise", "")).strip()
@@ -478,14 +543,15 @@ _CAP = re.compile(r"\{\{cap:([\w.]+)\}\}")
 
 
 def prompt_caps() -> dict[str, int]:
-    """Every cap a prompt may quote, by name (« {{cap:prismes.line1}} »): the prompts never write the numbers,
-    so they cannot drift from the rules the options are checked against."""
+    """Every cap a prompt may quote, by name (« {{cap:prismes.head1}} », or « {{cap:prismes.head}} » for every card):
+    the prompts never write the numbers, so they cannot drift from the rules the options are checked against."""
     caps = {f"{s}.{f}": n for (s, f), (_, n) in _CAPS.items()}
+    caps |= {f"{s}.{re.sub(r'\d+$', '', f)}": n for (s, f), (_, n) in _CAPS.items()}   # « prismes.head »
     for (s, f), parts in _PART_CAPS.items():
         for part, n in parts:
             caps[f"{s}.{f}.{part}"] = n
             caps[f"{s}.{re.sub(r'\d+$', '', f)}.{part}"] = n
-    return caps | {"prismes.source": _SOURCE_MAX, "prismes.sources": _SOURCES_MAX}
+    return caps
 
 
 def fill_caps(text: str) -> str:
@@ -915,12 +981,14 @@ def more(full, steps_dir: Path, step: str, remark: str = "", article_text: str |
     return new
 
 
-VERIFIED_STEPS = ("prismes",)
+VERIFIED_STEPS = ("prismes", "tensions", "arbitrage")
+_VERIFY_SLOT = {"tensions": "t", "arbitrage": "a"}     # a prism slide keeps its own slot (p1–p3)
 
 
 async def verify_pick(steps_dir: Path, step: str, search=None) -> list[str]:
-    """Check the sources of the picked prism slides against the web (see `trois_regards_verify`): the ⚠ lines for
-    the author, the results kept beside the step and in the choice log. Advisory, never blocking."""
+    """Check the sources named in the clues (`indiceN`, the part before « | ») of the picked option(s) against the
+    web (see `trois_regards_verify`): the ⚠ lines for the author, the results kept beside the step and in the
+    choice log. Advisory, never blocking."""
     from agent import trois_regards_verify as tv
     st = STEP_BY_NAME[step]
     sf, _ = _load(steps_dir, st)
@@ -929,11 +997,11 @@ async def verify_pick(steps_dir: Path, step: str, search=None) -> list[str]:
     axe_sf, _ = _load(steps_dir, STEP_BY_NAME["axe"])
     axe = (axe_sf.fragment if axe_sf else {}).get("axe", {})
     chosen = _chosen(st, sf)
-    pts = tv.points({o.slot: o.fields for o in chosen}, list(axe.get("prisms", [])))
+    pts = tv.points({_VERIFY_SLOT.get(step, o.slot): o.fields for o in chosen}, list(axe.get("prisms", [])))
     results = await tv.verify_sources(pts, str(axe.get("subject", "")), search)
     tv.save(steps_dir, st.n, step, results)
     log_choice(steps_dir.parent, {"step": step, "event": "verify",
-                                  "results": [{k: r[k] for k in ("slot", "source", "status", "source_ref")}
+                                  "results": [{k: r[k] for k in ("slot", "field", "source", "status", "source_ref")}
                                               for r in results]})
     return tv.warnings(step, results)
 

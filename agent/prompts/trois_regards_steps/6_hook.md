@@ -1,4 +1,4 @@
-ÉTAPE 5 — L'ACCROCHE (slide 1)
+ÉTAPE 6 — L'ACCROCHE (slide 1)
 
 Tout le reste est FIXÉ. Tu proposes 3 ou 4 options pour l'accroche ; elles ne diffèrent que par le titre.
 - `title` (**≤{{cap:hook.title}} caractères**, finit par « ? ») : la question de l'axe. Tu peux varier la formulation (« D'où vient … ? », « Qu'est-ce qui explique … ? »), jamais le sens : c'est la même question, large, à laquelle chacun des trois prismes répond. Ce n'est pas la question plus étroite de l'article. Pas de « » (ce n'est pas une citation), pas de nom de prisme.

@@ -1,10 +1,11 @@
-"""Checks the sources named on the prism slides of a `trois_regards` deck against the web, once the author has picked them.
+"""Checks the sources named in the clues of a `trois_regards` deck against the web, once the author has picked them.
 
-Each prism slide points to organisations or series to consult — the model's general knowledge, not the article's. After a
-pick on `prismes`, each (prism, source) becomes a one-sentence claim, searched with the repo's claim verifier
-(`tools/verify.py`: news and public databases, a stance per source). A source with no supporting result, or one a result
-contradicts, comes back as a ⚠ — advisory, the author has the last word. The result is kept beside the step
-(`<n>_prismes.verification.json`, outside the stamp) and in the choice log; no slide shows it.
+Each card of a prism slide, of the tensions and of the arbitrage ends on a clue, « source | ce qu'on y cherche » (`indiceN`):
+the source is the model's general knowledge, not the article's. After a pick on `prismes`, `tensions` or `arbitrage`,
+each named source becomes a one-sentence claim, searched with the repo's claim verifier (`tools/verify.py`: news and
+public databases, a stance per source). A source with no supporting result, or one a result contradicts, comes back as
+a ⚠ naming the field to fix — advisory, the author has the last word. The result is kept beside the step
+(`<n>_<step>.verification.json`, outside the stamp) and in the choice log; no slide shows it.
 
 The search is built for news: it may miss well-known institutions, so « no source found » means exactly that.
 """
@@ -14,18 +15,31 @@ from pathlib import Path
 from typing import Awaitable, Callable
 
 
-def points(fields_by_slot: dict[str, dict], prism_ids: list[str] | None = None) -> list[tuple[str, str, str]]:
-    """(slot, prism name, source name) of each source of the picked options; `prism_ids` are the axe's prisms in
-    slot order (slot `pN` is the Nth), a prism id unknown to the catalogue is used as its own name."""
+def points(fields_by_slot: dict[str, dict], prism_ids: list[str] | None = None) -> list[tuple[str, str, str, str]]:
+    """(slot, field, prism name, source) of each clue of the picked options, the source being the part of `indiceN`
+    before « | » (a clue with no source is skipped). Slot `pN` is a prism slide (the axe's Nth prism, four clues), `t`
+    the tensions (card N names the two prisms of its `pairN`), `a` the arbitrage (card N is the axe's Nth prism).
+    `prism_ids` are the axe's prisms in order; a prism id unknown to the catalogue is used as its own name."""
     from agent.trois_regards_prisms import PRISMS
+
+    def name(n: int) -> str:
+        pid = prism_ids[n - 1] if prism_ids and 1 <= n <= len(prism_ids) else ""
+        return PRISMS[pid].name if pid in PRISMS else pid
+
     out = []
     for slot, fields in fields_by_slot.items():
-        n = int(slot[1:]) if slot[1:].isdigit() else 0
-        pid = prism_ids[n - 1] if prism_ids and 1 <= n <= len(prism_ids) else ""
-        name = PRISMS[pid].name if pid in PRISMS else (pid or slot)
-        for source in str(fields.get("sources", "")).split(";"):
-            if source.strip():
-                out.append((slot, name, source.strip()))
+        for k in range(1, 5):
+            source = str(fields.get(f"indice{k}", "")).split("|", 1)[0].strip()
+            if not source:
+                continue
+            if slot == "t":
+                pair = [int(x) for x in str(fields.get(f"pair{k}", "")).replace(" ", "").split(",") if x.isdigit()]
+                prism = " × ".join(name(n) or str(n) for n in pair) or slot
+            elif slot == "a":
+                prism = name(k) or slot
+            else:
+                prism = name(int(slot[1:]) if slot[1:].isdigit() else 0) or slot
+            out.append((slot, f"indice{k}", prism, source))
     return out
 
 
@@ -42,13 +56,13 @@ async def _search(text: str):
 
 async def verify_sources(pts: list[tuple[str, str, str]], subject: str,
                          search: Callable[[str], Awaitable] | None = None) -> list[dict]:
-    """One result per source: {slot, source, claim, status: confirmed | unconfirmed | contradicted | unavailable,
+    """One result per source: {slot, field, source, claim, status: confirmed | unconfirmed | contradicted | unavailable,
     source_ref, reason}. A search that fails (no key, no network, provider down) is `unavailable`, never an error."""
     search = search or _search
 
-    async def one(slot: str, prism: str, source: str) -> dict:
+    async def one(slot: str, field: str, prism: str, source: str) -> dict:
         text = claim_text(prism, source, subject)
-        base = {"slot": slot, "source": source, "claim": text}
+        base = {"slot": slot, "field": field, "source": source, "claim": text}
         try:
             found = await search(text)
         except Exception as exc:
@@ -67,7 +81,8 @@ def warnings(step: str, results: list[dict]) -> list[str]:
     """The ⚠ lines for the author: what is not confirmed, what is contradicted, a search that could not run."""
     out = []
     for r in results:
-        where = f"{step}.{r['slot']}.sources"
+        # the field as `fix` names it: « prismes.p2.indice3 », « tensions.indice1 »
+        where = f"{step}.{r['slot']}.{r['field']}" if step == "prismes" else f"{step}.{r['field']}"
         if r["status"] == "unconfirmed":
             out.append(f"{where}: no result found for « {r['source']} » — the search is built for news and may miss "
                        "well-known institutions: check it before keeping it")
