@@ -4,17 +4,17 @@
     {
       "id": "a",
       "slot": "a",
-      "reason": "Le récit est politique (calendrier, coalitions) ; l'économie (rareté, prix) et le droit (loyers, évictions) répondent autrement.",
+      "reason": "Le récit est politique (élections, Congrès, coalitions) ; l'économie (rareté, prix) et la sociologie (qui est touché) répondent autrement.",
       "fields": {
-        "question": "Qu'est-ce qui explique la crise du logement en Espagne ?",
-        "article_question": "Comment la crise du logement a-t-elle conduit Pedro Sánchez à convoquer des élections anticipées ?",
+        "question": "D'où vient la crise du logement en Espagne ?",
+        "article_question": "Comment la mort d'une locataire expulsée a-t-elle poussé Sánchez à avancer les élections ?",
         "subject": "la crise du logement en Espagne",
         "prism1": "politique",
         "prism2": "economique",
-        "prism3": "juridique",
+        "prism3": "sociologique",
         "media": "politique",
-        "media_grounding": "Le récit suit Sánchez, le vote du Congrès, le Parti populaire, Vox et les sondages jusqu'au scrutin du 29 novembre.",
-        "closing": "entre le politique, l'économique et le juridique, quel regard éclaire le mieux la crise du logement ?"
+        "media_grounding": "Le récit suit le calendrier électoral de Sánchez, le rejet au Congrès, la droite en tête des sondages et la menace Vox.",
+        "closing": "entre le politique, l'économique et le sociologique, que manque-t-il pour comprendre la crise du logement ?"
       },
       "edited": false,
       "flags": []
@@ -22,17 +22,17 @@
     {
       "id": "b",
       "slot": "a",
-      "reason": "Les témoignages (sociologique) et la trajectoire longue du logement social (historique) élargissent le regard politique du récit.",
+      "reason": "Le droit (loyers, évictions) et l'histoire (repères datés) donnent d'autres réponses que le récit politique de l'article.",
       "fields": {
-        "question": "D'où vient la crise du logement en Espagne ?",
-        "article_question": "Comment la crise du logement a-t-elle conduit Pedro Sánchez à convoquer des élections anticipées ?",
+        "question": "Qu'est-ce qui explique la crise du logement en Espagne ?",
+        "article_question": "Comment la mort d'une locataire expulsée a-t-elle poussé Sánchez à avancer les élections ?",
         "subject": "la crise du logement en Espagne",
-        "prism1": "sociologique",
-        "prism2": "historique",
-        "prism3": "politique",
+        "prism1": "juridique",
+        "prism2": "politique",
+        "prism3": "historique",
         "media": "politique",
-        "media_grounding": "Le récit suit Sánchez, le vote du Congrès, le Parti populaire, Vox et les sondages jusqu'au scrutin du 29 novembre.",
-        "closing": "entre le sociologique, l'historique et le politique, quel regard éclaire le mieux la crise du logement ?"
+        "media_grounding": "Le récit suit le calendrier électoral de Sánchez, le rejet au Congrès, la droite en tête des sondages et la menace Vox.",
+        "closing": "entre le juridique, le politique et l'historique, que manque-t-il pour comprendre la crise du logement ?"
       },
       "edited": false,
       "flags": []
@@ -40,17 +40,37 @@
     {
       "id": "c",
       "slot": "a",
-      "reason": "Écarte le politique, centre du récit, au profit de trois lectures de fond ; le sociologique est le plus proche, via les témoignages.",
+      "reason": "Prix et rareté, règles sur les loyers et rapports de force donnent trois réponses distinctes ; le politique structure l'article.",
       "fields": {
-        "question": "Qu'est-ce qui pèse sur le logement en Espagne ?",
-        "article_question": "Comment la crise du logement a-t-elle conduit Pedro Sánchez à convoquer des élections anticipées ?",
+        "question": "Pourquoi se loger est-il devenu si difficile en Espagne ?",
+        "article_question": "Comment la mort d'une locataire expulsée a-t-elle poussé Sánchez à avancer les élections ?",
         "subject": "le logement en Espagne",
         "prism1": "economique",
-        "prism2": "sociologique",
-        "prism3": "historique",
+        "prism2": "juridique",
+        "prism3": "politique",
+        "media": "politique",
+        "media_grounding": "Aucun prisme ne domine ; le plus proche est le politique : élections, Congrès, sondages, coalition avec Vox.",
+        "closing": "entre l'économique, le juridique et le politique, que manque-t-il pour comprendre le logement en Espagne ?"
+      },
+      "edited": false,
+      "flags": [
+        "axe: no prism clearly dominates the article — the media's prism is the closest one; the « regard du média » line will say only what the article does with it"
+      ]
+    },
+    {
+      "id": "d",
+      "slot": "a",
+      "reason": "Les témoignages donnent un regard sociologique ; l'économie et la politique expliquent autrement la même crise.",
+      "fields": {
+        "question": "D'où viennent les difficultés de logement en Espagne ?",
+        "article_question": "Comment la mort d'une locataire expulsée a-t-elle poussé Sánchez à avancer les élections ?",
+        "subject": "les difficultés de logement",
+        "prism1": "sociologique",
+        "prism2": "economique",
+        "prism3": "politique",
         "media": "sociologique",
-        "media_grounding": "Aucun prisme ne domine ; le plus proche est le sociologique : une militante et une locataire expulsée témoignent.",
-        "closing": "entre l'économique, le sociologique et l'historique, quel regard éclaire le mieux le logement en Espagne ?"
+        "media_grounding": "Aucun prisme ne domine ; le plus proche est le sociologique : une locataire expulsée, une militante.",
+        "closing": "entre le sociologique, l'économique et le politique, que manque-t-il pour comprendre ces difficultés ?"
       },
       "edited": false,
       "flags": [
@@ -67,17 +87,17 @@
   ],
   "fragment": {
     "axe": {
-      "question": "Qu'est-ce qui explique la crise du logement en Espagne ?",
-      "article_question": "Comment la crise du logement a-t-elle conduit Pedro Sánchez à convoquer des élections anticipées ?",
+      "question": "D'où vient la crise du logement en Espagne ?",
+      "article_question": "Comment la mort d'une locataire expulsée a-t-elle poussé Sánchez à avancer les élections ?",
       "subject": "la crise du logement en Espagne",
       "prisms": [
         "politique",
         "economique",
-        "juridique"
+        "sociologique"
       ],
       "media": "politique",
-      "media_grounding": "Le récit suit Sánchez, le vote du Congrès, le Parti populaire, Vox et les sondages jusqu'au scrutin du 29 novembre.",
-      "closing": "entre le politique, l'économique et le juridique, quel regard éclaire le mieux la crise du logement ?"
+      "media_grounding": "Le récit suit le calendrier électoral de Sánchez, le rejet au Congrès, la droite en tête des sondages et la menace Vox.",
+      "closing": "entre le politique, l'économique et le sociologique, que manque-t-il pour comprendre la crise du logement ?"
     }
   },
   "remarks": []

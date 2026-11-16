@@ -4,68 +4,83 @@
     {
       "id": "a",
       "slot": "a",
-      "reason": "Trois désaccords : le rôle des partis face au marché, la place des majorités face aux droits, l'effet d'un plafond de loyer.",
+      "reason": "Trois désaccords : le poids de la loi sur les prix, le logement comme enjeu de vote, la mobilité face aux liens locaux.",
       "fields": {
-        "title": "Où les regards divergent-ils ?",
+        "title": "Pouvoir, marché, société : trois désaccords",
+        "lead": "Le rôle du vote, des loyers, des jeunes et des aînés",
         "pair1": "1,2",
         "pair2": "1,3",
         "pair3": "2,3",
-        "head1": "Le jeu des partis, ou le prix du marché",
-        "head2": "Des majorités, ou des droits écrits",
-        "head3": "Les prix, ou la loi qui les cadre",
-        "claim1": "Qui pèse sur la crise du logement ?",
-        "claim2": "Qui fixe les règles de la crise du logement ?",
-        "claim3": "Un plafond change-t-il la crise du logement ?",
-        "indice1": "Banco de España | les rapports sur le marché du logement",
-        "indice2": "Tribunal Constitucional | les arrêts sur le logement",
-        "indice3": "OCDE | les études sur le contrôle des loyers"
+        "head1": "Le vote presse le dossier ; le marché ne bouge qu'avec l'offre",
+        "head2": "Le logement se joue aux urnes ; il se joue dans les générations",
+        "head3": "Les prix chassent les ménages ; les liens sociaux les retiennent",
+        "claim1": "Les loyers baissent-ils après une réforme ?",
+        "claim2": "Les jeunes votent-ils plus là où l'on loue ?",
+        "claim3": "Part-on plus des villes aux loyers en hausse ?",
+        "indice1": "Banco de España | l'évolution des loyers, selon les réformes",
+        "indice2": "CIS (enquêtes sociologiques) | le vote des jeunes, selon le statut de logement",
+        "indice3": "INE (statistique espagnole) | les migrations résidentielles, par commune"
       },
-      "edited": false,
-      "flags": []
+      "edited": true,
+      "flags": [
+        "tensions.card1 shares no key word with the axe's question — each card answers that question",
+        "tensions.card3 shares no key word with the axe's question — each card answers that question",
+        "tensions: card1 and card2 open their head with the same word « le » — vary the openings"
+      ]
     },
     {
       "id": "b",
       "slot": "a",
-      "reason": "Trois désaccords : le poids des votes face à la rareté, le rôle d'un texte face aux urnes, l'effet des règles sur l'offre.",
+      "reason": "Trois désaccords : l'effet d'un plafond, les groupes que les mesures touchent, le poids du revenu face à celui de l'âge.",
       "fields": {
-        "title": "Sur quoi les regards s'opposent ?",
+        "title": "Loi, prix, âge : où les regards divergent",
+        "lead": "Les mesures publiques, les loyers, la place des générations",
         "pair1": "1,2",
         "pair2": "1,3",
         "pair3": "2,3",
-        "head1": "Le blocage des votes, ou la rareté",
-        "head2": "Le calendrier des urnes, ou le droit",
-        "head3": "L'offre qui manque, ou les règles du jeu",
-        "claim1": "Le vote explique-t-il la crise du logement ?",
-        "claim2": "Les urnes changent-elles le logement ?",
-        "claim3": "Les règles freinent-elles le logement ?",
-        "indice1": "Congreso de los Diputados | les votes sur le logement",
-        "indice2": "Ministerio de Vivienda | la loi sur le logement de 2023",
-        "indice3": "Banco de España | l'évolution de l'offre de logements"
+        "head1": "Une loi rythmée par les urnes ; des prix réglés par l'offre",
+        "head2": "Des coalitions qui tranchent ; des groupes qui ne pèsent pas pareil",
+        "head3": "Un marché qui trie par le revenu ; des normes qui trient par l'âge",
+        "claim1": "Les loyers montent-ils moins sous un plafond ?",
+        "claim2": "Les aides vont-elles plus aux jeunes ?",
+        "claim3": "Le revenu ou l'âge pèse-t-il plus ?",
+        "indice1": "Banco de España | l'évolution des loyers, selon les régions",
+        "indice2": "Ministerio de Vivienda | les aides au logement, selon l'âge",
+        "indice3": "INE (statistique espagnole) | l'accès au logement, selon l'âge et le revenu"
       },
       "edited": false,
-      "flags": []
+      "flags": [
+        "tensions.card1 shares no key word with the axe's question — each card answers that question",
+        "tensions.card2 shares no key word with the axe's question — each card answers that question",
+        "tensions.card3 shares no key word with the axe's question — each card answers that question"
+      ]
     },
     {
       "id": "c",
       "slot": "a",
-      "reason": "Trois désaccords : le logement comme enjeu électoral, la part du politique dans le droit, la protection du locataire face au marché.",
+      "reason": "Trois désaccords : l'effet de l'alternance sur l'offre, le logement comme motif de vote, le lien entre prix et départ des jeunes.",
       "fields": {
-        "title": "Où les regards se séparent-ils ?",
+        "title": "Urnes, loyers, familles : trois désaccords",
+        "lead": "Le calendrier électoral, l'offre de logements, les ménages",
         "pair1": "1,2",
         "pair2": "1,3",
         "pair3": "2,3",
-        "head1": "Un enjeu de vote, ou un coût du marché",
-        "head2": "Un arbitrage d'élus, ou une garantie",
-        "head3": "Les loyers, ou les droits des locataires",
-        "claim1": "Le logement est-il d'abord un enjeu de vote ?",
-        "claim2": "Le droit au logement dépend-il des élus ?",
-        "claim3": "Qui protège le locataire dans la crise ?",
-        "indice1": "CIS | les baromètres sur les préoccupations des Espagnols",
-        "indice2": "Constitution espagnole | l'article sur le droit au logement",
-        "indice3": "Poder Judicial | les statistiques sur les expulsions"
+        "head1": "Le scrutin fixe l'agenda ; le manque de logements fixe les prix",
+        "head2": "Un enjeu de campagne ; une épreuve vécue dans les familles",
+        "head3": "Un loyer qui dépasse le budget ; un foyer qui reste chez les parents",
+        "claim1": "Construit-on plus après une alternance ?",
+        "claim2": "Le logement pèse-t-il plus chez les locataires ?",
+        "claim3": "Part-on plus tard là où les loyers montent ?",
+        "indice1": "Ministerio de Vivienda | les logements neufs, avant et après les élections",
+        "indice2": "CIS (enquêtes sociologiques) | les priorités des électeurs, selon le logement",
+        "indice3": "Eurostat | l'âge de départ du foyer parental, selon la région"
       },
       "edited": false,
-      "flags": []
+      "flags": [
+        "tensions.indice1: what to find there is vague — name a precise series or measure (par …, selon …, l'évolution de …, le taux de …)",
+        "tensions.card3 shares no key word with the axe's question — each card answers that question",
+        "tensions: card2 and card3 open their head with the same word « un » — vary the openings"
+      ]
     }
   ],
   "rejected": [],
@@ -77,37 +92,38 @@
   ],
   "fragment": {
     "tensions": {
-      "title": "Où les regards divergent-ils ?",
+      "title": "Pouvoir, marché, société : trois désaccords",
+      "lead": "Le rôle du vote, des loyers, des jeunes et des aînés",
       "cards": [
         {
           "pair": [
             1,
             2
           ],
-          "head": "Le jeu des partis, ou le prix du marché",
-          "claim": "Qui pèse sur la crise du logement ?",
+          "head": "Le vote presse le dossier ; le marché ne bouge qu'avec l'offre",
+          "claim": "Les loyers baissent-ils après une réforme ?",
           "source": "Banco de España",
-          "find": "les rapports sur le marché du logement"
+          "find": "l'évolution des loyers, selon les réformes"
         },
         {
           "pair": [
             1,
             3
           ],
-          "head": "Des majorités, ou des droits écrits",
-          "claim": "Qui fixe les règles de la crise du logement ?",
-          "source": "Tribunal Constitucional",
-          "find": "les arrêts sur le logement"
+          "head": "Le logement se joue aux urnes ; il se joue dans les générations",
+          "claim": "Les jeunes votent-ils plus là où l'on loue ?",
+          "source": "CIS (enquêtes sociologiques)",
+          "find": "le vote des jeunes, selon le statut de logement"
         },
         {
           "pair": [
             2,
             3
           ],
-          "head": "Les prix, ou la loi qui les cadre",
-          "claim": "Un plafond change-t-il la crise du logement ?",
-          "source": "OCDE",
-          "find": "les études sur le contrôle des loyers"
+          "head": "Les prix chassent les ménages ; les liens sociaux les retiennent",
+          "claim": "Part-on plus des villes aux loyers en hausse ?",
+          "source": "INE (statistique espagnole)",
+          "find": "les migrations résidentielles, par commune"
         }
       ]
     }

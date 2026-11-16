@@ -4,327 +4,283 @@
     {
       "id": "p1a",
       "slot": "p1",
-      "reason": "Quatre mécanismes du pouvoir : la majorité, le calendrier, les régions, la rivalité entre partis.",
+      "reason": "Angle institutionnel : majorité, calendrier, alliances et partage des compétences.",
       "fields": {
-        "title": "Une crise **de rapports de force**",
-        "head1": "Un gouvernement sans majorité",
-        "head2": "Le calendrier électoral presse",
-        "head3": "Les régions gèrent le logement",
-        "head4": "Les partis se disputent le sujet",
-        "claim1": "Une majorité bloque-t-elle le logement ?",
-        "claim2": "Le calendrier pèse-t-il sur la crise ?",
-        "claim3": "Les régions expliquent-elles la crise ?",
-        "claim4": "Le logement divise-t-il les partis ?",
-        "indice1": "Congreso de los Diputados | les votes sur les textes sur le logement",
-        "indice2": "Cortes Generales | le calendrier des législatures",
-        "indice3": "Ministerio de Vivienda | les compétences des régions",
-        "indice4": "CIS (sondages publics) | la place du logement parmi les préoccupations",
-        "media_note": "Le reportage suit Sánchez, le vote du Congrès, le Parti populaire et les sondages."
+        "title": "Une crise **jouée au Congrès**",
+        "lead": "",
+        "head1": "Une majorité introuvable",
+        "head2": "Le calendrier sert de levier",
+        "head3": "Les alliances dictent le rythme",
+        "head4": "Les compétences se partagent",
+        "answer1": "Faute de majorité absolue, le gouvernement ne peut pas faire voter ses mesures seul.",
+        "answer2": "Quand le scrutin approche, chaque camp pousse le logement pour mobiliser ses électeurs.",
+        "answer3": "Si le pouvoir dépend de petits partis, chaque réforme du logement se négocie.",
+        "answer4": "Parce que les régions gèrent le logement, l'État ne tranche pas seul.",
+        "indice1": "Congreso de los Diputados | les votes sur les décrets, par groupe",
+        "indice2": "Ministerio del Interior | les dates des élections législatives",
+        "indice3": "Cortes Generales | la composition des groupes, législature par législature",
+        "indice4": "Constitution espagnole | la répartition des compétences État-régions",
+        "media_note": "Le récit suit le calendrier, le Congrès et les sondages."
       },
-      "edited": true,
-      "flags": []
+      "edited": false,
+      "flags": [
+        "prismes.card1 shares no key word with the axe's question — each card answers that question",
+        "prismes: card3 and card4 open their head with the same word « les » — vary the openings"
+      ]
     },
     {
       "id": "p1b",
       "slot": "p1",
-      "reason": "Angle de la campagne : le sujet devient un enjeu de vote, entre coalitions, opposition et mobilisation.",
+      "reason": "Angle des rapports de force : pression de la rue, stratégie de l'opposition, soupçons, extrême droite.",
       "fields": {
-        "title": "Un sujet **devenu électoral**",
-        "head1": "Le logement entre en campagne",
-        "head2": "Les coalitions décident des lois",
-        "head3": "L'opposition propose autre chose",
-        "head4": "La rue pèse sur les élus",
-        "claim1": "La campagne change-t-elle la crise ?",
-        "claim2": "Les coalitions freinent-elles le logement ?",
-        "claim3": "Quelle autre voie pour la crise du logement ?",
-        "claim4": "La rue fait-elle bouger la crise ?",
-        "indice1": "Boletín Oficial del Estado | les décrets publiés sur le logement",
-        "indice2": "Real Instituto Elcano | les analyses de la vie politique espagnole",
-        "indice3": "Congreso de los Diputados | les propositions de loi sur le logement",
-        "indice4": "Congreso de los Diputados | les initiatives législatives populaires",
-        "media_note": "Le reportage suit Sánchez, le vote du Congrès, le Parti populaire et les sondages."
+        "title": "Un **pouvoir sous pression**",
+        "lead": "",
+        "head1": "La rue pèse sur l'agenda",
+        "head2": "L'opposition choisit son terrain",
+        "head3": "Le soupçon use le pouvoir",
+        "head4": "L'extrême droite change l'enjeu",
+        "answer1": "Quand les manifestations durent, un gouvernement minoritaire avance ses annonces.",
+        "answer2": "Si la droite lie logement et immigration, elle déplace le débat vers ses thèmes forts.",
+        "answer3": "Dès que des enquêtes visent l'entourage, chaque annonce se lit comme une diversion.",
+        "answer4": "Si un parti d'extrême droite peut entrer au gouvernement, le vote porte aussi sur lui.",
+        "indice1": "Eurobaromètre | le logement comme préoccupation, par pays",
+        "indice2": "Parti populaire | ses programmes électoraux, élection par élection",
+        "indice3": "Transparency International | l'indice de perception de la corruption",
+        "indice4": "Ministerio del Interior | les résultats électoraux, par parti",
+        "media_note": "Le reportage suit Sánchez, le PP, Vox et les sondages."
       },
       "edited": false,
-      "flags": []
-    },
-    {
-      "id": "p2c",
-      "slot": "p2",
-      "reason": "Angle des prix et de la rareté : loyer, plafond, investissement, ménages touchés, avec une question propre à chaque mécanisme.",
-      "fields": {
-        "title": "Un marché **sous tension**",
-        "head1": "Le loyer suit la rareté",
-        "head2": "Le plafond déplace l'offre",
-        "head3": "Le logement devient un placement",
-        "head4": "Les saisonniers peinent à se loger",
-        "claim1": "Le loyer monte-t-il faute de logements ?",
-        "claim2": "Que devient l'offre face à un plafond ?",
-        "claim3": "L'investissement pèse-t-il sur le logement ?",
-        "claim4": "Qui paie la crise du logement en Espagne ?",
-        "indice1": "Banco de España | l'évolution des loyers et de l'offre",
-        "indice2": "OCDE | les études sur le contrôle des loyers",
-        "indice3": "Registradores de España | les achats selon le type d'acheteur",
-        "indice4": "Eurostat | la part des ménages surchargés par leur logement",
-        "media_note": ""
-      },
-      "edited": true,
       "flags": [
-        "prismes.card2 shares no key word with the axe's question — each card answers that question"
+        "prismes.card1 shares no key word with the axe's question — each card answers that question",
+        "prismes.card3 shares no key word with the axe's question — each card answers that question",
+        "prismes.card4 shares no key word with the axe's question — each card answers that question",
+        "prismes: card2 and card4 open their answer with the same word « si » — vary the openings"
       ]
     },
     {
-      "id": "p2d",
+      "id": "p2a",
       "slot": "p2",
-      "reason": "Angle de l'offre : coûts de construction, sol, rentabilité du social, concurrence du tourisme, sans reprendre la demande.",
+      "reason": "Angle rareté : offre, parc social, usage touristique, poids du loyer dans le revenu.",
       "fields": {
-        "title": "Des **coûts** qui pèsent sur l'offre",
-        "head1": "Construire coûte plus cher",
-        "head2": "Les terrains se vendent cher",
-        "head3": "Le logement social est peu rentable",
-        "head4": "Louer aux touristes rapporte plus",
-        "claim1": "Le coût freine-t-il le logement neuf ?",
-        "claim2": "Le sol cher bloque-t-il le logement ?",
-        "claim3": "Qui finance le logement social en Espagne ?",
-        "claim4": "Le tourisme vide-t-il le parc locatif ?",
-        "indice1": "Eurostat | les indices du coût de la construction",
-        "indice2": "Ministerio de Vivienda | les statistiques sur le prix du sol",
-        "indice3": "Banco de España | les rapports sur le logement social",
-        "indice4": "INE, statistique publique | les logements touristiques",
+        "title": "Un marché **trop étroit**",
+        "lead": "Prix, offre et revenus des ménages locataires",
+        "head1": "Une offre qui ne suit pas",
+        "head2": "Un parc social réduit",
+        "head3": "Le touriste paie plus cher",
+        "head4": "Les loyers contre les salaires",
+        "answer1": "Faute de logements neufs, la demande fait monter les loyers.",
+        "answer2": "Quand peu de logements échappent au marché, les ménages modestes subissent tous les prix.",
+        "answer3": "Si un bailleur gagne plus en location touristique, il retire le bien du long terme.",
+        "answer4": "Quand les loyers montent plus vite que les revenus, l'effort des locataires s'alourdit.",
+        "indice1": "Banco de España | le logement neuf et la formation de ménages",
+        "indice2": "Eurostat | la part du logement social, selon les pays",
+        "indice3": "INE (statistique espagnole) | les logements touristiques, par commune",
+        "indice4": "Eurostat | le taux d'effort logement, selon le revenu",
         "media_note": ""
       },
       "edited": false,
       "flags": [
-        "prismes.card4 shares no key word with the axe's question — each card answers that question"
+        "prismes.card3 shares no key word with the axe's question — each card answers that question",
+        "prismes.card4 shares no key word with the axe's question — each card answers that question",
+        "prismes: card2 and card4 open their answer with the same word « quand » — vary the openings"
       ]
     },
     {
-      "id": "p2e",
+      "id": "p2b",
       "slot": "p2",
-      "reason": "Angle de la demande : revenus, jeunes, épargne, aides, côté ménages plutôt que côté offre.",
+      "reason": "Angle incitations : effet des plafonds, investisseurs, crédit, coûts de construction.",
       "fields": {
-        "title": "Des revenus **qui décrochent**",
-        "head1": "Les salaires suivent mal les loyers",
-        "head2": "Les jeunes entrent tard au marché",
-        "head3": "L'épargne manque pour acheter",
-        "head4": "Les aides ciblent peu les locataires",
-        "claim1": "Les revenus rattrapent-ils le logement ?",
-        "claim2": "Où les jeunes se logent-ils en Espagne ?",
-        "claim3": "L'apport bloque-t-il l'accès au logement ?",
-        "claim4": "Les aides atteignent-elles les mal-logés ?",
-        "indice1": "INE, statistique publique | les salaires et les loyers",
-        "indice2": "Eurostat | l'âge de départ du foyer parental",
-        "indice3": "Banco de España | l'enquête sur les finances des ménages",
-        "indice4": "Ministerio de Vivienda | les aides au logement",
+        "title": "Des **incitations** mal alignées",
+        "lead": "Ce que gagnent et risquent bailleurs, acheteurs, État",
+        "head1": "Le plafond change les calculs",
+        "head2": "Les fonds achètent du logement",
+        "head3": "Le crédit soutient les prix",
+        "head4": "La construction coûte plus",
+        "answer1": "Si le loyer est plafonné, le bailleur vend ou loue ailleurs, ce qui réduit l'offre.",
+        "answer2": "Quand des investisseurs achètent en nombre, les prix montent pour les ménages.",
+        "answer3": "Dès que le crédit est facile, les acheteurs enchérissent, ce qui tire les prix.",
+        "answer4": "Si terrains et matériaux coûtent plus cher, les promoteurs bâtissent moins.",
+        "indice1": "Banco de España | les analyses sur la régulation des loyers",
+        "indice2": "Registradores de España | les achats de logement, par type d'acheteur",
+        "indice3": "Banco de España | l'évolution du crédit immobilier, par année",
+        "indice4": "Ministerio de Vivienda | le coût de la construction, par région",
         "media_note": ""
       },
       "edited": false,
       "flags": [
-        "prismes.card4 shares no key word with the axe's question — each card answers that question"
+        "prismes.card1 shares no key word with the axe's question — each card answers that question",
+        "prismes.card3 shares no key word with the axe's question — each card answers that question",
+        "prismes.card4 shares no key word with the axe's question — each card answers that question",
+        "prismes: card1 and card3 open their head with the same word « le » — vary the openings",
+        "prismes: card1 and card4 open their answer with the same word « si » — vary the openings"
       ]
     },
     {
       "id": "p3a",
       "slot": "p3",
-      "reason": "Angle des droits : le principe constitutionnel, les expulsions, l'encadrement des loyers, le partage des compétences.",
+      "reason": "Angle générationnel et statutaire : décohabitation, norme de propriété, éviction, clivage locataires-propriétaires.",
       "fields": {
-        "title": "Des droits **mal garantis**",
-        "head1": "Un droit au logement inscrit",
-        "head2": "Les expulsions suivent la loi",
-        "head3": "Les loyers encadrés par la loi",
-        "head4": "Les régions légifèrent aussi",
-        "claim1": "Ce droit protège-t-il face à la crise ?",
-        "claim2": "La loi des expulsions nourrit-elle la crise ?",
-        "claim3": "Un plafond de loyer est-il possible ici ?",
-        "claim4": "Le partage des lois pèse-t-il sur la crise ?",
-        "indice1": "Constitution espagnole | l'article sur le droit au logement",
-        "indice2": "Poder Judicial | les statistiques sur les expulsions",
-        "indice3": "Tribunal Constitucional | les arrêts sur l'encadrement des loyers",
-        "indice4": "Ministerio de Vivienda | la loi sur le logement de 2023",
+        "title": "Une génération **tenue à l'écart**",
+        "lead": "Qui se loge, qui reste, qui part",
+        "head1": "Les jeunes partent plus tard",
+        "head2": "La propriété comme norme",
+        "head3": "L'éviction brise les liens",
+        "head4": "Le logement divise les groupes",
+        "answer1": "Faute de loyer abordable, les jeunes restent chez leurs parents plus longtemps.",
+        "answer2": "Quand posséder passe pour la norme, le locataire paraît moins bien installé.",
+        "answer3": "Si une expulsion coupe voisins et soins, les aînés perdent aussi leurs repères.",
+        "answer4": "Parce que locataires et propriétaires n'y gagnent pas pareil, le débat se durcit.",
+        "indice1": "Eurostat | l'âge de départ du foyer parental, selon le pays",
+        "indice2": "INE (statistique espagnole) | le mode d'occupation, selon l'âge",
+        "indice3": "Cáritas España | ses rapports sur l'exclusion liée au logement",
+        "indice4": "Eurobaromètre | les opinions sur le logement, selon l'âge",
         "media_note": ""
       },
       "edited": false,
       "flags": [
+        "prismes.card1 shares no key word with the axe's question — each card answers that question",
+        "prismes.card2 shares no key word with the axe's question — each card answers that question",
         "prismes.card3 shares no key word with the axe's question — each card answers that question"
       ]
     },
     {
       "id": "p3b",
       "slot": "p3",
-      "reason": "Angle des institutions : bail, décret, juges, droit européen.",
+      "reason": "Angle d'appartenance : quartier, solidarité familiale, mobilisation collective, déclassement.",
       "fields": {
-        "title": "Un cadre légal **en chantier**",
-        "head1": "Le bail fixe les règles",
-        "head2": "Le décret passe par le Congrès",
-        "head3": "Les tribunaux tranchent",
-        "head4": "Le droit européen s'applique",
-        "claim1": "Le bail explique-t-il la crise ?",
-        "claim2": "Un décret suffit-il face à la crise ?",
-        "claim3": "Les juges pèsent-ils sur le logement ?",
-        "claim4": "L'Europe encadre-t-elle le logement ?",
-        "indice1": "Ministerio de Vivienda | la loi sur les baux urbains",
-        "indice2": "Congreso de los Diputados | la validation des décrets-lois",
-        "indice3": "Tribunal Supremo | les arrêts sur les expulsions de locataires",
-        "indice4": "Commission européenne | les règles sur les aides au logement social",
+        "title": "Un toit qui dit **sa place**",
+        "lead": "Le logement comme statut, appartenance, solidarité",
+        "head1": "Le quartier garde ses habitants",
+        "head2": "La famille amortit le choc",
+        "head3": "Les militants nomment le problème",
+        "head4": "La peur du déclassement",
+        "answer1": "Quand le tourisme remplace les voisins, les habitants perdent leur place au quartier.",
+        "answer2": "Si les parents hébergent ou aident, la crise se voit moins mais pèse sur les familles.",
+        "answer3": "Quand un cas touche tout le monde, les collectifs en font une cause partagée.",
+        "answer4": "Dès que le logement paraît hors d'atteinte, les familles redoutent pour l'avenir.",
+        "indice1": "INE (statistique espagnole) | la population des quartiers, par âge",
+        "indice2": "Eurostat | les ménages multigénérationnels, selon le pays",
+        "indice3": "Fundación FOESSA | ses enquêtes sur l'exclusion sociale, par année",
+        "indice4": "OCDE | la charge du logement, selon l'âge des ménages",
         "media_note": ""
       },
       "edited": false,
-      "flags": []
+      "flags": [
+        "prismes.card1 shares no key word with the axe's question — each card answers that question",
+        "prismes.card3 shares no key word with the axe's question — each card answers that question",
+        "prismes: card1 and card3 open their answer with the same word « quand » — vary the openings",
+        "prismes: card2 and card4 open their head with the same word « la » — vary the openings"
+      ]
     }
   ],
-  "rejected": [
-    {
-      "id": "p2a",
-      "slot": "p2",
-      "reason": "Quatre mécanismes de prix : l'offre, le tourisme, les loyers, le crédit.",
-      "fields": {
-        "title": "Des prix qui **dépassent les revenus**",
-        "head1": "Trop peu de logements offerts",
-        "head2": "Le tourisme réduit l'offre",
-        "head3": "Les loyers suivent la demande",
-        "head4": "Le crédit enchérit l'achat",
-        "claim1": "Le manque explique-t-il la crise ?",
-        "claim2": "Le tourisme pèse-t-il sur le logement ?",
-        "claim3": "Les loyers alimentent-ils la crise ?",
-        "claim4": "Le crédit explique-t-il la crise ?",
-        "indice1": "Banco de España | les rapports sur l'offre de logements",
-        "indice2": "INE, statistique publique | les statistiques des logements touristiques",
-        "indice3": "Eurostat | les prix des logements dans l'Union européenne",
-        "indice4": "Banco de España | les taux et conditions des prêts immobiliers",
-        "media_note": ""
-      },
-      "edited": false,
-      "flags": []
-    },
-    {
-      "id": "p2b",
-      "slot": "p2",
-      "reason": "Angle des incitations : effets du plafond, rôle des investisseurs, terrains et coûts de construction.",
-      "fields": {
-        "title": "Un marché **qui se fige**",
-        "head1": "Le plafond change l'offre",
-        "head2": "Les investisseurs achètent",
-        "head3": "Les terrains se font rares",
-        "head4": "Construire coûte plus cher",
-        "claim1": "Le plafond aide-t-il le logement ?",
-        "claim2": "Les investisseurs pèsent-ils sur la crise ?",
-        "claim3": "Le terrain explique-t-il la crise ?",
-        "claim4": "Le coût explique-t-il la crise ?",
-        "indice1": "OCDE | les études sur le contrôle des loyers",
-        "indice2": "Registradores de España | les achats de logements par type d'acheteur",
-        "indice3": "Ministerio de Vivienda | les statistiques sur le sol urbain",
-        "indice4": "Eurostat | les indices du coût de la construction",
-        "media_note": ""
-      },
-      "edited": false,
-      "flags": []
-    }
-  ],
+  "rejected": [],
   "recommended": [
     "p1a",
-    "p2c",
+    "p2a",
     "p3a"
   ],
   "picked": [
     "p1a",
-    "p2c",
+    "p2a",
     "p3a"
   ],
   "fragment": {
     "prisms": [
       {
         "prism": "politique",
-        "title": "Une crise **de rapports de force**",
+        "title": "Une crise **jouée au Congrès**",
+        "lead": "",
         "cards": [
           {
-            "head": "Un gouvernement sans majorité",
-            "claim": "Une majorité bloque-t-elle le logement ?",
+            "head": "Une majorité introuvable",
+            "answer": "Faute de majorité absolue, le gouvernement ne peut pas faire voter ses mesures seul.",
             "source": "Congreso de los Diputados",
-            "find": "les votes sur les textes sur le logement"
+            "find": "les votes sur les décrets, par groupe"
           },
           {
-            "head": "Le calendrier électoral presse",
-            "claim": "Le calendrier pèse-t-il sur la crise ?",
+            "head": "Le calendrier sert de levier",
+            "answer": "Quand le scrutin approche, chaque camp pousse le logement pour mobiliser ses électeurs.",
+            "source": "Ministerio del Interior",
+            "find": "les dates des élections législatives"
+          },
+          {
+            "head": "Les alliances dictent le rythme",
+            "answer": "Si le pouvoir dépend de petits partis, chaque réforme du logement se négocie.",
             "source": "Cortes Generales",
-            "find": "le calendrier des législatures"
+            "find": "la composition des groupes, législature par législature"
           },
           {
-            "head": "Les régions gèrent le logement",
-            "claim": "Les régions expliquent-elles la crise ?",
-            "source": "Ministerio de Vivienda",
-            "find": "les compétences des régions"
-          },
-          {
-            "head": "Les partis se disputent le sujet",
-            "claim": "Le logement divise-t-il les partis ?",
-            "source": "CIS (sondages publics)",
-            "find": "la place du logement parmi les préoccupations"
+            "head": "Les compétences se partagent",
+            "answer": "Parce que les régions gèrent le logement, l'État ne tranche pas seul.",
+            "source": "Constitution espagnole",
+            "find": "la répartition des compétences État-régions"
           }
         ],
-        "media_note": "Le reportage suit Sánchez, le vote du Congrès, le Parti populaire et les sondages."
+        "media_note": "Le récit suit le calendrier, le Congrès et les sondages."
       },
       {
         "prism": "economique",
-        "title": "Un marché **sous tension**",
+        "title": "Un marché **trop étroit**",
+        "lead": "Prix, offre et revenus des ménages locataires",
         "cards": [
           {
-            "head": "Le loyer suit la rareté",
-            "claim": "Le loyer monte-t-il faute de logements ?",
+            "head": "Une offre qui ne suit pas",
+            "answer": "Faute de logements neufs, la demande fait monter les loyers.",
             "source": "Banco de España",
-            "find": "l'évolution des loyers et de l'offre"
+            "find": "le logement neuf et la formation de ménages"
           },
           {
-            "head": "Le plafond déplace l'offre",
-            "claim": "Que devient l'offre face à un plafond ?",
-            "source": "OCDE",
-            "find": "les études sur le contrôle des loyers"
-          },
-          {
-            "head": "Le logement devient un placement",
-            "claim": "L'investissement pèse-t-il sur le logement ?",
-            "source": "Registradores de España",
-            "find": "les achats selon le type d'acheteur"
-          },
-          {
-            "head": "Les saisonniers peinent à se loger",
-            "claim": "Qui paie la crise du logement en Espagne ?",
+            "head": "Un parc social réduit",
+            "answer": "Quand peu de logements échappent au marché, les ménages modestes subissent tous les prix.",
             "source": "Eurostat",
-            "find": "la part des ménages surchargés par leur logement"
+            "find": "la part du logement social, selon les pays"
+          },
+          {
+            "head": "Le touriste paie plus cher",
+            "answer": "Si un bailleur gagne plus en location touristique, il retire le bien du long terme.",
+            "source": "INE (statistique espagnole)",
+            "find": "les logements touristiques, par commune"
+          },
+          {
+            "head": "Les loyers contre les salaires",
+            "answer": "Quand les loyers montent plus vite que les revenus, l'effort des locataires s'alourdit.",
+            "source": "Eurostat",
+            "find": "le taux d'effort logement, selon le revenu"
           }
         ]
       },
       {
-        "prism": "juridique",
-        "title": "Des droits **mal garantis**",
+        "prism": "sociologique",
+        "title": "Une génération **tenue à l'écart**",
+        "lead": "Qui se loge, qui reste, qui part",
         "cards": [
           {
-            "head": "Un droit au logement inscrit",
-            "claim": "Ce droit protège-t-il face à la crise ?",
-            "source": "Constitution espagnole",
-            "find": "l'article sur le droit au logement"
+            "head": "Les jeunes partent plus tard",
+            "answer": "Faute de loyer abordable, les jeunes restent chez leurs parents plus longtemps.",
+            "source": "Eurostat",
+            "find": "l'âge de départ du foyer parental, selon le pays"
           },
           {
-            "head": "Les expulsions suivent la loi",
-            "claim": "La loi des expulsions nourrit-elle la crise ?",
-            "source": "Poder Judicial",
-            "find": "les statistiques sur les expulsions"
+            "head": "La propriété comme norme",
+            "answer": "Quand posséder passe pour la norme, le locataire paraît moins bien installé.",
+            "source": "INE (statistique espagnole)",
+            "find": "le mode d'occupation, selon l'âge"
           },
           {
-            "head": "Les loyers encadrés par la loi",
-            "claim": "Un plafond de loyer est-il possible ici ?",
-            "source": "Tribunal Constitucional",
-            "find": "les arrêts sur l'encadrement des loyers"
+            "head": "L'éviction brise les liens",
+            "answer": "Si une expulsion coupe voisins et soins, les aînés perdent aussi leurs repères.",
+            "source": "Cáritas España",
+            "find": "ses rapports sur l'exclusion liée au logement"
           },
           {
-            "head": "Les régions légifèrent aussi",
-            "claim": "Le partage des lois pèse-t-il sur la crise ?",
-            "source": "Ministerio de Vivienda",
-            "find": "la loi sur le logement de 2023"
+            "head": "Le logement divise les groupes",
+            "answer": "Parce que locataires et propriétaires n'y gagnent pas pareil, le débat se durcit.",
+            "source": "Eurobaromètre",
+            "find": "les opinions sur le logement, selon l'âge"
           }
         ]
       }
     ]
   },
-  "remarks": [
-    "Les quatre cartes ne doivent pas toutes finir sur « explique-t-il la crise ? » : une question propre à chaque mécanisme, liée à la question du carrousel."
-  ]
+  "remarks": []
 }
