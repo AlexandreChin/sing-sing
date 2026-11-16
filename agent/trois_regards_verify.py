@@ -1,7 +1,7 @@
 """Checks the sources named in the clues of a `trois_regards` deck against the web, once the author has picked them.
 
-Each card of a prism slide, of the tensions and of the limites ends on a clue, « source | ce qu'on y lit » (`indiceN`):
-the source is the model's general knowledge, not the article's. After a pick on `prismes`, `tensions` or `limites`,
+Each card of the tensions grid ends on a clue, « source | ce qu'on y lit » (`indiceN`):
+the source is the model's general knowledge, not the article's. After a pick on `tensions`,
 each named source becomes a one-sentence claim, searched with the repo's claim verifier (`tools/verify.py`: news and
 public databases, a stance per source). A source with no supporting result, or one a result contradicts, comes back as
 a ⚠ naming the field to fix — advisory, the author has the last word. The result is kept beside the step
@@ -15,37 +15,21 @@ from pathlib import Path
 from typing import Awaitable, Callable
 
 
-def points(fields_by_slot: dict[str, dict], prism_ids: list[str] | None = None) -> list[tuple[str, str, str, str]]:
-    """(slot, field, prism name, source) of each clue of the picked options, the source being the part of `indiceN`
-    before « | » (a clue with no source is skipped). Slot `pN` is a prism slide (the axe's Nth prism, four clues), `t`
-    the tensions (card N names the two prisms of its `pairN`), `l` the limites (card N is the axe's Nth prism).
-    `prism_ids` are the axe's prisms in order; a prism id unknown to the catalogue is used as its own name."""
-    from agent.trois_regards_prisms import PRISMS
-
-    def name(n: int) -> str:
-        pid = prism_ids[n - 1] if prism_ids and 1 <= n <= len(prism_ids) else ""
-        return PRISMS[pid].name if pid in PRISMS else pid
-
+def points(fields_by_slot: dict[str, dict]) -> list[tuple[str, str, str, str]]:
+    """(slot, field, topic, source) of each clue of the picked tensions, the source being the part of `indiceN`
+    before « | » (a clue with no source is skipped); the topic is the card's `topicN`, the claim's context."""
     out = []
     for slot, fields in fields_by_slot.items():
-        for k in range(1, 5):
+        for k in (1, 2, 3):
             source = str(fields.get(f"indice{k}", "")).split("|", 1)[0].strip()
-            if not source:
-                continue
-            if slot == "t":
-                pair = [int(x) for x in str(fields.get(f"pair{k}", "")).replace(" ", "").split(",") if x.isdigit()]
-                prism = " × ".join(name(n) or str(n) for n in pair) or slot
-            elif slot == "l":
-                prism = name(k) or slot
-            else:
-                prism = name(int(slot[1:]) if slot[1:].isdigit() else 0) or slot
-            out.append((slot, f"indice{k}", prism, source))
+            if source:
+                out.append((slot, f"indice{k}", str(fields.get(f"topic{k}", "")).strip() or slot, source))
     return out
 
 
-def claim_text(prism_name: str, source: str, subject: str) -> str:
+def claim_text(topic: str, source: str, subject: str) -> str:
     """One sentence a search can test: the source publishes reference material on the subject."""
-    return f"{source} publie des séries ou des études de référence sur {subject} (lecture {prism_name})"
+    return f"{source} publie des séries ou des études de référence sur {subject} ({topic})"
 
 
 async def _search(text: str):
@@ -60,8 +44,8 @@ async def verify_sources(pts: list[tuple[str, str, str]], subject: str,
     source_ref, reason}. A search that fails (no key, no network, provider down) is `unavailable`, never an error."""
     search = search or _search
 
-    async def one(slot: str, field: str, prism: str, source: str) -> dict:
-        text = claim_text(prism, source, subject)
+    async def one(slot: str, field: str, topic: str, source: str) -> dict:
+        text = claim_text(topic, source, subject)
         base = {"slot": slot, "field": field, "source": source, "claim": text}
         try:
             found = await search(text)
@@ -81,8 +65,7 @@ def warnings(step: str, results: list[dict]) -> list[str]:
     """The ⚠ lines for the author: what is not confirmed, what is contradicted, a search that could not run."""
     out = []
     for r in results:
-        # the field as `fix` names it: « prismes.p2.indice3 », « tensions.indice1 »
-        where = f"{step}.{r['slot']}.{r['field']}" if step == "prismes" else f"{step}.{r['field']}"
+        where = f"{step}.{r['field']}"          # the field as `fix` names it: « tensions.indice1 »
         if r["status"] == "unconfirmed":
             out.append(f"{where}: no result found for « {r['source']} » — the search is built for news and may miss "
                        "well-known institutions: check it before keeping it")

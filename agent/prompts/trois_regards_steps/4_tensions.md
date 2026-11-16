@@ -1,38 +1,32 @@
-ÉTAPE 4 — OÙ LES REGARDS SE CONTREDISENT (slide 6, écrite après les trois prismes)
+ÉTAPE 4 — LES TENSIONS (slide 6, écrite après les trois prismes)
 
-L'axe et les trois slides de prismes sont FIXÉS. Les prismes ont répondu ; cette slide les **confronte**. Elle est **hors cadre** : tes connaissances générales, aucun chiffre (une année ou une date est permise), aucune prescription. Elle ne dit pas quel regard a raison : elle montre, pour chaque paire de prismes, un point sur lequel ils se contredisent, la question qui les départagerait et où chercher. Au-dessus de chaque carte, le moteur dessine le nom des deux prismes de la paire (« SOCIOLOGIQUE × ÉCONOMIQUE ») : tu ne les écris JAMAIS dans la carte. Tu proposes 3 ou 4 options, des jeux de désaccords différents, jamais des reformulations.
+L'axe et les trois slides de prismes sont FIXÉS. Les prismes ont répondu chacun en entier ; cette slide les **confronte** sur trois sujets précis du cas. Elle est **hors cadre** : tes connaissances générales et les faits de l'article ; un chiffre seulement s'il est écrit dans l'article (une année ou une date est permise) ; aucune prescription. Elle ne dit pas quel regard a raison : elle montre, sur chaque sujet, ce que retient chacun des trois regards. Le moteur dessine une grille : en tête de colonne, le nom des trois prismes UNE fois, dans l'ordre de l'axe (la colonne 1 est `prism1`, la 2 `prism2`, la 3 `prism3`) ; à gauche, le sujet ; trois cases, une par prisme ; sous chaque ligne, l'indice. Tu n'écris JAMAIS le nom d'un prisme dans une vue. Tu proposes 3 ou 4 options, des jeux de sujets différents, jamais des reformulations.
 
-- `title` (**au plus {{cap:tensions.title}} caractères**, deux lignes au plus) : une formule NEUTRE, écrite pour CE sujet, qui nomme l'enjeu des désaccords (« Choix, revenus, quotas : trois désaccords »). Une affirmation ou une question, au choix ; jamais une réponse, jamais une recommandation, jamais la question du carrousel.
-- `lead` (**au plus {{cap:tensions.lead}} caractères**, UNE ligne) : les objets sur lesquels les regards divergent, en quelques mots (« Les motifs d'installation, le revenu, le poids du passé »). Jamais une question, aucun chiffre.
-- Trois cartes, UNE PAR PAIRE de prismes, chacune :
-  - `pair1`, `pair2`, `pair3` : les deux numéros de prisme de la carte, dans l'ordre de l'axe, séparés par une virgule : `1,2`, `1,3`, `2,3` (`1` = `prism1`…). Les trois cartes prennent les trois paires, chacune une fois.
-  - `head1`, `head2`, `head3` (**au plus {{cap:tensions.head}} caractères**, deux lignes) : le désaccord en DEUX côtés séparés par « ; » — d'abord ce que voit le premier prisme de la paire, puis ce que voit le second, dans l'ordre de l'étiquette, chacun sur un objet concret (« Le désert repousse les familles ; il promet moins de revenus »). Sans nom de prisme (l'étiquette les donne), sans « ou » qui appellerait un choix ; aucun côté n'a le dernier mot.
-  - `claim1`, `claim2`, `claim3` (**au plus {{cap:tensions.claim}} caractères**, finit par « ? ») : la question qui DÉPARTAGERAIT les deux côtés : elle compare deux lieux, deux périodes ou deux groupes (« S'installe-t-on plus là où l'on a grandi ? »), avec un mot clé de la question de l'axe dans la carte ; jamais « <sujet> explique-t-il la crise ? ».
-  - `indice1`, `indice2`, `indice3` : `source | ce qu'on y lit` (la source au plus {{cap:tensions.indice.source}} caractères, ce qu'on y lit au plus {{cap:tensions.indice.find}}) : la série précise qui aiderait à trancher ce désaccord-là (avec son découpage : par région, selon l'âge, son évolution…), une source réelle, jamais une URL ni un chiffre.
-- Aucune prescription : pas de « il faut », « il faudrait », « faut-il », « doit », « devrait », dans aucun champ. Aucun verdict : jamais « à tort », « en réalité », « le vrai problème ».
-- Trois cartes, trois désaccords différents : si deux disent la même chose, une paire est mal lue. Les trois têtes ne commencent pas par le même mot.
-- `reason` : les trois désaccords que l'option retient, et pourquoi ils séparent vraiment chaque paire.
+- `title` (**au plus {{cap:tensions.title}} caractères**, une ligne) : une formule NEUTRE, écrite pour CE sujet (« Trois sujets, trois lectures »). Jamais une réponse, jamais une recommandation, jamais la question du carrousel.
+- `lead` (**au plus {{cap:tensions.lead}} caractères**, deux lignes) : UNE phrase qui **complète** le titre, avec d'autres mots : ce que l'on retient d'un même débat dépend du regard qui l'éclaire. Jamais une question, jamais la question du carrousel, aucun indice mentionné.
+- `topic1`, `topic2`, `topic3` (**au plus {{cap:tensions.topic1}} caractères**, en gras dans la grille) : trois sujets PRÉCIS DU CAS, en mots simples (« Les aides à l'installation »), jamais une catégorie vague (« Les politiques publiques »). Les trois sujets sont différents.
+- Neuf vues, `view1_1`, `view1_2`, `view1_3`, `view2_1`, `view2_2`, `view2_3`, `view3_1`, `view3_2`, `view3_3` : `viewN_P` est la vue du prisme P (dans l'ordre de l'axe) sur le sujet N. Chaque vue (**au plus {{cap:tensions.view1_1}} caractères**, une courte proposition) dit ce que CE regard retient de CE sujet, dans ses termes, sans jamais nommer la discipline (ni « économie », « histoire », « société »… pour son propre prisme). Les trois vues d'un sujet sont trois lectures DIFFÉRENTES : si deux disent la même chose, une est mal écrite. Aucune n'a le dernier mot ; aucun « il faut », aucun verdict.
+- `indice1`, `indice2`, `indice3` : `source | ce qu'on y lit` (la source au plus {{cap:tensions.indice.source}} caractères, ce qu'on y lit au plus {{cap:tensions.indice.find}}) : la série précise qui aiderait à départager les trois lectures de CE sujet (avec son découpage : par région, avant et après, selon l'âge), une source réelle, jamais une URL ni un chiffre qui n'est pas dans l'article.
+- `reason` : les trois sujets que l'option retient, et pourquoi les trois regards les lisent différemment.
 
-La tête d'une tension, la bonne puis la mauvaise :
-- BON `tensions.head1` : « Le désert repousse les familles ; il promet moins de revenus »
-- MAUVAIS (un seul côté) `tensions.head1` : « Les choix de vie, ou les revenus espérés »
-La question d'une tension, la bonne puis la mauvaise :
-- BON `tensions.claim2` : « Les déserts se creusent-ils après les quotas ? »
-- MAUVAIS (sans comparaison) `tensions.claim2` : « Le passé compte-t-il pour un désert ? »
+La vue d'un regard, la bonne puis la mauvaise : voir le cadre commun (une vue qui nomme sa discipline, deux vues presque identiques, un lien dans l'indice, une question du carrousel répétée en introduction).
 
-Exemple (le reportage sur le village sans médecin, prismes `sociologique`, `economique`, `historique`) :
-- `title` : « Choix, revenus, quotas : trois désaccords »
-- `lead` : « Les motifs d'installation, le revenu, le poids du passé »
-- `pair1` : `1,2`
-- `head1` : « Le désert repousse les familles ; il promet moins de revenus »
-- `claim1` : « S'installe-t-on plus là où l'on a grandi ? »
+Exemple (le reportage sur le village sans médecin, prismes `sociologique`, `economique`, `historique`, dans cet ordre) :
+- `title` : « Trois sujets, trois lectures »
+- `lead` : « Les aides, la formation, le poids du passé »
+- `topic1` : « Les aides à l'installation »
+- `view1_1` : « Le métier du conjoint pèse plus qu'elles »
+- `view1_2` : « Elles pèsent peu face au revenu »
+- `view1_3` : « Elles ont suivi des décennies de pénurie »
+- `topic2` : « Le départ à la retraite »
+- `view2_1` : « Il laisse le village sans repère »
+- `view2_2` : « Il supprime un cabinet rentable »
+- `view2_3` : « Il date d'une génération peu nombreuse »
+- `topic3` : « Les maisons de santé »
+- `view3_1` : « Elles rompent l'isolement des médecins »
+- `view3_2` : « Elles mutualisent les coûts »
+- `view3_3` : « Elles prolongent les dispensaires d'hier »
 - `indice1` : « Irdes | les motifs d'installation, selon l'origine du médecin »
-- `pair2` : `1,3`
-- `head2` : « Des choix de vie d'aujourd'hui ; un héritage des promotions réduites »
-- `claim2` : « Les déserts se creusent-ils après les quotas ? »
-- `indice2` : « Ministère de la Santé | l'évolution du numerus clausus depuis 1971 »
-- `pair3` : `2,3`
-- `head3` : « Un marché qui attire en ville ; des promotions trop étroites hier »
-- `claim3` : « Plus de médecins formés, moins de déserts ? »
-- `indice3` : « DREES | les projections du nombre de médecins, par région »
-- `reason` : « Trois désaccords : ce qui retient un médecin, le poids du passé, l'effet du nombre de médecins formés. »
+- `indice2` : « DREES | les départs à la retraite, par département »
+- `indice3` : « Ministère de la Santé | le nombre de maisons de santé, par région »
+- `reason` : « Trois sujets concrets : les aides, le départ du dernier médecin, les maisons de santé ; chaque regard les lit autrement. »

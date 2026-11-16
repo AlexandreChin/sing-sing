@@ -194,7 +194,7 @@ def _trois_adapted(tmp_path, fake):
 
 
 def test_choose_more_accepts_a_prism_slot_for_trois_regards(tmp_path, capsys):
-    from tests.test_trois_regards import FakeCalls
+    from tests.test_trois_regards_agent import FakeCalls
     import agent.trois_regards_adapt_agent as tra
     calls = FakeCalls()
     mp = pytest.MonkeyPatch()
@@ -205,7 +205,7 @@ def test_choose_more_accepts_a_prism_slot_for_trois_regards(tmp_path, capsys):
         asyncio.run(main.cmd_choose(args))
         assert calls.slots[-1] == ["p2"]
         assert "[p2]" in capsys.readouterr().out
-        args = build_parser().parse_args(["choose", str(fmt), "prismes", "--more", "--prism", "economique"])
+        args = build_parser().parse_args(["choose", str(fmt), "prismes", "--more", "--prism", "politique"])
         asyncio.run(main.cmd_choose(args))
         assert calls.slots[-1] == ["p2"]
     finally:
@@ -229,16 +229,16 @@ def test_prism_flag_is_refused_by_a_format_without_prisms(tmp_path, capsys, stub
 
 
 def test_fix_a_prism_field_by_slot(tmp_path, capsys):
-    from tests.test_trois_regards import FakeCalls
+    from tests.test_trois_regards_agent import FakeCalls
     import agent.trois_regards_adapt_agent as tra
     mp = pytest.MonkeyPatch()
     mp.setattr(tra, "_call_with_retry", FakeCalls())
     try:
         fmt = _trois_adapted(tmp_path, None)
-        new = "Les loyers devancent les salaires"
+        new = "Les loyers devancent"
         asyncio.run(main.cmd_fix(build_parser().parse_args(["fix", str(fmt), "prismes.p2.head1", new])))
         assert "Fixed prismes.p2.head1 in prismes; the later steps keep your version." in capsys.readouterr().err
-        asyncio.run(main.cmd_fix(build_parser().parse_args(["fix", str(fmt), "axe.prism2", "sociologique"])))
+        asyncio.run(main.cmd_fix(build_parser().parse_args(["fix", str(fmt), "axe.prism2", "juridique"])))
         err = capsys.readouterr().err
         assert "Fixed axe.prism2 in axe" in err and "keep your version" not in err
         assert "stale" in err.splitlines()[-1] and "produce" in err.splitlines()[-1]
@@ -248,19 +248,20 @@ def test_fix_a_prism_field_by_slot(tmp_path, capsys):
         mp.undo()
 
 
-def test_stop_after_accepts_limites():
-    for step in ("prismes", "tensions", "limites"):
+def test_stop_after_accepts_tensions():
+    for step in ("prismes", "tensions"):
         args = build_parser().parse_args(["adapt", "a.json", "--format", "trois_regards", "--stop-after", step, "--guided"])
         assert args.stop_after == step
         assert build_parser().parse_args(["choose", "d", step, "--pick", "x"]).step == step
 
 
-def test_arbitrage_is_no_longer_a_step_choice(capsys):
-    for argv in (["adapt", "a.json", "--format", "trois_regards", "--stop-after", "arbitrage"], ["choose", "d", "arbitrage", "--pick", "x"]):
-        with pytest.raises(SystemExit) as e:
-            build_parser().parse_args(argv)
-        assert e.value.code == 2 and "arbitrage" in capsys.readouterr().err
-    assert "arbitrage" not in main._STEP_CHOICES and "limites" in main._STEP_CHOICES
+def test_limites_and_arbitrage_are_no_step_choices(capsys):
+    for gone in ("limites", "arbitrage"):
+        for argv in (["adapt", "a.json", "--format", "trois_regards", "--stop-after", gone], ["choose", "d", gone, "--pick", "x"]):
+            with pytest.raises(SystemExit) as e:
+                build_parser().parse_args(argv)
+            assert e.value.code == 2 and gone in capsys.readouterr().err
+        assert gone not in main._STEP_CHOICES
 
 
 def test_matrice_is_no_longer_a_step_choice(capsys):
@@ -272,7 +273,7 @@ def test_matrice_is_no_longer_a_step_choice(capsys):
 
 
 def _trois_fix(tmp_path, capsys, field, text):
-    from tests.test_trois_regards import FakeCalls
+    from tests.test_trois_regards_agent import FakeCalls
     import agent.trois_regards_adapt_agent as tra
     mp = pytest.MonkeyPatch()
     mp.setattr(tra, "_call_with_retry", FakeCalls())
@@ -285,30 +286,41 @@ def _trois_fix(tmp_path, capsys, field, text):
         mp.undo()
 
 
-def test_fix_a_tensions_field(tmp_path, capsys):
+def test_fix_a_tensions_view(tmp_path, capsys):
     import agent.trois_regards_adapt_agent as tra
-    claim = "Plafonne-t-on plus là où la gauche gouverne ?"
-    fmt, err = _trois_fix(tmp_path, capsys, "tensions.claim2", claim)
-    assert "Fixed tensions.claim2 in tensions; the later steps keep your version." in err and "⚠" not in err
+    view = "Elle chasse les familles du quartier"
+    fmt, err = _trois_fix(tmp_path, capsys, "tensions.view2_3", view)
+    assert "Fixed tensions.view2_3 in tensions; the later steps keep your version." in err and "⚠" not in err
     sf = tra._load(fmt / "adapt_steps", tra.STEP_BY_NAME["tensions"])[0]
-    assert sf.fragment["tensions"]["cards"][1]["claim"] == claim
-    _, err = _trois_fix(tmp_path / "again", capsys, "tensions.claim2", "La rue pèse-t-elle sur la crise du logement ?")
-    assert "⚠ tensions.claim2" in err and "generic" in err
+    assert sf.fragment["tensions"]["cards"][1]["views"][2] == view
+    _, err = _trois_fix(tmp_path / "again", capsys, "tensions.view1_1", "L'économie y voit un frein")
+    assert "⚠ tensions.view1_1 names its discipline" in err
 
 
-def test_fix_a_limites_field(tmp_path, capsys):
+def test_fix_a_position_card(tmp_path, capsys):
     import agent.trois_regards_adapt_agent as tra
-    claim = "Les jeunes partent-ils plus tard qu'avant ?"
-    fmt, err = _trois_fix(tmp_path, capsys, "limites.claim2", claim)
-    assert "Fixed limites.claim2 in limites; the later steps keep your version." in err and "⚠" not in err
-    sf = tra._load(fmt / "adapt_steps", tra.STEP_BY_NAME["limites"])[0]
-    assert sf.fragment["limites"]["cards"][1]["claim"] == claim
-    _, err = _trois_fix(tmp_path / "again", capsys, "limites.head1", "L'État doit bâtir")
-    assert "⚠ limites.head1 is prescriptive" in err
+    text = "Les réponses des acteurs | Le gouvernement adopte un plafond des loyers."
+    fmt, err = _trois_fix(tmp_path, capsys, "position.card3", text)
+    assert "Fixed position.card3 in position; the later steps keep your version." in err
+    sf = tra._load(fmt / "adapt_steps", tra.STEP_BY_NAME["position"])[0]
+    assert sf.fragment["position"]["cards"][2] == {"label": "Les réponses des acteurs", "text": "Le gouvernement adopte un plafond des loyers."}
+    _, err = _trois_fix(tmp_path / "again", capsys, "position.card3", "x" * 25 + " | Un fait.")
+    assert "⚠ position.card3" in err and "max 24" in err
 
 
-def test_choose_pick_runs_the_prismes_pick_and_the_web_check(tmp_path, capsys):
-    from tests.test_trois_regards import FakeCalls
+def test_fix_a_prism_answer(tmp_path, capsys):
+    import agent.trois_regards_adapt_agent as tra
+    answer = "Quand le loyer dépasse le revenu, les ménages partent."
+    fmt, err = _trois_fix(tmp_path, capsys, "prismes.p2.answer3", answer)
+    assert "Fixed prismes.p2.answer3 in prismes; the later steps keep your version." in err
+    sf = tra._load(fmt / "adapt_steps", tra.STEP_BY_NAME["prismes"])[0]
+    assert sf.fragment["prisms"][1]["cards"][2]["answer"] == answer
+    _, err = _trois_fix(tmp_path / "again", capsys, "prismes.p2.answer3", "Le loyer monte-t-il ?")
+    assert "⚠ p2: prismes.answer3 is a sentence, not a question" in err
+
+
+def test_choose_pick_runs_the_tensions_pick_and_the_web_check_but_not_the_prismes_one(tmp_path, capsys):
+    from tests.test_trois_regards_agent import FakeCalls
     from types import SimpleNamespace
     import agent.trois_regards_adapt_agent as tra
     import agent.trois_regards_verify as tv
@@ -320,13 +332,15 @@ def test_choose_pick_runs_the_prismes_pick_and_the_web_check(tmp_path, capsys):
         async def search(text):
             return SimpleNamespace(confirming=[], contradicting=[])
         mp.setattr(tv, "_search", search)
-        args = build_parser().parse_args(["choose", str(fmt), "prismes", "--pick", "p1a,p2a,p3a"])
-        asyncio.run(main.cmd_choose(args))
+        asyncio.run(main.cmd_choose(build_parser().parse_args(["choose", str(fmt), "prismes", "--pick", "p1a,p2a,p3a"])))
         err = capsys.readouterr().err
-        assert "Kept p1a, p2a, p3a" in err
-        assert "⚠" in err and "news" in err      # the web check ran and found nothing
-        assert (fmt / "adapt_steps" / "3_prismes.verification.json").exists()
-        asyncio.run(main.cmd_choose(build_parser().parse_args(["choose", str(fmt), "prismes", "--pick", "p1b,p2a,p3a", "--no-api"])))
+        assert "Kept p1a, p2a, p3a" in err and "news" not in err                # the prism cards carry no clue to check
+        assert not (fmt / "adapt_steps" / "3_prismes.verification.json").exists()
+        asyncio.run(main.cmd_choose(build_parser().parse_args(["choose", str(fmt), "tensions", "--pick", "b"])))
+        err = capsys.readouterr().err
+        assert "Kept b" in err and "⚠" in err and "news" in err                  # the web check ran and found nothing
+        assert (fmt / "adapt_steps" / "4_tensions.verification.json").exists()
+        asyncio.run(main.cmd_choose(build_parser().parse_args(["choose", str(fmt), "tensions", "--pick", "a", "--no-api"])))
         assert "news" not in capsys.readouterr().err   # --no-api skips the check
     finally:
         mp.undo()
