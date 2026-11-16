@@ -10,7 +10,7 @@ from tests._carousel_steps_fixtures import full
 
 PRISMES = FIELDS["prismes"]
 TENSIONS = FIELDS["tensions"]
-ARBITRAGE = FIELDS["arbitrage"]
+LIMITES = FIELDS["limites"]
 PRISM_IDS = DECK["axe"]["prisms"]
 SUBJECT = DECK["axe"]["subject"]
 
@@ -42,9 +42,9 @@ def test_each_indice_source_becomes_a_claim():
     t = tv.points({"t": TENSIONS}, PRISM_IDS)                     # the tensions: one per pair, both prisms named
     assert [(s, f) for s, f, _, _ in t] == [("t", "indice1"), ("t", "indice2"), ("t", "indice3")]
     assert t[2][2] == f"{names[1]} × {names[2]}" and t[2][3] == DECK["tensions"]["cards"][2]["source"]
-    a = tv.points({"a": ARBITRAGE}, PRISM_IDS)                    # the arbitrage: card N is the axe's Nth prism
-    assert [(s, f, n) for s, f, n, _ in a] == [("a", f"indice{k}", names[k - 1]) for k in (1, 2, 3)]
-    assert [x[3] for x in a] == [c["source"] for c in DECK["arbitrage"]["cards"]]
+    lim = tv.points({"l": LIMITES}, PRISM_IDS)                     # the limites: card N is the axe's Nth prism
+    assert [(s, f, n) for s, f, n, _ in lim] == [("l", f"indice{k}", names[k - 1]) for k in (1, 2, 3)]
+    assert [x[3] for x in lim] == [c["source"] for c in DECK["limites"]["cards"]]
     assert tv.points({"p1": {**PRISMES["p1"], "indice2": "", "indice3": " | rien"}}, PRISM_IDS) == pts[:1] + pts[3:4]
 
 
@@ -116,14 +116,14 @@ def test_a_warning_names_the_field_to_fix():
     assert tv.warnings("prismes", results)[2].startswith("prismes.p2.indice3:")
     results = asyncio.run(tv.verify_sources(tv.points({"t": TENSIONS}, PRISM_IDS), SUBJECT, search))
     assert tv.warnings("tensions", results)[0].startswith("tensions.indice1:")
-    results = asyncio.run(tv.verify_sources(tv.points({"a": ARBITRAGE}, PRISM_IDS), SUBJECT, search))
-    assert tv.warnings("arbitrage", results)[1].startswith("arbitrage.indice2:")
+    results = asyncio.run(tv.verify_sources(tv.points({"l": LIMITES}, PRISM_IDS), SUBJECT, search))
+    assert tv.warnings("limites", results)[1].startswith("limites.indice2:")
 
 
-def test_verify_pick_checks_the_tensions_and_the_arbitrage(fake, tmp_path):  # noqa: F811
+def test_verify_pick_checks_the_tensions_and_the_limites(fake, tmp_path):  # noqa: F811
     steps = tmp_path / "adapt_steps"
     agent.adapt(full(), steps_dir=steps)
-    assert agent.VERIFIED_STEPS == ("prismes", "tensions", "arbitrage")
+    assert agent.VERIFIED_STEPS == ("prismes", "tensions", "limites")
     seen = []
 
     async def search(text):
@@ -133,6 +133,8 @@ def test_verify_pick_checks_the_tensions_and_the_arbitrage(fake, tmp_path):  # n
     assert len(warns) == len(seen) == 3 and all(w.startswith("tensions.indice") for w in warns)
     saved = json.loads((steps / "4_tensions.verification.json").read_text(encoding="utf-8"))
     assert [r["field"] for r in saved] == ["indice1", "indice2", "indice3"] and {r["slot"] for r in saved} == {"t"}
-    warns = asyncio.run(agent.verify_pick(steps, "arbitrage", search))
-    assert len(warns) == 3 and (steps / "5_arbitrage.verification.json").exists()
-    assert any(c["source"] in seen[3] for c in DECK["arbitrage"]["cards"][:1])
+    warns = asyncio.run(agent.verify_pick(steps, "limites", search))
+    assert len(warns) == 3 and all(w.startswith("limites.indice") for w in warns)
+    saved = json.loads((steps / "5_limites.verification.json").read_text(encoding="utf-8"))
+    assert {r["slot"] for r in saved} == {"l"} and [r["source"] for r in saved] == [c["source"] for c in DECK["limites"]["cards"]]
+    assert DECK["limites"]["cards"][0]["source"] in seen[3]

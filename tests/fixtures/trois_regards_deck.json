@@ -1,5 +1,5 @@
 {
-  "caption": "Trois regards sur la crise du logement en Espagne : politique, économique, sociologique. Quel regard éclaire le mieux ce que vous venez de lire ?\n\n#logement #Espagne #espritcritique #singsing",
+  "caption": "Trois regards sur la crise du logement en Espagne : politique, économique, juridique. Chacun l'explique à sa façon, et chacun laisse une part dans l'ombre. Que manque-t-il, selon vous ?\n\n#logement #Espagne #espritcritique #singsing",
   "axe": {
     "question": "D'où vient la crise du logement en Espagne ?",
     "article_question": "Comment la crise du logement a-t-elle mené à des élections anticipées ?",
@@ -7,11 +7,11 @@
     "prisms": [
       "politique",
       "economique",
-      "sociologique"
+      "juridique"
     ],
     "media": "politique",
     "media_grounding": "Radio-Canada suit les mesures du gouvernement, le rejet du Parlement et l'élection : un regard politique.",
-    "closing": "Politique, économique ou sociologique : quel regard explique le mieux la crise du logement ?"
+    "closing": "Entre le politique, l'économique et le juridique, que manque-t-il pour comprendre la crise du logement ?"
   },
   "hook": {
     "title": "D'où vient la crise du logement en Espagne ?",
@@ -43,151 +43,156 @@
   "prisms": [
     {
       "prism": "politique",
-      "title": "Un logement bloqué au **Parlement**",
-      "media_note": "L'article suit la rue, le rejet des mesures au Parlement, puis l'élection anticipée.",
+      "title": "Un logement suspendu aux **majorités**",
+      "lead": "",
+      "media_note": "L'article suit la rue, le vote du Congrès, puis les urnes.",
       "cards": [
         {
-          "head": "Le Parlement a rejeté les mesures",
-          "claim": "Ce blocage aggrave-t-il la crise du logement ?",
-          "source": "Congrès des députés",
-          "find": "les votes sur les mesures d'urgence d'octobre"
+          "head": "Un gouvernement sans majorité",
+          "answer": "Faute de majorité stable, chaque loi sur le logement se négocie et peut tomber au vote.",
+          "source": "Congreso de los Diputados",
+          "find": "les votes sur les lois du logement, texte par texte"
         },
         {
-          "head": "Les régions gèrent le logement",
-          "claim": "Qui décide du logement : État ou régions ?",
+          "head": "Le logement, compétence des régions",
+          "answer": "Quand l'État vote une loi que les régions appliquent, elle peut rester sans effet.",
           "source": "Constitution espagnole",
-          "find": "le partage des compétences sur le logement"
+          "find": "le partage des compétences entre l'État et les régions"
         },
         {
-          "head": "Le logement, thème de campagne",
-          "claim": "La crise du logement change-t-elle le vote ?",
+          "head": "Une élection qui presse les partis",
+          "answer": "Un scrutin proche pousse les partis vers des mesures de logement visibles et rapides.",
           "source": "CIS (baromètres)",
-          "find": "la place du logement parmi les préoccupations"
+          "find": "la place du logement parmi les soucis, mois par mois"
         },
         {
-          "head": "Le plafond des loyers divise",
-          "claim": "Plafonner les loyers apaise-t-il la crise ?",
-          "source": "Ley de vivienda",
-          "find": "les zones où les loyers peuvent être plafonnés"
+          "head": "Des élus qui ménagent le tourisme",
+          "answer": "Si le tourisme fait vivre la région, ses élus laissent filer les logements saisonniers.",
+          "source": "Gouvernement des Canaries",
+          "find": "les règles sur la location de vacances, par commune"
         }
       ]
     },
     {
       "prism": "economique",
-      "title": "Un marché qui **ne construit plus assez**",
+      "title": "Une offre qui **ne suit plus** la demande",
+      "lead": "Qui construit, à quel coût, et qui paie",
       "cards": [
         {
-          "head": "L'offre de logements ne suit pas",
-          "claim": "Construit-on assez de logements en Espagne ?",
-          "source": "Banque d'Espagne",
-          "find": "ses estimations du déficit de logements"
+          "head": "Moins de logements que de ménages",
+          "answer": "Lorsque les ménages se forment plus vite que les logements, la rareté pousse les prix.",
+          "source": "Banco de España",
+          "find": "logements achevés et nouveaux ménages, par région"
         },
         {
-          "head": "Le parc social reste très réduit",
-          "claim": "Le logement social manque-t-il à la crise ?",
+          "head": "Un parc social réduit à la marge",
+          "answer": "Sans logement social, les ménages modestes basculent sur le marché libre, donc plus cher.",
           "source": "Eurostat",
-          "find": "la part du logement social, pays par pays"
+          "find": "la part du logement social dans le parc, pays par pays"
         },
         {
-          "head": "Le tourisme prend des logements",
-          "claim": "La location touristique réduit-elle l'offre ?",
+          "head": "Le meublé touristique rapporte plus",
+          "answer": "Plus rentable, le meublé touristique pousse des propriétaires à retirer leur logement.",
           "source": "INE",
-          "find": "le recensement des logements à usage touristique"
+          "find": "le recensement des logements touristiques, par ville"
         },
         {
           "head": "Les loyers devancent les salaires",
-          "claim": "Quelle part du revenu va au logement ?",
+          "answer": "Dès que les loyers distancent les salaires, le logement absorbe une part accrue du revenu.",
           "source": "Eurostat (EU-SILC)",
-          "find": "le taux d'effort des locataires"
+          "find": "le taux d'effort des locataires selon le revenu"
         }
       ]
     },
     {
-      "prism": "sociologique",
-      "title": "Une crise vécue **par les jeunes**",
+      "prism": "juridique",
+      "title": "Une crise que le droit **encadre mal**",
+      "lead": "Ce que la loi permet, interdit et protège",
       "cards": [
         {
-          "head": "Les jeunes quittent tard le foyer",
-          "claim": "Le logement retarde-t-il l'autonomie ?",
-          "source": "Consejo de la Juventud",
-          "find": "l'âge moyen de départ du foyer familial"
+          "head": "Un plafond de loyer à la carte",
+          "answer": "Le plafond ne joue que si la région l'active, ce qui laisse des logements sans frein.",
+          "source": "Ley de vivienda (2023)",
+          "find": "les conditions pour déclarer une zone tendue"
         },
         {
-          "head": "Les locataires modestes exposés",
-          "claim": "Qui porte le poids de la crise du logement ?",
-          "source": "Fondation FOESSA",
-          "find": "les ménages en logement précaire"
+          "head": "Des expulsions encore rapides",
+          "answer": "Parce que la procédure est courte, une famille expulsée cherche un logement en urgence.",
+          "source": "Poder Judicial (CGPJ)",
+          "find": "les expulsions de locataires, par région et par trimestre"
         },
         {
-          "head": "Des collectifs de locataires",
-          "claim": "Les collectifs pèsent-ils sur la crise ?",
-          "source": "Sindicato de Inquilinas",
-          "find": "ses campagnes et ses adhérents, ville par ville"
+          "head": "La fin du bail rouvre le loyer",
+          "answer": "À chaque nouveau bail, le loyer est renégocié, donc le coût du logement monte par paliers.",
+          "source": "Ley de Arrendamientos Urbanos",
+          "find": "la durée minimale des baux et leur reconduction"
         },
         {
-          "head": "Une expulsion devient un symbole",
-          "claim": "Pourquoi une éviction résume-t-elle la crise ?",
-          "source": "CGPJ (statistiques)",
-          "find": "les expulsions de locataires par région"
+          "head": "Droit au logement, sans recours",
+          "answer": "Puisque la Constitution promet un logement sans recours, ce droit reste une promesse.",
+          "source": "Constitution espagnole",
+          "find": "l'article qui proclame le droit à un logement digne"
         }
       ]
     }
   ],
   "tensions": {
-    "title": "Où les regards divergent-ils ?",
+    "title": "Plafonner ou bâtir : les regards s'opposent",
+    "lead": "Plafond des loyers, construction, rôle de l'État",
     "cards": [
       {
         "pair": [
           1,
           2
         ],
-        "head": "Des votes qui bloquent, ou l'offre rare",
-        "claim": "La crise du logement vient-elle des votes ?",
-        "source": "Banque d'Espagne",
-        "find": "l'évolution des mises en chantier"
+        "head": "Tout se joue au vote ; l'offre de logements manque d'abord",
+        "claim": "Bâtit-on plus là où la majorité est stable ?",
+        "source": "Ministerio de Vivienda",
+        "find": "les logements mis en chantier, par région et par an"
       },
       {
         "pair": [
           1,
           3
         ],
-        "head": "L'agenda des partis, ou la rue",
-        "claim": "La rue a-t-elle mis le logement à l'agenda ?",
-        "source": "CIS (baromètres)",
-        "find": "le rang du logement parmi les soucis"
+        "head": "Le plafond du logement, un choix de parti ; une compétence des régions",
+        "claim": "Plafonne-t-on plus selon le bord régional ?",
+        "source": "Boletín Oficial del Estado",
+        "find": "les zones tendues déclarées, région par région"
       },
       {
         "pair": [
           2,
           3
         ],
-        "head": "Les prix, ou les parcours de vie",
-        "claim": "Le logement pèse-t-il surtout sur les jeunes ?",
-        "source": "Eurostat (EU-SILC)",
-        "find": "le taux d'effort selon l'âge"
+        "head": "L'offre de logements recule sous plafond ; le locataire en place est protégé",
+        "claim": "Loue-t-on moins après le plafond qu'avant ?",
+        "source": "INE (indice des loyers)",
+        "find": "l'évolution des loyers avant et après le plafond, par ville"
       }
     ]
   },
-  "arbitrage": {
-    "title": "Quel regard pèse le plus ?",
+  "limites": {
+    "title": "Trois regards, trois zones d'ombre",
+    "lead": "Ce qui échappe encore aux trois regards réunis",
     "cards": [
       {
-        "head": "Les choix publics expliquent la crise",
-        "test": "Les régions qui ont bâti plus de logement social auraient des loyers plus sages",
-        "source": "Ministère du Logement",
-        "find": "les logements protégés livrés, région par région"
+        "head": "Les votes cachent l'origine de la crise",
+        "claim": "Les loyers montaient-ils avant les votes ?",
+        "source": "INE (indice des loyers)",
+        "find": "l'évolution des loyers sur dix ans, région par région"
       },
       {
-        "head": "Le marché explique l'essentiel",
-        "test": "Le taux d'effort serait le plus haut là où l'offre de logements manque le plus",
-        "source": "INE",
-        "find": "l'indice des prix du logement, ville par ville"
+        "head": "Le marché tait les jeunes sans logement",
+        "claim": "Qui reste plus longtemps chez ses parents ?",
+        "source": "Consejo de la Juventud",
+        "find": "l'âge de départ du foyer parental, selon la région"
       },
       {
-        "head": "Les parcours de vie pèsent le plus",
-        "test": "Jeunes et locataires seraient les plus touchés par la crise, partout en Espagne",
-        "source": "Eurostat (EU-SILC)",
-        "find": "la surcharge des coûts du logement selon l'âge"
+        "head": "Un droit au logement écrit, pas vécu",
+        "claim": "Expulse-t-on moins dans les zones tendues ?",
+        "source": "Poder Judicial (CGPJ)",
+        "find": "les expulsions par région, avant et après la loi de 2023"
       }
     ]
   }

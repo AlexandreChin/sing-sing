@@ -579,7 +579,7 @@ def _add_source_args(p: argparse.ArgumentParser) -> None:
 _STEP_CHOICES = ["question", "enjeu", "idees", "moments", "contexte", "socle", "hook",
                  "axe", "constat", "these", "angle_mort", "depassement", "boussole",
                  "tournants", "episodes", "lecture", "pieges", "position",
-                 "chiffres", "recit", "lectures", "prismes", "tensions", "arbitrage"]
+                 "chiffres", "recit", "lectures", "prismes", "tensions", "limites"]
 
 
 def _add_stop_after(p: argparse.ArgumentParser) -> None:

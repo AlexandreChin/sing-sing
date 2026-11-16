@@ -2,8 +2,8 @@
 by `renderer.shoot`. The first and last slides are the optimized deck's own hook and sign-off (photo
 included); slide 2 is the `temps_long` position slide, drawn as it is; slides 3–5 (one prism each)
 are the `article_carousel_trois_regards_v1` templates. A deck with prism `cards` draws four cards per
-prism, then the tensions (slide 6) and « Les angles morts » (`limites`, slide 7) — or, on a revision-2
-deck with no `limites`, its arbitrage: eight slides. Slides 3–7 never repeat the deck's question: each
+prism, then the tensions (slide 6) and « Les angles morts » (`limites`, slide 7): eight slides (a revision-2
+deck, whose arbitrage is not read, has seven). Slides 3–7 never repeat the deck's question: each
 draws its own lead (the media's prism its `media_note`), and the bird perches on the first card. An
 older deck (prism `lines`, `matrix`) keeps its seven slides and its old templates.
 Registered as the `trois_regards` format."""
@@ -28,7 +28,6 @@ MEDIA_BADGE = "Le regard du média"
 CARD_ICON = "lightbulb"                  # a prism card answers: the cause and how it acts
 QUESTION_ICON = "help"                   # a revision-2 prism card ends on a question, as the anatomie blind spots
 TENSIONS_KICKER, TENSIONS_ICON, TENSION_CARD_ICON = "Les tensions", "flame", "link"
-ARBITRAGE_KICKER, ARBITRAGE_ICON = "Le poids des regards", "anchor"
 LIMITES_KICKER, LIMITES_ICON = "Les angles morts", "eye_off"   # the anatomie « angles morts » slide's own icon
 
 
@@ -95,11 +94,6 @@ def generate_html(doc: TroisRegardsDocument, out_dir: Path) -> list[Path]:
         later.append(("limites", f"{TPL}/04_limites.html", _nobreak(
             {"kicker": LIMITES_KICKER, "kicker_icon": LIMITES_ICON, "title": pres.limites.title, "lead": pres.limites.lead,
              "cards": [c.model_dump() | {"tag": name(k)} for k, c in enumerate(pres.limites.cards, 1)]})
-            | {"icons": [p["icon"] for p in order]}))
-    elif pres.arbitrage:
-        later.append(("arbitrage", f"{TPL}/04_arbitrage.html", _nobreak(
-            {"kicker": ARBITRAGE_KICKER, "kicker_icon": ARBITRAGE_ICON, "title": pres.arbitrage.title,
-             "cards": [c.model_dump() | {"tag": name(k)} for k, c in enumerate(pres.arbitrage.cards, 1)]})
             | {"icons": [p["icon"] for p in order]}))
     specs = [
         ("hook", f"{OPT}/01_hook.html", hook),

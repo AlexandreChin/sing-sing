@@ -76,7 +76,8 @@ class RegardsMatrix(BaseModel):  # slide 6 — what each prism would measure, no
 
 class RegardsTensionCard(BaseModel):
     pair: list[int]   # the two prisms that disagree, by their place in the axe (1-based), e.g. [1, 2]
-    head: str         # the point of disagreement: one side per prism, « A : … ; B : … » (caps live in the agent)
+    head: str         # the point of disagreement, two sides « … ; … »: the pair's first prism, then its second (the
+                      # tag names them); caps live in the agent
     claim: str        # the question it raises, ends in « ? »
     source: str = ""
     find: str = ""
@@ -101,18 +102,6 @@ class RegardsLimites(BaseModel):  # slide 7 « Les angles morts » — one card 
     cards: list[RegardsLimitesCard] = Field(default_factory=list)   # 3
 
 
-class RegardsArbitrageCard(BaseModel):
-    head: str         # the hypothesis that this prism weighs most
-    test: str         # what one would observe if it did, in the conditional
-    source: str = ""
-    find: str = ""
-
-
-class RegardsArbitrage(BaseModel):  # slide 7 — one card per prism, in the axe's order
-    title: str
-    cards: list[RegardsArbitrageCard] = Field(default_factory=list)   # 3
-
-
 class TroisRegardsPresentation(BaseModel):
     # The post's own copy, not slide content: the Instagram caption.
     caption: str = ""
@@ -121,9 +110,9 @@ class TroisRegardsPresentation(BaseModel):
     position: RegardsPosition
     prisms: list[RegardsPrismSlide] = Field(default_factory=list)   # 3
     matrix: RegardsMatrix | None = None          # an older deck's slide 6
-    tensions: RegardsTensions | None = None      # slide 6 of a revision-2 deck
-    arbitrage: RegardsArbitrage | None = None    # slide 7 of a revision-2 deck
-    limites: RegardsLimites | None = None        # slide 7 of a revision-3 deck (drawn instead of `arbitrage`)
+    tensions: RegardsTensions | None = None      # slide 6 (since revision 2)
+    # slide 7 « Les angles morts » (revision 3); a revision-2 deck's `arbitrage` is not read: it renders seven slides
+    limites: RegardsLimites | None = None
 
 
 class TroisRegardsDocument(BaseModel):

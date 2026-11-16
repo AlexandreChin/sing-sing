@@ -2,17 +2,17 @@
 
 A guided cascade: first the axe (the wide question, the narrower one the article answers
 and the three prisms that read it, never rendered as such), then in slide order the
-article's position, the three prism slides (four cards each), the tensions (where two
-regards disagree, one card per pair of prisms), the arbitrage (what one would observe if a
-regard weighed most, one card per prism) and the hook; `writing` finishes with the caption,
-without pausing. Each step proposes
+article's position, the three prism slides (four cards each: a cause and how it acts), the
+tensions (where two regards disagree, one card per pair of prisms, one side each), the
+limites (« Les angles morts »: what each regard alone leaves out, one card per prism) and the
+hook; `writing` finishes with the caption, without pausing. Each step proposes
 options with a reason and a ★, the author picks, edits or asks for others (`choose`),
 and a pick feeds the later steps. The `prismes` step is picked slot by slot (one option
 per prism). Steps are cached in `<format>/adapt_steps/` with a stamp of the inputs and
 the earlier picks.
 
 An option's fields are flat strings so that `choose --edit ID.field=TEXT` and `fix`
-can rewrite any of them: a card is one field per part (`headN`, `claimN` or `testN`, `indiceN`),
+can rewrite any of them: a card is one field per part (`headN`, `answerN` or `claimN`, `indiceN`),
 a clue « source | find » and a position card « label | text » are one line each, their parts
 separated by « | », a tension's pair is two prism numbers « 1,2 » (see `to_fragment`).
 
@@ -77,14 +77,15 @@ class PositionOption(BaseModel):
 
 class PrismesOption(BaseModel):
     title: str               # the prism's thesis on the deck's question
-    head1: str               # four cards: an assertion (headN), the same point as a question (claimN),
-    head2: str               # a clue « source | find » (indiceN)
+    lead: str                # one line: what this regard examines; empty on the media's prism (its media_note is the lead)
+    head1: str               # four cards: the cause this regard points to (headN), one sentence of how it acts and
+    head2: str               # what it explains (answerN, never a question), a clue « source | find » (indiceN)
     head3: str
     head4: str
-    claim1: str
-    claim2: str
-    claim3: str
-    claim4: str
+    answer1: str
+    answer2: str
+    answer3: str
+    answer4: str
     indice1: str
     indice2: str
     indice3: str
@@ -93,11 +94,12 @@ class PrismesOption(BaseModel):
 
 
 class TensionsOption(BaseModel):
-    title: str               # a neutral question
+    title: str               # a neutral phrase specific to the subject (a « ? » is allowed, not required)
+    lead: str                # one line: the objects of the disagreement
     pair1: str               # two prism numbers « 1,2 »: the three cards take the three pairs
     pair2: str
     pair3: str
-    head1: str               # the point of disagreement, each side attributed to its prism
+    head1: str               # two sides « a ; b »: a for the pair's first prism, b for the second (the tag names them)
     head2: str
     head3: str
     claim1: str              # the question it raises
@@ -108,15 +110,16 @@ class TensionsOption(BaseModel):
     indice3: str
 
 
-class ArbitrageOption(BaseModel):
-    title: str               # a neutral question
-    head1: str               # card N is the axe's Nth prism: the hypothesis that it weighs most
+class LimitesOption(BaseModel):
+    title: str               # a short neutral assertion, never a ranking
+    lead: str                # one line: what stays out of sight when the three regards are put together
+    head1: str               # card N is the axe's Nth prism: what this regard, taken alone, leaves out
     head2: str
     head3: str
-    test1: str               # what one would observe if it did, in the conditional
-    test2: str
-    test3: str
-    indice1: str             # « source | find »: the series to follow
+    claim1: str              # the question that follows, discriminating
+    claim2: str
+    claim3: str
+    indice1: str             # « source | find »: what would complete the picture
     indice2: str
     indice3: str
 
@@ -146,7 +149,7 @@ STEPS: tuple[Step, ...] = (
     Step(2, "position", PositionOption, "title", 3),
     Step(3, "prismes", PrismesOption, "title", 3, (2, 3), ("p1", "p2", "p3")),
     Step(4, "tensions", TensionsOption, "title", 3),
-    Step(5, "arbitrage", ArbitrageOption, "title", 3),
+    Step(5, "limites", LimitesOption, "title", 3),
     Step(6, "hook", HookOption, "title", 3),
     Step(7, "writing", None, "", 3, (1, 1)),
 )
@@ -253,19 +256,20 @@ def to_fragment(step: Step, picks: list[Option], fragments: dict[str, dict]) -> 
             g = pick.fields
             n = int(pick.slot[1:])
             slide = {"prism": axe_prisms[n - 1] if n <= len(axe_prisms) else "", "title": g.get("title", ""),
-                     "cards": [{"head": g.get(f"head{k}", ""), "claim": g.get(f"claim{k}", ""),
+                     "lead": g.get("lead", ""),
+                     "cards": [{"head": g.get(f"head{k}", ""), "answer": g.get(f"answer{k}", ""),
                                 **_clue(g.get(f"indice{k}", ""))} for k in (1, 2, 3, 4)]}
             if str(g.get("media_note", "")).strip():
                 slide["media_note"] = str(g["media_note"]).strip()
             slides.append(slide)
         return {"prisms": slides}
     if step.name == "tensions":
-        return {"tensions": {"title": f.get("title", ""), "cards": [
+        return {"tensions": {"title": f.get("title", ""), "lead": f.get("lead", ""), "cards": [
             {"pair": _pair(f.get(f"pair{k}", "")), "head": f.get(f"head{k}", ""), "claim": f.get(f"claim{k}", ""),
              **_clue(f.get(f"indice{k}", ""))} for k in (1, 2, 3)]}}
-    if step.name == "arbitrage":
-        return {"arbitrage": {"title": f.get("title", ""), "cards": [
-            {"head": f.get(f"head{k}", ""), "test": f.get(f"test{k}", ""), **_clue(f.get(f"indice{k}", ""))}
+    if step.name == "limites":            # card N is the axe's Nth prism: the renderer draws its name
+        return {"limites": {"title": f.get("title", ""), "lead": f.get("lead", ""), "cards": [
+            {"head": f.get(f"head{k}", ""), "claim": f.get(f"claim{k}", ""), **_clue(f.get(f"indice{k}", ""))}
             for k in (1, 2, 3)]}}
     if step.name == "hook":
         return {"hook": {"title": f.get("title", ""), "promise": f.get("promise", "")}}
@@ -295,22 +299,16 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("axe", "question"): ("chars", 60), ("axe", "subject"): ("chars", 36),
     ("axe", "closing"): ("chars", 110), ("axe", "media_grounding"): ("chars", 120),
     ("position", "kicker"): ("chars", 26), ("position", "title"): ("chars", 32), ("position", "lead"): ("chars", 90),
-    ("prismes", "media_note"): ("chars", 90),
     ("hook", "title"): ("chars", 70), ("hook", "promise"): ("chars", 100),
-    # the four-card prism slides, the tensions (slide 6) and the arbitrage (slide 7)
-    ("prismes", "title"): ("chars", 40),
+    # the four-card prism slides (the media's note is its slide's lead: one line, like every lead)
+    ("prismes", "title"): ("chars", 40), ("prismes", "lead"): ("chars", 60), ("prismes", "media_note"): ("chars", 60),
     **{("prismes", f"head{i}"): ("chars", 36) for i in (1, 2, 3, 4)},
-    **{("prismes", f"claim{i}"): ("chars", 46) for i in (1, 2, 3, 4)},
-    ("tensions", "title"): ("chars", 34),
-    **{("tensions", f"head{i}"): ("chars", 40) for i in (1, 2, 3)},
-    **{("tensions", f"claim{i}"): ("chars", 46) for i in (1, 2, 3)},
-    ("arbitrage", "title"): ("chars", 34),
-    **{("arbitrage", f"head{i}"): ("chars", 40) for i in (1, 2, 3)},
-    **{("arbitrage", f"test{i}"): ("chars", 80) for i in (1, 2, 3)},
-    # revision 3: a lead per slide, the prism cards' answer, the two-sided tension head, slide 7 « Les angles morts »
-    ("prismes", "lead"): ("chars", 60),
     **{("prismes", f"answer{i}"): ("chars", 90) for i in (1, 2, 3, 4)},
-    ("tensions", "lead"): ("chars", 60), ("tensions", "head_two_sides"): ("chars", 76),
+    # the tensions (slide 6): a head holds two sides « a ; b »; the title takes two lines up to 44 characters
+    ("tensions", "title"): ("chars", 44), ("tensions", "lead"): ("chars", 60),
+    **{("tensions", f"head{i}"): ("chars", 76) for i in (1, 2, 3)},
+    **{("tensions", f"claim{i}"): ("chars", 46) for i in (1, 2, 3)},
+    # « Les angles morts » (slide 7)
     ("limites", "title"): ("chars", 34), ("limites", "lead"): ("chars", 60),
     **{("limites", f"head{i}"): ("chars", 40) for i in (1, 2, 3)},
     **{("limites", f"claim{i}"): ("chars", 46) for i in (1, 2, 3)},
@@ -318,20 +316,38 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
 # (step, field) -> the parts of a « a | b » field, each with its cap in characters
 _PART_CAPS: dict[tuple[str, str], tuple[tuple[str, int], ...]] = {
     **{("position", f"card{i}"): (("label", 30), ("text", 76)) for i in (1, 2, 3, 4)},
-    # a clue: « <source nommée> | <ce qu'on y cherche> »
+    # a clue: « <source nommée> | <ce qu'on y lit> »
     **{(step, f"indice{i}"): (("source", 30), ("find", 60))
-       for step, n in (("prismes", 4), ("tensions", 3), ("arbitrage", 3), ("limites", 3)) for i in range(1, n + 1)},
+       for step, n in (("prismes", 4), ("tensions", 3), ("limites", 3)) for i in range(1, n + 1)},
 }
 _REQUIRED = {"axe": ("question", "article_question", "subject", "prism1", "prism2", "prism3", "media",
                      "media_grounding", "closing"),
              "position": ("kicker", "title", "lead", "card1", "card2", "card3"),
-             "prismes": tuple(f for f in PrismesOption.model_fields if f != "media_note"),
+             # a prism's lead depends on its slot (empty on the media's): checked with the media_note
+             "prismes": tuple(f for f in PrismesOption.model_fields if f not in ("media_note", "lead")),
              "tensions": tuple(TensionsOption.model_fields),
-             "arbitrage": tuple(ArbitrageOption.model_fields),
+             "limites": tuple(LimitesOption.model_fields),
              "hook": ("title", "promise")}
-# the card steps: how many cards, and the field that carries a card's second line
-_CARDS = {"prismes": (4, "claim"), "tensions": (3, "claim"), "arbitrage": (3, "test")}
-_CONDITIONAL = re.compile(r"\w(?:rait|raient)\b", re.I)
+# the card steps: how many cards, and the field that carries a card's second line (a prism card answers, the others ask)
+_CARDS = {"prismes": (4, "answer"), "tensions": (3, "claim"), "limites": (3, "claim")}
+# a claim that asks whether the subject « explains » the crisis: generic, it discriminates nothing
+_GENERIC_CLAIM = re.compile(r"\b(?:explique|expliquent|pèse|pèsent|nourrit|nourrissent|cause|causent|influence|influencent)"
+                            r"(?:-t)?-(?:il|elle|ils|elles)\b[^?]*\b(?:crise|situation|problème)\b", re.I)
+# a prism answer says how the cause acts: one of these links
+_CAUSAL = re.compile(r"\b(?:(?:parce|lors|dès|puis)\s?qu(?:e\b|')|faute d(?:e\b|')|(?:donc|quand|si|s'ils?|car|ce qui)\b"
+                     r"|(?:entra[îi]n|provoqu|pouss|condui)\w*)", re.I)
+# a discriminating question compares two situations or two periods
+_COMPARE = re.compile(r"\b(?:plus|moins|là où|selon|entre|avant|après|par rapport|davantage|que|mieux|pire)\b", re.I)
+# what to find in a clue: a measure, a breakdown or a comparison
+_PRECISE = re.compile(r"\b(?:par|selon|entre|évolutions?|parts?|taux|prix|nombres?|durées?|écarts?)\b", re.I)
+_RANKING = re.compile(r"pèsen?t? le plus|quel regard|meilleur\w*|le mieux", re.I)
+_RESTATES = 0.8
+# a head's subject group: a determiner, a noun, its « de X » complements; the word after it is the leading verb
+_DET = frozenset("le la les l un une des du de d ce cet cette ces son sa ses leur leurs chaque tout toute tous toutes "
+                 "aucun aucune".split())
+_OF = frozenset("de d du des au aux".split())
+_FUNCTION = _DET | _OF | frozenset("à en par pour sur sous dans avec sans et ou qui que qu ne n pas se s y il elle ils "
+                                   "elles on plus moins entre vers chez".split())
 _ACCUSING = re.compile(r"\b(biais|manipulation|manipul\w+|mensonges?|trompeu\w+|fallacieu\w+|sophismes?)\b", re.I)
 _BLAMING = re.compile(r"\b(oublie(?:nt|s)?|ignore(?:nt|s)?|omet(?:s|tent)?|néglige(?:nt|s)?|ne (?:dit|disent) pas)\b", re.I)
 _PRESCRIPTIVE = re.compile(r"\b(il faut|faut-il|il faudrait|faudrait|doit|doivent|devrait|devraient)\b", re.I)
@@ -388,6 +404,111 @@ def _axe(fragments: dict[str, dict]) -> dict:
     return fragments.get("axe", {}).get("axe", {})
 
 
+def _first_word(s: str) -> str:
+    words = _typo_plain(s).split()
+    return words[0].strip(",;:.«»").lower() if words else ""
+
+
+def _leading_verb(head: str) -> str:
+    """The word after a head's subject group (a determiner, a noun, its « de X » complements): « Les rapports de force
+    font la crise » → « font ». Empty when that word is a function word (« Un gouvernement sans majorité »)."""
+    w = re.findall(r"[^\W\d_]+", _typo_plain(head).lower())
+    i = 1 if w and w[0] in _DET else 0
+    i += 1
+    while i + 1 < len(w) and w[i] in _OF:
+        i += 2
+    verb = w[i] if i < len(w) else ""
+    return "" if verb in _FUNCTION else verb
+
+
+def _card_errors(step: str, fields: dict[str, Any], axe: dict, question) -> tuple[list[str], list[str]]:
+    """(hard, flags) of a card step (`prismes`, `tensions`, `limites`): its title and lead, then each card — a prism
+    card answers (`answerN`, a sentence with a causal link), a tension or a blind spot asks (`claimN`, a
+    discriminating question) — then the cards of the slide against one another."""
+    hard, flags = [], []
+    count, second = _CARDS[step]
+    question_text = str(axe.get("question", ""))
+    question_words = _key_words(question_text)
+    subject = _norm(str(axe.get("subject", "")))
+    title, lead = str(fields.get("title", "")), str(fields.get("lead", ""))
+    for name in ("title", "lead"):
+        if _odd_digits(str(fields.get(name, ""))):
+            hard.append(f"{step}.{name} holds a digit — {_DIGIT_RULE}")
+    if lead.strip().endswith("?"):
+        hard.append(f"{step}.lead is a line, not a question — say what this slide examines")
+    shown = [("title", title), ("lead", lead)] + ([("media_note", str(fields.get("media_note", "")))] if step == "prismes" else [])
+    for name, value in shown:
+        if value.strip() and question_text.strip() and (
+                _norm(value) == _norm(question_text) or len(_key_words(value) & question_words) >= 3):
+            flags.append(f"{step}.{name} repeats the deck's question — no slide from 3 to 7 repeats it; "
+                         "say what this slide examines")
+    if step == "limites" and (m := _RANKING.search(title)):
+        flags.append(f"limites.title ranks the regards (« {m.group(0)} ») — the slide says what each regard leaves out, "
+                     "never which one weighs most")
+    cards, heads, seconds, with_subject = [], [], [], []
+    for k in range(1, count + 1):
+        head, line, clue = (str(fields.get(f"{n}{k}", "")) for n in ("head", second, "indice"))
+        for name, value in ((f"head{k}", head), (f"{second}{k}", line), (f"indice{k}", clue)):
+            if _odd_digits(value):
+                hard.append(f"{step}.{name} holds a digit — {_DIGIT_RULE}")
+        if _URL.search(clue):
+            hard.append(f"{step}.indice{k} holds a URL — name the organisation, document or series, never a link")
+        if second == "claim":
+            question(f"claim{k}", line)
+            if _GENERIC_CLAIM.search(_QUOTED.sub("", line)):
+                hard.append(f"{step}.claim{k} is a generic question (« … explique-t-il la crise ? ») — ask a "
+                            "discriminating one: compare two places or two periods, or name what would differ")
+            elif line.strip() and not _COMPARE.search(line):
+                flags.append(f"{step}.claim{k} has no comparison marker (plus, moins, là où, avant, après, selon…) — "
+                             "a discriminating question compares two situations or two periods")
+            find = _parts(clue, 2)[1]
+            if find and (len(find.split()) < 5 or not _PRECISE.search(find)):
+                flags.append(f"{step}.indice{k}: what to find there is vague — name a precise series or measure "
+                             "(par …, selon …, l'évolution de …, le taux de …)")
+        elif "?" in line:
+            hard.append(f"prismes.answer{k} is a sentence, not a question — the prism answers: how the cause acts")
+        elif line.strip():
+            if not _CAUSAL.search(_typo_plain(line)):
+                flags.append(f"prismes.answer{k} has no causal link (quand, si, donc, parce que, faute de, ce qui…) — "
+                             "say how the cause acts and what it explains here")
+            said = _key_words(line)
+            if said and len(said & _key_words(head)) / len(said) >= _RESTATES:
+                flags.append(f"prismes.answer{k} restates its head — say how the cause acts and what it explains here")
+        if step == "tensions" and head.strip():
+            sides = _typo_plain(head).split(";")
+            if len(sides) != 2 or not all(x.strip() for x in sides):
+                hard.append(f"tensions.head{k} must hold two sides « … ; … », one per prism of the pair, in the tag's "
+                            "order (the tag names the prisms: the head does not)")
+        text = f"{head} {line}"
+        cards.append(_key_words(text) - question_words)
+        heads.append(head)
+        seconds.append(line)
+        if subject and subject in _norm(text):
+            with_subject.append(k)
+        if text.strip() and question_words and not _key_words(text) & question_words:
+            flags.append(f"{step}.card{k} shares no key word with the axe's question — each card answers that question")
+    if len(with_subject) >= 2:
+        flags.append(f"{step}: the subject « {axe.get('subject')} » appears in cards {', '.join(map(str, with_subject))} — "
+                     "say it once at most, the cards vary their words")
+    openings = [("head", heads)] + ([("answer", seconds)] if step == "prismes" else [])
+    for i in range(count):
+        for j in range(i + 1, count):
+            for what, lines in openings:
+                w = _first_word(lines[i])
+                if w and w == _first_word(lines[j]):
+                    flags.append(f"{step}: card{i + 1} and card{j + 1} open their {what} with the same word « {w} » — "
+                                 "vary the openings")
+            v = _leading_verb(heads[i])
+            if v and v == _leading_verb(heads[j]):
+                flags.append(f"{step}: the heads of card{i + 1} and card{j + 1} share the leading verb « {v} » — "
+                             "vary the verbs")
+            a, b = cards[i], cards[j]
+            if a and b and len(a & b) / min(len(a), len(b)) >= _NEAR_IDENTICAL:
+                flags.append(f"{step}: card{i + 1} and card{j + 1} say nearly the same thing — "
+                             "each card should bring its own mechanism")
+    return hard, flags
+
+
 def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict], article: str | None,
                  slot: str = "a") -> tuple[list[str], list[str]]:
     """(hard, flags) on one step's fields (`slot` is the prism slot for `prismes`), given the earlier fragments."""
@@ -409,9 +530,8 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict], 
             hard.append(f"{step}.{name} uses an accusing word « {m.group(0)} » — the carousel gives tools, not verdicts")
         if (m := _BLAMING.search(outside)):
             hard.append(f"{step}.{name} blames the article (« {m.group(0)} ») — say what a prism looks at, never what the article lacks")
-        # prescriptive verbs: everywhere on the tensions; on the arbitrage, its title and heads only (a test's
-        # « devrait » is a conditional observation)
-        if (step == "tensions" or (step == "arbitrage" and (name == "title" or name.startswith("head")))) \
+        # prescriptive verbs: everywhere on the tensions; on the limites, its title and heads
+        if (step == "tensions" or (step == "limites" and (name == "title" or name.startswith("head")))) \
                 and (m := _PRESCRIPTIVE.search(outside)):
             hard.append(f"{step}.{name} is prescriptive (« {m.group(0)} ») — the carousel weighs regards, "
                         "it never says what to do")
@@ -442,7 +562,7 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict], 
         if media and media not in prisms:
             hard.append(f"axe.media « {media} » is not one of the three prisms")
         question("question", str(fields.get("question", "")))
-        if _odd_digits(str(fields.get("question", ""))):     # drawn under the prism, tensions and arbitrage titles
+        if _odd_digits(str(fields.get("question", ""))):     # the hook's title
             hard.append(f"axe.question holds a digit — {_DIGIT_RULE}")
         question("closing", str(fields.get("closing", "")))
         closing = str(fields.get("closing", ""))
@@ -451,6 +571,9 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict], 
                          "the « regard du média » line will say only what the article does with it")
         if re.search(r"\bou\b", closing):
             flags.append("axe.closing contains « ou » — it may read as a binary choice; the question should stay open")
+        if (m := _RANKING.search(closing)):
+            flags.append(f"axe.closing ranks the regards (« {m.group(0)} ») — ask what is still missing to understand "
+                         "the subject, never which regard is best")
         if closing.strip() and not _key_words(closing) & _key_words(str(fields.get("question", ""))):
             flags.append("axe.closing shares no key word with the axe's question")
         low = _plain(closing)
@@ -464,39 +587,8 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict], 
                 flags += [f"position.{name}: {q} does not appear word for word in the source"
                           for q in _QUOTED.findall(value) if _norm(q.strip("« »  ")) not in _norm(article)]
     if step in _CARDS:
-        count, second = _CARDS[step]
-        title = str(fields.get("title", ""))
-        if _odd_digits(title):
-            hard.append(f"{step}.title holds a digit — {_DIGIT_RULE}")
-        if step != "prismes":                       # a prism's title is a thesis; the other two ask
-            question("title", title)
-            if re.search(r"\bou\b", title):
-                flags.append(f"{step}.title contains « ou » — it may read as a binary choice; the question should stay open")
-        cards = []
-        for k in range(1, count + 1):
-            for name in (f"head{k}", f"{second}{k}", f"indice{k}"):
-                if _odd_digits(str(fields.get(name, ""))):
-                    hard.append(f"{step}.{name} holds a digit — {_DIGIT_RULE}")
-            if _URL.search(str(fields.get(f"indice{k}", ""))):
-                hard.append(f"{step}.indice{k} holds a URL — name the organisation, document or series, never a link")
-            line = str(fields.get(f"{second}{k}", ""))
-            if second == "claim":
-                question(f"claim{k}", line)
-            elif line.strip().endswith("?"):
-                hard.append(f"{step}.test{k} is a sentence, not a question — what one would observe, in the conditional")
-            elif line.strip() and not _CONDITIONAL.search(line):
-                flags.append(f"{step}.test{k} has no conditional verb (« -rait / -raient ») — say what one would observe "
-                             "if this regard weighed most, never a result")
-            text = f"{fields.get(f'head{k}', '')} {line}"
-            cards.append(_key_words(text) - question_words)
-            if text.strip() and question_words and not _key_words(text) & question_words:
-                flags.append(f"{step}.card{k} shares no key word with the axe's question — each card answers that question")
-        for i in range(count):
-            for j in range(i + 1, count):
-                a, b = cards[i], cards[j]
-                if a and b and len(a & b) / min(len(a), len(b)) >= _NEAR_IDENTICAL:
-                    flags.append(f"{step}: card{i + 1} and card{j + 1} say nearly the same thing — "
-                                 "each card should bring its own mechanism")
+        card_hard, card_flags = _card_errors(step, fields, axe, question)
+        hard, flags = hard + card_hard, flags + card_flags
     if step == "tensions":
         pairs = []
         for k in (1, 2, 3):
@@ -512,22 +604,27 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict], 
         note = str(fields.get("media_note", "")).strip()
         axe_prisms = _axe_prisms(fragments)
         n = int(slot[1:]) if re.fullmatch(r"p\d", slot) else 0
+        lead = str(fields.get("lead", "")).strip()
         if axe.get("media") and 1 <= n <= len(axe_prisms):
             is_media = axe_prisms[n - 1] == axe["media"]
             if is_media and not note:
                 hard.append("prismes.media_note is empty — this is the media's prism, it carries the « regard du média » line")
             if not is_media and note:
                 hard.append("prismes.media_note must be empty — only the media's prism carries it")
+            if is_media and lead:
+                hard.append("prismes.lead must be empty on the media's prism — its media_note is the slide's lead")
+            if not is_media and not lead:
+                hard.append("prismes.lead is empty")
         if article:
             flags += [f"prismes.media_note: {q} does not appear word for word in the source"
                       for q in _QUOTED.findall(note) if _norm(q.strip("« »  ")) not in _norm(article)]
         words = lambda texts: _key_words(" ".join(texts)) - question_words   # noqa: E731
-        mine = words([str(fields.get("title", "")), *(str(fields.get(f"{p}{k}", "")) for p in ("head", "claim")
+        mine = words([str(fields.get("title", "")), *(str(fields.get(f"{p}{k}", "")) for p in ("head", "answer")
                                                       for k in (1, 2, 3, 4))])
         for k, other in enumerate(fragments.get("prismes", {}).get("prisms", []), 1):
             if k == n:
                 continue
-            theirs = words([other.get("title", ""), *(c.get(p, "") for c in other.get("cards", []) for p in ("head", "claim"))])
+            theirs = words([other.get("title", ""), *(c.get(p, "") for c in other.get("cards", []) for p in ("head", "answer"))])
             if mine and theirs and len(mine & theirs) / min(len(mine), len(theirs)) >= _NEAR_IDENTICAL:
                 flags.append(f"prismes: this slide and the one of slot p{k} say nearly the same thing — "
                              "each prism should bring its own reading")
@@ -988,8 +1085,8 @@ def more(full, steps_dir: Path, step: str, remark: str = "", article_text: str |
     return new
 
 
-VERIFIED_STEPS = ("prismes", "tensions", "arbitrage")
-_VERIFY_SLOT = {"tensions": "t", "arbitrage": "a"}     # a prism slide keeps its own slot (p1–p3)
+VERIFIED_STEPS = ("prismes", "tensions", "limites")
+_VERIFY_SLOT = {"tensions": "t", "limites": "l"}     # a prism slide keeps its own slot (p1–p3)
 
 
 async def verify_pick(steps_dir: Path, step: str, search=None) -> list[str]:

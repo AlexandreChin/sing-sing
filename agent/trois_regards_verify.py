@@ -1,7 +1,7 @@
 """Checks the sources named in the clues of a `trois_regards` deck against the web, once the author has picked them.
 
-Each card of a prism slide, of the tensions and of the arbitrage ends on a clue, « source | ce qu'on y cherche » (`indiceN`):
-the source is the model's general knowledge, not the article's. After a pick on `prismes`, `tensions` or `arbitrage`,
+Each card of a prism slide, of the tensions and of the limites ends on a clue, « source | ce qu'on y lit » (`indiceN`):
+the source is the model's general knowledge, not the article's. After a pick on `prismes`, `tensions` or `limites`,
 each named source becomes a one-sentence claim, searched with the repo's claim verifier (`tools/verify.py`: news and
 public databases, a stance per source). A source with no supporting result, or one a result contradicts, comes back as
 a ⚠ naming the field to fix — advisory, the author has the last word. The result is kept beside the step
@@ -18,7 +18,7 @@ from typing import Awaitable, Callable
 def points(fields_by_slot: dict[str, dict], prism_ids: list[str] | None = None) -> list[tuple[str, str, str, str]]:
     """(slot, field, prism name, source) of each clue of the picked options, the source being the part of `indiceN`
     before « | » (a clue with no source is skipped). Slot `pN` is a prism slide (the axe's Nth prism, four clues), `t`
-    the tensions (card N names the two prisms of its `pairN`), `a` the arbitrage (card N is the axe's Nth prism).
+    the tensions (card N names the two prisms of its `pairN`), `l` the limites (card N is the axe's Nth prism).
     `prism_ids` are the axe's prisms in order; a prism id unknown to the catalogue is used as its own name."""
     from agent.trois_regards_prisms import PRISMS
 
@@ -35,7 +35,7 @@ def points(fields_by_slot: dict[str, dict], prism_ids: list[str] | None = None) 
             if slot == "t":
                 pair = [int(x) for x in str(fields.get(f"pair{k}", "")).replace(" ", "").split(",") if x.isdigit()]
                 prism = " × ".join(name(n) or str(n) for n in pair) or slot
-            elif slot == "a":
+            elif slot == "l":
                 prism = name(k) or slot
             else:
                 prism = name(int(slot[1:]) if slot[1:].isdigit() else 0) or slot
