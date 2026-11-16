@@ -1,0 +1,26 @@
+{
+  "step": "writing",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "",
+      "fields": {
+        "caption": "Qu'est-ce qui explique la crise du logement en Espagne ? Radio-Canada raconte comment elle a mené Pedro Sánchez à convoquer des élections anticipées, prévues le 29 novembre. L'article date d'octobre ; depuis, une grève générale a eu lieu le 11 novembre, la première depuis 14 ans, et le décret a été de nouveau soumis au vote le 12 novembre.\n\nCe carrousel regarde la même question à travers trois disciplines : le politique, celui que le reportage emploie, l'économique et le juridique. Il montre où ces regards se contredisent, et ce qu'on observerait si l'un d'eux pesait le plus. Ces regards sont notre grille de lecture, pas celle du média.\n\nÀ vous d'en juger. Commentez — entre le politique, l'économique et le juridique, quel regard éclaire le mieux la crise du logement ?\n\n#Espagne #Logement #LectureCritique #Actualité"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "caption": "Qu'est-ce qui explique la crise du logement en Espagne ? Radio-Canada raconte comment elle a mené Pedro Sánchez à convoquer des élections anticipées, prévues le 29 novembre. L'article date d'octobre ; depuis, une grève générale a eu lieu le 11 novembre, la première depuis 14 ans, et le décret a été de nouveau soumis au vote le 12 novembre.\n\nCe carrousel regarde la même question à travers trois disciplines : le politique, celui que le reportage emploie, l'économique et le juridique. Il montre où ces regards se contredisent, et ce qu'on observerait si l'un d'eux pesait le plus. Ces regards sont notre grille de lecture, pas celle du média.\n\nÀ vous d'en juger. Commentez — entre le politique, l'économique et le juridique, quel regard éclaire le mieux la crise du logement ?\n\n#Espagne #Logement #LectureCritique #Actualité"
+  },
+  "remarks": []
+}

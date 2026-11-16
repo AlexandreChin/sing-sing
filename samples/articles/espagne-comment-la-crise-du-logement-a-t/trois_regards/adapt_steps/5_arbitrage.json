@@ -1,0 +1,95 @@
+{
+  "step": "arbitrage",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Trois observations qui départagent : la stabilité des majorités, l'effet de l'offre sur les loyers, l'effet de la protection légale sur les expulsions.",
+      "fields": {
+        "title": "Quel regard pèse le plus ?",
+        "head1": "Les rapports de force font la crise",
+        "head2": "Les prix font la crise du logement",
+        "head3": "Les règles font la crise du logement",
+        "test1": "Les textes sur le logement passeraient plus là où une majorité stable existerait",
+        "test2": "Les loyers baisseraient là où l'offre de logements neufs augmenterait vite",
+        "test3": "Les expulsions seraient plus rares là où la loi protégerait les locataires",
+        "indice1": "Congreso de los Diputados | les votes sur les textes sur le logement",
+        "indice2": "Banco de España | l'évolution des loyers et de l'offre",
+        "indice3": "Poder Judicial | les statistiques sur les expulsions"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Trois observations qui départagent : les écarts entre régions, le poids des acheteurs institutionnels, l'effet des recours judiciaires sur l'application des plafonds.",
+      "fields": {
+        "title": "Quel regard pèse le plus ?",
+        "head1": "Les régions font la crise du logement",
+        "head2": "Les investisseurs font la crise",
+        "head3": "Les recours font la crise du logement",
+        "test1": "Les loyers évolueraient autrement selon les régions qui ont appliqué les mesures",
+        "test2": "Les prix monteraient plus vite là où les sociétés achèteraient davantage",
+        "test3": "Les plafonds seraient moins appliqués là où les recours en justice abonderaient",
+        "indice1": "Ministerio de Vivienda | l'application de la loi de 2023 par région",
+        "indice2": "Registradores de España | les achats selon le type d'acheteur",
+        "indice3": "Tribunal Constitucional | les arrêts sur l'encadrement des loyers"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Trois observations qui départagent : le rythme des textes avant un scrutin, le lien entre déficit et loyers, la portée réelle du droit au logement devant les juges.",
+      "fields": {
+        "title": "Quel regard pèse le plus ?",
+        "head1": "Le calendrier pèse sur le logement",
+        "head2": "La rareté pèse sur le logement",
+        "head3": "Le droit au logement reste théorique",
+        "test1": "Les mesures sur le logement seraient adoptées plus vite avant un scrutin",
+        "test2": "Les loyers monteraient plus fort là où le déficit de logements serait marqué",
+        "test3": "Les familles menacées gagneraient plus souvent là où la loi les protège",
+        "indice1": "Cortes Generales | les dates des votes et des décrets sur le logement",
+        "indice2": "Banco de España | les rapports sur le déficit de logements",
+        "indice3": "Poder Judicial | les décisions sur les expulsions de locataires"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "arbitrage": {
+      "title": "Quel regard pèse le plus ?",
+      "cards": [
+        {
+          "head": "Les rapports de force font la crise",
+          "test": "Les textes sur le logement passeraient plus là où une majorité stable existerait",
+          "source": "Congreso de los Diputados",
+          "find": "les votes sur les textes sur le logement"
+        },
+        {
+          "head": "Les prix font la crise du logement",
+          "test": "Les loyers baisseraient là où l'offre de logements neufs augmenterait vite",
+          "source": "Banco de España",
+          "find": "l'évolution des loyers et de l'offre"
+        },
+        {
+          "head": "Les règles font la crise du logement",
+          "test": "Les expulsions seraient plus rares là où la loi protégerait les locataires",
+          "source": "Poder Judicial",
+          "find": "les statistiques sur les expulsions"
+        }
+      ]
+    }
+  },
+  "remarks": []
+}

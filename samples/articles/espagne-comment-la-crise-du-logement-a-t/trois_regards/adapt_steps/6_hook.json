@@ -4,18 +4,7 @@
     {
       "id": "a",
       "slot": "a",
-      "reason": "Reprend mot pour mot la question de l'axe : la plus proche, la plus courte et la plus claire pour qui n'a pas lu l'article.",
-      "fields": {
-        "title": "D'où vient la crise du logement en Espagne ?",
-        "promise": "Trois regards sur la crise du logement en Espagne ; à vous d'en juger."
-      },
-      "edited": false,
-      "flags": []
-    },
-    {
-      "id": "b",
-      "slot": "a",
-      "reason": "Met l'accent sur l'explication plutôt que sur l'origine dans le temps, ce qui laisse chaque discipline proposer sa propre cause.",
+      "reason": "Reprend mot pour mot la question de l'axe : la plus proche de l'axe et la plus claire pour qui n'a pas lu l'article.",
       "fields": {
         "title": "Qu'est-ce qui explique la crise du logement en Espagne ?",
         "promise": "Trois regards sur la crise du logement en Espagne ; à vous d'en juger."
@@ -24,9 +13,20 @@
       "flags": []
     },
     {
+      "id": "b",
+      "slot": "a",
+      "reason": "Met en avant l'origine de la crise, avec une formulation plus courte et plus directe.",
+      "fields": {
+        "title": "D'où vient la crise du logement en Espagne ?",
+        "promise": "Trois regards sur la crise du logement en Espagne ; à vous d'en juger."
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
       "id": "c",
       "slot": "a",
-      "reason": "Formulation directe et très lisible, centrée sur le pays, qui invite chaque prisme à donner son « pourquoi ».",
+      "reason": "Pose la question comme un « pourquoi » et place l'Espagne en sujet de la phrase.",
       "fields": {
         "title": "Pourquoi l'Espagne connaît-elle une crise du logement ?",
         "promise": "Trois regards sur la crise du logement en Espagne ; à vous d'en juger."
@@ -37,9 +37,9 @@
     {
       "id": "d",
       "slot": "a",
-      "reason": "Insiste sur le processus et la durée, ce qui s'accorde avec le regard historique tout en restant ouvert aux deux autres prismes.",
+      "reason": "Insiste sur le chemin parcouru vers la crise, sans reprendre la question plus étroite de l'article sur les élections.",
       "fields": {
-        "title": "Comment la crise du logement en Espagne s'est-elle installée ?",
+        "title": "Qu'est-ce qui a mené l'Espagne à cette crise du logement ?",
         "promise": "Trois regards sur la crise du logement en Espagne ; à vous d'en juger."
       },
       "edited": false,
@@ -55,7 +55,7 @@
   ],
   "fragment": {
     "hook": {
-      "title": "D'où vient la crise du logement en Espagne ?",
+      "title": "Qu'est-ce qui explique la crise du logement en Espagne ?",
       "promise": "Trois regards sur la crise du logement en Espagne ; à vous d'en juger."
     }
   },

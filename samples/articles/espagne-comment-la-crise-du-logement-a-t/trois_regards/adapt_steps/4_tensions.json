@@ -1,0 +1,116 @@
+{
+  "step": "tensions",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Trois désaccords : le rôle des partis face au marché, la place des majorités face aux droits, l'effet d'un plafond de loyer.",
+      "fields": {
+        "title": "Où les regards divergent-ils ?",
+        "pair1": "1,2",
+        "pair2": "1,3",
+        "pair3": "2,3",
+        "head1": "Le jeu des partis, ou le prix du marché",
+        "head2": "Des majorités, ou des droits écrits",
+        "head3": "Les prix, ou la loi qui les cadre",
+        "claim1": "Qui pèse sur la crise du logement ?",
+        "claim2": "Qui fixe les règles de la crise du logement ?",
+        "claim3": "Un plafond change-t-il la crise du logement ?",
+        "indice1": "Banco de España | les rapports sur le marché du logement",
+        "indice2": "Tribunal Constitucional | les arrêts sur le logement",
+        "indice3": "OCDE | les études sur le contrôle des loyers"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Trois désaccords : le poids des votes face à la rareté, le rôle d'un texte face aux urnes, l'effet des règles sur l'offre.",
+      "fields": {
+        "title": "Sur quoi les regards s'opposent ?",
+        "pair1": "1,2",
+        "pair2": "1,3",
+        "pair3": "2,3",
+        "head1": "Le blocage des votes, ou la rareté",
+        "head2": "Le calendrier des urnes, ou le droit",
+        "head3": "L'offre qui manque, ou les règles du jeu",
+        "claim1": "Le vote explique-t-il la crise du logement ?",
+        "claim2": "Les urnes changent-elles le logement ?",
+        "claim3": "Les règles freinent-elles le logement ?",
+        "indice1": "Congreso de los Diputados | les votes sur le logement",
+        "indice2": "Ministerio de Vivienda | la loi sur le logement de 2023",
+        "indice3": "Banco de España | l'évolution de l'offre de logements"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Trois désaccords : le logement comme enjeu électoral, la part du politique dans le droit, la protection du locataire face au marché.",
+      "fields": {
+        "title": "Où les regards se séparent-ils ?",
+        "pair1": "1,2",
+        "pair2": "1,3",
+        "pair3": "2,3",
+        "head1": "Un enjeu de vote, ou un coût du marché",
+        "head2": "Un arbitrage d'élus, ou une garantie",
+        "head3": "Les loyers, ou les droits des locataires",
+        "claim1": "Le logement est-il d'abord un enjeu de vote ?",
+        "claim2": "Le droit au logement dépend-il des élus ?",
+        "claim3": "Qui protège le locataire dans la crise ?",
+        "indice1": "CIS | les baromètres sur les préoccupations des Espagnols",
+        "indice2": "Constitution espagnole | l'article sur le droit au logement",
+        "indice3": "Poder Judicial | les statistiques sur les expulsions"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "tensions": {
+      "title": "Où les regards divergent-ils ?",
+      "cards": [
+        {
+          "pair": [
+            1,
+            2
+          ],
+          "head": "Le jeu des partis, ou le prix du marché",
+          "claim": "Qui pèse sur la crise du logement ?",
+          "source": "Banco de España",
+          "find": "les rapports sur le marché du logement"
+        },
+        {
+          "pair": [
+            1,
+            3
+          ],
+          "head": "Des majorités, ou des droits écrits",
+          "claim": "Qui fixe les règles de la crise du logement ?",
+          "source": "Tribunal Constitucional",
+          "find": "les arrêts sur le logement"
+        },
+        {
+          "pair": [
+            2,
+            3
+          ],
+          "head": "Les prix, ou la loi qui les cadre",
+          "claim": "Un plafond change-t-il la crise du logement ?",
+          "source": "OCDE",
+          "find": "les études sur le contrôle des loyers"
+        }
+      ]
+    }
+  },
+  "remarks": []
+}
