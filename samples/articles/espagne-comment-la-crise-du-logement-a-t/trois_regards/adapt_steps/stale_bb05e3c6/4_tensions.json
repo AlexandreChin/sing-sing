@@ -1,0 +1,129 @@
+{
+  "step": "tensions",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "Trois sujets concrets : le scrutin, les plafonds de loyer, le logement social ; chaque regard les lit autrement.",
+      "fields": {
+        "title": "Trois sujets, trois lectures",
+        "lead": "Un même débat se lit autrement selon le regard qui l'éclaire",
+        "topic1": "Les élections anticipées",
+        "topic2": "Les plafonds de loyer",
+        "topic3": "Le logement social",
+        "view1_1": "Un pari pour sortir de l'impasse",
+        "view1_2": "Un scrutin qui pèse sur l'action publique",
+        "view1_3": "Un pays qui se divise sur son avenir",
+        "view2_1": "Une mesure rejetée, puis réadoptée",
+        "view2_2": "Un prix fixé qui peut retirer des offres",
+        "view2_3": "Une protection pour des locataires fragiles",
+        "view3_1": "Un dossier qui entre en campagne",
+        "view3_2": "Une offre rare face à une demande forte",
+        "view3_3": "Une attente qui nourrit la colère",
+        "indice1": "CIS (sondages d'État) | l'intention de vote, par parti",
+        "indice2": "Banque d'Espagne | les loyers, par région",
+        "indice3": "Eurostat | la part du logement social, par pays"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "b",
+      "slot": "a",
+      "reason": "Trois sujets : le décret, la rue, le tourisme aux Canaries ; le pouvoir, le marché et les groupes les lisent différemment.",
+      "fields": {
+        "title": "Trois sujets, trois lectures",
+        "lead": "Ce que l'on retient d'un fait dépend du regard qui l'éclaire",
+        "topic1": "Le décret du gouvernement",
+        "topic2": "Les manifestations",
+        "topic3": "Le tourisme aux Canaries",
+        "view1_1": "Un texte qui cherche une majorité",
+        "view1_2": "Un coût pour les propriétaires",
+        "view1_3": "Une réponse à la rue",
+        "view2_1": "Un rapport de force avant le vote",
+        "view2_2": "Une demande de logements abordables",
+        "view2_3": "Une colère qui se reconnaît dans un visage",
+        "view3_1": "Un choix des élus locaux",
+        "view3_2": "Une location plus rentable que l'habitant",
+        "view3_3": "Un quartier où les voisins changent",
+        "indice1": "Congrès des députés | les votes sur le décret, par groupe",
+        "indice2": "INE (statistiques) | les loyers, par ville",
+        "indice3": "ISTAC (Canaries) | les locations touristiques, par île"
+      },
+      "edited": false,
+      "flags": []
+    },
+    {
+      "id": "c",
+      "slot": "a",
+      "reason": "Trois sujets : l'éviction, les sondages, le déficit ; chaque regard y lit un autre enjeu.",
+      "fields": {
+        "title": "Trois sujets, trois lectures",
+        "lead": "Le même fait change de sens selon la discipline qui l'éclaire",
+        "topic1": "L'éviction de Maricarmen Abascal",
+        "topic2": "L'avance du Parti populaire",
+        "topic3": "Le déficit de 750 000 logements",
+        "view1_1": "Un drame qui devient affaire d'État",
+        "view1_2": "Un logement qui sort du marché",
+        "view1_3": "Un cas où chacun se reconnaît",
+        "view2_1": "Une coalition possible avec Vox",
+        "view2_2": "Un vote guidé par le prix du loyer",
+        "view2_3": "Une peur qui pèse sur le vote",
+        "view3_1": "Un chantier pour plusieurs gouvernements",
+        "view3_2": "Un écart entre offre et demande",
+        "view3_3": "Une génération qui reste chez ses parents",
+        "indice1": "Défenseur du peuple | les plaintes sur les évictions, par région",
+        "indice2": "CIS | le vote déclaré, selon l'âge",
+        "indice3": "Banque d'Espagne | le déficit de logements, par région"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "tensions": {
+      "title": "Trois sujets, trois lectures",
+      "lead": "Un même débat se lit autrement selon le regard qui l'éclaire",
+      "cards": [
+        {
+          "topic": "Les élections anticipées",
+          "views": [
+            "Un pari pour sortir de l'impasse",
+            "Un scrutin qui pèse sur l'action publique",
+            "Un pays qui se divise sur son avenir"
+          ],
+          "source": "CIS (sondages d'État)",
+          "find": "l'intention de vote, par parti"
+        },
+        {
+          "topic": "Les plafonds de loyer",
+          "views": [
+            "Une mesure rejetée, puis réadoptée",
+            "Un prix fixé qui peut retirer des offres",
+            "Une protection pour des locataires fragiles"
+          ],
+          "source": "Banque d'Espagne",
+          "find": "les loyers, par région"
+        },
+        {
+          "topic": "Le logement social",
+          "views": [
+            "Un dossier qui entre en campagne",
+            "Une offre rare face à une demande forte",
+            "Une attente qui nourrit la colère"
+          ],
+          "source": "Eurostat",
+          "find": "la part du logement social, par pays"
+        }
+      ]
+    }
+  },
+  "remarks": []
+}

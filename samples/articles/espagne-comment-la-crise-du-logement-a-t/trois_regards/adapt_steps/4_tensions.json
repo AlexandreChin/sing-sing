@@ -4,83 +4,80 @@
     {
       "id": "a",
       "slot": "a",
-      "reason": "Trois désaccords : le poids de la loi sur les prix, le logement comme enjeu de vote, la mobilité face aux liens locaux.",
+      "reason": "Trois sujets concrets : le vote du décret, les plafonds de loyer, le logement social ; chaque regard y lit un enjeu différent (alliances, prix, familles).",
       "fields": {
-        "title": "Pouvoir, marché, société : trois désaccords",
-        "lead": "Le rôle du vote, des loyers, des jeunes et des aînés",
-        "pair1": "1,2",
-        "pair2": "1,3",
-        "pair3": "2,3",
-        "head1": "Le vote presse le dossier ; le marché ne bouge qu'avec l'offre",
-        "head2": "Le logement se joue aux urnes ; il se joue dans les générations",
-        "head3": "Les prix chassent les ménages ; les liens sociaux les retiennent",
-        "claim1": "Les loyers baissent-ils après une réforme ?",
-        "claim2": "Les jeunes votent-ils plus là où l'on loue ?",
-        "claim3": "Part-on plus des villes aux loyers en hausse ?",
-        "indice1": "Banco de España | l'évolution des loyers, selon les réformes",
-        "indice2": "CIS (enquêtes sociologiques) | le vote des jeunes, selon le statut de logement",
-        "indice3": "INE (statistique espagnole) | les migrations résidentielles, par commune"
+        "title": "Trois sujets, trois lectures",
+        "lead": "Un même débat se lit autrement selon le regard qui l'éclaire.",
+        "topic1": "Le rejet du décret au Congrès",
+        "topic2": "Le plafonnement des loyers",
+        "topic3": "Le logement social",
+        "view1_1": "Un vote qui mesure les alliances",
+        "view1_2": "Un texte jugé sur son effet sur l'offre",
+        "view1_3": "Un signal : la rue pèse sur le vote",
+        "view2_1": "Un marqueur qui sépare gauche et droite",
+        "view2_2": "Il peut retirer des logements du marché",
+        "view2_3": "Il protège les locataires les plus exposés",
+        "view3_1": "Un choix laissé de côté par les mandats",
+        "view3_2": "Un parc de 1,7 % qui laisse tout au privé",
+        "view3_3": "Des familles en attente d'un toit",
+        "indice1": "Congreso de los Diputados | les votes sur le décret, par groupe",
+        "indice2": "Banque d'Espagne | les loyers, avant et après plafonnement",
+        "indice3": "Eurostat | la part du logement social, par pays"
       },
-      "edited": true,
-      "flags": [
-        "tensions.card1 shares no key word with the axe's question — each card answers that question",
-        "tensions.card3 shares no key word with the axe's question — each card answers that question",
-        "tensions: card1 and card2 open their head with the same word « le » — vary the openings"
-      ]
+      "edited": false,
+      "flags": []
     },
     {
       "id": "b",
       "slot": "a",
-      "reason": "Trois désaccords : l'effet d'un plafond, les groupes que les mesures touchent, le poids du revenu face à celui de l'âge.",
+      "reason": "Trois sujets : le scrutin anticipé, le tourisme, la montée de la droite ; chaque regard les lit par le rapport de force, le revenu ou le sentiment d'appartenance.",
       "fields": {
-        "title": "Loi, prix, âge : où les regards divergent",
-        "lead": "Les mesures publiques, les loyers, la place des générations",
-        "pair1": "1,2",
-        "pair2": "1,3",
-        "pair3": "2,3",
-        "head1": "Une loi rythmée par les urnes ; des prix réglés par l'offre",
-        "head2": "Des coalitions qui tranchent ; des groupes qui ne pèsent pas pareil",
-        "head3": "Un marché qui trie par le revenu ; des normes qui trient par l'âge",
-        "claim1": "Les loyers montent-ils moins sous un plafond ?",
-        "claim2": "Les aides vont-elles plus aux jeunes ?",
-        "claim3": "Le revenu ou l'âge pèse-t-il plus ?",
-        "indice1": "Banco de España | l'évolution des loyers, selon les régions",
-        "indice2": "Ministerio de Vivienda | les aides au logement, selon l'âge",
-        "indice3": "INE (statistique espagnole) | l'accès au logement, selon l'âge et le revenu"
+        "title": "Trois sujets, trois lectures",
+        "lead": "Ce que l'on retient d'un même fait change avec le regard qui l'éclaire.",
+        "topic1": "Le calendrier du 29 novembre",
+        "topic2": "Le tourisme face aux habitants",
+        "topic3": "Les sondages et Vox",
+        "view1_1": "Un pari pour la majorité absolue",
+        "view1_2": "Une échéance qui laisse le marché en attente",
+        "view1_3": "Un moment où la mobilisation se compte",
+        "view2_1": "Un choix des élus locaux",
+        "view2_2": "Une rente qui rapporte plus qu'un loyer",
+        "view2_3": "Une place qui change de visage",
+        "view3_1": "Une coalition possible à droite",
+        "view3_2": "Un électorat pesé par le coût du loyer",
+        "view3_3": "Une inquiétude qui dépasse le loyer",
+        "indice1": "Ministère de l'Intérieur | résultats électoraux, par province",
+        "indice2": "INE (statistiques espagnoles) | les logements touristiques, par île",
+        "indice3": "Metroscopia | les intentions de vote, selon l'âge"
       },
       "edited": false,
-      "flags": [
-        "tensions.card1 shares no key word with the axe's question — each card answers that question",
-        "tensions.card2 shares no key word with the axe's question — each card answers that question",
-        "tensions.card3 shares no key word with the axe's question — each card answers that question"
-      ]
+      "flags": []
     },
     {
       "id": "c",
       "slot": "a",
-      "reason": "Trois désaccords : l'effet de l'alternance sur l'offre, le logement comme motif de vote, le lien entre prix et départ des jeunes.",
+      "reason": "Trois sujets : les évictions, les Canaries, le lien avec l'immigration ; chaque regard y voit un levier de décision, un marché ou un groupe touché.",
       "fields": {
-        "title": "Urnes, loyers, familles : trois désaccords",
-        "lead": "Le calendrier électoral, l'offre de logements, les ménages",
-        "pair1": "1,2",
-        "pair2": "1,3",
-        "pair3": "2,3",
-        "head1": "Le scrutin fixe l'agenda ; le manque de logements fixe les prix",
-        "head2": "Un enjeu de campagne ; une épreuve vécue dans les familles",
-        "head3": "Un loyer qui dépasse le budget ; un foyer qui reste chez les parents",
-        "claim1": "Construit-on plus après une alternance ?",
-        "claim2": "Le logement pèse-t-il plus chez les locataires ?",
-        "claim3": "Part-on plus tard là où les loyers montent ?",
-        "indice1": "Ministerio de Vivienda | les logements neufs, avant et après les élections",
-        "indice2": "CIS (enquêtes sociologiques) | les priorités des électeurs, selon le logement",
-        "indice3": "Eurostat | l'âge de départ du foyer parental, selon la région"
+        "title": "Trois sujets, trois lectures",
+        "lead": "Le même épisode prend un autre sens selon le regard qui l'éclaire.",
+        "topic1": "Les évictions",
+        "topic2": "Les logements aux Canaries",
+        "topic3": "L'immigration et le logement",
+        "view1_1": "Un gel temporaire, voté dans l'urgence",
+        "view1_2": "Un gel qui fige l'offre en location",
+        "view1_3": "Un drame qui fait basculer l'opinion",
+        "view2_1": "Un gouvernement local mis en cause",
+        "view2_2": "Des terrains rares et des loyers libres",
+        "view2_3": "Des habitants déjà fragilisés",
+        "view3_1": "Un argument de campagne de la droite",
+        "view3_2": "Une demande en plus sur un parc étroit",
+        "view3_3": "Un lien que chaque camp lit à sa façon",
+        "indice1": "Conseil du pouvoir judiciaire | les expulsions de logement, par région",
+        "indice2": "ISTAC (Canaries) | les ménages à risque de pauvreté, par île",
+        "indice3": "INE (statistiques espagnoles) | les nouveaux ménages, selon l'origine"
       },
       "edited": false,
-      "flags": [
-        "tensions.indice1: what to find there is vague — name a precise series or measure (par …, selon …, l'évolution de …, le taux de …)",
-        "tensions.card3 shares no key word with the axe's question — each card answers that question",
-        "tensions: card2 and card3 open their head with the same word « un » — vary the openings"
-      ]
+      "flags": []
     }
   ],
   "rejected": [],
@@ -92,38 +89,38 @@
   ],
   "fragment": {
     "tensions": {
-      "title": "Pouvoir, marché, société : trois désaccords",
-      "lead": "Le rôle du vote, des loyers, des jeunes et des aînés",
+      "title": "Trois sujets, trois lectures",
+      "lead": "Un même débat se lit autrement selon le regard qui l'éclaire.",
       "cards": [
         {
-          "pair": [
-            1,
-            2
+          "topic": "Le rejet du décret au Congrès",
+          "views": [
+            "Un vote qui mesure les alliances",
+            "Un texte jugé sur son effet sur l'offre",
+            "Un signal : la rue pèse sur le vote"
           ],
-          "head": "Le vote presse le dossier ; le marché ne bouge qu'avec l'offre",
-          "claim": "Les loyers baissent-ils après une réforme ?",
-          "source": "Banco de España",
-          "find": "l'évolution des loyers, selon les réformes"
+          "source": "Congreso de los Diputados",
+          "find": "les votes sur le décret, par groupe"
         },
         {
-          "pair": [
-            1,
-            3
+          "topic": "Le plafonnement des loyers",
+          "views": [
+            "Un marqueur qui sépare gauche et droite",
+            "Il peut retirer des logements du marché",
+            "Il protège les locataires les plus exposés"
           ],
-          "head": "Le logement se joue aux urnes ; il se joue dans les générations",
-          "claim": "Les jeunes votent-ils plus là où l'on loue ?",
-          "source": "CIS (enquêtes sociologiques)",
-          "find": "le vote des jeunes, selon le statut de logement"
+          "source": "Banque d'Espagne",
+          "find": "les loyers, avant et après plafonnement"
         },
         {
-          "pair": [
-            2,
-            3
+          "topic": "Le logement social",
+          "views": [
+            "Un choix laissé de côté par les mandats",
+            "Un parc de 1,7 % qui laisse tout au privé",
+            "Des familles en attente d'un toit"
           ],
-          "head": "Les prix chassent les ménages ; les liens sociaux les retiennent",
-          "claim": "Part-on plus des villes aux loyers en hausse ?",
-          "source": "INE (statistique espagnole)",
-          "find": "les migrations résidentielles, par commune"
+          "source": "Eurostat",
+          "find": "la part du logement social, par pays"
         }
       ]
     }

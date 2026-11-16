@@ -4,7 +4,7 @@
     {
       "id": "a",
       "slot": "a",
-      "reason": "Reprend mot pour mot la question de l'axe : la plus fidèle et la plus claire pour qui n'a pas lu l'article.",
+      "reason": "Reprend mot pour mot la question de l'axe : la plus proche, la plus claire pour qui n'a pas lu l'article.",
       "fields": {
         "title": "D'où vient la crise du logement en Espagne ?",
         "promise": "Trois regards sur la crise du logement en Espagne ; à vous d'en juger."
@@ -15,7 +15,7 @@
     {
       "id": "b",
       "slot": "a",
-      "reason": "Formulation causale qui invite chaque discipline à donner sa propre explication.",
+      "reason": "Met en avant les explications au pluriel, ce qui annonce que plusieurs causes sont possibles.",
       "fields": {
         "title": "Qu'est-ce qui explique la crise du logement en Espagne ?",
         "promise": "Trois regards sur la crise du logement en Espagne ; à vous d'en juger."
@@ -26,7 +26,7 @@
     {
       "id": "c",
       "slot": "a",
-      "reason": "Plus courte et plus directe, elle pose la question du « pourquoi » en mots courants.",
+      "reason": "Formulation orale et directe sur la cause, plus courte et sans le mot « crise » répété.",
       "fields": {
         "title": "Pourquoi le logement est-il en crise en Espagne ?",
         "promise": "Trois regards sur la crise du logement en Espagne ; à vous d'en juger."
@@ -37,7 +37,7 @@
     {
       "id": "d",
       "slot": "a",
-      "reason": "Met l'accent sur le chemin parcouru, ce qui convient bien à des regards historiques ou sociaux.",
+      "reason": "Insiste sur le chemin parcouru, ce qui appelle des réponses en forme d'enchaînement de causes.",
       "fields": {
         "title": "Comment en est-on arrivé à la crise du logement en Espagne ?",
         "promise": "Trois regards sur la crise du logement en Espagne ; à vous d'en juger."

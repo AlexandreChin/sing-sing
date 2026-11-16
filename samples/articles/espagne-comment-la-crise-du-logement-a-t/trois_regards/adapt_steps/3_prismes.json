@@ -4,173 +4,116 @@
     {
       "id": "p1a",
       "slot": "p1",
-      "reason": "Angle institutionnel : majorité, calendrier, alliances et partage des compétences.",
+      "reason": "Lecture par les rapports de force : majorité, Congrès, sondages, calendrier. Chaque carte nomme un levier du pouvoir.",
       "fields": {
-        "title": "Une crise **jouée au Congrès**",
-        "lead": "",
+        "title": "Un **calendrier** que Sánchez choisit",
+        "lead": "Sans majorité absolue, le gouvernement dépend du Congrès, et la rue pèse sur ses votes.",
         "head1": "Une majorité introuvable",
-        "head2": "Le calendrier sert de levier",
-        "head3": "Les alliances dictent le rythme",
-        "head4": "Les compétences se partagent",
-        "answer1": "Faute de majorité absolue, le gouvernement ne peut pas faire voter ses mesures seul.",
-        "answer2": "Quand le scrutin approche, chaque camp pousse le logement pour mobiliser ses électeurs.",
-        "answer3": "Si le pouvoir dépend de petits partis, chaque réforme du logement se négocie.",
-        "answer4": "Parce que les régions gèrent le logement, l'État ne tranche pas seul.",
-        "indice1": "Congreso de los Diputados | les votes sur les décrets, par groupe",
-        "indice2": "Ministerio del Interior | les dates des élections législatives",
-        "indice3": "Cortes Generales | la composition des groupes, législature par législature",
-        "indice4": "Constitution espagnole | la répartition des compétences État-régions",
-        "media_note": "Le récit suit le calendrier, le Congrès et les sondages."
+        "head2": "Le Congrès bloque le décret",
+        "head3": "La droite gagne du terrain",
+        "head4": "Un scrutin au 29 novembre",
+        "answer1": "Faute de majorité absolue depuis 2018, le PSOE dépend d'autres voix au Congrès pour chaque texte.",
+        "answer2": "Quand le Congrès rejette les mesures, le gouvernement les adopte autrement, ce qui lui garde la main.",
+        "answer3": "Si le Parti populaire mène les sondages, le logement devient un enjeu de rapport de force.",
+        "answer4": "Parce que le scrutin devance l'échéance de six mois, la crise sert de tremplin ou de piège à Sánchez."
       },
       "edited": false,
-      "flags": [
-        "prismes.card1 shares no key word with the axe's question — each card answers that question",
-        "prismes: card3 and card4 open their head with the same word « les » — vary the openings"
-      ]
+      "flags": []
     },
     {
       "id": "p1b",
       "slot": "p1",
-      "reason": "Angle des rapports de force : pression de la rue, stratégie de l'opposition, soupçons, extrême droite.",
+      "reason": "Angle de la stratégie électorale : thème de campagne, diversion, coalition de droite, vote par crainte.",
       "fields": {
-        "title": "Un **pouvoir sous pression**",
-        "lead": "",
-        "head1": "La rue pèse sur l'agenda",
-        "head2": "L'opposition choisit son terrain",
-        "head3": "Le soupçon use le pouvoir",
-        "head4": "L'extrême droite change l'enjeu",
-        "answer1": "Quand les manifestations durent, un gouvernement minoritaire avance ses annonces.",
-        "answer2": "Si la droite lie logement et immigration, elle déplace le débat vers ses thèmes forts.",
-        "answer3": "Dès que des enquêtes visent l'entourage, chaque annonce se lit comme une diversion.",
-        "answer4": "Si un parti d'extrême droite peut entrer au gouvernement, le vote porte aussi sur lui.",
-        "indice1": "Eurobaromètre | le logement comme préoccupation, par pays",
-        "indice2": "Parti populaire | ses programmes électoraux, élection par élection",
-        "indice3": "Transparency International | l'indice de perception de la corruption",
-        "indice4": "Ministerio del Interior | les résultats électoraux, par parti",
-        "media_note": "Le reportage suit Sánchez, le PP, Vox et les sondages."
+        "title": "Un **pari** de campagne",
+        "lead": "Le logement peut rallier la gauche, alors que la droite pourrait s'allier à Vox.",
+        "head1": "Un thème qui mobilise",
+        "head2": "Des critiques éloignées",
+        "head3": "Vox aux portes du pouvoir",
+        "head4": "Une gauche votée sans entrain",
+        "answer1": "Quand les manifestations s'étendent, le logement devient le sujet qui rassemble les électeurs progressistes.",
+        "answer2": "Si le logement occupe le débat, les enquêtes sur l'entourage de Sánchez et Ceuta passent au second plan.",
+        "answer3": "Si une coalition de droite s'appuie sur Vox, l'enjeu passe du logement à l'extrême droite au pouvoir.",
+        "answer4": "Quand la crainte du retour de l'extrême droite l'emporte, des électeurs déçus de la gauche votent quand même."
       },
       "edited": false,
-      "flags": [
-        "prismes.card1 shares no key word with the axe's question — each card answers that question",
-        "prismes.card3 shares no key word with the axe's question — each card answers that question",
-        "prismes.card4 shares no key word with the axe's question — each card answers that question",
-        "prismes: card2 and card4 open their answer with the same word « si » — vary the openings"
-      ]
+      "flags": []
     },
     {
       "id": "p2a",
       "slot": "p2",
-      "reason": "Angle rareté : offre, parc social, usage touristique, poids du loyer dans le revenu.",
+      "reason": "Angle de la rareté : offre sociale, déficit, usage touristique des sols, effet sur les loyers.",
       "fields": {
-        "title": "Un marché **trop étroit**",
-        "lead": "Prix, offre et revenus des ménages locataires",
-        "head1": "Une offre qui ne suit pas",
-        "head2": "Un parc social réduit",
-        "head3": "Le touriste paie plus cher",
-        "head4": "Les loyers contre les salaires",
-        "answer1": "Faute de logements neufs, la demande fait monter les loyers.",
-        "answer2": "Quand peu de logements échappent au marché, les ménages modestes subissent tous les prix.",
-        "answer3": "Si un bailleur gagne plus en location touristique, il retire le bien du long terme.",
-        "answer4": "Quand les loyers montent plus vite que les revenus, l'effort des locataires s'alourdit.",
-        "indice1": "Banco de España | le logement neuf et la formation de ménages",
-        "indice2": "Eurostat | la part du logement social, selon les pays",
-        "indice3": "INE (statistique espagnole) | les logements touristiques, par commune",
-        "indice4": "Eurostat | le taux d'effort logement, selon le revenu",
-        "media_note": ""
+        "title": "Une offre qui **ne suit pas** la demande",
+        "lead": "Trop peu de logements pour trop de ménages : les loyers montent et l'accès se resserre.",
+        "head1": "Un parc social presque absent",
+        "head2": "Le manque tire les loyers",
+        "head3": "Du tourisme avant l'habitant",
+        "head4": "Des loyers qui chassent",
+        "answer1": "Faute de logements sociaux, les ménages modestes se tournent vers le marché privé, où les prix montent.",
+        "answer2": "Quand il manque environ 750 000 logements, les candidats se disputent l'offre, ce qui fait monter les loyers.",
+        "answer3": "Si les terrains et les logements vont aux visiteurs, les habitants ont moins d'offre et paient plus cher.",
+        "answer4": "Quand le loyer monte plus vite que le budget d'un foyer, celui-ci quitte son logement."
       },
       "edited": false,
-      "flags": [
-        "prismes.card3 shares no key word with the axe's question — each card answers that question",
-        "prismes.card4 shares no key word with the axe's question — each card answers that question",
-        "prismes: card2 and card4 open their answer with the same word « quand » — vary the openings"
-      ]
+      "flags": []
     },
     {
       "id": "p2b",
       "slot": "p2",
-      "reason": "Angle incitations : effet des plafonds, investisseurs, crédit, coûts de construction.",
+      "reason": "Angle des incitations : ce que chaque mesure d'urgence change pour les propriétaires, les locataires et les investisseurs.",
       "fields": {
-        "title": "Des **incitations** mal alignées",
-        "lead": "Ce que gagnent et risquent bailleurs, acheteurs, État",
-        "head1": "Le plafond change les calculs",
-        "head2": "Les fonds achètent du logement",
-        "head3": "Le crédit soutient les prix",
-        "head4": "La construction coûte plus",
-        "answer1": "Si le loyer est plafonné, le bailleur vend ou loue ailleurs, ce qui réduit l'offre.",
-        "answer2": "Quand des investisseurs achètent en nombre, les prix montent pour les ménages.",
-        "answer3": "Dès que le crédit est facile, les acheteurs enchérissent, ce qui tire les prix.",
-        "answer4": "Si terrains et matériaux coûtent plus cher, les promoteurs bâtissent moins.",
-        "indice1": "Banco de España | les analyses sur la régulation des loyers",
-        "indice2": "Registradores de España | les achats de logement, par type d'acheteur",
-        "indice3": "Banco de España | l'évolution du crédit immobilier, par année",
-        "indice4": "Ministerio de Vivienda | le coût de la construction, par région",
-        "media_note": ""
+        "title": "Des mesures qui **jouent** sur l'offre",
+        "lead": "Plafonner, geler, interdire : chaque règle change ce qu'un propriétaire gagne ou risque.",
+        "head1": "Un plafond de loyer",
+        "head2": "Des évictions gelées",
+        "head3": "Les entreprises exclues",
+        "head4": "Du social à construire",
+        "answer1": "Si le loyer maximal tombe sous ce que le propriétaire espère, il peut retirer son bien du marché.",
+        "answer2": "Quand les évictions sont suspendues, le locataire reste, et le bailleur craint de perdre des revenus.",
+        "answer3": "Si les entreprises n'achètent plus de maisons, la demande baisse, mais le locatif attire moins d'argent.",
+        "answer4": "Parce que les mesures d'urgence ne créent pas de logements sociaux, le déficit persiste malgré elles."
       },
       "edited": false,
-      "flags": [
-        "prismes.card1 shares no key word with the axe's question — each card answers that question",
-        "prismes.card3 shares no key word with the axe's question — each card answers that question",
-        "prismes.card4 shares no key word with the axe's question — each card answers that question",
-        "prismes: card1 and card3 open their head with the same word « le » — vary the openings",
-        "prismes: card1 and card4 open their answer with the same word « si » — vary the openings"
-      ]
+      "flags": []
     },
     {
       "id": "p3a",
       "slot": "p3",
-      "reason": "Angle générationnel et statutaire : décohabitation, norme de propriété, éviction, clivage locataires-propriétaires.",
+      "reason": "Angle de la mobilisation : symbole, collectifs, conflit d'usage de la ville, groupes déjà fragiles.",
       "fields": {
-        "title": "Une génération **tenue à l'écart**",
-        "lead": "Qui se loge, qui reste, qui part",
-        "head1": "Les jeunes partent plus tard",
-        "head2": "La propriété comme norme",
-        "head3": "L'éviction brise les liens",
-        "head4": "Le logement divise les groupes",
-        "answer1": "Faute de loyer abordable, les jeunes restent chez leurs parents plus longtemps.",
-        "answer2": "Quand posséder passe pour la norme, le locataire paraît moins bien installé.",
-        "answer3": "Si une expulsion coupe voisins et soins, les aînés perdent aussi leurs repères.",
-        "answer4": "Parce que locataires et propriétaires n'y gagnent pas pareil, le débat se durcit.",
-        "indice1": "Eurostat | l'âge de départ du foyer parental, selon le pays",
-        "indice2": "INE (statistique espagnole) | le mode d'occupation, selon l'âge",
-        "indice3": "Cáritas España | ses rapports sur l'exclusion liée au logement",
-        "indice4": "Eurobaromètre | les opinions sur le logement, selon l'âge",
-        "media_note": ""
+        "title": "Un **droit** qui devient une cause",
+        "lead": "Locataires, étudiants et familles se reconnaissent dans un même sort et s'organisent.",
+        "head1": "Une mort devient un symbole",
+        "head2": "Un collectif qui s'organise",
+        "head3": "Habitants contre visiteurs",
+        "head4": "Des îles déjà fragiles",
+        "answer1": "Quand une femme de 87 ans meurt après son expulsion, chacun y voit un sort qui pourrait être le sien.",
+        "answer2": "Si un collectif aide des familles menacées d'éviction, la colère trouve un cadre collectif.",
+        "answer3": "Quand une place très touristique devient un campement, les habitants disent qui occupe la ville.",
+        "answer4": "Quand près de 30 % de la population risque la pauvreté, un loyer en hausse fait basculer plus vite des foyers."
       },
       "edited": false,
-      "flags": [
-        "prismes.card1 shares no key word with the axe's question — each card answers that question",
-        "prismes.card2 shares no key word with the axe's question — each card answers that question",
-        "prismes.card3 shares no key word with the axe's question — each card answers that question"
-      ]
+      "flags": []
     },
     {
       "id": "p3b",
       "slot": "p3",
-      "reason": "Angle d'appartenance : quartier, solidarité familiale, mobilisation collective, déclassement.",
+      "reason": "Angle des statuts et des groupes : appartenance, rivalité entre publics, désignation d'un groupe, inquiétude des familles.",
       "fields": {
-        "title": "Un toit qui dit **sa place**",
-        "lead": "Le logement comme statut, appartenance, solidarité",
-        "head1": "Le quartier garde ses habitants",
-        "head2": "La famille amortit le choc",
-        "head3": "Les militants nomment le problème",
-        "head4": "La peur du déclassement",
-        "answer1": "Quand le tourisme remplace les voisins, les habitants perdent leur place au quartier.",
-        "answer2": "Si les parents hébergent ou aident, la crise se voit moins mais pèse sur les familles.",
-        "answer3": "Quand un cas touche tout le monde, les collectifs en font une cause partagée.",
-        "answer4": "Dès que le logement paraît hors d'atteinte, les familles redoutent pour l'avenir.",
-        "indice1": "INE (statistique espagnole) | la population des quartiers, par âge",
-        "indice2": "Eurostat | les ménages multigénérationnels, selon le pays",
-        "indice3": "Fundación FOESSA | ses enquêtes sur l'exclusion sociale, par année",
-        "indice4": "OCDE | la charge du logement, selon l'âge des ménages",
-        "media_note": ""
+        "title": "Qui a **sa place** dans la ville",
+        "lead": "Âge, statut, origine : le logement dit qui peut s'installer et qui reste à l'écart.",
+        "head1": "Se loger marque un statut",
+        "head2": "Le tourisme crée deux publics",
+        "head3": "Des nouveaux arrivants visés",
+        "head4": "Une génération qui s'inquiète",
+        "answer1": "Quand un logement stable devient rare, y accéder sépare ceux qui ont un appui de ceux qui n'en ont pas.",
+        "answer2": "Si une ville vit du tourisme, ses habitants se sentent relégués derrière des visiteurs plus rentables.",
+        "answer3": "Quand le logement manque, certains désignent les nouveaux arrivants, ce qui tend les relations.",
+        "answer4": "Quand des parents pensent à l'avenir de leurs enfants, la peur de manquer d'un toit pèse sur la famille."
       },
       "edited": false,
-      "flags": [
-        "prismes.card1 shares no key word with the axe's question — each card answers that question",
-        "prismes.card3 shares no key word with the axe's question — each card answers that question",
-        "prismes: card1 and card3 open their answer with the same word « quand » — vary the openings",
-        "prismes: card2 and card4 open their head with the same word « la » — vary the openings"
-      ]
+      "flags": []
     }
   ],
   "rejected": [],
@@ -188,95 +131,70 @@
     "prisms": [
       {
         "prism": "politique",
-        "title": "Une crise **jouée au Congrès**",
-        "lead": "",
+        "title": "Un **calendrier** que Sánchez choisit",
+        "lead": "Sans majorité absolue, le gouvernement dépend du Congrès, et la rue pèse sur ses votes.",
         "cards": [
           {
             "head": "Une majorité introuvable",
-            "answer": "Faute de majorité absolue, le gouvernement ne peut pas faire voter ses mesures seul.",
-            "source": "Congreso de los Diputados",
-            "find": "les votes sur les décrets, par groupe"
+            "answer": "Faute de majorité absolue depuis 2018, le PSOE dépend d'autres voix au Congrès pour chaque texte."
           },
           {
-            "head": "Le calendrier sert de levier",
-            "answer": "Quand le scrutin approche, chaque camp pousse le logement pour mobiliser ses électeurs.",
-            "source": "Ministerio del Interior",
-            "find": "les dates des élections législatives"
+            "head": "Le Congrès bloque le décret",
+            "answer": "Quand le Congrès rejette les mesures, le gouvernement les adopte autrement, ce qui lui garde la main."
           },
           {
-            "head": "Les alliances dictent le rythme",
-            "answer": "Si le pouvoir dépend de petits partis, chaque réforme du logement se négocie.",
-            "source": "Cortes Generales",
-            "find": "la composition des groupes, législature par législature"
+            "head": "La droite gagne du terrain",
+            "answer": "Si le Parti populaire mène les sondages, le logement devient un enjeu de rapport de force."
           },
           {
-            "head": "Les compétences se partagent",
-            "answer": "Parce que les régions gèrent le logement, l'État ne tranche pas seul.",
-            "source": "Constitution espagnole",
-            "find": "la répartition des compétences État-régions"
+            "head": "Un scrutin au 29 novembre",
+            "answer": "Parce que le scrutin devance l'échéance de six mois, la crise sert de tremplin ou de piège à Sánchez."
           }
-        ],
-        "media_note": "Le récit suit le calendrier, le Congrès et les sondages."
+        ]
       },
       {
         "prism": "economique",
-        "title": "Un marché **trop étroit**",
-        "lead": "Prix, offre et revenus des ménages locataires",
+        "title": "Une offre qui **ne suit pas** la demande",
+        "lead": "Trop peu de logements pour trop de ménages : les loyers montent et l'accès se resserre.",
         "cards": [
           {
-            "head": "Une offre qui ne suit pas",
-            "answer": "Faute de logements neufs, la demande fait monter les loyers.",
-            "source": "Banco de España",
-            "find": "le logement neuf et la formation de ménages"
+            "head": "Un parc social presque absent",
+            "answer": "Faute de logements sociaux, les ménages modestes se tournent vers le marché privé, où les prix montent."
           },
           {
-            "head": "Un parc social réduit",
-            "answer": "Quand peu de logements échappent au marché, les ménages modestes subissent tous les prix.",
-            "source": "Eurostat",
-            "find": "la part du logement social, selon les pays"
+            "head": "Le manque tire les loyers",
+            "answer": "Quand il manque environ 750 000 logements, les candidats se disputent l'offre, ce qui fait monter les loyers."
           },
           {
-            "head": "Le touriste paie plus cher",
-            "answer": "Si un bailleur gagne plus en location touristique, il retire le bien du long terme.",
-            "source": "INE (statistique espagnole)",
-            "find": "les logements touristiques, par commune"
+            "head": "Du tourisme avant l'habitant",
+            "answer": "Si les terrains et les logements vont aux visiteurs, les habitants ont moins d'offre et paient plus cher."
           },
           {
-            "head": "Les loyers contre les salaires",
-            "answer": "Quand les loyers montent plus vite que les revenus, l'effort des locataires s'alourdit.",
-            "source": "Eurostat",
-            "find": "le taux d'effort logement, selon le revenu"
+            "head": "Des loyers qui chassent",
+            "answer": "Quand le loyer monte plus vite que le budget d'un foyer, celui-ci quitte son logement."
           }
         ]
       },
       {
         "prism": "sociologique",
-        "title": "Une génération **tenue à l'écart**",
-        "lead": "Qui se loge, qui reste, qui part",
+        "title": "Un **droit** qui devient une cause",
+        "lead": "Locataires, étudiants et familles se reconnaissent dans un même sort et s'organisent.",
         "cards": [
           {
-            "head": "Les jeunes partent plus tard",
-            "answer": "Faute de loyer abordable, les jeunes restent chez leurs parents plus longtemps.",
-            "source": "Eurostat",
-            "find": "l'âge de départ du foyer parental, selon le pays"
+            "head": "Une mort devient un symbole",
+            "answer": "Quand une femme de 87 ans meurt après son expulsion, chacun y voit un sort qui pourrait être le sien."
           },
           {
-            "head": "La propriété comme norme",
-            "answer": "Quand posséder passe pour la norme, le locataire paraît moins bien installé.",
-            "source": "INE (statistique espagnole)",
-            "find": "le mode d'occupation, selon l'âge"
+            "head": "Un collectif qui s'organise",
+            "answer": "Si un collectif aide des familles menacées d'éviction, la colère trouve un cadre collectif."
           },
           {
-            "head": "L'éviction brise les liens",
-            "answer": "Si une expulsion coupe voisins et soins, les aînés perdent aussi leurs repères.",
-            "source": "Cáritas España",
-            "find": "ses rapports sur l'exclusion liée au logement"
+            "head": "Habitants contre visiteurs",
+            "answer": "Quand une place très touristique devient un campement, les habitants disent qui occupe la ville."
           },
           {
-            "head": "Le logement divise les groupes",
-            "answer": "Parce que locataires et propriétaires n'y gagnent pas pareil, le débat se durcit.",
-            "source": "Eurobaromètre",
-            "find": "les opinions sur le logement, selon l'âge"
+            "head": "Des îles déjà fragiles",
+            "answer": "Quand près de 30 % de la population risque la pauvreté, un loyer en hausse fait basculer plus vite des foyers."
           }
         ]
       }

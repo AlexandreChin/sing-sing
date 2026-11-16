@@ -950,10 +950,10 @@
     }
   },
   "presentation": {
-    "caption": "D'où vient la crise du logement en Espagne ?\n\nRadio-Canada, d'après CBC News, raconte comment la mort d'une locataire expulsée a poussé Pedro Sánchez à avancer les élections. Précision : l'article date d'octobre. Depuis, une grève générale a eu lieu le 11 novembre, la première depuis 14 ans, et le décret a été de nouveau voté le 12. Les élections sont fixées au 29 novembre.\n\nCe carrousel regarde la même question à travers trois disciplines : le politique, que le reportage emploie surtout, l'économique et le sociologique. Il montre où ces regards se contredisent, puis ce que chacun, pris seul, laisse dans l'ombre.\n\nCes regards sont notre grille, pas celle du média. À vous de juger.\n\nEntre le politique, l'économique et le sociologique, que manque-t-il pour comprendre la crise du logement ? Dites-le en commentaire.\n\n#Espagne #Logement #LectureCritique #Elections",
+    "caption": "D'où vient la crise du logement en Espagne ? Le reportage de Radio-Canada raconte comment elle a mené Pedro Sánchez à convoquer des élections anticipées, après des manifestations sans précédent et le rejet de ses mesures au Congrès.\n\nCe carrousel pose la même question à travers trois disciplines : le politique, que l'article emploie, l'économique et le sociologique. Sur trois sujets précis (le rejet du décret, le plafonnement des loyers, le logement social), elles ne lisent pas le même fait de la même façon.\n\nCes regards sont notre grille, pas celle du média. L'article date d'octobre : depuis, une grève générale a eu lieu le 11 novembre, le décret a été revoté le 12, et les élections sont fixées au 29 novembre.\n\nEntre le politique, l'économique et le sociologique, quel regard manquait à votre lecture de l'article ? Dites-le en commentaire.\n\n#Espagne #Logement #LectureCritique #SingSing",
     "axe": {
       "question": "D'où vient la crise du logement en Espagne ?",
-      "article_question": "Comment la mort d'une locataire expulsée a-t-elle poussé Sánchez à avancer les élections ?",
+      "article_question": "Comment la crise du logement a-t-elle mené Pedro Sánchez à convoquer des élections anticipées ?",
       "subject": "la crise du logement en Espagne",
       "prisms": [
         "politique",
@@ -961,8 +961,8 @@
         "sociologique"
       ],
       "media": "politique",
-      "media_grounding": "Le récit suit le calendrier électoral de Sánchez, le rejet au Congrès, la droite en tête des sondages et la menace Vox.",
-      "closing": "entre le politique, l'économique et le sociologique, que manque-t-il pour comprendre la crise du logement ?"
+      "media_grounding": "L'article suit le calendrier de Sánchez, le rejet au Congrès, les sondages et la coalition possible avec Vox.",
+      "closing": "entre le politique, l'économique et le sociologique, quel regard manquait à votre lecture de l'article ?"
     },
     "hook": {
       "title": "D'où vient la crise du logement en Espagne ?",
@@ -970,24 +970,24 @@
     },
     "position": {
       "kicker": "Le récit du reportage",
-      "title": "Des élections **nées de la rue**",
-      "lead": "Radio-Canada, d'après CBC News, explique comment la crise a mené aux élections.",
+      "title": "Des élections **avancées**",
+      "lead": "Radio-Canada (d'après CBC) raconte pourquoi Sánchez avance les élections.",
       "cards": [
         {
-          "label": "Ce qu'il raconte",
-          "text": "Une locataire de 87 ans meurt après son éviction ; **les manifestations** suivent."
+          "label": "Le point de départ",
+          "text": "Maricarmen Abascal, 87 ans, est expulsée à Madrid fin septembre et meurt **deux semaines plus tard** ; des **dizaines de milliers** défilent."
         },
         {
-          "label": "Les causes qu'il cite",
-          "text": "Peu de **logements sociaux** et un déficit selon la Banque d'Espagne."
+          "label": "Les causes avancées",
+          "text": "Selon Sofía Olivares, du groupe Derecho al Techo, le **tourisme** passe avant le logement ; la Banque d'Espagne chiffre le **déficit**."
         },
         {
-          "label": "Ce que répondent les acteurs",
-          "text": "Le PP craint l'effet des **plafonds de loyer** ; Sánchez avance le vote."
+          "label": "Les réponses des acteurs",
+          "text": "Le gouvernement Sánchez propose des **mesures d'urgence** (loyers plafonnés, évictions interdites un temps) ; le Parti populaire met en garde."
         },
         {
-          "label": "Où il mène",
-          "text": "Un scrutin le **29 novembre**, avec une droite en tête, peut-être alliée à Vox."
+          "label": "Ce qui se joue",
+          "text": "Scrutin le **29 novembre**, six mois avant l'échéance du mandat ; le PSOE espère la **majorité absolue**, mais la droite gagne du terrain."
         }
       ]
     },
@@ -997,37 +997,37 @@
         "question": "",
         "lines": [],
         "sources": [],
-        "media_note": "Le récit suit le calendrier, le Congrès et les sondages.",
-        "title": "Une crise **jouée au Congrès**",
-        "lead": "",
+        "media_note": "",
+        "title": "Un **calendrier** que Sánchez choisit",
+        "lead": "Sans majorité absolue, le gouvernement dépend du Congrès, et la rue pèse sur ses votes.",
         "cards": [
           {
             "head": "Une majorité introuvable",
-            "answer": "Faute de majorité absolue, le gouvernement ne peut pas faire voter ses mesures seul.",
+            "answer": "Faute de majorité absolue depuis 2018, le PSOE dépend d'autres voix au Congrès pour chaque texte.",
             "claim": "",
-            "source": "Congreso de los Diputados",
-            "find": "les votes sur les décrets, par groupe"
+            "source": "",
+            "find": ""
           },
           {
-            "head": "Le calendrier sert de levier",
-            "answer": "Quand le scrutin approche, chaque camp pousse le logement pour mobiliser ses électeurs.",
+            "head": "Le Congrès bloque le décret",
+            "answer": "Quand le Congrès rejette les mesures, le gouvernement les adopte autrement, ce qui lui garde la main.",
             "claim": "",
-            "source": "Ministerio del Interior",
-            "find": "les dates des élections législatives"
+            "source": "",
+            "find": ""
           },
           {
-            "head": "Les alliances dictent le rythme",
-            "answer": "Si le pouvoir dépend de petits partis, chaque réforme du logement se négocie.",
+            "head": "La droite gagne du terrain",
+            "answer": "Si le Parti populaire mène les sondages, le logement devient un enjeu de rapport de force.",
             "claim": "",
-            "source": "Cortes Generales",
-            "find": "la composition des groupes, législature par législature"
+            "source": "",
+            "find": ""
           },
           {
-            "head": "Les compétences se partagent",
-            "answer": "Parce que les régions gèrent le logement, l'État ne tranche pas seul.",
+            "head": "Un scrutin au 29 novembre",
+            "answer": "Parce que le scrutin devance l'échéance de six mois, la crise sert de tremplin ou de piège à Sánchez.",
             "claim": "",
-            "source": "Constitution espagnole",
-            "find": "la répartition des compétences État-régions"
+            "source": "",
+            "find": ""
           }
         ]
       },
@@ -1037,36 +1037,36 @@
         "lines": [],
         "sources": [],
         "media_note": "",
-        "title": "Un marché **trop étroit**",
-        "lead": "Prix, offre et revenus des ménages locataires",
+        "title": "Une offre qui **ne suit pas** la demande",
+        "lead": "Trop peu de logements pour trop de ménages : les loyers montent et l'accès se resserre.",
         "cards": [
           {
-            "head": "Une offre qui ne suit pas",
-            "answer": "Faute de logements neufs, la demande fait monter les loyers.",
+            "head": "Un parc social presque absent",
+            "answer": "Faute de logements sociaux, les ménages modestes se tournent vers le marché privé, où les prix montent.",
             "claim": "",
-            "source": "Banco de España",
-            "find": "le logement neuf et la formation de ménages"
+            "source": "",
+            "find": ""
           },
           {
-            "head": "Un parc social réduit",
-            "answer": "Quand peu de logements échappent au marché, les ménages modestes subissent tous les prix.",
+            "head": "Le manque tire les loyers",
+            "answer": "Quand il manque environ 750 000 logements, les candidats se disputent l'offre, ce qui fait monter les loyers.",
             "claim": "",
-            "source": "Eurostat",
-            "find": "la part du logement social, selon les pays"
+            "source": "",
+            "find": ""
           },
           {
-            "head": "Le touriste paie plus cher",
-            "answer": "Si un bailleur gagne plus en location touristique, il retire le bien du long terme.",
+            "head": "Du tourisme avant l'habitant",
+            "answer": "Si les terrains et les logements vont aux visiteurs, les habitants ont moins d'offre et paient plus cher.",
             "claim": "",
-            "source": "INE (statistique espagnole)",
-            "find": "les logements touristiques, par commune"
+            "source": "",
+            "find": ""
           },
           {
-            "head": "Les loyers contre les salaires",
-            "answer": "Quand les loyers montent plus vite que les revenus, l'effort des locataires s'alourdit.",
+            "head": "Des loyers qui chassent",
+            "answer": "Quand le loyer monte plus vite que le budget d'un foyer, celui-ci quitte son logement.",
             "claim": "",
-            "source": "Eurostat",
-            "find": "le taux d'effort logement, selon le revenu"
+            "source": "",
+            "find": ""
           }
         ]
       },
@@ -1076,100 +1076,86 @@
         "lines": [],
         "sources": [],
         "media_note": "",
-        "title": "Une génération **tenue à l'écart**",
-        "lead": "Qui se loge, qui reste, qui part",
+        "title": "Un **droit** qui devient une cause",
+        "lead": "Locataires, étudiants et familles se reconnaissent dans un même sort et s'organisent.",
         "cards": [
           {
-            "head": "Les jeunes partent plus tard",
-            "answer": "Faute de loyer abordable, les jeunes restent chez leurs parents plus longtemps.",
+            "head": "Une mort devient un symbole",
+            "answer": "Quand une femme de 87 ans meurt après son expulsion, chacun y voit un sort qui pourrait être le sien.",
             "claim": "",
-            "source": "Eurostat",
-            "find": "l'âge de départ du foyer parental, selon le pays"
+            "source": "",
+            "find": ""
           },
           {
-            "head": "La propriété comme norme",
-            "answer": "Quand posséder passe pour la norme, le locataire paraît moins bien installé.",
+            "head": "Un collectif qui s'organise",
+            "answer": "Si un collectif aide des familles menacées d'éviction, la colère trouve un cadre collectif.",
             "claim": "",
-            "source": "INE (statistique espagnole)",
-            "find": "le mode d'occupation, selon l'âge"
+            "source": "",
+            "find": ""
           },
           {
-            "head": "L'éviction brise les liens",
-            "answer": "Si une expulsion coupe voisins et soins, les aînés perdent aussi leurs repères.",
+            "head": "Habitants contre visiteurs",
+            "answer": "Quand une place très touristique devient un campement, les habitants disent qui occupe la ville.",
             "claim": "",
-            "source": "Cáritas España",
-            "find": "ses rapports sur l'exclusion liée au logement"
+            "source": "",
+            "find": ""
           },
           {
-            "head": "Le logement divise les groupes",
-            "answer": "Parce que locataires et propriétaires n'y gagnent pas pareil, le débat se durcit.",
+            "head": "Des îles déjà fragiles",
+            "answer": "Quand près de 30 % de la population risque la pauvreté, un loyer en hausse fait basculer plus vite des foyers.",
             "claim": "",
-            "source": "Eurobaromètre",
-            "find": "les opinions sur le logement, selon l'âge"
+            "source": "",
+            "find": ""
           }
         ]
       }
     ],
     "matrix": null,
     "tensions": {
-      "title": "Pouvoir, marché, société : trois désaccords",
-      "lead": "Le rôle du vote, des loyers, des jeunes et des aînés",
+      "title": "Trois sujets, trois lectures",
+      "lead": "Un même débat se lit autrement selon le regard qui l'éclaire.",
       "cards": [
         {
-          "pair": [
-            1,
-            2
+          "pair": [],
+          "head": "",
+          "claim": "",
+          "topic": "Le rejet du décret au Congrès",
+          "views": [
+            "Un vote qui mesure les alliances",
+            "Un texte jugé sur son effet sur l'offre",
+            "Un signal : la rue pèse sur le vote"
           ],
-          "head": "Le vote presse le dossier ; le marché ne bouge qu'avec l'offre",
-          "claim": "Les loyers baissent-ils après une réforme ?",
-          "source": "Banco de España",
-          "find": "l'évolution des loyers, selon les réformes"
+          "source": "Congreso de los Diputados",
+          "find": "les votes sur le décret, par groupe"
         },
         {
-          "pair": [
-            1,
-            3
+          "pair": [],
+          "head": "",
+          "claim": "",
+          "topic": "Le plafonnement des loyers",
+          "views": [
+            "Un marqueur qui sépare gauche et droite",
+            "Il peut retirer des logements du marché",
+            "Il protège les locataires les plus exposés"
           ],
-          "head": "Le logement se joue aux urnes ; il se joue dans les générations",
-          "claim": "Les jeunes votent-ils plus là où l'on loue ?",
-          "source": "CIS (enquêtes sociologiques)",
-          "find": "le vote des jeunes, selon le statut de logement"
+          "source": "Banque d'Espagne",
+          "find": "les loyers, avant et après plafonnement"
         },
         {
-          "pair": [
-            2,
-            3
+          "pair": [],
+          "head": "",
+          "claim": "",
+          "topic": "Le logement social",
+          "views": [
+            "Un choix laissé de côté par les mandats",
+            "Un parc de 1,7 % qui laisse tout au privé",
+            "Des familles en attente d'un toit"
           ],
-          "head": "Les prix chassent les ménages ; les liens sociaux les retiennent",
-          "claim": "Part-on plus des villes où les loyers montent ?",
-          "source": "INE (statistique espagnole)",
-          "find": "les migrations résidentielles, par commune"
+          "source": "Eurostat",
+          "find": "la part du logement social, par pays"
         }
       ]
     },
-    "limites": {
-      "title": "Trois lectures, trois angles morts",
-      "lead": "Ce qui reste hors de vue, même les trois regards réunis",
-      "cards": [
-        {
-          "head": "Le calendrier masque les raisons du vote",
-          "claim": "Vote-t-on plus pour le logement ou le parti ?",
-          "source": "CIS",
-          "find": "les motifs du vote, selon l'âge et le statut"
-        },
-        {
-          "head": "Les prix taisent les choix des ménages",
-          "claim": "Quitte-t-on plus les villes aux loyers chers ?",
-          "source": "INE (statistique espagnole)",
-          "find": "les départs par commune, selon le loyer"
-        },
-        {
-          "head": "Les normes éclairent peu les règles",
-          "claim": "Les loyers pèsent-ils plus que les habitudes ?",
-          "source": "Eurobaromètre",
-          "find": "les priorités des ménages, selon l'âge"
-        }
-      ]
-    }
+    "limites": null
   }
 }

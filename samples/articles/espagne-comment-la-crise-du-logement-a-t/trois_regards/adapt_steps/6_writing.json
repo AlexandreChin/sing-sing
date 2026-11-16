@@ -1,0 +1,26 @@
+{
+  "step": "writing",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "",
+      "fields": {
+        "caption": "D'où vient la crise du logement en Espagne ? Le reportage de Radio-Canada raconte comment elle a mené Pedro Sánchez à convoquer des élections anticipées, après des manifestations sans précédent et le rejet de ses mesures au Congrès.\n\nCe carrousel pose la même question à travers trois disciplines : le politique, que l'article emploie, l'économique et le sociologique. Sur trois sujets précis (le rejet du décret, le plafonnement des loyers, le logement social), elles ne lisent pas le même fait de la même façon.\n\nCes regards sont notre grille, pas celle du média. L'article date d'octobre : depuis, une grève générale a eu lieu le 11 novembre, le décret a été revoté le 12, et les élections sont fixées au 29 novembre.\n\nEntre le politique, l'économique et le sociologique, quel regard manquait à votre lecture de l'article ? Dites-le en commentaire.\n\n#Espagne #Logement #LectureCritique #SingSing"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "caption": "D'où vient la crise du logement en Espagne ? Le reportage de Radio-Canada raconte comment elle a mené Pedro Sánchez à convoquer des élections anticipées, après des manifestations sans précédent et le rejet de ses mesures au Congrès.\n\nCe carrousel pose la même question à travers trois disciplines : le politique, que l'article emploie, l'économique et le sociologique. Sur trois sujets précis (le rejet du décret, le plafonnement des loyers, le logement social), elles ne lisent pas le même fait de la même façon.\n\nCes regards sont notre grille, pas celle du média. L'article date d'octobre : depuis, une grève générale a eu lieu le 11 novembre, le décret a été revoté le 12, et les élections sont fixées au 29 novembre.\n\nEntre le politique, l'économique et le sociologique, quel regard manquait à votre lecture de l'article ? Dites-le en commentaire.\n\n#Espagne #Logement #LectureCritique #SingSing"
+  },
+  "remarks": []
+}

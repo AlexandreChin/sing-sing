@@ -1,0 +1,26 @@
+{
+  "step": "writing",
+  "options": [
+    {
+      "id": "a",
+      "slot": "a",
+      "reason": "",
+      "fields": {
+        "caption": "Qu'est-ce qui explique la crise du logement en Espagne ?\n\nL'article de Radio-Canada, d'après CBC News, raconte comment cette crise a mené Pedro Sánchez à convoquer des élections anticipées. Il date d'octobre. Depuis, une grève générale a eu lieu le 11 novembre, le décret a été revoté le 12 novembre, et les élections sont fixées au 29 novembre.\n\nCe carrousel regarde la même question à travers trois disciplines : le politique, l'économique et le sociologique. L'article, lui, emploie surtout le regard politique.\n\nSur trois sujets précis, les élections anticipées, les plafonds de loyer et le logement social, ces regards ne lisent pas le même fait de la même façon.\n\nCes regards sont notre grille, pas celle du média.\n\nEt vous, entre le politique, l'économique et le sociologique, quel regard manquait à votre lecture de l'article ? Dites-le en commentaire.\n\n#Espagne #Logement #LectureCritique #Décryptage"
+      },
+      "edited": false,
+      "flags": []
+    }
+  ],
+  "rejected": [],
+  "recommended": [
+    "a"
+  ],
+  "picked": [
+    "a"
+  ],
+  "fragment": {
+    "caption": "Qu'est-ce qui explique la crise du logement en Espagne ?\n\nL'article de Radio-Canada, d'après CBC News, raconte comment cette crise a mené Pedro Sánchez à convoquer des élections anticipées. Il date d'octobre. Depuis, une grève générale a eu lieu le 11 novembre, le décret a été revoté le 12 novembre, et les élections sont fixées au 29 novembre.\n\nCe carrousel regarde la même question à travers trois disciplines : le politique, l'économique et le sociologique. L'article, lui, emploie surtout le regard politique.\n\nSur trois sujets précis, les élections anticipées, les plafonds de loyer et le logement social, ces regards ne lisent pas le même fait de la même façon.\n\nCes regards sont notre grille, pas celle du média.\n\nEt vous, entre le politique, l'économique et le sociologique, quel regard manquait à votre lecture de l'article ? Dites-le en commentaire.\n\n#Espagne #Logement #LectureCritique #Décryptage"
+  },
+  "remarks": []
+}
