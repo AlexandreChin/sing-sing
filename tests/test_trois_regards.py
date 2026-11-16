@@ -840,7 +840,7 @@ def test_fix_reaches_a_prism_field_by_slot(fake, tmp_path):
     card = pres.prisms[1].cards[2]
     assert (card.source, card.find) == ("Insee", "les logements vacants, commune par commune")
     assert card.head == DECK["prisms"][1]["cards"][2]["head"]
-    assert [c.model_dump() for c in pres.prisms[0].cards] == DECK["prisms"][0]["cards"]
+    assert [c.model_dump(exclude={"answer"}) for c in pres.prisms[0].cards] == DECK["prisms"][0]["cards"]
     _, warnings = agent.fix(full(), steps, "prismes.p3.head2", "Plus de 300 collectifs")
     assert any(w.startswith("p3: prismes.head2 holds a digit") for w in warnings)
     with pytest.raises(agent.ChoiceError, match="prismes.p1.indice1"):
@@ -1460,15 +1460,15 @@ def test_a_v2_deck_renders_eight_slides(tmp_path):
     assert "8 / 8" in texts["08_cta"] and "7 / 8" in texts["07_arbitrage"]
 
 
-def test_a_prism_slide_shows_title_the_deck_question_and_four_cards(tmp_path):
+def test_a_prism_slide_shows_its_title_and_four_cards_and_not_the_deck_question(tmp_path):
     texts = _render(tmp_path, DECK)
     for stem, s in zip(("03_prisme", "04_prisme", "05_prisme"), DECK["prisms"]):
         t = texts[stem]
         assert PRISMS[s["prism"]].name in t and PRISMS[s["prism"]].icon_svg in t
-        assert re.search(r'<h1 class="head[^"]*"[^>]*data-perch', t) and t.count("data-perch") == 1, stem
+        assert not re.search(r'<h1[^>]*data-perch', t) and t.count("data-perch") == 1, stem
+        assert t.split('class="card pc"')[1].lstrip('"').lstrip().startswith("data-perch"), stem
         title = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s["title"])
-        assert title in t and DECK["axe"]["question"] in t
-        assert t.index(title) < t.index(DECK["axe"]["question"])
+        assert title in t and DECK["axe"]["question"] not in t
         assert t.count('class="card pc"') == 4, stem
         heads = [t.index(c["head"]) for c in s["cards"]]
         assert heads == sorted(heads) and all(c["claim"] in t for c in s["cards"])
@@ -1492,7 +1492,7 @@ def test_a_tension_card_is_tagged_with_its_two_prism_names(tmp_path):
     names = [PRISMS[p].name for p in DECK["axe"]["prisms"]]
     cards = text.split('class="card pc"')[1:]
     assert len(cards) == 3
-    assert DECK["tensions"]["title"] in text and DECK["axe"]["question"] in text
+    assert DECK["tensions"]["title"] in text and DECK["axe"]["question"] not in text
     for card, c in zip(cards, DECK["tensions"]["cards"]):
         a, b = c["pair"]
         assert re.search(rf'<span class="tagk">{names[a - 1]} × {names[b - 1]}</span>', card), card[:300]
@@ -1513,7 +1513,7 @@ def test_the_clue_shows_the_source_in_bold_then_what_to_find(tmp_path):
 
 def test_an_arbitrage_card_shows_its_prism_tag_the_hypothesis_the_conditional_observation_and_the_clue(tmp_path):
     text = _render(tmp_path, DECK)["07_arbitrage"]
-    assert DECK["arbitrage"]["title"] in text and DECK["axe"]["question"] in text
+    assert DECK["arbitrage"]["title"] in text and DECK["axe"]["question"] not in text
     cards = text.split('class="card pc"')[1:]
     assert len(cards) == 3
     for card, pid, c in zip(cards, DECK["axe"]["prisms"], DECK["arbitrage"]["cards"]):
@@ -1590,8 +1590,8 @@ def test_the_v2_worst_case_fields_break_no_hard_rule():
 
 
 def test_the_v2_worst_case_fields_sit_exactly_at_their_caps():
-    new = {k: v for k, v in agent._CAPS.items() if k not in _OLD_CAPS}
-    new_parts = {k: v for k, v in agent._PART_CAPS.items() if k not in _OLD_PART_CAPS}
+    new = {k: v for k, v in agent._CAPS.items() if k not in _OLD_CAPS and k not in _V3_CAPS}
+    new_parts = {k: v for k, v in agent._PART_CAPS.items() if k not in _OLD_PART_CAPS and k[0] != "limites"}
     assert {s for s, _ in new} == {"prismes", "tensions", "arbitrage"} and new_parts
     for seed in range(12):
         fields = worst_case_fields_v2(seed)
@@ -1648,3 +1648,369 @@ def test_every_v2_field_at_its_cap_fits_on_the_slide(tmp_path, seed):
     for slide in ("06_tensions", "07_arbitrage"):
         assert len(measured[slide]["tag"]) == 3 and all(x == 1 for x in measured[slide]["tag"]), (slide, measured[slide]["tag"])
     assert sum(len(measured[s]["badge"]) for s in ("03_prisme", "04_prisme", "05_prisme")) == 1
+
+
+# ── revision 3: slide 7 « Les angles morts » (`limites`), answering prism cards, a lead per slide, the bird on the
+# first card, the first card at the same height on sibling slides. Additive: a deck with `arbitrage` keeps its slide ──
+
+DECK_V3 = json.loads(Path("tests/fixtures/trois_regards_deck_v3.json").read_text(encoding="utf-8"))
+_SLIDES_V3 = ["01_hook", "02_position", "03_prisme", "04_prisme", "05_prisme", "06_tensions", "07_limites", "08_cta"]
+_LATE = ("03_prisme", "04_prisme", "05_prisme", "06_tensions", "07_limites")
+# the caps Revision 3 adds to the rules (the older keys stay until the agent side moves)
+_V3_CAPS = {("prismes", "lead"), *(("prismes", f"answer{i}") for i in (1, 2, 3, 4)),
+            ("tensions", "lead"), ("tensions", "head_two_sides"),
+            ("limites", "title"), ("limites", "lead"),
+            *(("limites", f"{k}{i}") for k in ("head", "claim") for i in (1, 2, 3))}
+
+
+def _first_card(text: str) -> str:
+    """The opening tag's attributes and the body of a slide's first card."""
+    return text.split('class="card pc"')[1]
+
+
+def test_a_v3_deck_validates():
+    pres = TroisRegardsPresentation.model_validate(DECK_V3)
+    assert [p.prism for p in pres.prisms] == pres.axe.prisms == ["politique", "economique", "juridique"]
+    assert all(p.title and len(p.cards) == 4 for p in pres.prisms)
+    assert all(c.head and c.answer and c.source and c.find and not c.claim for p in pres.prisms for c in p.cards)
+    assert [bool(p.lead) for p in pres.prisms] == [p.prism != pres.axe.media for p in pres.prisms]
+    assert [p.prism for p in pres.prisms if p.media_note] == [pres.axe.media]
+    assert pres.tensions.lead and [c.pair for c in pres.tensions.cards] == _PAIRS
+    assert all(len([x for x in c.head.split(";") if x.strip()]) == 2 for c in pres.tensions.cards)
+    assert pres.limites.title and pres.limites.lead and len(pres.limites.cards) == 3
+    assert all(c.head and c.claim and c.source and c.find for c in pres.limites.cards)
+    assert pres.arbitrage is None and pres.matrix is None
+
+
+def test_the_revision_3_caps_are_added_to_the_rules():
+    for key in _V3_CAPS:
+        assert key in agent._CAPS, key
+    cap = lambda step, name: agent._CAPS[(step, name)][1]   # noqa: E731
+    assert cap("prismes", "lead") <= 60 and cap("tensions", "lead") <= 60 and cap("limites", "lead") <= 60
+    assert all(cap("prismes", f"answer{i}") <= 90 for i in (1, 2, 3, 4))
+    assert cap("tensions", "head_two_sides") <= 76 and cap("limites", "title") <= 34
+    assert all(cap("limites", f"head{i}") <= 40 and cap("limites", f"claim{i}") <= 46 for i in (1, 2, 3))
+    for i in (1, 2, 3):
+        (s, src), (f, find) = agent._PART_CAPS[("limites", f"indice{i}")]
+        assert (s, f) == ("source", "find") and src <= 30 and find <= 60
+    # the older keys stay until the agent side moves
+    assert ("prismes", "claim1") in agent._CAPS and ("arbitrage", "test1") in agent._CAPS
+    assert cap("tensions", "head1") == 40
+
+
+def test_the_v3_fixture_respects_the_caps_and_the_spec():
+    p = TroisRegardsPresentation.model_validate(DECK_V3)
+    n = lambda s: len(s.replace("**", ""))   # noqa: E731
+    cap = lambda step, name: agent._CAPS[(step, name)][1]   # noqa: E731
+    parts = lambda step, k: [c for _, c in agent._PART_CAPS[(step, f"indice{k}")]]   # noqa: E731
+    question, subject = p.axe.question, p.axe.subject
+    words = agent._key_words(question)
+    no_digit = lambda s: all(re.fullmatch(r"(1[5-9]|20)\d\d", d) for d in re.findall(r"\d+", s))   # noqa: E731
+    clue = lambda c, step, k: (n(c.source) <= parts(step, k)[0] and n(c.find) <= parts(step, k)[1] and c.source  # noqa: E731
+                               and c.find and no_digit(c.source) and "http" not in c.source + c.find
+                               and "www" not in c.source + c.find and not re.search(r"\.\w{2,3}\b", c.source))
+    title_ok = lambda s: s != question and len(agent._key_words(s) & words) < 3 and no_digit(s)   # noqa: E731
+    lead_ok = lambda s: title_ok(s) and not s.endswith("?")   # noqa: E731
+    distinct_openings = lambda heads: len({h.split()[0].lower() for h in heads}) == len(heads)   # noqa: E731
+    for s in p.prisms:
+        assert n(s.title) <= cap("prismes", "title") and title_ok(s.title)
+        if s.prism == p.axe.media:
+            # the media's lead is its media_note: one line, at the lead's cap
+            assert s.lead == "" and 0 < n(s.media_note) <= cap("prismes", "lead") and lead_ok(s.media_note)
+        else:
+            assert 0 < n(s.lead) <= cap("prismes", "lead") and lead_ok(s.lead) and not s.media_note
+        for k, c in enumerate(s.cards, 1):
+            assert n(c.head) <= cap("prismes", f"head{k}") and n(c.answer) <= cap("prismes", f"answer{k}"), c
+            assert "?" not in c.answer and clue(c, "prismes", k) and no_digit(c.head + c.answer + c.find), c
+        assert distinct_openings([c.head for c in s.cards]) and distinct_openings([c.answer for c in s.cards]), s.prism
+        assert sum(subject in (c.head + " " + c.answer).lower() for c in s.cards) <= 1, s.prism
+    t = p.tensions
+    assert n(t.title) <= cap("tensions", "title") and title_ok(t.title)
+    assert 0 < n(t.lead) <= cap("tensions", "lead") and lead_ok(t.lead)
+    for k, c in enumerate(t.cards, 1):
+        sides = [x.strip() for x in c.head.split(";")]
+        assert n(c.head) <= cap("tensions", "head_two_sides") and len(sides) == 2 and all(sides), c
+        assert n(c.claim) <= cap("tensions", f"claim{k}") and c.claim.endswith("?"), c
+        assert clue(c, "tensions", k) and no_digit(c.head + c.claim + c.find), c
+    lim = p.limites
+    assert n(lim.title) <= cap("limites", "title") and lead_ok(lim.title)
+    assert 0 < n(lim.lead) <= cap("limites", "lead") and lead_ok(lim.lead)
+    for k, c in enumerate(lim.cards, 1):
+        assert n(c.head) <= cap("limites", f"head{k}") and n(c.claim) <= cap("limites", f"claim{k}"), c
+        assert c.claim.endswith("?") and clue(c, "limites", k) and no_digit(c.head + c.claim + c.find), c
+    # a tension head opens on its pair's first prism name (« Politique : … ; juridique : … »): two pairs share it
+    assert distinct_openings([c.head for c in lim.cards])
+    for cards in (t.cards, lim.cards):
+        assert distinct_openings([c.claim for c in cards])
+        assert sum(subject in (c.head + " " + c.claim).lower() for c in cards) <= 1
+        assert not any(re.search(r"(explique|pèse|nourrit|cause|influence)(nt)?(-t)?-(il|elle)s?\b", c.claim)
+                       for c in cards)
+    outside = re.sub(r"«[^»]*»", "", json.dumps(DECK_V3, ensure_ascii=False).lower())
+    for w in ("biais", "manipulation", "mensonge", "trompeur", "oublie", "ignore", "omet", "néglige", "ne dit pas",
+              "ne disent pas", "il faut", "devrait", "doit", "font la crise", "pèse le plus", "quel regard"):
+        assert not re.search(rf"\b{w}\b", outside), w
+
+
+def test_a_v3_deck_renders_eight_slides(tmp_path):
+    texts = _render(tmp_path, DECK_V3)
+    assert list(texts) == _SLIDES_V3
+    assert "8 / 8" in texts["08_cta"] and "7 / 8" in texts["07_limites"]
+
+
+def test_a_deck_with_arbitrage_and_no_limites_still_renders_its_legacy_slide(tmp_path):
+    deck = {k: v for k, v in DECK_V3.items() if k != "limites"} | {"arbitrage": DECK["arbitrage"]}
+    texts = _render(tmp_path, deck)
+    assert list(texts) == _SLIDES_V2
+    text = texts["07_arbitrage"]
+    assert DECK["arbitrage"]["title"] in text and all(c["test"] in text for c in DECK["arbitrage"]["cards"])
+    assert DECK_V3["axe"]["question"] not in text
+    assert _first_card(text).lstrip('"').lstrip().startswith("data-perch") and text.count("data-perch") == 1
+
+
+def test_a_prism_card_draws_its_answer_and_falls_back_to_its_claim(tmp_path):
+    deck = copy.deepcopy(DECK_V3)
+    deck["prisms"][1]["cards"][0]["claim"] = "Une question restée là ?"
+    texts = _render(tmp_path, deck)
+    for stem, s in zip(("03_prisme", "04_prisme", "05_prisme"), DECK_V3["prisms"]):
+        for c in s["cards"]:
+            card = texts[stem]
+            assert card.index(c["head"]) < card.index(c["answer"]) < card.index(c["source"]), c
+    assert "Une question restée là ?" not in texts["04_prisme"]
+    v2 = _render(tmp_path / "v2", DECK)                # a revision-2 card has no answer: its claim is drawn
+    assert all(c["claim"] in v2["03_prisme"] for c in DECK["prisms"][0]["cards"])
+
+
+def test_the_limites_cards_are_tagged_with_the_axe_prism_names_in_order(tmp_path):
+    from renderer.instagram_carousel._shared import ICONS
+    text = _render(tmp_path, DECK_V3)["07_limites"]
+    assert "Les angles morts" in text and ICONS["eye_off"] in text
+    assert DECK_V3["limites"]["title"] in text and DECK_V3["limites"]["lead"] in text
+    cards = text.split('class="card pc"')[1:]
+    assert len(cards) == 3
+    for card, pid, c in zip(cards, DECK_V3["axe"]["prisms"], DECK_V3["limites"]["cards"]):
+        assert f'<span class="tagk">{PRISMS[pid].name}</span>' in card
+        assert card.index(c["head"]) < card.index(c["claim"]) < card.index(c["source"]), c
+        assert f"<strong>{c['source']}</strong> : {c['find']}" in card
+
+
+def test_the_prism_icons_are_drawn_untouched_on_the_limites(tmp_path):
+    doc = extract(full(), TroisRegardsPresentation.model_validate(DECK_V3))
+    raw = [p for p in renderer.generate_html(doc, tmp_path / "html") if p.stem == "07_limites"][0].read_text(encoding="utf-8")
+    drawn = re.sub(r"></(?:line|path|circle|rect)>", "/>", raw)
+    for pid in DECK_V3["axe"]["prisms"]:
+        assert PRISMS[pid].icon_svg in drawn, pid
+
+
+def test_no_slide_from_3_to_7_draws_the_deck_question(tmp_path):
+    for k, deck in enumerate((DECK_V3, DECK)):
+        texts = _render(tmp_path / str(k), deck)
+        for stem in texts:
+            if stem[:2] in ("03", "04", "05", "06", "07"):
+                assert deck["axe"]["question"] not in texts[stem], stem
+        assert deck["axe"]["question"] in texts["01_hook"]
+
+
+def test_each_slide_draws_its_own_lead_and_the_media_slide_draws_the_media_note(tmp_path):
+    texts = _render(tmp_path, DECK_V3)
+    lead = lambda t: re.findall(r'<p class="ld">(.*?)</p>', t, re.S)   # noqa: E731
+    for stem, s in zip(("03_prisme", "04_prisme", "05_prisme"), DECK_V3["prisms"]):
+        drawn = lead(texts[stem])
+        assert len(drawn) == 1, stem
+        if s["prism"] == DECK_V3["axe"]["media"]:
+            assert s["media_note"] in drawn[0] and "Le regard du média" in texts[stem]
+        else:
+            assert s["lead"] in drawn[0] and "Le regard du média" not in texts[stem]
+    assert DECK_V3["tensions"]["lead"] in lead(texts["06_tensions"])[0]
+    assert DECK_V3["limites"]["lead"] in lead(texts["07_limites"])[0]
+    # the title sits above the lead, the lead above the first card
+    t = texts["06_tensions"]
+    assert t.index(DECK_V3["tensions"]["title"]) < t.index(DECK_V3["tensions"]["lead"]) < t.index('class="card pc"')
+    # an empty lead draws no line
+    deck = copy.deepcopy(DECK_V3)
+    deck["tensions"]["lead"] = deck["limites"]["lead"] = deck["prisms"][1]["lead"] = ""
+    texts = _render(tmp_path / "empty", deck)
+    assert not lead(texts["06_tensions"]) and not lead(texts["07_limites"]) and not lead(texts["04_prisme"])
+
+
+def test_the_bird_perches_on_the_first_card_not_on_the_title(tmp_path):
+    texts = _render(tmp_path, DECK_V3)
+    for stem in _LATE:
+        t = texts[stem]
+        assert t.count("data-perch") == 1 and not re.search(r"<h1[^>]*data-perch", t), stem
+        first = _first_card(t)
+        opening = first.split(">", 1)[0]
+        assert "data-perch" in opening, stem
+        # the first card takes no share of the room left (data-gap): it stays where the title block ends
+        assert "data-gap" not in opening, stem
+        assert first.split(">", 1)[1].lstrip().startswith('<img class="perch"'), stem
+
+
+# the seeded worst case of the revision-3 fields
+
+def _two_sides(rng: random.Random, n: int) -> str:
+    """« a ; b » of EXACTLY `n` characters."""
+    a = (n - 3) // 2
+    return f"{_chars(rng, a)} ; {_chars(rng, n - 3 - a)}"
+
+
+def worst_case_fields_v3(seed: int = 0) -> dict:
+    """The revision-3 flat fields at their caps: per prism slot `title`, `lead` (empty on the media's slot, which carries
+    a `media_note`), `head1…4`, `answer1…4`, `indice1…4` (each part at its cap); the tensions `title`, `lead`, `pair1…3`,
+    `head1…3` (two sides at the two-sided cap), `claim1…3`, `indice1…3`; the limites `title`, `lead`, `head1…3`,
+    `claim1…3`, `indice1…3`. The axe, the position and the hook are the older worst case's. The media's slide draws
+    its `media_note` as its lead: it is held to the lead's cap (its own older cap, 90, takes two lines and would push the
+    media's first card down)."""
+    rng = random.Random(2000 + seed)
+    cap = lambda step, name: agent._CAPS[(step, name)][1]   # noqa: E731
+    text = lambda step, name: _chars(rng, cap(step, name))   # noqa: E731
+    ask = lambda step, name: _ask(rng, cap(step, name))   # noqa: E731
+    parts = lambda step, name: " | ".join(_chars(rng, c) for _, c in agent._PART_CAPS[(step, name)])   # noqa: E731
+    base = worst_case_fields(seed)
+    media = base["axe"]["media"]
+    prismes = {}
+    for i in (1, 2, 3):
+        mine = base["axe"][f"prism{i}"] == media
+        prismes[f"p{i}"] = {"title": text("prismes", "title"), "lead": "" if mine else text("prismes", "lead"),
+                            **{f"head{k}": text("prismes", f"head{k}") for k in (1, 2, 3, 4)},
+                            **{f"answer{k}": text("prismes", f"answer{k}") for k in (1, 2, 3, 4)},
+                            **{f"indice{k}": parts("prismes", f"indice{k}") for k in (1, 2, 3, 4)},
+                            # the media's slide draws its media_note as its lead: one line, at the lead's cap
+                            "media_note": text("prismes", "lead") if mine else ""}
+    tensions = {"title": text("tensions", "title"), "lead": text("tensions", "lead"),
+                **{f"pair{k}": ",".join(map(str, pair)) for k, pair in enumerate(_PAIRS, 1)},
+                **{f"head{k}": _two_sides(rng, cap("tensions", "head_two_sides")) for k in (1, 2, 3)},
+                **{f"claim{k}": ask("tensions", f"claim{k}") for k in (1, 2, 3)},
+                **{f"indice{k}": parts("tensions", f"indice{k}") for k in (1, 2, 3)}}
+    limites = {"title": text("limites", "title"), "lead": text("limites", "lead"),
+               **{f"head{k}": text("limites", f"head{k}") for k in (1, 2, 3)},
+               **{f"claim{k}": ask("limites", f"claim{k}") for k in (1, 2, 3)},
+               **{f"indice{k}": parts("limites", f"indice{k}") for k in (1, 2, 3)}}
+    return {**base, "prismes": prismes, "tensions": tensions, "limites": limites}
+
+
+def worst_case_deck_v3(seed: int = 0) -> dict:
+    """The revision-3 deck at its caps: axe, position, hook and caption through the agent (the older worst case),
+    the prism cards, the tensions and the limites built here (the agent writes them in the next task)."""
+    f = worst_case_fields_v3(seed)
+    deck = worst_case_deck(seed)
+    deck.pop("matrix", None)
+    ids = deck["axe"]["prisms"]
+    clue = lambda v: dict(zip(("source", "find"), (x.strip() for x in v.split("|"))))   # noqa: E731
+    deck["prisms"] = [{"prism": ids[i - 1], "title": p["title"], "lead": p["lead"], "media_note": p["media_note"],
+                       "cards": [{"head": p[f"head{k}"], "answer": p[f"answer{k}"], **clue(p[f"indice{k}"])}
+                                 for k in (1, 2, 3, 4)]}
+                      for i, p in ((int(s[1]), p) for s, p in f["prismes"].items())]
+    t, lim = f["tensions"], f["limites"]
+    deck["tensions"] = {"title": t["title"], "lead": t["lead"], "cards": [
+        {"pair": [int(x) for x in t[f"pair{k}"].split(",")], "head": t[f"head{k}"], "claim": t[f"claim{k}"],
+         **clue(t[f"indice{k}"])} for k in (1, 2, 3)]}
+    deck["limites"] = {"title": lim["title"], "lead": lim["lead"], "cards": [
+        {"head": lim[f"head{k}"], "claim": lim[f"claim{k}"], **clue(lim[f"indice{k}"])} for k in (1, 2, 3)]}
+    return deck
+
+
+def test_the_v3_worst_case_fields_sit_exactly_at_their_caps():
+    """Every field the revision-3 slides draw is at its cap exactly, each part of a clue too."""
+    cap = lambda step, name: agent._CAPS[(step, name)][1]   # noqa: E731
+    for seed in range(12):
+        f = worst_case_fields_v3(seed)
+        for slot, p in f["prismes"].items():
+            media = bool(p["media_note"])
+            assert len(p["title"]) == cap("prismes", "title"), (seed, slot)
+            assert len(p["lead"]) == (0 if media else cap("prismes", "lead")), (seed, slot)
+            assert not media or len(p["media_note"]) == cap("prismes", "lead")
+            for k in (1, 2, 3, 4):
+                assert len(p[f"head{k}"]) == cap("prismes", f"head{k}") and len(p[f"answer{k}"]) == cap("prismes", f"answer{k}")
+                caps = agent._PART_CAPS[("prismes", f"indice{k}")]
+                assert [len(x.strip()) for x in p[f"indice{k}"].split("|")] == [c for _, c in caps], (seed, slot, k)
+        assert sum(bool(p["media_note"]) for p in f["prismes"].values()) == 1
+        for step in ("tensions", "limites"):
+            g = f[step]
+            assert len(g["title"]) == cap(step, "title") and len(g["lead"]) == cap(step, "lead"), (seed, step)
+            for k in (1, 2, 3):
+                head_cap = cap("tensions", "head_two_sides") if step == "tensions" else cap(step, f"head{k}")
+                assert len(g[f"head{k}"]) == head_cap and len(g[f"claim{k}"]) == cap(step, f"claim{k}"), (seed, step, k)
+                caps = agent._PART_CAPS[(step, f"indice{k}")]
+                assert [len(x.strip()) for x in g[f"indice{k}"].split("|")] == [c for _, c in caps], (seed, step, k)
+            if step == "tensions":
+                assert all(len([x for x in g[f"head{k}"].split(";") if x.strip()]) == 2 for k in (1, 2, 3))
+        TroisRegardsPresentation.model_validate(worst_case_deck_v3(seed))
+
+
+_LINES_V3 = """() => { const box = (s) => ['paddingTop', 'paddingBottom', 'borderTopWidth', 'borderBottomWidth']
+    .reduce((a, k) => a + parseFloat(s[k]), 0);
+  const n = (sel) => [...document.querySelectorAll(sel)].map(e => { const s = getComputedStyle(e);
+    return Math.round((e.getBoundingClientRect().height - box(s)) / parseFloat(s.lineHeight)); });
+  const bottom = Math.max(0, ...[...document.querySelectorAll('.stage *')].map(e => e.getBoundingClientRect().bottom));
+  const cut = [...document.querySelectorAll('.card, .card *, .ld, .ld *')]
+    .filter(e => e.scrollWidth > e.clientWidth + 1).map(e => e.className);
+  const first = document.querySelector('.card.pc'), head = document.querySelector('.head');
+  return {head: n('.head'), nm: n('.card .nm'), see: n('.card .see'), foot: n('.card .foot > span'), tag: n('.tagk'),
+          badge: n('.badge'), lead: n('.ld > span'), cards: document.querySelectorAll('.card.pc').length,
+          first: first ? first.getBoundingClientRect().top : null, title: head ? head.getBoundingClientRect().bottom : null,
+          perch: !!(first && first.hasAttribute('data-perch')), perches: document.querySelectorAll('[data-perch]').length,
+          text: (document.querySelector('.stage') || document.body).innerText, bottom, cut,
+          page: document.documentElement.scrollWidth}; }"""
+
+
+def _measure(tmp_path, deck: dict) -> dict[str, dict]:
+    """Every slide of `deck` measured as `renderer.shoot` shoots it: web fonts loaded, the room left shared out."""
+    from renderer.shoot import _FIT, FIT_CAP, FIT_MARGIN
+    doc = extract(full(), TroisRegardsPresentation.model_validate(deck))
+    renderer.generate_html(doc, tmp_path)
+    measured = {}
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page(viewport={"width": 1080, "height": 1350})
+        for f in sorted(tmp_path.glob("*.html")):
+            page.set_content(f.read_text(encoding="utf-8"), wait_until="load")
+            page.evaluate("document.fonts.ready")
+            page.evaluate(_FIT, [FIT_MARGIN, FIT_CAP])
+            measured[f.stem] = page.evaluate(_LINES_V3)
+        browser.close()
+    return measured
+
+
+@pytest.fixture(scope="module")
+def v3_worst(tmp_path_factory):
+    return _measure(tmp_path_factory.mktemp("v3_worst"), worst_case_deck_v3(0))
+
+
+def test_the_first_card_starts_at_the_same_height_on_the_three_prism_slides(v3_worst):
+    tops = [v3_worst[s]["first"] for s in ("03_prisme", "04_prisme", "05_prisme")]
+    assert max(tops) - min(tops) <= 2, tops
+    assert sum(len(v3_worst[s]["badge"]) for s in ("03_prisme", "04_prisme", "05_prisme")) == 1   # the media slide is in
+
+
+def test_the_tensions_and_limites_first_cards_start_at_the_same_height(v3_worst):
+    tops = [v3_worst[s]["first"] for s in ("06_tensions", "07_limites")]
+    assert max(tops) - min(tops) <= 2, tops
+
+
+@pytest.mark.parametrize("seed", range(12))
+def test_every_v3_field_at_its_cap_fits_on_the_slide(tmp_path, seed):
+    deck = worst_case_deck_v3(seed)
+    measured = _measure(tmp_path, deck)
+    assert list(measured) == _SLIDES_V3
+    for slide, m in measured.items():
+        assert m["page"] <= 1080, (slide, "horizontal overflow", m["page"])
+        assert m["bottom"] <= 1255, (slide, m["bottom"])
+        assert m["cut"] == [], (slide, "a card or a lead overflows sideways", m["cut"])
+    for slide, cards in (("03_prisme", 4), ("04_prisme", 4), ("05_prisme", 4), ("06_tensions", 3), ("07_limites", 3)):
+        m = measured[slide]
+        assert m["cards"] == cards, (slide, m["cards"])
+        assert len(m["head"]) == 1 and m["head"][0] <= 2, (slide, "the title takes more than two lines", m["head"])
+        assert m["title"] < m["first"], (slide, "the title must sit above the first card")
+        assert len(m["nm"]) == cards and all(x <= 2 for x in m["nm"]), (slide, "a card head", m["nm"])
+        assert len(m["see"]) == cards and all(x <= 2 for x in m["see"]), (slide, "a card answer or claim", m["see"])
+        assert len(m["foot"]) == cards and all(x <= 2 for x in m["foot"]), (slide, "a clue", m["foot"])
+        assert m["lead"] == [1], (slide, "the lead takes one line", m["lead"])
+        assert all(x == 1 for x in m["badge"]), (slide, "the badge wraps", m["badge"])
+        assert m["perch"] and m["perches"] == 1, (slide, "the bird perches on the first card")
+        assert deck["axe"]["question"] not in m["text"], (slide, "the deck question is repeated")
+    for slide in ("06_tensions", "07_limites"):
+        assert len(measured[slide]["tag"]) == 3 and all(x == 1 for x in measured[slide]["tag"]), (slide, measured[slide]["tag"])
+    tops = [measured[s]["first"] for s in ("03_prisme", "04_prisme", "05_prisme")]
+    assert max(tops) - min(tops) <= 2, ("the prism slides' first cards", tops)
+    tops = [measured[s]["first"] for s in ("06_tensions", "07_limites")]
+    assert max(tops) - min(tops) <= 2, ("the tensions' and limites' first cards", tops)

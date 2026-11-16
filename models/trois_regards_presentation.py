@@ -40,10 +40,13 @@ class RegardsPosition(BaseModel):  # slide 2 — the article's frame
 
 
 class RegardsPrismCard(BaseModel):
-    """One card of a prism slide: an assertion, the same point as a question, and a clue — where to look
-    (`source`, a named organisation, document or series) and what to find there (`find`)."""
+    """One card of a prism slide: the cause this regard points to (`head`), one plain sentence saying how it acts
+    (`answer`), and a clue — where to look (`source`, a named organisation, document or series) and what to find
+    there (`find`). A revision-2 card carries a question (`claim`) instead of the answer: the renderer draws
+    `answer` when set, otherwise `claim`."""
     head: str
-    claim: str        # ends in « ? »
+    answer: str = ""  # one sentence, never a question
+    claim: str = ""   # a revision-2 card's question, ends in « ? »
     source: str = ""
     find: str = ""
 
@@ -54,8 +57,9 @@ class RegardsPrismSlide(BaseModel):  # slides 3 to 5 — one prism each
     question: str = ""
     lines: list[str] = Field(default_factory=list)
     sources: list[str] = Field(default_factory=list)   # names to consult, 1 to 3 (2 or 3 asked for)
-    media_note: str = ""    # only on the prism the article takes
+    media_note: str = ""    # only on the prism the article takes: it is that slide's lead
     title: str = ""         # the prism's thesis on the deck's question
+    lead: str = ""          # one line: what this regard examines (empty on the media's prism)
     cards: list[RegardsPrismCard] = Field(default_factory=list)   # 4
 
 
@@ -72,7 +76,7 @@ class RegardsMatrix(BaseModel):  # slide 6 — what each prism would measure, no
 
 class RegardsTensionCard(BaseModel):
     pair: list[int]   # the two prisms that disagree, by their place in the axe (1-based), e.g. [1, 2]
-    head: str         # the point of disagreement, stated neutrally
+    head: str         # the point of disagreement: one side per prism, « A : … ; B : … » (caps live in the agent)
     claim: str        # the question it raises, ends in « ? »
     source: str = ""
     find: str = ""
@@ -80,7 +84,21 @@ class RegardsTensionCard(BaseModel):
 
 class RegardsTensions(BaseModel):  # slide 6 — where the regards disagree, one card per pair of prisms
     title: str
+    lead: str = ""    # one line: the objects of the disagreement
     cards: list[RegardsTensionCard] = Field(default_factory=list)   # 3: pairs 1-2, 1-3, 2-3
+
+
+class RegardsLimitesCard(BaseModel):
+    head: str         # what this regard, taken alone, leaves out
+    claim: str        # the question that follows, ends in « ? »
+    source: str = ""
+    find: str = ""
+
+
+class RegardsLimites(BaseModel):  # slide 7 « Les angles morts » — one card per prism, in the axe's order
+    title: str
+    lead: str = ""    # one line: what stays out of sight when the three regards are put together
+    cards: list[RegardsLimitesCard] = Field(default_factory=list)   # 3
 
 
 class RegardsArbitrageCard(BaseModel):
@@ -105,6 +123,7 @@ class TroisRegardsPresentation(BaseModel):
     matrix: RegardsMatrix | None = None          # an older deck's slide 6
     tensions: RegardsTensions | None = None      # slide 6 of a revision-2 deck
     arbitrage: RegardsArbitrage | None = None    # slide 7 of a revision-2 deck
+    limites: RegardsLimites | None = None        # slide 7 of a revision-3 deck (drawn instead of `arbitrage`)
 
 
 class TroisRegardsDocument(BaseModel):

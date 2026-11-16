@@ -1,9 +1,11 @@
 """Renderer for the TROIS REGARDS carousel, in the optimized deck's visual language, screenshotted
 by `renderer.shoot`. The first and last slides are the optimized deck's own hook and sign-off (photo
 included); slide 2 is the `temps_long` position slide, drawn as it is; slides 3–5 (one prism each)
-are the `article_carousel_trois_regards_v1` templates. A revision-2 deck (prism `cards`, `tensions`,
-`arbitrage`) draws four cards per prism, then the tensions (slide 6) and the arbitrage (slide 7):
-eight slides. An older deck (prism `lines`, `matrix`) keeps its seven slides and its old templates.
+are the `article_carousel_trois_regards_v1` templates. A deck with prism `cards` draws four cards per
+prism, then the tensions (slide 6) and « Les angles morts » (`limites`, slide 7) — or, on a revision-2
+deck with no `limites`, its arbitrage: eight slides. Slides 3–7 never repeat the deck's question: each
+draws its own lead (the media's prism its `media_note`), and the bird perches on the first card. An
+older deck (prism `lines`, `matrix`) keeps its seven slides and its old templates.
 Registered as the `trois_regards` format."""
 import json
 import re
@@ -23,9 +25,11 @@ POSITION = "article_carousel_temps_long_v1/02_position.html"
 POSITION_KICKER = "Ce que dit l'article"
 POSITION_ICONS = ("book", "link", "eye", "widen")   # one fixed icon per card, in order
 MEDIA_BADGE = "Le regard du média"
-CARD_ICON = "help"                       # a prism card ends on a question, as the anatomie blind spots
+CARD_ICON = "lightbulb"                  # a prism card answers: the cause and how it acts
+QUESTION_ICON = "help"                   # a revision-2 prism card ends on a question, as the anatomie blind spots
 TENSIONS_KICKER, TENSIONS_ICON, TENSION_CARD_ICON = "Les tensions", "flame", "link"
 ARBITRAGE_KICKER, ARBITRAGE_ICON = "Le poids des regards", "anchor"
+LIMITES_KICKER, LIMITES_ICON = "Les angles morts", "eye_off"   # the anatomie « angles morts » slide's own icon
 
 
 def _typeset(text: str) -> str:
@@ -57,15 +61,15 @@ def generate_html(doc: TroisRegardsDocument, out_dir: Path) -> list[Path]:
             "headline": title, "background": background, "thumb": cover_thumb(base),
             **hook_metrics(cover_dims(base), pres.hook.title), **cover_layers(meta, pres.hook.title)}
     media = pres.axe.media if pres.axe else ""
-    question = pres.axe.question if pres.axe else ""
     position = {"kicker": pres.position.kicker or POSITION_KICKER, "title": pres.position.title, "lead": pres.position.lead,
                 "cards": [{"label": c.label, "text": c.text, "icon": POSITION_ICONS[i % len(POSITION_ICONS)]}
                           for i, c in enumerate(pres.position.cards)]}
     # only the media's prism carries a media_note (a hard rule of the adapt agent): it draws the badge;
     # a prism with cards is a revision-2 slide, one with lines the older one
     prisms = [("prisme", f"{TPL}/02_prisme_cartes.html",
-               _nobreak({"title": s.title, "question": question, "cards": [c.model_dump() for c in s.cards],
-                         "media_note": s.media_note, "badge": MEDIA_BADGE, "icon": CARD_ICON}) | {"prism": _prism(s.prism)})
+               _nobreak({"title": s.title, "lead": s.lead, "media_note": s.media_note, "badge": MEDIA_BADGE,
+                         "cards": [c.model_dump() | {"icon": CARD_ICON if c.answer else QUESTION_ICON} for c in s.cards]})
+               | {"prism": _prism(s.prism)})
               if s.cards else
               ("prisme", f"{TPL}/02_prisme.html",
                _nobreak({"question": s.question, "lines": s.lines, "sources": s.sources,
@@ -78,17 +82,23 @@ def generate_html(doc: TroisRegardsDocument, out_dir: Path) -> list[Path]:
     if pres.tensions:
         later.append(("tensions", f"{TPL}/03_tensions.html", _nobreak(
             {"kicker": TENSIONS_KICKER, "kicker_icon": TENSIONS_ICON, "icon": TENSION_CARD_ICON,
-             "title": pres.tensions.title, "question": question,
+             "title": pres.tensions.title, "lead": pres.tensions.lead,
              "cards": [c.model_dump() | {"tag": " × ".join(name(k) for k in c.pair)} for c in pres.tensions.cards]})))
     elif pres.matrix:
         columns = [_nobreak({"variable": c.variable, "indicator": c.indicator}) | _prism(c.prism)
                    | {"media": bool(media) and c.prism == media} for c in pres.matrix.columns]
         later.append(("matrice", f"{TPL}/03_matrice.html",
-                      _nobreak({"title": pres.matrix.title, "lead": question, "badge": MEDIA_BADGE}) | {"columns": columns}))
-    if pres.arbitrage:
-        # the prism icons are svg markup: added after `_nobreak`, which would put word joiners in their path data
+                      _nobreak({"title": pres.matrix.title, "lead": pres.axe.question if pres.axe else "",
+                                "badge": MEDIA_BADGE}) | {"columns": columns}))
+    # the prism icons are svg markup: added after `_nobreak`, which would put word joiners in their path data
+    if pres.limites:
+        later.append(("limites", f"{TPL}/04_limites.html", _nobreak(
+            {"kicker": LIMITES_KICKER, "kicker_icon": LIMITES_ICON, "title": pres.limites.title, "lead": pres.limites.lead,
+             "cards": [c.model_dump() | {"tag": name(k)} for k, c in enumerate(pres.limites.cards, 1)]})
+            | {"icons": [p["icon"] for p in order]}))
+    elif pres.arbitrage:
         later.append(("arbitrage", f"{TPL}/04_arbitrage.html", _nobreak(
-            {"kicker": ARBITRAGE_KICKER, "kicker_icon": ARBITRAGE_ICON, "title": pres.arbitrage.title, "question": question,
+            {"kicker": ARBITRAGE_KICKER, "kicker_icon": ARBITRAGE_ICON, "title": pres.arbitrage.title,
              "cards": [c.model_dump() | {"tag": name(k)} for k, c in enumerate(pres.arbitrage.cards, 1)]})
             | {"icons": [p["icon"] for p in order]}))
     specs = [

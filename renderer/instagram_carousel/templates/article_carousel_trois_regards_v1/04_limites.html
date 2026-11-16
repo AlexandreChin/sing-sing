@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+{% include 'article_carousel_cadrage_v1/_argument.css' %}
+{% include 'article_carousel_anatomie_chiffre_v1/_cards.css' %}
+{% include 'article_carousel_trois_regards_v1/_regards_cards.css' %}
+/* « Les angles morts »: one card per prism, in the axe's order — its icon and name, what this regard alone leaves out,
+   the question that follows, the clue (as the anatomie « angles morts »); the bird on the first card */
+/* three cards: the anatomie card's own padding (the four-card prism slides use a tighter one) */
+:root { --gap-foot: 12px; }
+.card.pc { padding: 18px 30px 20px; }
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
+  {% include '_brand.html' %}
+  <div class="stage" data-fit>
+    <div class="krow"><span class="kick"><svg viewBox="0 0 24 24">{{ ICONS[kicker_icon] | safe }}</svg>{{ kicker }}</span></div>
+    <div class="top">
+      <h1 class="head">{{ title | md_bold }}</h1>
+      {% if lead %}<p class="ld"><span>{{ lead | md_bold }}</span></p>{% endif %}
+    </div>
+    {% for c in cards %}<div class="card pc"{% if loop.first %} data-perch{% else %} data-gap{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}
+      <div class="pt"><svg viewBox="0 0 24 24">{{ icons[loop.index0] | safe if loop.index0 < icons|length else '' }}</svg><div>
+        <span class="tagk">{{ c.tag }}</span>
+        <div class="nm">{{ c.head | md_bold }}</div>
+        <div class="see">{{ c.claim | md_bold }}</div>
+      </div></div>
+      {% include 'article_carousel_trois_regards_v1/_clue.html' %}
+    </div>{% endfor %}
+  </div>
+  <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
+  <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
+</div>
+</body>
+</html>

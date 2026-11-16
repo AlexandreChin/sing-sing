@@ -307,13 +307,20 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("arbitrage", "title"): ("chars", 34),
     **{("arbitrage", f"head{i}"): ("chars", 40) for i in (1, 2, 3)},
     **{("arbitrage", f"test{i}"): ("chars", 80) for i in (1, 2, 3)},
+    # revision 3: a lead per slide, the prism cards' answer, the two-sided tension head, slide 7 « Les angles morts »
+    ("prismes", "lead"): ("chars", 60),
+    **{("prismes", f"answer{i}"): ("chars", 90) for i in (1, 2, 3, 4)},
+    ("tensions", "lead"): ("chars", 60), ("tensions", "head_two_sides"): ("chars", 76),
+    ("limites", "title"): ("chars", 34), ("limites", "lead"): ("chars", 60),
+    **{("limites", f"head{i}"): ("chars", 40) for i in (1, 2, 3)},
+    **{("limites", f"claim{i}"): ("chars", 46) for i in (1, 2, 3)},
 }
 # (step, field) -> the parts of a « a | b » field, each with its cap in characters
 _PART_CAPS: dict[tuple[str, str], tuple[tuple[str, int], ...]] = {
     **{("position", f"card{i}"): (("label", 30), ("text", 76)) for i in (1, 2, 3, 4)},
     # a clue: « <source nommée> | <ce qu'on y cherche> »
     **{(step, f"indice{i}"): (("source", 30), ("find", 60))
-       for step, n in (("prismes", 4), ("tensions", 3), ("arbitrage", 3)) for i in range(1, n + 1)},
+       for step, n in (("prismes", 4), ("tensions", 3), ("arbitrage", 3), ("limites", 3)) for i in range(1, n + 1)},
 }
 _REQUIRED = {"axe": ("question", "article_question", "subject", "prism1", "prism2", "prism3", "media",
                      "media_grounding", "closing"),

@@ -9,15 +9,13 @@
 {% include 'article_carousel_trois_regards_v1/_regards.css' %}
 {% include 'article_carousel_trois_regards_v1/_regards_cards.css' %}
 /* one prism: its icon and name (the media's badge beside them, on its own prism only), its thesis on the deck's
-   question (the bird sits on it), the deck's question small under it, the media's sentence, then four cards as on
-   the anatomie « angles morts »: an assertion, the same point as a question, the clue. The badge shares the
-   kicker's row so the media's slide keeps room for the four cards. */
-.krow { display: flex; align-items: center; gap: 28px; }
-.krow .badge { align-self: center; }
-.head.pth { min-height: 0; font-size: 52px; }
-.mn { margin-top: 10px; display: flex; gap: 12px; align-items: flex-start; font-size: 24px; font-weight: 500; line-height: 1.3; color: #d0d0d0; text-wrap: pretty; hyphens: none; }
-.mn strong { color: #d4aa00; font-weight: 700; }
-.mn svg { width: 24px; height: 24px; flex: none; margin-top: 3px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+   question, one lead line — what this regard examines, or on the media's prism the media's sentence —, then four
+   cards: the cause this regard points to, how it acts (a revision-2 card: a question), the clue. The bird perches
+   on the first card. Four cards of up to five lines: a tighter card than the three-card slides */
+:root { --gap-foot: 6px; }
+.card.pc { padding: 10px 30px 11px; }
+.card.pc .see { margin-top: 2px; font-size: 26px; line-height: 1.22; }
+.card.pc .foot { font-size: 23px; line-height: 1.22; }
 </style>
 </head>
 <body>
@@ -27,13 +25,15 @@
   <div class="stage" data-fit>
     <div class="krow"><span class="kick"><svg viewBox="0 0 24 24">{{ prism.icon | safe }}</svg>{{ prism.name }}</span>
       {% if media_note %}<span class="badge"><svg viewBox="0 0 24 24">{{ ICONS.eye | safe }}</svg>{{ badge }}</span>{% endif %}</div>
-    <h1 class="head pth" data-perch>{% include '_perch.html' %}{{ title | md_bold }}</h1>
-    {% if question %}<p class="dq">{{ question | md_bold }}</p>{% endif %}
-    {% if media_note %}<p class="mn"><svg viewBox="0 0 24 24">{{ ICONS.eye | safe }}</svg><span>{{ media_note | md_bold }}</span></p>{% endif %}
-    {% for c in cards %}<div class="card pc" data-gap>
-      <div class="pt"><svg viewBox="0 0 24 24">{{ ICONS[icon] | safe }}</svg><div>
+    <div class="top">
+      <h1 class="head">{{ title | md_bold }}</h1>
+      {% if media_note %}<p class="ld"><svg viewBox="0 0 24 24">{{ ICONS.eye | safe }}</svg><span>{{ media_note | md_bold }}</span></p>
+      {% elif lead %}<p class="ld"><span>{{ lead | md_bold }}</span></p>{% endif %}
+    </div>
+    {% for c in cards %}<div class="card pc"{% if loop.first %} data-perch{% else %} data-gap{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}
+      <div class="pt"><svg viewBox="0 0 24 24">{{ ICONS[c.icon] | safe }}</svg><div>
         <div class="nm">{{ c.head | md_bold }}</div>
-        <div class="see">{{ c.claim | md_bold }}</div>
+        <div class="see">{{ (c.answer or c.claim) | md_bold }}</div>
       </div></div>
       {% include 'article_carousel_trois_regards_v1/_clue.html' %}
     </div>{% endfor %}
