@@ -26,11 +26,11 @@ python main.py produce <article.txt> --format temps_long --guided [--no-api] [--
 # The ANATOMIE D'UN CHIFFRE archetype (6 slides, for a statistic, a poll, a ranking; steps: axe chiffres recit angle_mort lectures hook, then `writing`, no pause)
 python main.py produce <article.txt> --format anatomie_chiffre --guided [--no-api] [--render] [--medium …] [--title …] [--source …]
 
-# The TROIS REGARDS archetype (8 slides, for a large social phenomenon read through one discipline; steps: axe position prismes tensions arbitrage hook, then `writing`, no pause)
+# The TROIS REGARDS archetype (8 slides, for a large social phenomenon read through one discipline; steps: axe position prismes tensions limites hook, then `writing`, no pause)
 python main.py produce <article.txt> --format trois_regards --guided [--no-api] [--render] [--medium …] [--title …] [--source …]
 python main.py choose <fmt_dir> prismes --pick p1a,p2c,p3b          # one option per prism slot
 python main.py choose <fmt_dir> prismes --more --prism <p1|p2|p3|prism-id> [--remark "…"]   # regenerate one prism only
-python main.py fix    <fmt_dir> prismes.<slot>.<field> "<text>"     # e.g. prismes.p2.head1, tensions.claim2
+python main.py fix    <fmt_dir> prismes.<slot>.<field> "<text>"     # e.g. prismes.p2.head1, tensions.claim2, limites.head3
 
 # Individual stages
 python main.py analyze <article.txt> [--instructions "..."] [--instructions-file <path>]
@@ -76,7 +76,7 @@ agent/
   anatomie_chiffre_adapt_agent.py      adapt() for anatomie_chiffre: its own guided steps (prompts/anatomie_chiffre_steps/), choose/more/fix
   trois_regards_adapt_agent.py         adapt() for trois_regards: its own guided steps (prompts/trois_regards_steps/), choose/more/fix; one pick per prism slot
   trois_regards_prisms.py              PRISMS: the 7 prisms (name, definition, lens icon)
-  trois_regards_verify.py              web check of the sources named in the clues (indices) of the picked prismes, tensions and arbitrage
+  trois_regards_verify.py              web check of the sources named in the clues (indices) of the picked prismes, tensions and limites
   media_trend_agent.py
 extractors/
   registry.py                      FORMATS: format name → (adapt agent, extractor, renderer) modules
@@ -93,7 +93,7 @@ renderer/
     cadrage.py                     the CADRAGE & LOGIQUE renderer (templates/article_carousel_cadrage_v1/ for slides 2–6; slides 1 and 7 are the optimized hook and CTA)
     temps_long.py                  the TEMPS LONG renderer (templates/article_carousel_temps_long_v1/ for slides 2–6; slides 1 and 7 are the optimized hook and CTA)
     anatomie_chiffre.py            the ANATOMIE D'UN CHIFFRE renderer (templates/article_carousel_anatomie_chiffre_v1/ for slides 2–5, reusing the cadrage `_argument.css` and notes macro; slides 1 and 6 are the optimized hook and CTA)
-    trois_regards.py               the TROIS REGARDS renderer (slide 2 is the temps_long `02_position.html`; templates/article_carousel_trois_regards_v1/ for slides 3–7; slides 1 and 8 are the optimized hook and CTA)
+    trois_regards.py               the TROIS REGARDS renderer (slide 2 is the temps_long `02_position.html`; templates/article_carousel_trois_regards_v1/ for slides 3–7 (prism, tensions, angles morts); slides 1 and 8 are the optimized hook and CTA)
     templates/article_carousel_optimized_v0/  Jinja2 templates → PNG slides (1080×1350)
   newsletter/                      newsletter renderer → Markdown + HTML (rich + email); dark brand
   shoot.py                         Playwright HTML → PNG (carousel slides)
@@ -212,7 +212,8 @@ samples/<medium>/<stem>/     (medium = articles | podcasts | videos)
   this format. Output folder: `<stem>/anatomie_chiffre/`.
 - `trois_regards` — the TROIS REGARDS archetype (`docs/carousels_archetypes.md`): 8 slides for a large social phenomenon (housing, AI,
   birth rate) that the article treats through one discipline; the deck shows that the answer to one broad question changes with the
-  discipline called in, and which one the article used — in the optimized deck's visual language. Hook (identical to the optimized one,
+  discipline called in, and which one the article used — in the optimized deck's visual language. The arc: the three regards answer
+  (slides 3–5), are confronted (6), show their limits (7). Hook (identical to the optimized one,
   photo included; pill = medium · source · date, no length; the title is **the deck's question**, a broad question each prism can answer,
   not the article's narrower one, ending in « ? », not in « »; the promise has a fixed shape: « Trois regards sur <sujet> ; à vous d'en
   juger. », the subject being the axe's — a no-break space before « ; » or a typographic ’ is accepted; the prompts ask for plain
@@ -220,25 +221,29 @@ samples/<medium>/<stem>/     (medium = articles | podcasts | videos)
   kicker — « Ce que dit l'article » when empty —, title, a lead saying which narrower question the article answers, three or four `libellé | texte`
   cards (the fourth optional) with fixed icons: what it recounts, the causes it puts forward, what the actors answer, where it leads; quotes verbatim, a figure
   only as the article gives it) → three prism slides (slides 3–5, out of frame, in the style of the anatomie « angles morts »: the prism's icon
-  and name as kicker; the prism's **thesis** on the deck's question as title (a gold passage allowed); the deck's question repeated small under
-  it (the axe's, not a field); four cards, each an assertion (`head`, a cause or mechanism in the prism's terms), the same point as a question
-  ending in « ? » (`claim`) and a clue (`indice`: « source | ce qu'on y cherche » — one named organisation, document, series or person, then
-  what to find there; a pointer, not a fact); the media's prism alone carries the « Le regard du média » badge on the kicker's row and one
-  sentence in the article's frame under the deck's question, `media_note`) → Les tensions (slide 6, out of frame: a neutral, non-binary question as
-  title — where the regards disagree —, the deck's question under it, then three cards, one per pair of prisms (1–2, 1–3, 2–3), each tagged
-  with the pair's names drawn from the axe (« ÉCONOMIQUE × SOCIOLOGIQUE »): the point of disagreement, each side attributed to its prism
-  (`head`), the question it raises (`claim`, « ? ») and the clue that would help settle it; no verdict, no « il faut ») → Le poids des
-  regards (slide 7, out of frame: a neutral question as title, « Quel regard pèse le plus ? », the deck's question under it, then three cards
-  in the axe's prism order, tagged with the prism's name and icon: the hypothesis that this regard weighs most (`head`), what one would
-  observe if it did, **in the conditional** (`test`, never a result), and the series to follow (`indice`); no ranking, the deck never says
-  which regard wins) → CTA (slide 8, identical to the optimized one; its « Commentez — … » line is the axe's `closing`, lowercased: it returns
-  to the deck's question and names the three prisms). Catalogue of
+  and name as kicker; the prism's **thesis** on the deck's question as title (a gold passage allowed); under it a `lead`, one line saying
+  what this regard examines in the subject's terms — on the media's prism slide the lead drawn is its `media_note` (the one sentence in
+  the article's frame), next to the « Le regard du média » badge on the kicker's row, and its own `lead` stays empty; four cards, each a
+  `head` (a cause or mechanism in the prism's terms), an `answer` (**one sentence** saying how that cause acts and what it explains in the
+  case, in the regard's voice, never an established fact, never a question, no figure) and an `indice` (« source | ce qu'on y cherche »:
+  one named organisation, document, series or person, then what to find there; a pointer, not a fact)) → Les tensions (slide 6, out of
+  frame: a neutral title specific to the deck — where the regards disagree; a « ? » is allowed, not required —, its own `lead` naming the
+  objects of the disagreement, then three cards, one per pair of prisms (1–2, 1–3, 2–3), each tagged « A × B » with the pair's names drawn
+  from the axe (« ÉCONOMIQUE × SOCIOLOGIQUE »): `head` = two clauses separated by « ; », one per prism of the pair in the tag's order,
+  **without the prism names** (the tag carries them), `claim` a discriminating question (« ? »), `indice` the clue that would help settle
+  it; no verdict, no « il faut ») → Les angles morts (slide 7, out of frame: a short neutral title, its own `lead` saying what stays out
+  of sight when the three regards are put together, then three cards in the axe's prism order, tagged with the prism's name and icon:
+  `head` what that regard, taken alone, leaves out (about the regard in general, never a reproach to the article), `claim` the question
+  that follows (« ? »), `indice` the clue; no ranking, the deck never says which regard wins) → CTA (slide 8, identical to the optimized
+  one; its « Commentez — … » line is the axe's `closing`, lowercased: it asks what is still missing to understand the subject and names
+  the three prisms). The deck's question appears only on the hook, in the position lead and in the closing line: no slide from 3 to 7
+  repeats it. Catalogue of
   7 prisms (`agent/trois_regards_prisms.py`, `PRISMS`, its own icons, not `CANONICAL_LENSES`): `economique`, `sociologique`, `juridique`,
   `historique` (dated landmarks only, never a trend figure), `politique`, `ecologique`, `technologique`. Seven guided steps
   (`agent/trois_regards_adapt_agent.py`, prompts in `agent/prompts/trois_regards_steps/`): `axe` first — never rendered as such: the
   deck's question, the article's own question, the subject, three distinct prisms of the catalogue, the media's prism (always the closest
   one; when none dominates its `media_grounding` says so) and the sentence grounding it, the closing line; options are alternative prism
-  sets — then `position`, `prismes` (one pause for slides 3–5), `tensions`, `arbitrage`, `hook`; `writing` (the caption) follows without a pause.
+  sets — then `position`, `prismes` (one pause for slides 3–5), `tensions`, `limites`, `hook`; `writing` (the caption) follows without a pause.
   Same guided semantics as the other archetypes (options with a reason and a ★, `choose --pick/--edit/--more`, `fix <fmt_dir>
   <step>.<field>` or `caption` — `fix` re-checks the rewritten field and the re-stamped later steps and prints the hard-rule failures as
   ⚠; a fix of `axe.prism1`…`prism3` or `axe.media` re-stamps nothing, the later steps rerun —, choice log in `choices.jsonl`).
@@ -247,37 +252,48 @@ samples/<medium>/<stem>/     (medium = articles | podcasts | videos)
   regenerates that prism's options only, the others keeping their options and picks (shown « ✔ gardée »): while that prism awaits its
   pick, `choose … prismes --pick <its id>` names only the missing slot and the kept picks complete the set (naming a kept slot
   replaces its pick), and `fix` says which `choose` to run; `fix <fmt_dir> prismes.<slot>.<field>` (e.g. `prismes.p2.head1`),
-  `fix <fmt_dir> tensions.<field>`, `fix <fmt_dir> arbitrage.<field>`. Flat option strings: axe `question`, `article_question`, `subject`,
+  `fix <fmt_dir> tensions.<field>`, `fix <fmt_dir> limites.<field>`. Flat option strings: axe `question`, `article_question`, `subject`,
   `prism1`…`prism3`, `media`, `media_grounding`, `closing`; position `kicker`, `title`, `lead`, `card1`…`card4` (`libellé | texte`, `card4`
-  optional); a prism (`PrismesOption`) `title`, `head1`…`head4`, `claim1`…`claim4`, `indice1`…`indice4`, `media_note`; tensions
-  (`TensionsOption`) `title`, `pair1`…`pair3` (two prism numbers of the axe, « 1,2 »; not drawn, the tag is), `head1`…`head3`,
-  `claim1`…`claim3`, `indice1`…`indice3`; arbitrage (`ArbitrageOption`) `title`, `head1`…`head3`, `test1`…`test3`, `indice1`…`indice3`
-  (card N = the axe's Nth prism); every `indiceN` reads « source | find »; hook `title`, `promise`. Hard rules (repair a generated option, ⚠ on
-  the author's pick): every rendered field capped in characters (`_CAPS` / `_PART_CAPS`: axe question 60, subject 36, closing 110,
-  media_grounding 120; position kicker 26, title 32, lead 90, card label 30 / text 76; prism title 40, head 36, claim 46, media_note 90;
-  tensions title 34, head 40, claim 46; arbitrage title 34, head 40, test 80; every clue source 30 / find 60; hook title 70, promise 100);
+  optional); a prism (`PrismesOption`) `title`, `lead`, `head1`…`head4`, `answer1`…`answer4`, `indice1`…`indice4`, `media_note`; tensions
+  (`TensionsOption`) `title`, `lead`, `pair1`…`pair3` (two prism numbers of the axe, « 1,2 »; not drawn, the tag is), `head1`…`head3`,
+  `claim1`…`claim3`, `indice1`…`indice3`; angles morts (`LimitesOption`) `title`, `lead`, `head1`…`head3`, `claim1`…`claim3`,
+  `indice1`…`indice3` (card N = the axe's Nth prism); every `indiceN` reads « source | find »; hook `title`, `promise`. Hard rules (repair a
+  generated option, ⚠ on the author's pick): every rendered field capped in characters (`_CAPS` / `_PART_CAPS`: axe question 60, subject 36,
+  closing 110, media_grounding 120; position kicker 26, title 32, lead 90, card label 30 / text 76; prism title 40, lead 60, media_note 60,
+  head 36, answer 90; tensions title 44, lead 60, head 76, claim 46; angles morts title 34, lead 60, head 40, claim 46; every clue source 30 /
+  find 60; hook title 70, promise 100);
   a cap is never typed in a prompt — write `{{cap:step.field}}`, filled from the rules (`prompt_caps()`), a test refuses a literal « ≤N »
   — and every cap is guarded by the seeded worst-case render tests in `tests/test_trois_regards.py`: change a cap or a layout, rerun them;
-  required fields (all but `card4` and `media_note`) and the `a | b` formats (both parts of a clue); three distinct prisms of the catalogue,
-  the media's one of them; the media's slot alone carries a `media_note` (and must); the deck's question, the closing line, the hook title, the
-  tensions and arbitrage titles and every `claimN` end in « ? », a `testN` never does; the three `pairN` are the three distinct pairs; the
-  promise's fixed shape; no accusing word (*biais, manipulation, mensonge, trompeur, fallacieux, sophisme*) and no wording that blames the
+  required fields (all but `card4`, `media_note` and a prism `lead`, which depends on the slot) and the `a | b` formats (both parts of a clue);
+  three distinct prisms of the catalogue, the media's one of them; the media's slot alone carries a `media_note` (and must) and its `lead`
+  must be empty, any other prism slot, the tensions and the angles morts require a `lead`; a `lead` is a line, never a question; the deck's
+  question, the closing line, the hook title and every `claimN` end in « ? », an `answerN` never does; a `claim` of the tensions or the angles
+  morts may not be the generic « <sujet> explique/pèse/nourrit/cause/influence-t-il la crise ? » (a regex on that family); a tension's
+  `head` holds two non-empty sides « a ; b »; the three `pairN` are the three distinct pairs; the promise's fixed shape; no accusing word
+  (*biais, manipulation, mensonge, trompeur, fallacieux, sophisme*) and no wording that blames the
   article (*oublie, ignore, omet, néglige, ne dit pas*) outside « »; no prescriptive verb (*il faut, il faudrait, faut-il, doit, devrait*)
-  on the tensions, nor on the arbitrage's title and heads (a test's « devrait » is a conditional observation); no URL in a clue (a bare domain
-  such as `ine.es` counts); on the axe's question and on the titles, heads, claims, tests and clues of slides 3–7 only a year (1500–2099), a
-  date (« 15 mai », « 1er ») or a reference (« 12/2023 ») — any other digit (« 15-M », « 12 % ») is refused (the position and the
+  on the tensions, nor on the angles morts' title and heads; no URL in a clue (a bare domain
+  such as `ine.es` counts); on the axe's question and on the titles, leads, heads, answers, claims and clues of slides 3–7 only a year
+  (1500–2099), a date (« 15 mai », « 1er ») or a reference (« 12/2023 ») — any other digit (« 15-M », « 12 % ») is refused (the position and the
   `media_note`, in frame, follow the article); 4 hashtags. Advisory flags: no prism clearly dominates the article (the media's prism is the
-  closest); a closing line or a tensions/arbitrage title holding « ou » (may read binary); a closing line sharing no key word with the axe's
-  question, or not naming the three prisms; a card (head + claim or test) sharing no key word with the axe's question; two cards of one
-  slide saying nearly the same thing; two prism slides saying nearly the same thing; an arbitrage test with no conditional verb (« -rait /
-  -raient »); a quoted passage of the position or the `media_note` not found word for word in the source; a promise whose subject is not
-  the axe's. After a pick on `prismes`, `tensions` or `arbitrage`, the source of every clue (the part before « | ») is checked on the web
+  closest); a closing line holding « ou » (may read binary), ranking the regards, sharing no key word with the axe's question, or not
+  naming the three prisms; an angles-morts title that ranks; a title, lead or `media_note` repeating the deck's question (equal, or three
+  key words in common); a prism `answer` with no causal marker (donc, parce que, faute de, quand, si, car, ce qui, entraîne…) or restating its
+  `head` (key-word overlap ≥ 0.8); a tensions or angles-morts `claim` with no comparison marker (plus, moins, là où, selon, entre, avant,
+  après, par rapport…); a clue whose « find » is vague (fewer than 5 words, or none of par, selon, entre, évolution, part, taux, prix, nombre,
+  durée, écart); two cards of one slide opening their `head` (or `answer`) with the same word or sharing the leading verb of their heads;
+  the subject phrase appearing in two or more cards of a slide; a card sharing no key word with the axe's question; two cards of one slide
+  saying nearly the same thing; two prism slides saying nearly the same thing; a quoted passage of the position or the `media_note` not
+  found word for word in the source; a promise whose subject is not the axe's. After a pick on `prismes`, `tensions` or `limites`, the source
+  of every clue (the part before « | ») is checked on the web
   (`agent/trois_regards_verify.py`, through `tools/verify.py`), advisory: kept beside the step (`<n>_<step>.verification.json`, outside the
   stamp) and in the choice log, « no result found » is a ⚠ that says the search is built for news and may miss well-known institutions;
-  skipped with `--no-api`. Slides 3–7 rest on the model's general knowledge and stay unverified: the clues are pointers. The bird perches
-  on the position slide's first card, on each prism's title, on the first tension card and on the first arbitrage card; the wire runs
-  through them. An older deck (prism `question` / `lines` / `sources`, the matrix as slide 6) still loads and renders with its 7 slides
-  and its old templates. `check` does not cover this format. Output folder: `<stem>/trois_regards/`.
+  skipped with `--no-api`. Slides 3–7 rest on the model's general knowledge and stay unverified: the clues are pointers. Layout: the bird
+  perches on the first card of each of slides 2–7 (the position slide's first row included), the wire running along its top edge and the
+  title above it, as in the anatomie slides; the first card starts at the same height on sibling slides (a title block of fixed height; the
+  media badge and note do not shift it), and the wire runs through the perches. An older deck (matrix as slide 6, prism `question` / `lines` /
+  `sources`, `claim` on the prism cards, or an `arbitrage` slide 7) still loads and renders with its old templates.
+  `check` does not cover this format. Output folder: `<stem>/trois_regards/`.
 - `newsletter` — prose, not slides. Own adapt agent (`newsletter_adapt_agent`) + `NewsletterPresentation`. Renders **Markdown** + a rich `newsletter.html` (dark gold-on-black, SVG radar) + email-safe HTML in two themes (table layout, inline styles, no SVG/flexbox): `newsletter.email.html` (light, default) and `newsletter.email.dark.html`. Themes live in `EMAIL_THEMES`; only chrome is themed, the semantic gauge/bar colours are fixed.
   Manual editing: the newsletter's editable source is `newsletter.md` (YAML
   front-matter + Markdown body). Edit it, then `python main.py render
