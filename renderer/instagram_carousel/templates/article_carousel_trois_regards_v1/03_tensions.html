@@ -11,6 +11,23 @@
 /* three cards: the anatomie card's own padding (the four-card prism slides use a tighter one) */
 :root { --gap-foot: 12px; }
 .card.pc { padding: 18px 30px 20px; }
+/* revision 4: a grid — a header row naming the three regards once (the axe's order), then one row per topic: the topic
+   in bold on the left, the three views in the regards' columns, and under each row a full-width clue line. Quiet
+   hairlines, no card boxes; the bird perches at the grid's top-right corner, the wire along its top edge. */
+.tbl { margin-top: 26px; border: 1px solid #3a3424; border-radius: 14px; }
+.tgrid { display: grid; grid-template-columns: 196px repeat(3, 1fr); }
+.tgrid > div { border-right: 1px solid #3a3424; border-bottom: 1px solid #3a3424; }
+.tgrid > div.end { border-right: none; }
+.tgrid > div.tclue { grid-column: 1 / -1; border-right: none; }
+.tgrid > div.tclue:last-child { border-bottom: none; }
+.th { display: flex; align-items: center; gap: 8px; padding: 16px 14px 14px; font-size: 19px; font-weight: 800;
+  letter-spacing: .08em; text-transform: uppercase; color: #d4aa00; white-space: nowrap; }
+.th svg { width: 22px; height: 22px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ttopic { padding: 14px 12px 16px 18px; font-size: 23px; font-weight: 800; line-height: 1.22; color: #fff; hyphens: none; }
+.tview { padding: 14px 14px 16px; font-size: 24px; font-weight: 500; line-height: 1.3; color: #ececec; hyphens: none; text-wrap: pretty; }
+.tclue { padding: 8px 18px 10px; }
+.tclue .foot { margin-top: 0; font-size: 21px; line-height: 1.25; }
+.tclue .foot svg { width: 21px; height: 21px; margin-top: 2px; }
 </style>
 </head>
 <body>
@@ -19,10 +36,16 @@
   {% include '_brand.html' %}
   <div class="stage" data-fit>
     <div class="krow"><span class="kick"><svg viewBox="0 0 24 24">{{ ICONS[kicker_icon] | safe }}</svg>{{ kicker }}</span></div>
-    <div class="top">
+    <div class="top{% if centered %} ctr{% endif %}">
       <h1 class="head">{{ title | md_bold }}</h1>
       {% if lead %}<p class="ld"><span>{{ lead | md_bold }}</span></p>{% endif %}
     </div>
+    {% if columns %}<div class="tbl" data-perch>{% include '_perch.html' %}<div class="tgrid">
+      <div class="th"></div>{% for p in columns %}<div class="th{% if loop.last %} end{% endif %}"><svg viewBox="0 0 24 24">{{ p.icon | safe }}</svg>{{ p.name }}</div>{% endfor %}
+      {% for c in cards %}<div class="ttopic">{{ c.topic | md_bold }}</div>{% for view in c.views %}<div class="tview{% if loop.last %} end{% endif %}">{{ view | md_bold }}</div>{% endfor %}
+      <div class="tclue">{% include 'article_carousel_trois_regards_v1/_clue.html' %}</div>
+      {% endfor %}</div></div>
+    {% else %}
     {% for c in cards %}<div class="card pc"{% if loop.first %} data-perch{% else %} data-gap{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}
       <div class="pt"><svg viewBox="0 0 24 24">{{ ICONS[icon] | safe }}</svg><div>
         <span class="tagk">{{ c.tag }}</span>
@@ -30,7 +53,7 @@
         <div class="see">{{ c.claim | md_bold }}</div>
       </div></div>
       {% include 'article_carousel_trois_regards_v1/_clue.html' %}
-    </div>{% endfor %}
+    </div>{% endfor %}{% endif %}
   </div>
   <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
   <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>

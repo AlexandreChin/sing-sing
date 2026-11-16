@@ -16,6 +16,18 @@
 .card.pc { padding: 10px 30px 11px; }
 .card.pc .see { margin-top: 2px; font-size: 26px; line-height: 1.22; }
 .card.pc .foot { font-size: 23px; line-height: 1.22; }
+/* revision 4: each card wears its role (Origine, Mécanisme, Amplificateur, Ce qu'on en voit) as a small tag above its head */
+/* the role tag, inline before the head: « ORIGINE · Trop peu de logements » */
+.nm .rl { font-size: 20px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #d4aa00; vertical-align: 4px; }
+.nm .sep { margin: 0 10px; color: #d4aa00; font-weight: 800; }
+.card.pc:has(.rl) { padding: 13px 30px 16px; }
+/* revision 4 cards carry no clue: fixed gaps (no data-gap), a larger answer, a little air under the head */
+.card.pc.role + .card.pc.role { margin-top: 24px; }
+.card.pc.role .see { margin-top: 7px; font-size: 26px; line-height: 1.26; }
+/* the prism slides' title block: the same kicker→title space as the tensions slide (its one-line title centred in the
+   block leaves 40 px), paid for by a tighter title → lead → bar → first card */
+.top.ctr:has(.ld) { padding-top: 37px; --ctr-h-ld: 264px; --ctr-ld: 8px; --ctr-bar: 14px; }
+.top.ctr + .card.pc { margin-top: 16px; }
 </style>
 </head>
 <body>
@@ -23,16 +35,16 @@
   <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
   {% include '_brand.html' %}
   <div class="stage" data-fit>
-    <div class="krow"><span class="kick"><svg viewBox="0 0 24 24">{{ prism.icon | safe }}</svg>{{ prism.name }}</span>
+    <div class="krow"><span class="kick"><svg viewBox="0 0 24 24">{{ prism.icon | safe }}</svg>{{ kicker or prism.name }}</span>
       {% if media_note %}<span class="badge"><svg viewBox="0 0 24 24">{{ ICONS.eye | safe }}</svg>{{ badge }}</span>{% endif %}</div>
-    <div class="top">
+    <div class="top{% if centered %} ctr{% endif %}">
       <h1 class="head">{{ title | md_bold }}</h1>
       {% if media_note %}<p class="ld"><svg viewBox="0 0 24 24">{{ ICONS.eye | safe }}</svg><span>{{ media_note | md_bold }}</span></p>
       {% elif lead %}<p class="ld"><span>{{ lead | md_bold }}</span></p>{% endif %}
     </div>
-    {% for c in cards %}<div class="card pc"{% if loop.first %} data-perch{% else %} data-gap{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}
+    {% for c in cards %}<div class="card pc{% if c.role %} role{% endif %}"{% if loop.first %} data-perch{% elif not c.role %} data-gap{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}
       <div class="pt"><svg viewBox="0 0 24 24">{{ ICONS[c.icon] | safe }}</svg><div>
-        <div class="nm">{{ c.head | md_bold }}</div>
+        <div class="nm">{% if c.role %}<span class="rl">{{ c.role }}</span><span class="sep">·</span>{% endif %}{{ c.head | md_bold }}</div>
         <div class="see">{{ (c.answer or c.claim) | md_bold }}</div>
       </div></div>
       {% include 'article_carousel_trois_regards_v1/_clue.html' %}

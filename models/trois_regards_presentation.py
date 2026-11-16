@@ -75,10 +75,16 @@ class RegardsMatrix(BaseModel):  # slide 6 — what each prism would measure, no
 
 
 class RegardsTensionCard(BaseModel):
-    pair: list[int]   # the two prisms that disagree, by their place in the axe (1-based), e.g. [1, 2]
-    head: str         # the point of disagreement, two sides « … ; … »: the pair's first prism, then its second (the
-                      # tag names them); caps live in the agent
-    claim: str        # the question it raises, ends in « ? »
+    # revision 3: the two prisms that disagree, by their place in the axe (1-based), e.g. [1, 2]
+    pair: list[int] = Field(default_factory=list)
+    # revision 3: the point of disagreement, two sides « … ; … » (the pair's first prism, then its second; the tag
+    # names them), and the question it raises, ending in « ? »; caps live in the agent
+    head: str = ""
+    claim: str = ""
+    # revision 4: the topic of the debate and the three regards on it, in the axe's prism order, each without its
+    # prism's name (the renderer draws it)
+    topic: str = ""
+    views: list[str] = Field(default_factory=list)   # 3
     source: str = ""
     find: str = ""
 

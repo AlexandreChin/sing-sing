@@ -312,6 +312,17 @@ _CAPS: dict[tuple[str, str], tuple[str, int]] = {
     ("limites", "title"): ("chars", 34), ("limites", "lead"): ("chars", 60),
     **{("limites", f"head{i}"): ("chars", 40) for i in (1, 2, 3)},
     **{("limites", f"claim{i}"): ("chars", 46) for i in (1, 2, 3)},
+    # revision 4 (renderer first; the steps follow): the role-tagged prism card's answer, the tension card's topic
+    # and its three views (one per prism of the axe, without the prism's name)
+    **{("prismes", f"answer_role{i}"): ("chars", 120) for i in (1, 2, 3, 4)},
+    **{("tensions", f"topic{i}"): ("chars", 40) for i in (1, 2, 3)},
+    **{("tensions", f"view{i}"): ("chars", 45) for i in (1, 2, 3)},
+    # revision 4, the validated deck: the position's three-line facts, the prism slides' two-line lead and one-line
+    # heads (the role tag sits on the head's line), the tensions' two-line lead
+    **{("position", f"v4_text{i}"): ("chars", 150) for i in (1, 2, 3, 4)},
+    **{("position", f"v4_label{i}"): ("chars", 24) for i in (1, 2, 3, 4)},
+    ("prismes", "v4_lead"): ("chars", 95), **{("prismes", f"v4_head{i}"): ("chars", 30) for i in (1, 2, 3, 4)},
+    ("tensions", "v4_lead"): ("chars", 90), ("prismes", "v4_title"): ("chars", 38), ("tensions", "v4_title"): ("chars", 28), ("tensions", "v4_find"): ("chars", 60),
 }
 # (step, field) -> the parts of a « a | b » field, each with its cap in characters
 _PART_CAPS: dict[tuple[str, str], tuple[tuple[str, int], ...]] = {

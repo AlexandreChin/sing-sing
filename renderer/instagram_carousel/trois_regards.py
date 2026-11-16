@@ -23,12 +23,16 @@ TPL = "article_carousel_trois_regards_v1"
 OPT = "article_carousel_optimized_v0"
 POSITION = "article_carousel_temps_long_v1/02_position.html"
 POSITION_KICKER = "Ce que dit l'article"
+POSITION_V4 = f"{TPL}/02_position.html"   # revision 4: the same slide, with room for three-line facts
 POSITION_ICONS = ("book", "link", "eye", "widen")   # one fixed icon per card, in order
 MEDIA_BADGE = "Le regard du média"
 CARD_ICON = "lightbulb"                  # a prism card answers: the cause and how it acts
 QUESTION_ICON = "help"                   # a revision-2 prism card ends on a question, as the anatomie blind spots
 TENSIONS_KICKER, TENSIONS_ICON, TENSION_CARD_ICON = "Les tensions", "flame", "link"
 LIMITES_KICKER, LIMITES_ICON = "Les angles morts", "eye_off"   # the anatomie « angles morts » slide's own icon
+# revision 4: each prism card wears its role, by position, with an icon of its own
+PRISM_KICKER = "Le prisme"
+ROLES = (("Origine", "roots"), ("Mécanisme", "hierarchy"), ("Amplificateur", "flame"), ("Ce qu'on en voit", "eye"))
 
 
 def _typeset(text: str) -> str:
@@ -63,6 +67,9 @@ def generate_html(doc: TroisRegardsDocument, out_dir: Path) -> list[Path]:
     position = {"kicker": pres.position.kicker or POSITION_KICKER, "title": pres.position.title, "lead": pres.position.lead,
                 "cards": [{"label": c.label, "text": c.text, "icon": POSITION_ICONS[i % len(POSITION_ICONS)]}
                           for i, c in enumerate(pres.position.cards)]}
+    # a revision-4 deck: its tension cards carry the three regards' views
+    if pres.tensions and any(c.views for c in pres.tensions.cards):
+        return _write(_specs_v4(pres, meta, hook, _nobreak(position), background), meta, out_dir)
     # only the media's prism carries a media_note (a hard rule of the adapt agent): it draws the badge;
     # a prism with cards is a revision-2 slide, one with lines the older one
     prisms = [("prisme", f"{TPL}/02_prisme_cartes.html",
@@ -100,10 +107,41 @@ def generate_html(doc: TroisRegardsDocument, out_dir: Path) -> list[Path]:
         ("position", POSITION, _nobreak(position)),
         *prisms,
         *later,
-        ("cta", f"{OPT}/10_cta.html", {**cover_layers(meta, pres.hook.title), "background": background,
-                                       "L": medium_labels(meta.medium)
-                                       | ({"cta_comment": _relance(pres.axe.closing)} if pres.axe and pres.axe.closing else {})}),
+        _cta(pres, meta, background),
     ]
+    return _write(specs, meta, out_dir)
+
+
+def _cta(pres, meta, background) -> tuple:
+    return ("cta", f"{OPT}/10_cta.html", {**cover_layers(meta, pres.hook.title), "background": background,
+                                          "L": medium_labels(meta.medium)
+                                          | ({"cta_comment": _relance(pres.axe.closing)} if pres.axe and pres.axe.closing else {})})
+
+
+def _specs_v4(pres, meta, hook, position, background) -> list[tuple]:
+    """A revision-4 deck (tension cards with `views`): hook, position, the three prism slides (kicker « Le prisme
+    <nom> », role-tagged cards, no lead, no media badge, no media_note), the tensions (a topic and the three regards), sign-off — seven
+    slides, no limites."""
+    order = [_prism(p) for p in (pres.axe.prisms if pres.axe else [s.prism for s in pres.prisms])]
+    prisms = [("prisme", f"{TPL}/02_prisme_cartes.html",
+               # no media badge; the kicker reads « Le prisme économique »; the title and the lead centred (`centered`)
+               _nobreak({"title": s.title, "lead": s.lead, "centered": True,
+                         "cards": [c.model_dump() | {"role": ROLES[k][0], "icon": ROLES[k][1]}
+                                   for k, c in enumerate(s.cards[:len(ROLES)])]})
+               | {"prism": _prism(s.prism), "kicker": f"{PRISM_KICKER} {_prism(s.prism)['name'].lower()}"})
+              for s in pres.prisms]
+    names = [p["name"] for p in order]
+    # the three regards are named once, in a header row over three columns; each card's views sit in those columns
+    tensions = ("tensions", f"{TPL}/03_tensions.html", _nobreak(
+        {"kicker": TENSIONS_KICKER, "kicker_icon": TENSIONS_ICON, "icon": TENSION_CARD_ICON,
+         "title": pres.tensions.title, "lead": pres.tensions.lead, "centered": True,
+         "cards": [c.model_dump() for c in pres.tensions.cards]})
+        | {"columns": order})
+    return [("hook", f"{OPT}/01_hook.html", hook), ("position", POSITION_V4, position), *prisms, tensions,
+            _cta(pres, meta, background)]
+
+
+def _write(specs: list[tuple], meta, out_dir: Path) -> list[Path]:
     env = _env()
     paths = []
     total = len(specs)

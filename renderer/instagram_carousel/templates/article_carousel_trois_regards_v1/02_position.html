@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+{% include 'base.css' %}
+{% include 'article_carousel_cadrage_v1/_argument.css' %}
+/* slide 2 reads at two levels, as slides 3 and 4: the claim (title, then the sentence that names the author) takes the upper half, centred; his four points sit below as a quiet list */
+.msg { height: 380px; margin-top: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; }
+.msg .mt { display: block; max-width: 920px; }
+.mh { font-size: 70px; line-height: 1.08; font-weight: 800; letter-spacing: -0.02em; color: #fff; text-wrap: balance; }
+.mh strong { color: #d4aa00; font-weight: 900; }
+.ml { margin-top: 24px; font-size: 34px; line-height: 1.25; font-weight: 500; color: #bdbdbd; text-wrap: pretty; }
+.ml strong { color: #d4aa00; font-weight: 700; }
+.msg::after { content: ''; display: block; width: 90px; height: 6px; border-radius: 3px; background: #d4aa00; margin-top: 26px; }
+.det-label { margin-top: 14px; margin-bottom: 20px; font-size: 28px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: #a8a8a8; }
+.row { position: relative; display: grid; grid-template-columns: 320px 1fr; column-gap: 20px; align-items: start; padding: 15px 0 17px; border-bottom: 1px solid #242424; }
+.row:last-child { border-bottom: 0; }
+.row .h { display: flex; align-items: flex-start; gap: 12px; font-size: 26px; font-weight: 800; line-height: 1.2; color: #fff; }
+/* a long unbroken word in a label wraps instead of crossing into the facts' column */
+.row .h span { min-width: 0; overflow-wrap: anywhere; }
+.row .h svg { width: 28px; height: 28px; margin-top: 1px; flex: none; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.row .say { font-size: 27px; font-weight: 500; line-height: 1.32; color: #a6a6a6; text-wrap: pretty; hyphens: none; }
+.row .say strong { color: #d4aa00; font-weight: 600; }
+/* trois_regards revision 4: the temps_long position slide, with room for longer facts (up to three lines a row): a
+   shorter title block, a narrower label column, the facts at 25 px */
+.msg { height: 350px; }
+.det-label { margin-top: 12px; margin-bottom: 16px; }
+.row { grid-template-columns: 236px 1fr; column-gap: 20px; padding: 17px 0 19px; }
+.row .say { font-size: 25px; line-height: 1.32; }
+</style>
+</head>
+<body>
+<div class="slide" style="justify-content: flex-start;">
+  <div class="slide-watermark">{{ '%02d'|format(slide_n) }}</div>
+  {% include '_brand.html' %}
+  <div class="stage">
+    <span class="kick"><svg viewBox="0 0 24 24">{{ ICONS.speech_bubble | safe }}</svg>{{ kicker }}</span>
+    <div class="msg"><div class="mt"><h1 class="mh">{{ title | md_bold }}</h1><p class="ml">{{ lead | md_bold }}</p></div></div>
+    <div class="det-label">Le détail</div>
+    {% for c in cards %}<div class="row"{% if loop.first %} data-perch{% endif %}>{% if loop.first %}{% include '_perch.html' %}{% endif %}
+      <div class="h"><svg viewBox="0 0 24 24">{{ ICONS[c.icon] | safe }}</svg><span>{{ c.label }}</span></div>
+      <div class="say">{{ c.text | md_bold }}</div>
+    </div>{% endfor %}
+  </div>
+  <div class="slide-num">{{ slide_n }} / {{ slide_total }}</div>
+  <div class="progress-track"><div class="progress-bar" style="width: {{ progress }}%;"></div></div>
+</div>
+</body>
+</html>

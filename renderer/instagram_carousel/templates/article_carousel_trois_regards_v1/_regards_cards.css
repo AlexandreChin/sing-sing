@@ -13,6 +13,17 @@
 .ld strong { color: #d4aa00; font-weight: 700; }
 .ld svg { width: 26px; height: 26px; flex: none; margin-top: 3px; stroke: #d4aa00; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .top + .card { margin-top: 22px; }
+/* revision 4 (slides 3–6): the title centred, as on the position slide (temps_long `02_position.html`: `.mh`, the gold
+   bar under it), in a block of fixed height so the first card starts at the same y on the three prism slides */
+.top.ctr { min-height: var(--ctr-h, 196px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.top.ctr .head { margin-top: 0; min-height: 0; max-width: 920px; font-size: 70px; line-height: 1.08; font-weight: 800;
+  letter-spacing: -0.02em; color: #fff; text-wrap: balance; }
+.top.ctr .head strong { color: #d4aa00; font-weight: 900; }
+/* its lead, as the position slide's (`.ml`): two lines at 34 px, between the title and the bar */
+.top.ctr .ld { display: block; max-width: 920px; margin-top: var(--ctr-ld, 16px); font-size: 34px; line-height: 1.25;
+  font-weight: 500; color: #bdbdbd; text-wrap: pretty; }
+.top.ctr:has(.ld) { min-height: var(--ctr-h-ld, 272px); --ctr-ld: 12px; --ctr-bar: 18px; }
+.top.ctr::after { content: ''; display: block; width: 90px; height: 6px; border-radius: 3px; background: #d4aa00; margin-top: var(--ctr-bar, 22px); }
 .card.pc { padding: 14px 30px 14px; }
 .card.pc .foot { line-height: 1.25; }
 .card.pc .nm { font-size: 31px; }
