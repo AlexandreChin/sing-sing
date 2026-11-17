@@ -8,13 +8,13 @@
       "fields": {
         "kicker": "Le récit du reportage",
         "title": "Des élections **avancées**",
-        "lead": "Radio-Canada (d'après CBC) raconte pourquoi Sánchez avance les élections.",
-        "card1": "Le point de départ | Maricarmen Abascal, 87 ans, est expulsée à Madrid fin septembre et meurt **deux semaines plus tard** ; des **dizaines de milliers** défilent.",
+        "lead": "Radio-Canada (d'après CBC) raconte pourquoi le gouvernement avance les élections.",
+        "card1": "Le déclencheur | Maricarmen Abascal, 87 ans, est expulsée à Madrid fin septembre et meurt **deux semaines plus tard** ; des **dizaines de milliers** défilent.",
         "card2": "Les causes avancées | Selon Sofía Olivares, du groupe Derecho al Techo, le **tourisme** passe avant le logement ; la Banque d'Espagne chiffre le **déficit**.",
-        "card3": "Les réponses des acteurs | Le gouvernement Sánchez propose des **mesures d'urgence** (loyers plafonnés, évictions interdites un temps) ; le Parti populaire met en garde.",
-        "card4": "Ce qui se joue | Scrutin le **29 novembre**, six mois avant l'échéance du mandat ; le PSOE espère la **majorité absolue**, mais la droite gagne du terrain."
+        "card3": "Les réponses des acteurs | Le gouvernement propose des **mesures d'urgence** (loyers plafonnés, évictions interdites un temps) ; le Parti populaire met en garde.",
+        "card4": "Les conséquences | Scrutin le **29 novembre**, six mois avant l'échéance du mandat ; le Parti socialiste (PSOE) espère la **majorité absolue**, mais la droite gagne du terrain."
       },
-      "edited": false,
+      "edited": true,
       "flags": []
     },
     {
@@ -61,10 +61,10 @@
     "position": {
       "kicker": "Le récit du reportage",
       "title": "Des élections **avancées**",
-      "lead": "Radio-Canada (d'après CBC) raconte pourquoi Sánchez avance les élections.",
+      "lead": "Radio-Canada (d'après CBC) raconte pourquoi le gouvernement avance les élections.",
       "cards": [
         {
-          "label": "Le point de départ",
+          "label": "Le déclencheur",
           "text": "Maricarmen Abascal, 87 ans, est expulsée à Madrid fin septembre et meurt **deux semaines plus tard** ; des **dizaines de milliers** défilent."
         },
         {
@@ -73,11 +73,11 @@
         },
         {
           "label": "Les réponses des acteurs",
-          "text": "Le gouvernement Sánchez propose des **mesures d'urgence** (loyers plafonnés, évictions interdites un temps) ; le Parti populaire met en garde."
+          "text": "Le gouvernement propose des **mesures d'urgence** (loyers plafonnés, évictions interdites un temps) ; le Parti populaire met en garde."
         },
         {
-          "label": "Ce qui se joue",
-          "text": "Scrutin le **29 novembre**, six mois avant l'échéance du mandat ; le PSOE espère la **majorité absolue**, mais la droite gagne du terrain."
+          "label": "Les conséquences",
+          "text": "Scrutin le **29 novembre**, six mois avant l'échéance du mandat ; le Parti socialiste (PSOE) espère la **majorité absolue**, mais la droite gagne du terrain."
         }
       ]
     }

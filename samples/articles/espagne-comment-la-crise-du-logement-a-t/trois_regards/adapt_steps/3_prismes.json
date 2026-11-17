@@ -6,18 +6,18 @@
       "slot": "p1",
       "reason": "Lecture par les rapports de force : majorité, Congrès, sondages, calendrier. Chaque carte nomme un levier du pouvoir.",
       "fields": {
-        "title": "Un **calendrier** que Sánchez choisit",
+        "title": "Élections **avancées** faute de majorité",
         "lead": "Sans majorité absolue, le gouvernement dépend du Congrès, et la rue pèse sur ses votes.",
         "head1": "Une majorité introuvable",
         "head2": "Le Congrès bloque le décret",
-        "head3": "La droite gagne du terrain",
+        "head3": "Une droite qui monte",
         "head4": "Un scrutin au 29 novembre",
-        "answer1": "Faute de majorité absolue depuis 2018, le PSOE dépend d'autres voix au Congrès pour chaque texte.",
+        "answer1": "Faute de majorité absolue depuis 2018, le parti du gouvernement dépend d'autres voix au Congrès pour chaque texte.",
         "answer2": "Quand le Congrès rejette les mesures, le gouvernement les adopte autrement, ce qui lui garde la main.",
-        "answer3": "Si le Parti populaire mène les sondages, le logement devient un enjeu de rapport de force.",
-        "answer4": "Parce que le scrutin devance l'échéance de six mois, la crise sert de tremplin ou de piège à Sánchez."
+        "answer3": "Quand les sondages donnent la droite gagnante, le gouvernement veut agir sur le logement avant le vote.",
+        "answer4": "Parce que le scrutin devance l'échéance de six mois, la crise sert de tremplin ou de piège pour le gouvernement."
       },
-      "edited": false,
+      "edited": true,
       "flags": []
     },
     {
@@ -49,13 +49,13 @@
         "head1": "Un parc social presque absent",
         "head2": "Le manque tire les loyers",
         "head3": "Du tourisme avant l'habitant",
-        "head4": "Des loyers qui chassent",
+        "head4": "Des loyers trop chers",
         "answer1": "Faute de logements sociaux, les ménages modestes se tournent vers le marché privé, où les prix montent.",
         "answer2": "Quand il manque environ 750 000 logements, les candidats se disputent l'offre, ce qui fait monter les loyers.",
         "answer3": "Si les terrains et les logements vont aux visiteurs, les habitants ont moins d'offre et paient plus cher.",
-        "answer4": "Quand le loyer monte plus vite que le budget d'un foyer, celui-ci quitte son logement."
+        "answer4": "Quand les loyers montent plus vite que les revenus, le logement absorbe une part croissante du budget des ménages."
       },
-      "edited": false,
+      "edited": true,
       "flags": []
     },
     {
@@ -82,18 +82,18 @@
       "slot": "p3",
       "reason": "Angle de la mobilisation : symbole, collectifs, conflit d'usage de la ville, groupes déjà fragiles.",
       "fields": {
-        "title": "Un **droit** qui devient une cause",
+        "title": "Un drame, un **problème de société**",
         "lead": "Locataires, étudiants et familles se reconnaissent dans un même sort et s'organisent.",
         "head1": "Une mort devient un symbole",
-        "head2": "Un collectif qui s'organise",
-        "head3": "Habitants contre visiteurs",
-        "head4": "Des îles déjà fragiles",
-        "answer1": "Quand une femme de 87 ans meurt après son expulsion, chacun y voit un sort qui pourrait être le sien.",
-        "answer2": "Si un collectif aide des familles menacées d'éviction, la colère trouve un cadre collectif.",
-        "answer3": "Quand une place très touristique devient un campement, les habitants disent qui occupe la ville.",
-        "answer4": "Quand près de 30 % de la population risque la pauvreté, un loyer en hausse fait basculer plus vite des foyers."
+        "head2": "Des collectifs d'entraide",
+        "head3": "Habitants contre touristes",
+        "head4": "Des foyers déjà fragiles",
+        "answer1": "Quand une femme de 87 ans meurt après son expulsion, beaucoup y voient un problème de société et non un cas isolé.",
+        "answer2": "Quand un collectif accompagne les locataires menacés d'expulsion, chacun cesse de se sentir seul face au problème.",
+        "answer3": "Quand les habitants se sentent chassés par le tourisme, ils s'unissent pour reprendre la place publique.",
+        "answer4": "Quand près de 30 % des habitants risquent la pauvreté, une hausse de loyer aggrave d'autant plus leur situation."
       },
-      "edited": false,
+      "edited": true,
       "flags": []
     },
     {
@@ -131,24 +131,24 @@
     "prisms": [
       {
         "prism": "politique",
-        "title": "Un **calendrier** que Sánchez choisit",
+        "title": "Élections **avancées** faute de majorité",
         "lead": "Sans majorité absolue, le gouvernement dépend du Congrès, et la rue pèse sur ses votes.",
         "cards": [
           {
             "head": "Une majorité introuvable",
-            "answer": "Faute de majorité absolue depuis 2018, le PSOE dépend d'autres voix au Congrès pour chaque texte."
+            "answer": "Faute de majorité absolue depuis 2018, le parti du gouvernement dépend d'autres voix au Congrès pour chaque texte."
           },
           {
             "head": "Le Congrès bloque le décret",
             "answer": "Quand le Congrès rejette les mesures, le gouvernement les adopte autrement, ce qui lui garde la main."
           },
           {
-            "head": "La droite gagne du terrain",
-            "answer": "Si le Parti populaire mène les sondages, le logement devient un enjeu de rapport de force."
+            "head": "Une droite qui monte",
+            "answer": "Quand les sondages donnent la droite gagnante, le gouvernement veut agir sur le logement avant le vote."
           },
           {
             "head": "Un scrutin au 29 novembre",
-            "answer": "Parce que le scrutin devance l'échéance de six mois, la crise sert de tremplin ou de piège à Sánchez."
+            "answer": "Parce que le scrutin devance l'échéance de six mois, la crise sert de tremplin ou de piège pour le gouvernement."
           }
         ]
       },
@@ -170,31 +170,31 @@
             "answer": "Si les terrains et les logements vont aux visiteurs, les habitants ont moins d'offre et paient plus cher."
           },
           {
-            "head": "Des loyers qui chassent",
-            "answer": "Quand le loyer monte plus vite que le budget d'un foyer, celui-ci quitte son logement."
+            "head": "Des loyers trop chers",
+            "answer": "Quand les loyers montent plus vite que les revenus, le logement absorbe une part croissante du budget des ménages."
           }
         ]
       },
       {
         "prism": "sociologique",
-        "title": "Un **droit** qui devient une cause",
+        "title": "Un drame, un **problème de société**",
         "lead": "Locataires, étudiants et familles se reconnaissent dans un même sort et s'organisent.",
         "cards": [
           {
             "head": "Une mort devient un symbole",
-            "answer": "Quand une femme de 87 ans meurt après son expulsion, chacun y voit un sort qui pourrait être le sien."
+            "answer": "Quand une femme de 87 ans meurt après son expulsion, beaucoup y voient un problème de société et non un cas isolé."
           },
           {
-            "head": "Un collectif qui s'organise",
-            "answer": "Si un collectif aide des familles menacées d'éviction, la colère trouve un cadre collectif."
+            "head": "Des collectifs d'entraide",
+            "answer": "Quand un collectif accompagne les locataires menacés d'expulsion, chacun cesse de se sentir seul face au problème."
           },
           {
-            "head": "Habitants contre visiteurs",
-            "answer": "Quand une place très touristique devient un campement, les habitants disent qui occupe la ville."
+            "head": "Habitants contre touristes",
+            "answer": "Quand les habitants se sentent chassés par le tourisme, ils s'unissent pour reprendre la place publique."
           },
           {
-            "head": "Des îles déjà fragiles",
-            "answer": "Quand près de 30 % de la population risque la pauvreté, un loyer en hausse fait basculer plus vite des foyers."
+            "head": "Des foyers déjà fragiles",
+            "answer": "Quand près de 30 % des habitants risquent la pauvreté, une hausse de loyer aggrave d'autant plus leur situation."
           }
         ]
       }

@@ -971,10 +971,10 @@
     "position": {
       "kicker": "Le récit du reportage",
       "title": "Des élections **avancées**",
-      "lead": "Radio-Canada (d'après CBC) raconte pourquoi Sánchez avance les élections.",
+      "lead": "Radio-Canada (d'après CBC) raconte pourquoi le gouvernement avance les élections.",
       "cards": [
         {
-          "label": "Le point de départ",
+          "label": "Le déclencheur",
           "text": "Maricarmen Abascal, 87 ans, est expulsée à Madrid fin septembre et meurt **deux semaines plus tard** ; des **dizaines de milliers** défilent."
         },
         {
@@ -983,11 +983,11 @@
         },
         {
           "label": "Les réponses des acteurs",
-          "text": "Le gouvernement Sánchez propose des **mesures d'urgence** (loyers plafonnés, évictions interdites un temps) ; le Parti populaire met en garde."
+          "text": "Le gouvernement propose des **mesures d'urgence** (loyers plafonnés, évictions interdites un temps) ; le Parti populaire met en garde."
         },
         {
-          "label": "Ce qui se joue",
-          "text": "Scrutin le **29 novembre**, six mois avant l'échéance du mandat ; le PSOE espère la **majorité absolue**, mais la droite gagne du terrain."
+          "label": "Les conséquences",
+          "text": "Scrutin le **29 novembre**, six mois avant l'échéance du mandat ; le Parti socialiste (PSOE) espère la **majorité absolue**, mais la droite gagne du terrain."
         }
       ]
     },
@@ -998,12 +998,12 @@
         "lines": [],
         "sources": [],
         "media_note": "",
-        "title": "Un **calendrier** que Sánchez choisit",
+        "title": "Élections **avancées** faute de majorité",
         "lead": "Sans majorité absolue, le gouvernement dépend du Congrès, et la rue pèse sur ses votes.",
         "cards": [
           {
             "head": "Une majorité introuvable",
-            "answer": "Faute de majorité absolue depuis 2018, le PSOE dépend d'autres voix au Congrès pour chaque texte.",
+            "answer": "Faute de majorité absolue depuis 2018, le parti du gouvernement dépend d'autres voix au Congrès pour chaque texte.",
             "claim": "",
             "source": "",
             "find": ""
@@ -1016,15 +1016,15 @@
             "find": ""
           },
           {
-            "head": "La droite gagne du terrain",
-            "answer": "Si le Parti populaire mène les sondages, le logement devient un enjeu de rapport de force.",
+            "head": "Une droite qui monte",
+            "answer": "Quand les sondages donnent la droite gagnante, le gouvernement veut agir sur le logement avant le vote.",
             "claim": "",
             "source": "",
             "find": ""
           },
           {
             "head": "Un scrutin au 29 novembre",
-            "answer": "Parce que le scrutin devance l'échéance de six mois, la crise sert de tremplin ou de piège à Sánchez.",
+            "answer": "Parce que le scrutin devance l'échéance de six mois, la crise sert de tremplin ou de piège pour le gouvernement.",
             "claim": "",
             "source": "",
             "find": ""
@@ -1062,8 +1062,8 @@
             "find": ""
           },
           {
-            "head": "Des loyers qui chassent",
-            "answer": "Quand le loyer monte plus vite que le budget d'un foyer, celui-ci quitte son logement.",
+            "head": "Des loyers trop chers",
+            "answer": "Quand les loyers montent plus vite que les revenus, le logement absorbe une part croissante du budget des ménages.",
             "claim": "",
             "source": "",
             "find": ""
@@ -1076,33 +1076,33 @@
         "lines": [],
         "sources": [],
         "media_note": "",
-        "title": "Un **droit** qui devient une cause",
+        "title": "Un drame, un **problème de société**",
         "lead": "Locataires, étudiants et familles se reconnaissent dans un même sort et s'organisent.",
         "cards": [
           {
             "head": "Une mort devient un symbole",
-            "answer": "Quand une femme de 87 ans meurt après son expulsion, chacun y voit un sort qui pourrait être le sien.",
+            "answer": "Quand une femme de 87 ans meurt après son expulsion, beaucoup y voient un problème de société et non un cas isolé.",
             "claim": "",
             "source": "",
             "find": ""
           },
           {
-            "head": "Un collectif qui s'organise",
-            "answer": "Si un collectif aide des familles menacées d'éviction, la colère trouve un cadre collectif.",
+            "head": "Des collectifs d'entraide",
+            "answer": "Quand un collectif accompagne les locataires menacés d'expulsion, chacun cesse de se sentir seul face au problème.",
             "claim": "",
             "source": "",
             "find": ""
           },
           {
-            "head": "Habitants contre visiteurs",
-            "answer": "Quand une place très touristique devient un campement, les habitants disent qui occupe la ville.",
+            "head": "Habitants contre touristes",
+            "answer": "Quand les habitants se sentent chassés par le tourisme, ils s'unissent pour reprendre la place publique.",
             "claim": "",
             "source": "",
             "find": ""
           },
           {
-            "head": "Des îles déjà fragiles",
-            "answer": "Quand près de 30 % de la population risque la pauvreté, un loyer en hausse fait basculer plus vite des foyers.",
+            "head": "Des foyers déjà fragiles",
+            "answer": "Quand près de 30 % des habitants risquent la pauvreté, une hausse de loyer aggrave d'autant plus leur situation.",
             "claim": "",
             "source": "",
             "find": ""
