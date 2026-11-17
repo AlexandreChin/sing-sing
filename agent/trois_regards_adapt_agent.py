@@ -356,6 +356,23 @@ def _bare(s: str) -> str:
     return re.sub(r"\*\*", "", s)
 
 
+# an acronym of 2–6 capitals; the few every reader knows are not glossed
+_ACRONYM = re.compile(r"\b[A-ZÉ]{2,6}\b")
+_KNOWN_ACRONYMS = frozenset("UE ONU PIB TVA SMIC RSA USA IA OTAN".split())
+
+
+def _unexplained_acronyms(texts: list[str]) -> list[str]:
+    """The acronyms of `texts` that are never spelled out on the slide: neither « Parti socialiste (PSOE) » nor « PSOE (… ) »."""
+    joined = " ".join(_bare(t) for t in texts)
+    return sorted({a for a in _ACRONYM.findall(joined) if a not in _KNOWN_ACRONYMS
+                   and f"({a})" not in joined and f"{a} (" not in joined})
+
+
+def _title_names(title: str) -> list[str]:
+    """The capitalised words of a title after its first word (a person, a place, a party): the reader may not know them."""
+    return [w for w in re.findall(r"[^\W\d_]+", _bare(title))[1:] if w[0].isupper()]
+
+
 def _axe(fragments: dict[str, dict]) -> dict:
     return fragments.get("axe", {}).get("axe", {})
 
@@ -423,6 +440,11 @@ def _slide_errors(step: str, fields: dict[str, Any], axe: dict, article: str | N
         slide_text += [head, answer]
         if subject and subject in _norm(f"{head} {answer}"):
             with_subject.append(k)
+    if (names := _title_names(title)):
+        flags.append(f"prismes.title names « {names[0]} » — a reader who has not seen the article may not know it: say it with "
+                     "a role or an institution (« le gouvernement »)")
+    if (acr := _unexplained_acronyms(slide_text)):
+        flags.append(f"prismes: « {acr[0]} » is not spelled out — write « Parti socialiste (PSOE) » once, or say it in plain words")
     if article and any(slide_text) and not _key_words(" ".join(slide_text)) & _key_words(article):
         flags.append("prismes: no word of the slide appears in the article — anchor the cards in the case")
     if len(with_subject) >= 2:
@@ -506,6 +528,8 @@ def field_errors(step: str, fields: dict[str, Any], fragments: dict[str, dict], 
         if closing.strip() and missing:
             flags.append(f"axe.closing does not name the prism(s) {', '.join(missing)} — the closing line names the three")
     if step == "position":
+        if (acr := _unexplained_acronyms([str(fields.get(f"card{k}", "")) for k in (1, 2, 3, 4)])):
+            flags.append(f"position: « {acr[0]} » is not spelled out — write « Parti socialiste (PSOE) » once, or say it in plain words")
         for name in ("title", "card1", "card2", "card3", "card4", "lead"):
             value = str(fields.get(name, ""))
             if (bad := _unsourced_figures(value, article)):

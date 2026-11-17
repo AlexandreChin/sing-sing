@@ -21,6 +21,19 @@ LES QUATRE CARTES D'UN PRISME ont des RÔLES FIXES. Le moteur écrit lui-même l
 3. **Amplificateur** — ce qui aggrave ou entretient le problème.
 4. **Ce qu'on en voit** — le symptôme observable, ce que le lecteur peut constater.
 Quatre rôles, quatre idées différentes : une carte ne reprend ni la précédente ni la tête qu'elle prolonge. Une tête est une affirmation qu'on peut contester (« Les revenus décrochent des tarifs »), jamais une évidence ni une définition. Une réponse est une phrase, jamais une question, jamais un fait posé comme établi sans mécanisme.
+LE LECTEUR N'A RIEN LU. Chaque slide se comprend seule.
+- Une personne politique se désigne par sa fonction ou son institution (« le gouvernement », « l'opposition »), jamais par son seul nom, surtout dans un titre ; un lieu, un groupe ou un fait qui n'a pas été présenté plus haut n'apparaît pas « comme ça » (« Des îles déjà fragiles » sans que le lecteur sache de quelles îles il s'agit).
+- Un parti, une institution ou un sigle s'écrit en toutes lettres la première fois, le sigle entre parenthèses (« Parti socialiste (PSOE) ») ; sinon, dis-le avec des mots simples (« le parti du gouvernement »).
+- Un titre dit la RÉPONSE du regard en mots clairs (« Élections avancées faute de majorité », « Un drame, un problème de société ») ; une image ou une formule qu'il faut déchiffrer (« Un droit qui devient une cause ») est un défaut.
+- Une phrase est lisible d'un trait : un sujet, un verbe, une conséquence ; pas de tournure en suspens (« aggrave d'autant plus ») ni de nom à deviner. Relis chaque carte comme quelqu'un qui n'a jamais entendu parler du sujet.
+
+CHAQUE CARTE RESTE DANS SA DISCIPLINE. Avant d'écrire une carte, demande-toi : quelle discipline réclamerait cette carte ? Si c'est une autre, elle est mal placée.
+- Économique : prix, tarifs, offre et demande, coûts, revenus ; le symptôme d'un prisme économique est un indicateur de marché (le coût d'une consultation rapporté au revenu), pas un comportement de ménage (« des foyers qui déménagent », un fait social).
+- Sociologique : normes, groupes, statuts, liens, mobilisation ; son symptôme est ce que des groupes font ou ressentent.
+- Politique : mandats, majorités, calendrier, rapports de force ; son symptôme est une décision ou une échéance.
+- Juridique, historique, écologique, technologique : de même, dans leurs termes.
+Le rôle compte aussi : l'amplificateur aggrave ou entretient (il n'est pas un symptôme), le symptôme se constate (il n'est pas une cause).
+
 Défauts à éviter, que le moteur ne vérifie pas tous : une carte-rôle qui répète la précédente ; un mécanisme qui n'est qu'un fait (« Le cabinet coûte cher ») ; un amplificateur qui n'est qu'un symptôme (« Les patients attendent ») ; une tête qui ne peut pas être contredite (« Il y a des médecins ») ; un chiffre qui n'est pas dans l'article.
 
 LES SLIDES 2 À 6 ONT LEUR BLOC DE TITRE : un `title` et une ligne `lead` de deux lignes. Le `lead` **complète** le titre : il dit ce que le titre ne dit pas, avec d'autres mots. Ni l'un ni l'autre ne répète la question du carrousel (écrite seulement sur l'accroche, dans la position et dans la question finale), ni ne reprend les mots de l'autre. Le lecteur ne voit jamais les indices dans le lead : il ne les mentionne pas.
@@ -34,6 +47,10 @@ Exemples de cartes, le bon puis le mauvais (le mauvais nomme son défaut) :
 - MAUVAIS (un chiffre hors de l'article) `prismes.p2.answer2` : « L'aide vaut 50 000 euros, donc elle pèse peu face au revenu d'un désert. »
 - BON `prismes.p2.head2` : « Des aides aux zones fragiles »
 - MAUVAIS (répétition d'amorce) `prismes.p2.head2` : « Le revenu espéré pèse plus en ville »
+- BON `prismes.p2.title` : « Une installation qui **suit les revenus** »
+- MAUVAIS (un nom propre dans le titre) `prismes.p2.title` : « Une installation que **Martin** choisit »
+- BON `prismes.p2.answer1` : « Libre de son lieu, le médecin suit la clientèle solvable, donc l'agence régionale de santé (ARS) ne le retient pas. »
+- MAUVAIS (un sigle non expliqué) `prismes.p2.answer1` : « Libre de son lieu, le médecin suit la clientèle solvable, donc l'ARS ne le retient pas. »
 - BON `tensions.view1_2` : « Il rapporte moins de revenus »
 - MAUVAIS (une vue qui nomme sa discipline) `tensions.view1_2` : « L'économie y voit un frein »
 - BON `tensions.view2_2` : « Elle protège un revenu stable »

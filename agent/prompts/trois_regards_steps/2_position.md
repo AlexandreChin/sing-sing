@@ -6,11 +6,11 @@ L'axe est FIXÉ. Cette slide dit ce que l'article soutient, AVANT que le carrous
 - `title` (**au plus {{cap:position.title}} caractères**, deux lignes au plus) : le message de l'article en quelques mots, sans « selon … ». UN passage en or obligatoire avec `**…**` (court, jamais dans un « » reproduit). Ex. : « Un village **sans médecin** ».
 - `lead` (**au plus {{cap:position.lead}} caractères**, deux lignes) : UNE phrase qui NOMME la source (le média, l'auteur ou les voix principales, tels que l'article les présente) et dit CLAIREMENT à quelle question, plus étroite que celle du titre de l'accroche, l'article répond : c'est la `article_question` de l'axe, en une phrase.
 - Quatre cartes `card1`…`card4`, chacune `libellé | texte`. Chaque carte répond à UNE question précise, dans cet ordre, avec ces libellés :
-  - `card1` — « Le point de départ » : ce qui s'est passé, et quand (l'événement déclencheur, sa date).
+  - `card1` — « Le déclencheur » : ce qui s'est passé, et quand (l'événement déclencheur, sa date).
   - `card2` — « Les causes avancées » : les causes que l'article met en avant, avec la source qu'il nomme (« Selon … »).
   - `card3` — « Les réponses des acteurs » : qui fait ou dit quoi (gouvernement, opposition, collectifs…), attribué à chacun.
-  - `card4` — « Ce qui se joue » : l'enjeu, ce que l'article annonce ou laisse ouvert, au conditionnel s'il reste prudent. Si l'article ne mène nulle part, la carte reprend le contenu le plus proche avec un libellé qui lui va ; elle n'invente rien.
-  Le libellé fait au plus {{cap:position.card.label}} caractères. Le texte (au plus {{cap:position.card.text}} caractères, trois lignes) tient en une ou deux phrases simples, en mots courants : **les acteurs, les dates et les sources sont NOMMÉS**, jamais « des responsables », « récemment ». Les chiffres sont ceux de l'article, tels quels. UN ou DEUX passages clés en or `**…**` (ce qui distingue la carte des trois autres, jamais un « » reproduit).
+  - `card4` — « Les conséquences » : ce qui en découle ou ce que l'article annonce, au conditionnel s'il reste prudent. Si l'article ne mène nulle part, la carte reprend le contenu le plus proche avec un libellé qui lui va ; elle n'invente rien.
+  Le libellé fait au plus {{cap:position.card.label}} caractères. Le texte (au plus {{cap:position.card.text}} caractères, trois lignes) tient en une ou deux phrases simples, en mots courants : **les acteurs, les dates et les sources sont NOMMÉS**, jamais « des responsables », « récemment » ; mais le lecteur n'a pas lu l'article : une personne politique se désigne par sa fonction ou son institution (« le gouvernement », « la ministre de la Santé »), pas par son seul nom, et un parti ou un sigle s'écrit en toutes lettres la première fois (« Parti socialiste (PSOE) »). Les chiffres sont ceux de l'article, tels quels. UN ou DEUX passages clés en or `**…**` (ce qui distingue la carte des trois autres, jamais un « » reproduit).
 - Aucune solution que l'article ne propose pas, aucun jugement, aucun mot qui pèse (« enfin », « hélas »).
 - `reason` : ce que l'option met en avant.
 
@@ -20,7 +20,7 @@ Exemple (un reportage sur un village qui perd son dernier médecin généraliste
 - `kicker` : « Le récit du reportage »
 - `title` : « Un village **sans médecin** »
 - `lead` : « Le reportage raconte comment un village vit le départ de son dernier médecin. »
-- `card1` : « Le point de départ | En juin, le docteur Martin part à la retraite et **personne ne reprend** son cabinet. »
+- `card1` : « Le déclencheur | En juin, le docteur Martin part à la retraite et **personne ne reprend** son cabinet. »
 - `card2` : « Les causes avancées | Selon l'Ordre des médecins, les jeunes praticiens **hésitent à s'installer** loin des villes. »
 - `card3` : « Les réponses des acteurs | Le maire propose **un cabinet gratuit** ; l'agence régionale de santé cherche un candidat. »
-- `card4` : « Ce qui se joue | Les patients font **une heure de route** pour consulter ; l'école pourrait fermer à son tour. »
+- `card4` : « Les conséquences | Les patients font **une heure de route** pour consulter ; l'école pourrait fermer à son tour. »

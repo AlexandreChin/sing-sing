@@ -736,7 +736,7 @@ def test_every_step_has_its_prompt_and_no_prompt_is_left_for_a_removed_step():
 def test_the_shared_prompt_states_the_anti_goals_and_the_fixed_roles():
     text = _prompt_text(PROMPTS / "0_shared.md").lower()
     for guard in ("reproche", "oublie", "inventée", "réelle", "prescri", "il faut", "ligne en trop", "origine", "mécanisme",
-                  "amplificateur", "ce qu'on en voit", "complète", "dans l'article"):
+                  "amplificateur", "ce qu'on en voit", "complète", "dans l'article", "n'a rien lu", "discipline"):
         assert guard in text, guard
 
 
@@ -846,7 +846,8 @@ _PAIR_LINE = re.compile(r"^- (BON|MAUVAIS)(?: \(([^)]+)\))? `([\w.]+)` : « (.*)
 _DEFECTS = {"fait au lieu de mécanisme": "causal link", "une question": "not a question", "reprise de la tête": "restates",
             "un chiffre hors de l'article": "not in the article", "répétition d'amorce": "same word",
             "une vue qui nomme sa discipline": "names its discipline", "deux vues presque identiques": "nearly the same",
-            "question du carrousel répétée": "deck's question", "un lien": "URL"}
+            "question du carrousel répétée": "deck's question", "un lien": "URL",
+            "un nom propre dans le titre": "prismes.title names", "un sigle non expliqué": "is not spelled out"}
 
 
 def _pairs() -> list[tuple[str, str, str | None, str, str]]:
@@ -890,5 +891,17 @@ def test_the_card_prompts_define_the_roles_the_grid_and_the_closing_line():
     tensions = _prompt_text(PROMPTS / "4_tensions.md")
     assert all(f"`view{k}_{p}`" in tensions for k in (1, 2, 3) for p in (1, 2, 3)) and "grille" in tensions
     position = _prompt_text(PROMPTS / "2_position.md")
-    assert all(label in position for label in ("Le point de départ", "Les causes avancées", "Les réponses des acteurs", "Ce qui se joue"))
+    assert all(label in position for label in ("Le déclencheur", "Les causes avancées", "Les réponses des acteurs", "Les conséquences"))
     assert "quel regard manquait" in _prompt_text(PROMPTS / "1_axe.md")
+
+
+def test_a_prism_title_naming_a_person_or_an_acronym_never_spelled_out_is_flagged():
+    flags = _p(title="Un calendrier que Sánchez choisit")[1]
+    assert any(f.startswith("prismes.title names « Sánchez »") for f in flags)
+    assert not [f for f in _p(title="Élections **avancées** faute de majorité")[1] if "names" in f]
+    assert any("« PSOE » is not spelled out" in f for f in _p(answer1="Faute de majorité, le PSOE dépend d'autres voix.")[1])
+    assert not [f for f in _p(answer1="Faute de majorité, le Parti socialiste (PSOE) dépend d'autres voix.")[1] if "spelled" in f]
+    assert not [f for f in _p(answer1="Faute de majorité, l'UE dépend d'autres voix.")[1] if "spelled" in f]
+    flags = _flags("position", _with("position", card4="Les conséquences | Le PSOE espère la majorité."))
+    assert any("« PSOE » is not spelled out" in f for f in flags)
+    assert not [f for f in _flags("position", _with("position", card4="Les conséquences | Le Parti socialiste (PSOE) espère la majorité.")) if "spelled" in f]

@@ -60,6 +60,7 @@ def generate_html(doc: TroisRegardsDocument, out_dir: Path) -> list[Path]:
     # the pill names the medium, the source and the date: the length is left out of this deck
     length = duration_label(meta, short=True)
     title, promise = _typeset(pres.hook.title), _typeset(pres.hook.promise)
+    promise = re.sub(r"(à vous d['’]en juger\.)", r"**\1**", promise)    # the hand-over to the reader, bold gold
     hook = {"pill": [part for part in pill_parts(meta) if part != length], "sub_topic": title, "subtitle": promise,
             "headline": title, "background": background, "thumb": cover_thumb(base),
             **hook_metrics(cover_dims(base), pres.hook.title), **cover_layers(meta, pres.hook.title)}

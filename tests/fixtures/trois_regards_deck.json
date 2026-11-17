@@ -23,7 +23,7 @@
     "lead": "Radio-Canada explique comment la crise du logement a mené à des élections anticipées.",
     "cards": [
       {
-        "label": "Le point de départ",
+        "label": "Le déclencheur",
         "text": "Fin septembre, Maricarmen Abascal, 87 ans, est expulsée à Madrid et meurt deux semaines plus tard ; des dizaines de milliers de personnes manifestent."
       },
       {
@@ -35,7 +35,7 @@
         "text": "Le gouvernement adopte un plafond des loyers et un gel temporaire des expulsions ; le Parti populaire craint qu'il retire des logements du marché."
       },
       {
-        "label": "Ce qui se joue",
+        "label": "Les conséquences",
         "text": "Législatives le 29 novembre, six mois avant l'échéance ; une victoire de la droite pourrait amener Vox au gouvernement, une première depuis 1975."
       }
     ]
